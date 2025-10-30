@@ -90,10 +90,14 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.btn_back = function () {
+        var _this = this;
         this.unscheduleAllCallbacks();
         cc.audioEngine.stop(this.audioID);
         this.node.getComponent(cc.Animation).play("scene_close");
         this.mainScene.active = true;
+        this.scheduleOnce(function () {
+            _this.node.active = false;
+        }, 0.3);
     };
     NewClass.prototype.btn_reLoad = function () {
         console.log("reload");

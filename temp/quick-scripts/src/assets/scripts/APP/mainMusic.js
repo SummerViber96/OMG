@@ -117,6 +117,7 @@ var NewClass = /** @class */ (function (_super) {
         this.loopbtn.children[0].color = (this.isLoop) ? cc.color().fromHEX("#FF3927") : cc.color().fromHEX("#FFFFFF");
     };
     NewClass.prototype.btn_back = function () {
+        var _this = this;
         if (this.isICON.children[0]) {
             this.isICON.children[0].active = false;
         }
@@ -124,6 +125,9 @@ var NewClass = /** @class */ (function (_super) {
         this.isPlay = false;
         this.playBtn.spriteFrame = this.soundOff;
         this.node.getComponent(cc.Animation).play("scene_close");
+        this.scheduleOnce(function () {
+            _this.node.active = false;
+        }, 0.3);
     };
     NewClass.prototype.setVolume = function (value) {
         this.isVolum = value;

@@ -36,9 +36,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.hand = null;
         _this.endCard = null;
         _this.linkToStore = null;
+        _this.camera = null;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         return _this;
-        // update (dt) {}
     }
     NewClass.prototype.start = function () {
         if (this.adChanel == 'Mintegral') {
@@ -66,6 +66,7 @@ var NewClass = /** @class */ (function (_super) {
                 this.hand.active = false;
                 this.sceneMusic.position = cc.v3(3000, 0);
                 this.sceneMusic.active = true;
+                // this.sceneMusic.active = true
                 this.sceneMusic.getComponent("mainMusic").loadData(1);
                 this.sceneMusic.getComponent(cc.Animation).play();
                 // this.hand.active = true
@@ -104,6 +105,53 @@ var NewClass = /** @class */ (function (_super) {
                 break;
         }
     };
+    NewClass.prototype.update = function (dt) {
+        var deviceResolution = cc.view.getFrameSize();
+        if (deviceResolution.width < deviceResolution.height) {
+            this.reponsive(true);
+        }
+        else {
+            this.reponsive(false);
+        }
+    };
+    NewClass.prototype.reponsive = function (logic) {
+        var canvas = this.node.getComponent(cc.Canvas);
+        this.camera.zoomRatio = 1;
+        canvas.fitHeight = (logic) ? false : true;
+        canvas.fitWidth = (logic) ? true : false;
+        if (logic == true) {
+            var frameSize = cc.view.getFrameSize();
+            var width = frameSize.width;
+            var height = frameSize.height;
+            // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
+            var aspectRatio = Math.max(width, height) / Math.min(width, height);
+            // Gần đúng tỷ lệ màn hình iPhone X
+            var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+            var TOLERANCE = 0.05;
+            var IPAD_RATIO = 1024 / 768; // ≈ 1.33
+            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+                console.log("check iphonex");
+            }
+            else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
+                this.camera.zoomRatio = 0.7;
+            }
+        }
+        else {
+            var frameSize = cc.view.getFrameSize();
+            var width = frameSize.width;
+            var height = frameSize.height;
+            // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
+            var aspectRatio = Math.max(width, height) / Math.min(width, height);
+            // Gần đúng tỷ lệ màn hình iPhone X
+            var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+            var TOLERANCE = 0.05;
+            var IPAD_RATIO = 1024 / 768; // ≈ 1.33
+            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+            }
+            else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
+            }
+        }
+    };
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "sceneMusic", void 0);
@@ -128,6 +176,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "linkToStore", void 0);
+    __decorate([
+        property(cc.Camera)
+    ], NewClass.prototype, "camera", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

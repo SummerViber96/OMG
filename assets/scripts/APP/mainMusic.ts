@@ -25,6 +25,7 @@ export default class NewClass extends cc.Component {
     nametxt: cc.Label = null;
     @property(cc.Node)
     hand: cc.Node = null
+  
 
     //data :1 hair 2:airhorn 3:meme 4:dog
     isLoop = false;
@@ -112,6 +113,9 @@ export default class NewClass extends cc.Component {
         this.isPlay = false
         this.playBtn.spriteFrame = this.soundOff
         this.node.getComponent(cc.Animation).play("scene_close");
+          this.scheduleOnce(() => {
+            this.node.active = false
+        }, 0.3)
     }
     setVolume(value) {
         this.isVolum = value

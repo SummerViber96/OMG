@@ -64,7 +64,7 @@ export default class NewClass extends cc.Component {
     }
     btn_shot() {
         if (this.isCountBullet > 0) {
-            this.hand.active=false
+            this.hand.active = false
             this.isCountBullet--;
 
             this.audioID = cc.audioEngine.playEffect(this.soundAtk, this.isLoop);
@@ -81,6 +81,9 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.stop(this.audioID)
         this.node.getComponent(cc.Animation).play("scene_close");
         this.mainScene.active = true
+        this.scheduleOnce(() => {
+            this.node.active = false
+        }, 0.3)
     }
     btn_reLoad() {
         console.log("reload")
