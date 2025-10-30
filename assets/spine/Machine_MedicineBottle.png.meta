@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "4bf09b89-2910-4e64-b0c2-8e96f48595bc",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 512,
+  "platformSettings": {},
+  "subMetas": {
+    "Machine_MedicineBottle": {
+      "ver": "1.0.4",
+      "uuid": "ec68e5f4-2064-4ebf-8697-2eda66521a77",
+      "rawTextureUuid": "4bf09b89-2910-4e64-b0c2-8e96f48595bc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -2.5,
+      "offsetY": -19,
+      "trimX": 2,
+      "trimY": 44,
+      "width": 503,
+      "height": 462,
+      "rawWidth": 512,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

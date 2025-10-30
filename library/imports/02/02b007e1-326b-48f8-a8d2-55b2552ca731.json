@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Click-hand",
+    "texture": "4e8b09b7-ed16-46d2-90b9-c6d62b89d24f",
+    "atlas": "",
+    "rect": [
+      6,
+      2,
+      333,
+      145
+    ],
+    "offset": [
+      0.5,
+      1.5
+    ],
+    "originalSize": [
+      344,
+      152
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

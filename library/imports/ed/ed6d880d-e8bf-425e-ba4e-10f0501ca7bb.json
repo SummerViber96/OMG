@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "TopNavigation-Icon",
+    "texture": "1d4b587e-6c5b-4adc-a174-53ef1d24cd07",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1125,
+      288
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1125,
+      288
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

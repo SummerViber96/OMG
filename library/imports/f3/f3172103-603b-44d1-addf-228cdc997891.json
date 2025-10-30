@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "31002020Yl",
+    "texture": "66e38907-303c-4e31-8260-815d01e366c1",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      277,
+      222
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      277,
+      222
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

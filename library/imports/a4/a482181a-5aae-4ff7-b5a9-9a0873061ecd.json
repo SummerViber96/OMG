@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Slides bar mask",
+    "texture": "4cd2e77b-4cfa-4f11-84e0-bc00bbf0d479",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      136,
+      6
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      136,
+      6
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

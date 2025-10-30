@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ban letan",
+    "texture": "e0671e0f-1db5-4c2f-a7c6-e0469d650b09",
+    "atlas": "",
+    "rect": [
+      685,
+      241,
+      494,
+      526
+    ],
+    "offset": [
+      -28,
+      36
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

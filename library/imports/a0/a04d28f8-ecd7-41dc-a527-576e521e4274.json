@@ -1,0 +1,17 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "bep.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "Fireplace_Lv2-Idle_01": {
+      "__uuid__": "9d924a38-fca8-4e1f-971f-5e912dae46b1"
+    },
+    "Fireplace_Lv2-Idle_02": {
+      "__uuid__": "56336f84-d3d1-43d0-b2e6-9cc13a677785"
+    },
+    "Fireplace_Lv2-Idle_03": {
+      "__uuid__": "52805636-21c2-43c9-bc3b-8367951e4c81"
+    }
+  }
+}

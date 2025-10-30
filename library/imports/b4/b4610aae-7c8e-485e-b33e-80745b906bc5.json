@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "myanuoc",
+    "texture": "c6b6f563-2e58-47e8-9d58-88ad761a4fad",
+    "atlas": "",
+    "rect": [
+      824,
+      307,
+      221,
+      430
+    ],
+    "offset": [
+      -25.5,
+      18
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

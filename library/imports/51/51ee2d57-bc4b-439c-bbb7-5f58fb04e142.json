@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "coin gem",
+    "texture": "a2c8c1d4-b648-44de-81dd-f161a57d029a",
+    "atlas": "",
+    "rect": [
+      860,
+      545,
+      617,
+      88
+    ],
+    "offset": [
+      -1.5,
+      1
+    ],
+    "originalSize": [
+      2340,
+      1180
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

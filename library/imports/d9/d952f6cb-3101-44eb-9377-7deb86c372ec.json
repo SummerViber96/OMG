@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Khung_upgradeGreen",
+    "texture": "0e5deeb6-dca3-4cf1-ab46-7ca8e770b99f",
+    "atlas": "",
+    "rect": [
+      11,
+      10,
+      393,
+      231
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      415,
+      252
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

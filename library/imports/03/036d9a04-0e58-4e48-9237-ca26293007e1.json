@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "khaytrung ne",
+    "texture": "8e44049c-86b4-4382-bfbe-bf8d88cb9de2",
+    "atlas": "",
+    "rect": [
+      0,
+      35,
+      601,
+      443
+    ],
+    "offset": [
+      0,
+      -17.5
+    ],
+    "originalSize": [
+      601,
+      478
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

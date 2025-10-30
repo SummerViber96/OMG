@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Ui_gamelose_icon_x",
+    "texture": "a45d472e-40c9-424d-966d-fbe5e87c6a68",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      66,
+      68
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      68,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

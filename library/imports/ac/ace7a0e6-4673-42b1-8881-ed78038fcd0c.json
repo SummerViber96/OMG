@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "quaytruoc",
+    "texture": "6a100f02-e38d-4bfc-aa3e-fae3bfe4e1ac",
+    "atlas": "",
+    "rect": [
+      644,
+      222,
+      611,
+      555
+    ],
+    "offset": [
+      -10.5,
+      40.5
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

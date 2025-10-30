@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "popgreen",
+    "texture": "e64581eb-7392-40ba-ae75-76f12f182251",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      250,
+      285
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      250,
+      285
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

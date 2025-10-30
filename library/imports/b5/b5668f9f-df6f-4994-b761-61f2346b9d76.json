@@ -1,0 +1,56 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "eff_update.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0001 shot": {
+      "__uuid__": "56108b9f-0c23-4ad9-adb6-ab62bad31deb"
+    },
+    "0003 shot": {
+      "__uuid__": "6e672a63-7e4c-4781-8038-13fbd903a73c"
+    },
+    "0005 shot": {
+      "__uuid__": "4ccbdf50-cec5-4d2c-ad4c-87dee939eda9"
+    },
+    "0007 shot": {
+      "__uuid__": "2aa9dff2-0c8c-4275-8aa8-ac339ca3010d"
+    },
+    "0009 shot": {
+      "__uuid__": "399a6fda-f865-40ec-8ca1-de74fc94fbfc"
+    },
+    "0011 shot": {
+      "__uuid__": "114cf44d-106d-42bb-9b5f-a4e7cc5ee4d1"
+    },
+    "0013 shot": {
+      "__uuid__": "f1cb07e3-7301-4b32-bbbd-70013db10492"
+    },
+    "0015 shot": {
+      "__uuid__": "89ee2e0c-7d9b-4237-9437-99fe93e20b63"
+    },
+    "0017 shot": {
+      "__uuid__": "81e0ff24-9d52-4043-908e-2290400f8394"
+    },
+    "0019 shot": {
+      "__uuid__": "76aa779f-1756-4501-8923-9f4ed8115d90"
+    },
+    "0021 shot": {
+      "__uuid__": "171a9e6d-d6dd-4213-8032-49980aa29c81"
+    },
+    "0023 shot": {
+      "__uuid__": "fa310670-5ff7-4a22-9c71-7b64eef66f96"
+    },
+    "0025 shot": {
+      "__uuid__": "5e0664b1-22ac-4f26-ac60-53fbac4c9002"
+    },
+    "0027 shot": {
+      "__uuid__": "941d886d-efe0-4f0d-8358-2bf879cf7f10"
+    },
+    "0029 shot": {
+      "__uuid__": "f801cf28-65b7-4de0-8a2a-35f4a529af72"
+    },
+    "0031 shot": {
+      "__uuid__": "b45fb8cb-debc-4311-8148-21c8ac73e861"
+    }
+  }
+}

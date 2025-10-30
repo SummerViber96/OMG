@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "f5a90310-7777-44ac-bf29-2491f2618609",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1225,
+  "height": 696,
+  "platformSettings": {},
+  "subMetas": {
+    "Wood Chopping Construction": {
+      "ver": "1.0.4",
+      "uuid": "d80b0250-a614-4274-a7cf-4ef5aba2853b",
+      "rawTextureUuid": "f5a90310-7777-44ac-bf29-2491f2618609",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -0.5,
+      "trimX": 0,
+      "trimY": 1,
+      "width": 1225,
+      "height": 695,
+      "rawWidth": 1225,
+      "rawHeight": 696,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

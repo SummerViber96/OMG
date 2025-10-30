@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "break các nvat 2",
+    "texture": "b337482a-b7bc-4841-ba29-e6063200ab0b",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      187,
+      144
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      189,
+      145
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

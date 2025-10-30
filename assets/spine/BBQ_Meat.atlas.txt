@@ -1,0 +1,132 @@
+
+BBQ_Meat.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+F1
+  rotate: false
+  xy: 2, 207
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F2
+  rotate: false
+  xy: 183, 382
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F3
+  rotate: false
+  xy: 2, 77
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F4
+  rotate: false
+  xy: 313, 382
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F5
+  rotate: false
+  xy: 132, 207
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F6
+  rotate: false
+  xy: 132, 77
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F7
+  rotate: false
+  xy: 262, 252
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Grill ver uncooking_
+  rotate: false
+  xy: 2, 337
+  size: 179, 173
+  orig: 179, 173
+  offset: 0, 0
+  index: -1
+Grill-fire-P1
+  rotate: true
+  xy: 262, 88
+  size: 75, 112
+  orig: 75, 112
+  offset: 0, 0
+  index: -1
+Grill-fire-P1_Off
+  rotate: false
+  xy: 392, 268
+  size: 75, 112
+  orig: 75, 112
+  offset: 0, 0
+  index: -1
+Grill-fire-meatB
+  rotate: false
+  xy: 262, 165
+  size: 106, 85
+  orig: 106, 85
+  offset: 0, 0
+  index: -1
+Grill-fire-meat_Top
+  rotate: false
+  xy: 183, 349
+  size: 25, 31
+  orig: 25, 31
+  offset: 0, 0
+  index: -1
+Grill-fire-p2
+  rotate: true
+  xy: 2, 2
+  size: 73, 114
+  orig: 73, 114
+  offset: 0, 0
+  index: -1
+Grill-fire-p2_Off
+  rotate: true
+  xy: 118, 2
+  size: 73, 114
+  orig: 73, 114
+  offset: 0, 0
+  index: -1
+Grill_Nofire
+  rotate: false
+  xy: 343, 12
+  size: 107, 74
+  orig: 107, 74
+  offset: 0, 0
+  index: -1
+Grill_Nofire_Off
+  rotate: false
+  xy: 234, 2
+  size: 107, 73
+  orig: 107, 73
+  offset: 0, 0
+  index: -1
+LightMeat
+  rotate: false
+  xy: 443, 441
+  size: 58, 69
+  orig: 58, 69
+  offset: 0, 0
+  index: -1
+WhiteMeatCircle
+  rotate: false
+  xy: 370, 178
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1

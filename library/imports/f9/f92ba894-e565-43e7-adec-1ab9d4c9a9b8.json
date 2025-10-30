@@ -1,0 +1,32 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "passive.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "41004_passive_impact_01": {
+      "__uuid__": "67c5f01b-c8c9-4e4f-b3bd-b8b59f0006dd"
+    },
+    "41004_passive_impact_02": {
+      "__uuid__": "38730d42-7e2b-4c4b-b756-4ad0540c4ce5"
+    },
+    "41004_passive_impact_03": {
+      "__uuid__": "ba9baa88-c356-456f-bf82-4cacb7507f13"
+    },
+    "41004_passive_impact_04": {
+      "__uuid__": "49aeb109-d245-4a4d-903d-f6fb061577ed"
+    },
+    "41004_passive_impact_05": {
+      "__uuid__": "53c52a1b-e53a-48d4-9c00-0e7a9e73e3d7"
+    },
+    "41004_passive_impact_06": {
+      "__uuid__": "a5d8aa29-44e9-41fb-9931-a118ca23abe3"
+    },
+    "41004_passive_impact_07": {
+      "__uuid__": "c8b268cc-f2a1-4e2d-add5-d3c6c8f72d1c"
+    },
+    "41004_passive_impact_08": {
+      "__uuid__": "66002238-3005-4772-aadb-f79c31c3c2c9"
+    }
+  }
+}

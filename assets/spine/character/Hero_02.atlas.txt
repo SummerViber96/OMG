@@ -1,0 +1,167 @@
+
+Hero_02.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+2B_Body
+  rotate: true
+  xy: 406, 416
+  size: 29, 39
+  orig: 29, 39
+  offset: 0, 0
+  index: -1
+2B_Chest
+  rotate: false
+  xy: 266, 381
+  size: 30, 22
+  orig: 30, 22
+  offset: 0, 0
+  index: -1
+2B_Hair
+  rotate: true
+  xy: 143, 393
+  size: 52, 67
+  orig: 52, 67
+  offset: 0, 0
+  index: -1
+2B_Head
+  rotate: true
+  xy: 212, 396
+  size: 49, 52
+  orig: 49, 52
+  offset: 0, 0
+  index: -1
+2B_L_Arm
+  rotate: false
+  xy: 298, 378
+  size: 15, 25
+  orig: 15, 25
+  offset: 0, 0
+  index: -1
+2B_L_Eye
+  rotate: false
+  xy: 143, 379
+  size: 17, 12
+  orig: 17, 12
+  offset: 0, 0
+  index: -1
+2B_L_Eyebrow
+  rotate: false
+  xy: 196, 383
+  size: 14, 8
+  orig: 14, 8
+  offset: 0, 0
+  index: -1
+2B_L_Foot
+  rotate: false
+  xy: 315, 364
+  size: 23, 44
+  orig: 23, 44
+  offset: 0, 0
+  index: -1
+2B_L_Hand
+  rotate: false
+  xy: 289, 355
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+2B_L_Shoulder
+  rotate: true
+  xy: 212, 374
+  size: 20, 29
+  orig: 20, 29
+  offset: 0, 0
+  index: -1
+2B_Mouth
+  rotate: true
+  xy: 397, 407
+  size: 10, 5
+  orig: 10, 5
+  offset: 0, 0
+  index: -1
+2B_Nose
+  rotate: false
+  xy: 180, 369
+  size: 9, 9
+  orig: 9, 9
+  offset: 0, 0
+  index: -1
+2B_R_Arm
+  rotate: false
+  xy: 243, 370
+  size: 20, 24
+  orig: 20, 24
+  offset: 0, 0
+  index: -1
+2B_R_Eye
+  rotate: false
+  xy: 162, 379
+  size: 16, 12
+  orig: 16, 12
+  offset: 0, 0
+  index: -1
+2B_R_Eyebrow
+  rotate: false
+  xy: 196, 373
+  size: 13, 8
+  orig: 13, 8
+  offset: 0, 0
+  index: -1
+2B_R_Foot
+  rotate: true
+  xy: 359, 419
+  size: 26, 45
+  orig: 26, 45
+  offset: 0, 0
+  index: -1
+2B_R_Hand
+  rotate: false
+  xy: 265, 358
+  size: 22, 21
+  orig: 22, 21
+  offset: 0, 0
+  index: -1
+2B_R_Shoulder
+  rotate: false
+  xy: 340, 378
+  size: 17, 30
+  orig: 17, 30
+  offset: 0, 0
+  index: -1
+2B_Rose
+  rotate: false
+  xy: 359, 386
+  size: 36, 31
+  orig: 36, 31
+  offset: 0, 0
+  index: -1
+2B_Scythe
+  rotate: false
+  xy: 2, 361
+  size: 139, 84
+  orig: 139, 84
+  offset: 0, 0
+  index: -1
+2B_Skirt
+  rotate: false
+  xy: 315, 410
+  size: 42, 35
+  orig: 42, 35
+  offset: 0, 0
+  index: -1
+2B_Skirt_Bot
+  rotate: false
+  xy: 266, 405
+  size: 47, 40
+  orig: 47, 40
+  offset: 0, 0
+  index: -1
+H3_Mouth_O
+  rotate: false
+  xy: 180, 380
+  size: 14, 11
+  orig: 14, 11
+  offset: 0, 0
+  index: -1

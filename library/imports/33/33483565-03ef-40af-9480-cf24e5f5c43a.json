@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "whey",
+    "texture": "e7238ea3-9e0e-49a9-93ab-414e40272c0a",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      81,
+      142
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      84,
+      144
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

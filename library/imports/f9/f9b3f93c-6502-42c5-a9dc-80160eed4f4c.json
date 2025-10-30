@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ch play",
+    "texture": "0a73642d-268b-4b93-b981-479de98fc2c5",
+    "atlas": "",
+    "rect": [
+      251,
+      455,
+      579,
+      170
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      1080,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Demo_PLA",
+    "texture": "872a1676-087f-4a35-b630-66de12ed026e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      3399,
+      3500
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      3399,
+      3500
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

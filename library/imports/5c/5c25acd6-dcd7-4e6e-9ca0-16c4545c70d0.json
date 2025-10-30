@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Slides bar",
+    "texture": "f00a2615-bc3c-41f8-ae13-613b87de4490",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      141,
+      18
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      141,
+      18
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

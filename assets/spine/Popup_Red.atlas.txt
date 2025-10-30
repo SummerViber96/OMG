@@ -1,0 +1,20 @@
+
+Popup_Red.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Bubble emoji 1
+  rotate: false
+  xy: 2, 51
+  size: 97, 106
+  orig: 97, 106
+  offset: 0, 0
+  index: -1
+Notice
+  rotate: true
+  xy: 2, 2
+  size: 47, 99
+  orig: 47, 99
+  offset: 0, 0
+  index: -1

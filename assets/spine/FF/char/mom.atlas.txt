@@ -1,0 +1,286 @@
+
+mom.png
+size: 659, 269
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+skin_df/back/Group 3
+  rotate: true
+  xy: 409, 99
+  size: 43, 136
+  orig: 43, 136
+  offset: 0, 0
+  index: -1
+skin_df/back/arm_upper_r
+  rotate: true
+  xy: 372, 173
+  size: 49, 138
+  orig: 49, 138
+  offset: 0, 0
+  index: -1
+skin_df/back/chest
+  rotate: true
+  xy: 2, 29
+  size: 90, 127
+  orig: 90, 127
+  offset: 0, 0
+  index: -1
+skin_df/back/dress_1
+  rotate: false
+  xy: 121, 125
+  size: 118, 142
+  orig: 118, 142
+  offset: 0, 0
+  index: -1
+skin_df/back/ear
+  rotate: true
+  xy: 206, 11
+  size: 8, 18
+  orig: 8, 18
+  offset: 0, 0
+  index: -1
+skin_df/back/earing
+  rotate: true
+  xy: 146, 19
+  size: 12, 22
+  orig: 12, 22
+  offset: 0, 0
+  index: -1
+skin_df/back/had
+  rotate: true
+  xy: 583, 4
+  size: 57, 63
+  orig: 57, 63
+  offset: 0, 0
+  index: -1
+skin_df/back/hair_2
+  rotate: true
+  xy: 435, 144
+  size: 27, 35
+  orig: 27, 35
+  offset: 0, 0
+  index: -1
+skin_df/back/hair_b
+  rotate: true
+  xy: 512, 145
+  size: 77, 84
+  orig: 77, 84
+  offset: 0, 0
+  index: -1
+skin_df/back/leg_l_walking
+  rotate: true
+  xy: 245, 90
+  size: 46, 162
+  orig: 46, 162
+  offset: 0, 0
+  index: -1
+skin_df/back/leg_r_walking
+  rotate: true
+  xy: 245, 43
+  size: 45, 165
+  orig: 45, 165
+  offset: 0, 0
+  index: -1
+skin_df/back/neck
+  rotate: true
+  xy: 472, 144
+  size: 27, 29
+  orig: 27, 29
+  offset: 0, 0
+  index: -1
+skin_df/shadow
+  rotate: false
+  xy: 241, 138
+  size: 129, 129
+  orig: 145, 145
+  offset: 8, 8
+  index: -1
+skin_df/side/Layer 3
+  rotate: true
+  xy: 131, 33
+  size: 90, 112
+  orig: 90, 112
+  offset: 0, 0
+  index: -1
+skin_df/side/a12
+  rotate: false
+  xy: 212, 21
+  size: 12, 10
+  orig: 12, 10
+  offset: 0, 0
+  index: -1
+skin_df/side/a13
+  rotate: false
+  xy: 194, 21
+  size: 16, 10
+  orig: 16, 10
+  offset: 0, 0
+  index: -1
+skin_df/side/browns
+  rotate: false
+  xy: 103, 4
+  size: 31, 7
+  orig: 31, 7
+  offset: 0, 0
+  index: -1
+skin_df/side/c1
+  rotate: true
+  xy: 226, 2
+  size: 29, 67
+  orig: 29, 67
+  offset: 0, 0
+  index: -1
+skin_df/side/c2
+  rotate: false
+  xy: 547, 84
+  size: 37, 59
+  orig: 37, 59
+  offset: 0, 0
+  index: -1
+skin_df/side/c3
+  rotate: true
+  xy: 372, 144
+  size: 27, 61
+  orig: 27, 61
+  offset: 0, 0
+  index: -1
+skin_df/side/c4
+  rotate: true
+  xy: 2, 2
+  size: 25, 69
+  orig: 25, 69
+  offset: 0, 0
+  index: -1
+skin_df/side/chan
+  rotate: true
+  xy: 295, 6
+  size: 35, 157
+  orig: 35, 157
+  offset: 0, 0
+  index: -1
+skin_df/side/earing_l
+  rotate: true
+  xy: 170, 19
+  size: 12, 22
+  orig: 12, 22
+  offset: 0, 0
+  index: -1
+skin_df/side/earing_r
+  rotate: true
+  xy: 171, 5
+  size: 12, 22
+  orig: 12, 22
+  offset: 0, 0
+  index: -1
+skin_df/side/eyes_halfclosed
+  rotate: true
+  xy: 586, 63
+  size: 57, 68
+  orig: 57, 68
+  offset: 0, 0
+  index: -1
+skin_df/side/eyes_opened
+  rotate: false
+  xy: 108, 15
+  size: 36, 12
+  orig: 36, 12
+  offset: 0, 0
+  index: -1
+skin_df/side/feet_l_waling
+  rotate: true
+  xy: 536, 39
+  size: 43, 45
+  orig: 43, 45
+  offset: 0, 0
+  index: -1
+skin_df/side/feet_r
+  rotate: true
+  xy: 490, 2
+  size: 49, 37
+  orig: 49, 37
+  offset: 0, 0
+  index: -1
+skin_df/side/hair_1
+  rotate: false
+  xy: 412, 45
+  size: 76, 52
+  orig: 76, 52
+  offset: 0, 0
+  index: -1
+skin_df/side/hair_3
+  rotate: true
+  xy: 136, 3
+  size: 10, 33
+  orig: 10, 33
+  offset: 0, 0
+  index: -1
+skin_df/side/hair_back_f
+  rotate: false
+  xy: 598, 122
+  size: 59, 108
+  orig: 59, 108
+  offset: 0, 0
+  index: -1
+skin_df/side/hand_l
+  rotate: false
+  xy: 529, 2
+  size: 28, 35
+  orig: 28, 35
+  offset: 0, 0
+  index: -1
+skin_df/side/hand_r
+  rotate: true
+  xy: 73, 13
+  size: 14, 33
+  orig: 14, 33
+  offset: 0, 0
+  index: -1
+skin_df/side/hip
+  rotate: false
+  xy: 2, 121
+  size: 117, 146
+  orig: 117, 146
+  offset: 0, 0
+  index: -1
+skin_df/side/hip_1
+  rotate: false
+  xy: 490, 53
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+skin_df/side/hip_2
+  rotate: false
+  xy: 454, 4
+  size: 30, 39
+  orig: 30, 39
+  offset: 0, 0
+  index: -1
+skin_df/side/iris
+  rotate: false
+  xy: 73, 3
+  size: 28, 8
+  orig: 28, 8
+  offset: 0, 0
+  index: -1
+skin_df/side/leg_upper_l
+  rotate: true
+  xy: 372, 224
+  size: 43, 161
+  orig: 43, 161
+  offset: 0, 0
+  index: -1
+skin_df/side/mouth
+  rotate: true
+  xy: 195, 2
+  size: 17, 9
+  orig: 18, 10
+  offset: 0, 1
+  index: -1
+skin_df/side/tool
+  rotate: true
+  xy: 535, 232
+  size: 35, 112
+  orig: 35, 112
+  offset: 0, 0
+  index: -1

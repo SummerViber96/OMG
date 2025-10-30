@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "đóng băng",
+    "texture": "2c9a03ff-170c-4b25-806d-52b73003fddc",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      271,
+      253
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      271,
+      253
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

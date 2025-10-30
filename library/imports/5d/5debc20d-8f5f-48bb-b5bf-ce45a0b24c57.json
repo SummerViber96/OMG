@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "PLAY NOW2",
+    "texture": "aaf18034-0261-45f2-9601-1186492dff7d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      680,
+      256
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      680,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "khayegg2",
+    "texture": "d4ca3bc6-9c3b-4446-b0e2-c3f352807d5c",
+    "atlas": "",
+    "rect": [
+      0,
+      45,
+      601,
+      433
+    ],
+    "offset": [
+      0,
+      -22.5
+    ],
+    "originalSize": [
+      601,
+      478
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Lv1_NoBed",
+    "texture": "85a78e3e-cafa-4764-a3b5-08322dedbf4c",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      654,
+      438
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      654,
+      438
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

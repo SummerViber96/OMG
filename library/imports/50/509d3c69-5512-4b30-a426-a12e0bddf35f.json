@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Rectangle 18 - Smart Object Group",
+    "texture": "0ec6507b-4f89-4d26-837f-3dc09463e6c1",
+    "atlas": "",
+    "rect": [
+      6,
+      6,
+      1934,
+      778
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      1946,
+      789
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

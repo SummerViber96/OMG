@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Nhà Chặt Gỗ (1)",
+    "texture": "8cf847f0-c114-40c0-b321-82dd8ce08e05",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      448,
+      273
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      448,
+      273
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

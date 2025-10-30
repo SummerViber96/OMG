@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cut_Machine",
+    "texture": "efead55e-d427-4b20-980d-17e1f005ec40",
+    "atlas": "",
+    "rect": [
+      3,
+      37,
+      333,
+      299
+    ],
+    "offset": [
+      -86.5,
+      69.5
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

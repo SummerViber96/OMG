@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Fireplace_Lv4",
+    "texture": "943c1ad6-c13f-47ae-8539-297b758f87a7",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      784,
+      1010
+    ],
+    "offset": [
+      -118,
+      5
+    ],
+    "originalSize": [
+      1024,
+      1024
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

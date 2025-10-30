@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "694b5569-996d-4a79-8115-9fea254bfb6a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 320,
+  "height": 230,
+  "platformSettings": {},
+  "subMetas": {
+    "Iron ore": {
+      "ver": "1.0.4",
+      "uuid": "dd46cc88-15a3-4bf8-a5ac-da875f8873ae",
+      "rawTextureUuid": "694b5569-996d-4a79-8115-9fea254bfb6a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 320,
+      "height": 230,
+      "rawWidth": 320,
+      "rawHeight": 230,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

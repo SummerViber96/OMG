@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "deco_t_easter_floor1_d1",
+    "texture": "7db4b41d-18fb-4ce4-b136-4d09d53d9bd7",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      290,
+      154
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      292,
+      156
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

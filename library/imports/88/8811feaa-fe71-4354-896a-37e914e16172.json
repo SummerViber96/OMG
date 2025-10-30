@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "deco_t_castlefloor02",
+    "texture": "ce8f6a83-bd29-43ed-9dfe-ae5c3d361ea0",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      290,
+      153
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      292,
+      155
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

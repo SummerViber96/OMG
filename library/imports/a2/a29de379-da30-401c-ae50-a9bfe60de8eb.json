@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Fireplace_Lv1.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nFireplace_Lv1.png\r\nsize: 2048,2048\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\n1A\r\n  rotate: false\r\n  xy: 2, 582\r\n  size: 578, 578\r\n  orig: 578, 578\r\n  offset: 0, 0\r\n  index: -1\r\n1B\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 578, 578\r\n  orig: 578, 578\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

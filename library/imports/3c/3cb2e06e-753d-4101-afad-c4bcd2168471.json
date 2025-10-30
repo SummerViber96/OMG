@@ -1,0 +1,51 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "hand_click",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.5,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 22,
+  "curveData": {
+    "props": {
+      "scale": [
+        {
+          "frame": 0,
+          "value": {
+            "__type__": "cc.Vec2",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "frame": 0.5,
+          "value": {
+            "__type__": "cc.Vec2",
+            "x": 0.9,
+            "y": 0.9
+          }
+        }
+      ],
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            140.637,
+            20.946,
+            0
+          ]
+        },
+        {
+          "frame": 0.5,
+          "value": [
+            112.747,
+            48.836,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "events": []
+}

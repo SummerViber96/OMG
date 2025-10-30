@@ -1,0 +1,57 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "hand_do",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.9166666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 22,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0.16666666666666666,
+          "value": [
+            -165.413,
+            -234.334,
+            0
+          ]
+        },
+        {
+          "frame": 0.75,
+          "value": [
+            395.152,
+            -241.226,
+            0
+          ]
+        }
+      ],
+      "angle": [
+        {
+          "frame": 0,
+          "value": 15
+        },
+        {
+          "frame": 0.08333333333333333,
+          "value": 0
+        },
+        {
+          "frame": 0.75,
+          "value": 0
+        },
+        {
+          "frame": 0.8333333333333334,
+          "value": 15
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 0.9166666666666666,
+      "func": "",
+      "params": []
+    }
+  ]
+}

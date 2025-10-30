@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Group 9 copy",
+    "texture": "256ec701-5125-41ac-b634-a0ee0c9686c6",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      97,
+      94
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      99,
+      96
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

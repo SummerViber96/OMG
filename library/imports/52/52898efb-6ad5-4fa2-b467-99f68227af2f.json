@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "LegExtensionLv1",
+    "texture": "4beeb9fd-0b9a-4033-915e-b4b6f0e11901",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      153,
+      199
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      156,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

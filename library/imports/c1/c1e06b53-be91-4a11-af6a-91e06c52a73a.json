@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Banner done 2",
+    "texture": "7a6aaa67-9aff-4cc1-b3d7-e92a94d502ff",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1560,
+      854
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1560,
+      854
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

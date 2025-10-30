@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ca_chua",
+    "texture": "88c38dd2-e4a4-4c8f-9980-7b6b4bde5238",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      345,
+      138
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      349,
+      142
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

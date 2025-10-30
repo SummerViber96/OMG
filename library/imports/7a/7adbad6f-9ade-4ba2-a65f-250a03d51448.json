@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Bush",
+    "texture": "91711780-8542-41e3-87ff-474798ca3aa5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      101,
+      100
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      101,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

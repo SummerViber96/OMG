@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "đêp",
+    "texture": "7c50c0c7-8d73-4275-b002-4353861a5556",
+    "atlas": "",
+    "rect": [
+      823,
+      304,
+      287,
+      418
+    ],
+    "offset": [
+      6.5,
+      27
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

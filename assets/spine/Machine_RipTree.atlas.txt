@@ -1,0 +1,48 @@
+
+Machine_RipTree.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+i_ChatCay/Cut-tag
+  rotate: true
+  xy: 467, 446
+  size: 58, 12
+  orig: 58, 12
+  offset: 0, 0
+  index: -1
+i_ChatCay/Shadow
+  rotate: false
+  xy: 215, 24
+  size: 134, 78
+  orig: 134, 78
+  offset: 0, 0
+  index: -1
+i_ChatCay/Tree snow 1 unshadow
+  rotate: true
+  xy: 215, 305
+  size: 199, 250
+  orig: 199, 250
+  offset: 0, 0
+  index: -1
+i_ChatCay/Tree snow 2  unshadow
+  rotate: true
+  xy: 215, 104
+  size: 199, 250
+  orig: 199, 250
+  offset: 0, 0
+  index: -1
+i_ChatCay/Tree snow 3 unshadow
+  rotate: false
+  xy: 2, 254
+  size: 211, 250
+  orig: 211, 250
+  offset: 0, 0
+  index: -1
+i_ChatCay/Tree snow 4 unshadow
+  rotate: false
+  xy: 2, 2
+  size: 211, 250
+  orig: 211, 250
+  offset: 0, 0
+  index: -1

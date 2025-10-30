@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Fire-lamp-lv1",
+    "texture": "15a0fc06-e35a-4c20-9384-6e89d2596852",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      88,
+      75
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      88,
+      75
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

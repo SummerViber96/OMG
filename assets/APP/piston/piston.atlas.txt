@@ -1,0 +1,118 @@
+
+piston.png
+size: 1694, 567
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+Frame 1171275238
+  rotate: false
+  xy: 2, 211
+  size: 168, 354
+  orig: 375, 812
+  offset: 100, 188
+  index: -1
+Frame 1171275239
+  rotate: false
+  xy: 172, 213
+  size: 170, 352
+  orig: 375, 812
+  offset: 99, 189
+  index: -1
+Frame 1171275240
+  rotate: false
+  xy: 344, 217
+  size: 177, 348
+  orig: 375, 812
+  offset: 95, 191
+  index: -1
+Frame 1171275241
+  rotate: false
+  xy: 523, 221
+  size: 183, 344
+  orig: 375, 812
+  offset: 92, 193
+  index: -1
+Frame 1171275242
+  rotate: false
+  xy: 708, 223
+  size: 187, 342
+  orig: 375, 812
+  offset: 90, 194
+  index: -1
+Frame 1171275243
+  rotate: false
+  xy: 897, 225
+  size: 189, 340
+  orig: 375, 812
+  offset: 89, 195
+  index: -1
+Frame 1171275244
+  rotate: true
+  xy: 585, 23
+  size: 196, 336
+  orig: 375, 812
+  offset: 86, 197
+  index: -1
+Frame 1171275245
+  rotate: true
+  xy: 2, 5
+  size: 204, 332
+  orig: 375, 812
+  offset: 83, 199
+  index: -1
+Frame 1171275246
+  rotate: false
+  xy: 1088, 300
+  size: 168, 265
+  orig: 375, 812
+  offset: 100, 188
+  index: -1
+Frame 1171275247
+  rotate: true
+  xy: 336, 11
+  size: 200, 247
+  orig: 375, 812
+  offset: 83, 199
+  index: -1
+Frame 1171275248
+  rotate: true
+  xy: 923, 29
+  size: 194, 250
+  orig: 375, 812
+  offset: 86, 197
+  index: -1
+Frame 1171275249
+  rotate: true
+  xy: 1437, 187
+  size: 189, 254
+  orig: 375, 812
+  offset: 89, 195
+  index: -1
+Frame 1171275250
+  rotate: true
+  xy: 1437, 378
+  size: 187, 255
+  orig: 375, 812
+  offset: 90, 194
+  index: -1
+Frame 1171275251
+  rotate: true
+  xy: 1347, 2
+  size: 183, 257
+  orig: 375, 812
+  offset: 92, 193
+  index: -1
+Frame 1171275252
+  rotate: false
+  xy: 1258, 305
+  size: 177, 260
+  orig: 375, 812
+  offset: 95, 191
+  index: -1
+Frame 1171275253
+  rotate: false
+  xy: 1175, 34
+  size: 170, 264
+  orig: 375, 812
+  offset: 99, 189
+  index: -1

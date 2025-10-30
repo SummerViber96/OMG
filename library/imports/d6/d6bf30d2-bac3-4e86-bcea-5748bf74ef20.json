@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Jack_MKT",
+    "texture": "78f9c7c6-c2ca-454f-b97a-a3b4ba165d00",
+    "atlas": "",
+    "rect": [
+      3,
+      3,
+      303,
+      357
+    ],
+    "offset": [
+      -101.5,
+      74.5
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

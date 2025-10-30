@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "deco_s_sewer01_d1",
+    "texture": "74e38f3d-fdbc-4bf5-b2d2-96dc03d811c0",
+    "atlas": "",
+    "rect": [
+      2,
+      0,
+      293,
+      153
+    ],
+    "offset": [
+      0.5,
+      1.5
+    ],
+    "originalSize": [
+      296,
+      156
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

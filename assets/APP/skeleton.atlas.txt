@@ -1,0 +1,124 @@
+
+skeleton.png
+size: 952,820
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 35
+  rotate: false
+  xy: 2, 410
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 36
+  rotate: false
+  xy: 2, 2
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 37
+  rotate: false
+  xy: 192, 410
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 38
+  rotate: false
+  xy: 192, 2
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 39
+  rotate: false
+  xy: 382, 410
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 40
+  rotate: false
+  xy: 382, 2
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 41
+  rotate: false
+  xy: 572, 410
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 42
+  rotate: false
+  xy: 572, 2
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 43
+  rotate: false
+  xy: 762, 410
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 44
+  rotate: false
+  xy: 762, 2
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+
+skeleton2.png
+size: 572,820
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 45
+  rotate: false
+  xy: 2, 410
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 46
+  rotate: false
+  xy: 2, 2
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 47
+  rotate: false
+  xy: 192, 410
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 48
+  rotate: false
+  xy: 192, 2
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 49
+  rotate: false
+  xy: 382, 410
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1
+Gun 50
+  rotate: false
+  xy: 382, 2
+  size: 188, 406
+  orig: 188, 406
+  offset: 0, 0
+  index: -1

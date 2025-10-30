@@ -1,0 +1,195 @@
+
+Hero_20.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+20_Bag
+  rotate: false
+  xy: 236, 232
+  size: 18, 22
+  orig: 18, 22
+  offset: 0, 0
+  index: -1
+20_Beard
+  rotate: true
+  xy: 203, 175
+  size: 45, 18
+  orig: 45, 18
+  offset: 0, 0
+  index: -1
+20_BeardBot
+  rotate: true
+  xy: 149, 46
+  size: 64, 37
+  orig: 64, 37
+  offset: 0, 0
+  index: -1
+20_Belt
+  rotate: false
+  xy: 149, 14
+  size: 92, 30
+  orig: 92, 30
+  offset: 0, 0
+  index: -1
+20_Body
+  rotate: true
+  xy: 117, 164
+  size: 90, 84
+  orig: 90, 84
+  offset: 0, 0
+  index: -1
+20_Cole
+  rotate: false
+  xy: 2, 205
+  size: 113, 49
+  orig: 113, 49
+  offset: 0, 0
+  index: -1
+20_Dress
+  rotate: false
+  xy: 54, 75
+  size: 93, 34
+  orig: 93, 34
+  offset: 0, 0
+  index: -1
+20_Hat
+  rotate: true
+  xy: 57, 111
+  size: 92, 50
+  orig: 92, 50
+  offset: 0, 0
+  index: -1
+20_HatBot
+  rotate: false
+  xy: 54, 43
+  size: 93, 30
+  orig: 93, 30
+  offset: 0, 0
+  index: -1
+20_Head
+  rotate: true
+  xy: 2, 139
+  size: 64, 53
+  orig: 64, 53
+  offset: 0, 0
+  index: -1
+20_L_Arm
+  rotate: false
+  xy: 222, 47
+  size: 30, 37
+  orig: 30, 37
+  offset: 0, 0
+  index: -1
+20_L_Eye
+  rotate: false
+  xy: 75, 21
+  size: 22, 20
+  orig: 22, 20
+  offset: 0, 0
+  index: -1
+20_L_Foot
+  rotate: false
+  xy: 188, 52
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+20_L_Hand
+  rotate: true
+  xy: 163, 124
+  size: 38, 42
+  orig: 38, 42
+  offset: 0, 0
+  index: -1
+20_L_Line
+  rotate: true
+  xy: 225, 93
+  size: 29, 26
+  orig: 29, 26
+  offset: 0, 0
+  index: -1
+20_L_Line_A
+  rotate: true
+  xy: 42, 17
+  size: 24, 31
+  orig: 24, 31
+  offset: 0, 0
+  index: -1
+20_L_Line_B
+  rotate: true
+  xy: 2, 5
+  size: 21, 33
+  orig: 21, 33
+  offset: 0, 0
+  index: -1
+20_L_Shoulder
+  rotate: false
+  xy: 2, 28
+  size: 38, 44
+  orig: 38, 44
+  offset: 0, 0
+  index: -1
+20_Map
+  rotate: true
+  xy: 2, 74
+  size: 63, 50
+  orig: 63, 50
+  offset: 0, 0
+  index: -1
+20_Mouth
+  rotate: false
+  xy: 207, 124
+  size: 22, 13
+  orig: 22, 13
+  offset: 0, 0
+  index: -1
+20_Nose
+  rotate: false
+  xy: 231, 124
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+20_R_Arm
+  rotate: true
+  xy: 207, 139
+  size: 34, 30
+  orig: 34, 30
+  offset: 0, 0
+  index: -1
+20_R_Eye
+  rotate: true
+  xy: 42, 62
+  size: 10, 8
+  orig: 10, 8
+  offset: 0, 0
+  index: -1
+20_R_Finger
+  rotate: false
+  xy: 223, 186
+  size: 29, 34
+  orig: 29, 34
+  offset: 0, 0
+  index: -1
+20_R_Foot
+  rotate: false
+  xy: 203, 222
+  size: 31, 32
+  orig: 31, 32
+  offset: 0, 0
+  index: -1
+20_R_Hand
+  rotate: true
+  xy: 188, 86
+  size: 36, 35
+  orig: 36, 35
+  offset: 0, 0
+  index: -1
+20_R_Shoulder
+  rotate: true
+  xy: 109, 112
+  size: 50, 52
+  orig: 50, 52
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,35 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "phaogiay-1.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0019 shot (Copy)": {
+      "__uuid__": "072f2bb3-c108-4489-9881-28a3c1b49944"
+    },
+    "0021 shot (Copy)": {
+      "__uuid__": "80e45a53-9ba0-4da5-9a65-0a0f3187fc08"
+    },
+    "0023 shot (Copy)": {
+      "__uuid__": "f1109cbb-434b-49c8-8c2a-65aaef9cd304"
+    },
+    "0025 shot (Copy)": {
+      "__uuid__": "aa0cd83c-4770-4e4f-9530-9ef556f8e692"
+    },
+    "0027 shot (Copy)": {
+      "__uuid__": "d2049101-09a1-430c-b10b-4fc4596ab39f"
+    },
+    "0029 shot (Copy)": {
+      "__uuid__": "d870f48c-24cf-447d-8478-ae6f0ceefebc"
+    },
+    "0031 shot (Copy)": {
+      "__uuid__": "27451476-6a3d-4a2a-b695-3dbcb79be212"
+    },
+    "0033 shot (Copy)": {
+      "__uuid__": "a7cb0795-7cac-41c9-a415-9f72c56d9824"
+    },
+    "0035 shot (Copy)": {
+      "__uuid__": "45418c26-c85c-49d0-a308-b73cb64a7dfe"
+    }
+  }
+}

@@ -1,0 +1,426 @@
+
+Hero_23.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+H23_Body
+  rotate: false
+  xy: 229, 439
+  size: 35, 32
+  orig: 35, 32
+  offset: 0, 0
+  index: -1
+H23_Cape
+  rotate: false
+  xy: 175, 444
+  size: 52, 28
+  orig: 52, 28
+  offset: 0, 0
+  index: -1
+H23_CapeLine
+  rotate: true
+  xy: 308, 494
+  size: 16, 35
+  orig: 16, 35
+  offset: 0, 0
+  index: -1
+H23_CapeLineBot
+  rotate: true
+  xy: 417, 467
+  size: 24, 49
+  orig: 24, 49
+  offset: 0, 0
+  index: -1
+H23_Eyeglass
+  rotate: false
+  xy: 360, 435
+  size: 51, 32
+  orig: 51, 32
+  offset: 0, 0
+  index: -1
+H23_Hair
+  rotate: false
+  xy: 132, 330
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+H23_Head
+  rotate: true
+  xy: 214, 394
+  size: 43, 47
+  orig: 43, 47
+  offset: 0, 0
+  index: -1
+H23_L_Arm
+  rotate: true
+  xy: 345, 494
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+H23_L_Armor
+  rotate: false
+  xy: 273, 471
+  size: 25, 22
+  orig: 25, 22
+  offset: 0, 0
+  index: -1
+H23_L_Ear
+  rotate: true
+  xy: 418, 493
+  size: 17, 18
+  orig: 17, 18
+  offset: 0, 0
+  index: -1
+H23_L_Eye
+  rotate: false
+  xy: 243, 496
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+H23_L_EyeBlack
+  rotate: false
+  xy: 50, 500
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+H23_L_Eyebrown
+  rotate: false
+  xy: 2, 502
+  size: 20, 8
+  orig: 20, 8
+  offset: 0, 0
+  index: -1
+H23_L_Foot
+  rotate: false
+  xy: 259, 496
+  size: 24, 14
+  orig: 24, 14
+  offset: 0, 0
+  index: -1
+H23_L_Hand
+  rotate: false
+  xy: 356, 469
+  size: 23, 23
+  orig: 23, 23
+  offset: 0, 0
+  index: -1
+H23_L_Knee
+  rotate: true
+  xy: 468, 467
+  size: 24, 26
+  orig: 24, 26
+  offset: 0, 0
+  index: -1
+H23_L_Leg
+  rotate: true
+  xy: 438, 493
+  size: 17, 18
+  orig: 17, 18
+  offset: 0, 0
+  index: -1
+H23_L_Shoulder
+  rotate: true
+  xy: 364, 494
+  size: 16, 33
+  orig: 16, 33
+  offset: 0, 0
+  index: -1
+H23_Lamp
+  rotate: true
+  xy: 263, 390
+  size: 46, 64
+  orig: 46, 64
+  offset: 0, 0
+  index: -1
+H23_Nose
+  rotate: false
+  xy: 62, 500
+  size: 12, 10
+  orig: 12, 10
+  offset: 0, 0
+  index: -1
+H23_R_Arm
+  rotate: false
+  xy: 300, 470
+  size: 24, 22
+  orig: 24, 22
+  offset: 0, 0
+  index: -1
+H23_R_Armor
+  rotate: false
+  xy: 458, 493
+  size: 19, 17
+  orig: 19, 17
+  offset: 0, 0
+  index: -1
+H23_R_Ear
+  rotate: true
+  xy: 399, 494
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+H23_R_Eye
+  rotate: false
+  xy: 76, 498
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+H23_R_EyeBlack
+  rotate: false
+  xy: 24, 501
+  size: 9, 9
+  orig: 9, 9
+  offset: 0, 0
+  index: -1
+H23_R_Eyebrown
+  rotate: false
+  xy: 35, 501
+  size: 13, 9
+  orig: 13, 9
+  offset: 0, 0
+  index: -1
+H23_R_Foot
+  rotate: false
+  xy: 160, 497
+  size: 21, 13
+  orig: 21, 13
+  offset: 0, 0
+  index: -1
+H23_R_Hand
+  rotate: false
+  xy: 62, 449
+  size: 29, 26
+  orig: 29, 26
+  offset: 0, 0
+  index: -1
+H23_R_HandTop
+  rotate: false
+  xy: 381, 469
+  size: 34, 23
+  orig: 34, 23
+  offset: 0, 0
+  index: -1
+H23_R_Knee
+  rotate: true
+  xy: 192, 474
+  size: 21, 25
+  orig: 21, 25
+  offset: 0, 0
+  index: -1
+H23_R_Leg
+  rotate: false
+  xy: 135, 476
+  size: 21, 20
+  orig: 21, 20
+  offset: 0, 0
+  index: -1
+H23_R_Shoulder
+  rotate: true
+  xy: 479, 493
+  size: 17, 23
+  orig: 17, 23
+  offset: 0, 0
+  index: -1
+H23_Shirt_part_2
+  rotate: false
+  xy: 121, 447
+  size: 52, 26
+  orig: 52, 26
+  offset: 0, 0
+  index: -1
+H23_Shirt_part_3
+  rotate: false
+  xy: 90, 498
+  size: 33, 12
+  orig: 33, 12
+  offset: 0, 0
+  index: -1
+H23_Stick
+  rotate: false
+  xy: 2, 343
+  size: 128, 62
+  orig: 128, 62
+  offset: 0, 0
+  index: -1
+R_jacket_1
+  rotate: true
+  xy: 413, 433
+  size: 32, 33
+  orig: 32, 33
+  offset: 0, 0
+  index: -1
+SH23_Body
+  rotate: true
+  xy: 49, 411
+  size: 36, 38
+  orig: 36, 38
+  offset: 0, 0
+  index: -1
+SH23_Hair
+  rotate: false
+  xy: 421, 362
+  size: 68, 67
+  orig: 68, 67
+  offset: 0, 0
+  index: -1
+SH23_Head
+  rotate: true
+  xy: 167, 401
+  size: 41, 45
+  orig: 41, 45
+  offset: 0, 0
+  index: -1
+SH23_L_Arm
+  rotate: false
+  xy: 46, 479
+  size: 22, 19
+  orig: 22, 19
+  offset: 0, 0
+  index: -1
+SH23_L_Foot
+  rotate: false
+  xy: 183, 497
+  size: 28, 13
+  orig: 28, 13
+  offset: 0, 0
+  index: -1
+SH23_L_Hand
+  rotate: false
+  xy: 219, 474
+  size: 22, 21
+  orig: 22, 21
+  offset: 0, 0
+  index: -1
+SH23_L_Knee
+  rotate: true
+  xy: 326, 470
+  size: 22, 28
+  orig: 22, 28
+  offset: 0, 0
+  index: -1
+SH23_L_Leg
+  rotate: true
+  xy: 2, 483
+  size: 17, 20
+  orig: 17, 20
+  offset: 0, 0
+  index: -1
+SH23_L_Shoulder
+  rotate: true
+  xy: 158, 475
+  size: 20, 32
+  orig: 20, 32
+  offset: 0, 0
+  index: -1
+SH23_Lamp
+  rotate: true
+  xy: 89, 407
+  size: 38, 76
+  orig: 38, 76
+  offset: 0, 0
+  index: -1
+SH23_R_Arm
+  rotate: false
+  xy: 93, 449
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+SH23_R_Foot
+  rotate: false
+  xy: 213, 497
+  size: 28, 13
+  orig: 28, 13
+  offset: 0, 0
+  index: -1
+SH23_R_Hand
+  rotate: false
+  xy: 2, 455
+  size: 27, 25
+  orig: 27, 25
+  offset: 0, 0
+  index: -1
+SH23_R_Knee
+  rotate: true
+  xy: 243, 473
+  size: 21, 28
+  orig: 21, 28
+  offset: 0, 0
+  index: -1
+SH23_R_Leg
+  rotate: true
+  xy: 24, 482
+  size: 17, 20
+  orig: 17, 20
+  offset: 0, 0
+  index: -1
+SH23_R_Shoulder
+  rotate: true
+  xy: 285, 495
+  size: 15, 21
+  orig: 15, 21
+  offset: 0, 0
+  index: -1
+SH23_Shirt
+  rotate: false
+  xy: 125, 498
+  size: 33, 12
+  orig: 33, 12
+  offset: 0, 0
+  index: -1
+SH23_Shirt_part_2
+  rotate: false
+  xy: 2, 415
+  size: 45, 35
+  orig: 45, 35
+  offset: 0, 0
+  index: -1
+SH23_Stick
+  rotate: false
+  xy: 204, 280
+  size: 155, 89
+  orig: 155, 89
+  offset: 0, 0
+  index: -1
+SHat_1
+  rotate: false
+  xy: 329, 371
+  size: 90, 60
+  orig: 90, 60
+  offset: 0, 0
+  index: -1
+SHat_2
+  rotate: false
+  xy: 266, 438
+  size: 92, 29
+  orig: 92, 29
+  offset: 0, 0
+  index: -1
+SL_jacket
+  rotate: true
+  xy: 70, 477
+  size: 19, 63
+  orig: 19, 63
+  offset: 0, 0
+  index: -1
+S_R-Jacket
+  rotate: true
+  xy: 448, 431
+  size: 34, 62
+  orig: 34, 62
+  offset: 0, 0
+  index: -1
+Scollar
+  rotate: false
+  xy: 31, 452
+  size: 29, 25
+  orig: 29, 25
+  offset: 0, 0
+  index: -1

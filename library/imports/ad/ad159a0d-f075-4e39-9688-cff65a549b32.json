@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Canteen upgrade",
+    "texture": "d15819e2-c491-4a59-afe8-8f4fdab19237",
+    "atlas": "",
+    "rect": [
+      2,
+      1,
+      379,
+      519
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      383,
+      521
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

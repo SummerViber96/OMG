@@ -1,0 +1,56 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "lv_up.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0001 shot": {
+      "__uuid__": "f0ea6c38-8485-4a86-b551-ba0a97cee546"
+    },
+    "0002 shot": {
+      "__uuid__": "e3f8e761-baa9-4ab1-a5f0-97a80bd05265"
+    },
+    "0003 shot": {
+      "__uuid__": "313ad13d-6477-480a-90dc-cb5039122fab"
+    },
+    "0004 shot": {
+      "__uuid__": "db3168c3-286d-4607-894a-c01d4e820096"
+    },
+    "0005 shot": {
+      "__uuid__": "3ae3f563-1aae-4ec4-a28c-d2be633a9db9"
+    },
+    "0006 shot": {
+      "__uuid__": "9bb5da2d-f621-4602-8c23-8d2887061b7d"
+    },
+    "0007 shot": {
+      "__uuid__": "679cb1a5-0df8-49fb-8906-cd6da554dfdd"
+    },
+    "0008 shot": {
+      "__uuid__": "05be8628-7578-4790-9de8-dc8ecea8dde1"
+    },
+    "0009 shot": {
+      "__uuid__": "7da3d4a9-04cb-4167-a704-58d8983c10f8"
+    },
+    "0010 shot": {
+      "__uuid__": "ee9e1f80-ee3e-4074-9c11-6bf00d0e249a"
+    },
+    "0011 shot": {
+      "__uuid__": "0298ee5f-d792-433e-955d-7c6d3637798c"
+    },
+    "0012 shot": {
+      "__uuid__": "2e561893-0d41-45d9-9447-07b2777ed1ac"
+    },
+    "0013 shot": {
+      "__uuid__": "49a55b44-f7b8-453a-b5ca-efc1c4962d66"
+    },
+    "0014 shot": {
+      "__uuid__": "703f7a7a-8ab6-43b8-bb97-8c61b2101d6f"
+    },
+    "0015 shot": {
+      "__uuid__": "364f454b-a3a0-49c7-be69-324282b344b6"
+    },
+    "0016 shot": {
+      "__uuid__": "bce22ec2-47f0-4037-a172-c7e28e50cc48"
+    }
+  }
+}

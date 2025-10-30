@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Machine_Rip-Attack_2_01",
+    "texture": "eb03c80e-cf1e-49d1-a6db-19a18805af9c",
+    "atlas": "a5f106ce-1eb2-4f21-a359-cb508aa15026",
+    "rect": [
+      1,
+      150,
+      200,
+      147
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      200,
+      147
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

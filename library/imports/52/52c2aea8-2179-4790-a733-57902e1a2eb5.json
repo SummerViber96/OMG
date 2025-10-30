@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Machine_RipTree.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nMachine_RipTree.png\r\nsize: 512,512\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\ni_ChatCay/Cut-tag\r\n  rotate: true\r\n  xy: 467, 446\r\n  size: 58, 12\r\n  orig: 58, 12\r\n  offset: 0, 0\r\n  index: -1\r\ni_ChatCay/Shadow\r\n  rotate: false\r\n  xy: 215, 24\r\n  size: 134, 78\r\n  orig: 134, 78\r\n  offset: 0, 0\r\n  index: -1\r\ni_ChatCay/Tree snow 1 unshadow\r\n  rotate: true\r\n  xy: 215, 305\r\n  size: 199, 250\r\n  orig: 199, 250\r\n  offset: 0, 0\r\n  index: -1\r\ni_ChatCay/Tree snow 2  unshadow\r\n  rotate: true\r\n  xy: 215, 104\r\n  size: 199, 250\r\n  orig: 199, 250\r\n  offset: 0, 0\r\n  index: -1\r\ni_ChatCay/Tree snow 3 unshadow\r\n  rotate: false\r\n  xy: 2, 254\r\n  size: 211, 250\r\n  orig: 211, 250\r\n  offset: 0, 0\r\n  index: -1\r\ni_ChatCay/Tree snow 4 unshadow\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 211, 250\r\n  orig: 211, 250\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

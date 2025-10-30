@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Chicken",
+    "texture": "88f400ee-14e5-4241-9529-8bc4db1508c7",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      217,
+      265
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      221,
+      269
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "TopNavigation-content2",
+    "texture": "41d70101-7a30-45fa-87d2-a350ede083da",
+    "atlas": "",
+    "rect": [
+      93,
+      40,
+      249,
+      45
+    ],
+    "offset": [
+      -345,
+      0.5
+    ],
+    "originalSize": [
+      1125,
+      126
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

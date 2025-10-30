@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fence",
+    "texture": "f817f69a-2db4-481a-b3e3-e1a17e8754c0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      161,
+      171
+    ],
+    "offset": [
+      -3,
+      0
+    ],
+    "originalSize": [
+      167,
+      171
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

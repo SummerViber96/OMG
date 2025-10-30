@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Fireplace_Lv4.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nFireplace_Lv4.png\r\nsize: 1024,1024\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\n4_1\r\n  rotate: false\r\n  xy: 156, 20\r\n  size: 174, 99\r\n  orig: 174, 99\r\n  offset: 0, 0\r\n  index: -1\r\n4_2\r\n  rotate: false\r\n  xy: 491, 3\r\n  size: 185, 167\r\n  orig: 185, 167\r\n  offset: 0, 0\r\n  index: -1\r\n4_Base\r\n  rotate: false\r\n  xy: 2, 121\r\n  size: 487, 316\r\n  orig: 487, 316\r\n  offset: 0, 0\r\n  index: -1\r\n4_Body\r\n  rotate: true\r\n  xy: 491, 172\r\n  size: 265, 206\r\n  orig: 265, 206\r\n  offset: 0, 0\r\n  index: -1\r\n4_Middle\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 152, 117\r\n  orig: 152, 117\r\n  offset: 0, 0\r\n  index: -1\r\nBonfire-lv4-2\r\n  rotate: false\r\n  xy: 2, 439\r\n  size: 578, 578\r\n  orig: 578, 578\r\n  offset: 0, 0\r\n  index: -1\r\nLight_Lv3\r\n  rotate: false\r\n  xy: 582, 836\r\n  size: 204, 181\r\n  orig: 204, 181\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

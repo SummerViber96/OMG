@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icon_nha2",
+    "texture": "dcb4dce2-3ba0-49a9-b16a-36086ff54e2e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      432,
+      244
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      432,
+      244
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

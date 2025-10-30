@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Break_Car",
+    "texture": "498e52bf-207f-49c7-a6d8-fc6bb0674040",
+    "atlas": "",
+    "rect": [
+      3,
+      65,
+      1018,
+      956
+    ],
+    "offset": [
+      0,
+      -31
+    ],
+    "originalSize": [
+      1024,
+      1024
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

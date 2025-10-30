@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Knob",
+    "texture": "2ffb735d-b942-4cc5-9fa5-817f45174352",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      102,
+      93
+    ],
+    "offset": [
+      -4.5,
+      0
+    ],
+    "originalSize": [
+      111,
+      93
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

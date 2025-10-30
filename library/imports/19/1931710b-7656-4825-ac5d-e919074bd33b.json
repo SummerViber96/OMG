@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Progress_dan",
+    "texture": "af194071-1a00-468c-9586-f51d5239bf81",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      134,
+      12
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      134,
+      12
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

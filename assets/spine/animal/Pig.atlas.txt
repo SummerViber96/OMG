@@ -1,0 +1,104 @@
+
+Pig.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Pig_Body
+  rotate: false
+  xy: 2, 144
+  size: 152, 93
+  orig: 152, 93
+  offset: 0, 0
+  index: -1
+Pig_Hair
+  rotate: true
+  xy: 156, 115
+  size: 122, 66
+  orig: 122, 66
+  offset: 0, 0
+  index: -1
+Pig_LS_Foot
+  rotate: false
+  xy: 61, 70
+  size: 57, 72
+  orig: 57, 72
+  offset: 0, 0
+  index: -1
+Pig_LT_Foot
+  rotate: false
+  xy: 150, 60
+  size: 38, 53
+  orig: 38, 53
+  offset: 0, 0
+  index: -1
+Pig_L_Eyebrow
+  rotate: false
+  xy: 39, 22
+  size: 16, 23
+  orig: 16, 23
+  offset: 0, 0
+  index: -1
+Pig_L_Tusk
+  rotate: true
+  xy: 120, 26
+  size: 57, 27
+  orig: 57, 27
+  offset: 0, 0
+  index: -1
+Pig_RS_Foot
+  rotate: false
+  xy: 2, 69
+  size: 57, 73
+  orig: 57, 73
+  offset: 0, 0
+  index: -1
+Pig_RT_Foot
+  rotate: false
+  xy: 61, 14
+  size: 34, 54
+  orig: 34, 54
+  offset: 0, 0
+  index: -1
+Pig_R_Eye
+  rotate: true
+  xy: 2, 34
+  size: 33, 31
+  orig: 33, 31
+  offset: 0, 0
+  index: -1
+Pig_R_Eye_Between
+  rotate: false
+  xy: 35, 47
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+Pig_R_Eye_Black
+  rotate: false
+  xy: 39, 7
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+Pig_R_Eyebrow
+  rotate: false
+  xy: 149, 33
+  size: 34, 25
+  orig: 34, 25
+  offset: 0, 0
+  index: -1
+Pig_R_Tusk
+  rotate: true
+  xy: 120, 85
+  size: 57, 28
+  orig: 57, 28
+  offset: 0, 0
+  index: -1
+Pig_Tail
+  rotate: true
+  xy: 2, 2
+  size: 30, 35
+  orig: 30, 35
+  offset: 0, 0
+  index: -1

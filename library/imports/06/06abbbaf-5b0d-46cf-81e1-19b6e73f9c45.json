@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "building_21100010",
+    "texture": "0e2ba335-d053-4d66-94cf-74f532041f07",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      257,
+      212
+    ],
+    "offset": [
+      -1,
+      -1
+    ],
+    "originalSize": [
+      259,
+      214
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

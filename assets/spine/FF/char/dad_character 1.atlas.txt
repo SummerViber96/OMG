@@ -1,0 +1,328 @@
+
+dad_character 1.png
+size: 2031, 269
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+skin_dad/back/body
+  rotate: false
+  xy: 477, 60
+  size: 156, 207
+  orig: 156, 207
+  offset: 0, 0
+  index: -1
+skin_dad/back/face
+  rotate: false
+  xy: 1525, 24
+  size: 103, 113
+  orig: 107, 113
+  offset: 0, 0
+  index: -1
+skin_dad/back/feet_l
+  rotate: false
+  xy: 1664, 5
+  size: 53, 59
+  orig: 53, 59
+  offset: 0, 0
+  index: -1
+skin_dad/back/feet_r
+  rotate: false
+  xy: 1811, 15
+  size: 85, 49
+  orig: 85, 49
+  offset: 0, 0
+  index: -1
+skin_dad/back/hair
+  rotate: false
+  xy: 1898, 4
+  size: 99, 33
+  orig: 99, 33
+  offset: 0, 0
+  index: -1
+skin_dad/back/hand_r
+  rotate: false
+  xy: 1630, 2
+  size: 32, 72
+  orig: 32, 72
+  offset: 0, 0
+  index: -1
+skin_dad/back/hip
+  rotate: true
+  xy: 1382, 130
+  size: 137, 101
+  orig: 137, 101
+  offset: 0, 0
+  index: -1
+skin_dad/back/hood
+  rotate: true
+  xy: 829, 95
+  size: 172, 139
+  orig: 172, 139
+  offset: 0, 0
+  index: -1
+skin_dad/back/lower_arm_r
+  rotate: false
+  xy: 1544, 154
+  size: 65, 113
+  orig: 65, 113
+  offset: 0, 0
+  index: -1
+skin_dad/back/upper_arm_l
+  rotate: false
+  xy: 1611, 157
+  size: 82, 110
+  orig: 87, 110
+  offset: 3, 0
+  index: -1
+skin_dad/back/upper_arm_r
+  rotate: false
+  xy: 1485, 139
+  size: 57, 128
+  orig: 57, 131
+  offset: 0, 3
+  index: -1
+skin_dad/back/upper_leg_l2
+  rotate: false
+  xy: 274, 7
+  size: 114, 260
+  orig: 114, 260
+  offset: 0, 0
+  index: -1
+skin_dad/back/upper_leg_r2
+  rotate: true
+  xy: 1695, 76
+  size: 82, 288
+  orig: 82, 288
+  offset: 0, 0
+  index: -1
+skin_dad/back/vest_tail
+  rotate: true
+  xy: 1260, 113
+  size: 154, 120
+  orig: 154, 179
+  offset: 0, 12
+  index: -1
+skin_dad/front/belt
+  rotate: true
+  xy: 1488, 19
+  size: 118, 35
+  orig: 605, 859
+  offset: 286, 496
+  index: -1
+skin_dad/front/body
+  rotate: true
+  xy: 970, 100
+  size: 167, 288
+  orig: 167, 288
+  offset: 0, 0
+  index: -1
+skin_dad/front/eyebrown_l
+  rotate: true
+  xy: 440, 3
+  size: 27, 8
+  orig: 27, 8
+  offset: 0, 0
+  index: -1
+skin_dad/front/eyebrown_r
+  rotate: false
+  xy: 724, 64
+  size: 17, 9
+  orig: 17, 9
+  offset: 0, 0
+  index: -1
+skin_dad/front/face
+  rotate: true
+  xy: 1124, 11
+  size: 87, 115
+  orig: 87, 115
+  offset: 0, 0
+  index: -1
+skin_dad/front/finder_l
+  rotate: true
+  xy: 1985, 124
+  size: 34, 44
+  orig: 34, 44
+  offset: 0, 0
+  index: -1
+skin_dad/front/fingers_r
+  rotate: true
+  xy: 1525, 2
+  size: 20, 47
+  orig: 20, 47
+  offset: 0, 0
+  index: -1
+skin_dad/front/foot_L
+  rotate: true
+  xy: 968, 5
+  size: 88, 51
+  orig: 88, 51
+  offset: 0, 0
+  index: -1
+skin_dad/front/foot_R
+  rotate: false
+  xy: 1630, 78
+  size: 54, 77
+  orig: 54, 77
+  offset: 0, 0
+  index: -1
+skin_dad/front/hair
+  rotate: false
+  xy: 1898, 39
+  size: 80, 35
+  orig: 80, 35
+  offset: 0, 0
+  index: -1
+skin_dad/front/hand_l
+  rotate: false
+  xy: 1985, 66
+  size: 42, 56
+  orig: 42, 56
+  offset: 0, 0
+  index: -1
+skin_dad/front/hand_r
+  rotate: true
+  xy: 390, 2
+  size: 28, 38
+  orig: 28, 38
+  offset: 0, 0
+  index: -1
+skin_dad/front/hand_r_2
+  rotate: false
+  xy: 1769, 9
+  size: 40, 55
+  orig: 40, 55
+  offset: 0, 0
+  index: -1
+skin_dad/front/hand_r_32
+  rotate: false
+  xy: 1719, 9
+  size: 48, 65
+  orig: 48, 65
+  offset: 0, 0
+  index: -1
+skin_dad/front/leg_L
+  rotate: true
+  xy: 478, 2
+  size: 56, 197
+  orig: 58, 197
+  offset: 2, 0
+  index: -1
+skin_dad/front/leg_R
+  rotate: false
+  xy: 390, 32
+  size: 85, 235
+  orig: 88, 241
+  offset: 3, 6
+  index: -1
+skin_dad/front/leg_R2
+  rotate: true
+  xy: 1695, 160
+  size: 107, 321
+  orig: 107, 330
+  offset: 0, 0
+  index: -1
+skin_dad/front/lower_arm_2
+  rotate: false
+  xy: 1073, 5
+  size: 49, 93
+  orig: 49, 93
+  offset: 0, 0
+  index: -1
+skin_dad/front/lower_arm_l
+  rotate: false
+  xy: 1021, 3
+  size: 50, 95
+  orig: 50, 95
+  offset: 0, 0
+  index: -1
+skin_dad/front/lower_arm_r
+  rotate: true
+  xy: 677, 2
+  size: 58, 87
+  orig: 58, 87
+  offset: 0, 0
+  index: -1
+skin_dad/front/mad
+  rotate: true
+  xy: 430, 2
+  size: 28, 8
+  orig: 28, 8
+  offset: 0, 0
+  index: -1
+skin_dad/front/mouth_normal
+  rotate: true
+  xy: 468, 4
+  size: 26, 8
+  orig: 26, 8
+  offset: 0, 0
+  index: -1
+skin_dad/front/mustache
+  rotate: false
+  xy: 635, 61
+  size: 37, 12
+  orig: 37, 12
+  offset: 0, 0
+  index: -1
+skin_dad/front/opened_eyes
+  rotate: false
+  xy: 674, 62
+  size: 48, 11
+  orig: 48, 11
+  offset: 0, 0
+  index: -1
+skin_dad/front/suprise
+  rotate: true
+  xy: 450, 4
+  size: 26, 16
+  orig: 26, 16
+  offset: 0, 0
+  index: -1
+skin_dad/front/tool
+  rotate: true
+  xy: 2, 7
+  size: 260, 270
+  orig: 605, 859
+  offset: 290, 279
+  index: -1
+skin_dad/front/upper_arm_l
+  rotate: false
+  xy: 1309, 2
+  size: 74, 109
+  orig: 74, 109
+  offset: 0, 0
+  index: -1
+skin_dad/front/upper_arm_r
+  rotate: false
+  xy: 1241, 11
+  size: 66, 87
+  orig: 84, 101
+  offset: 9, 6
+  index: -1
+skin_dad/front/upper_arm_r2
+  rotate: true
+  xy: 766, 6
+  size: 67, 101
+  orig: 67, 109
+  offset: 0, 4
+  index: -1
+skin_dad/front/vest_l
+  rotate: true
+  xy: 1385, 10
+  size: 118, 101
+  orig: 605, 859
+  offset: 134, 391
+  index: -1
+skin_dad/front/vest_r
+  rotate: true
+  xy: 869, 2
+  size: 91, 97
+  orig: 605, 859
+  offset: 229, 394
+  index: -1
+skin_dad/shadow
+  rotate: false
+  xy: 635, 75
+  size: 192, 192
+  orig: 218, 218
+  offset: 13, 13
+  index: -1

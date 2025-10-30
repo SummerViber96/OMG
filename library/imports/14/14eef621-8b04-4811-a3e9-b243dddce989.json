@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cute-puppy-dog-closeup 3",
+    "texture": "4f9fa619-2807-4809-9a5d-0c74033c7a51",
+    "atlas": "",
+    "rect": [
+      1,
+      32,
+      329,
+      165
+    ],
+    "offset": [
+      0,
+      2.5
+    ],
+    "originalSize": [
+      331,
+      234
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

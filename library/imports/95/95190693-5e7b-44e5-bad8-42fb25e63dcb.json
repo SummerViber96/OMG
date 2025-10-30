@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "akm",
+    "texture": "209d5ffe-fa77-4206-b0b8-60875ac0c9dd",
+    "atlas": "",
+    "rect": [
+      109,
+      104,
+      545,
+      571
+    ],
+    "offset": [
+      3.5,
+      18.5
+    ],
+    "originalSize": [
+      756,
+      816
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

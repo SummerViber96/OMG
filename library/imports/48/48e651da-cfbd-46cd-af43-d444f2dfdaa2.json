@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "volume bar",
+    "texture": "1143a5cc-87a7-4039-bc35-838264d4b93a",
+    "atlas": "",
+    "rect": [
+      6,
+      21,
+      498,
+      49
+    ],
+    "offset": [
+      3,
+      -0.5
+    ],
+    "originalSize": [
+      504,
+      90
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

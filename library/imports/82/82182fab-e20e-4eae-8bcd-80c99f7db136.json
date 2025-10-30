@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chay bthg",
+    "texture": "30cff126-f046-43b1-aac5-17f8ba419154",
+    "atlas": "",
+    "rect": [
+      868,
+      419,
+      234,
+      243
+    ],
+    "offset": [
+      25,
+      -0.5
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

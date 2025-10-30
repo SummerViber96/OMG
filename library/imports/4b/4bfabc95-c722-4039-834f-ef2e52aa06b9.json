@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Stump-decor-2",
+    "texture": "445f2381-5abb-455d-abe6-7884cb00730b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      129,
+      76
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      129,
+      76
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

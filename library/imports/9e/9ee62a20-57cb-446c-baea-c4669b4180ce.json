@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "+Nhà ăn",
+    "texture": "e5834b63-8e91-4111-ba00-7e4516b84bfa",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      474,
+      277
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      474,
+      277
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

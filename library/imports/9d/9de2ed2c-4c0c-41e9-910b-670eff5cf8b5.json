@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cadio",
+    "texture": "0ee2c79c-c772-4c34-bb96-4f213305372d",
+    "atlas": "",
+    "rect": [
+      868,
+      419,
+      234,
+      243
+    ],
+    "offset": [
+      25,
+      -0.5
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

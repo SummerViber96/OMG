@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "download_now_playable_720",
+    "texture": "a1b4de52-fae1-4ecb-992a-5fe5d80d8f0c",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      720,
+      206
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      720,
+      206
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

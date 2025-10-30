@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Dorothy",
+    "texture": "6afe9e01-a324-4798-ac71-f8a4ac9f0103",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      993,
+      265
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      997,
+      269
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

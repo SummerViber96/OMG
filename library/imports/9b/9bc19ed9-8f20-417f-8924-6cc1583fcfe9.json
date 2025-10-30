@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Popup_Red.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nPopup_Red.png\r\nsize: 256,256\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nBubble emoji 1\r\n  rotate: false\r\n  xy: 2, 51\r\n  size: 97, 106\r\n  orig: 97, 106\r\n  offset: 0, 0\r\n  index: -1\r\nNotice\r\n  rotate: true\r\n  xy: 2, 2\r\n  size: 47, 99\r\n  orig: 47, 99\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

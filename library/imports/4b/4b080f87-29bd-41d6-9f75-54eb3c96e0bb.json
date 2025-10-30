@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BenchIcon",
+    "texture": "7577d9c1-2737-457a-8bc9-6c946738aea1",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      127,
+      103
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      128,
+      104
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

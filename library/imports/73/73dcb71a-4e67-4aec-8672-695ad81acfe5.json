@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "IMG_Air Horn",
+    "texture": "99bd8bcb-96ef-4045-b65d-62a6a9aedea5",
+    "atlas": "",
+    "rect": [
+      34,
+      96,
+      451,
+      656
+    ],
+    "offset": [
+      -72,
+      27.5
+    ],
+    "originalSize": [
+      663,
+      903
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

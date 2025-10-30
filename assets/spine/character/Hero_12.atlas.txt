@@ -1,0 +1,244 @@
+
+Hero_12.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+12_Body
+  rotate: false
+  xy: 135, 186
+  size: 77, 68
+  orig: 77, 68
+  offset: 0, 0
+  index: -1
+12_Cloak_Bot
+  rotate: false
+  xy: 2, 51
+  size: 94, 60
+  orig: 94, 60
+  offset: 0, 0
+  index: -1
+12_Diamond
+  rotate: false
+  xy: 214, 20
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+12_Hair
+  rotate: true
+  xy: 214, 201
+  size: 53, 40
+  orig: 53, 40
+  offset: 0, 0
+  index: -1
+12_Hair_Bot
+  rotate: true
+  xy: 164, 126
+  size: 58, 51
+  orig: 58, 51
+  offset: 0, 0
+  index: -1
+12_Head
+  rotate: true
+  xy: 2, 2
+  size: 47, 51
+  orig: 47, 51
+  offset: 0, 0
+  index: -1
+12_L_Arm
+  rotate: false
+  xy: 155, 14
+  size: 31, 38
+  orig: 31, 38
+  offset: 0, 0
+  index: -1
+12_L_BlackEye
+  rotate: true
+  xy: 99, 186
+  size: 10, 11
+  orig: 10, 11
+  offset: 0, 0
+  index: -1
+12_L_Bone
+  rotate: true
+  xy: 122, 6
+  size: 46, 31
+  orig: 46, 31
+  offset: 0, 0
+  index: -1
+12_L_Cloak
+  rotate: false
+  xy: 99, 132
+  size: 63, 52
+  orig: 63, 52
+  offset: 0, 0
+  index: -1
+12_L_Eye
+  rotate: false
+  xy: 188, 13
+  size: 15, 12
+  orig: 15, 12
+  offset: 0, 0
+  index: -1
+12_L_Eyebrow
+  rotate: false
+  xy: 236, 31
+  size: 18, 9
+  orig: 18, 9
+  offset: 0, 0
+  index: -1
+12_L_Foot
+  rotate: true
+  xy: 180, 61
+  size: 31, 15
+  orig: 31, 15
+  offset: 0, 0
+  index: -1
+12_L_Hand
+  rotate: false
+  xy: 217, 112
+  size: 36, 30
+  orig: 36, 30
+  offset: 0, 0
+  index: -1
+12_L_Knee
+  rotate: true
+  xy: 215, 59
+  size: 24, 32
+  orig: 24, 32
+  offset: 0, 0
+  index: -1
+12_L_Leg
+  rotate: true
+  xy: 217, 85
+  size: 25, 36
+  orig: 25, 36
+  offset: 0, 0
+  index: -1
+12_L_Shoulder
+  rotate: true
+  xy: 99, 92
+  size: 38, 52
+  orig: 38, 52
+  offset: 0, 0
+  index: -1
+12_Mouth
+  rotate: false
+  xy: 155, 6
+  size: 19, 6
+  orig: 19, 6
+  offset: 0, 0
+  index: -1
+12_Nose
+  rotate: false
+  xy: 236, 15
+  size: 15, 14
+  orig: 15, 14
+  offset: 0, 0
+  index: -1
+12_R_Arm
+  rotate: true
+  xy: 217, 168
+  size: 31, 37
+  orig: 31, 37
+  offset: 0, 0
+  index: -1
+12_R_BlackEye
+  rotate: false
+  xy: 112, 186
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+12_R_Bone
+  rotate: false
+  xy: 197, 62
+  size: 16, 26
+  orig: 16, 26
+  offset: 0, 0
+  index: -1
+12_R_Cloak
+  rotate: true
+  xy: 153, 94
+  size: 30, 49
+  orig: 30, 49
+  offset: 0, 0
+  index: -1
+12_R_Eye
+  rotate: false
+  xy: 205, 6
+  size: 13, 12
+  orig: 13, 12
+  offset: 0, 0
+  index: -1
+12_R_Eyebrow
+  rotate: false
+  xy: 176, 2
+  size: 16, 9
+  orig: 16, 9
+  offset: 0, 0
+  index: -1
+12_R_Foot
+  rotate: false
+  xy: 214, 42
+  size: 31, 15
+  orig: 31, 15
+  offset: 0, 0
+  index: -1
+12_R_Hand
+  rotate: true
+  xy: 148, 54
+  size: 36, 30
+  orig: 36, 30
+  offset: 0, 0
+  index: -1
+12_R_Knee
+  rotate: false
+  xy: 188, 27
+  size: 24, 32
+  orig: 24, 32
+  offset: 0, 0
+  index: -1
+12_R_Leg
+  rotate: true
+  xy: 217, 144
+  size: 22, 37
+  orig: 22, 37
+  offset: 0, 0
+  index: -1
+12_R_Shoulder
+  rotate: true
+  xy: 98, 54
+  size: 36, 48
+  orig: 36, 48
+  offset: 0, 0
+  index: -1
+12_Skirt
+  rotate: false
+  xy: 55, 5
+  size: 65, 44
+  orig: 65, 44
+  offset: 0, 0
+  index: -1
+12_Skull
+  rotate: false
+  xy: 2, 113
+  size: 95, 83
+  orig: 95, 83
+  offset: 0, 0
+  index: -1
+12_Skull_Bot
+  rotate: false
+  xy: 204, 90
+  size: 11, 34
+  orig: 11, 34
+  offset: 0, 0
+  index: -1
+12_Sword
+  rotate: false
+  xy: 2, 198
+  size: 131, 56
+  orig: 131, 56
+  offset: 0, 0
+  index: -1

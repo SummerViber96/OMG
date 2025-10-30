@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Hand_Ctrl.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nHand_Ctrl.png\r\nsize: 512,512\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nPoint_hand\r\n  rotate: false\r\n  xy: 2, 132\r\n  size: 298, 319\r\n  orig: 298, 319\r\n  offset: 0, 0\r\n  index: -1\r\ndy_ring_01\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 128, 128\r\n  orig: 128, 128\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

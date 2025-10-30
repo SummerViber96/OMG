@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "41004_passive_impact_02",
+    "texture": "c0fba21d-fb9b-4b3e-9cd1-cd6f687ca202",
+    "atlas": "f92ba894-e565-43e7-adec-1ab9d4c9a9b8",
+    "rect": [
+      160,
+      0,
+      160,
+      160
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      160,
+      160
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

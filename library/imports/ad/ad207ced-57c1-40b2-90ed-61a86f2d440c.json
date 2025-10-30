@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "khungProgress_dan",
+    "texture": "efa60b59-333e-47bb-b5bc-8e5f3d89f512",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      138,
+      16
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      138,
+      16
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "+Nhà ngủ copy",
+    "texture": "55b8be75-09f6-4445-ba87-a2022b54c606",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      286,
+      163
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      286,
+      163
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

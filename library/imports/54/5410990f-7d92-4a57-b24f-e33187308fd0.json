@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Bar_Cold_fill",
+    "texture": "433645fc-366c-4aa9-83ef-052442de86c2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      64,
+      11
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      64,
+      11
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

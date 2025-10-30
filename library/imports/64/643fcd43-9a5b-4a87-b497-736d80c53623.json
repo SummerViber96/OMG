@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Color Fill 1 copy",
+    "texture": "0161a8fa-679e-41ea-a7fe-fefcc78f5215",
+    "atlas": "",
+    "rect": [
+      68,
+      1,
+      2363,
+      1473
+    ],
+    "offset": [
+      33.5,
+      0
+    ],
+    "originalSize": [
+      2432,
+      1475
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

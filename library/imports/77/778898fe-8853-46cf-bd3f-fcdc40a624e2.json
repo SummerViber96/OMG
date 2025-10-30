@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Point_hand",
+    "texture": "325b0271-183d-450a-9f89-9fcbb13bd85b",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      298,
+      318
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      298,
+      319
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

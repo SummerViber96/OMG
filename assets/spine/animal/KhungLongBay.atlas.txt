@@ -1,0 +1,188 @@
+
+KhungLongBay.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_L_Claw
+  rotate: false
+  xy: 68, 484
+  size: 29, 21
+  orig: 29, 21
+  offset: 0, 0
+  index: -1
+1_L_Claw 2
+  rotate: false
+  xy: 2, 490
+  size: 19, 15
+  orig: 19, 15
+  offset: 0, 0
+  index: -1
+1_L_Foot
+  rotate: true
+  xy: 58, 440
+  size: 42, 53
+  orig: 42, 53
+  offset: 0, 0
+  index: -1
+1_L_Out_Wing
+  rotate: true
+  xy: 283, 313
+  size: 89, 116
+  orig: 89, 116
+  offset: 0, 0
+  index: -1
+1_L_Wing
+  rotate: false
+  xy: 2, 366
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
+1_R_Claw
+  rotate: false
+  xy: 23, 490
+  size: 20, 15
+  orig: 20, 15
+  offset: 0, 0
+  index: -1
+1_R_Claw_Top
+  rotate: false
+  xy: 99, 484
+  size: 35, 21
+  orig: 35, 21
+  offset: 0, 0
+  index: -1
+1_R_Foot
+  rotate: true
+  xy: 251, 420
+  size: 52, 63
+  orig: 52, 63
+  offset: 0, 0
+  index: -1
+1_R_Out_Wing
+  rotate: true
+  xy: 160, 335
+  size: 83, 121
+  orig: 83, 121
+  offset: 0, 0
+  index: -1
+1_R_Wing
+  rotate: true
+  xy: 376, 404
+  size: 64, 83
+  orig: 64, 83
+  offset: 0, 0
+  index: -1
+2_L_Arm
+  rotate: true
+  xy: 451, 470
+  size: 35, 54
+  orig: 35, 54
+  offset: 0, 0
+  index: -1
+2_L_Caw
+  rotate: false
+  xy: 45, 490
+  size: 21, 15
+  orig: 21, 15
+  offset: 0, 0
+  index: -1
+2_L_Caw_Top
+  rotate: true
+  xy: 136, 481
+  size: 24, 32
+  orig: 24, 32
+  offset: 0, 0
+  index: -1
+2_L_Foot
+  rotate: false
+  xy: 391, 471
+  size: 58, 34
+  orig: 58, 34
+  offset: 0, 0
+  index: -1
+2_L_Out_Wing
+  rotate: false
+  xy: 2, 253
+  size: 121, 99
+  orig: 121, 99
+  offset: 0, 0
+  index: -1
+2_L_Shoulder
+  rotate: true
+  xy: 343, 473
+  size: 32, 46
+  orig: 32, 46
+  offset: 0, 0
+  index: -1
+2_R_Arm
+  rotate: true
+  xy: 2, 453
+  size: 35, 54
+  orig: 35, 54
+  offset: 0, 0
+  index: -1
+2_R_Claw
+  rotate: false
+  xy: 218, 475
+  size: 43, 30
+  orig: 43, 30
+  offset: 0, 0
+  index: -1
+2_R_Foot
+  rotate: false
+  xy: 191, 426
+  size: 58, 47
+  orig: 58, 47
+  offset: 0, 0
+  index: -1
+2_R_Shoulder
+  rotate: false
+  xy: 170, 479
+  size: 46, 26
+  orig: 46, 26
+  offset: 0, 0
+  index: -1
+2_R_Wing
+  rotate: false
+  xy: 125, 232
+  size: 154, 101
+  orig: 154, 101
+  offset: 0, 0
+  index: -1
+Body
+  rotate: true
+  xy: 76, 354
+  size: 77, 82
+  orig: 77, 82
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 401, 287
+  size: 98, 115
+  orig: 98, 115
+  offset: 0, 0
+  index: -1
+Mouth_Top
+  rotate: true
+  xy: 316, 415
+  size: 56, 58
+  orig: 56, 58
+  offset: 0, 0
+  index: -1
+Neck
+  rotate: true
+  xy: 263, 474
+  size: 31, 78
+  orig: 31, 78
+  offset: 0, 0
+  index: -1
+Tail
+  rotate: false
+  xy: 113, 433
+  size: 76, 44
+  orig: 76, 44
+  offset: 0, 0
+  index: -1

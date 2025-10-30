@@ -1,0 +1,251 @@
+
+Jack_MKT.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+H3_Axe_BotB
+  rotate: true
+  xy: 2, 94
+  size: 86, 55
+  orig: 86, 55
+  offset: 0, 0
+  index: -1
+H3_Axe_BotB_C2
+  rotate: true
+  xy: 214, 222
+  size: 139, 94
+  orig: 139, 94
+  offset: 0, 0
+  index: -1
+H3_Axe_BotB_C3
+  rotate: false
+  xy: 2, 256
+  size: 210, 105
+  orig: 210, 105
+  offset: 0, 0
+  index: -1
+H3_Body
+  rotate: true
+  xy: 2, 182
+  size: 72, 68
+  orig: 72, 68
+  offset: 0, 0
+  index: -1
+H3_Bottom
+  rotate: true
+  xy: 203, 120
+  size: 61, 29
+  orig: 61, 29
+  offset: 0, 0
+  index: -1
+H3_Decor
+  rotate: true
+  xy: 153, 108
+  size: 26, 23
+  orig: 26, 23
+  offset: 0, 0
+  index: -1
+H3_Ear
+  rotate: false
+  xy: 153, 85
+  size: 15, 21
+  orig: 15, 21
+  offset: 0, 0
+  index: -1
+H3_Hat
+  rotate: true
+  xy: 72, 164
+  size: 90, 61
+  orig: 90, 61
+  offset: 0, 0
+  index: -1
+H3_Head
+  rotate: true
+  xy: 135, 169
+  size: 51, 66
+  orig: 51, 66
+  offset: 0, 0
+  index: -1
+H3_L_Arm
+  rotate: false
+  xy: 94, 114
+  size: 30, 48
+  orig: 30, 48
+  offset: 0, 0
+  index: -1
+H3_L_Eye
+  rotate: false
+  xy: 178, 115
+  size: 18, 19
+  orig: 18, 19
+  offset: 0, 0
+  index: -1
+H3_L_Eye_Top
+  rotate: false
+  xy: 59, 156
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+H3_L_Eyebrow
+  rotate: true
+  xy: 74, 44
+  size: 25, 13
+  orig: 25, 13
+  offset: 0, 0
+  index: -1
+H3_L_Foot
+  rotate: true
+  xy: 58, 33
+  size: 36, 14
+  orig: 36, 14
+  offset: 0, 0
+  index: -1
+H3_L_Hand
+  rotate: true
+  xy: 59, 116
+  size: 38, 33
+  orig: 38, 33
+  offset: 0, 0
+  index: -1
+H3_L_Hand_New
+  rotate: true
+  xy: 203, 183
+  size: 37, 34
+  orig: 37, 34
+  offset: 0, 0
+  index: -1
+H3_L_Knee
+  rotate: false
+  xy: 2, 60
+  size: 27, 32
+  orig: 27, 32
+  offset: 0, 0
+  index: -1
+H3_L_Leg
+  rotate: false
+  xy: 2, 27
+  size: 27, 31
+  orig: 27, 31
+  offset: 0, 0
+  index: -1
+H3_L_Shoulder
+  rotate: false
+  xy: 59, 71
+  size: 27, 43
+  orig: 27, 43
+  offset: 0, 0
+  index: -1
+H3_L_Sleeve
+  rotate: false
+  xy: 126, 129
+  size: 25, 33
+  orig: 25, 33
+  offset: 0, 0
+  index: -1
+H3_Mouth
+  rotate: true
+  xy: 114, 89
+  size: 13, 7
+  orig: 13, 7
+  offset: 0, 0
+  index: -1
+H3_Mouth_A
+  rotate: true
+  xy: 114, 66
+  size: 21, 15
+  orig: 21, 15
+  offset: 0, 0
+  index: -1
+H3_Mouth_O
+  rotate: true
+  xy: 59, 166
+  size: 14, 11
+  orig: 14, 11
+  offset: 0, 0
+  index: -1
+H3_Mouth_W
+  rotate: true
+  xy: 89, 55
+  size: 23, 13
+  orig: 23, 13
+  offset: 0, 0
+  index: -1
+H3_Nose
+  rotate: false
+  xy: 198, 101
+  size: 18, 17
+  orig: 18, 17
+  offset: 0, 0
+  index: -1
+H3_R_Arm
+  rotate: false
+  xy: 31, 49
+  size: 25, 43
+  orig: 25, 43
+  offset: 0, 0
+  index: -1
+H3_R_Eye
+  rotate: false
+  xy: 179, 148
+  size: 17, 19
+  orig: 17, 19
+  offset: 0, 0
+  index: -1
+H3_R_Eye_Top
+  rotate: false
+  xy: 114, 104
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+H3_R_Eyebrow
+  rotate: true
+  xy: 2, 2
+  size: 23, 14
+  orig: 23, 14
+  offset: 0, 0
+  index: -1
+H3_R_Foot
+  rotate: true
+  xy: 31, 15
+  size: 32, 14
+  orig: 32, 14
+  offset: 0, 0
+  index: -1
+H3_R_Hand
+  rotate: false
+  xy: 135, 223
+  size: 33, 31
+  orig: 33, 31
+  offset: 0, 0
+  index: -1
+H3_R_Knee
+  rotate: false
+  xy: 88, 80
+  size: 24, 32
+  orig: 24, 32
+  offset: 0, 0
+  index: -1
+H3_R_Leg
+  rotate: false
+  xy: 153, 136
+  size: 24, 31
+  orig: 24, 31
+  offset: 0, 0
+  index: -1
+H3_R_Shoulder
+  rotate: true
+  xy: 170, 230
+  size: 24, 39
+  orig: 24, 39
+  offset: 0, 0
+  index: -1
+H3_R_Sleeve
+  rotate: false
+  xy: 126, 97
+  size: 25, 30
+  orig: 25, 30
+  offset: 0, 0
+  index: -1

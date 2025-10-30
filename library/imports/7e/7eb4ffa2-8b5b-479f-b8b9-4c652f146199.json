@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cardio",
+    "texture": "e9240772-a534-4578-9dd5-51397241df13",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      197,
+      151
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      200,
+      152
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

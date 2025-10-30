@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "egg nest",
+    "texture": "59123cbf-af11-47d2-86a8-45de84204ffa",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      90,
+      60
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      90,
+      60
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

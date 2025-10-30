@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BG_Nui2712",
+    "texture": "78f1334f-e502-4bd8-9a0c-15893e9cb480",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      8192,
+      8192
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      8192,
+      8192
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

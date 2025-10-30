@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "spear",
+    "texture": "fe385afd-a746-4b05-9813-9e4f7459a6c1",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      107,
+      24
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      109,
+      26
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

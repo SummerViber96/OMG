@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Gun (1)Demio",
+    "texture": "6184645f-4db5-4ce9-beda-2686d431607f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      812,
+      375
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      812,
+      375
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

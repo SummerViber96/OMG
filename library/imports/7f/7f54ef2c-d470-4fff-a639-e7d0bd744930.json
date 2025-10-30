@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Chem_thanhgo",
+    "texture": "fea73787-a35a-42b0-8823-f2da811a5ec2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      65,
+      110
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      65,
+      110
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

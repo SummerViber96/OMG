@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Slides control",
+    "texture": "07e20bbf-f05b-4a11-ada2-213196ae2974",
+    "atlas": "",
+    "rect": [
+      4,
+      4,
+      105,
+      105
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      114,
+      114
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

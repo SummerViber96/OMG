@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cus9",
+    "texture": "b0ab0792-169f-433b-8e6b-36d0aa0d4abb",
+    "atlas": "",
+    "rect": [
+      3,
+      2,
+      515,
+      140
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      520,
+      144
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

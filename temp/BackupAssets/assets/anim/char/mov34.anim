@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "mov34",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 6.033333333333333,
+  "sample": 60,
+  "speed": 0.5,
+  "wrapMode": 2,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            -398.0720416827712,
+            -29,
+            0
+          ]
+        },
+        {
+          "frame": 3,
+          "value": [
+            -1192.261,
+            402.237,
+            0
+          ]
+        },
+        {
+          "frame": 6,
+          "value": [
+            -398,
+            -29,
+            0
+          ]
+        }
+      ],
+      "scaleX": [
+        {
+          "frame": 0,
+          "value": 1.2
+        },
+        {
+          "frame": 2.966666666666667,
+          "value": 1.2
+        },
+        {
+          "frame": 3,
+          "value": -1.2
+        },
+        {
+          "frame": 6,
+          "value": -1.2
+        },
+        {
+          "frame": 6.033333333333333,
+          "value": 1.2
+        }
+      ]
+    }
+  },
+  "events": []
+}

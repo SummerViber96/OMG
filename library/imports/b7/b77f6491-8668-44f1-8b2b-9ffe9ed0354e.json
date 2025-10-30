@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg_icy7",
+    "texture": "bfffa6f6-52b6-4704-a4cf-0ba433d6569b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2048,
+      2048
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2048,
+      2048
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

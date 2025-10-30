@@ -1,0 +1,95 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "khoi.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0001 shot": {
+      "__uuid__": "da2c7899-9cd6-451f-89d8-112c551c7ce5"
+    },
+    "0002 shot": {
+      "__uuid__": "232523ad-aabc-4e2c-8c26-d9817d36671f"
+    },
+    "0003 shot": {
+      "__uuid__": "34ae0e35-7f83-4964-8648-9060f752a3ca"
+    },
+    "0004 shot": {
+      "__uuid__": "8a8c56ea-9c10-4078-b86a-a703de3fbab2"
+    },
+    "0005 shot": {
+      "__uuid__": "2e41338e-8adb-410d-ac51-c0d835250ed6"
+    },
+    "0006 shot": {
+      "__uuid__": "3a2c197b-a5d0-4c82-b2e2-163d7d584a18"
+    },
+    "0007 shot": {
+      "__uuid__": "9c40dfd6-3b1f-4f41-9b3a-6106b9f04c65"
+    },
+    "0008 shot": {
+      "__uuid__": "e6eee597-f87a-4dae-a2b8-e44fcdd8e34f"
+    },
+    "0009 shot": {
+      "__uuid__": "b8e79731-66d3-4980-8f99-8b2be057875e"
+    },
+    "0010 shot": {
+      "__uuid__": "581223bd-1268-4d2f-9ffd-87b205b0b58a"
+    },
+    "0011 shot": {
+      "__uuid__": "e0cc13fb-00a6-4fd2-9d9b-2aff1f5a9730"
+    },
+    "0012 shot": {
+      "__uuid__": "08c72260-b2fd-4fc8-8b1d-cf8246f1e633"
+    },
+    "0013 shot": {
+      "__uuid__": "27e11a3e-50fa-40a3-be80-131727ff7723"
+    },
+    "0014 shot": {
+      "__uuid__": "4c4370a0-0237-42ab-befb-ec53a3a89b60"
+    },
+    "0015 shot": {
+      "__uuid__": "d19e2fa0-663b-495b-950b-8567e0ba69c0"
+    },
+    "0016 shot": {
+      "__uuid__": "7a908032-3dc1-4daa-b817-6b9e05039e1b"
+    },
+    "0017 shot": {
+      "__uuid__": "bb23c682-814a-4fc2-b435-c2b892404ca5"
+    },
+    "0018 shot": {
+      "__uuid__": "cbccc247-868b-400d-9a9e-70f026eafc09"
+    },
+    "0019 shot": {
+      "__uuid__": "5bd875a0-0a9e-4411-bd46-40c485f8dcf0"
+    },
+    "0020 shot": {
+      "__uuid__": "dcb8dda8-8a43-45af-8390-7051cd693c68"
+    },
+    "0021 shot": {
+      "__uuid__": "4cb06015-d577-4df6-adc4-eabaaaf79a2f"
+    },
+    "0022 shot": {
+      "__uuid__": "5ef1486f-da14-478c-bd6a-85324ceaa010"
+    },
+    "0023 shot": {
+      "__uuid__": "58c99411-d00c-42aa-8b3a-8b7c46ab0737"
+    },
+    "0024 shot": {
+      "__uuid__": "9238f2cd-a875-4e08-a2e4-8f78053c481d"
+    },
+    "0025 shot": {
+      "__uuid__": "f7615eb7-a55c-4c19-9296-acb3dffdc617"
+    },
+    "0026 shot": {
+      "__uuid__": "266f35be-7381-4387-aa32-12b9f98a1df5"
+    },
+    "0027 shot": {
+      "__uuid__": "bc0afba6-27c1-4111-bb22-90151b516bb3"
+    },
+    "0028 shot": {
+      "__uuid__": "c892e490-0308-48f6-a902-546ba45434cf"
+    },
+    "0029 shot": {
+      "__uuid__": "5d2d99de-337f-40b5-9200-ff4c12486cd7"
+    }
+  }
+}

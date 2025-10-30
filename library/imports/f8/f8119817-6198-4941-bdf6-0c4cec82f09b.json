@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "UpgradeBot",
+    "texture": "e7df566e-75c7-4a7e-973c-98af640f268e",
+    "atlas": "",
+    "rect": [
+      0,
+      988,
+      2340,
+      192
+    ],
+    "offset": [
+      0,
+      -494
+    ],
+    "originalSize": [
+      2340,
+      1180
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

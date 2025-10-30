@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Machine_MedicineBottle",
+    "texture": "4bf09b89-2910-4e64-b0c2-8e96f48595bc",
+    "atlas": "",
+    "rect": [
+      2,
+      44,
+      503,
+      462
+    ],
+    "offset": [
+      -2.5,
+      -19
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

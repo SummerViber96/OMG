@@ -1,0 +1,356 @@
+
+character_3_sister.png
+size: 1901, 253
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+skin_default/daughter_back/Hair 1
+  rotate: true
+  xy: 1613, 169
+  size: 82, 278
+  orig: 82, 278
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/Hair 2
+  rotate: true
+  xy: 579, 6
+  size: 65, 165
+  orig: 65, 165
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/Hair 4
+  rotate: true
+  xy: 735, 94
+  size: 157, 360
+  orig: 161, 360
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/arm_lower_l
+  rotate: false
+  xy: 1655, 36
+  size: 40, 81
+  orig: 40, 82
+  offset: 0, 1
+  index: -1
+skin_default/daughter_back/arm_lower_lr_walking
+  rotate: false
+  xy: 1230, 9
+  size: 55, 83
+  orig: 55, 84
+  offset: 0, 1
+  index: -1
+skin_default/daughter_back/arm_upper_l
+  rotate: true
+  xy: 1763, 6
+  size: 38, 71
+  orig: 39, 71
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/arm_upper_r_walking
+  rotate: true
+  xy: 265, 2
+  size: 37, 81
+  orig: 72, 98
+  offset: 26, 17
+  index: -1
+skin_default/daughter_back/bf1
+  rotate: true
+  xy: 1434, 6
+  size: 103, 136
+  orig: 105, 155
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/chan1
+  rotate: false
+  xy: 189, 18
+  size: 70, 233
+  orig: 70, 233
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/chan2
+  rotate: false
+  xy: 119, 9
+  size: 68, 242
+  orig: 68, 242
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/feeet_l_walking
+  rotate: true
+  xy: 1780, 120
+  size: 47, 36
+  orig: 47, 36
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/feet_r_walking
+  rotate: true
+  xy: 1792, 63
+  size: 55, 37
+  orig: 55, 37
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/hand_l
+  rotate: true
+  xy: 1655, 5
+  size: 29, 44
+  orig: 29, 44
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/hand_r_walking
+  rotate: false
+  xy: 1741, 120
+  size: 37, 47
+  orig: 37, 47
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/head
+  rotate: false
+  xy: 1572, 11
+  size: 81, 100
+  orig: 82, 100
+  offset: 0, 0
+  index: -1
+skin_default/daughter_back/shoulder
+  rotate: true
+  xy: 1417, 111
+  size: 140, 80
+  orig: 178, 84
+  offset: 0, 4
+  index: -1
+skin_default/daughter_back/skirt
+  rotate: true
+  xy: 1097, 94
+  size: 157, 132
+  orig: 157, 132
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/Layer 69
+  rotate: false
+  xy: 1831, 53
+  size: 26, 44
+  orig: 26, 44
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/Layer 70
+  rotate: true
+  xy: 1836, 147
+  size: 20, 63
+  orig: 20, 63
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/arm_lower_r
+  rotate: false
+  xy: 499, 3
+  size: 26, 68
+  orig: 29, 68
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/arm_upper_r
+  rotate: false
+  xy: 1757, 46
+  size: 33, 72
+  orig: 34, 75
+  offset: 0, 3
+  index: -1
+skin_default/daughter_side/b1
+  rotate: false
+  xy: 1499, 113
+  size: 112, 138
+  orig: 112, 152
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/book_closed
+  rotate: true
+  xy: 403, 3
+  size: 68, 94
+  orig: 77, 94
+  offset: 9, 0
+  index: -1
+skin_default/daughter_side/book_open
+  rotate: true
+  xy: 1231, 105
+  size: 146, 53
+  orig: 146, 53
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/browns
+  rotate: false
+  xy: 1231, 94
+  size: 49, 9
+  orig: 55, 9
+  offset: 3, 0
+  index: -1
+skin_default/daughter_side/c1
+  rotate: false
+  xy: 61, 2
+  size: 56, 249
+  orig: 57, 249
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/c3
+  rotate: false
+  xy: 261, 41
+  size: 77, 210
+  orig: 77, 210
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/c4
+  rotate: false
+  xy: 2, 2
+  size: 57, 249
+  orig: 57, 249
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/ear
+  rotate: true
+  xy: 785, 74
+  size: 18, 25
+  orig: 18, 26
+  offset: 0, 1
+  index: -1
+skin_default/daughter_side/eyes_opened
+  rotate: false
+  xy: 735, 74
+  size: 48, 18
+  orig: 48, 18
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/feeet_r_standing
+  rotate: false
+  xy: 1701, 2
+  size: 60, 36
+  orig: 60, 36
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/feeet_r_walking
+  rotate: false
+  xy: 1836, 99
+  size: 55, 46
+  orig: 55, 46
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/feet_l_walking
+  rotate: false
+  xy: 1647, 119
+  size: 47, 48
+  orig: 47, 50
+  offset: 0, 2
+  index: -1
+skin_default/daughter_side/hair 1
+  rotate: true
+  xy: 1016, 8
+  size: 84, 105
+  orig: 84, 105
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/hair 2
+  rotate: true
+  xy: 886, 5
+  size: 87, 128
+  orig: 93, 128
+  offset: 6, 0
+  index: -1
+skin_default/daughter_side/hair 3
+  rotate: true
+  xy: 746, 2
+  size: 70, 138
+  orig: 72, 138
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/hair_b
+  rotate: true
+  xy: 340, 73
+  size: 178, 393
+  orig: 187, 393
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/hand_l
+  rotate: true
+  xy: 1696, 119
+  size: 48, 43
+  orig: 48, 43
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/hand_l_walking
+  rotate: false
+  xy: 1613, 118
+  size: 32, 49
+  orig: 32, 50
+  offset: 0, 1
+  index: -1
+skin_default/daughter_side/hand_r
+  rotate: true
+  xy: 812, 75
+  size: 17, 39
+  orig: 17, 39
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/head
+  rotate: true
+  xy: 1123, 9
+  size: 83, 105
+  orig: 85, 112
+  offset: 2, 2
+  index: -1
+skin_default/daughter_side/iris
+  rotate: false
+  xy: 222, 3
+  size: 41, 13
+  orig: 43, 13
+  offset: 1, 0
+  index: -1
+skin_default/daughter_side/mouth_laugh
+  rotate: false
+  xy: 853, 77
+  size: 28, 15
+  orig: 28, 15
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/mouth_o
+  rotate: false
+  xy: 1818, 156
+  size: 15, 11
+  orig: 15, 11
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/pap
+  rotate: false
+  xy: 527, 5
+  size: 50, 66
+  orig: 50, 66
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/shoulder
+  rotate: false
+  xy: 1287, 2
+  size: 145, 102
+  orig: 145, 130
+  offset: 0, 19
+  index: -1
+skin_default/daughter_side/tay1
+  rotate: true
+  xy: 348, 2
+  size: 69, 53
+  orig: 69, 53
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/tay2
+  rotate: false
+  xy: 1697, 40
+  size: 58, 77
+  orig: 58, 77
+  offset: 0, 0
+  index: -1
+skin_default/daughter_side/vay
+  rotate: true
+  xy: 1286, 106
+  size: 145, 129
+  orig: 145, 130
+  offset: 0, 1
+  index: -1
+skin_default/shadow
+  rotate: false
+  xy: 189, 2
+  size: 31, 14
+  orig: 33, 14
+  offset: 1, 0
+  index: -1

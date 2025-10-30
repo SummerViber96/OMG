@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Banner_640x100",
+    "texture": "14d86845-b50e-4cda-94a7-0baf7b0928fa",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      640,
+      100
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      640,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

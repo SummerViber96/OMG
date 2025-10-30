@@ -1,0 +1,71 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "vfx_chatGo",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.13333333333333333,
+  "sample": 60,
+  "speed": 0.7,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "icon": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "65bf7ca5-bf83-4809-ab73-f7eb7c8eee31"
+                }
+              },
+              {
+                "frame": 0.016666666666666666,
+                "value": {
+                  "__uuid__": "d7537b00-a843-4da5-8c98-3c6d0c7c2770"
+                }
+              },
+              {
+                "frame": 0.03333333333333333,
+                "value": {
+                  "__uuid__": "72765b4c-d14f-4da8-ac88-4857809dc327"
+                }
+              },
+              {
+                "frame": 0.05,
+                "value": {
+                  "__uuid__": "9ea2d469-9a35-4048-997e-973f473b209e"
+                }
+              },
+              {
+                "frame": 0.06666666666666667,
+                "value": {
+                  "__uuid__": "0a4b5d4e-cee2-448a-9646-64860e2194d1"
+                }
+              },
+              {
+                "frame": 0.08333333333333333,
+                "value": {
+                  "__uuid__": "82b0542a-7321-41b4-a0b0-bdde13c235fc"
+                }
+              },
+              {
+                "frame": 0.1,
+                "value": {
+                  "__uuid__": "e73c246e-3928-49b8-ae10-eb9aedd81460"
+                }
+              },
+              {
+                "frame": 0.11666666666666667,
+                "value": {
+                  "__uuid__": "04c9db89-e830-4222-a4bd-a7869cd55755"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,202 @@
+
+Hero_13.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+13_Arrow
+  rotate: true
+  xy: 237, 194
+  size: 57, 13
+  orig: 57, 13
+  offset: 0, 0
+  index: -1
+13_Atk_Arrow
+  rotate: true
+  xy: 165, 106
+  size: 15, 25
+  orig: 15, 25
+  offset: 0, 0
+  index: -1
+13_Atk_Bow_L
+  rotate: true
+  xy: 135, 151
+  size: 22, 31
+  orig: 22, 31
+  offset: 0, 0
+  index: -1
+13_Atk_Bow_R
+  rotate: false
+  xy: 176, 177
+  size: 14, 28
+  orig: 14, 28
+  offset: 0, 0
+  index: -1
+13_Atk_R_Hand
+  rotate: true
+  xy: 221, 88
+  size: 22, 25
+  orig: 22, 25
+  offset: 0, 0
+  index: -1
+13_Bang
+  rotate: true
+  xy: 227, 112
+  size: 31, 24
+  orig: 31, 24
+  offset: 0, 0
+  index: -1
+13_Body
+  rotate: false
+  xy: 141, 207
+  size: 50, 44
+  orig: 50, 44
+  offset: 0, 0
+  index: -1
+13_Bow
+  rotate: false
+  xy: 193, 187
+  size: 42, 28
+  orig: 42, 28
+  offset: 0, 0
+  index: -1
+13_Cape
+  rotate: false
+  xy: 2, 192
+  size: 71, 59
+  orig: 71, 59
+  offset: 0, 0
+  index: -1
+13_Face_A
+  rotate: false
+  xy: 71, 163
+  size: 30, 23
+  orig: 30, 23
+  offset: 0, 0
+  index: -1
+13_Face_B
+  rotate: false
+  xy: 103, 163
+  size: 30, 23
+  orig: 30, 23
+  offset: 0, 0
+  index: -1
+13_Hair
+  rotate: false
+  xy: 75, 188
+  size: 64, 63
+  orig: 64, 63
+  offset: 0, 0
+  index: -1
+13_Head
+  rotate: true
+  xy: 2, 137
+  size: 53, 67
+  orig: 53, 67
+  offset: 0, 0
+  index: -1
+13_L_Arm
+  rotate: false
+  xy: 146, 100
+  size: 17, 24
+  orig: 17, 24
+  offset: 0, 0
+  index: -1
+13_L_Hand
+  rotate: false
+  xy: 122, 128
+  size: 22, 21
+  orig: 22, 21
+  offset: 0, 0
+  index: -1
+13_L_Knee
+  rotate: true
+  xy: 192, 130
+  size: 26, 33
+  orig: 26, 33
+  offset: 0, 0
+  index: -1
+13_L_Leg
+  rotate: true
+  xy: 71, 140
+  size: 21, 23
+  orig: 21, 23
+  offset: 0, 0
+  index: -1
+13_L_Shoulder
+  rotate: false
+  xy: 168, 123
+  size: 22, 30
+  orig: 22, 30
+  offset: 0, 0
+  index: -1
+13_Pose_Bow
+  rotate: true
+  xy: 237, 145
+  size: 47, 12
+  orig: 47, 12
+  offset: 0, 0
+  index: -1
+13_Pose_L_Arm
+  rotate: true
+  xy: 141, 175
+  size: 30, 33
+  orig: 30, 33
+  offset: 0, 0
+  index: -1
+13_Pose_R_Arm
+  rotate: false
+  xy: 192, 105
+  size: 27, 23
+  orig: 27, 23
+  offset: 0, 0
+  index: -1
+13_Pose_R_Hand
+  rotate: false
+  xy: 96, 141
+  size: 24, 20
+  orig: 24, 20
+  offset: 0, 0
+  index: -1
+13_R_Arm
+  rotate: false
+  xy: 96, 118
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+13_R_Hand
+  rotate: true
+  xy: 146, 126
+  size: 23, 20
+  orig: 23, 20
+  offset: 0, 0
+  index: -1
+13_R_Knee
+  rotate: true
+  xy: 192, 158
+  size: 27, 33
+  orig: 27, 33
+  offset: 0, 0
+  index: -1
+13_R_Leg
+  rotate: true
+  xy: 119, 109
+  size: 17, 25
+  orig: 17, 25
+  offset: 0, 0
+  index: -1
+13_R_Shoulder
+  rotate: false
+  xy: 176, 155
+  size: 14, 20
+  orig: 14, 20
+  offset: 0, 0
+  index: -1
+13_Waist
+  rotate: false
+  xy: 193, 217
+  size: 42, 34
+  orig: 42, 34
+  offset: 0, 0
+  index: -1

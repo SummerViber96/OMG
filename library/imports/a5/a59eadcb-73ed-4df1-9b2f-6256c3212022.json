@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Cut_Machine.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nCut_Machine.png\r\nsize: 512,512\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\n1_Bot\r\n  rotate: true\r\n  xy: 271, 219\r\n  size: 58, 64\r\n  orig: 58, 64\r\n  offset: 0, 0\r\n  index: -1\r\n1_Top\r\n  rotate: false\r\n  xy: 2, 36\r\n  size: 73, 77\r\n  orig: 73, 77\r\n  offset: 0, 0\r\n  index: -1\r\n1_TopTop\r\n  rotate: false\r\n  xy: 77, 93\r\n  size: 20, 20\r\n  orig: 20, 20\r\n  offset: 0, 0\r\n  index: -1\r\n2\r\n  rotate: false\r\n  xy: 271, 279\r\n  size: 66, 58\r\n  orig: 66, 58\r\n  offset: 0, 0\r\n  index: -1\r\n3\r\n  rotate: false\r\n  xy: 259, 85\r\n  size: 69, 122\r\n  orig: 69, 122\r\n  offset: 0, 0\r\n  index: -1\r\n3_Top\r\n  rotate: true\r\n  xy: 77, 66\r\n  size: 25, 19\r\n  orig: 25, 19\r\n  offset: 0, 0\r\n  index: -1\r\n4\r\n  rotate: false\r\n  xy: 2, 245\r\n  size: 137, 92\r\n  orig: 137, 92\r\n  offset: 0, 0\r\n  index: -1\r\nLuoiCuaO\r\n  rotate: false\r\n  xy: 132, 84\r\n  size: 125, 123\r\n  orig: 125, 123\r\n  offset: 0, 0\r\n  index: -1\r\nTia_1\r\n  rotate: false\r\n  xy: 141, 209\r\n  size: 128, 128\r\n  orig: 128, 128\r\n  offset: 0, 0\r\n  index: -1\r\nTia_2\r\n  rotate: false\r\n  xy: 2, 115\r\n  size: 128, 128\r\n  orig: 128, 128\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

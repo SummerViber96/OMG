@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ban-tay",
+    "texture": "4fe49eb7-ae0d-4c5d-ae0b-059aa1f23aa1",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      253,
+      221
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      253,
+      221
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

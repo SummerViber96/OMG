@@ -1,0 +1,59 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "move bang1",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.5,
+  "sample": 60,
+  "speed": 0.5,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "char1": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -457,
+                622,
+                0
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                -256.89,
+                468.384,
+                0
+              ]
+            }
+          ]
+        }
+      },
+      "bawng": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -571,
+                799,
+                0
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                -369.215,
+                642.391,
+                0
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

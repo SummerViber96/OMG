@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "4f9fa619-2807-4809-9a5d-0c74033c7a51",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 331,
+  "height": 234,
+  "platformSettings": {},
+  "subMetas": {
+    "cute-puppy-dog-closeup 3": {
+      "ver": "1.0.4",
+      "uuid": "14eef621-8b04-4811-a3e9-b243dddce989",
+      "rawTextureUuid": "4f9fa619-2807-4809-9a5d-0c74033c7a51",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 2.5,
+      "trimX": 1,
+      "trimY": 32,
+      "width": 329,
+      "height": 165,
+      "rawWidth": 331,
+      "rawHeight": 234,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

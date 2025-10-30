@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ava22",
+    "texture": "64719211-8a52-4ff7-aa17-7802106ca579",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      85,
+      82
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      88,
+      84
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

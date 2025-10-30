@@ -1,0 +1,69 @@
+
+TM.png
+size: 360, 532
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+CardioR
+  rotate: false
+  xy: 117, 163
+  size: 81, 50
+  orig: 81, 52
+  offset: 0, 2
+  index: -1
+TM
+  rotate: false
+  xy: 2, 215
+  size: 197, 155
+  orig: 215, 157
+  offset: 9, 1
+  index: -1
+TM-Lock
+  rotate: true
+  xy: 201, 133
+  size: 196, 142
+  orig: 213, 144
+  offset: 7, 1
+  index: -1
+TM_Busy
+  rotate: false
+  xy: 2, 372
+  size: 197, 156
+  orig: 215, 157
+  offset: 9, 1
+  index: -1
+TM_Busy_F
+  rotate: true
+  xy: 2, 2
+  size: 129, 113
+  orig: 137, 123
+  offset: 3, 5
+  index: -1
+TM_Dirty
+  rotate: true
+  xy: 201, 331
+  size: 197, 156
+  orig: 215, 157
+  offset: 9, 1
+  index: -1
+TM_DirtyThings
+  rotate: false
+  xy: 2, 137
+  size: 83, 76
+  orig: 83, 76
+  offset: 0, 0
+  index: -1
+TM_Dirty_F
+  rotate: true
+  xy: 117, 2
+  size: 129, 113
+  orig: 137, 123
+  offset: 3, 5
+  index: -1
+TM_F
+  rotate: true
+  xy: 232, 2
+  size: 129, 113
+  orig: 137, 123
+  offset: 3, 5
+  index: -1

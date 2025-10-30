@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Rubber_Tree",
+    "texture": "379d54ae-a40a-4ed0-a403-14feffdb9f41",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      237,
+      395
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      237,
+      395
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

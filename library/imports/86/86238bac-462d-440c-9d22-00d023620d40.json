@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "camp_3",
+    "texture": "326a13b2-69c4-447f-855c-66129c9ab9fd",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      469,
+      405
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      469,
+      405
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

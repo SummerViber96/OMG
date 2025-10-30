@@ -1,0 +1,141 @@
+{
+"skeleton": { "hash": "VVEs0YHSShI", "spine": "3.8-from-4.0-from-4.1-from-4.2.43", "x": -98.5, "y": -2.04, "width": 197, "height": 150 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root" },
+	{
+		"name": "RunArea",
+		"parent": "bone",
+		"x": 2.07,
+		"y": 82.86,
+		"scaleY": 2.2707,
+		"shearX": -30.21,
+		"shearY": -58.99
+	},
+	{ "name": "bone2", "parent": "RunArea", "y": -0.76 },
+	{ "name": "TM_F", "parent": "bone", "x": -19.56, "y": 36.86 }
+],
+"slots": [
+	{ "name": "TM", "bone": "bone", "attachment": "TM_Busy" },
+	{ "name": "RunClip", "bone": "bone", "attachment": "RunClip" },
+	{ "name": "CardioR", "bone": "bone2", "attachment": "CardioR2" },
+	{ "name": "ClipGuide", "bone": "bone" },
+	{ "name": "TM_Surface", "bone": "bone", "attachment": "TM_Surface" },
+	{ "name": "TM_F", "bone": "TM_F", "attachment": "TM_F_Busy" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"RunClip": {
+				"RunClip": {
+					"type": "clipping",
+					"end": "ClipGuide",
+					"vertexCount": 7,
+					"vertices": [ -54.89, 79.06, 20.47, 123, 25.25, 123.13, 77.25, 92.47, -0.56, 48.58, -48.83, 77.03, -51.88, 76.1 ]
+				}
+			}
+		}
+	},
+	{
+		"name": "TM_Lv0",
+		"attachments": {
+			"TM": {
+				"TM2": { "name": "TM-Lock", "y": 66.74, "width": 197, "height": 138 }
+			}
+		}
+	},
+	{
+		"name": "TM_Lv1",
+		"attachments": {
+			"CardioR": {
+				"CardioR2": { "name": "CardioR", "width": 81, "height": 52 }
+			},
+			"TM": {
+				"TM2": { "name": "TM", "y": 72.93, "width": 197, "height": 150 },
+				"TM_Busy": { "y": 72.96, "width": 197, "height": 150 },
+				"TM_Dirty": { "y": 72.85, "width": 197, "height": 150 }
+			},
+			"TM_F": {
+				"TM_F_Busy": { "name": "TM_Busy_F", "x": -6.77, "y": 46.95, "width": 112, "height": 111 },
+				"TM_F_Dirty": { "name": "TM_Dirty_F", "x": -7.3, "y": 46.94, "width": 113, "height": 112 },
+				"TM_F2": { "name": "TM_F", "x": -7.47, "y": 47.31, "width": 113, "height": 112 }
+			},
+			"TM_Surface": {
+				"TM_Surface": { "name": "TM_DirtyThings", "x": 25.9, "y": 73.56, "width": 83, "height": 76 }
+			}
+		}
+	}
+],
+"animations": {
+	"Action": {
+		"slots": {
+			"TM": {
+				"attachment": [
+					{ "name": "TM2" }
+				]
+			},
+			"TM_F": {
+				"attachment": [
+					{ "name": "TM_F2" }
+				]
+			},
+			"TM_Surface": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"bone2": {
+				"translate": [
+					{},
+					{ "time": 0.2, "y": 5.15 }
+				]
+			}
+		}
+	},
+	"Busy": {
+		"slots": {
+			"TM_Surface": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	},
+	"Dirty": {
+		"slots": {
+			"TM": {
+				"attachment": [
+					{ "name": "TM_Dirty" }
+				]
+			},
+			"TM_F": {
+				"attachment": [
+					{ "name": "TM_F_Dirty" }
+				]
+			}
+		}
+	},
+	"Idle": {
+		"slots": {
+			"TM": {
+				"attachment": [
+					{ "name": "TM2" }
+				]
+			},
+			"TM_F": {
+				"attachment": [
+					{ "name": "TM_F2" }
+				]
+			},
+			"TM_Surface": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	}
+}
+}

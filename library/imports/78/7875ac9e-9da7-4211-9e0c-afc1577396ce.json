@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Pole-1 lv1",
+    "texture": "d6a7a852-2514-46f8-a8df-cceb0f80a92f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      623,
+      473
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      623,
+      473
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+
+Click-hand.png
+size: 344, 152
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+HandCurso
+  rotate: true
+  xy: 2, 27
+  size: 120, 191
+  orig: 120, 191
+  offset: 0, 0
+  index: -1
+Ring
+  rotate: false
+  xy: 195, 2
+  size: 145, 145
+  orig: 146, 146
+  offset: 1, 1
+  index: -1

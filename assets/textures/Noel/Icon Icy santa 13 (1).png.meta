@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "39344875-57b3-4a6f-ad55-0035d6e0bf6e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 128,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "Icon Icy santa 13 (1)": {
+      "ver": "1.0.4",
+      "uuid": "a31dacc1-be51-44c7-a1dd-47dd876a6160",
+      "rawTextureUuid": "39344875-57b3-4a6f-ad55-0035d6e0bf6e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 128,
+      "height": 128,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

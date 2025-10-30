@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cus10",
+    "texture": "21681b3a-3667-4df9-a2b6-90b5818ab5cb",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      674,
+      108
+    ],
+    "offset": [
+      -1,
+      0
+    ],
+    "originalSize": [
+      680,
+      112
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

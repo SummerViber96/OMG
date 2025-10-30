@@ -1,0 +1,17 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "carrot.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "31003008_1": {
+      "__uuid__": "5a1ebc1a-3a00-4d5f-82b4-bc804a40598d"
+    },
+    "31003008_2": {
+      "__uuid__": "b1e56fd9-9a37-4bc0-94d4-8bcd9de0281c"
+    },
+    "31003008_3": {
+      "__uuid__": "3e2a9f09-7e66-4a35-810d-83915f9c4ed0"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "wood_split.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "Machine_Rip-Attack_2_00": {
+      "__uuid__": "8881c4a6-d8a9-42da-91e8-9e60675e6b57"
+    },
+    "Machine_Rip-Attack_2_01": {
+      "__uuid__": "ef33602f-5330-4f6f-abb4-117bce593160"
+    },
+    "Machine_Rip-Attack_2_02": {
+      "__uuid__": "87101ebb-b877-474a-ab12-53beb0e5969e"
+    },
+    "Machine_Rip-Attack_2_03": {
+      "__uuid__": "7f86e12f-a31b-4f26-a0a5-611029495cb8"
+    },
+    "Machine_Rip-Attack_2_04": {
+      "__uuid__": "00155396-47c6-4ed0-9eac-236a5da5efa7"
+    },
+    "Machine_Rip-Attack_2_05": {
+      "__uuid__": "64055e9b-30a3-479d-9b5a-24194e61398e"
+    },
+    "Machine_Rip-Attack_2_06": {
+      "__uuid__": "3b6ce167-e93c-4a45-ad80-2dd216d605a9"
+    },
+    "Machine_Rip-Attack_2_07": {
+      "__uuid__": "7ffbc53e-f63f-40a6-9085-d8029844b8e8"
+    },
+    "Machine_Rip-Attack_2_08": {
+      "__uuid__": "7dccc561-f76b-4c47-9674-6132bde0a8ce"
+    },
+    "Machine_Rip-Attack_2_09": {
+      "__uuid__": "bfe24598-507b-4641-9172-c6adf0dc5c9b"
+    },
+    "Machine_Rip-Attack_2_10": {
+      "__uuid__": "fec855ce-3d78-4277-8390-a21207c3db42"
+    }
+  }
+}

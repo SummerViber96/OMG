@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Clinic bed",
+    "texture": "3352713e-7da4-42ef-9da5-f1bea579dd20",
+    "atlas": "",
+    "rect": [
+      2,
+      1,
+      380,
+      519
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      384,
+      521
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

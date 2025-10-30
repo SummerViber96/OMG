@@ -1,0 +1,153 @@
+
+Break_Car.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+3_B_Body
+  rotate: false
+  xy: 2, 89
+  size: 508, 437
+  orig: 508, 437
+  offset: 0, 0
+  index: -1
+3_B_K1
+  rotate: false
+  xy: 565, 365
+  size: 233, 217
+  orig: 233, 217
+  offset: 0, 0
+  index: -1
+3_B_K2
+  rotate: true
+  xy: 800, 331
+  size: 233, 217
+  orig: 233, 217
+  offset: 0, 0
+  index: -1
+3_F_1
+  rotate: false
+  xy: 712, 64
+  size: 133, 112
+  orig: 133, 112
+  offset: 0, 0
+  index: -1
+3_F_2
+  rotate: false
+  xy: 512, 67
+  size: 151, 96
+  orig: 151, 96
+  offset: 0, 0
+  index: -1
+3_F_Body
+  rotate: false
+  xy: 2, 528
+  size: 561, 494
+  orig: 561, 494
+  offset: 0, 0
+  index: -1
+3_F_K1
+  rotate: false
+  xy: 565, 804
+  size: 244, 218
+  orig: 244, 218
+  offset: 0, 0
+  index: -1
+3_F_K2
+  rotate: false
+  xy: 565, 584
+  size: 244, 218
+  orig: 244, 218
+  offset: 0, 0
+  index: -1
+B_LS_Wheel
+  rotate: false
+  xy: 811, 795
+  size: 201, 227
+  orig: 201, 227
+  offset: 0, 0
+  index: -1
+B_RS_Wheel
+  rotate: false
+  xy: 811, 795
+  size: 201, 227
+  orig: 201, 227
+  offset: 0, 0
+  index: -1
+B_LS_Wheel_Top
+  rotate: true
+  xy: 984, 289
+  size: 40, 38
+  orig: 40, 38
+  offset: 0, 0
+  index: -1
+B_LT_Wheel_Top
+  rotate: true
+  xy: 984, 289
+  size: 40, 38
+  orig: 40, 38
+  offset: 0, 0
+  index: -1
+B_LT_Wheel
+  rotate: false
+  xy: 712, 178
+  size: 134, 151
+  orig: 134, 151
+  offset: 0, 0
+  index: -1
+B_RT_Wheel
+  rotate: false
+  xy: 712, 178
+  size: 134, 151
+  orig: 134, 151
+  offset: 0, 0
+  index: -1
+F_LS_Wheel
+  rotate: false
+  xy: 811, 566
+  size: 201, 227
+  orig: 201, 227
+  offset: 0, 0
+  index: -1
+F_RS_Wheel
+  rotate: false
+  xy: 811, 566
+  size: 201, 227
+  orig: 201, 227
+  offset: 0, 0
+  index: -1
+F_LS_Wheel_Top
+  rotate: true
+  xy: 984, 247
+  size: 40, 38
+  orig: 40, 38
+  offset: 0, 0
+  index: -1
+F_LT_Wheel_Top
+  rotate: true
+  xy: 984, 247
+  size: 40, 38
+  orig: 40, 38
+  offset: 0, 0
+  index: -1
+F_LT_Wheel
+  rotate: false
+  xy: 848, 178
+  size: 134, 151
+  orig: 134, 151
+  offset: 0, 0
+  index: -1
+F_RT_Wheel
+  rotate: false
+  xy: 848, 178
+  size: 134, 151
+  orig: 134, 151
+  offset: 0, 0
+  index: -1
+Wheel
+  rotate: false
+  xy: 512, 165
+  size: 198, 198
+  orig: 198, 198
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Fence copy 8",
+    "texture": "e029bd3d-6a48-4e37-bdb7-bdc80041f657",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1067,
+      1013
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1067,
+      1013
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

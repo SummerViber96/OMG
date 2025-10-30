@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dolom",
+    "texture": "82e303b2-0ab7-4fc1-9c21-b0c680ffd841",
+    "atlas": "",
+    "rect": [
+      3,
+      5,
+      64,
+      65
+    ],
+    "offset": [
+      -1,
+      0.5
+    ],
+    "originalSize": [
+      72,
+      76
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

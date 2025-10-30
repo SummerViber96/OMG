@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "level up",
+    "texture": "0a5f0567-a866-4e79-ba57-98941edb5b49",
+    "atlas": "",
+    "rect": [
+      0,
+      101,
+      2340,
+      1079
+    ],
+    "offset": [
+      0,
+      -50.5
+    ],
+    "originalSize": [
+      2340,
+      1180
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

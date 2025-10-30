@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "River copyGrid",
+    "texture": "19787427-390f-476a-ab27-5d3f45466421",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      1124,
+      815
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      1124,
+      816
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

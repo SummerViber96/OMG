@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cay",
+    "texture": "da490470-4293-45dc-b166-98bd7a34a6ed",
+    "atlas": "",
+    "rect": [
+      852,
+      405,
+      175,
+      270
+    ],
+    "offset": [
+      -20.5,
+      0
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

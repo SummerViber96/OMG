@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "construction_leaffence01",
+    "texture": "ba6bfb56-47eb-42d6-8f2c-2dfe59930f05",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      339,
+      329
+    ],
+    "offset": [
+      -85.5,
+      90.5
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

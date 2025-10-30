@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icy_GG_23 (1)",
+    "texture": "d2b6c288-aa49-48f1-a4ae-a4165e256c3d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      111,
+      120
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      111,
+      120
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

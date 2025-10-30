@@ -1,0 +1,32 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "vfx_chatGo.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0001 shot (Copy)": {
+      "__uuid__": "65bf7ca5-bf83-4809-ab73-f7eb7c8eee31"
+    },
+    "0002 shot (Copy)": {
+      "__uuid__": "d7537b00-a843-4da5-8c98-3c6d0c7c2770"
+    },
+    "0003 shot (Copy)": {
+      "__uuid__": "72765b4c-d14f-4da8-ac88-4857809dc327"
+    },
+    "0004 shot (Copy)": {
+      "__uuid__": "9ea2d469-9a35-4048-997e-973f473b209e"
+    },
+    "0005 shot (Copy)": {
+      "__uuid__": "0a4b5d4e-cee2-448a-9646-64860e2194d1"
+    },
+    "0006 shot (Copy)": {
+      "__uuid__": "82b0542a-7321-41b4-a0b0-bdde13c235fc"
+    },
+    "0007 shot (Copy)": {
+      "__uuid__": "e73c246e-3928-49b8-ae10-eb9aedd81460"
+    },
+    "0008 shot (Copy)": {
+      "__uuid__": "04c9db89-e830-4222-a4bd-a7869cd55755"
+    }
+  }
+}

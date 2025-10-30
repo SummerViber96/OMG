@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Order6",
+    "texture": "af7d045e-8e5f-4577-ab71-d3d62cd84112",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      31,
+      68
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      32,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

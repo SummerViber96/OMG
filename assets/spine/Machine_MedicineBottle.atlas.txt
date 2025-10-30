@@ -1,0 +1,90 @@
+
+Machine_MedicineBottle.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_Pot
+  rotate: true
+  xy: 2, 165
+  size: 106, 89
+  orig: 106, 89
+  offset: 0, 0
+  index: -1
+2_Pot
+  rotate: false
+  xy: 392, 276
+  size: 114, 100
+  orig: 114, 100
+  offset: 0, 0
+  index: -1
+3_Pot
+  rotate: true
+  xy: 392, 154
+  size: 120, 107
+  orig: 120, 107
+  offset: 0, 0
+  index: -1
+F1
+  rotate: false
+  xy: 304, 378
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F2
+  rotate: false
+  xy: 2, 273
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F3
+  rotate: false
+  xy: 132, 273
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F4
+  rotate: false
+  xy: 262, 248
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F5
+  rotate: false
+  xy: 2, 24
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F6
+  rotate: false
+  xy: 132, 143
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+F7
+  rotate: false
+  xy: 262, 118
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Grill_NofireXXX
+  rotate: false
+  xy: 2, 403
+  size: 149, 103
+  orig: 149, 103
+  offset: 0, 0
+  index: -1
+Grill_Nofire_OffXXX
+  rotate: false
+  xy: 153, 403
+  size: 149, 103
+  orig: 149, 103
+  offset: 0, 0
+  index: -1

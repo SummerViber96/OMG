@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Card All_IMG (8)",
+    "texture": "d8f07d44-a03a-498e-afb5-024ecc59f315",
+    "atlas": "",
+    "rect": [
+      10,
+      10,
+      487,
+      447
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      507,
+      468
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

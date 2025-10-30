@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BMILvl0",
+    "texture": "aedb566a-4def-4671-887a-0f5bdf2636a9",
+    "atlas": "",
+    "rect": [
+      2,
+      0,
+      223,
+      135
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      228,
+      136
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

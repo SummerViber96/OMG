@@ -1,0 +1,17 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "tomato.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "31003003_1": {
+      "__uuid__": "5347e956-df00-4ecb-851e-a9f55d7ca48e"
+    },
+    "31003003_2": {
+      "__uuid__": "fb2ef119-6a19-4061-9e30-a264dd7df189"
+    },
+    "31003003_3": {
+      "__uuid__": "7cf66f40-6ae3-42f2-a27b-7e84167bd695"
+    }
+  }
+}

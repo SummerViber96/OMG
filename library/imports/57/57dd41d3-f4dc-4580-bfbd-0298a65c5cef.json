@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cus1",
+    "texture": "8ba5baf6-1ded-499b-9411-f603560972f8",
+    "atlas": "",
+    "rect": [
+      3,
+      2,
+      595,
+      140
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      600,
+      144
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

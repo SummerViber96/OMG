@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tải-xuống---2024-03-25T092525_02",
+    "texture": "bab8c162-70e9-49a6-af13-fd5204a22b5a",
+    "atlas": "525ef0c0-82bc-4079-8610-26f0acd54011",
+    "rect": [
+      1,
+      1,
+      305,
+      306
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      305,
+      306
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

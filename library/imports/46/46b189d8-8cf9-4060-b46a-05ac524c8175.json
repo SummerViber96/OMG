@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "thanh-2",
+    "texture": "a5b4aac1-a6d6-4f1a-8cd8-7ca8d83fb76a",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      1325,
+      129
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      1328,
+      132
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

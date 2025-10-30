@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "SplashAnim_UI-Idle_000 (1) (1) (1)",
+    "texture": "68646e3a-e261-4db9-b0aa-ac06964a25df",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1171,
+      1936
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1171,
+      1936
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Group 532",
+    "texture": "34a83200-3586-4636-9dbc-85242da50c80",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      1683,
+      1160
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      1685,
+      1161
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "ca657647-0f62-4f1c-a366-6ec3bf47dace",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 138,
+  "height": 956,
+  "platformSettings": {},
+  "subMetas": {
+    "Icy_nhiet_ke3_T": {
+      "ver": "1.0.4",
+      "uuid": "29b9ce48-1463-4bee-92d8-3b098c26f56b",
+      "rawTextureUuid": "ca657647-0f62-4f1c-a366-6ec3bf47dace",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -1,
+      "trimX": 0,
+      "trimY": 2,
+      "width": 138,
+      "height": 954,
+      "rawWidth": 138,
+      "rawHeight": 956,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

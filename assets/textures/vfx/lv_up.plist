@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>0001 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{257,771},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0002 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{771,514},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0003 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{771,257},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0004 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{771,0},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0005 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{514,771},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0006 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{514,514},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0007 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{514,257},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0008 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{514,0},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0009 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{771,771},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0010 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{257,514},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0011 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{257,257},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0012 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{257,0},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0013 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,771},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0014 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,514},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0015 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,257},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+			<key>0016 shot.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{256,256}}</string>
+				<key>sourceSize</key>
+				<string>{256,256}</string>
+			</dict>
+
+		</dict>
+
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>size</key>
+			<string>{1028,1028}</string>
+			<key>textureFileName</key>
+			<string>lv_up.png</string>
+			</dict>
+		</dict>
+</plist>

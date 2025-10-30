@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Stomach",
+    "texture": "26a9eacb-b74a-4efa-b2cb-23d4957b5160",
+    "atlas": "",
+    "rect": [
+      20,
+      18,
+      60,
+      63
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      100,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

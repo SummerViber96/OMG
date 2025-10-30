@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "TM_Busy_F",
+    "texture": "bfcf4969-80f7-4403-8a35-e8c7778c2fe8",
+    "atlas": "",
+    "rect": [
+      3,
+      5,
+      129,
+      113
+    ],
+    "offset": [
+      -1,
+      0
+    ],
+    "originalSize": [
+      137,
+      123
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

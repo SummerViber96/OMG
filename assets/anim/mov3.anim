@@ -1,0 +1,56 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "mov3",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.75,
+  "sample": 60,
+  "speed": 0.4,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            264,
+            149
+          ],
+          "motionPath": [
+            [
+              429,
+              337,
+              473,
+              251,
+              391,
+              412
+            ],
+            [
+              -202,
+              706,
+              -102,
+              597,
+              -370,
+              889
+            ]
+          ]
+        },
+        {
+          "frame": 0.75,
+          "value": [
+            -160,
+            994
+          ],
+          "motionPath": []
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 0.75,
+      "func": "idle2",
+      "params": []
+    }
+  ]
+}

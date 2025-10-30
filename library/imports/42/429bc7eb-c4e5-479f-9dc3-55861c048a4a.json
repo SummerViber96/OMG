@@ -1,0 +1,56 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "skill_11_impact.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0001 shot": {
+      "__uuid__": "7d7fb6bf-296e-4c6c-bca2-f76fc816631f"
+    },
+    "0002 shot": {
+      "__uuid__": "cb7f9bee-d9d0-4ec9-a6cd-d57531c64ede"
+    },
+    "0003 shot": {
+      "__uuid__": "f2083642-5c0d-4d54-a072-2fab80c84727"
+    },
+    "0004 shot": {
+      "__uuid__": "c333fa57-671f-4772-8d91-ebebb5c6d1fe"
+    },
+    "0005 shot": {
+      "__uuid__": "142e4b89-0273-47a4-89d6-37bf6d7a7f99"
+    },
+    "0006 shot": {
+      "__uuid__": "2b5a43c8-02fb-490f-b18b-e9838ce72a30"
+    },
+    "0007 shot": {
+      "__uuid__": "53e69cd2-f6ad-4770-a07c-347f56592cd4"
+    },
+    "0008 shot": {
+      "__uuid__": "f033aba5-aa1c-4d02-a727-ecc0087d3e7c"
+    },
+    "0009 shot": {
+      "__uuid__": "cc1580b1-ba15-4c3a-8c8a-eaf6da52b17a"
+    },
+    "0010 shot": {
+      "__uuid__": "1e9f92a5-745a-436b-ae45-2ed4e4b87a39"
+    },
+    "0011 shot": {
+      "__uuid__": "75f1b87a-559c-4a3b-85f9-9f772513a421"
+    },
+    "0012 shot": {
+      "__uuid__": "87792479-a7a4-48e8-97b7-eb223e35f44b"
+    },
+    "0013 shot": {
+      "__uuid__": "b7801095-dfbd-4972-a8d9-7a4b0adaacb2"
+    },
+    "0014 shot": {
+      "__uuid__": "709e7442-038f-4df1-89db-3b040e0dde3e"
+    },
+    "0015 shot": {
+      "__uuid__": "f8289061-4e30-432a-8d70-8c14af2363d6"
+    },
+    "0016 shot": {
+      "__uuid__": "c7535f26-80f2-4020-b977-d54856a3f908"
+    }
+  }
+}

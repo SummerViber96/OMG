@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bang_chuyen",
+    "texture": "850e926f-6026-4723-9a0e-cfc67401e960",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      353,
+      222
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      353,
+      222
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

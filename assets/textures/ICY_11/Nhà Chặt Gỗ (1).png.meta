@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "8cf847f0-c114-40c0-b321-82dd8ce08e05",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 448,
+  "height": 273,
+  "platformSettings": {},
+  "subMetas": {
+    "Nhà Chặt Gỗ (1)": {
+      "ver": "1.0.4",
+      "uuid": "efee12e0-8d91-4c1d-8849-d0afcc0974d6",
+      "rawTextureUuid": "8cf847f0-c114-40c0-b321-82dd8ce08e05",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 448,
+      "height": 273,
+      "rawWidth": 448,
+      "rawHeight": 273,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

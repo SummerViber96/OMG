@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Waiter_Christmas",
+    "texture": "4e1964c9-5492-43b2-90c1-b3f4961417cb",
+    "atlas": "",
+    "rect": [
+      2,
+      108,
+      502,
+      397
+    ],
+    "offset": [
+      -3,
+      -50.5
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

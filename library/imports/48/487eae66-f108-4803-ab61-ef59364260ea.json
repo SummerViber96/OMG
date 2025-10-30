@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ban le tan",
+    "texture": "801e7c96-72de-4222-935b-e450e145a7e0",
+    "atlas": "",
+    "rect": [
+      679,
+      279,
+      616,
+      490
+    ],
+    "offset": [
+      27,
+      16
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

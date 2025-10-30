@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BMI",
+    "texture": "b7de9c0f-f029-4bbd-a511-36c0721914c6",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      224,
+      271
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      224,
+      271
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

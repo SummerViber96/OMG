@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "thanh go",
+    "texture": "47278047-1260-4013-b51d-bb7acb62f581",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      924,
+      720
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      924,
+      720
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

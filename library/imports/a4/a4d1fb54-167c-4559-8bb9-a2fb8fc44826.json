@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "DOWLOAD",
+    "texture": "8ae70124-92e5-4977-9663-ac1adf1aa0b1",
+    "atlas": "",
+    "rect": [
+      738,
+      442,
+      471,
+      143
+    ],
+    "offset": [
+      13.5,
+      26.5
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

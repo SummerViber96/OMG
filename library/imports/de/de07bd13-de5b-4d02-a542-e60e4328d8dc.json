@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Bartender",
+    "texture": "186f5c74-a17f-4be9-a568-d2cf19b11658",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      523,
+      76
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      528,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

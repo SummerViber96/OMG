@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cutting house",
+    "texture": "c7e547e1-0b5a-44db-b666-46ede4f75a7d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      259,
+      267
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      259,
+      267
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "e6bdf456-4eff-4f15-b8b1-da1e161063e1",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 259,
+  "height": 266,
+  "platformSettings": {},
+  "subMetas": {
+    "ChatGo": {
+      "ver": "1.0.4",
+      "uuid": "d29fa149-f878-45c8-8035-987f92b75c6a",
+      "rawTextureUuid": "e6bdf456-4eff-4f15-b8b1-da1e161063e1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 259,
+      "height": 266,
+      "rawWidth": 259,
+      "rawHeight": 266,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

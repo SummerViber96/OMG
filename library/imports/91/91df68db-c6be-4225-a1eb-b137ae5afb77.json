@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "NV_02",
+    "texture": "2ccc9ca5-ab95-43ab-851c-897e235a3882",
+    "atlas": "",
+    "rect": [
+      2,
+      134,
+      507,
+      376
+    ],
+    "offset": [
+      -0.5,
+      -66
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

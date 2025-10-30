@@ -1,0 +1,21 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "skeleton",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_skeletonJson": null,
+  "_atlasText": "\nskeleton.png\nsize: 952,820\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nGun 35\n  rotate: false\n  xy: 2, 410\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 36\n  rotate: false\n  xy: 2, 2\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 37\n  rotate: false\n  xy: 192, 410\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 38\n  rotate: false\n  xy: 192, 2\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 39\n  rotate: false\n  xy: 382, 410\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 40\n  rotate: false\n  xy: 382, 2\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 41\n  rotate: false\n  xy: 572, 410\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 42\n  rotate: false\n  xy: 572, 2\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 43\n  rotate: false\n  xy: 762, 410\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 44\n  rotate: false\n  xy: 762, 2\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\n\nskeleton2.png\nsize: 572,820\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nGun 45\n  rotate: false\n  xy: 2, 410\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 46\n  rotate: false\n  xy: 2, 2\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 47\n  rotate: false\n  xy: 192, 410\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 48\n  rotate: false\n  xy: 192, 2\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 49\n  rotate: false\n  xy: 382, 410\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\nGun 50\n  rotate: false\n  xy: 382, 2\n  size: 188, 406\n  orig: 188, 406\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "802bf2d6-7026-4c3a-99de-28dba493b8a0"
+    },
+    {
+      "__uuid__": "6f6f26ae-c167-412a-b3db-3a90c805a327"
+    }
+  ],
+  "textureNames": [
+    "skeleton.png",
+    "skeleton2.png"
+  ],
+  "scale": 1
+}

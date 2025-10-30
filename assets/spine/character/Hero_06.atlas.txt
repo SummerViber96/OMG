@@ -1,0 +1,209 @@
+
+Hero_06.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+H6_Body
+  rotate: false
+  xy: 311, 435
+  size: 77, 74
+  orig: 77, 74
+  offset: 0, 0
+  index: -1
+H6_Coat
+  rotate: false
+  xy: 390, 451
+  size: 94, 58
+  orig: 94, 58
+  offset: 0, 0
+  index: -1
+H6_CoatBot
+  rotate: false
+  xy: 2, 392
+  size: 127, 117
+  orig: 127, 117
+  offset: 0, 0
+  index: -1
+H6_Hair
+  rotate: false
+  xy: 189, 423
+  size: 46, 42
+  orig: 46, 42
+  offset: 0, 0
+  index: -1
+H6_Head
+  rotate: true
+  xy: 390, 389
+  size: 60, 84
+  orig: 60, 84
+  offset: 0, 0
+  index: -1
+H6_L_Arm
+  rotate: false
+  xy: 476, 369
+  size: 29, 45
+  orig: 29, 45
+  offset: 0, 0
+  index: -1
+H6_L_Ear
+  rotate: true
+  xy: 299, 369
+  size: 13, 18
+  orig: 13, 18
+  offset: 0, 0
+  index: -1
+H6_L_Eye
+  rotate: true
+  xy: 286, 446
+  size: 19, 23
+  orig: 19, 23
+  offset: 0, 0
+  index: -1
+H6_L_EyeB
+  rotate: true
+  xy: 286, 425
+  size: 19, 23
+  orig: 19, 23
+  offset: 0, 0
+  index: -1
+H6_L_Foot
+  rotate: false
+  xy: 229, 377
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+H6_L_Hand
+  rotate: false
+  xy: 189, 385
+  size: 38, 36
+  orig: 38, 36
+  offset: 0, 0
+  index: -1
+H6_L_Knee
+  rotate: false
+  xy: 483, 416
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+H6_L_Leg
+  rotate: false
+  xy: 486, 478
+  size: 21, 31
+  orig: 21, 31
+  offset: 0, 0
+  index: -1
+H6_L_Shoulder
+  rotate: true
+  xy: 237, 429
+  size: 36, 47
+  orig: 36, 47
+  offset: 0, 0
+  index: -1
+H6_Mouth
+  rotate: true
+  xy: 476, 426
+  size: 23, 5
+  orig: 23, 5
+  offset: 0, 0
+  index: -1
+H6_Mouth_A
+  rotate: true
+  xy: 486, 450
+  size: 26, 19
+  orig: 26, 19
+  offset: 0, 0
+  index: -1
+H6_Mouth_O
+  rotate: true
+  xy: 176, 410
+  size: 14, 11
+  orig: 14, 11
+  offset: 0, 0
+  index: -1
+H6_Mouth_W
+  rotate: false
+  xy: 311, 384
+  size: 27, 15
+  orig: 27, 15
+  offset: 0, 0
+  index: -1
+H6_Nose
+  rotate: false
+  xy: 281, 367
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+H6_R_Arm
+  rotate: false
+  xy: 311, 401
+  size: 39, 32
+  orig: 39, 32
+  offset: 0, 0
+  index: -1
+H6_R_Eye
+  rotate: true
+  xy: 286, 405
+  size: 18, 23
+  orig: 18, 23
+  offset: 0, 0
+  index: -1
+H6_R_EyeB
+  rotate: true
+  xy: 286, 385
+  size: 18, 23
+  orig: 18, 23
+  offset: 0, 0
+  index: -1
+H6_R_Foot
+  rotate: false
+  xy: 255, 377
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+H6_R_Hand
+  rotate: true
+  xy: 131, 384
+  size: 40, 43
+  orig: 40, 43
+  offset: 0, 0
+  index: -1
+H6_R_Knee
+  rotate: true
+  xy: 352, 408
+  size: 25, 33
+  orig: 25, 33
+  offset: 0, 0
+  index: -1
+H6_R_Leg
+  rotate: true
+  xy: 352, 380
+  size: 26, 29
+  orig: 26, 29
+  offset: 0, 0
+  index: -1
+H6_R_Shoulder
+  rotate: true
+  xy: 237, 392
+  size: 35, 47
+  orig: 35, 47
+  offset: 0, 0
+  index: -1
+H6_Skirt
+  rotate: false
+  xy: 131, 426
+  size: 56, 39
+  orig: 56, 39
+  offset: 0, 0
+  index: -1
+H6_Spear
+  rotate: true
+  xy: 131, 467
+  size: 42, 178
+  orig: 42, 178
+  offset: 0, 0
+  index: -1

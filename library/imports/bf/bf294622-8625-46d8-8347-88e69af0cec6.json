@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Machine_RipTree",
+    "texture": "16e8aa3c-898c-4f92-b806-3b3bcf992f49",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      477,
+      502
+    ],
+    "offset": [
+      -15.5,
+      3
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,321 @@
+
+Windmill2_spine.png
+size: 933, 284
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+Layer 126 copy 3
+  rotate: false
+  xy: 399, 27
+  size: 72, 44
+  orig: 73, 46
+  offset: 0, 0
+  index: -1
+base
+  rotate: false
+  xy: 2, 8
+  size: 297, 274
+  orig: 300, 275
+  offset: 2, 1
+  index: -1
+gear_face
+  rotate: false
+  xy: 545, 17
+  size: 56, 56
+  orig: 56, 56
+  offset: 0, 0
+  index: -1
+mill_face
+  rotate: false
+  xy: 660, 156
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+mill_face2
+  rotate: false
+  xy: 481, 104
+  size: 177, 178
+  orig: 177, 178
+  offset: 0, 0
+  index: -1
+pipe
+  rotate: true
+  xy: 431, 2
+  size: 23, 19
+  orig: 23, 19
+  offset: 0, 0
+  index: -1
+pole middle
+  rotate: true
+  xy: 473, 30
+  size: 41, 70
+  orig: 41, 70
+  offset: 0, 0
+  index: -1
+pole2
+  rotate: false
+  xy: 301, 6
+  size: 96, 65
+  orig: 98, 65
+  offset: 0, 0
+  index: -1
+pole_1
+  rotate: true
+  xy: 603, 4
+  size: 69, 37
+  orig: 69, 37
+  offset: 0, 0
+  index: -1
+powder/0
+  rotate: true
+  xy: 481, 75
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/1
+  rotate: true
+  xy: 547, 75
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/10
+  rotate: true
+  xy: 613, 75
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/11
+  rotate: false
+  xy: 642, 9
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/12
+  rotate: false
+  xy: 671, 9
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/13
+  rotate: true
+  xy: 660, 127
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/14
+  rotate: true
+  xy: 679, 98
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/15
+  rotate: true
+  xy: 726, 127
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/16
+  rotate: false
+  xy: 788, 218
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/17
+  rotate: true
+  xy: 788, 189
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/18
+  rotate: true
+  xy: 788, 160
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/19
+  rotate: false
+  xy: 817, 218
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/2
+  rotate: false
+  xy: 846, 218
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/20
+  rotate: false
+  xy: 875, 218
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/21
+  rotate: false
+  xy: 904, 218
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/22
+  rotate: true
+  xy: 854, 189
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/23
+  rotate: true
+  xy: 854, 160
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/24
+  rotate: false
+  xy: 700, 32
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/25
+  rotate: true
+  xy: 700, 3
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/26
+  rotate: false
+  xy: 729, 32
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/27
+  rotate: true
+  xy: 745, 98
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/28
+  rotate: true
+  xy: 792, 131
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/29
+  rotate: false
+  xy: 758, 32
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/3
+  rotate: true
+  xy: 766, 3
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/4
+  rotate: false
+  xy: 787, 32
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/5
+  rotate: true
+  xy: 811, 102
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/6
+  rotate: true
+  xy: 858, 131
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/7
+  rotate: false
+  xy: 877, 65
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/8
+  rotate: true
+  xy: 816, 36
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+powder/9
+  rotate: true
+  xy: 832, 7
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+power
+  rotate: false
+  xy: 452, 11
+  size: 28, 14
+  orig: 28, 14
+  offset: 0, 0
+  index: -1
+roof
+  rotate: true
+  xy: 301, 73
+  size: 209, 178
+  orig: 210, 178
+  offset: 1, 0
+  index: -1
+wheel_core
+  rotate: false
+  xy: 816, 71
+  size: 28, 29
+  orig: 30, 30
+  offset: 1, 1
+  index: -1
+wheel_core_face
+  rotate: false
+  xy: 846, 72
+  size: 29, 28
+  orig: 30, 29
+  offset: 1, 1
+  index: -1
+wheel_core_face_shadow
+  rotate: false
+  xy: 482, 8
+  size: 19, 20
+  orig: 21, 21
+  offset: 1, 0
+  index: -1
+wheel_decor
+  rotate: false
+  xy: 399, 7
+  size: 30, 18
+  orig: 30, 18
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,17 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "corn.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "31003002_1": {
+      "__uuid__": "87c23897-8fdd-4a9b-8d88-5e204ccb727e"
+    },
+    "31003002_2": {
+      "__uuid__": "53ddab8e-daa2-4f36-9a9b-16d861fd0f45"
+    },
+    "31003002_3": {
+      "__uuid__": "7fb3c092-e2bf-48b3-9ade-df5602bbde21"
+    }
+  }
+}

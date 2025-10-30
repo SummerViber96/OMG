@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "text",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "paths": {
+      "New Label": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0,
+              "value": 3
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": -5
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 3
+            }
+          ]
+        }
+      }
+    },
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            -150.432,
+            69.433,
+            0
+          ]
+        },
+        {
+          "frame": 0.3333333333333333,
+          "value": [
+            -163.537,
+            78.794,
+            0
+          ]
+        },
+        {
+          "frame": 0.6666666666666666,
+          "value": [
+            -150,
+            69,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "events": []
+}

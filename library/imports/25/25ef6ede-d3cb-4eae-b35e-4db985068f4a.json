@@ -1,0 +1,5083 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "NvLeTan",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "6TwCBa1bi7U",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2.43",
+      "x": -46.77,
+      "y": 0.18,
+      "width": 84.51,
+      "height": 190.11
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "Front",
+        "parent": "root"
+      },
+      {
+        "name": "F_BodyLow",
+        "parent": "Front",
+        "length": 19.59,
+        "rotation": 58.57,
+        "x": -8.52,
+        "y": 67.73
+      },
+      {
+        "name": "F_BodyUp",
+        "parent": "F_BodyLow",
+        "length": 33.82,
+        "rotation": 37.74,
+        "x": 20.66,
+        "y": 1.09
+      },
+      {
+        "name": "F_Head",
+        "parent": "F_BodyUp",
+        "length": 64.2,
+        "rotation": 16.25,
+        "x": 28.72,
+        "y": 0.64,
+        "transform": "noScale"
+      },
+      {
+        "name": "F_ShR",
+        "parent": "F_BodyUp",
+        "x": 14.81,
+        "y": 15.86,
+        "transform": "noScale"
+      },
+      {
+        "name": "F_ShR1",
+        "parent": "F_ShR",
+        "length": 19.92,
+        "rotation": 155.14,
+        "x": -0.03,
+        "y": 0.17
+      },
+      {
+        "name": "F_ArmR",
+        "parent": "F_ShR1",
+        "length": 22.89,
+        "rotation": 16.76,
+        "x": 19.57,
+        "y": -0.21,
+        "transform": "noScale"
+      },
+      {
+        "name": "F_HandR",
+        "parent": "F_ArmR",
+        "length": 7.41,
+        "rotation": 20.59,
+        "x": 22.48,
+        "y": -0.24,
+        "scaleX": 0.9,
+        "scaleY": 0.9,
+        "transform": "noScale"
+      },
+      {
+        "name": "F_ShL",
+        "parent": "F_BodyUp",
+        "x": 14.48,
+        "y": -9.68,
+        "transform": "noScale"
+      },
+      {
+        "name": "F_ShL1",
+        "parent": "F_ShL",
+        "length": 18.47,
+        "rotation": -179.39,
+        "x": 0.11,
+        "y": 0.13
+      },
+      {
+        "name": "F_ArmL",
+        "parent": "F_ShL1",
+        "length": 20.73,
+        "rotation": 20.82,
+        "x": 18.35,
+        "y": -0.1,
+        "transform": "noScale"
+      },
+      {
+        "name": "F_HandL",
+        "parent": "F_ArmL",
+        "length": 6.81,
+        "rotation": 5.26,
+        "x": 20.58,
+        "y": 0.19,
+        "scaleX": 0.9,
+        "scaleY": 0.9,
+        "transform": "noScale"
+      },
+      {
+        "name": "F_LegR",
+        "parent": "F_BodyLow",
+        "rotation": 12.32,
+        "x": -1.82,
+        "y": -0.56
+      },
+      {
+        "name": "F_LegUpR",
+        "parent": "F_LegR",
+        "length": 30.31,
+        "rotation": -150.15,
+        "x": -0.09,
+        "y": 0.28
+      },
+      {
+        "name": "F_LegLowR",
+        "parent": "F_LegUpR",
+        "length": 25.6,
+        "rotation": -22.32,
+        "x": 29.37,
+        "y": -0.23
+      },
+      {
+        "name": "F_LegL",
+        "parent": "F_BodyLow",
+        "rotation": 12.32,
+        "x": 9.96,
+        "y": -11.72
+      },
+      {
+        "name": "F_LegUpL",
+        "parent": "F_LegL",
+        "length": 28.7,
+        "rotation": -157.37,
+        "x": 0.2,
+        "y": 0.2
+      },
+      {
+        "name": "F_LegLowL",
+        "parent": "F_LegUpL",
+        "length": 25.8,
+        "rotation": -18.07,
+        "x": 28.45,
+        "y": -0.2
+      },
+      {
+        "name": "F_FootL",
+        "parent": "F_LegLowL",
+        "length": 14.23,
+        "rotation": 76.91,
+        "x": 25.42,
+        "y": 0.03,
+        "transform": "noScale"
+      },
+      {
+        "name": "F_FootR",
+        "parent": "F_LegLowR",
+        "length": 15.61,
+        "rotation": 73.91,
+        "x": 25.92,
+        "y": -0.12,
+        "transform": "noScale"
+      },
+      {
+        "name": "F_EyebrowL",
+        "parent": "F_Head",
+        "length": 5.84,
+        "rotation": -89.95,
+        "x": 26.87,
+        "y": -24.76
+      },
+      {
+        "name": "F_EyebrowL2",
+        "parent": "F_EyebrowL",
+        "length": 6.22,
+        "rotation": -44.71,
+        "x": 5.84
+      },
+      {
+        "name": "F_EyebrowR",
+        "parent": "F_Head",
+        "length": 8.28,
+        "rotation": 68.21,
+        "x": 32.47,
+        "y": -12.7
+      },
+      {
+        "name": "F_EyebrowR2",
+        "parent": "F_EyebrowR",
+        "length": 11.77,
+        "rotation": 34.4,
+        "x": 8.28
+      },
+      {
+        "name": "F_EyesCloseControl",
+        "parent": "F_Head",
+        "length": 7.5,
+        "rotation": 162.35,
+        "x": 27.25,
+        "y": -21.61
+      },
+      {
+        "name": "F_EyeLidR",
+        "parent": "F_Head",
+        "rotation": 4.93,
+        "x": 21.87,
+        "y": -11.21
+      },
+      {
+        "name": "F_EyeLidL",
+        "parent": "F_Head",
+        "rotation": 4.93,
+        "x": 16.84,
+        "y": -32.02
+      },
+      {
+        "name": "F_EyesControl",
+        "parent": "F_Head",
+        "x": 14.61,
+        "y": -59.73
+      },
+      {
+        "name": "F_Mouth",
+        "parent": "F_Head",
+        "length": 8.7,
+        "rotation": 160.08,
+        "x": 3.48,
+        "y": -7.41
+      },
+      {
+        "name": "F_HeadB",
+        "parent": "F_Head",
+        "x": 18.73,
+        "y": 57.15
+      },
+      {
+        "name": "F_HeadF",
+        "parent": "F_Head",
+        "rotation": -11.85,
+        "x": -20.96,
+        "y": -68.7
+      },
+      {
+        "name": "F_ToeRIK",
+        "parent": "Front",
+        "x": 4.01,
+        "y": 4.51
+      },
+      {
+        "name": "F_LegRIK",
+        "parent": "F_ToeRIK",
+        "x": -13.18,
+        "y": 7.4
+      },
+      {
+        "name": "F_ToeLIK",
+        "parent": "Front",
+        "x": 14.25,
+        "y": 11.06
+      },
+      {
+        "name": "F_LegLIK",
+        "parent": "F_ToeLIK",
+        "x": -12.64,
+        "y": 5.92
+      },
+      {
+        "name": "F_ArmRIK",
+        "parent": "Front",
+        "x": -23.7,
+        "y": 56.66
+      },
+      {
+        "name": "F_ArmLIK",
+        "parent": "Front",
+        "x": 19.41,
+        "y": 65.09
+      },
+      {
+        "name": "F_ShRIK",
+        "parent": "F_ArmRIK",
+        "x": 0.69,
+        "y": 22.63
+      },
+      {
+        "name": "F_ShLIK",
+        "parent": "F_ArmLIK",
+        "x": -10,
+        "y": 18.37
+      },
+      {
+        "name": "Shadow",
+        "parent": "root"
+      },
+      {
+        "name": "Boxing",
+        "parent": "root",
+        "y": -37.09
+      },
+      {
+        "name": "F_HairFront",
+        "parent": "F_Head",
+        "x": 49.19,
+        "y": -25.71
+      },
+      {
+        "name": "F_HairTop",
+        "parent": "F_Head",
+        "x": 61.28,
+        "y": -13.74
+      },
+      {
+        "name": "F_HairBack",
+        "parent": "F_Head",
+        "x": 59.57,
+        "y": 5.53
+      },
+      {
+        "name": "F_HairBack2",
+        "parent": "F_HairBack",
+        "length": 16.41,
+        "rotation": 147.71,
+        "x": -5.39,
+        "y": 5.43
+      },
+      {
+        "name": "F_HairBack3",
+        "parent": "F_HairBack2",
+        "length": 27.79,
+        "rotation": 17.73,
+        "x": 16.41
+      },
+      {
+        "name": "F_HairBack4",
+        "parent": "F_HairBack",
+        "length": 16.97,
+        "rotation": 178.72,
+        "x": -17.79,
+        "y": -36.08
+      },
+      {
+        "name": "F_HairBack5",
+        "parent": "F_HairBack4",
+        "length": 28.44,
+        "rotation": -12.73,
+        "x": 16.99,
+        "y": -0.27
+      },
+      {
+        "name": "F_HairFront2",
+        "parent": "F_HairFront",
+        "length": 15.22,
+        "rotation": -97.86,
+        "x": 4.97,
+        "y": 0.75
+      },
+      {
+        "name": "F_HairFront3",
+        "parent": "F_HairFront2",
+        "length": 23.43,
+        "rotation": -79.06,
+        "x": 15.22
+      },
+      {
+        "name": "F_HairFront4",
+        "parent": "F_HairFront3",
+        "length": 18.55,
+        "rotation": 7.95,
+        "x": 23.43
+      },
+      {
+        "name": "F_Doc",
+        "parent": "F_HandR",
+        "x": 7.41
+      }
+    ],
+    "slots": [
+      {
+        "name": "Boxing",
+        "bone": "Boxing"
+      },
+      {
+        "name": "Shadow",
+        "bone": "Shadow"
+      },
+      {
+        "name": "F_ShoulderL",
+        "bone": "F_ShL1",
+        "attachment": "F_ShoulderL2"
+      },
+      {
+        "name": "F_HandL",
+        "bone": "F_HandL",
+        "attachment": "F_HandL2"
+      },
+      {
+        "name": "F_ArmL",
+        "bone": "F_ArmL",
+        "attachment": "F_ArmL2"
+      },
+      {
+        "name": "F_FootL",
+        "bone": "F_FootL",
+        "attachment": "F_FootL2"
+      },
+      {
+        "name": "F_LegL",
+        "bone": "F_LegUpL",
+        "attachment": "F_LegL2"
+      },
+      {
+        "name": "F_HairBack",
+        "bone": "F_HairBack",
+        "attachment": "F_HairBack"
+      },
+      {
+        "name": "F_Body",
+        "bone": "F_BodyLow",
+        "attachment": "F_Body2"
+      },
+      {
+        "name": "F_FootR",
+        "bone": "F_FootR",
+        "attachment": "F_FootR2"
+      },
+      {
+        "name": "F_LegR",
+        "bone": "F_LegUpR",
+        "attachment": "F_LegR2"
+      },
+      {
+        "name": "F_Eyeball",
+        "bone": "F_Head",
+        "attachment": "F_Eyeball2"
+      },
+      {
+        "name": "F_EyeL",
+        "bone": "F_EyeLidL",
+        "attachment": "F_EyeL2"
+      },
+      {
+        "name": "F_EyeR",
+        "bone": "F_EyeLidR",
+        "attachment": "F_EyeR2"
+      },
+      {
+        "name": "F_Head",
+        "bone": "F_Head",
+        "attachment": "F_Head2"
+      },
+      {
+        "name": "F_HairTop",
+        "bone": "F_HairTop",
+        "attachment": "F_HairTop"
+      },
+      {
+        "name": "F_Mouths",
+        "bone": "F_Mouth",
+        "attachment": "F_MouthsSad"
+      },
+      {
+        "name": "F_EyecloseL",
+        "bone": "F_EyesCloseControl",
+        "attachment": "F_EyelashL2"
+      },
+      {
+        "name": "F_EyecloseR",
+        "bone": "F_EyesCloseControl",
+        "attachment": "F_EyelashR2"
+      },
+      {
+        "name": "F_EyebrowL",
+        "bone": "F_EyebrowL",
+        "attachment": "F_EyebrowL2"
+      },
+      {
+        "name": "F_EyebrowR",
+        "bone": "F_EyebrowR",
+        "attachment": "F_EyebrowR2"
+      },
+      {
+        "name": "F_ShoulderR",
+        "bone": "F_ShR1",
+        "attachment": "F_ShoulderR2"
+      },
+      {
+        "name": "F_HairFront",
+        "bone": "F_HairFront",
+        "attachment": "F_HairFront"
+      },
+      {
+        "name": "F_Doc",
+        "bone": "F_Doc",
+        "attachment": "F_Doc"
+      },
+      {
+        "name": "F_HandR",
+        "bone": "F_HandR",
+        "attachment": "F_HandR2"
+      },
+      {
+        "name": "F_ArmR",
+        "bone": "F_ArmR",
+        "attachment": "F_ArmR2"
+      }
+    ],
+    "ik": [
+      {
+        "name": "F_ArmLIK",
+        "order": 1,
+        "bones": [
+          "F_ArmL"
+        ],
+        "target": "F_ArmLIK",
+        "mix": 0,
+        "compress": true
+      },
+      {
+        "name": "F_ArmRIK",
+        "order": 3,
+        "bones": [
+          "F_ArmR"
+        ],
+        "target": "F_ArmRIK",
+        "mix": 0,
+        "compress": true
+      },
+      {
+        "name": "F_LegLIK",
+        "order": 4,
+        "bones": [
+          "F_LegUpL",
+          "F_LegLowL"
+        ],
+        "target": "F_LegLIK",
+        "bendPositive": false
+      },
+      {
+        "name": "F_LegRIK",
+        "order": 6,
+        "bones": [
+          "F_LegUpR",
+          "F_LegLowR"
+        ],
+        "target": "F_LegRIK",
+        "bendPositive": false
+      },
+      {
+        "name": "F_ShLIK",
+        "bones": [
+          "F_ShL1"
+        ],
+        "target": "F_ShLIK",
+        "mix": 0,
+        "compress": true
+      },
+      {
+        "name": "F_ShRIK",
+        "order": 2,
+        "bones": [
+          "F_ShR1"
+        ],
+        "target": "F_ShRIK",
+        "mix": 0,
+        "compress": true
+      },
+      {
+        "name": "F_ToeLIK",
+        "order": 5,
+        "bones": [
+          "F_FootL"
+        ],
+        "target": "F_ToeLIK"
+      },
+      {
+        "name": "F_ToeRIK",
+        "order": 7,
+        "bones": [
+          "F_FootR"
+        ],
+        "target": "F_ToeRIK"
+      }
+    ],
+    "transform": [
+      {
+        "name": "F_EyebrowLCons",
+        "order": 8,
+        "bones": [
+          "F_EyebrowL"
+        ],
+        "target": "F_HeadF",
+        "rotation": -54.83,
+        "x": 40.08,
+        "y": 38.88,
+        "rotateMix": 0,
+        "translateMix": 0.4,
+        "scaleMix": 0,
+        "shearMix": 0
+      },
+      {
+        "name": "F_EyebrowRCons",
+        "order": 9,
+        "bones": [
+          "F_EyebrowR"
+        ],
+        "target": "F_HeadF",
+        "rotation": 58.63,
+        "x": 40.67,
+        "y": 51.57,
+        "rotateMix": 0,
+        "translateMix": 0.4,
+        "scaleMix": 0,
+        "shearMix": 0
+      },
+      {
+        "name": "F_EyeLCons",
+        "order": 11,
+        "bones": [
+          "F_EyeLidL"
+        ],
+        "target": "F_EyesControl",
+        "rotation": 4.93,
+        "x": 16.81,
+        "y": 46.11,
+        "rotateMix": 0,
+        "translateMix": 0.8,
+        "scaleMix": 0,
+        "shearMix": 0
+      },
+      {
+        "name": "F_EyeRCons",
+        "order": 12,
+        "bones": [
+          "F_EyeLidR"
+        ],
+        "target": "F_EyesControl",
+        "rotation": 4.93,
+        "x": 21.84,
+        "y": 66.92,
+        "rotateMix": 0,
+        "translateMix": 0.9,
+        "scaleMix": 0,
+        "shearMix": 0
+      },
+      {
+        "name": "F_EyesCloseCons",
+        "order": 13,
+        "bones": [
+          "F_EyesCloseControl"
+        ],
+        "target": "F_HeadF",
+        "rotation": 178.1,
+        "x": 33.52,
+        "y": 46.49,
+        "rotateMix": 0,
+        "translateMix": 0.4,
+        "scaleMix": 0,
+        "shearMix": 0
+      },
+      {
+        "name": "F_EyesCons",
+        "order": 10,
+        "bones": [
+          "F_EyesControl"
+        ],
+        "target": "F_HeadF",
+        "x": 15.49,
+        "y": -18.93,
+        "rotateMix": 0,
+        "translateMix": 0.6,
+        "scaleMix": 0,
+        "shearMix": 0
+      },
+      {
+        "name": "F_HairBackCons",
+        "order": 15,
+        "bones": [
+          "F_HairBack"
+        ],
+        "target": "F_HeadB",
+        "x": 51.68,
+        "y": -56.37,
+        "rotateMix": 0,
+        "translateMix": 0.6,
+        "scaleMix": 0,
+        "shearMix": 0
+      },
+      {
+        "name": "F_HairFrontCons",
+        "order": 16,
+        "bones": [
+          "F_HairFront"
+        ],
+        "target": "F_HeadF",
+        "rotation": 11.85,
+        "x": 59.83,
+        "y": 56.47,
+        "rotateMix": 0,
+        "translateMix": 0.6,
+        "scaleMix": 0,
+        "shearMix": 0
+      },
+      {
+        "name": "F_HeadBControl",
+        "order": 14,
+        "bones": [
+          "F_HeadB"
+        ],
+        "target": "F_HeadF",
+        "x": 24.61,
+        "y": 128.89,
+        "rotateMix": 0,
+        "translateMix": -1,
+        "scaleMix": 0,
+        "shearMix": 0
+      },
+      {
+        "name": "F_MouthCons",
+        "order": 17,
+        "bones": [
+          "F_Mouth"
+        ],
+        "target": "F_HeadF",
+        "rotation": 177.74,
+        "x": 6.85,
+        "y": 49.81,
+        "rotateMix": 0,
+        "translateMix": 0.5,
+        "scaleMix": 0,
+        "shearMix": 0
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "Shadow": {
+            "Shadow": {
+              "width": 93,
+              "height": 63
+            }
+          }
+        }
+      },
+      {
+        "name": "Skin1",
+        "attachments": {
+          "F_ArmL": {
+            "F_ArmL2": {
+              "name": "F_ArmL",
+              "x": 10.14,
+              "y": 0.78,
+              "rotation": 91.02,
+              "width": 22,
+              "height": 27
+            }
+          },
+          "F_ArmR": {
+            "F_ArmR2": {
+              "name": "F_ArmR",
+              "x": 11.38,
+              "y": 1.18,
+              "rotation": 91.04,
+              "width": 16,
+              "height": 29
+            }
+          },
+          "F_Body": {
+            "F_Body2": {
+              "name": "F_Body",
+              "type": "mesh",
+              "uvs": [
+                0.3309,
+                0.09259,
+                0.36415,
+                0.01514,
+                0.46875,
+                0.01526,
+                0.68962,
+                0.01551,
+                0.78506,
+                0.12581,
+                0.8648,
+                0.21796,
+                0.97715,
+                0.34778,
+                0.97303,
+                0.48031,
+                0.93945,
+                0.53171,
+                0.93435,
+                0.61261,
+                0.95639,
+                0.66937,
+                0.95023,
+                0.73941,
+                0.94655,
+                0.78121,
+                0.8709,
+                0.84379,
+                0.72873,
+                0.96139,
+                0.65281,
+                0.98491,
+                0.48608,
+                0.99896,
+                0.28907,
+                0.98784,
+                0.13371,
+                0.92922,
+                0.13455,
+                0.84382,
+                0.17511,
+                0.77369,
+                0.21568,
+                0.70355,
+                0.21467,
+                0.64528,
+                0.16959,
+                0.58805,
+                0.12709,
+                0.53409,
+                0.025,
+                0.40449,
+                0.02615,
+                0.25084,
+                0.1619,
+                0.21043,
+                0.29765,
+                0.17003,
+                0.4727,
+                0.76468,
+                0.49841,
+                0.60119,
+                0.51769,
+                0.51759,
+                0.36023,
+                0.32437,
+                0.24133,
+                0.26678,
+                0.3763,
+                0.21105,
+                0.42129,
+                0.07543,
+                0.20598,
+                0.39125,
+                0.32488,
+                0.57332,
+                0.35702,
+                0.75539,
+                0.55545,
+                0.04547,
+                0.61583,
+                0.07993,
+                0.56219,
+                0.20696,
+                0.76463,
+                0.43603,
+                0.76089,
+                0.48803,
+                0.70594,
+                0.55156,
+                0.73197,
+                0.73882
+              ],
+              "triangles": [
+                15,
+                16,
+                29,
+                16,
+                17,
+                29,
+                17,
+                38,
+                29,
+                18,
+                19,
+                17,
+                17,
+                19,
+                38,
+                38,
+                19,
+                20,
+                15,
+                29,
+                14,
+                14,
+                45,
+                13,
+                14,
+                29,
+                45,
+                13,
+                45,
+                12,
+                12,
+                45,
+                11,
+                20,
+                21,
+                38,
+                45,
+                29,
+                30,
+                38,
+                22,
+                37,
+                29,
+                38,
+                30,
+                38,
+                37,
+                30,
+                11,
+                45,
+                10,
+                30,
+                44,
+                45,
+                45,
+                9,
+                10,
+                45,
+                44,
+                9,
+                38,
+                21,
+                22,
+                22,
+                23,
+                37,
+                9,
+                44,
+                8,
+                8,
+                44,
+                43,
+                30,
+                31,
+                44,
+                30,
+                37,
+                31,
+                23,
+                24,
+                37,
+                31,
+                37,
+                36,
+                44,
+                31,
+                43,
+                37,
+                24,
+                36,
+                24,
+                25,
+                36,
+                8,
+                43,
+                7,
+                36,
+                32,
+                31,
+                42,
+                31,
+                32,
+                43,
+                31,
+                42,
+                41,
+                32,
+                34,
+                43,
+                42,
+                7,
+                41,
+                42,
+                32,
+                7,
+                42,
+                6,
+                42,
+                5,
+                6,
+                42,
+                41,
+                5,
+                25,
+                26,
+                36,
+                36,
+                33,
+                32,
+                36,
+                26,
+                33,
+                32,
+                33,
+                34,
+                26,
+                27,
+                33,
+                33,
+                28,
+                34,
+                33,
+                27,
+                28,
+                41,
+                4,
+                5,
+                28,
+                0,
+                34,
+                34,
+                35,
+                41,
+                34,
+                0,
+                35,
+                41,
+                35,
+                40,
+                41,
+                40,
+                4,
+                40,
+                35,
+                39,
+                40,
+                3,
+                4,
+                0,
+                1,
+                35,
+                40,
+                39,
+                3,
+                35,
+                2,
+                39,
+                35,
+                1,
+                2,
+                39,
+                2,
+                3
+              ],
+              "vertices": [
+                1,
+                3,
+                30.23,
+                7.57,
+                1,
+                1,
+                3,
+                35.02,
+                5.8,
+                1,
+                1,
+                3,
+                34.58,
+                1.96,
+                1,
+                1,
+                3,
+                33.67,
+                -6.16,
+                1,
+                1,
+                3,
+                26.27,
+                -8.9,
+                1,
+                1,
+                3,
+                20.08,
+                -11.18,
+                1,
+                2,
+                3,
+                11.37,
+                -14.4,
+                0.96886,
+                2,
+                38.47,
+                -3.34,
+                0.03114,
+                2,
+                3,
+                2.95,
+                -13.32,
+                0.64782,
+                2,
+                31.15,
+                -7.63,
+                0.35218,
+                2,
+                3,
+                -0.18,
+                -11.72,
+                0.29357,
+                2,
+                27.7,
+                -8.29,
+                0.70643,
+                1,
+                2,
+                23.18,
+                -10.83,
+                1,
+                1,
+                2,
+                20.5,
+                -13.42,
+                1,
+                1,
+                2,
+                16.56,
+                -15.56,
+                1,
+                1,
+                2,
+                14.21,
+                -16.84,
+                1,
+                1,
+                2,
+                9.33,
+                -16.54,
+                1,
+                1,
+                2,
+                0.16,
+                -15.98,
+                1,
+                1,
+                2,
+                -2.58,
+                -14.36,
+                1,
+                1,
+                2,
+                -6.57,
+                -9.57,
+                1,
+                1,
+                2,
+                -9.76,
+                -2.98,
+                1,
+                1,
+                2,
+                -9.56,
+                3.88,
+                1,
+                1,
+                2,
+                -4.88,
+                6.71,
+                1,
+                1,
+                2,
+                -0.27,
+                7.77,
+                1,
+                1,
+                2,
+                4.35,
+                8.83,
+                1,
+                2,
+                3,
+                -4.46,
+                15.73,
+                0.03685,
+                2,
+                7.51,
+                10.8,
+                0.96315,
+                2,
+                3,
+                -0.64,
+                16.99,
+                0.55643,
+                2,
+                9.77,
+                14.14,
+                0.44357,
+                2,
+                3,
+                2.97,
+                18.17,
+                0.83894,
+                2,
+                11.89,
+                17.28,
+                0.16106,
+                1,
+                3,
+                11.63,
+                21.01,
+                1,
+                2,
+                3,
+                21.4,
+                19.89,
+                0.99972,
+                2,
+                25.41,
+                29.92,
+                0.00028,
+                1,
+                3,
+                23.42,
+                14.61,
+                1,
+                1,
+                3,
+                25.43,
+                9.34,
+                1,
+                1,
+                2,
+                5.97,
+                -1.33,
+                1,
+                2,
+                3,
+                -2.81,
+                4.99,
+                0.25949,
+                2,
+                15.39,
+                3.32,
+                0.74051,
+                2,
+                3,
+                2.43,
+                3.69,
+                0.90909,
+                2,
+                20.33,
+                5.5,
+                0.09091,
+                2,
+                3,
+                15.36,
+                8.12,
+                0.99842,
+                2,
+                27.84,
+                16.92,
+                0.00158,
+                2,
+                3,
+                19.51,
+                12.09,
+                0.9997,
+                2,
+                28.69,
+                22.59,
+                0.0003,
+                1,
+                3,
+                22.51,
+                6.73,
+                1,
+                1,
+                3,
+                30.95,
+                4.13,
+                1,
+                2,
+                3,
+                11.73,
+                14.26,
+                0.96413,
+                2,
+                21.21,
+                19.55,
+                0.03587,
+                2,
+                3,
+                -0.33,
+                11.17,
+                0.53747,
+                2,
+                13.57,
+                9.72,
+                0.46253,
+                1,
+                2,
+                4.24,
+                2.63,
+                1,
+                1,
+                3,
+                32.31,
+                -1.02,
+                1,
+                1,
+                3,
+                29.87,
+                -3,
+                1,
+                1,
+                3,
+                22.01,
+                -0.13,
+                1,
+                2,
+                3,
+                6.62,
+                -5.97,
+                0.93439,
+                2,
+                29.55,
+                0.42,
+                0.06561,
+                2,
+                3,
+                3.32,
+                -5.46,
+                0.81781,
+                2,
+                26.64,
+                -1.19,
+                0.18219,
+                2,
+                3,
+                -0.5,
+                -3,
+                0.47874,
+                2,
+                22.11,
+                -1.58,
+                0.52126,
+                1,
+                2,
+                12.38,
+                -8.65,
+                1
+              ],
+              "hull": 29
+            }
+          },
+          "F_Doc": {
+            "F_Doc": {
+              "name": "F_Document",
+              "x": 5.03,
+              "y": 9.7,
+              "rotation": 20.34,
+              "width": 41,
+              "height": 59
+            }
+          },
+          "F_Eyeball": {
+            "F_Eyeball2": {
+              "name": "F_Eyeball",
+              "type": "mesh",
+              "uvs": [
+                1,
+                1,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0
+              ],
+              "triangles": [
+                1,
+                2,
+                3,
+                1,
+                3,
+                0
+              ],
+              "vertices": [
+                2,
+                4,
+                5.51,
+                -32.63,
+                0.55,
+                31,
+                18.51,
+                40.74,
+                0.45,
+                2,
+                4,
+                19.71,
+                1.54,
+                0.4,
+                31,
+                25.38,
+                77.1,
+                0.6,
+                2,
+                4,
+                33.56,
+                -4.21,
+                0.4,
+                31,
+                40.12,
+                74.31,
+                0.6,
+                2,
+                4,
+                19.36,
+                -38.38,
+                0.55,
+                31,
+                33.24,
+                37.95,
+                0.45
+              ],
+              "hull": 4
+            }
+          },
+          "F_EyebrowL": {
+            "F_EyebrowL2": {
+              "name": "F_EyebrowL",
+              "type": "mesh",
+              "uvs": [
+                0.41633,
+                0.16056,
+                0.58811,
+                0.15871,
+                0.91439,
+                0.15519,
+                0.91005,
+                0.83762,
+                0.62939,
+                0.83729,
+                0.45506,
+                0.83709,
+                0.36656,
+                0.83698,
+                0.08764,
+                0.83666,
+                0.08909,
+                0.16409
+              ],
+              "triangles": [
+                3,
+                4,
+                2,
+                4,
+                1,
+                2,
+                5,
+                1,
+                4,
+                6,
+                0,
+                5,
+                5,
+                0,
+                1,
+                7,
+                8,
+                6,
+                6,
+                8,
+                0
+              ],
+              "vertices": [
+                1,
+                21,
+                4.21,
+                2.08,
+                1,
+                2,
+                21,
+                6.02,
+                1.55,
+                0.78707,
+                22,
+                -0.96,
+                1.23,
+                0.21293,
+                1,
+                22,
+                2.2,
+                2.94,
+                1,
+                1,
+                22,
+                4.09,
+                -0.7,
+                1,
+                2,
+                21,
+                5.29,
+                -2.48,
+                0.2922,
+                22,
+                1.36,
+                -2.15,
+                0.7078,
+                2,
+                21,
+                3.45,
+                -1.93,
+                0.86316,
+                22,
+                -0.33,
+                -3.05,
+                0.13684,
+                2,
+                21,
+                2.52,
+                -1.65,
+                0.97089,
+                22,
+                -1.19,
+                -3.51,
+                0.02911,
+                1,
+                21,
+                -0.42,
+                -0.77,
+                1,
+                1,
+                21,
+                0.76,
+                3.09,
+                1
+              ],
+              "hull": 9
+            }
+          },
+          "F_EyebrowR": {
+            "F_EyebrowR2": {
+              "name": "F_EyebrowR",
+              "type": "mesh",
+              "uvs": [
+                0.3,
+                0.27558,
+                0.41317,
+                0.09812,
+                0.58295,
+                0.09799,
+                0.9542,
+                0.09771,
+                0.95459,
+                0.50816,
+                0.6583,
+                0.50493,
+                0.5218,
+                0.50344,
+                0.42383,
+                0.60651,
+                0.0498,
+                1,
+                0.04111,
+                0.68158
+              ],
+              "triangles": [
+                7,
+                9,
+                0,
+                7,
+                8,
+                9,
+                6,
+                7,
+                1,
+                7,
+                0,
+                1,
+                6,
+                1,
+                2,
+                5,
+                3,
+                4,
+                6,
+                2,
+                5,
+                5,
+                2,
+                3
+              ],
+              "vertices": [
+                1,
+                24,
+                4.15,
+                -1.85,
+                1,
+                2,
+                23,
+                10.45,
+                -1.06,
+                0.0007,
+                24,
+                1.2,
+                -2.1,
+                0.9993,
+                1,
+                23,
+                6.89,
+                -1.22,
+                1,
+                1,
+                23,
+                -0.9,
+                -1.57,
+                1,
+                1,
+                23,
+                -1.09,
+                2.53,
+                1,
+                2,
+                23,
+                5.13,
+                2.78,
+                0.90885,
+                24,
+                -1.03,
+                4.07,
+                0.09115,
+                2,
+                23,
+                8,
+                2.89,
+                0.28091,
+                24,
+                1.4,
+                2.55,
+                0.71909,
+                2,
+                23,
+                10,
+                4.01,
+                0.00668,
+                24,
+                3.69,
+                2.34,
+                0.99332,
+                1,
+                24,
+                12.44,
+                1.53,
+                1,
+                1,
+                24,
+                10.91,
+                -1.27,
+                1
+              ],
+              "hull": 10
+            }
+          },
+          "F_EyecloseL": {
+            "F_EyecloseL2": {
+              "name": "F_EyecloseL",
+              "x": 5.92,
+              "y": 8.53,
+              "rotation": 80.16,
+              "width": 13,
+              "height": 12
+            },
+            "F_EyelashL2": {
+              "name": "F_EyelashL",
+              "x": 6.05,
+              "y": 8.76,
+              "rotation": 81.19,
+              "width": 15,
+              "height": 11
+            }
+          },
+          "F_EyecloseR": {
+            "F_EyecloseR2": {
+              "name": "F_EyecloseR",
+              "x": 6.28,
+              "y": -17.39,
+              "rotation": 83.58,
+              "width": 21,
+              "height": 13
+            },
+            "F_EyelashR2": {
+              "name": "F_EyelashR",
+              "x": 7.17,
+              "y": -16.19,
+              "rotation": 81.19,
+              "width": 21,
+              "height": 11
+            }
+          },
+          "F_EyeL": {
+            "F_EyeL2": {
+              "name": "F_EyeL",
+              "x": -0.48,
+              "y": 0.72,
+              "rotation": -100.71,
+              "width": 10,
+              "height": 11
+            }
+          },
+          "F_EyeR": {
+            "F_EyeR2": {
+              "name": "F_EyeR",
+              "x": -0.95,
+              "y": -0.07,
+              "rotation": -100.71,
+              "width": 10,
+              "height": 11
+            }
+          },
+          "F_FootL": {
+            "F_FootL2": {
+              "name": "F_FootL",
+              "x": 5.62,
+              "y": 0.73,
+              "rotation": 27.65,
+              "width": 22,
+              "height": 20
+            }
+          },
+          "F_FootR": {
+            "F_FootR2": {
+              "name": "F_FootR",
+              "x": 5.22,
+              "y": 1.22,
+              "rotation": 27.68,
+              "width": 22,
+              "height": 20
+            }
+          },
+          "F_HairBack": {
+            "F_HairBack": {
+              "type": "mesh",
+              "uvs": [
+                0.43672,
+                0.01121,
+                0.61549,
+                0.01156,
+                0.87462,
+                0.07475,
+                0.94895,
+                0.26974,
+                0.94923,
+                0.39517,
+                0.94952,
+                0.5206,
+                0.96864,
+                0.62594,
+                0.99613,
+                0.70365,
+                1,
+                0.90641,
+                0.80052,
+                0.97801,
+                0.7835,
+                0.87477,
+                0.58968,
+                0.83621,
+                0.39453,
+                0.91171,
+                0.3211,
+                0.9972,
+                0.06916,
+                0.99999,
+                0,
+                0.7926,
+                0.01457,
+                0.66427,
+                0.02012,
+                0.54773,
+                0.02568,
+                0.43118,
+                0.04392,
+                0.28212,
+                0.1772,
+                0.0799,
+                0.22326,
+                0.78243,
+                0.21943,
+                0.47429,
+                0.79386,
+                0.41698,
+                0.20076,
+                0.63372,
+                0.79483,
+                0.72383,
+                0.83627,
+                0.56425,
+                0.70438,
+                0.25696,
+                0.27792,
+                0.31069,
+                0.5424,
+                0.65106,
+                0.52649,
+                0.43571
+              ],
+              "triangles": [
+                27,
+                1,
+                2,
+                27,
+                2,
+                3,
+                28,
+                20,
+                0,
+                19,
+                20,
+                28,
+                23,
+                27,
+                3,
+                23,
+                3,
+                4,
+                0,
+                27,
+                28,
+                27,
+                0,
+                1,
+                30,
+                27,
+                23,
+                30,
+                28,
+                27,
+                28,
+                22,
+                19,
+                22,
+                28,
+                30,
+                26,
+                23,
+                5,
+                26,
+                29,
+                30,
+                26,
+                30,
+                23,
+                22,
+                30,
+                29,
+                24,
+                22,
+                29,
+                26,
+                5,
+                6,
+                25,
+                29,
+                26,
+                25,
+                26,
+                6,
+                25,
+                6,
+                7,
+                11,
+                29,
+                25,
+                10,
+                11,
+                25,
+                25,
+                7,
+                8,
+                10,
+                25,
+                8,
+                9,
+                10,
+                8,
+                23,
+                4,
+                5,
+                24,
+                17,
+                22,
+                16,
+                17,
+                24,
+                21,
+                24,
+                29,
+                16,
+                24,
+                21,
+                15,
+                16,
+                21,
+                12,
+                21,
+                29,
+                11,
+                12,
+                29,
+                13,
+                21,
+                12,
+                14,
+                15,
+                21,
+                14,
+                21,
+                13,
+                22,
+                18,
+                19,
+                17,
+                18,
+                22
+              ],
+              "vertices": [
+                1,
+                44,
+                13.63,
+                -25.37,
+                1,
+                1,
+                44,
+                8.17,
+                -38.19,
+                1,
+                1,
+                44,
+                -4.66,
+                -54.71,
+                1,
+                2,
+                47,
+                4,
+                17.59,
+                0.57513,
+                44,
+                -22.19,
+                -53.58,
+                0.42487,
+                2,
+                47,
+                13.92,
+                13.68,
+                0.7046,
+                44,
+                -32.01,
+                -49.44,
+                0.2954,
+                3,
+                47,
+                23.84,
+                9.76,
+                0.75554,
+                48,
+                4.46,
+                11.29,
+                0.2292,
+                44,
+                -41.84,
+                -45.3,
+                0.01526,
+                2,
+                47,
+                32.71,
+                7.84,
+                0.19342,
+                48,
+                13.54,
+                11.37,
+                0.80658,
+                2,
+                47,
+                39.64,
+                7.39,
+                0.01816,
+                48,
+                20.4,
+                12.46,
+                0.98184,
+                1,
+                48,
+                37.47,
+                10.07,
+                1,
+                1,
+                48,
+                41.06,
+                -6.24,
+                1,
+                2,
+                46,
+                34.78,
+                46.06,
+                0.00533,
+                48,
+                32.19,
+                -6.19,
+                0.99467,
+                3,
+                45,
+                34.73,
+                39.01,
+                0.0074,
+                46,
+                29.33,
+                31.58,
+                0.26905,
+                48,
+                26.59,
+                -20.61,
+                0.72355,
+                3,
+                45,
+                43.53,
+                25.03,
+                0.00003,
+                46,
+                33.45,
+                15.59,
+                0.89663,
+                48,
+                30.57,
+                -36.65,
+                0.10334,
+                2,
+                46,
+                39.81,
+                8.86,
+                0.96896,
+                48,
+                36.85,
+                -43.44,
+                0.03104,
+                2,
+                46,
+                37.17,
+                -10.62,
+                0.99888,
+                48,
+                34.03,
+                -62.89,
+                0.00112,
+                1,
+                46,
+                18.94,
+                -13.38,
+                1,
+                2,
+                45,
+                27.58,
+                -7.62,
+                0.01346,
+                46,
+                8.32,
+                -10.66,
+                0.98654,
+                2,
+                45,
+                17.73,
+                -8.8,
+                0.51752,
+                46,
+                -1.42,
+                -8.79,
+                0.48248,
+                2,
+                45,
+                7.89,
+                -9.98,
+                0.99594,
+                46,
+                -11.16,
+                -6.91,
+                0.00406,
+                3,
+                45,
+                -4.84,
+                -10.63,
+                0.85282,
+                47,
+                -21.1,
+                -48.39,
+                0.00691,
+                44,
+                4.39,
+                11.83,
+                0.14027,
+                1,
+                44,
+                16.16,
+                -4.45,
+                1,
+                3,
+                45,
+                34.85,
+                10.07,
+                0.0009,
+                46,
+                20.63,
+                3.98,
+                0.9738,
+                48,
+                17.63,
+                -48.13,
+                0.0253,
+                5,
+                45,
+                9.06,
+                5.53,
+                0.04196,
+                46,
+                -5.32,
+                7.51,
+                0.00472,
+                47,
+                -0.86,
+                -41.7,
+                0.00089,
+                48,
+                -8.29,
+                -44.35,
+                0.00137,
+                44,
+                -15.99,
+                5.6,
+                0.95105,
+                1,
+                44,
+                -28.99,
+                -37.56,
+                1,
+                5,
+                45,
+                22.66,
+                6.29,
+                0.03916,
+                46,
+                7.87,
+                4.09,
+                0.70962,
+                47,
+                11.19,
+                -48.07,
+                0.00146,
+                48,
+                4.87,
+                -47.9,
+                0.01786,
+                44,
+                -27.9,
+                12.22,
+                0.23189,
+                3,
+                45,
+                22.71,
+                53.25,
+                0.00062,
+                46,
+                22.22,
+                48.81,
+                0.01706,
+                48,
+                19.65,
+                -3.32,
+                0.98232,
+                3,
+                47,
+                24.02,
+                0.18,
+                0.0808,
+                48,
+                6.75,
+                1.99,
+                0.53567,
+                44,
+                -41.81,
+                -35.72,
+                0.38353,
+                1,
+                44,
+                -13.74,
+                -36.44,
+                1,
+                1,
+                44,
+                -4.97,
+                -4.03,
+                1,
+                5,
+                45,
+                19.8,
+                32.82,
+                0.03461,
+                46,
+                13.22,
+                30.23,
+                0.14407,
+                47,
+                22.41,
+                -23.85,
+                0.01072,
+                48,
+                10.48,
+                -21.81,
+                0.29187,
+                44,
+                -39.66,
+                -11.74,
+                0.51872,
+                1,
+                44,
+                -22.32,
+                -17.74,
+                1
+              ],
+              "hull": 21
+            }
+          },
+          "F_HairFront": {
+            "F_HairFront": {
+              "type": "mesh",
+              "uvs": [
+                0.59003,
+                0.00888,
+                0.85691,
+                0.25204,
+                0.89716,
+                0.57254,
+                0.89378,
+                0.78678,
+                0.99999,
+                0.87126,
+                0.97919,
+                0.98049,
+                0.84695,
+                1,
+                0.66414,
+                0.85886,
+                0.58722,
+                0.6987,
+                0.49873,
+                0.46016,
+                0.36706,
+                0.38846,
+                0.03853,
+                0.39719,
+                0,
+                0.23391,
+                0.09973,
+                0.10278,
+                0.32749,
+                0
+              ],
+              "triangles": [
+                12,
+                13,
+                10,
+                11,
+                12,
+                10,
+                3,
+                8,
+                2,
+                7,
+                8,
+                3,
+                4,
+                6,
+                3,
+                6,
+                7,
+                3,
+                5,
+                6,
+                4,
+                9,
+                10,
+                0,
+                1,
+                9,
+                0,
+                9,
+                1,
+                2,
+                8,
+                9,
+                2,
+                10,
+                14,
+                0,
+                13,
+                14,
+                10
+              ],
+              "vertices": [
+                2,
+                49,
+                20.81,
+                7.4,
+                0.46018,
+                50,
+                -6.21,
+                6.89,
+                0.53982,
+                3,
+                49,
+                29.88,
+                -7.3,
+                0.21714,
+                50,
+                9.95,
+                13,
+                0.59721,
+                51,
+                -11.55,
+                14.74,
+                0.18565,
+                2,
+                50,
+                25.3,
+                8.02,
+                0.46075,
+                51,
+                2.96,
+                7.69,
+                0.53925,
+                2,
+                50,
+                34.98,
+                3.43,
+                0.23429,
+                51,
+                11.91,
+                1.8,
+                0.76571,
+                1,
+                51,
+                18.09,
+                3.65,
+                1,
+                1,
+                51,
+                22.19,
+                -0.09,
+                1,
+                1,
+                51,
+                19.74,
+                -5.74,
+                1,
+                2,
+                50,
+                33.86,
+                -7.68,
+                0.20286,
+                51,
+                9.27,
+                -9.04,
+                0.79714,
+                2,
+                50,
+                25.11,
+                -7.57,
+                0.41186,
+                51,
+                0.62,
+                -7.73,
+                0.58814,
+                3,
+                49,
+                11.41,
+                -13.54,
+                0.21345,
+                50,
+                12.57,
+                -6.31,
+                0.64758,
+                51,
+                -11.63,
+                -4.75,
+                0.13896,
+                3,
+                49,
+                6.37,
+                -8.63,
+                0.39499,
+                50,
+                6.79,
+                -10.33,
+                0.42556,
+                42,
+                -4.45,
+                -4.39,
+                0.17944,
+                1,
+                42,
+                0.67,
+                9.84,
+                1,
+                1,
+                42,
+                8.92,
+                8.5,
+                1,
+                2,
+                49,
+                -2.22,
+                8.15,
+                0.4229,
+                42,
+                13.34,
+                1.83,
+                0.5771,
+                2,
+                49,
+                9.17,
+                10.68,
+                0.87113,
+                50,
+                -11.63,
+                -3.91,
+                0.12887
+              ],
+              "hull": 15
+            }
+          },
+          "F_HairTop": {
+            "F_HairTop": {
+              "x": -17.12,
+              "y": -0.87,
+              "rotation": -110.7,
+              "width": 63,
+              "height": 57
+            }
+          },
+          "F_HandL": {
+            "F_HandL2": {
+              "name": "F_HandL",
+              "x": 4.02,
+              "y": 0.09,
+              "rotation": 50.87,
+              "width": 12,
+              "height": 12
+            },
+            "F_HandLClap": {
+              "x": 14.85,
+              "y": -2.4,
+              "rotation": -68.58,
+              "width": 13,
+              "height": 20
+            },
+            "F_HandLTalk": {
+              "x": 13.4,
+              "y": -2.54,
+              "rotation": 20.45,
+              "width": 17,
+              "height": 16
+            }
+          },
+          "F_HandR": {
+            "F_HandR2": {
+              "name": "F_HandR",
+              "x": 3.67,
+              "y": -0.17,
+              "rotation": -37.73,
+              "width": 12,
+              "height": 11
+            },
+            "F_HandRClap": {
+              "x": 10.01,
+              "y": -0.49,
+              "rotation": -98.42,
+              "width": 10,
+              "height": 21
+            },
+            "F_HandRTalk": {
+              "x": 9.28,
+              "y": -0.75,
+              "rotation": 13.2,
+              "width": 20,
+              "height": 14
+            }
+          },
+          "F_Head": {
+            "F_Head2": {
+              "name": "F_Head",
+              "type": "mesh",
+              "uvs": [
+                0.67702,
+                0.00743,
+                0.87242,
+                0.14056,
+                0.90177,
+                0.21485,
+                0.92689,
+                0.31704,
+                0.927,
+                0.44132,
+                0.92038,
+                0.59309,
+                0.92909,
+                0.68604,
+                0.83083,
+                0.8794,
+                0.74379,
+                0.98932,
+                0.68663,
+                0.99732,
+                0.64538,
+                1,
+                0.51492,
+                0.98768,
+                0.41417,
+                0.94484,
+                0.31342,
+                0.90201,
+                0.19494,
+                0.82554,
+                0.07645,
+                0.74907,
+                0,
+                0.64101,
+                0.01453,
+                0.28722,
+                0.08807,
+                0.10808,
+                0.30755,
+                0,
+                0.55874,
+                0.59827,
+                0.5138,
+                0.54249,
+                0.42182,
+                0.53979,
+                0.36957,
+                0.58837,
+                0.42914,
+                0.63515,
+                0.52111,
+                0.63425,
+                0.72178,
+                0.57128,
+                0.75662,
+                0.50792,
+                0.82754,
+                0.49224,
+                0.86706,
+                0.5209,
+                0.85352,
+                0.57804,
+                0.78255,
+                0.59351,
+                0.69528,
+                0.77603,
+                0.72494,
+                0.72781,
+                0.71176,
+                0.6881,
+                0.66727,
+                0.60725,
+                0.64584,
+                0.33499,
+                0.57338,
+                0.22823,
+                0.38548,
+                0.25149,
+                0.29779,
+                0.34772,
+                0.27135,
+                0.53303,
+                0.32045,
+                0.7216,
+                0.16748,
+                0.58018,
+                0.1316,
+                0.34447,
+                0.29867,
+                0.14929,
+                0.56859,
+                0.10513,
+                0.73948,
+                0.15078,
+                0.50811,
+                0.77909,
+                0.80834,
+                0.72301
+              ],
+              "triangles": [
+                27,
+                36,
+                28,
+                39,
+                38,
+                21,
+                36,
+                38,
+                37,
+                36,
+                21,
+                38,
+                22,
+                39,
+                21,
+                40,
+                39,
+                22,
+                36,
+                35,
+                21,
+                36,
+                27,
+                35,
+                23,
+                40,
+                22,
+                35,
+                20,
+                21,
+                27,
+                26,
+                35,
+                25,
+                21,
+                20,
+                24,
+                22,
+                21,
+                24,
+                21,
+                25,
+                23,
+                22,
+                24,
+                31,
+                34,
+                35,
+                31,
+                35,
+                26,
+                41,
+                23,
+                24,
+                23,
+                41,
+                40,
+                34,
+                31,
+                48,
+                33,
+                34,
+                48,
+                34,
+                25,
+                35,
+                32,
+                34,
+                33,
+                47,
+                24,
+                25,
+                41,
+                24,
+                47,
+                25,
+                20,
+                35,
+                34,
+                47,
+                25,
+                47,
+                12,
+                41,
+                47,
+                10,
+                11,
+                34,
+                32,
+                47,
+                12,
+                47,
+                11,
+                32,
+                33,
+                48,
+                47,
+                32,
+                10,
+                8,
+                9,
+                32,
+                9,
+                10,
+                32,
+                45,
+                19,
+                0,
+                44,
+                18,
+                19,
+                44,
+                19,
+                45,
+                46,
+                0,
+                1,
+                45,
+                0,
+                46,
+                46,
+                1,
+                2,
+                37,
+                45,
+                46,
+                38,
+                44,
+                45,
+                37,
+                38,
+                45,
+                36,
+                37,
+                46,
+                36,
+                46,
+                2,
+                36,
+                2,
+                3,
+                43,
+                18,
+                44,
+                39,
+                43,
+                44,
+                17,
+                18,
+                43,
+                38,
+                39,
+                44,
+                28,
+                36,
+                3,
+                4,
+                28,
+                3,
+                29,
+                28,
+                4,
+                40,
+                43,
+                39,
+                30,
+                28,
+                29,
+                42,
+                43,
+                40,
+                5,
+                29,
+                4,
+                30,
+                29,
+                5,
+                31,
+                27,
+                28,
+                31,
+                28,
+                30,
+                26,
+                27,
+                31,
+                16,
+                17,
+                43,
+                16,
+                43,
+                42,
+                40,
+                41,
+                42,
+                48,
+                31,
+                30,
+                6,
+                48,
+                30,
+                6,
+                30,
+                5,
+                15,
+                16,
+                42,
+                14,
+                15,
+                42,
+                41,
+                14,
+                42,
+                7,
+                48,
+                6,
+                13,
+                14,
+                41,
+                12,
+                13,
+                41,
+                7,
+                32,
+                48,
+                8,
+                32,
+                7
+              ],
+              "vertices": [
+                2,
+                30,
+                50.86,
+                -101.19,
+                0.57429,
+                4,
+                58.75,
+                -39.29,
+                0.42571,
+                2,
+                30,
+                36.05,
+                -109.43,
+                0.57429,
+                4,
+                43.94,
+                -47.53,
+                0.42571,
+                1,
+                4,
+                37.75,
+                -47.12,
+                1,
+                1,
+                4,
+                29.64,
+                -45.6,
+                1,
+                1,
+                4,
+                20.57,
+                -41.84,
+                1,
+                1,
+                4,
+                9.67,
+                -36.83,
+                1,
+                1,
+                4,
+                2.66,
+                -34.56,
+                1,
+                2,
+                4,
+                -8.88,
+                -22.53,
+                0.64286,
+                31,
+                2.35,
+                47.67,
+                0.35714,
+                2,
+                4,
+                -14.63,
+                -13.73,
+                0.64857,
+                31,
+                -5.09,
+                55.1,
+                0.35143,
+                2,
+                4,
+                -13.72,
+                -9.9,
+                0.38857,
+                31,
+                -4.99,
+                59.04,
+                0.61143,
+                2,
+                4,
+                -12.84,
+                -7.23,
+                0.38857,
+                31,
+                -4.67,
+                61.83,
+                0.61143,
+                2,
+                4,
+                -8.54,
+                0.59,
+                0.38857,
+                31,
+                -2.07,
+                70.37,
+                0.61143,
+                2,
+                4,
+                -2.79,
+                5.62,
+                0.38857,
+                31,
+                2.53,
+                76.47,
+                0.61143,
+                2,
+                4,
+                2.96,
+                10.65,
+                0.73714,
+                31,
+                7.13,
+                82.57,
+                0.26286,
+                1,
+                4,
+                11.63,
+                15.77,
+                1,
+                2,
+                30,
+                12.42,
+                -41,
+                0.57429,
+                4,
+                20.3,
+                20.9,
+                0.42571,
+                2,
+                30,
+                22.29,
+                -39.48,
+                0.57429,
+                4,
+                30.18,
+                22.43,
+                0.42571,
+                2,
+                30,
+                47.73,
+                -51.11,
+                0.57429,
+                4,
+                55.61,
+                10.79,
+                0.42571,
+                2,
+                30,
+                58.88,
+                -61.15,
+                0.57429,
+                4,
+                66.77,
+                0.75,
+                0.42571,
+                2,
+                30,
+                61.04,
+                -78.21,
+                0.57429,
+                4,
+                68.93,
+                -16.31,
+                0.42571,
+                2,
+                4,
+                18.73,
+                -13.96,
+                0.41143,
+                31,
+                27.61,
+                61.72,
+                0.58857,
+                2,
+                4,
+                23.97,
+                -12.83,
+                0.41143,
+                31,
+                32.5,
+                63.91,
+                0.58857,
+                2,
+                4,
+                26.56,
+                -7.13,
+                0.41143,
+                31,
+                33.88,
+                70.01,
+                0.58857,
+                2,
+                4,
+                24.38,
+                -2.38,
+                0.41143,
+                31,
+                30.76,
+                74.22,
+                0.58857,
+                2,
+                4,
+                19.42,
+                -4.7,
+                0.41143,
+                31,
+                26.38,
+                70.92,
+                0.58857,
+                2,
+                4,
+                17.08,
+                -10.51,
+                0.41143,
+                31,
+                25.29,
+                64.76,
+                0.58857,
+                2,
+                4,
+                16.44,
+                -25.02,
+                0.54571,
+                31,
+                27.64,
+                50.43,
+                0.45429,
+                2,
+                4,
+                20.16,
+                -29.12,
+                0.54571,
+                31,
+                32.12,
+                47.17,
+                0.45429,
+                2,
+                4,
+                19.45,
+                -34.05,
+                0.54571,
+                31,
+                32.44,
+                42.21,
+                0.45429,
+                2,
+                4,
+                16.33,
+                -35.66,
+                0.54571,
+                31,
+                29.72,
+                39.99,
+                0.45429,
+                2,
+                4,
+                12.51,
+                -33.08,
+                0.54571,
+                31,
+                25.45,
+                41.73,
+                0.45429,
+                2,
+                4,
+                13.24,
+                -28.16,
+                0.54571,
+                31,
+                25.15,
+                46.7,
+                0.45429,
+                2,
+                4,
+                2.2,
+                -17.15,
+                0.38857,
+                31,
+                12.08,
+                55.21,
+                0.61143,
+                2,
+                4,
+                4.94,
+                -20.47,
+                0.38857,
+                31,
+                15.45,
+                52.52,
+                0.61143,
+                2,
+                4,
+                8.18,
+                -20.85,
+                0.38857,
+                31,
+                18.7,
+                52.82,
+                0.61143,
+                2,
+                4,
+                15.24,
+                -20.5,
+                0.38857,
+                31,
+                25.54,
+                54.6,
+                0.61143,
+                2,
+                4,
+                35.66,
+                -27.41,
+                0.38857,
+                31,
+                46.94,
+                52.04,
+                0.61143,
+                2,
+                4,
+                45.34,
+                -26.09,
+                0.38857,
+                31,
+                56.15,
+                55.31,
+                0.61143,
+                2,
+                4,
+                48.55,
+                -13.59,
+                0.38857,
+                31,
+                56.71,
+                68.21,
+                0.61143,
+                2,
+                4,
+                43.81,
+                -5.16,
+                0.38857,
+                31,
+                50.35,
+                75.48,
+                0.61143,
+                2,
+                4,
+                30.98,
+                2.11,
+                0.38857,
+                31,
+                36.3,
+                79.97,
+                0.61143,
+                2,
+                4,
+                15.94,
+                4.74,
+                0.38857,
+                31,
+                21.04,
+                79.45,
+                0.61143,
+                1,
+                4,
+                30.25,
+                10.06,
+                1,
+                1,
+                4,
+                48.38,
+                5.18,
+                1,
+                1,
+                4,
+                58.27,
+                -11.23,
+                1,
+                1,
+                4,
+                54.45,
+                -29.52,
+                1,
+                1,
+                4,
+                46.66,
+                -38.87,
+                1,
+                2,
+                4,
+                6.86,
+                -5.3,
+                0.42286,
+                31,
+                14.21,
+                67.76,
+                0.57714,
+                2,
+                4,
+                3.12,
+                -25.85,
+                0.52571,
+                31,
+                14.77,
+                46.88,
+                0.47429
+              ],
+              "hull": 20
+            }
+          },
+          "F_LegL": {
+            "F_LegL2": {
+              "name": "F_LegL",
+              "type": "mesh",
+              "uvs": [
+                1,
+                0.0113,
+                0.99999,
+                0.19297,
+                0.88149,
+                0.52319,
+                0.86696,
+                0.54847,
+                0.84477,
+                0.58704,
+                0.82035,
+                0.62952,
+                0.73035,
+                0.97285,
+                0.22924,
+                0.97415,
+                0.23674,
+                0.60929,
+                0.20477,
+                0.561,
+                0.18124,
+                0.52546,
+                0,
+                0.24798,
+                0.00002,
+                0
+              ],
+              "triangles": [
+                1,
+                12,
+                0,
+                11,
+                12,
+                1,
+                2,
+                11,
+                1,
+                10,
+                11,
+                2,
+                3,
+                10,
+                2,
+                9,
+                10,
+                3,
+                4,
+                9,
+                3,
+                8,
+                9,
+                4,
+                5,
+                8,
+                4,
+                6,
+                8,
+                5,
+                7,
+                8,
+                6
+              ],
+              "vertices": [
+                1,
+                17,
+                -6.73,
+                9.22,
+                1,
+                1,
+                17,
+                4.51,
+                8.53,
+                1,
+                1,
+                17,
+                24.79,
+                4.79,
+                1,
+                2,
+                18,
+                -3.44,
+                3.71,
+                0.06491,
+                17,
+                26.34,
+                4.39,
+                0.93509,
+                2,
+                18,
+                -1.01,
+                3.86,
+                0.31702,
+                17,
+                28.7,
+                3.78,
+                0.68298,
+                2,
+                18,
+                1.67,
+                4.03,
+                0.98337,
+                17,
+                31.29,
+                3.11,
+                0.01663,
+                1,
+                18,
+                22.75,
+                7.55,
+                1,
+                1,
+                18,
+                25.47,
+                -2.62,
+                1,
+                2,
+                18,
+                3.54,
+                -8.15,
+                0.84532,
+                17,
+                29.29,
+                -9.05,
+                0.15468,
+                2,
+                18,
+                0.81,
+                -9.55,
+                0.48375,
+                17,
+                26.26,
+                -9.53,
+                0.51625,
+                2,
+                18,
+                -1.2,
+                -10.58,
+                0.1579,
+                17,
+                24.03,
+                -9.89,
+                0.8421,
+                1,
+                17,
+                6.63,
+                -12.64,
+                1,
+                1,
+                17,
+                -8.72,
+                -11.69,
+                1
+              ],
+              "hull": 13
+            }
+          },
+          "F_LegR": {
+            "F_LegR2": {
+              "name": "F_LegR",
+              "type": "mesh",
+              "uvs": [
+                1,
+                0.03942,
+                1,
+                0.21332,
+                0.87343,
+                0.5342,
+                0.86014,
+                0.56778,
+                0.84428,
+                0.60783,
+                0.74617,
+                0.96369,
+                0.20801,
+                0.98173,
+                0.23719,
+                0.61785,
+                0.23717,
+                0.58357,
+                0.23715,
+                0.55113,
+                0,
+                0.20663,
+                0,
+                0
+              ],
+              "triangles": [
+                4,
+                8,
+                3,
+                7,
+                8,
+                4,
+                5,
+                7,
+                4,
+                6,
+                7,
+                5,
+                10,
+                11,
+                0,
+                1,
+                10,
+                0,
+                1,
+                9,
+                10,
+                2,
+                9,
+                1,
+                3,
+                9,
+                2,
+                8,
+                9,
+                3
+              ],
+              "vertices": [
+                1,
+                14,
+                -0.79,
+                12.56,
+                1,
+                1,
+                14,
+                9.49,
+                10.74,
+                1,
+                1,
+                14,
+                27.98,
+                4.77,
+                1,
+                2,
+                14,
+                29.92,
+                4.14,
+                0.72543,
+                15,
+                -1.16,
+                4.25,
+                0.27457,
+                2,
+                14,
+                32.23,
+                3.39,
+                0.14951,
+                15,
+                1.26,
+                4.44,
+                0.85049,
+                1,
+                15,
+                22.56,
+                6.97,
+                1,
+                1,
+                15,
+                26.02,
+                -3.84,
+                1,
+                2,
+                14,
+                30.6,
+                -9.26,
+                0.08006,
+                15,
+                4.56,
+                -7.89,
+                0.91994,
+                2,
+                14,
+                28.57,
+                -8.91,
+                0.30208,
+                15,
+                2.55,
+                -8.33,
+                0.69792,
+                2,
+                14,
+                26.65,
+                -8.57,
+                0.57978,
+                15,
+                0.65,
+                -8.74,
+                0.42022,
+                1,
+                14,
+                5.43,
+                -9.87,
+                1,
+                1,
+                14,
+                -6.78,
+                -7.71,
+                1
+              ],
+              "hull": 12
+            }
+          },
+          "F_Mouths": {
+            "F_MouthsLaugh": {
+              "name": "F_MouthLaugh",
+              "x": 1.76,
+              "y": -3.34,
+              "rotation": 87.29,
+              "width": 37,
+              "height": 21
+            },
+            "F_MouthsNor": {
+              "name": "F_MouthNor",
+              "x": 2.65,
+              "y": -0.33,
+              "rotation": 91.17,
+              "width": 24,
+              "height": 16
+            },
+            "F_MouthsSad": {
+              "name": "F_MouthSad",
+              "x": 4.07,
+              "y": -0.09,
+              "rotation": 90.11,
+              "width": 25,
+              "height": 14
+            }
+          },
+          "F_ShoulderL": {
+            "F_ShoulderL2": {
+              "name": "F_ShoulderL",
+              "x": 8.71,
+              "y": -0.04,
+              "rotation": 88.7,
+              "width": 13,
+              "height": 30
+            }
+          },
+          "F_ShoulderR": {
+            "F_ShoulderR2": {
+              "name": "F_ShoulderR",
+              "x": 9.46,
+              "y": 0.28,
+              "rotation": 93.16,
+              "width": 19,
+              "height": 28
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "Action": {
+        "slots": {
+          "F_EyecloseL": {
+            "attachment": [
+              {
+                "time": 0.4,
+                "name": "F_EyecloseL2"
+              },
+              {
+                "time": 0.5,
+                "name": "F_EyelashL2"
+              }
+            ]
+          },
+          "F_EyecloseR": {
+            "attachment": [
+              {
+                "time": 0.4,
+                "name": "F_EyecloseR2"
+              },
+              {
+                "time": 0.5,
+                "name": "F_EyelashR2"
+              }
+            ]
+          },
+          "F_Mouths": {
+            "attachment": [
+              {
+                "name": "F_MouthsNor"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "F_EyesControl": {
+            "translate": [
+              {
+                "x": -1.73,
+                "y": 2.53,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.3333,
+                "x": -1.73,
+                "y": 2.53
+              },
+              {
+                "time": 0.5333,
+                "x": 1,
+                "y": 3.59,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.7667,
+                "x": 1,
+                "y": 3.59
+              },
+              {
+                "time": 1.9667,
+                "x": -1.73,
+                "y": 2.53
+              }
+            ]
+          },
+          "F_ShRIK": {
+            "translate": [
+              {
+                "x": -25.48,
+                "y": -28.75
+              },
+              {
+                "time": 0.2,
+                "x": -26.53,
+                "y": -22.95,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.6667,
+                "x": -26.53,
+                "y": -22.95
+              },
+              {
+                "time": 1.9667,
+                "x": -25.48,
+                "y": -28.75
+              }
+            ]
+          },
+          "F_ArmRIK": {
+            "translate": [
+              {
+                "x": 39.16,
+                "y": 30.31,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.0667,
+                "x": 39.16,
+                "y": 30.31
+              },
+              {
+                "time": 0.2667,
+                "x": 37.86,
+                "y": 23.82,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.9,
+                "x": 37.86,
+                "y": 23.82
+              },
+              {
+                "time": 1.2,
+                "x": 17.51,
+                "y": 10.08,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.6667,
+                "x": 17.51,
+                "y": 10.08
+              },
+              {
+                "time": 1.9667,
+                "x": 39.16,
+                "y": 30.31
+              }
+            ]
+          },
+          "F_ShLIK": {
+            "translate": [
+              {
+                "x": -7.47,
+                "y": -21.52
+              }
+            ]
+          },
+          "F_ArmLIK": {
+            "translate": [
+              {
+                "x": 14.25,
+                "y": 24.22,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.9667,
+                "x": 14.25,
+                "y": 24.22
+              },
+              {
+                "time": 1.3333,
+                "x": 36.18,
+                "y": 20.83,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.6667,
+                "x": 36.18,
+                "y": 20.83
+              },
+              {
+                "time": 2,
+                "x": 14.25,
+                "y": 24.22
+              }
+            ]
+          },
+          "F_BodyUp": {
+            "rotate": [
+              {
+                "time": 0.9667
+              },
+              {
+                "time": 1.2333,
+                "angle": -6.34,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.6667,
+                "angle": -6.34
+              },
+              {
+                "time": 2
+              }
+            ],
+            "scale": [
+              {},
+              {
+                "time": 0.6667,
+                "x": 1.03,
+                "y": 1.04
+              },
+              {
+                "time": 1.5
+              }
+            ]
+          },
+          "F_BodyLow": {
+            "rotate": [
+              {
+                "time": 0.8667
+              },
+              {
+                "time": 1.1333,
+                "angle": -6.63,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.6667,
+                "angle": -6.63
+              },
+              {
+                "time": 1.9333
+              }
+            ]
+          },
+          "F_Head": {
+            "rotate": [
+              {
+                "angle": -7.04,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.3,
+                "angle": -7.04
+              },
+              {
+                "time": 0.5,
+                "angle": 1.1,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.8667,
+                "angle": 1.1
+              },
+              {
+                "time": 1.1667,
+                "angle": 12.64,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.6667,
+                "angle": 12.64
+              },
+              {
+                "time": 1.9667,
+                "angle": -7.04
+              }
+            ]
+          },
+          "F_EyebrowL": {
+            "rotate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.4333,
+                "angle": -7.65
+              },
+              {
+                "time": 0.5333
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.4333,
+                "x": -1.91,
+                "y": 1.15
+              },
+              {
+                "time": 0.5333
+              }
+            ]
+          },
+          "F_EyebrowR": {
+            "rotate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.4333,
+                "angle": 1.44
+              },
+              {
+                "time": 0.5333
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.4333,
+                "x": -3.02,
+                "y": -1.62
+              },
+              {
+                "time": 0.5333
+              }
+            ]
+          },
+          "Shadow": {
+            "translate": [
+              {
+                "x": -2.07,
+                "y": 8
+              }
+            ]
+          },
+          "root": {
+            "scale": [
+              {
+                "x": -1
+              }
+            ]
+          },
+          "F_ShR": {
+            "translate": [
+              {
+                "x": -1.12
+              }
+            ]
+          },
+          "F_ToeLIK": {
+            "translate": [
+              {
+                "x": -0.91,
+                "y": 0.2
+              }
+            ]
+          },
+          "F_ToeRIK": {
+            "translate": [
+              {
+                "x": -2.59,
+                "y": -1.52
+              }
+            ]
+          },
+          "F_EyebrowL2": {
+            "rotate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.4333,
+                "angle": 4.88
+              },
+              {
+                "time": 0.5333
+              }
+            ]
+          },
+          "F_EyebrowR2": {
+            "rotate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.4333,
+                "angle": -7.35
+              },
+              {
+                "time": 0.5333
+              }
+            ]
+          },
+          "F_Doc": {
+            "rotate": [
+              {
+                "angle": -75.38,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.1333,
+                "angle": -75.38
+              },
+              {
+                "time": 0.4333,
+                "angle": -84.74,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.8333,
+                "angle": -84.74
+              },
+              {
+                "time": 2,
+                "angle": -75.38
+              }
+            ],
+            "shear": [
+              {
+                "time": 1.0667
+              },
+              {
+                "time": 1.2667,
+                "x": -31.11,
+                "y": -10.73,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.6667,
+                "x": -31.11,
+                "y": -10.73
+              },
+              {
+                "time": 2
+              }
+            ]
+          },
+          "F_LegRIK": {
+            "translate": [
+              {
+                "y": 1.31
+              }
+            ]
+          },
+          "F_HairBack2": {
+            "rotate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.4333,
+                "angle": 1.47
+              },
+              {
+                "time": 0.6333,
+                "angle": -2.76,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.9,
+                "angle": -2.76
+              },
+              {
+                "time": 1.0333,
+                "angle": -5.26
+              },
+              {
+                "time": 1.3,
+                "angle": -0.58
+              },
+              {
+                "time": 1.4667,
+                "angle": -2.76,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.7,
+                "angle": -2.76
+              },
+              {
+                "time": 1.8,
+                "angle": -0.01
+              },
+              {
+                "time": 2
+              }
+            ]
+          },
+          "F_HairBack3": {
+            "rotate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.5,
+                "angle": 1.47
+              },
+              {
+                "time": 0.7,
+                "angle": -2.76,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.9,
+                "angle": -2.76
+              },
+              {
+                "time": 1.1,
+                "angle": -5.26
+              },
+              {
+                "time": 1.3667,
+                "angle": -0.58
+              },
+              {
+                "time": 1.5333,
+                "angle": -2.76,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.7,
+                "angle": -2.76
+              },
+              {
+                "time": 1.8667,
+                "angle": -0.01
+              },
+              {
+                "time": 2
+              }
+            ]
+          },
+          "F_HairBack5": {
+            "rotate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.5,
+                "angle": 1.47
+              },
+              {
+                "time": 0.7,
+                "angle": -2.76,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.9,
+                "angle": -2.76
+              },
+              {
+                "time": 1.1,
+                "angle": -5.26
+              },
+              {
+                "time": 1.3667,
+                "angle": -0.58
+              },
+              {
+                "time": 1.5333,
+                "angle": -2.76,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.7,
+                "angle": -2.76
+              },
+              {
+                "time": 1.8667,
+                "angle": -0.01
+              },
+              {
+                "time": 2
+              }
+            ]
+          },
+          "F_HairBack4": {
+            "rotate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.4333,
+                "angle": 1.47
+              },
+              {
+                "time": 0.6333,
+                "angle": -2.76,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.9,
+                "angle": -2.76
+              },
+              {
+                "time": 1.0333,
+                "angle": -5.26
+              },
+              {
+                "time": 1.3,
+                "angle": -0.58
+              },
+              {
+                "time": 1.4667,
+                "angle": -2.76,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.7,
+                "angle": -2.76
+              },
+              {
+                "time": 1.8,
+                "angle": -0.01
+              },
+              {
+                "time": 2
+              }
+            ]
+          }
+        },
+        "ik": {
+          "F_ArmLIK": [
+            {
+              "compress": true
+            }
+          ],
+          "F_ArmRIK": [
+            {
+              "compress": true
+            }
+          ],
+          "F_ShLIK": [
+            {
+              "compress": true
+            }
+          ],
+          "F_ShRIK": [
+            {
+              "compress": true
+            }
+          ]
+        },
+        "drawOrder": [
+          {
+            "offsets": [
+              {
+                "slot": "F_HandL",
+                "offset": 6
+              },
+              {
+                "slot": "F_ArmL",
+                "offset": 6
+              }
+            ]
+          }
+        ]
+      },
+      "Idle": {
+        "slots": {
+          "F_Doc": {
+            "attachment": [
+              {
+                "name": null
+              }
+            ]
+          },
+          "F_EyecloseL": {
+            "attachment": [
+              {
+                "time": 0.7333,
+                "name": "F_EyecloseL2"
+              },
+              {
+                "time": 0.8333,
+                "name": "F_EyelashL2"
+              },
+              {
+                "time": 2.6667,
+                "name": "F_EyecloseL2"
+              },
+              {
+                "time": 2.7667,
+                "name": "F_EyelashL2"
+              },
+              {
+                "time": 6.2667,
+                "name": "F_EyecloseL2"
+              },
+              {
+                "time": 6.3667,
+                "name": "F_EyelashL2"
+              }
+            ]
+          },
+          "F_EyecloseR": {
+            "attachment": [
+              {
+                "time": 0.7333,
+                "name": "F_EyecloseR2"
+              },
+              {
+                "time": 0.8333,
+                "name": "F_EyelashR2"
+              },
+              {
+                "time": 2.6667,
+                "name": "F_EyecloseR2"
+              },
+              {
+                "time": 2.7667,
+                "name": "F_EyelashR2"
+              },
+              {
+                "time": 6.2667,
+                "name": "F_EyecloseR2"
+              },
+              {
+                "time": 6.3667,
+                "name": "F_EyelashR2"
+              }
+            ]
+          },
+          "F_Mouths": {
+            "attachment": [
+              {
+                "name": "F_MouthsNor"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "F_EyesControl": {
+            "translate": [
+              {
+                "x": -1.73,
+                "y": 2.53,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.6667,
+                "x": -1.73,
+                "y": 2.53
+              },
+              {
+                "time": 0.9,
+                "x": -0.14,
+                "y": 8.77,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.9333,
+                "x": -0.14,
+                "y": 8.77
+              },
+              {
+                "time": 2.1333,
+                "x": 4.63,
+                "y": 10.03,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.6,
+                "x": 4.63,
+                "y": 10.03
+              },
+              {
+                "time": 2.7667,
+                "x": -1.73,
+                "y": 2.53
+              }
+            ]
+          },
+          "F_ShRIK": {
+            "translate": [
+              {
+                "x": -26.66,
+                "y": -26.2,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.7333,
+                "x": -26.66,
+                "y": -26.2
+              },
+              {
+                "time": 1,
+                "x": -16.09,
+                "y": -39.33,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.8667,
+                "x": -16.09,
+                "y": -39.33
+              },
+              {
+                "time": 2,
+                "x": -17.97,
+                "y": -38.32,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.2,
+                "x": -17.97,
+                "y": -38.32
+              },
+              {
+                "time": 2.5,
+                "x": 14.22,
+                "y": -41.01
+              },
+              {
+                "time": 2.8333,
+                "x": -16.09,
+                "y": -39.33
+              },
+              {
+                "time": 2.9667,
+                "x": -26.66,
+                "y": -26.2
+              }
+            ]
+          },
+          "F_ArmRIK": {
+            "translate": [
+              {
+                "x": 37.05,
+                "y": 3.89,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.7333,
+                "x": 37.05,
+                "y": 3.89
+              },
+              {
+                "time": 1,
+                "x": 14.28,
+                "y": 31.58
+              },
+              {
+                "time": 1.2,
+                "x": 18.43,
+                "y": 34
+              },
+              {
+                "time": 1.4333,
+                "x": 14.28,
+                "y": 31.58
+              },
+              {
+                "time": 1.6667,
+                "x": 18.43,
+                "y": 34
+              },
+              {
+                "time": 1.8667,
+                "x": 14.28,
+                "y": 31.58
+              },
+              {
+                "time": 2,
+                "x": 13.02,
+                "y": 43.31
+              },
+              {
+                "time": 2.2,
+                "x": 13.02,
+                "y": 43.31
+              },
+              {
+                "time": 2.4667,
+                "x": -15.31,
+                "y": 61.92
+              },
+              {
+                "time": 2.9667,
+                "x": 37.05,
+                "y": 3.89
+              }
+            ]
+          },
+          "F_ShLIK": {
+            "translate": [
+              {
+                "x": 35.39,
+                "y": -22.21,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.7333,
+                "x": 35.39,
+                "y": -22.21
+              },
+              {
+                "time": 1,
+                "x": 32.7,
+                "y": -32.85,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.8667,
+                "x": 32.7,
+                "y": -32.85
+              },
+              {
+                "time": 2,
+                "x": 25.1,
+                "y": -33.35
+              },
+              {
+                "time": 2.2,
+                "x": 21.34,
+                "y": -40.99
+              },
+              {
+                "time": 2.5667,
+                "x": 5.91,
+                "y": -32.2
+              },
+              {
+                "time": 2.9667,
+                "x": 35.39,
+                "y": -22.21
+              }
+            ]
+          },
+          "F_ArmLIK": {
+            "translate": [
+              {
+                "x": -12.11,
+                "y": -5.53,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.7333,
+                "x": -12.11,
+                "y": -5.53
+              },
+              {
+                "time": 1,
+                "x": -14.03,
+                "y": 28.36,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.8667,
+                "x": -14.03,
+                "y": 28.36
+              },
+              {
+                "time": 2,
+                "x": -0.45,
+                "y": 37.03
+              },
+              {
+                "time": 2.2,
+                "x": -0.45,
+                "y": 37.03
+              },
+              {
+                "time": 2.4667,
+                "x": 9.95,
+                "y": 61.13
+              },
+              {
+                "time": 2.9667,
+                "x": -12.11,
+                "y": -5.53
+              }
+            ]
+          },
+          "F_BodyUp": {
+            "scale": [
+              {},
+              {
+                "time": 0.6667,
+                "x": 1.03,
+                "y": 1.04
+              },
+              {
+                "time": 1.5,
+                "curve": "stepped"
+              },
+              {
+                "time": 2
+              },
+              {
+                "time": 2.6667,
+                "x": 1.03,
+                "y": 1.04
+              },
+              {
+                "time": 3.5,
+                "curve": "stepped"
+              },
+              {
+                "time": 4
+              },
+              {
+                "time": 4.6667,
+                "x": 1.03,
+                "y": 1.04
+              },
+              {
+                "time": 5.5,
+                "curve": "stepped"
+              },
+              {
+                "time": 6
+              },
+              {
+                "time": 6.6667,
+                "x": 1.03,
+                "y": 1.04
+              },
+              {
+                "time": 7.5,
+                "curve": "stepped"
+              },
+              {
+                "time": 8
+              }
+            ]
+          },
+          "F_Head": {
+            "rotate": [
+              {
+                "time": 0.6667
+              },
+              {
+                "time": 0.9333,
+                "angle": -10,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.9333,
+                "angle": -10
+              },
+              {
+                "time": 2.1667,
+                "angle": -15.23,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.2667,
+                "angle": -15.23
+              },
+              {
+                "time": 2.4667,
+                "angle": 9
+              },
+              {
+                "time": 2.6667
+              }
+            ]
+          },
+          "F_EyebrowL": {
+            "rotate": [
+              {
+                "time": 0.6667
+              },
+              {
+                "time": 0.7667,
+                "angle": -7.65
+              },
+              {
+                "time": 0.8667,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.6
+              },
+              {
+                "time": 2.7,
+                "angle": -7.65
+              },
+              {
+                "time": 2.8,
+                "curve": "stepped"
+              },
+              {
+                "time": 6.2
+              },
+              {
+                "time": 6.3,
+                "angle": -7.65
+              },
+              {
+                "time": 6.4
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.6667
+              },
+              {
+                "time": 0.7667,
+                "x": -1.91,
+                "y": 1.15
+              },
+              {
+                "time": 0.8667,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.6
+              },
+              {
+                "time": 2.7,
+                "x": -1.91,
+                "y": 1.15
+              },
+              {
+                "time": 2.8,
+                "curve": "stepped"
+              },
+              {
+                "time": 6.2
+              },
+              {
+                "time": 6.3,
+                "x": -1.91,
+                "y": 1.15
+              },
+              {
+                "time": 6.4
+              }
+            ]
+          },
+          "F_EyebrowR": {
+            "rotate": [
+              {
+                "time": 0.6667
+              },
+              {
+                "time": 0.7667,
+                "angle": 1.44
+              },
+              {
+                "time": 0.8667,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.6
+              },
+              {
+                "time": 2.7,
+                "angle": 1.44
+              },
+              {
+                "time": 2.8,
+                "curve": "stepped"
+              },
+              {
+                "time": 6.2
+              },
+              {
+                "time": 6.3,
+                "angle": 1.44
+              },
+              {
+                "time": 6.4
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.6667
+              },
+              {
+                "time": 0.7667,
+                "x": -3.02,
+                "y": -1.62
+              },
+              {
+                "time": 0.8667,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.6
+              },
+              {
+                "time": 2.7,
+                "x": -3.02,
+                "y": -1.62
+              },
+              {
+                "time": 2.8,
+                "curve": "stepped"
+              },
+              {
+                "time": 6.2
+              },
+              {
+                "time": 6.3,
+                "x": -3.02,
+                "y": -1.62
+              },
+              {
+                "time": 6.4
+              }
+            ]
+          },
+          "Shadow": {
+            "translate": [
+              {
+                "x": -2.07,
+                "y": 8
+              }
+            ]
+          },
+          "root": {
+            "scale": [
+              {
+                "x": -1
+              }
+            ]
+          },
+          "F_ShR": {
+            "translate": [
+              {
+                "x": -1.12
+              }
+            ]
+          },
+          "F_ToeLIK": {
+            "translate": [
+              {
+                "x": -0.91,
+                "y": 0.2
+              }
+            ]
+          },
+          "F_ToeRIK": {
+            "translate": [
+              {
+                "x": -2.59,
+                "y": -1.52
+              }
+            ]
+          },
+          "F_HairBack2": {
+            "rotate": [
+              {
+                "time": 2.3333
+              },
+              {
+                "time": 2.5667,
+                "angle": -22.16
+              },
+              {
+                "time": 2.8
+              }
+            ]
+          },
+          "F_HairBack4": {
+            "rotate": [
+              {
+                "time": 2.3333
+              },
+              {
+                "time": 2.5667,
+                "angle": 24.25
+              },
+              {
+                "time": 2.8
+              }
+            ]
+          },
+          "F_EyebrowL2": {
+            "rotate": [
+              {
+                "time": 0.6667
+              },
+              {
+                "time": 0.7667,
+                "angle": 4.88
+              },
+              {
+                "time": 0.8667,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.6
+              },
+              {
+                "time": 2.7,
+                "angle": 4.88
+              },
+              {
+                "time": 2.8,
+                "curve": "stepped"
+              },
+              {
+                "time": 6.2
+              },
+              {
+                "time": 6.3,
+                "angle": 4.88
+              },
+              {
+                "time": 6.4
+              }
+            ]
+          },
+          "F_EyebrowR2": {
+            "rotate": [
+              {
+                "time": 0.6667
+              },
+              {
+                "time": 0.7667,
+                "angle": -7.35
+              },
+              {
+                "time": 0.8667,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.6
+              },
+              {
+                "time": 2.7,
+                "angle": -7.35
+              },
+              {
+                "time": 2.8,
+                "curve": "stepped"
+              },
+              {
+                "time": 6.2
+              },
+              {
+                "time": 6.3,
+                "angle": -7.35
+              },
+              {
+                "time": 6.4
+              }
+            ]
+          },
+          "F_LegRIK": {
+            "translate": [
+              {
+                "y": 1.31
+              }
+            ]
+          },
+          "F_HairBack3": {
+            "rotate": [
+              {
+                "time": 0.7
+              },
+              {
+                "time": 1.0333,
+                "angle": 6.22,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.9667,
+                "angle": 6.22
+              },
+              {
+                "time": 2.1333,
+                "angle": 10.47
+              },
+              {
+                "time": 2.3333
+              },
+              {
+                "time": 2.4667,
+                "angle": -3.56
+              },
+              {
+                "time": 2.6333,
+                "angle": -22.16
+              },
+              {
+                "time": 2.8667
+              }
+            ]
+          },
+          "F_HairBack5": {
+            "rotate": [
+              {
+                "time": 0.7
+              },
+              {
+                "time": 1.0333,
+                "angle": 4.2,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.9667,
+                "angle": 4.2
+              },
+              {
+                "time": 2.1333,
+                "angle": 6.81
+              },
+              {
+                "time": 2.3333
+              },
+              {
+                "time": 2.4667,
+                "angle": 1.39
+              },
+              {
+                "time": 2.6667,
+                "angle": 24.25
+              },
+              {
+                "time": 2.9
+              }
+            ]
+          },
+          "F_HairFront3": {
+            "rotate": [
+              {
+                "time": 2.1667
+              },
+              {
+                "time": 2.3667,
+                "angle": -5.36
+              },
+              {
+                "time": 2.5667,
+                "angle": 17.13
+              },
+              {
+                "time": 2.7667
+              }
+            ]
+          },
+          "F_HairFront4": {
+            "rotate": [
+              {
+                "time": 2.2333
+              },
+              {
+                "time": 2.4333,
+                "angle": -23.64
+              },
+              {
+                "time": 2.6333,
+                "angle": 23.26
+              },
+              {
+                "time": 2.8333
+              }
+            ]
+          }
+        },
+        "ik": {
+          "F_ArmLIK": [
+            {
+              "compress": true
+            }
+          ],
+          "F_ArmRIK": [
+            {
+              "compress": true
+            }
+          ],
+          "F_ShLIK": [
+            {
+              "compress": true
+            }
+          ],
+          "F_ShRIK": [
+            {
+              "compress": true
+            }
+          ]
+        },
+        "drawOrder": [
+          {
+            "offsets": [
+              {
+                "slot": "F_HandL",
+                "offset": 6
+              },
+              {
+                "slot": "F_ArmL",
+                "offset": 6
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "_atlasText": "\nNvLeTan.png\nsize: 284, 144\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nF_ArmL\n  rotate: true\n  xy: 214, 27\n  size: 20, 24\n  orig: 22, 27\n  offset: 1, 2\n  index: -1\nF_ArmR\n  rotate: true\n  xy: 2, 2\n  size: 14, 28\n  orig: 16, 29\n  offset: 1, 1\n  index: -1\nF_Body\n  rotate: true\n  xy: 2, 18\n  size: 37, 64\n  orig: 37, 64\n  offset: 0, 0\n  index: -1\nF_Document\n  rotate: false\n  xy: 148, 22\n  size: 41, 59\n  orig: 41, 59\n  offset: 0, 0\n  index: -1\nF_EyeL\n  rotate: true\n  xy: 231, 49\n  size: 8, 9\n  orig: 10, 11\n  offset: 1, 1\n  index: -1\nF_EyeR\n  rotate: true\n  xy: 231, 49\n  size: 8, 9\n  orig: 10, 11\n  offset: 1, 1\n  index: -1\nF_Eyeball\n  rotate: true\n  xy: 214, 49\n  size: 37, 15\n  orig: 37, 15\n  offset: 0, 0\n  index: -1\nF_EyebrowL\n  rotate: true\n  xy: 244, 79\n  size: 11, 6\n  orig: 11, 6\n  offset: 0, 0\n  index: -1\nF_EyebrowR\n  rotate: true\n  xy: 272, 52\n  size: 21, 10\n  orig: 21, 10\n  offset: 0, 0\n  index: -1\nF_EyecloseL\n  rotate: false\n  xy: 64, 4\n  size: 11, 10\n  orig: 13, 12\n  offset: 1, 1\n  index: -1\nF_EyecloseR\n  rotate: false\n  xy: 170, 9\n  size: 19, 11\n  orig: 21, 13\n  offset: 1, 1\n  index: -1\nF_EyelashL\n  rotate: false\n  xy: 49, 7\n  size: 13, 9\n  orig: 15, 11\n  offset: 1, 1\n  index: -1\nF_EyelashR\n  rotate: true\n  xy: 252, 9\n  size: 19, 9\n  orig: 21, 11\n  offset: 1, 1\n  index: -1\nF_FootL\n  rotate: false\n  xy: 148, 2\n  size: 20, 18\n  orig: 22, 20\n  offset: 1, 1\n  index: -1\nF_FootR\n  rotate: false\n  xy: 148, 2\n  size: 20, 18\n  orig: 22, 20\n  offset: 1, 1\n  index: -1\nF_HairBack\n  rotate: false\n  xy: 2, 57\n  size: 78, 85\n  orig: 78, 85\n  offset: 0, 0\n  index: -1\nF_HairFront\n  rotate: false\n  xy: 236, 92\n  size: 46, 50\n  orig: 46, 50\n  offset: 0, 0\n  index: -1\nF_HairTop\n  rotate: false\n  xy: 173, 88\n  size: 61, 54\n  orig: 63, 57\n  offset: 1, 2\n  index: -1\nF_HandL\n  rotate: false\n  xy: 262, 31\n  size: 10, 10\n  orig: 12, 12\n  offset: 1, 1\n  index: -1\nF_HandLClap\n  rotate: false\n  xy: 68, 16\n  size: 11, 19\n  orig: 13, 20\n  offset: 1, 1\n  index: -1\nF_HandLTalk\n  rotate: false\n  xy: 32, 2\n  size: 15, 14\n  orig: 17, 16\n  offset: 1, 1\n  index: -1\nF_HandR\n  rotate: true\n  xy: 263, 19\n  size: 10, 9\n  orig: 12, 11\n  offset: 1, 1\n  index: -1\nF_HandRClap\n  rotate: false\n  xy: 274, 32\n  size: 8, 18\n  orig: 10, 21\n  offset: 1, 2\n  index: -1\nF_HandRTalk\n  rotate: true\n  xy: 68, 37\n  size: 18, 12\n  orig: 20, 14\n  offset: 1, 1\n  index: -1\nF_Head\n  rotate: false\n  xy: 82, 2\n  size: 64, 79\n  orig: 68, 79\n  offset: 0, 0\n  index: -1\nF_LegL\n  rotate: false\n  xy: 191, 25\n  size: 21, 61\n  orig: 21, 62\n  offset: 0, 1\n  index: -1\nF_LegR\n  rotate: true\n  xy: 191, 2\n  size: 21, 59\n  orig: 21, 60\n  offset: 0, 1\n  index: -1\nF_MouthLaugh\n  rotate: false\n  xy: 252, 75\n  size: 30, 15\n  orig: 37, 21\n  offset: 4, 3\n  index: -1\nF_MouthNor\n  rotate: false\n  xy: 242, 43\n  size: 21, 11\n  orig: 24, 16\n  offset: 1, 3\n  index: -1\nF_MouthSad\n  rotate: false\n  xy: 240, 30\n  size: 20, 11\n  orig: 25, 14\n  offset: 3, 2\n  index: -1\nF_ShoulderL\n  rotate: false\n  xy: 231, 59\n  size: 11, 27\n  orig: 13, 30\n  offset: 1, 2\n  index: -1\nF_ShoulderR\n  rotate: true\n  xy: 244, 56\n  size: 17, 26\n  orig: 19, 28\n  offset: 1, 1\n  index: -1\nShadow\n  rotate: false\n  xy: 82, 83\n  size: 89, 59\n  orig: 93, 63\n  offset: 2, 2\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "e9be917d-e963-4e2f-9386-c4d91465c910"
+    }
+  ],
+  "textureNames": [
+    "NvLeTan.png"
+  ],
+  "scale": 1
+}

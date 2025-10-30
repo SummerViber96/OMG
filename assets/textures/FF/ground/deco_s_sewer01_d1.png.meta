@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "74e38f3d-fdbc-4bf5-b2d2-96dc03d811c0",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 296,
+  "height": 156,
+  "platformSettings": {},
+  "subMetas": {
+    "deco_s_sewer01_d1": {
+      "ver": "1.0.4",
+      "uuid": "0bd9ac89-4e3c-4f4e-965e-10d82a3a2c7a",
+      "rawTextureUuid": "74e38f3d-fdbc-4bf5-b2d2-96dc03d811c0",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 1.5,
+      "trimX": 2,
+      "trimY": 0,
+      "width": 293,
+      "height": 153,
+      "rawWidth": 296,
+      "rawHeight": 156,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

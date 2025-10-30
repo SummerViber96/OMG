@@ -1,0 +1,129 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "Popup_Red",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "PZ9C2TSlsMryCOu1BWDW4iAsYR8",
+      "spine": "3.8.99",
+      "x": -78.28,
+      "y": -61.97,
+      "width": 137.74,
+      "height": 150.52,
+      "images": "./i/",
+      "audio": "D:/TTTTTTTTTTTTT_2023/Project_IceAgeVillage/Working/Gameplay/Character/NV_01"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "Bubble emoji 1",
+        "parent": "root",
+        "x": -6.96,
+        "y": -59.48,
+        "scaleX": 1.42,
+        "scaleY": 1.42
+      },
+      {
+        "name": "Notice",
+        "parent": "Bubble emoji 1",
+        "length": 35.05,
+        "rotation": 90,
+        "x": -1.83,
+        "y": 60.14,
+        "scaleX": 0.47,
+        "scaleY": 0.47
+      }
+    ],
+    "slots": [
+      {
+        "name": "Bubble emoji 1",
+        "bone": "Bubble emoji 1",
+        "attachment": "Bubble emoji 1"
+      },
+      {
+        "name": "Notice",
+        "bone": "Notice"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "Bubble emoji 1": {
+            "Bubble emoji 1": {
+              "x": -1.72,
+              "y": 51.24,
+              "width": 97,
+              "height": 106
+            }
+          },
+          "Notice": {
+            "Notice": {
+              "x": -3.04,
+              "rotation": -90,
+              "width": 47,
+              "height": 99
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "Idle": {
+        "slots": {
+          "Notice": {
+            "attachment": [
+              {
+                "name": "Notice"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "Notice": {
+            "scale": [
+              {},
+              {
+                "time": 0.1667,
+                "x": 1.421,
+                "y": 1.421
+              },
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.5,
+                "x": 1.421,
+                "y": 1.421
+              },
+              {
+                "time": 0.6667
+              },
+              {
+                "time": 0.8333,
+                "x": 1.421,
+                "y": 1.421
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\r\nPopup_Red.png\r\nsize: 256,256\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nBubble emoji 1\r\n  rotate: false\r\n  xy: 2, 51\r\n  size: 97, 106\r\n  orig: 97, 106\r\n  offset: 0, 0\r\n  index: -1\r\nNotice\r\n  rotate: true\r\n  xy: 2, 2\r\n  size: 47, 99\r\n  orig: 47, 99\r\n  offset: 0, 0\r\n  index: -1\r\n",
+  "textures": [
+    {
+      "__uuid__": "8f4af98f-bb4e-49d4-a757-14750b305ce8"
+    }
+  ],
+  "textureNames": [
+    "Popup_Red.png"
+  ],
+  "scale": 1
+}

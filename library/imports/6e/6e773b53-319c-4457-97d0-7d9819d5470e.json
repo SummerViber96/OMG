@@ -1,0 +1,269 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "TM",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "hIVmlE3lTYo",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2.43",
+      "x": -107.5,
+      "y": -5.57,
+      "width": 215,
+      "height": 157
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "bone",
+        "parent": "root"
+      },
+      {
+        "name": "RunArea",
+        "parent": "bone",
+        "x": 2.07,
+        "y": 82.86,
+        "scaleY": 2.2707,
+        "shearX": -30.21,
+        "shearY": -58.99
+      },
+      {
+        "name": "bone2",
+        "parent": "RunArea",
+        "y": -0.76
+      },
+      {
+        "name": "TM_F",
+        "parent": "bone",
+        "x": -19.56,
+        "y": 36.86
+      }
+    ],
+    "slots": [
+      {
+        "name": "TM",
+        "bone": "bone",
+        "attachment": "TM_Dirty"
+      },
+      {
+        "name": "RunClip",
+        "bone": "bone",
+        "attachment": "RunClip"
+      },
+      {
+        "name": "CardioR",
+        "bone": "bone2",
+        "attachment": "CardioR2"
+      },
+      {
+        "name": "ClipGuide",
+        "bone": "bone"
+      },
+      {
+        "name": "TM_Surface",
+        "bone": "bone"
+      },
+      {
+        "name": "TM_F",
+        "bone": "TM_F",
+        "attachment": "TM_F_Busy"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "RunClip": {
+            "RunClip": {
+              "type": "clipping",
+              "end": "ClipGuide",
+              "vertexCount": 7,
+              "vertices": [
+                -55.16,
+                70.07,
+                33.11,
+                121.22,
+                38.95,
+                121.18,
+                79.98,
+                97.25,
+                -12.32,
+                43.66,
+                -46.02,
+                64.87,
+                -49.54,
+                66.84
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "TM_Lv0",
+        "attachments": {
+          "TM": {
+            "TM2": {
+              "name": "TM-Lock",
+              "x": 2.12,
+              "y": 67.17,
+              "width": 213,
+              "height": 144
+            }
+          }
+        }
+      },
+      {
+        "name": "TM_Lv1",
+        "attachments": {
+          "CardioR": {
+            "CardioR2": {
+              "name": "CardioR",
+              "width": 81,
+              "height": 52
+            }
+          },
+          "TM": {
+            "TM2": {
+              "name": "TM",
+              "y": 72.93,
+              "width": 215,
+              "height": 157
+            },
+            "TM_Busy": {
+              "y": 72.93,
+              "width": 215,
+              "height": 157
+            },
+            "TM_Dirty": {
+              "y": 72.93,
+              "width": 215,
+              "height": 157
+            }
+          },
+          "TM_F": {
+            "TM_F_Busy": {
+              "name": "TM_Busy_F",
+              "x": -10.18,
+              "y": 46.68,
+              "width": 137,
+              "height": 123
+            },
+            "TM_F_Dirty": {
+              "name": "TM_Dirty_F",
+              "x": -10.18,
+              "y": 46.68,
+              "width": 137,
+              "height": 123
+            },
+            "TM_F2": {
+              "name": "TM_F",
+              "x": -10.18,
+              "y": 46.68,
+              "width": 137,
+              "height": 123
+            }
+          },
+          "TM_Surface": {
+            "TM_Surface": {
+              "name": "TM_DirtyThings",
+              "x": 25.9,
+              "y": 73.56,
+              "width": 83,
+              "height": 76
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "Action": {
+        "slots": {
+          "TM": {
+            "attachment": [
+              {
+                "name": "TM2"
+              }
+            ]
+          },
+          "TM_F": {
+            "attachment": [
+              {
+                "name": "TM_F2"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone2": {
+            "translate": [
+              {},
+              {
+                "time": 0.2,
+                "y": 5.15
+              }
+            ]
+          }
+        }
+      },
+      "Busy": {
+        "slots": {
+          "TM": {
+            "attachment": [
+              {
+                "name": "TM_Busy"
+              }
+            ]
+          }
+        }
+      },
+      "Dirty": {
+        "slots": {
+          "TM_F": {
+            "attachment": [
+              {
+                "name": "TM_F_Dirty"
+              }
+            ]
+          },
+          "TM_Surface": {
+            "attachment": [
+              {
+                "name": "TM_Surface"
+              }
+            ]
+          }
+        }
+      },
+      "Idle": {
+        "slots": {
+          "TM": {
+            "attachment": [
+              {
+                "name": "TM2"
+              }
+            ]
+          },
+          "TM_F": {
+            "attachment": [
+              {
+                "name": "TM_F2"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nTM.png\nsize: 360, 532\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nCardioR\n  rotate: false\n  xy: 117, 163\n  size: 81, 50\n  orig: 81, 52\n  offset: 0, 2\n  index: -1\nTM\n  rotate: false\n  xy: 2, 215\n  size: 197, 155\n  orig: 215, 157\n  offset: 9, 1\n  index: -1\nTM-Lock\n  rotate: true\n  xy: 201, 133\n  size: 196, 142\n  orig: 213, 144\n  offset: 7, 1\n  index: -1\nTM_Busy\n  rotate: false\n  xy: 2, 372\n  size: 197, 156\n  orig: 215, 157\n  offset: 9, 1\n  index: -1\nTM_Busy_F\n  rotate: true\n  xy: 2, 2\n  size: 129, 113\n  orig: 137, 123\n  offset: 3, 5\n  index: -1\nTM_Dirty\n  rotate: true\n  xy: 201, 331\n  size: 197, 156\n  orig: 215, 157\n  offset: 9, 1\n  index: -1\nTM_DirtyThings\n  rotate: false\n  xy: 2, 137\n  size: 83, 76\n  orig: 83, 76\n  offset: 0, 0\n  index: -1\nTM_Dirty_F\n  rotate: true\n  xy: 117, 2\n  size: 129, 113\n  orig: 137, 123\n  offset: 3, 5\n  index: -1\nTM_F\n  rotate: true\n  xy: 232, 2\n  size: 129, 113\n  orig: 137, 123\n  offset: 3, 5\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "a6eaf923-0801-4a02-8bd9-e8a4797e0ee0"
+    }
+  ],
+  "textureNames": [
+    "TM.png"
+  ],
+  "scale": 1
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Furnace lvl 1",
+    "texture": "30609060-4a4a-4abf-9338-1dbb1ce1dc29",
+    "atlas": "",
+    "rect": [
+      2,
+      1,
+      380,
+      519
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      384,
+      521
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

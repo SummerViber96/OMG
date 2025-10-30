@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Iron ore",
+    "texture": "694b5569-996d-4a79-8115-9fea254bfb6a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      320,
+      230
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      320,
+      230
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

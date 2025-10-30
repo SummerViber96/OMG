@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Stone-decor-2",
+    "texture": "521dcd36-bb8a-4918-9852-6f2c6dadd5bd",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      168,
+      93
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      168,
+      93
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MC-GP",
+    "texture": "d258f651-6daa-4411-b273-6e79f6a09c7c",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      960,
+      168
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      964,
+      172
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

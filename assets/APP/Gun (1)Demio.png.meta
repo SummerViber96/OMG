@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "6184645f-4db5-4ce9-beda-2686d431607f",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 812,
+  "height": 375,
+  "platformSettings": {},
+  "subMetas": {
+    "Gun (1)Demio": {
+      "ver": "1.0.4",
+      "uuid": "d196fa6e-2465-47cf-a0ec-39a0bd869670",
+      "rawTextureUuid": "6184645f-4db5-4ce9-beda-2686d431607f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 812,
+      "height": 375,
+      "rawWidth": 812,
+      "rawHeight": 375,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "coin_vfx.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0001 shot": {
+      "__uuid__": "17583765-263b-4bea-8472-386a81761712"
+    },
+    "0002 shot": {
+      "__uuid__": "c3e12675-fd65-4e1d-8329-029ce2bc8302"
+    },
+    "0003 shot": {
+      "__uuid__": "421c39f1-2d6d-43cb-afc1-6815c8cacc9a"
+    },
+    "0004 shot": {
+      "__uuid__": "49402638-d1c6-4033-8df6-084780dcbe05"
+    },
+    "0005 shot": {
+      "__uuid__": "5fa72676-21bb-461e-af10-7255012c5b4c"
+    },
+    "0006 shot": {
+      "__uuid__": "abeb755f-1c23-45e3-8ce4-010125742e6f"
+    },
+    "0007 shot": {
+      "__uuid__": "8ad6def7-8844-4e47-84f9-01c173e4f6c2"
+    },
+    "0008 shot": {
+      "__uuid__": "9e98e5fe-7ab9-4295-9e69-0253e4bfa871"
+    },
+    "0009 shot": {
+      "__uuid__": "5dcb90be-deba-40a8-957b-a2031099a50e"
+    },
+    "0010 shot": {
+      "__uuid__": "7afde002-18cf-403b-a066-785c3d2c4343"
+    },
+    "0011 shot": {
+      "__uuid__": "6db47c73-e4b9-4f2a-ad7a-f1acaa81def1"
+    },
+    "0012 shot": {
+      "__uuid__": "aff5d381-c735-4253-9b5e-6df009fa6dbf"
+    },
+    "0013 shot": {
+      "__uuid__": "af8d0843-6450-467b-9adb-6c4641928b1e"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "duong",
+    "texture": "b85ea792-822f-4997-9f7c-ddfed6707227",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2872,
+      1136
+    ],
+    "offset": [
+      0,
+      169
+    ],
+    "originalSize": [
+      2872,
+      1474
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

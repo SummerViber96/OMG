@@ -1,0 +1,129 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "Fireplace_Lv1",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "eMqFaKcJSUEWpXozX+SKidk426k",
+      "spine": "3.8.99",
+      "x": -299.19,
+      "y": -302.1,
+      "width": 578,
+      "height": 578,
+      "images": "./i/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "All",
+        "parent": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "Bonfire-lv3-2",
+        "bone": "All",
+        "attachment": "1B"
+      },
+      {
+        "name": "Bonfire-lv3",
+        "bone": "All"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "Bonfire-lv3": {
+            "1A": {
+              "x": -10.19,
+              "y": -13.1,
+              "width": 578,
+              "height": 578
+            }
+          },
+          "Bonfire-lv3-2": {
+            "1B": {
+              "x": -10.18,
+              "y": -13.1,
+              "width": 578,
+              "height": 578
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "Idle_01": {
+        "slots": {
+          "Bonfire-lv3-2": {
+            "attachment": [
+              {
+                "time": 0.1667,
+                "name": "1B"
+              }
+            ]
+          }
+        }
+      },
+      "Idle_02": {
+        "slots": {
+          "Bonfire-lv3": {
+            "attachment": [
+              {
+                "name": "1A"
+              }
+            ]
+          },
+          "Bonfire-lv3-2": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 2,
+                "name": null
+              }
+            ]
+          }
+        }
+      },
+      "Idle_03": {
+        "slots": {
+          "Bonfire-lv3": {
+            "attachment": [
+              {
+                "name": "1A"
+              }
+            ]
+          },
+          "Bonfire-lv3-2": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 2,
+                "name": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\r\nFireplace_Lv1.png\r\nsize: 2048,2048\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\n1A\r\n  rotate: false\r\n  xy: 2, 582\r\n  size: 578, 578\r\n  orig: 578, 578\r\n  offset: 0, 0\r\n  index: -1\r\n1B\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 578, 578\r\n  orig: 578, 578\r\n  offset: 0, 0\r\n  index: -1\r\n",
+  "textures": [
+    {
+      "__uuid__": "928dea52-00fe-48c9-bed1-2ea43c446ebf"
+    }
+  ],
+  "textureNames": [
+    "Fireplace_Lv1.png"
+  ],
+  "scale": 1
+}

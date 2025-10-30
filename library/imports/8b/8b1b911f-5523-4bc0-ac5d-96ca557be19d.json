@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "chatcay.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "Machine_RipTree-Skin_0-Run_0": {
+      "__uuid__": "0c15ab21-26db-4889-8f59-aff401b6560f"
+    },
+    "Machine_RipTree-Skin_0-Run_1": {
+      "__uuid__": "06ff0320-bc14-4ab5-8d49-f3960462c4a5"
+    },
+    "Machine_RipTree-Skin_0-Run_2": {
+      "__uuid__": "e5aca90f-8116-4942-a779-cf719136c2df"
+    },
+    "Machine_RipTree-Skin_0-Run_3": {
+      "__uuid__": "044e59b1-6303-49bc-997f-9e38b999ec8d"
+    },
+    "Machine_RipTree-Skin_0-Run_4": {
+      "__uuid__": "d1eaaf7c-d8c7-4885-bde4-6e96764c9b9a"
+    }
+  }
+}

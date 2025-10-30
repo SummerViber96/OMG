@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Clinic upgrade",
+    "texture": "a215642a-302e-4ad3-9271-f22b71ef8d9c",
+    "atlas": "",
+    "rect": [
+      2,
+      1,
+      379,
+      519
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      383,
+      521
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

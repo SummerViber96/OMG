@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dad_reskin",
+    "texture": "42a27765-f5db-4b10-83af-ba8022c0eb98",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      919,
+      266
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      923,
+      270
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

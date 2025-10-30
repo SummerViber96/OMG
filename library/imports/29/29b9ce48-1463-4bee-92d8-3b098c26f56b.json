@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icy_nhiet_ke3_T",
+    "texture": "ca657647-0f62-4f1c-a366-6ec3bf47dace",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      138,
+      954
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      138,
+      956
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

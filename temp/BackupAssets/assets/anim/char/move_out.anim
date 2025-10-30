@@ -1,0 +1,53 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "move_out",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 2.5166666666666666,
+  "sample": 60,
+  "speed": 0.1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            149.011,
+            -383.125,
+            0
+          ]
+        },
+        {
+          "frame": 0.3333333333333333,
+          "value": [
+            93.339,
+            -425.069,
+            0
+          ]
+        },
+        {
+          "frame": 2.5166666666666666,
+          "value": [
+            764.286,
+            -929.049,
+            0
+          ]
+        }
+      ],
+      "scaleX": [
+        {
+          "frame": 0,
+          "value": -1.2
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 2.5,
+      "func": "destroyChar",
+      "params": []
+    }
+  ]
+}

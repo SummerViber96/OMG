@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Bubble emoji 3",
+    "texture": "e59e7187-d2fb-48a5-8d90-3789cb42be6e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      178,
+      102
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      178,
+      102
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

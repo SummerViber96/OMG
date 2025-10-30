@@ -1,0 +1,186 @@
+
+akm.png
+size: 756,816
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 35
+  rotate: false
+  xy: 2, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+Gun 36
+  rotate: false
+  xy: 379, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+
+akm2.png
+size: 756,816
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 37
+  rotate: false
+  xy: 2, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+Gun 38
+  rotate: false
+  xy: 379, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+
+akm3.png
+size: 756,816
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 39
+  rotate: false
+  xy: 2, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+Gun 40
+  rotate: false
+  xy: 379, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+
+akm4.png
+size: 756,816
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 41
+  rotate: false
+  xy: 2, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+Gun 42
+  rotate: false
+  xy: 379, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+
+akm5.png
+size: 756,816
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 43
+  rotate: false
+  xy: 2, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+Gun 44
+  rotate: false
+  xy: 379, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+
+akm6.png
+size: 756,816
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 45
+  rotate: false
+  xy: 2, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+Gun 46
+  rotate: false
+  xy: 379, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+
+akm7.png
+size: 756,816
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 47
+  rotate: false
+  xy: 2, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+Gun 48
+  rotate: false
+  xy: 379, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+
+akm8.png
+size: 756,816
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun 49
+  rotate: false
+  xy: 2, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+Gun 50
+  rotate: false
+  xy: 379, 2
+  size: 375, 812
+  orig: 375, 812
+  offset: 0, 0
+  index: -1
+
+akm9.png
+size: 956,824
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+exp/skeleton
+  rotate: false
+  xy: 2, 2
+  size: 952, 820
+  orig: 952, 820
+  offset: 0, 0
+  index: -1
+
+akm10.png
+size: 576,824
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+exp/skeleton2
+  rotate: false
+  xy: 2, 2
+  size: 572, 820
+  orig: 572, 820
+  offset: 0, 0
+  index: -1

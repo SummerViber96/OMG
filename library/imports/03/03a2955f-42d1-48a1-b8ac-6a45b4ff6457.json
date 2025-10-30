@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Canteen",
+    "texture": "35ef213f-c582-42f5-ae4f-743a31ba9f4f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      259,
+      286
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      259,
+      286
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

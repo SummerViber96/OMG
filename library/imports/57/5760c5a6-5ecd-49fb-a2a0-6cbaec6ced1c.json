@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "IMG Activer (1)",
+    "texture": "fb6bacd9-90de-43db-944f-2ae3a87a2718",
+    "atlas": "",
+    "rect": [
+      34,
+      30,
+      584,
+      722
+    ],
+    "offset": [
+      -5.5,
+      60.5
+    ],
+    "originalSize": [
+      663,
+      903
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

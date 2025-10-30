@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icon_gem_outline",
+    "texture": "928bec5c-b93f-4988-9b2b-cdd2d5058b61",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      64,
+      69
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      64,
+      69
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon-Devices",
+    "texture": "a9b8a2af-7de6-4cf5-98c8-0c54e940c707",
+    "atlas": "",
+    "rect": [
+      17,
+      11,
+      113,
+      89
+    ],
+    "offset": [
+      3.5,
+      -5.5
+    ],
+    "originalSize": [
+      140,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

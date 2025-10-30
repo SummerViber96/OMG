@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "IMG_Simular",
+    "texture": "6927b6df-904e-4a90-ad5c-3e18929a77ee",
+    "atlas": "",
+    "rect": [
+      46,
+      13,
+      36,
+      106
+    ],
+    "offset": [
+      -2,
+      0
+    ],
+    "originalSize": [
+      132,
+      132
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

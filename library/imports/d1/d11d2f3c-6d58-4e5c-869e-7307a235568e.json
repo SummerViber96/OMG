@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "PTBlue",
+    "texture": "dbdac4fc-ac5b-429e-9509-b5f5bde35238",
+    "atlas": "",
+    "rect": [
+      3,
+      2,
+      907,
+      108
+    ],
+    "offset": [
+      -1.5,
+      0
+    ],
+    "originalSize": [
+      916,
+      112
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

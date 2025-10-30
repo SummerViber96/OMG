@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Canhbao2",
+    "texture": "0c5e3ec7-0d2a-4ff9-82a2-755e3ea0af82",
+    "atlas": "",
+    "rect": [
+      31,
+      36,
+      142,
+      142
+    ],
+    "offset": [
+      -3,
+      10.5
+    ],
+    "originalSize": [
+      210,
+      235
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

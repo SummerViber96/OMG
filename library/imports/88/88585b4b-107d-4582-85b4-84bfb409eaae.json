@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Canteen Ignore",
+    "texture": "ce6e4308-2256-41a9-9597-b4c3310f14ff",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      382,
+      520
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      384,
+      521
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

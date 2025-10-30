@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "thanh-red-1",
+    "texture": "6fa013b0-a95e-4aed-82d6-7edff5325a64",
+    "atlas": "",
+    "rect": [
+      2,
+      1,
+      90,
+      22
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      94,
+      24
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

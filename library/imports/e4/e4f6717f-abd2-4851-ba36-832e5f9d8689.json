@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Chicken.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nChicken.png\r\nsize: 128,128\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nBeak\r\n  rotate: false\r\n  xy: 56, 57\r\n  size: 11, 9\r\n  orig: 11, 9\r\n  offset: 0, 0\r\n  index: -1\r\nBody\r\n  rotate: false\r\n  xy: 2, 31\r\n  size: 52, 53\r\n  orig: 52, 53\r\n  offset: 0, 0\r\n  index: -1\r\nComb\r\n  rotate: true\r\n  xy: 2, 2\r\n  size: 27, 29\r\n  orig: 27, 29\r\n  offset: 0, 0\r\n  index: -1\r\nL_Eye\r\n  rotate: true\r\n  xy: 56, 33\r\n  size: 4, 7\r\n  orig: 4, 7\r\n  offset: 0, 0\r\n  index: -1\r\nR_Eye\r\n  rotate: true\r\n  xy: 56, 33\r\n  size: 4, 7\r\n  orig: 4, 7\r\n  offset: 0, 0\r\n  index: -1\r\nL_Foot\r\n  rotate: true\r\n  xy: 56, 39\r\n  size: 6, 11\r\n  orig: 6, 11\r\n  offset: 0, 0\r\n  index: -1\r\nR_Foot\r\n  rotate: true\r\n  xy: 56, 39\r\n  size: 6, 11\r\n  orig: 6, 11\r\n  offset: 0, 0\r\n  index: -1\r\nTail\r\n  rotate: true\r\n  xy: 33, 10\r\n  size: 19, 26\r\n  orig: 19, 26\r\n  offset: 0, 0\r\n  index: -1\r\nWattles\r\n  rotate: true\r\n  xy: 56, 47\r\n  size: 8, 11\r\n  orig: 8, 11\r\n  offset: 0, 0\r\n  index: -1\r\nWing\r\n  rotate: true\r\n  xy: 56, 68\r\n  size: 16, 22\r\n  orig: 16, 22\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

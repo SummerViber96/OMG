@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "character_3_daughter",
+    "texture": "04ddf0e7-5204-475b-a61c-b22383f1f5ba",
+    "atlas": "",
+    "rect": [
+      6,
+      2,
+      785,
+      266
+    ],
+    "offset": [
+      2,
+      0
+    ],
+    "originalSize": [
+      793,
+      270
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

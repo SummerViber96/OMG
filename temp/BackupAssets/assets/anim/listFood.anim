@@ -1,0 +1,125 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "listFood",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.75,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "1": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -887,
+                -574
+              ],
+              "motionPath": [
+                [
+                  -1178.9,
+                  -354.6,
+                  -1050.9,
+                  -355.6,
+                  -1349.9,
+                  -353.6
+                ]
+              ]
+            },
+            {
+              "frame": 0.75,
+              "value": [
+                -1498,
+                -569
+              ],
+              "motionPath": []
+            }
+          ],
+          "active": [
+            {
+              "frame": 0.75,
+              "value": false
+            }
+          ]
+        }
+      },
+      "2": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -703,
+                -645
+              ],
+              "motionPath": [
+                [
+                  -933.2,
+                  -571.5,
+                  -834.2,
+                  -535.5,
+                  -1029.2,
+                  -605.5
+                ]
+              ]
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": [
+                -1094,
+                -784
+              ]
+            }
+          ],
+          "active": [
+            {
+              "frame": 0.75,
+              "value": false
+            }
+          ]
+        }
+      },
+      "3": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -830.1,
+                -648.6
+              ],
+              "motionPath": [
+                [
+                  -1130.3,
+                  -439.2,
+                  -969.2,
+                  -455.8,
+                  -1275.6,
+                  -424.1
+                ]
+              ]
+            },
+            {
+              "frame": 0.75,
+              "value": [
+                -1444.6,
+                -585
+              ],
+              "motionPath": []
+            }
+          ],
+          "active": [
+            {
+              "frame": 0.75,
+              "value": false
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,35 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "win-3.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0136 shot (Copy)": {
+      "__uuid__": "f1f986ef-314d-4ba3-9874-4ec73b70f99f"
+    },
+    "0141 shot (Copy)": {
+      "__uuid__": "6630fee8-4de0-4c7d-a45a-4e0914fbdcc3"
+    },
+    "0146 shot (Copy)": {
+      "__uuid__": "b33f8b59-2eb9-4d7b-b880-7a9b40f0f268"
+    },
+    "0151 shot (Copy)": {
+      "__uuid__": "31fe3375-b955-40ba-ad6f-95d611156a03"
+    },
+    "0156 shot (Copy)": {
+      "__uuid__": "357739dd-e725-4084-bd77-893af4d9c7ab"
+    },
+    "0161 shot (Copy)": {
+      "__uuid__": "0a2356fd-14ba-46cc-8e1e-72497d622f66"
+    },
+    "0166 shot (Copy)": {
+      "__uuid__": "b375affa-14d9-405f-af70-8e942b5a4f9b"
+    },
+    "0171 shot (Copy)": {
+      "__uuid__": "c16e8117-46a4-47b4-b2b0-676d18b9709a"
+    },
+    "0176 shot (Copy)": {
+      "__uuid__": "c013c239-6ccf-4381-861b-60f019411a7b"
+    }
+  }
+}

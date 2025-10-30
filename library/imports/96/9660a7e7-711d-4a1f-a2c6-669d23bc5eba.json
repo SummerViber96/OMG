@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "detox",
+    "texture": "c5020ec3-eda2-420b-b549-9c3a97e11e51",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      103,
+      138
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      104,
+      140
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

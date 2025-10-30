@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "coins copy 2",
+    "texture": "64a0daff-78cc-43bb-ad22-6573975db9bc",
+    "atlas": "",
+    "rect": [
+      79,
+      241,
+      415,
+      391
+    ],
+    "offset": [
+      -72,
+      2
+    ],
+    "originalSize": [
+      717,
+      877
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

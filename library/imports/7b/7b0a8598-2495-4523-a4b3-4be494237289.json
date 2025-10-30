@@ -1,0 +1,88 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "car_move1",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 60,
+  "speed": 0.2,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            -759,
+            420
+          ],
+          "motionPath": [
+            [
+              -1076,
+              679,
+              -1041,
+              642,
+              -1172,
+              843
+            ],
+            [
+              -1114,
+              895,
+              -1169,
+              844,
+              -1050,
+              953
+            ],
+            [
+              -705,
+              1041,
+              -860,
+              972,
+              -582,
+              1096
+            ],
+            [
+              -380,
+              1162,
+              -462,
+              1165,
+              -297,
+              1159
+            ]
+          ]
+        },
+        {
+          "frame": 1,
+          "value": [
+            101,
+            816
+          ],
+          "motionPath": []
+        }
+      ],
+      "scaleX": []
+    }
+  },
+  "events": [
+    {
+      "frame": 0.1,
+      "func": "daoQuang",
+      "params": []
+    },
+    {
+      "frame": 0.2833333333333333,
+      "func": "changeScaleX",
+      "params": []
+    },
+    {
+      "frame": 0.7,
+      "func": "endao",
+      "params": []
+    },
+    {
+      "frame": 1,
+      "func": "endstep1",
+      "params": []
+    }
+  ]
+}

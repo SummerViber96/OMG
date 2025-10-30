@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "KhungLongBay",
+    "texture": "42b57dd7-0f77-46cc-8a8e-63aa0aa535a1",
+    "atlas": "",
+    "rect": [
+      3,
+      233,
+      501,
+      271
+    ],
+    "offset": [
+      -2.5,
+      -112.5
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

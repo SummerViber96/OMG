@@ -1,0 +1,32 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "listCard.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "1": {
+      "__uuid__": "7542c8eb-f1a8-4e71-9a06-48e6696623b0"
+    },
+    "2": {
+      "__uuid__": "f488fdd7-72c2-4a05-995e-8c33aa745338"
+    },
+    "3": {
+      "__uuid__": "8c364140-de86-4319-8363-16d76a4fcff7"
+    },
+    "4": {
+      "__uuid__": "f125f03b-0a0e-466b-b8d0-e1bed28b17a7"
+    },
+    "1_off": {
+      "__uuid__": "cd73e630-e420-4fb1-b28d-d36e664106cf"
+    },
+    "2_off": {
+      "__uuid__": "7f8c233c-1743-47bf-b9cc-d035273127b2"
+    },
+    "3_off": {
+      "__uuid__": "99985725-9b52-4d6b-96b4-0064db509c55"
+    },
+    "4_off": {
+      "__uuid__": "dc1aeb6f-08cc-4986-9ca7-63cea1723a15"
+    }
+  }
+}

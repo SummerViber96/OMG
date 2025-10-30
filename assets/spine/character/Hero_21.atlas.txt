@@ -1,0 +1,216 @@
+
+Hero_21.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+21_Body
+  rotate: false
+  xy: 2, 397
+  size: 71, 59
+  orig: 71, 59
+  offset: 0, 0
+  index: -1
+21_Coat
+  rotate: true
+  xy: 338, 436
+  size: 74, 105
+  orig: 74, 105
+  offset: 0, 0
+  index: -1
+21_Coat_Top
+  rotate: false
+  xy: 170, 413
+  size: 83, 54
+  orig: 83, 54
+  offset: 0, 0
+  index: -1
+21_Dress
+  rotate: false
+  xy: 255, 402
+  size: 72, 65
+  orig: 72, 65
+  offset: 0, 0
+  index: -1
+21_Green_Hair
+  rotate: true
+  xy: 70, 368
+  size: 21, 22
+  orig: 21, 22
+  offset: 0, 0
+  index: -1
+21_Hair
+  rotate: true
+  xy: 443, 360
+  size: 71, 67
+  orig: 71, 67
+  offset: 0, 0
+  index: -1
+21_Hair_Top
+  rotate: true
+  xy: 329, 369
+  size: 65, 72
+  orig: 65, 72
+  offset: 0, 0
+  index: -1
+21_Head
+  rotate: false
+  xy: 445, 433
+  size: 65, 77
+  orig: 65, 77
+  offset: 0, 0
+  index: -1
+21_L_Arm
+  rotate: true
+  xy: 36, 371
+  size: 24, 32
+  orig: 24, 32
+  offset: 0, 0
+  index: -1
+21_L_Eye
+  rotate: false
+  xy: 36, 353
+  size: 18, 16
+  orig: 18, 16
+  offset: 0, 0
+  index: -1
+21_L_Eye_Top
+  rotate: false
+  xy: 157, 446
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+21_L_Eyebrow
+  rotate: true
+  xy: 140, 369
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+21_L_Foot
+  rotate: true
+  xy: 118, 434
+  size: 22, 37
+  orig: 22, 37
+  offset: 0, 0
+  index: -1
+21_L_Hand
+  rotate: false
+  xy: 111, 363
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+21_L_Shoulder
+  rotate: true
+  xy: 75, 423
+  size: 33, 41
+  orig: 33, 41
+  offset: 0, 0
+  index: -1
+21_L_Sword
+  rotate: false
+  xy: 170, 469
+  size: 166, 41
+  orig: 166, 41
+  offset: 0, 0
+  index: -1
+21_L_ThatLung
+  rotate: true
+  xy: 157, 391
+  size: 20, 32
+  orig: 20, 32
+  offset: 0, 0
+  index: -1
+21_Mouth
+  rotate: true
+  xy: 329, 447
+  size: 20, 7
+  orig: 20, 7
+  offset: 0, 0
+  index: -1
+21_Nose
+  rotate: false
+  xy: 329, 436
+  size: 7, 9
+  orig: 7, 9
+  offset: 0, 0
+  index: -1
+21_R_Arm
+  rotate: true
+  xy: 2, 370
+  size: 25, 32
+  orig: 25, 32
+  offset: 0, 0
+  index: -1
+21_R_Eye
+  rotate: false
+  xy: 94, 373
+  size: 13, 16
+  orig: 13, 16
+  offset: 0, 0
+  index: -1
+21_R_Eye_Top
+  rotate: true
+  xy: 157, 435
+  size: 9, 10
+  orig: 9, 10
+  offset: 0, 0
+  index: -1
+21_R_Eyebrow
+  rotate: false
+  xy: 94, 358
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+21_R_Foot
+  rotate: true
+  xy: 118, 410
+  size: 22, 37
+  orig: 22, 37
+  offset: 0, 0
+  index: -1
+21_R_Hair
+  rotate: true
+  xy: 403, 369
+  size: 16, 38
+  orig: 16, 38
+  offset: 0, 0
+  index: -1
+21_R_Hand
+  rotate: false
+  xy: 75, 391
+  size: 34, 30
+  orig: 34, 30
+  offset: 0, 0
+  index: -1
+21_R_Shoulder
+  rotate: true
+  xy: 403, 387
+  size: 47, 38
+  orig: 47, 38
+  offset: 0, 0
+  index: -1
+21_R_Sword
+  rotate: false
+  xy: 2, 458
+  size: 166, 52
+  orig: 166, 52
+  offset: 0, 0
+  index: -1
+21_R_ThatLung
+  rotate: true
+  xy: 111, 392
+  size: 16, 30
+  orig: 16, 30
+  offset: 0, 0
+  index: -1
+21_ThatLung
+  rotate: true
+  xy: 2, 352
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1

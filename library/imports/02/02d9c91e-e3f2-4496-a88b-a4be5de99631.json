@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "People count",
+    "texture": "962b8411-9270-4bb1-9e93-09cab3d4e3cb",
+    "atlas": "",
+    "rect": [
+      1,
+      2,
+      255,
+      86
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      257,
+      89
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
