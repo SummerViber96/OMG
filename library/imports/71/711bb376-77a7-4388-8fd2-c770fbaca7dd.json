@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "taser",
+    "texture": "1d887228-5601-44fa-b976-d1c87eff3e5a",
+    "atlas": "",
+    "rect": [
+      122,
+      47,
+      737,
+      676
+    ],
+    "offset": [
+      -19,
+      -11.5
+    ],
+    "originalSize": [
+      1019,
+      747
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

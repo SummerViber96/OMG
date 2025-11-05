@@ -63,11 +63,16 @@ export default class NewClass extends cc.Component {
                 this.sceneMusic.getComponent(cc.Animation).play()
                 break;
             case "2":
-                this.sceneGun.position = cc.v3(3000, 0)
-                this.sceneGun.active = true
-                this.sceneGun.getComponent("mainGun").loadData(1)
-                this.sceneGun.getComponent(cc.Animation).play()
-                this.sceneMain.active = false
+                // this.sceneGun.position = cc.v3(3000, 0)
+                // this.sceneGun.active = true
+                // this.sceneGun.getComponent("mainGun").loadData(1)
+                // this.sceneGun.getComponent(cc.Animation).play()
+                // this.sceneMain.active = false
+                this.sceneMusic.position = cc.v3(3000, 0)
+                this.sceneMusic.active = true
+
+                this.sceneMusic.getComponent("mainMusic").loadData(5)
+                this.sceneMusic.getComponent(cc.Animation).play()
                 break;
             case "3":
                 this.sceneMusic.position = cc.v3(3000, 0)
@@ -84,12 +89,16 @@ export default class NewClass extends cc.Component {
                 this.sceneMusic.getComponent(cc.Animation).play()
                 break;
             case "5":
-                this.sceneGun.position = cc.v3(3000, 0)
-                this.sceneGun.active = true
-                this.sceneGun.getComponent("mainGun").loadData(2)
-                this.sceneGun.getComponent(cc.Animation).play()
-                this.sceneMain.active = false
+                // this.sceneGun.position = cc.v3(3000, 0)
+                // this.sceneGun.active = true
+                // this.sceneGun.getComponent("mainGun").loadData(2)
+                // this.sceneGun.getComponent(cc.Animation).play()
+                // this.sceneMain.active = false
+                this.sceneMusic.position = cc.v3(3000, 0)
+                this.sceneMusic.active = true
 
+                this.sceneMusic.getComponent("mainMusic").loadData(6)
+                this.sceneMusic.getComponent(cc.Animation).play()
                 break;
         }
     }
@@ -124,7 +133,7 @@ export default class NewClass extends cc.Component {
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-        this.camera.zoomRatio = 0.7
+                this.camera.zoomRatio = 0.7
 
 
             }

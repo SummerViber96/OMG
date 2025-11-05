@@ -17,6 +17,10 @@ export default class NewClass extends cc.Component {
     soundPhoto: cc.AudioClip = null
     @property(cc.AudioClip)
     soundMeme: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundFart: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundtust: cc.AudioClip = null;
     @property(cc.SpriteFrame)
     soundOn: cc.SpriteFrame = null;
     @property(cc.SpriteFrame)
@@ -25,7 +29,7 @@ export default class NewClass extends cc.Component {
     nametxt: cc.Label = null;
     @property(cc.Node)
     hand: cc.Node = null
-  
+
 
     //data :1 hair 2:airhorn 3:meme 4:dog
     isLoop = false;
@@ -47,7 +51,7 @@ export default class NewClass extends cc.Component {
         this.listicon.children[value - 1].active = true
         this.isICON = this.listicon.children[value - 1]
         this.isTargetIcon = this.listicon.children[value - 1]
-        let arrText = ["Hair Clipper", "Air Horn", "Meme", "Dog"]
+        let arrText = ["Hair Clipper", "Air Horn", "Meme", "Dog", "Fart", "Taser"]
         this.nametxt.string = arrText[value - 1]
 
     }    // update (dt) {}
@@ -81,6 +85,18 @@ export default class NewClass extends cc.Component {
                     music = this.soundDog
                     // cc.audioEngine.playMusic(this.soundDog, this.isLoop)
                     break;
+                case 5:
+                    // this.nametxt.string = "Dog"
+                    music = this.soundFart
+                    // cc.audioEngine.playMusic(this.soundDog, this.isLoop)
+                    break;
+                case 6:
+                    // this.nametxt.string = "Dog"
+                    music = this.soundtust
+                    this.isICON.children[0].active = true;
+
+                    // cc.audioEngine.playMusic(this.soundDog, this.isLoop)
+                    break;
             }
 
             this.audioID = cc.audioEngine.play(music, this.isLoop, this.isVolum)
@@ -88,6 +104,9 @@ export default class NewClass extends cc.Component {
                 cc.log("Phát nhạc xong rồi!");
                 this.isPlay = false
                 this.playBtn.spriteFrame = this.soundOff
+                if (this.isICON.children[0]) {
+                    this.isICON.children[0].active = false
+                }
                 // Thực hiện hành động khác ở đây
             });
         }
@@ -113,7 +132,7 @@ export default class NewClass extends cc.Component {
         this.isPlay = false
         this.playBtn.spriteFrame = this.soundOff
         this.node.getComponent(cc.Animation).play("scene_close");
-          this.scheduleOnce(() => {
+        this.scheduleOnce(() => {
             this.node.active = false
         }, 0.3)
     }

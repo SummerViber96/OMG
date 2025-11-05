@@ -35,6 +35,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundAirHorn = null;
         _this.soundPhoto = null;
         _this.soundMeme = null;
+        _this.soundFart = null;
+        _this.soundtust = null;
         _this.soundOn = null;
         _this.soundOff = null;
         _this.nametxt = null;
@@ -61,7 +63,7 @@ var NewClass = /** @class */ (function (_super) {
         this.listicon.children[value - 1].active = true;
         this.isICON = this.listicon.children[value - 1];
         this.isTargetIcon = this.listicon.children[value - 1];
-        var arrText = ["Hair Clipper", "Air Horn", "Meme", "Dog"];
+        var arrText = ["Hair Clipper", "Air Horn", "Meme", "Dog", "Fart", "Taser"];
         this.nametxt.string = arrText[value - 1];
     }; // update (dt) {}
     NewClass.prototype.btn_Play = function () {
@@ -93,12 +95,26 @@ var NewClass = /** @class */ (function (_super) {
                     music = this.soundDog;
                     // cc.audioEngine.playMusic(this.soundDog, this.isLoop)
                     break;
+                case 5:
+                    // this.nametxt.string = "Dog"
+                    music = this.soundFart;
+                    // cc.audioEngine.playMusic(this.soundDog, this.isLoop)
+                    break;
+                case 6:
+                    // this.nametxt.string = "Dog"
+                    music = this.soundtust;
+                    this.isICON.children[0].active = true;
+                    // cc.audioEngine.playMusic(this.soundDog, this.isLoop)
+                    break;
             }
             this.audioID = cc.audioEngine.play(music, this.isLoop, this.isVolum);
             cc.audioEngine.setFinishCallback(this.audioID, function () {
                 cc.log("Phát nhạc xong rồi!");
                 _this.isPlay = false;
                 _this.playBtn.spriteFrame = _this.soundOff;
+                if (_this.isICON.children[0]) {
+                    _this.isICON.children[0].active = false;
+                }
                 // Thực hiện hành động khác ở đây
             });
         }
@@ -156,6 +172,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundMeme", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundFart", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundtust", void 0);
     __decorate([
         property(cc.SpriteFrame)
     ], NewClass.prototype, "soundOn", void 0);

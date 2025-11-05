@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fart",
+    "texture": "e6fce8dd-6b95-4a5b-ac53-2a6d5bcab5bb",
+    "atlas": "",
+    "rect": [
+      209,
+      26,
+      689,
+      739
+    ],
+    "offset": [
+      34.5,
+      -1
+    ],
+    "originalSize": [
+      1038,
+      789
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
