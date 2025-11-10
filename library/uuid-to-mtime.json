@@ -757,7 +757,7 @@
   "f07a93b4-22dd-43e0-8dbb-e60a67c214ee": {
     "asset": 1743409806178,
     "meta": 1761825783122,
-    "relativePath": "sound\\snd_OrderShow.mp3"
+    "relativePath": "cooking\\sound\\snd_OrderShow.mp3"
   },
   "3332d300-65d4-4885-945b-9915b04e4fd0": {
     "asset": 1751461228264,
@@ -3792,7 +3792,7 @@
   "3d2298b7-1a66-438c-a736-53e7c791da87": {
     "asset": 1743409806178,
     "meta": 1761825783109,
-    "relativePath": "sound\\snd_OrderFinish.mp3"
+    "relativePath": "cooking\\sound\\snd_OrderFinish.mp3"
   },
   "9010d697-b254-4001-b85d-b14b8903c6c4": {
     "asset": 1751461228746,
@@ -6925,8 +6925,8 @@
     "relativePath": "HF\\GamePLay.ts"
   },
   "0b7f9dac-b354-4f2a-bea4-79c5d89d0604": {
-    "asset": 1761828867635,
-    "meta": 1761828867651,
+    "asset": 1762751611500,
+    "meta": 1762751611513,
     "relativePath": "scenes\\App.fire"
   },
   "fa4eae0b-43a9-4d8c-a363-51914721f27c": {
@@ -6956,7 +6956,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1761828089863,
+    "meta": 1762741848859,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7036,7 +7036,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761763030039,
-    "meta": 1761828089851,
+    "meta": 1762741848856,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7106,7 +7106,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761763009587,
-    "meta": 1761828089849,
+    "meta": 1762741848857,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -7379,506 +7379,6 @@
     "meta": 1761825780938,
     "relativePath": "prefab\\ban-tay.png"
   },
-  "9836134e-b892-4283-b6b2-78b5acf3ed45": {
-    "asset": 1677588865766,
-    "meta": 1761825755175,
-    "relativePath": "effects"
-  },
-  "430eccbf-bf2c-4e6e-8c0c-884bbb487f32": {
-    "asset": 1677588865764,
-    "meta": 1761825755453,
-    "relativePath": "effects\\__builtin-editor-gizmo-line.effect"
-  },
-  "6c5cf6e1-b044-4eac-9431-835644d57381": {
-    "asset": 1677588865765,
-    "meta": 1761825755472,
-    "relativePath": "effects\\__builtin-editor-gizmo-unlit.effect"
-  },
-  "115286d1-2e10-49ee-aab4-341583f607e8": {
-    "asset": 1677588865766,
-    "meta": 1761825755507,
-    "relativePath": "effects\\__builtin-editor-gizmo.effect"
-  },
-  "abc2cb62-7852-4525-a90d-d474487b88f2": {
-    "asset": 1677588865761,
-    "meta": 1761825755592,
-    "relativePath": "effects\\builtin-phong.effect"
-  },
-  "e2f00085-c597-422d-9759-52c360279106": {
-    "asset": 1677588865763,
-    "meta": 1761825755641,
-    "relativePath": "effects\\builtin-toon.effect"
-  },
-  "f8e6b000-5643-4b86-9080-aa680ce1f599": {
-    "asset": 1677588865789,
-    "meta": 1761825755644,
-    "relativePath": "image"
-  },
-  "71561142-4c83-4933-afca-cb7a17f67053": {
-    "asset": 1677588865768,
-    "meta": 1761825755667,
-    "relativePath": "image\\default_btn_disabled.png"
-  },
-  "e851e89b-faa2-4484-bea6-5c01dd9f06e2": {
-    "asset": 1677588865769,
-    "meta": 1761825755668,
-    "relativePath": "image\\default_btn_normal.png"
-  },
-  "b43ff3c2-02bb-4874-81f7-f2dea6970f18": {
-    "asset": 1677588865770,
-    "meta": 1761825755683,
-    "relativePath": "image\\default_btn_pressed.png"
-  },
-  "edd215b9-2796-4a05-aaf5-81f96c9281ce": {
-    "asset": 1677588865771,
-    "meta": 1761825755684,
-    "relativePath": "image\\default_editbox_bg.png"
-  },
-  "d81ec8ad-247c-4e62-aa3c-d35c4193c7af": {
-    "asset": 1677588865772,
-    "meta": 1761825755700,
-    "relativePath": "image\\default_panel.png"
-  },
-  "99170b0b-d210-46f1-b213-7d9e3f23098a": {
-    "asset": 1677588865775,
-    "meta": 1761825755701,
-    "relativePath": "image\\default_progressbar_bg.png"
-  },
-  "cfef78f1-c8df-49b7-8ed0-4c953ace2621": {
-    "asset": 1677588865774,
-    "meta": 1761825755716,
-    "relativePath": "image\\default_progressbar.png"
-  },
-  "567dcd80-8bf4-4535-8a5a-313f1caf078a": {
-    "asset": 1677588865776,
-    "meta": 1761825755718,
-    "relativePath": "image\\default_radio_button_off.png"
-  },
-  "9d60001f-b5f4-4726-a629-2659e3ded0b8": {
-    "asset": 1677588865777,
-    "meta": 1761825755734,
-    "relativePath": "image\\default_radio_button_on.png"
-  },
-  "4bab67cb-18e6-4099-b840-355f0473f890": {
-    "asset": 1677588865779,
-    "meta": 1761825755733,
-    "relativePath": "image\\default_scrollbar_bg.png"
-  },
-  "617323dd-11f4-4dd3-8eec-0caf6b3b45b9": {
-    "asset": 1677588865781,
-    "meta": 1761825755753,
-    "relativePath": "image\\default_scrollbar_vertical_bg.png"
-  },
-  "d6d3ca85-4681-47c1-b5dd-d036a9d39ea2": {
-    "asset": 1677588865780,
-    "meta": 1761825755751,
-    "relativePath": "image\\default_scrollbar_vertical.png"
-  },
-  "0275e94c-56a7-410f-bd1a-fc7483f7d14a": {
-    "asset": 1677588865784,
-    "meta": 1761825755766,
-    "relativePath": "image\\default_sprite_splash.png"
-  },
-  "0291c134-b3da-4098-b7b5-e397edbe947f": {
-    "asset": 1677588865778,
-    "meta": 1761825755767,
-    "relativePath": "image\\default_scrollbar.png"
-  },
-  "73a0903d-d80e-4e3c-aa67-f999543c08f5": {
-    "asset": 1677588865785,
-    "meta": 1761825755782,
-    "relativePath": "image\\default_toggle_checkmark.png"
-  },
-  "6e056173-d285-473c-b206-40a7fff5386e": {
-    "asset": 1677588865782,
-    "meta": 1761825755781,
-    "relativePath": "image\\default_sprite.png"
-  },
-  "c25b9d50-c8fc-4d27-beeb-6e7c1f2e5c0f": {
-    "asset": 1677588865786,
-    "meta": 1761825755800,
-    "relativePath": "image\\default_toggle_disabled.png"
-  },
-  "d29077ba-1627-4a72-9579-7b56a235340c": {
-    "asset": 1677588865787,
-    "meta": 1761825755799,
-    "relativePath": "image\\default_toggle_normal.png"
-  },
-  "b181c1e4-0a72-4a91-bfb0-ae6f36ca60bd": {
-    "asset": 1677588865788,
-    "meta": 1761825755815,
-    "relativePath": "image\\default_toggle_pressed.png"
-  },
-  "5c3eedba-6c41-4c0c-9ba7-d91f813cbd1c": {
-    "asset": 1677588865791,
-    "meta": 1761825755816,
-    "relativePath": "materials"
-  },
-  "c4480a0a-6ac5-443f-8b40-361a14257fc8": {
-    "asset": 1677588865790,
-    "meta": 1761825756478,
-    "relativePath": "materials\\builtin-phong.mtl"
-  },
-  "fc09f9bd-2cce-4605-b630-8145ef809ed6": {
-    "asset": 1677588865794,
-    "meta": 1761825755822,
-    "relativePath": "misc"
-  },
-  "600301aa-3357-4a10-b086-84f011fa32ba": {
-    "asset": 1677588865767,
-    "meta": 1761825755821,
-    "relativePath": "image\\default-particle.png"
-  },
-  "db019bf7-f71c-4111-98cf-918ea180cb48": {
-    "asset": 1677588865805,
-    "meta": 1761825755826,
-    "relativePath": "model"
-  },
-  "e39e96e6-6f6e-413f-bcf1-ac7679bb648a": {
-    "asset": 1677588865803,
-    "meta": 1761825755826,
-    "relativePath": "model\\prefab"
-  },
-  "a87cc147-01b2-43f8-8e42-a7ca90b0c757": {
-    "asset": 1677588865796,
-    "meta": 1761825755837,
-    "relativePath": "model\\prefab\\box.prefab"
-  },
-  "fe1417b6-fe6b-46a4-ae7c-9fd331f33a2a": {
-    "asset": 1677588865797,
-    "meta": 1761825755845,
-    "relativePath": "model\\prefab\\capsule.prefab"
-  },
-  "2be36297-9abb-4fee-8049-9ed5e271da8a": {
-    "asset": 1677588865794,
-    "meta": 1761825755835,
-    "relativePath": "misc\\default_video.mp4"
-  },
-  "b5fc2cf2-7942-483d-be1f-bbeadc4714ad": {
-    "asset": 1677588865798,
-    "meta": 1761825755847,
-    "relativePath": "model\\prefab\\cone.prefab"
-  },
-  "1c5e4038-953a-44c2-b620-0bbfc6170477": {
-    "asset": 1677588865799,
-    "meta": 1761825755857,
-    "relativePath": "model\\prefab\\cylinder.prefab"
-  },
-  "3f376125-a699-40ca-ad05-04d662eaa1f2": {
-    "asset": 1677588865800,
-    "meta": 1761825755855,
-    "relativePath": "model\\prefab\\plane.prefab"
-  },
-  "6c9ef10d-b479-420b-bfe6-39cdda6a8ae0": {
-    "asset": 1677588865801,
-    "meta": 1761825755867,
-    "relativePath": "model\\prefab\\quad.prefab"
-  },
-  "2d9a4b85-b0ab-4c46-84c5-18f393ab2058": {
-    "asset": 1677588865802,
-    "meta": 1761825755866,
-    "relativePath": "model\\prefab\\sphere.prefab"
-  },
-  "de510076-056b-484f-b94c-83bef217d0e1": {
-    "asset": 1677588865802,
-    "meta": 1761825755921,
-    "relativePath": "model\\prefab\\torus.prefab"
-  },
-  "f6e6dd15-71d1-4ffe-ace7-24fd39942c05": {
-    "asset": 1677588865809,
-    "meta": 1761825755922,
-    "relativePath": "obsolete"
-  },
-  "8a96b965-2dc0-4e03-aa90-3b79cb93b5b4": {
-    "asset": 1677588865808,
-    "meta": 1761825755939,
-    "relativePath": "obsolete\\atom.png"
-  },
-  "f743d2b6-b7ea-4c14-a55b-547ed4d0a045": {
-    "asset": 1677588865811,
-    "meta": 1761825755940,
-    "relativePath": "particle"
-  },
-  "b8223619-7e38-47c4-841f-9160c232495a": {
-    "asset": 1677588865806,
-    "meta": 1761825756492,
-    "relativePath": "obsolete\\atom.plist"
-  },
-  "d0a82d39-bede-46c4-b698-c81ff0dedfff": {
-    "asset": 1677588865811,
-    "meta": 1761825755949,
-    "relativePath": "particle\\atom.png"
-  },
-  "ae6c6c98-11e4-452f-8758-75f5c6a56e83": {
-    "asset": 1677588865843,
-    "meta": 1761825755950,
-    "relativePath": "prefab"
-  },
-  "b2687ac4-099e-403c-a192-ff477686f4f5": {
-    "asset": 1677588865810,
-    "meta": 1761825756493,
-    "relativePath": "particle\\atom.plist"
-  },
-  "897ef7a1-4860-4f64-968d-f5924b18668a": {
-    "asset": 1677588865815,
-    "meta": 1761825755959,
-    "relativePath": "prefab\\2d-camera.prefab"
-  },
-  "70d7cdb0-04cd-41bb-9480-c06a4785f386": {
-    "asset": 1677588865816,
-    "meta": 1761825755969,
-    "relativePath": "prefab\\3d-camera.prefab"
-  },
-  "70bbeb73-6dc2-4ee4-8faf-76b3a0e34ec4": {
-    "asset": 1677588865817,
-    "meta": 1761825755981,
-    "relativePath": "prefab\\3d-particle.prefab"
-  },
-  "ed88f13d-fcad-4848-aa35-65a2cb973584": {
-    "asset": 1677588865818,
-    "meta": 1761825755992,
-    "relativePath": "prefab\\3d-stage.prefab"
-  },
-  "972b9a4d-47ee-4c74-b5c3-61d8a69bc29f": {
-    "asset": 1677588865819,
-    "meta": 1761825756012,
-    "relativePath": "prefab\\button.prefab"
-  },
-  "2c937608-2562-40ea-b264-7395df6f0cea": {
-    "asset": 1677588865820,
-    "meta": 1761825756035,
-    "relativePath": "prefab\\canvas.prefab"
-  },
-  "61aeb05b-3b32-452b-8eed-2b76deeed554": {
-    "asset": 1677588865821,
-    "meta": 1761825756055,
-    "relativePath": "prefab\\editbox.prefab"
-  },
-  "27756ebb-3d33-44b0-9b96-e858fadd4dd4": {
-    "asset": 1677588865822,
-    "meta": 1761825756064,
-    "relativePath": "prefab\\label.prefab"
-  },
-  "785a442c-3ceb-45be-a46e-7317f625f3b9": {
-    "asset": 1677588865823,
-    "meta": 1761825756075,
-    "relativePath": "prefab\\layout.prefab"
-  },
-  "a3ee0214-b432-4865-9666-4a3211814282": {
-    "asset": 1677588865828,
-    "meta": 1761825756065,
-    "relativePath": "prefab\\light"
-  },
-  "61906da3-7003-4bda-9abc-5769c76faee4": {
-    "asset": 1677588865824,
-    "meta": 1761825756077,
-    "relativePath": "prefab\\light\\ambient.prefab"
-  },
-  "ddb99b39-7004-47cd-9705-751905c43c46": {
-    "asset": 1677588865825,
-    "meta": 1761825756086,
-    "relativePath": "prefab\\light\\directional.prefab"
-  },
-  "0cf30284-9073-46bc-9eba-e62b69dbbff3": {
-    "asset": 1677588865826,
-    "meta": 1761825756088,
-    "relativePath": "prefab\\light\\point.prefab"
-  },
-  "f5331fd2-bf42-4ee3-a3fd-3e1657600eff": {
-    "asset": 1677588865827,
-    "meta": 1761825756098,
-    "relativePath": "prefab\\light\\spot.prefab"
-  },
-  "ca8401fe-ad6e-41a8-bd46-8e3e4e9945be": {
-    "asset": 1677588865828,
-    "meta": 1761825756097,
-    "relativePath": "prefab\\pageview.prefab"
-  },
-  "cd33edea-55f5-46c2-958d-357a01384a36": {
-    "asset": 1677588865829,
-    "meta": 1761825756108,
-    "relativePath": "prefab\\particlesystem.prefab"
-  },
-  "5965ffac-69da-4b55-bcde-9225d0613c28": {
-    "asset": 1677588865830,
-    "meta": 1761825756109,
-    "relativePath": "prefab\\progressBar.prefab"
-  },
-  "4a37dd57-78cd-4cec-aad4-f11a73d12b63": {
-    "asset": 1677588865831,
-    "meta": 1761825756120,
-    "relativePath": "prefab\\richtext.prefab"
-  },
-  "32044bd2-481f-4cf1-a656-e2b2fb1594eb": {
-    "asset": 1677588865832,
-    "meta": 1761825756118,
-    "relativePath": "prefab\\scrollview.prefab"
-  },
-  "0004d1cf-a0ad-47d8-ab17-34d3db9d35a3": {
-    "asset": 1677588865833,
-    "meta": 1761825756130,
-    "relativePath": "prefab\\slider.prefab"
-  },
-  "1f55e3be-b89b-4b79-88de-47fd31018044": {
-    "asset": 1677588865835,
-    "meta": 1761825756131,
-    "relativePath": "prefab\\sprite_splash.prefab"
-  },
-  "96083d03-c332-4a3f-9386-d03e2d19e8ee": {
-    "asset": 1677588865834,
-    "meta": 1761825756133,
-    "relativePath": "prefab\\sprite.prefab"
-  },
-  "7de03a80-4457-438d-95a7-3e7cdffd6086": {
-    "asset": 1677588865836,
-    "meta": 1761825756146,
-    "relativePath": "prefab\\tiledmap.prefab"
-  },
-  "0e42ba95-1fa1-46aa-b2cf-143cd1bcee2c": {
-    "asset": 1677588865837,
-    "meta": 1761825756144,
-    "relativePath": "prefab\\tiledtile.prefab"
-  },
-  "0d784963-d024-4ea6-a7db-03be0ad63010": {
-    "asset": 1677588865838,
-    "meta": 1761825756158,
-    "relativePath": "prefab\\toggle.prefab"
-  },
-  "bf0a434c-84dd-4a8e-a08a-7a36f180cc75": {
-    "asset": 1677588865839,
-    "meta": 1761825756156,
-    "relativePath": "prefab\\toggleContainer.prefab"
-  },
-  "d1b8be49-b0a0-435c-83b7-552bed4bbe35": {
-    "asset": 1677588865840,
-    "meta": 1761825756169,
-    "relativePath": "prefab\\toggleGroup.prefab"
-  },
-  "232d2782-c4bd-4bb4-9e01-909f03d6d3b9": {
-    "asset": 1677588865841,
-    "meta": 1761825756168,
-    "relativePath": "prefab\\videoplayer.prefab"
-  },
-  "8c5001fd-07ee-4a4b-a8a0-63e15195e94d": {
-    "asset": 1677588865842,
-    "meta": 1761825756386,
-    "relativePath": "prefab\\webview.prefab"
-  },
-  "d8afc78c-4eac-4a9f-83dd-67bc70344d33": {
-    "asset": 1677588865856,
-    "meta": 1761825756170,
-    "relativePath": "resources"
-  },
-  "294c1663-4adf-4a1e-a795-53808011a38a": {
-    "asset": 1677588865855,
-    "meta": 1761825756171,
-    "relativePath": "resources\\effects"
-  },
-  "30682f87-9f0d-4f17-8a44-72863791461b": {
-    "asset": 1677588865844,
-    "meta": 1761825756188,
-    "relativePath": "resources\\effects\\builtin-2d-graphics.effect"
-  },
-  "144c3297-af63-49e8-b8ef-1cfa29b3be28": {
-    "asset": 1677588865845,
-    "meta": 1761825756207,
-    "relativePath": "resources\\effects\\builtin-2d-gray-sprite.effect"
-  },
-  "f18742d7-56d2-4eb5-ae49-2d9d710b37c8": {
-    "asset": 1677588865847,
-    "meta": 1761825756225,
-    "relativePath": "resources\\effects\\builtin-2d-label.effect"
-  },
-  "0e93aeaa-0b53-4e40-b8e0-6268b4e07bd7": {
-    "asset": 1677588865847,
-    "meta": 1761825756244,
-    "relativePath": "resources\\effects\\builtin-2d-spine.effect"
-  },
-  "2874f8dd-416c-4440-81b7-555975426e93": {
-    "asset": 1677588865848,
-    "meta": 1761825756265,
-    "relativePath": "resources\\effects\\builtin-2d-sprite.effect"
-  },
-  "829a282c-b049-4019-bd38-5ace8d8a6417": {
-    "asset": 1677588865849,
-    "meta": 1761825756341,
-    "relativePath": "resources\\effects\\builtin-3d-particle.effect"
-  },
-  "2a7c0036-e0b3-4fe1-8998-89a54b8a2bec": {
-    "asset": 1677588865851,
-    "meta": 1761825756368,
-    "relativePath": "resources\\effects\\builtin-3d-trail.effect"
-  },
-  "c0040c95-c57f-49cd-9cbc-12316b73d0d4": {
-    "asset": 1677588865852,
-    "meta": 1761825756385,
-    "relativePath": "resources\\effects\\builtin-clear-stencil.effect"
-  },
-  "6d91e591-4ce0-465c-809f-610ec95019c6": {
-    "asset": 1677588865853,
-    "meta": 1761825756416,
-    "relativePath": "resources\\effects\\builtin-unlit.effect"
-  },
-  "bbee2217-c261-49bd-a8ce-708d6bcc3500": {
-    "asset": 1677588865866,
-    "meta": 1761825756417,
-    "relativePath": "resources\\materials"
-  },
-  "6f801092-0c37-4f30-89ef-c8d960825b36": {
-    "asset": 1677588865857,
-    "meta": 1761825756528,
-    "relativePath": "resources\\materials\\builtin-2d-base.mtl"
-  },
-  "a153945d-2511-4c14-be7b-05d242f47d57": {
-    "asset": 1677588865858,
-    "meta": 1761825756527,
-    "relativePath": "resources\\materials\\builtin-2d-graphics.mtl"
-  },
-  "3a7bb79f-32fd-422e-ada2-96f518fed422": {
-    "asset": 1677588865859,
-    "meta": 1761825756528,
-    "relativePath": "resources\\materials\\builtin-2d-gray-sprite.mtl"
-  },
-  "e02d87d4-e599-4d16-8001-e14891ac6506": {
-    "asset": 1677588865860,
-    "meta": 1761825756529,
-    "relativePath": "resources\\materials\\builtin-2d-label.mtl"
-  },
-  "7afd064b-113f-480e-b793-8817d19f63c3": {
-    "asset": 1677588865861,
-    "meta": 1761825756530,
-    "relativePath": "resources\\materials\\builtin-2d-spine.mtl"
-  },
-  "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432": {
-    "asset": 1677588865862,
-    "meta": 1761825756531,
-    "relativePath": "resources\\materials\\builtin-2d-sprite.mtl"
-  },
-  "432fa09c-cf03-4cff-a186-982604408a07": {
-    "asset": 1677588865863,
-    "meta": 1761825756533,
-    "relativePath": "resources\\materials\\builtin-3d-particle.mtl"
-  },
-  "466d4f9b-e5f4-4ea8-85d5-3c6e9a65658a": {
-    "asset": 1677588865864,
-    "meta": 1761825756532,
-    "relativePath": "resources\\materials\\builtin-3d-trail.mtl"
-  },
-  "cf7e0bb8-a81c-44a9-ad79-d28d43991032": {
-    "asset": 1677588865865,
-    "meta": 1761825756534,
-    "relativePath": "resources\\materials\\builtin-clear-stencil.mtl"
-  },
-  "2a296057-247c-4a1c-bbeb-0548b6c98650": {
-    "asset": 1677588865866,
-    "meta": 1761825756533,
-    "relativePath": "resources\\materials\\builtin-unlit.mtl"
-  },
-  "954fec8b-cd16-4bb9-a3b7-7719660e7558": {
-    "asset": 1677588865805,
-    "meta": 1761825763334,
-    "relativePath": "model\\primitives.fbx"
-  },
   "3f0f9f86-8ee1-4053-9213-8ce66ab6d056": {
     "asset": 1761825561924,
     "meta": 1761825781081,
@@ -7909,9 +7409,1914 @@
     "meta": 1761828645920,
     "relativePath": "scripts\\APP\\mainMusic.ts"
   },
+  "e5292322-8f76-4afa-9ad7-1b7db9dc0007": {
+    "asset": 1762707070225,
+    "meta": 1762741848849,
+    "relativePath": "cooking"
+  },
+  "a3d31886-4c91-4c46-9ff9-6bf2af8d9f3b": {
+    "asset": 1762656548108,
+    "meta": 1762656548255,
+    "relativePath": "cooking\\BurgerBun#1.png"
+  },
+  "cfb9eb93-363f-450f-adc5-74720747f5e7": {
+    "asset": 1762656548108,
+    "meta": 1762656548259,
+    "relativePath": "cooking\\BurgerOrder2#1.png"
+  },
+  "0a7d75f6-6474-4cc3-b118-0bac55787703": {
+    "asset": 1762656548108,
+    "meta": 1762656548287,
+    "relativePath": "cooking\\BurgerPlate.png"
+  },
+  "a38a98f0-d7bb-40e6-b3e7-66e81023355e": {
+    "asset": 1762656548108,
+    "meta": 1762656548336,
+    "relativePath": "cooking\\BurgerOrder3#1.png"
+  },
+  "bf2c530a-79f0-4104-9b6c-be8b35836dd0": {
+    "asset": 1762656548108,
+    "meta": 1762656548356,
+    "relativePath": "cooking\\BurgerOrder1#1.png"
+  },
+  "120d1e49-b526-4d42-8545-64460e2cfead": {
+    "asset": 1762656548108,
+    "meta": 1762656548366,
+    "relativePath": "cooking\\DoubleCoin.png"
+  },
+  "ab4c8ad0-869a-45e5-8b09-1a2bd90ec8a4": {
+    "asset": 1762656548108,
+    "meta": 1762656548374,
+    "relativePath": "cooking\\DrinkServe#1#1.png"
+  },
+  "50fe9ae6-e38e-4c4a-abc3-f74f7c315f9b": {
+    "asset": 1762656548108,
+    "meta": 1762656548382,
+    "relativePath": "cooking\\DrinkServe#1#3.png"
+  },
+  "b81432bd-7e2b-48b6-baae-eed7dceb162b": {
+    "asset": 1762656548108,
+    "meta": 1762656548387,
+    "relativePath": "cooking\\DrinkServe#1#2.png"
+  },
+  "82a855a6-9380-464f-b9d6-f38db5591d3d": {
+    "asset": 1762656548108,
+    "meta": 1762656548397,
+    "relativePath": "cooking\\DrinkServe#3#1.png"
+  },
+  "5c3289ce-9b85-4142-b8a9-b75f6514c504": {
+    "asset": 1762656548108,
+    "meta": 1762656548402,
+    "relativePath": "cooking\\CheeseTray.png"
+  },
+  "4bccbaa4-c9dd-48fc-9a00-91a6bb68d551": {
+    "asset": 1762656548108,
+    "meta": 1762656548410,
+    "relativePath": "cooking\\DrinkServe#2#2.png"
+  },
+  "3a69232d-ef19-4581-abea-590b115dae66": {
+    "asset": 1762656548108,
+    "meta": 1762656548416,
+    "relativePath": "cooking\\DrinkServe#2#3.png"
+  },
+  "2ea45124-fdd3-464c-9305-517b085d209b": {
+    "asset": 1762656548109,
+    "meta": 1762656548423,
+    "relativePath": "cooking\\DrinkServe#2#1.png"
+  },
+  "ccd0e9ea-0da3-4cb9-b222-ada7987e87ba": {
+    "asset": 1762656548109,
+    "meta": 1762656548433,
+    "relativePath": "cooking\\HotdogOrder1#1.png"
+  },
+  "58a9290a-e60d-4c06-a170-1d66f59de939": {
+    "asset": 1762656548109,
+    "meta": 1762656548439,
+    "relativePath": "cooking\\DrinkServe#3#3.png"
+  },
+  "1d01655a-24ef-42e9-910a-98f3c64fbcaa": {
+    "asset": 1762656548109,
+    "meta": 1762656548452,
+    "relativePath": "cooking\\DrinkServe#3#2.png"
+  },
+  "11b392d6-dece-48c2-b8a3-ec17aabf8e15": {
+    "asset": 1762656548109,
+    "meta": 1762656548469,
+    "relativePath": "cooking\\HotdogOrder2#1.png"
+  },
+  "154c79eb-a77a-4c44-8b99-84efd35c1fe2": {
+    "asset": 1762656548109,
+    "meta": 1762656548487,
+    "relativePath": "cooking\\HotdogOrder1#2.png"
+  },
+  "211fdb90-baaf-40dd-888d-40b7c33ca5ba": {
+    "asset": 1762656548109,
+    "meta": 1762656548488,
+    "relativePath": "cooking\\HotdogOrder2#2.png"
+  },
+  "b048d164-fce5-4687-a29e-e1b83a49cdb0": {
+    "asset": 1762656548109,
+    "meta": 1762656548503,
+    "relativePath": "cooking\\HotdogOrder2#3.png"
+  },
+  "41a9e032-36fc-4e7d-987e-0289ad6cab6d": {
+    "asset": 1762656548109,
+    "meta": 1762656548505,
+    "relativePath": "cooking\\HotdogOrder3#1.png"
+  },
+  "abed5a3a-8fbd-4cd2-bbb2-fe0c69608235": {
+    "asset": 1762656548109,
+    "meta": 1762656548520,
+    "relativePath": "cooking\\HotdogPan.png"
+  },
+  "6176dffe-4654-4799-b973-cc599641e62f": {
+    "asset": 1762656548109,
+    "meta": 1762656548521,
+    "relativePath": "cooking\\HotdogOrder3#3.png"
+  },
+  "113d05ff-b965-40bb-80d2-5c74de5ecd9b": {
+    "asset": 1762656548109,
+    "meta": 1762656548536,
+    "relativePath": "cooking\\HotdogOrder4#3.png"
+  },
+  "ad8310bf-a5b9-4b1f-ab85-c074b6adf750": {
+    "asset": 1762656548109,
+    "meta": 1762656548537,
+    "relativePath": "cooking\\HotdogOrder4#1.png"
+  },
+  "eca07037-04e7-4381-80e1-b7db6260efa5": {
+    "asset": 1762656548109,
+    "meta": 1762656548552,
+    "relativePath": "cooking\\HotdogPlate.png"
+  },
+  "716e806a-237c-4dc6-8b3f-10970e91a386": {
+    "asset": 1762656548109,
+    "meta": 1762656548553,
+    "relativePath": "cooking\\HotdogOrder4#2.png"
+  },
+  "8a6824cf-a993-42e6-b622-23a41485957f": {
+    "asset": 1762656548109,
+    "meta": 1762656548566,
+    "relativePath": "cooking\\HotdogPanLock.png"
+  },
+  "3b96edda-a67c-4e95-8c29-00219a510134": {
+    "asset": 1762656548109,
+    "meta": 1762656548568,
+    "relativePath": "cooking\\Meat#1.png"
+  },
+  "f829b80b-b143-4e95-b9b6-e737df4e4d97": {
+    "asset": 1762656548109,
+    "meta": 1762656548582,
+    "relativePath": "cooking\\MazineTray.png"
+  },
+  "a62586e6-93ea-476b-b685-48bd157d8c90": {
+    "asset": 1762656548109,
+    "meta": 1762656548584,
+    "relativePath": "cooking\\Meat#3.png"
+  },
+  "3b94bbf8-c18a-4db3-9edd-f940bf383fb6": {
+    "asset": 1762656548109,
+    "meta": 1762656548599,
+    "relativePath": "cooking\\MeatPanLock.png"
+  },
+  "df2c4dfa-4322-43e3-bee4-98832ac2f9e7": {
+    "asset": 1762656548109,
+    "meta": 1762656548601,
+    "relativePath": "cooking\\MeatTray.png"
+  },
+  "e2a5cb8e-81f0-40c4-befc-15b5bf7f7072": {
+    "asset": 1762656548109,
+    "meta": 1762656548616,
+    "relativePath": "cooking\\SaladTray.png"
+  },
+  "03ea048b-05ca-478f-a804-94dd22253d62": {
+    "asset": 1762656548109,
+    "meta": 1762656548617,
+    "relativePath": "cooking\\MeatPan.png"
+  },
+  "5a5ba9d0-ebc1-4a93-8391-6543d8e1b323": {
+    "asset": 1762656548109,
+    "meta": 1762656548632,
+    "relativePath": "cooking\\Salad#3.png"
+  },
+  "5e8f7d79-c7b3-4a1b-b15b-47e49993ddc4": {
+    "asset": 1762656548109,
+    "meta": 1762656548633,
+    "relativePath": "cooking\\Salad#1.png"
+  },
+  "d9d53772-7688-4d5c-bea5-984cf41ef489": {
+    "asset": 1762656548109,
+    "meta": 1762656548647,
+    "relativePath": "cooking\\Salad#2.png"
+  },
+  "6f88cec6-67c8-488a-8793-585e769394c6": {
+    "asset": 1762656548109,
+    "meta": 1762656548649,
+    "relativePath": "cooking\\SausageTray.png"
+  },
+  "41f48136-82e9-4f3b-afee-ac32ea681cf0": {
+    "asset": 1762656548109,
+    "meta": 1762656548664,
+    "relativePath": "cooking\\SauceTray.png"
+  },
+  "c9c7d7b3-e724-4e7c-a8f9-4a0ace22fbc1": {
+    "asset": 1762656548110,
+    "meta": 1762656548665,
+    "relativePath": "cooking\\Tomato#1.png"
+  },
+  "c7492c81-c9a0-45a0-a97e-91d46c753d95": {
+    "asset": 1762656548110,
+    "meta": 1762656548680,
+    "relativePath": "cooking\\Tomato#2.png"
+  },
+  "37f01681-d377-4224-97a6-a6d943172dbc": {
+    "asset": 1762656548109,
+    "meta": 1762656548681,
+    "relativePath": "cooking\\HotdogOrder3#2.png"
+  },
+  "063dd7bd-d127-409a-b192-dbaa8ba0dfc3": {
+    "asset": 1762656548109,
+    "meta": 1762656548696,
+    "relativePath": "cooking\\Meat#2.png"
+  },
+  "00c0a4fc-4ca5-4a41-beb2-1daa39f7bb63": {
+    "asset": 1762656548110,
+    "meta": 1762656548697,
+    "relativePath": "cooking\\BurgerOrder1#2.png"
+  },
+  "2739b5d7-20c7-4681-81cc-b7859b7dc40d": {
+    "asset": 1762656548110,
+    "meta": 1762656548713,
+    "relativePath": "cooking\\BurgerOrder1#3.png"
+  },
+  "1eb8d24a-ac04-4780-9e2e-85ecfb2fb675": {
+    "asset": 1762656548110,
+    "meta": 1762656548714,
+    "relativePath": "cooking\\BurgerOrder3#2.png"
+  },
+  "fb43faa8-7e74-4619-936e-f75172c176b2": {
+    "asset": 1762656548110,
+    "meta": 1762656548732,
+    "relativePath": "cooking\\BurgerOrder4#1.png"
+  },
+  "32f75e67-51f3-4c03-98fd-7f61ba1c29ed": {
+    "asset": 1762656548110,
+    "meta": 1762656548733,
+    "relativePath": "cooking\\BurgerOrder2#3.png"
+  },
+  "1cef65e6-b129-40ae-96f4-4358b87b6896": {
+    "asset": 1762656548110,
+    "meta": 1762656548748,
+    "relativePath": "cooking\\BurgerOrder3#3.png"
+  },
+  "a5a8f340-e003-4742-89b1-0ed707c77a0b": {
+    "asset": 1762656548110,
+    "meta": 1762656548750,
+    "relativePath": "cooking\\BurgerOrder2#2.png"
+  },
+  "7949d4e4-7167-4085-91cd-db5a277ae44f": {
+    "asset": 1762656548110,
+    "meta": 1762656548766,
+    "relativePath": "cooking\\BurgerOrder4#3.png"
+  },
+  "66786abd-4b28-45ea-917b-06bb259b72de": {
+    "asset": 1762656548110,
+    "meta": 1762656548767,
+    "relativePath": "cooking\\BurgerBun#2.png"
+  },
+  "4e4b1a83-a2d0-4bfa-8dd7-e972fb3c3040": {
+    "asset": 1762656548110,
+    "meta": 1762656548784,
+    "relativePath": "cooking\\BurgerOrder4#2.png"
+  },
+  "e71c022b-b665-4db9-90aa-50b07700aa5d": {
+    "asset": 1762656548118,
+    "meta": 1762656548785,
+    "relativePath": "cooking\\Roof.png"
+  },
+  "4ef58cd3-8084-40a9-9425-fae405f12f06": {
+    "asset": 1762656548118,
+    "meta": 1762656548801,
+    "relativePath": "cooking\\Sausage#1.png"
+  },
+  "372d7484-f8ef-4cb5-8f2a-4f64f2661fe3": {
+    "asset": 1762656548110,
+    "meta": 1762656548802,
+    "relativePath": "cooking\\BurgerBun#3.png"
+  },
+  "281847cb-7709-42da-9603-13fe33273e2d": {
+    "asset": 1762656548117,
+    "meta": 1762656548812,
+    "relativePath": "cooking\\KhayBun.png"
+  },
+  "34356e1e-4f1d-4b11-98e9-462fea7885ba": {
+    "asset": 1762656548118,
+    "meta": 1762656548817,
+    "relativePath": "cooking\\Sausage#2.png"
+  },
+  "f8f7850d-f1c6-4adf-93ec-d32dde335b43": {
+    "asset": 1762656548118,
+    "meta": 1762656548828,
+    "relativePath": "cooking\\Sausage#3.png"
+  },
+  "140fdbdb-6fd2-4255-a8e6-c4227fe5f4cc": {
+    "asset": 1762656548119,
+    "meta": 1762656548835,
+    "relativePath": "cooking\\CocaMachine#2.png"
+  },
+  "0609dc28-d89f-4182-b8ea-192510385e72": {
+    "asset": 1762656548120,
+    "meta": 1762656548846,
+    "relativePath": "cooking\\CocaMachine#3.png"
+  },
+  "29457f58-182d-4e2f-be76-c62c30c6ea11": {
+    "asset": 1762656548120,
+    "meta": 1762656548854,
+    "relativePath": "cooking\\CocaMachine#1.png"
+  },
+  "cf1b6e79-06da-4630-a3d0-5d7ea22c0a53": {
+    "asset": 1762656548120,
+    "meta": 1762656548861,
+    "relativePath": "cooking\\Tomato#3.png"
+  },
+  "8e0e4506-0546-4207-8597-e7be60aee2a8": {
+    "asset": 1762656548121,
+    "meta": 1762656548868,
+    "relativePath": "cooking\\TomatoTray.png"
+  },
+  "f387ba54-52b7-4c9d-b794-4e08cb754e8f": {
+    "asset": 1762656548122,
+    "meta": 1762656548880,
+    "relativePath": "cooking\\KhayDrink.png"
+  },
+  "9164060d-6f10-4e3d-ae96-71dcd1731dd2": {
+    "asset": 1762656557989,
+    "meta": 1762656557990,
+    "relativePath": "cooking\\New Folder"
+  },
+  "3e476b89-e788-4b16-8eda-140bb8d9b65c": {
+    "asset": 1762664317314,
+    "meta": 1762703870615,
+    "relativePath": "cooking\\spine"
+  },
+  "c64a076a-c28f-4cd6-a1c9-caa81cac96bc": {
+    "asset": 1762656583371,
+    "meta": 1762656583399,
+    "relativePath": "cooking\\spine\\k-pop idol-export.atlas.txt"
+  },
+  "516e8012-70be-4a84-bf28-a7bd453f23fe": {
+    "asset": 1762656583371,
+    "meta": 1762656583438,
+    "relativePath": "cooking\\spine\\k-pop idol-export.json"
+  },
+  "b018050a-5fc1-4688-97b7-5897e5aab039": {
+    "asset": 1762656593627,
+    "meta": 1762656593655,
+    "relativePath": "cooking\\spine\\Granny-export.atlas.txt"
+  },
+  "b705cf39-634a-4315-a808-d90269658f88": {
+    "asset": 1762656593629,
+    "meta": 1762656593708,
+    "relativePath": "cooking\\spine\\Granny-export.json"
+  },
+  "4ffeb826-a89f-47ef-bde2-c68d3ec19f63": {
+    "asset": 1762656600619,
+    "meta": 1762656600637,
+    "relativePath": "cooking\\spine\\Boy-export.atlas.txt"
+  },
+  "7256e325-c613-479d-864e-36da719d8c60": {
+    "asset": 1762656600620,
+    "meta": 1762656600680,
+    "relativePath": "cooking\\spine\\Boy-export.json"
+  },
+  "fb904768-7231-4937-b11f-a0c3ff2bc74e": {
+    "asset": 1762656615648,
+    "meta": 1762656615763,
+    "relativePath": "cooking\\bun_burger_lv1.png"
+  },
+  "8e487070-ff90-4a7a-a22d-d3debf3dc107": {
+    "asset": 1762656615648,
+    "meta": 1762656615765,
+    "relativePath": "cooking\\burger-platte_lv1.png"
+  },
+  "8b30f4cc-4fc9-4872-98b0-b2e268e38ca4": {
+    "asset": 1762656615648,
+    "meta": 1762656615778,
+    "relativePath": "cooking\\burger-platte_lv2.png"
+  },
+  "4952aabb-f3c8-4c5c-8b9a-ede4a8ae890f": {
+    "asset": 1762656615648,
+    "meta": 1762656615780,
+    "relativePath": "cooking\\bun_burger_lv2.png"
+  },
+  "56a83974-2bcf-4915-8270-7ec45e9f5b58": {
+    "asset": 1762656615648,
+    "meta": 1762656615793,
+    "relativePath": "cooking\\burger-platte_lv3.png"
+  },
+  "eac34ffd-8242-4c9d-afd9-99cdf22078b4": {
+    "asset": 1762656615648,
+    "meta": 1762656615796,
+    "relativePath": "cooking\\DrinkServe#2.png"
+  },
+  "c9779f75-cda0-46b9-a441-7482e1e38618": {
+    "asset": 1762656615648,
+    "meta": 1762656615807,
+    "relativePath": "cooking\\DrinkServe#1.png"
+  },
+  "2dc205b4-9bec-4e92-b1c2-20225968e678": {
+    "asset": 1762656615648,
+    "meta": 1762656615810,
+    "relativePath": "cooking\\DrinkServe#3.png"
+  },
+  "62fcac1a-0f85-4a46-ac31-e25c24a635d7": {
+    "asset": 1762656615648,
+    "meta": 1762656615821,
+    "relativePath": "cooking\\hotdog_plate_lv1.png"
+  },
+  "6055be1d-d4eb-4b3d-afdc-bf1f308c18d9": {
+    "asset": 1762656615648,
+    "meta": 1762656615826,
+    "relativePath": "cooking\\FrenchFries#2.png"
+  },
+  "5dd43c8b-6093-4747-aff8-8cc8f6421f17": {
+    "asset": 1762656615648,
+    "meta": 1762656615848,
+    "relativePath": "cooking\\hotdog_plate_lv2.png"
+  },
+  "4bab2333-ce9f-484c-8b22-197861fddcdf": {
+    "asset": 1762656615648,
+    "meta": 1762656615853,
+    "relativePath": "cooking\\hotdog_pan_lv3.png"
+  },
+  "ffcc6706-8232-456f-866c-d06228d83079": {
+    "asset": 1762656615648,
+    "meta": 1762656615862,
+    "relativePath": "cooking\\hotdog_plate_lv3.png"
+  },
+  "d904979d-b3e3-4f6c-8a83-c611bef592d2": {
+    "asset": 1762656615648,
+    "meta": 1762656615863,
+    "relativePath": "cooking\\Mazine#1.png"
+  },
+  "6557c263-6018-4c6b-9016-fbc617027eae": {
+    "asset": 1762656615648,
+    "meta": 1762656615878,
+    "relativePath": "cooking\\meat_lv1.png"
+  },
+  "d8f72511-d873-47d2-a491-d282bcd64d7a": {
+    "asset": 1762656615649,
+    "meta": 1762656615890,
+    "relativePath": "cooking\\Mazine#2.png"
+  },
+  "6441fddf-44ae-4d86-8680-d90403177aa6": {
+    "asset": 1762656615648,
+    "meta": 1762656615896,
+    "relativePath": "cooking\\hotdog_pan_lv2.png"
+  },
+  "f7973337-7680-43c8-a15c-fb216a34e612": {
+    "asset": 1762656615649,
+    "meta": 1762656615907,
+    "relativePath": "cooking\\pan-burger_lv1.png"
+  },
+  "439b8fa2-0d2a-4626-813d-81af48aa72ad": {
+    "asset": 1762656615649,
+    "meta": 1762656615913,
+    "relativePath": "cooking\\pan-burger_lv2.png"
+  },
+  "56533769-23fb-479a-9cc2-d5de710a0fdf": {
+    "asset": 1762656615649,
+    "meta": 1762656615921,
+    "relativePath": "cooking\\meat_lv3.png"
+  },
+  "22cd67ff-3845-47d2-badf-7dc35c58ff61": {
+    "asset": 1762656615649,
+    "meta": 1762656615927,
+    "relativePath": "cooking\\sausage_lv1.png"
+  },
+  "753d751b-aaeb-4402-9a8c-63437b88334f": {
+    "asset": 1762656615649,
+    "meta": 1762656615954,
+    "relativePath": "cooking\\pan-burger_lv3.png"
+  },
+  "cdab88f2-f2cb-47d5-9373-08a421d54e4c": {
+    "asset": 1762656615649,
+    "meta": 1762656615964,
+    "relativePath": "cooking\\cheese_lv2.png"
+  },
+  "7ae37316-6639-4bdb-bf7e-0bf1157293cc": {
+    "asset": 1762656615649,
+    "meta": 1762656615970,
+    "relativePath": "cooking\\cheese_lv1.png"
+  },
+  "6f385b4f-06a1-4269-8784-3f34fca50273": {
+    "asset": 1762656615649,
+    "meta": 1762656615980,
+    "relativePath": "cooking\\cheese_lv3.png"
+  },
+  "0a56e0fc-a998-4929-8086-689ac643bad2": {
+    "asset": 1762656615651,
+    "meta": 1762656615988,
+    "relativePath": "cooking\\HotdogBun#3.png"
+  },
+  "eef7974c-f31f-4f4a-b684-3390aee7a9a6": {
+    "asset": 1762656615652,
+    "meta": 1762656616001,
+    "relativePath": "cooking\\HotdogBun#2.png"
+  },
+  "65a31397-57f4-44d2-a06c-49a635f3b234": {
+    "asset": 1762656615654,
+    "meta": 1762656616006,
+    "relativePath": "cooking\\HotdogBun#1.png"
+  },
+  "2f6a0198-64d2-40ff-a2ce-a953735a01ba": {
+    "asset": 1762656615649,
+    "meta": 1762656616016,
+    "relativePath": "cooking\\soda_machine_lv1.png"
+  },
+  "12349130-ae9d-47d9-b897-1b0f4d373245": {
+    "asset": 1762656615655,
+    "meta": 1762656616023,
+    "relativePath": "cooking\\Mazine#3.png"
+  },
+  "12adf4a4-8e18-4337-a081-7c04395a5511": {
+    "asset": 1762656615652,
+    "meta": 1762656616031,
+    "relativePath": "cooking\\FrenchFries#3.png"
+  },
+  "606ec2f2-68ef-4425-a75c-e7cff8aa6610": {
+    "asset": 1762656615656,
+    "meta": 1762656616040,
+    "relativePath": "cooking\\salad_lv1.png"
+  },
+  "c7d8c3dd-004a-4010-87ce-d129da246da7": {
+    "asset": 1762656615656,
+    "meta": 1762656616042,
+    "relativePath": "cooking\\Sauce#1.png"
+  },
+  "95c5cc08-d413-4a8a-8ac8-a033e85a8ff4": {
+    "asset": 1762656615656,
+    "meta": 1762656616053,
+    "relativePath": "cooking\\Sauce#2.png"
+  },
+  "ca5763b3-f8f1-44e2-b6bc-e14fdec1913f": {
+    "asset": 1762656615656,
+    "meta": 1762656616061,
+    "relativePath": "cooking\\salad_lv3.png"
+  },
+  "b9a38c54-35c2-407a-82cd-59419d6c9285": {
+    "asset": 1762656615657,
+    "meta": 1762656616062,
+    "relativePath": "cooking\\soda_machine_lv2.png"
+  },
+  "84da3b30-2c04-4c61-8cc2-478de76055e4": {
+    "asset": 1762656615657,
+    "meta": 1762656616078,
+    "relativePath": "cooking\\tomato_lv1.png"
+  },
+  "7b01de99-4c62-4b56-bbaf-f1db8477bac0": {
+    "asset": 1762656615657,
+    "meta": 1762656616089,
+    "relativePath": "cooking\\soda_machine_lv3.png"
+  },
+  "18e9d8a6-dff4-4bfb-8d47-440f5d3515f3": {
+    "asset": 1762656615656,
+    "meta": 1762656616097,
+    "relativePath": "cooking\\Sauce#3.png"
+  },
+  "853b368b-4335-4251-8ff6-c203b5367ba2": {
+    "asset": 1762656615655,
+    "meta": 1762656616105,
+    "relativePath": "cooking\\salad_lv2.png"
+  },
+  "d9375fa5-b763-4637-98ed-e665409b98e8": {
+    "asset": 1762656615672,
+    "meta": 1762656616110,
+    "relativePath": "cooking\\tomato_lv3.png"
+  },
+  "b769d117-78e1-4c57-8471-6a74842379cc": {
+    "asset": 1762656893048,
+    "meta": 1762656893085,
+    "relativePath": "cooking\\bg.PNG"
+  },
+  "c8ad52a3-bf67-4719-8c44-43301827d891": {
+    "asset": 1762659935858,
+    "meta": 1762659935899,
+    "relativePath": "cooking\\spine\\Smoke.json"
+  },
+  "59c515ec-8336-4c19-9aa4-e9b17c27babd": {
+    "asset": 1762659935859,
+    "meta": 1762659935881,
+    "relativePath": "cooking\\spine\\Smoke.atlas.txt"
+  },
+  "ecbaad28-7bc1-4fa9-8066-53f415185a7f": {
+    "asset": 1762659935857,
+    "meta": 1762659935895,
+    "relativePath": "cooking\\spine\\Smoke.png"
+  },
+  "18825b73-ff43-41a9-ac66-c738e4d76f3e": {
+    "asset": 1762659958578,
+    "meta": 1762659958596,
+    "relativePath": "cooking\\spine\\Hot dog.atlas.txt"
+  },
+  "272d2b5a-67fa-489a-97e7-c78e811ada80": {
+    "asset": 1762659958579,
+    "meta": 1762659958642,
+    "relativePath": "cooking\\spine\\Hot dog.json"
+  },
+  "489fe900-f81a-4d83-941f-0dfb9e0b8328": {
+    "asset": 1762659969760,
+    "meta": 1762659969796,
+    "relativePath": "cooking\\spine\\Cool-Ca.json"
+  },
+  "7aba9e04-a881-4373-9cbf-dd4c4b216102": {
+    "asset": 1762659969761,
+    "meta": 1762659969782,
+    "relativePath": "cooking\\spine\\Cool-Ca.atlas.txt"
+  },
+  "082280f9-8541-4e2f-add6-03afc104f907": {
+    "asset": 1762659982820,
+    "meta": 1762659982832,
+    "relativePath": "cooking\\spine\\Cook.atlas.txt"
+  },
+  "b4a234e1-a658-4770-85b2-21a022d355d3": {
+    "asset": 1762659982820,
+    "meta": 1762659982868,
+    "relativePath": "cooking\\spine\\Cook.json"
+  },
+  "8e522b60-7006-4d89-887e-91c98356006b": {
+    "asset": 1762659988959,
+    "meta": 1762659988999,
+    "relativePath": "cooking\\spine\\Cool-Ca-Base.json"
+  },
+  "dc89d063-f9dd-4e7c-ac6a-12e80e6b5c67": {
+    "asset": 1762659988959,
+    "meta": 1762659988978,
+    "relativePath": "cooking\\spine\\Cool-Ca-Base.atlas.txt"
+  },
+  "b814a020-79e5-4080-a6f8-b1027ec9ae44": {
+    "asset": 1762659995198,
+    "meta": 1762659995225,
+    "relativePath": "cooking\\spine\\Burger.atlas.txt"
+  },
+  "a6343a68-edf6-4094-b6c8-f91ba89aeee8": {
+    "asset": 1762659995198,
+    "meta": 1762659995245,
+    "relativePath": "cooking\\spine\\Burger.json"
+  },
+  "e316d39d-eb3a-4d0e-ac32-9154d1e94a64": {
+    "asset": 1762670336834,
+    "meta": 1762703870610,
+    "relativePath": "cooking\\ietm"
+  },
+  "eb7ca460-9857-4d9e-ae63-65ddbbca597c": {
+    "asset": 1762705839461,
+    "meta": 1762741848850,
+    "relativePath": "cooking\\animCook"
+  },
+  "2ffe5239-a243-42ef-9090-f6b6dc7ceb1d": {
+    "asset": 1762663470243,
+    "meta": 1762663470256,
+    "relativePath": "cooking\\animCook\\pop_show.anim"
+  },
+  "d7bd56bf-40d5-42a1-9e65-413332584b8e": {
+    "asset": 1762664320539,
+    "meta": 1762703870618,
+    "relativePath": "cooking\\spine\\Hotdog2"
+  },
+  "0f8f8054-23a3-4301-a3ea-d1f34fbc16d5": {
+    "asset": 1762664320536,
+    "meta": 1762664320550,
+    "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.atlas.txt"
+  },
+  "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
+    "asset": 1762664320536,
+    "meta": 1762741848860,
+    "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
+  },
+  "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
+    "asset": 1762670323996,
+    "meta": 1762703870612,
+    "relativePath": "cooking\\preFab"
+  },
+  "5596d9ad-c828-4b5b-b864-8da75d7d57c8": {
+    "asset": 1762669800920,
+    "meta": 1762669800925,
+    "relativePath": "cooking\\preFab\\preHotDog.prefab"
+  },
+  "322676f3-3142-4f0e-9afb-cfc21e3a7e56": {
+    "asset": 1762667747066,
+    "meta": 1762667747766,
+    "relativePath": "cooking\\sound\\Music-Bg-GamePlay-mp3cutnet.mp3"
+  },
+  "7834fa04-766f-49c1-bd49-05dba1da4efa": {
+    "asset": 1762667767099,
+    "meta": 1762703870614,
+    "relativePath": "cooking\\sound"
+  },
+  "bb3c8d65-ecfb-49cb-af3d-a39363cfabaf": {
+    "asset": 1762707277210,
+    "meta": 1762707277215,
+    "relativePath": "cooking\\preFab\\preBread.prefab"
+  },
+  "b4b866a5-551a-4de2-959e-b21c64dd1675": {
+    "asset": 1762705879447,
+    "meta": 1762705879459,
+    "relativePath": "cooking\\animCook\\do_tuong.anim"
+  },
+  "16969733-bd58-47e0-9057-063d26a7eae6": {
+    "asset": 1762707070224,
+    "meta": 1762707070264,
+    "relativePath": "cooking\\chilli.png"
+  },
+  "26acdf3a-f063-4856-8798-5932d868b741": {
+    "asset": 1762707267395,
+    "meta": 1762707268303,
+    "relativePath": "cooking\\ietm\\preBread.ts"
+  },
+  "d082fcfb-0632-48fe-9fdd-66a87c18c159": {
+    "asset": 1762744979402,
+    "meta": 1762744981553,
+    "relativePath": "cooking\\ietm\\hotdog.ts"
+  },
+  "d9118604-9993-4cf8-a841-ab734ab3dfca": {
+    "asset": 1762746719893,
+    "meta": 1762746720639,
+    "relativePath": "cooking\\sound\\Game_Lose.mp3"
+  },
+  "ba363478-4429-47cd-bcbf-022846711913": {
+    "asset": 1762747601598,
+    "meta": 1762747601617,
+    "relativePath": "cooking\\ietm\\UI_icon_handtutorial.png"
+  },
+  "ec4edd3f-9e74-4b70-9afb-215a085163c5": {
+    "asset": 1762747806774,
+    "meta": 1762747806795,
+    "relativePath": "anim\\hand\\hand_click.anim"
+  },
+  "ad5a9669-f4cb-49ec-8f82-e76d6ce6111c": {
+    "asset": 1762723282000,
+    "meta": 1762748512424,
+    "relativePath": "cooking\\ban.png"
+  },
+  "e63ac8e5-7746-47e9-a102-00a7e5a4ff3a": {
+    "asset": 1762723282000,
+    "meta": 1762748512437,
+    "relativePath": "cooking\\BackGround.png"
+  },
+  "9313d101-3d65-4789-aac1-b70a3a33f8b3": {
+    "asset": 1762723282000,
+    "meta": 1762748512449,
+    "relativePath": "cooking\\Bottom.png"
+  },
+  "d1f9664f-b1e2-4f4e-8a18-3365e952d836": {
+    "asset": 1762723282000,
+    "meta": 1762748512457,
+    "relativePath": "cooking\\btnGreen4.png"
+  },
+  "9ee64985-f5fa-45bf-872f-d82cc40c1098": {
+    "asset": 1762723282000,
+    "meta": 1762748512465,
+    "relativePath": "cooking\\bubbleRecommend.png"
+  },
+  "9cbb7de2-2f04-4eac-be5a-8bb9184ecbf6": {
+    "asset": 1762723282000,
+    "meta": 1762748512474,
+    "relativePath": "cooking\\bun_burger_lv3.png"
+  },
+  "162b3304-1396-446d-944d-5808b56ba328": {
+    "asset": 1762723282000,
+    "meta": 1762748512483,
+    "relativePath": "cooking\\chaokhoai.png"
+  },
+  "a74b0dab-6f87-422e-82b7-ac4a4124fbae": {
+    "asset": 1762723282000,
+    "meta": 1762748512490,
+    "relativePath": "cooking\\Cheese#1.png"
+  },
+  "d2b251ab-6c5a-400f-b162-de24ed2ba20f": {
+    "asset": 1762723282000,
+    "meta": 1762748512498,
+    "relativePath": "cooking\\Cheese#2.png"
+  },
+  "337d70cb-b23a-4072-bd77-7a50bbe9a856": {
+    "asset": 1762723282000,
+    "meta": 1762748512506,
+    "relativePath": "cooking\\Cheese#3.png"
+  },
+  "972bee37-4dc4-4f3f-8a2f-2d6883ab2c51": {
+    "asset": 1762723282000,
+    "meta": 1762748512515,
+    "relativePath": "cooking\\FrenchFries#1.png"
+  },
+  "443290b0-c1cb-4d18-9f3d-ccc0adad285b": {
+    "asset": 1762723282000,
+    "meta": 1762748512524,
+    "relativePath": "cooking\\FrenchFriesTray.png"
+  },
+  "014b59e6-47e7-4276-a02c-270b12fd3dc1": {
+    "asset": 1762723282000,
+    "meta": 1762748512532,
+    "relativePath": "cooking\\hotdog_pan_lv1.png"
+  },
+  "0754f650-13b5-4020-8ac0-dff93cb547cc": {
+    "asset": 1762723282000,
+    "meta": 1762748512541,
+    "relativePath": "cooking\\HotdogOrder1#3.png"
+  },
+  "060fd63b-cafb-4e9a-8d64-1414c1bd3265": {
+    "asset": 1762723282000,
+    "meta": 1762748512551,
+    "relativePath": "cooking\\meat_lv2.png"
+  },
+  "881bb8c0-015b-4d89-8b9d-0cb621ae9f3f": {
+    "asset": 1762723282000,
+    "meta": 1762748512561,
+    "relativePath": "cooking\\multiply.png"
+  },
+  "28f7c00a-c2d3-49ce-a341-4c84dcb73fda": {
+    "asset": 1762723282000,
+    "meta": 1762748512568,
+    "relativePath": "cooking\\sausage_lv2.png"
+  },
+  "5bee6ad7-2196-43b2-b623-d341fc042dac": {
+    "asset": 1762723282000,
+    "meta": 1762748512577,
+    "relativePath": "cooking\\sausage_lv3.png"
+  },
+  "d0e2e53c-362b-40fa-ac1b-517acfad1938": {
+    "asset": 1762723282000,
+    "meta": 1762748512594,
+    "relativePath": "cooking\\tomato_lv2.png"
+  },
+  "136c2831-3c49-49d4-bead-8b9d9518664e": {
+    "asset": 1762723282000,
+    "meta": 1762748512599,
+    "relativePath": "cooking\\Table.png"
+  },
+  "825e68d7-58f9-4329-b8be-f7f217ace41a": {
+    "asset": 1762748628824,
+    "meta": 1762748663421,
+    "relativePath": "cooking\\HotdogBun.png"
+  },
+  "df471751-4994-441d-860d-acf6566b2eea": {
+    "asset": 1762723534000,
+    "meta": 1762748769832,
+    "relativePath": "cooking\\spine\\Boy-export.png"
+  },
+  "d21a72bf-b8f0-452a-8849-6d3b987a5a84": {
+    "asset": 1762723534000,
+    "meta": 1762748769834,
+    "relativePath": "cooking\\spine\\Burger.png"
+  },
+  "e510f77b-d897-4a6b-a2ec-3dccbff361a7": {
+    "asset": 1762723534000,
+    "meta": 1762748769858,
+    "relativePath": "cooking\\spine\\Cook.png"
+  },
+  "36cb626f-cd23-45ac-9e58-7e02fd710a58": {
+    "asset": 1762723534000,
+    "meta": 1762748769861,
+    "relativePath": "cooking\\spine\\Cool-Ca-Base.png"
+  },
+  "fbcc42e4-a8c6-4656-bb1b-6b97d6aed1c6": {
+    "asset": 1762723534000,
+    "meta": 1762748769884,
+    "relativePath": "cooking\\spine\\Cool-Ca.png"
+  },
+  "ca595f7e-9009-4a66-9255-4d71a624afc3": {
+    "asset": 1762723534000,
+    "meta": 1762748769886,
+    "relativePath": "cooking\\spine\\Granny-export.png"
+  },
+  "258f9d98-8314-4e01-9fc3-37dc66374f7b": {
+    "asset": 1762748760878,
+    "meta": 1762748769906,
+    "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.png"
+  },
+  "16ee75ef-debc-4970-9c87-b166c7def455": {
+    "asset": 1762723534000,
+    "meta": 1762748769908,
+    "relativePath": "cooking\\spine\\Hot dog.png"
+  },
+  "598b0659-3fbf-472b-8907-fec81dae2977": {
+    "asset": 1762723534000,
+    "meta": 1762748769926,
+    "relativePath": "cooking\\spine\\k-pop idol-export.png"
+  },
+  "c111476a-d646-416d-8610-26ce7c47a39a": {
+    "asset": 1762748862424,
+    "meta": 1762749099758,
+    "relativePath": "cooking\\logo.png"
+  },
+  "97f41450-2f43-43de-be0b-9c6ada4e745e": {
+    "asset": 1762749764864,
+    "meta": 1762749765421,
+    "relativePath": "cooking\\sound\\Game_Win.mp3"
+  },
+  "a6d17731-f471-4f04-808e-54979f6fadd0": {
+    "asset": 1762749859192,
+    "meta": 1762749859536,
+    "relativePath": "cooking\\sound\\Get_White.mp3"
+  },
+  "50074621-087b-4039-a10e-2fd9c9e621f1": {
+    "asset": 1762750444187,
+    "meta": 1762750444700,
+    "relativePath": "cooking\\sound\\wrong.mp3"
+  },
+  "9d44f72a-8957-4bf8-a12d-4e8ad238d5c5": {
+    "asset": 1762750780867,
+    "meta": 1762750780878,
+    "relativePath": "anim\\vfx\\fx_color.anim"
+  },
+  "e55e89fe-01c5-49bb-8553-23c7c732eaf9": {
+    "asset": 1762750846330,
+    "meta": 1762750846334,
+    "relativePath": "cooking\\preFab\\preColorFx.prefab"
+  },
   "c1cd78ed-5d5b-458e-a680-a9d9f139d7ab": {
-    "asset": 1761828820908,
-    "meta": 1761828821663,
+    "asset": 1762751447302,
+    "meta": 1762751448492,
     "relativePath": "scripts\\APP\\GameApp.ts"
+  },
+  "87735073-b04e-4c60-9ded-c0c4897191c5": {
+    "asset": 1762770037409,
+    "meta": 1762770037422,
+    "relativePath": "scenes\\CC_2.fire"
+  },
+  "30c059fa-27d7-4547-aae5-ffc87ebade69": {
+    "asset": 1762751683102,
+    "meta": 1762751683103,
+    "relativePath": "cooking\\CC_2"
+  },
+  "f72a1ef0-d0ab-4590-8eae-9559162c949f": {
+    "asset": 1762751696526,
+    "meta": 1762751696627,
+    "relativePath": "cooking\\CC_2\\Deco1.png"
+  },
+  "4b5fdec1-7928-42bb-b5f5-6ce7d44becc9": {
+    "asset": 1762751696526,
+    "meta": 1762751696630,
+    "relativePath": "cooking\\CC_2\\Blueburry#2.png"
+  },
+  "02737772-1809-4860-b5cb-b3f76cdc89d4": {
+    "asset": 1762751696527,
+    "meta": 1762751696646,
+    "relativePath": "cooking\\CC_2\\Deco2.png"
+  },
+  "02e6effa-fef7-48b4-a4ad-d40e4f63f6ad": {
+    "asset": 1762751696527,
+    "meta": 1762751696648,
+    "relativePath": "cooking\\CC_2\\DishM2.png"
+  },
+  "bdc0003e-1e6d-419d-96bb-0ae96dfd6196": {
+    "asset": 1762751696527,
+    "meta": 1762751696660,
+    "relativePath": "cooking\\CC_2\\M1DoubleCoin.png"
+  },
+  "84a2a7c1-8117-453a-95f5-7231f6143c4b": {
+    "asset": 1762751696527,
+    "meta": 1762751696666,
+    "relativePath": "cooking\\CC_2\\Blueburry#3.png"
+  },
+  "81a2621d-e61e-4927-8b7b-2dc508172239": {
+    "asset": 1762751696527,
+    "meta": 1762751696676,
+    "relativePath": "cooking\\CC_2\\Main1Order3.png"
+  },
+  "090488fc-6379-49f4-a9f4-52e363cfa27b": {
+    "asset": 1762751696527,
+    "meta": 1762751696681,
+    "relativePath": "cooking\\CC_2\\Main1Order2.png"
+  },
+  "255ab8b9-69b7-4c47-b1ee-7b8a9c04d9b3": {
+    "asset": 1762751696527,
+    "meta": 1762751696694,
+    "relativePath": "cooking\\CC_2\\Main2Order1.png"
+  },
+  "317ae4e4-ee81-4b20-b3c6-7f1c6802abcf": {
+    "asset": 1762751696527,
+    "meta": 1762751696695,
+    "relativePath": "cooking\\CC_2\\Main2Order2.png"
+  },
+  "1e53d150-23b9-4bf3-aa0b-447312d16cfb": {
+    "asset": 1762751696527,
+    "meta": 1762751696709,
+    "relativePath": "cooking\\CC_2\\Main1Order1.png"
+  },
+  "34ab6717-d3ae-48be-ac4e-f9507217a135": {
+    "asset": 1762751696527,
+    "meta": 1762751696712,
+    "relativePath": "cooking\\CC_2\\Main1Order4.png"
+  },
+  "ffae91b8-c4b4-49af-a006-9d1e5675ff4f": {
+    "asset": 1762751696527,
+    "meta": 1762751696726,
+    "relativePath": "cooking\\CC_2\\Main2Order4.png"
+  },
+  "81d2f10d-7e59-479b-9b19-651e0df027c6": {
+    "asset": 1762751696527,
+    "meta": 1762751696728,
+    "relativePath": "cooking\\CC_2\\Main2Order3.png"
+  },
+  "9ad3729a-b2e2-41d8-ade8-42a2e0fd9372": {
+    "asset": 1762751696528,
+    "meta": 1762751696743,
+    "relativePath": "cooking\\CC_2\\M1T1#3.png"
+  },
+  "16e28cf9-5517-4663-a49d-f2b57542c22d": {
+    "asset": 1762751696528,
+    "meta": 1762751696749,
+    "relativePath": "cooking\\CC_2\\M1T1#1.png"
+  },
+  "21dc2216-84a8-49fe-8a9c-6efefead4ebc": {
+    "asset": 1762751696527,
+    "meta": 1762751696765,
+    "relativePath": "cooking\\CC_2\\Mask1.png"
+  },
+  "346162c1-047e-4bf5-be5f-22b665d4aa8e": {
+    "asset": 1762751696528,
+    "meta": 1762751696769,
+    "relativePath": "cooking\\CC_2\\M1T2#2.png"
+  },
+  "17ad89f4-960f-44fa-9a5b-16bd8f8c5055": {
+    "asset": 1762751696528,
+    "meta": 1762751696786,
+    "relativePath": "cooking\\CC_2\\M1T1#2.png"
+  },
+  "41fbb470-546a-4ee0-912a-c1ba3f6b13e4": {
+    "asset": 1762751696528,
+    "meta": 1762751696790,
+    "relativePath": "cooking\\CC_2\\M1T2#3.png"
+  },
+  "c664c9e4-279f-48c5-bf05-500114bd2e11": {
+    "asset": 1762751696528,
+    "meta": 1762751696806,
+    "relativePath": "cooking\\CC_2\\M2T1#3.png"
+  },
+  "2274eb94-45b7-456d-b3ff-82479728c432": {
+    "asset": 1762751696528,
+    "meta": 1762751696809,
+    "relativePath": "cooking\\CC_2\\M2T1#1.png"
+  },
+  "cc6e8396-3b13-49fc-8759-d778a0532cc5": {
+    "asset": 1762751696529,
+    "meta": 1762751696822,
+    "relativePath": "cooking\\CC_2\\M2T2#2.png"
+  },
+  "3a5f76bf-196c-4c2a-aa71-0cb96ea9fbf6": {
+    "asset": 1762751696529,
+    "meta": 1762751696824,
+    "relativePath": "cooking\\CC_2\\M2T2#3.png"
+  },
+  "ecb9966c-f859-48af-95de-702525212e04": {
+    "asset": 1762751696529,
+    "meta": 1762751696839,
+    "relativePath": "cooking\\CC_2\\M2T2#1.png"
+  },
+  "8a000066-e2fc-4810-83f7-a806604fc911": {
+    "asset": 1762751696529,
+    "meta": 1762751696848,
+    "relativePath": "cooking\\CC_2\\Tray.png"
+  },
+  "c3d5f556-e896-48d4-b7fe-5a79c19c9c62": {
+    "asset": 1762751696528,
+    "meta": 1762751696852,
+    "relativePath": "cooking\\CC_2\\M2T1#2.png"
+  },
+  "c12ce930-007d-4690-bcdf-498c744c9833": {
+    "asset": 1762751696529,
+    "meta": 1762751696872,
+    "relativePath": "cooking\\CC_2\\TableLeft.png"
+  },
+  "2f5a68c9-8a21-4e77-9a85-8ca7b71da849": {
+    "asset": 1762751696528,
+    "meta": 1762751696878,
+    "relativePath": "cooking\\CC_2\\M1T2#1.png"
+  },
+  "40e1b32d-c768-41b0-ac51-32a81c36b2c2": {
+    "asset": 1762751696530,
+    "meta": 1762751696893,
+    "relativePath": "cooking\\CC_2\\TableRight.png"
+  },
+  "88a9653d-1650-4f34-b5f2-e9cfd0bcdd52": {
+    "asset": 1762751696532,
+    "meta": 1762751696895,
+    "relativePath": "cooking\\CC_2\\MainTray.png"
+  },
+  "2b50b9eb-982f-42e0-9b29-a8e69ec98293": {
+    "asset": 1762751696527,
+    "meta": 1762751696911,
+    "relativePath": "cooking\\CC_2\\Blueburry#1.png"
+  },
+  "b62b5af0-68e9-4f12-a0dc-03a696a39b38": {
+    "asset": 1762751696534,
+    "meta": 1762751696918,
+    "relativePath": "cooking\\CC_2\\TableTop.png"
+  },
+  "e94c32b8-5873-4af6-9254-f54b25a9b8c1": {
+    "asset": 1762751696528,
+    "meta": 1762751696927,
+    "relativePath": "cooking\\CC_2\\DishM1.png"
+  },
+  "2f8ec961-050c-42c5-aea1-2e47caadaf62": {
+    "asset": 1762751696538,
+    "meta": 1762751696948,
+    "relativePath": "cooking\\CC_2\\Table.png"
+  },
+  "c608844a-0444-44d0-a954-2a2f1589aa94": {
+    "asset": 1762751696554,
+    "meta": 1762751696971,
+    "relativePath": "cooking\\CC_2\\BackGround.png"
+  },
+  "782022b1-9eb4-437f-8b9f-fde011108cf6": {
+    "asset": 1762751706343,
+    "meta": 1762751706430,
+    "relativePath": "cooking\\CC_2\\dish_m1_lv1.png"
+  },
+  "ecef079f-6d2a-4e1a-98fe-405dad32a5f0": {
+    "asset": 1762751706343,
+    "meta": 1762751706431,
+    "relativePath": "cooking\\CC_2\\dish_m1_lv3.png"
+  },
+  "b8573a2b-da9f-440b-9639-e60879f4bb89": {
+    "asset": 1762751706344,
+    "meta": 1762751706445,
+    "relativePath": "cooking\\CC_2\\dish_m2_lv1.png"
+  },
+  "a97f336e-2233-4ea4-88f7-dc1b689a4f43": {
+    "asset": 1762751706344,
+    "meta": 1762751706446,
+    "relativePath": "cooking\\CC_2\\dish_m1_lv2.png"
+  },
+  "5ae178c3-e19c-4214-9b10-188f8ae4546a": {
+    "asset": 1762751706344,
+    "meta": 1762751706462,
+    "relativePath": "cooking\\CC_2\\dish_m2_lv3.png"
+  },
+  "55378c2a-fc00-4af3-8e3f-c64c8146353e": {
+    "asset": 1762751706344,
+    "meta": 1762751706463,
+    "relativePath": "cooking\\CC_2\\dish_m2_lv2.png"
+  },
+  "cb2cb217-f507-41ea-a08e-abc86df10924": {
+    "asset": 1762751706344,
+    "meta": 1762751706478,
+    "relativePath": "cooking\\CC_2\\DrinkOrder#1.png"
+  },
+  "41c20587-7c09-4733-b9c9-adbb2af1ea8b": {
+    "asset": 1762751706344,
+    "meta": 1762751706479,
+    "relativePath": "cooking\\CC_2\\DrinkOrder#2.png"
+  },
+  "25c95d71-8791-4877-9563-cb525500dac1": {
+    "asset": 1762751706344,
+    "meta": 1762751706494,
+    "relativePath": "cooking\\CC_2\\DrinkOrder#3.png"
+  },
+  "3028d07a-9bf5-41fa-a7a1-760669a9fdc7": {
+    "asset": 1762751706344,
+    "meta": 1762751706496,
+    "relativePath": "cooking\\CC_2\\DrinkMachine#1.png"
+  },
+  "855973d9-2743-4a38-8c42-53b28d7c7fad": {
+    "asset": 1762751706344,
+    "meta": 1762751706511,
+    "relativePath": "cooking\\CC_2\\m1t2_lv1.png"
+  },
+  "dde0bc2d-caf5-4843-96b2-89293c02a0ba": {
+    "asset": 1762751706344,
+    "meta": 1762751706513,
+    "relativePath": "cooking\\CC_2\\m1t1_lv1.png"
+  },
+  "8b95f654-648c-4666-a84b-191568550b4f": {
+    "asset": 1762751706344,
+    "meta": 1762751706526,
+    "relativePath": "cooking\\CC_2\\m1t1_lv3.png"
+  },
+  "4c3e68e8-9ef2-4e54-8e03-5b8cc98f7586": {
+    "asset": 1762751706344,
+    "meta": 1762751706527,
+    "relativePath": "cooking\\CC_2\\m1t2_lv2.png"
+  },
+  "18ff67e8-766a-4378-9266-6e33c2bd308e": {
+    "asset": 1762751706344,
+    "meta": 1762751706543,
+    "relativePath": "cooking\\CC_2\\m1t1_lv2.png"
+  },
+  "d153e6e4-35aa-4064-8e05-c97638d2b7ff": {
+    "asset": 1762751706344,
+    "meta": 1762751706544,
+    "relativePath": "cooking\\CC_2\\m1t2_lv3.png"
+  },
+  "5cd24479-b235-4c5d-ab75-65c8441a973c": {
+    "asset": 1762751706344,
+    "meta": 1762751706560,
+    "relativePath": "cooking\\CC_2\\m2t1_lv2.png"
+  },
+  "97b1c386-af7d-4492-b229-807c24547220": {
+    "asset": 1762751706344,
+    "meta": 1762751706561,
+    "relativePath": "cooking\\CC_2\\m2t2_lv3.png"
+  },
+  "daf6af03-0b73-42de-bbcc-25436f51d432": {
+    "asset": 1762751706344,
+    "meta": 1762751706575,
+    "relativePath": "cooking\\CC_2\\pan_m1_lv2.png"
+  },
+  "65ff0555-d2ed-4f9c-86eb-f7040a887341": {
+    "asset": 1762751706344,
+    "meta": 1762751706576,
+    "relativePath": "cooking\\CC_2\\pan_m1_lv3.png"
+  },
+  "84499fc6-3852-44ae-a855-06c94d0d6ce9": {
+    "asset": 1762751706344,
+    "meta": 1762751706591,
+    "relativePath": "cooking\\CC_2\\pan_m1_lv1.png"
+  },
+  "b24e343b-ba6e-4ac2-a96f-51cbebaa37ec": {
+    "asset": 1762751706344,
+    "meta": 1762751706592,
+    "relativePath": "cooking\\CC_2\\m2t1_lv1.png"
+  },
+  "40040a42-c798-4c2e-922c-70e3de11b0c0": {
+    "asset": 1762751706345,
+    "meta": 1762751706610,
+    "relativePath": "cooking\\CC_2\\M1#3.png"
+  },
+  "969111b9-d8ff-4597-a6c0-94a7398eaaf1": {
+    "asset": 1762751706344,
+    "meta": 1762751706611,
+    "relativePath": "cooking\\CC_2\\DrinkMachine#2.png"
+  },
+  "f81d805d-fa4c-4134-b6ba-6c07f372c2d6": {
+    "asset": 1762751706345,
+    "meta": 1762751706627,
+    "relativePath": "cooking\\CC_2\\M1#2.png"
+  },
+  "907e9e03-9365-40ac-94e1-fc1441671c4d": {
+    "asset": 1762751706345,
+    "meta": 1762751706629,
+    "relativePath": "cooking\\CC_2\\M1#1.png"
+  },
+  "6b366ccc-9f46-4ea7-8cb5-0fbce8e96761": {
+    "asset": 1762751706345,
+    "meta": 1762751706645,
+    "relativePath": "cooking\\CC_2\\M2#2.png"
+  },
+  "96605af8-a44b-4d54-869f-df1942feb476": {
+    "asset": 1762751706345,
+    "meta": 1762751706647,
+    "relativePath": "cooking\\CC_2\\M2#1.png"
+  },
+  "67af4c02-8a6a-4c05-bd1b-2fa21d5e820f": {
+    "asset": 1762751706347,
+    "meta": 1762751706662,
+    "relativePath": "cooking\\CC_2\\M2#3.png"
+  },
+  "1236fc6a-b5e8-44be-a9c3-fa9ee94a92ee": {
+    "asset": 1762751706349,
+    "meta": 1762751706664,
+    "relativePath": "cooking\\CC_2\\DrinkMachine#3.png"
+  },
+  "890d558b-6e68-4840-b308-0ad823caf9ad": {
+    "asset": 1762751706344,
+    "meta": 1762751706677,
+    "relativePath": "cooking\\CC_2\\m2t1_lv3.png"
+  },
+  "acf6d5f8-d546-4adb-a97e-863defa06775": {
+    "asset": 1762751706344,
+    "meta": 1762751706678,
+    "relativePath": "cooking\\CC_2\\m2t2_lv1.png"
+  },
+  "22ec100e-51f3-453d-8d93-2209e5396c68": {
+    "asset": 1762751706358,
+    "meta": 1762751706690,
+    "relativePath": "cooking\\CC_2\\m2t2_lv2.png"
+  },
+  "20d31ad2-4bea-47da-89e7-6f6b4662ecd8": {
+    "asset": 1762751903702,
+    "meta": 1762751903703,
+    "relativePath": "cooking\\CC_2\\spine"
+  },
+  "5259decc-71af-4cce-8fd8-ae664c0356eb": {
+    "asset": 1762751918322,
+    "meta": 1762751918341,
+    "relativePath": "cooking\\CC_2\\spine\\Char 9.atlas.txt"
+  },
+  "a23c887a-c486-4f63-9973-0a56594294dd": {
+    "asset": 1762751918322,
+    "meta": 1762751918404,
+    "relativePath": "cooking\\CC_2\\spine\\Char 9.json"
+  },
+  "5dd98c0c-18ed-4595-8a67-8cd9936408f6": {
+    "asset": 1762751918322,
+    "meta": 1762751918379,
+    "relativePath": "cooking\\CC_2\\spine\\Char 9.png"
+  },
+  "a64fac1d-9f5c-4fe5-9d16-14448334dda9": {
+    "asset": 1762752039526,
+    "meta": 1762752039549,
+    "relativePath": "cooking\\CC_2\\logo.png"
+  },
+  "c56e203d-6894-4980-8649-b4cfcdc3d294": {
+    "asset": 1762753026331,
+    "meta": 1762753026360,
+    "relativePath": "cooking\\CC_2\\Captures.PNG"
+  },
+  "4a3e6c9a-b3e9-4135-8046-16fee5cf64f4": {
+    "asset": 1762753285933,
+    "meta": 1762753285982,
+    "relativePath": "cooking\\CC_2\\spine\\Cake.json"
+  },
+  "d6ef3aa8-ccb9-4289-973e-775f4ca1e5c3": {
+    "asset": 1762753285934,
+    "meta": 1762753285958,
+    "relativePath": "cooking\\CC_2\\spine\\Cake.atlas.txt"
+  },
+  "a9a8451d-22a2-420f-85eb-a515ad58e02e": {
+    "asset": 1762753285922,
+    "meta": 1762753285975,
+    "relativePath": "cooking\\CC_2\\spine\\Cake.png"
+  },
+  "b06333f2-0f34-4568-87e5-5e6ecd929a2b": {
+    "asset": 1762753312660,
+    "meta": 1762753312674,
+    "relativePath": "cooking\\CC_2\\spine\\Cake_1.atlas.txt"
+  },
+  "39f95e65-1e73-4b5c-a124-2170d1526603": {
+    "asset": 1762753312660,
+    "meta": 1762753312706,
+    "relativePath": "cooking\\CC_2\\spine\\Cake_1.json"
+  },
+  "126ada4c-8b8c-450a-bc1c-a850656d4a46": {
+    "asset": 1762753312648,
+    "meta": 1762753312700,
+    "relativePath": "cooking\\CC_2\\spine\\Cake_1.png"
+  },
+  "fe58d9db-bb92-4e2b-bbac-0f058c62647c": {
+    "asset": 1762753341758,
+    "meta": 1762753341774,
+    "relativePath": "cooking\\CC_2\\spine\\Icecream.atlas.txt"
+  },
+  "197938c6-c291-4882-8ad2-f969c2e78cc5": {
+    "asset": 1762753341759,
+    "meta": 1762753341796,
+    "relativePath": "cooking\\CC_2\\spine\\Icecream.json"
+  },
+  "6ee99bbc-1211-4e09-be67-24f3ca940340": {
+    "asset": 1762753341748,
+    "meta": 1762753341791,
+    "relativePath": "cooking\\CC_2\\spine\\Icecream.png"
+  },
+  "a604f9c9-1b6c-4196-a305-0c4a0e18f963": {
+    "asset": 1762760204778,
+    "meta": 1762760204778,
+    "relativePath": "cooking\\CC_2\\sound"
+  },
+  "ff879130-c1c3-46e0-a778-6fd543bfd13b": {
+    "asset": 1762760209388,
+    "meta": 1762760210071,
+    "relativePath": "cooking\\CC_2\\sound\\Music-Bg-GamePlay.mp3"
+  },
+  "2aa7539a-7338-437e-a70b-8bab3c839e58": {
+    "asset": 1762767205676,
+    "meta": 1762767205681,
+    "relativePath": "cooking\\preFab\\Cake.prefab"
+  },
+  "9836134e-b892-4283-b6b2-78b5acf3ed45": {
+    "asset": 1677588865766,
+    "meta": 1762762882867,
+    "relativePath": "effects"
+  },
+  "430eccbf-bf2c-4e6e-8c0c-884bbb487f32": {
+    "asset": 1677588865764,
+    "meta": 1762762882876,
+    "relativePath": "effects\\__builtin-editor-gizmo-line.effect"
+  },
+  "6c5cf6e1-b044-4eac-9431-835644d57381": {
+    "asset": 1677588865765,
+    "meta": 1762762882883,
+    "relativePath": "effects\\__builtin-editor-gizmo-unlit.effect"
+  },
+  "115286d1-2e10-49ee-aab4-341583f607e8": {
+    "asset": 1677588865766,
+    "meta": 1762762882895,
+    "relativePath": "effects\\__builtin-editor-gizmo.effect"
+  },
+  "abc2cb62-7852-4525-a90d-d474487b88f2": {
+    "asset": 1677588865761,
+    "meta": 1762762882932,
+    "relativePath": "effects\\builtin-phong.effect"
+  },
+  "e2f00085-c597-422d-9759-52c360279106": {
+    "asset": 1677588865763,
+    "meta": 1762762882969,
+    "relativePath": "effects\\builtin-toon.effect"
+  },
+  "f8e6b000-5643-4b86-9080-aa680ce1f599": {
+    "asset": 1677588865789,
+    "meta": 1762762882970,
+    "relativePath": "image"
+  },
+  "e851e89b-faa2-4484-bea6-5c01dd9f06e2": {
+    "asset": 1677588865769,
+    "meta": 1762762882980,
+    "relativePath": "image\\default_btn_normal.png"
+  },
+  "71561142-4c83-4933-afca-cb7a17f67053": {
+    "asset": 1677588865768,
+    "meta": 1762762882981,
+    "relativePath": "image\\default_btn_disabled.png"
+  },
+  "edd215b9-2796-4a05-aaf5-81f96c9281ce": {
+    "asset": 1677588865771,
+    "meta": 1762762882989,
+    "relativePath": "image\\default_editbox_bg.png"
+  },
+  "b43ff3c2-02bb-4874-81f7-f2dea6970f18": {
+    "asset": 1677588865770,
+    "meta": 1762762882990,
+    "relativePath": "image\\default_btn_pressed.png"
+  },
+  "99170b0b-d210-46f1-b213-7d9e3f23098a": {
+    "asset": 1677588865775,
+    "meta": 1762762882997,
+    "relativePath": "image\\default_progressbar_bg.png"
+  },
+  "d81ec8ad-247c-4e62-aa3c-d35c4193c7af": {
+    "asset": 1677588865772,
+    "meta": 1762762882998,
+    "relativePath": "image\\default_panel.png"
+  },
+  "cfef78f1-c8df-49b7-8ed0-4c953ace2621": {
+    "asset": 1677588865774,
+    "meta": 1762762883005,
+    "relativePath": "image\\default_progressbar.png"
+  },
+  "567dcd80-8bf4-4535-8a5a-313f1caf078a": {
+    "asset": 1677588865776,
+    "meta": 1762762883006,
+    "relativePath": "image\\default_radio_button_off.png"
+  },
+  "9d60001f-b5f4-4726-a629-2659e3ded0b8": {
+    "asset": 1677588865777,
+    "meta": 1762762883013,
+    "relativePath": "image\\default_radio_button_on.png"
+  },
+  "4bab67cb-18e6-4099-b840-355f0473f890": {
+    "asset": 1677588865779,
+    "meta": 1762762883014,
+    "relativePath": "image\\default_scrollbar_bg.png"
+  },
+  "617323dd-11f4-4dd3-8eec-0caf6b3b45b9": {
+    "asset": 1677588865781,
+    "meta": 1762762883021,
+    "relativePath": "image\\default_scrollbar_vertical_bg.png"
+  },
+  "d6d3ca85-4681-47c1-b5dd-d036a9d39ea2": {
+    "asset": 1677588865780,
+    "meta": 1762762883022,
+    "relativePath": "image\\default_scrollbar_vertical.png"
+  },
+  "0275e94c-56a7-410f-bd1a-fc7483f7d14a": {
+    "asset": 1677588865784,
+    "meta": 1762762883029,
+    "relativePath": "image\\default_sprite_splash.png"
+  },
+  "0291c134-b3da-4098-b7b5-e397edbe947f": {
+    "asset": 1677588865778,
+    "meta": 1762762883030,
+    "relativePath": "image\\default_scrollbar.png"
+  },
+  "6e056173-d285-473c-b206-40a7fff5386e": {
+    "asset": 1677588865782,
+    "meta": 1762762883036,
+    "relativePath": "image\\default_sprite.png"
+  },
+  "73a0903d-d80e-4e3c-aa67-f999543c08f5": {
+    "asset": 1677588865785,
+    "meta": 1762762883038,
+    "relativePath": "image\\default_toggle_checkmark.png"
+  },
+  "c25b9d50-c8fc-4d27-beeb-6e7c1f2e5c0f": {
+    "asset": 1677588865786,
+    "meta": 1762762883045,
+    "relativePath": "image\\default_toggle_disabled.png"
+  },
+  "d29077ba-1627-4a72-9579-7b56a235340c": {
+    "asset": 1677588865787,
+    "meta": 1762762883046,
+    "relativePath": "image\\default_toggle_normal.png"
+  },
+  "b181c1e4-0a72-4a91-bfb0-ae6f36ca60bd": {
+    "asset": 1677588865788,
+    "meta": 1762762883053,
+    "relativePath": "image\\default_toggle_pressed.png"
+  },
+  "5c3eedba-6c41-4c0c-9ba7-d91f813cbd1c": {
+    "asset": 1677588865791,
+    "meta": 1762762883054,
+    "relativePath": "materials"
+  },
+  "c4480a0a-6ac5-443f-8b40-361a14257fc8": {
+    "asset": 1677588865790,
+    "meta": 1762762883338,
+    "relativePath": "materials\\builtin-phong.mtl"
+  },
+  "fc09f9bd-2cce-4605-b630-8145ef809ed6": {
+    "asset": 1677588865794,
+    "meta": 1762762883056,
+    "relativePath": "misc"
+  },
+  "600301aa-3357-4a10-b086-84f011fa32ba": {
+    "asset": 1677588865767,
+    "meta": 1762762883058,
+    "relativePath": "image\\default-particle.png"
+  },
+  "db019bf7-f71c-4111-98cf-918ea180cb48": {
+    "asset": 1677588865805,
+    "meta": 1762762883059,
+    "relativePath": "model"
+  },
+  "e39e96e6-6f6e-413f-bcf1-ac7679bb648a": {
+    "asset": 1677588865803,
+    "meta": 1762762883060,
+    "relativePath": "model\\prefab"
+  },
+  "2be36297-9abb-4fee-8049-9ed5e271da8a": {
+    "asset": 1677588865794,
+    "meta": 1762762883061,
+    "relativePath": "misc\\default_video.mp4"
+  },
+  "a87cc147-01b2-43f8-8e42-a7ca90b0c757": {
+    "asset": 1677588865796,
+    "meta": 1762762883062,
+    "relativePath": "model\\prefab\\box.prefab"
+  },
+  "fe1417b6-fe6b-46a4-ae7c-9fd331f33a2a": {
+    "asset": 1677588865797,
+    "meta": 1762762883063,
+    "relativePath": "model\\prefab\\capsule.prefab"
+  },
+  "b5fc2cf2-7942-483d-be1f-bbeadc4714ad": {
+    "asset": 1677588865798,
+    "meta": 1762762883064,
+    "relativePath": "model\\prefab\\cone.prefab"
+  },
+  "1c5e4038-953a-44c2-b620-0bbfc6170477": {
+    "asset": 1677588865799,
+    "meta": 1762762883065,
+    "relativePath": "model\\prefab\\cylinder.prefab"
+  },
+  "3f376125-a699-40ca-ad05-04d662eaa1f2": {
+    "asset": 1677588865800,
+    "meta": 1762762883066,
+    "relativePath": "model\\prefab\\plane.prefab"
+  },
+  "6c9ef10d-b479-420b-bfe6-39cdda6a8ae0": {
+    "asset": 1677588865801,
+    "meta": 1762762883068,
+    "relativePath": "model\\prefab\\quad.prefab"
+  },
+  "2d9a4b85-b0ab-4c46-84c5-18f393ab2058": {
+    "asset": 1677588865802,
+    "meta": 1762762883069,
+    "relativePath": "model\\prefab\\sphere.prefab"
+  },
+  "de510076-056b-484f-b94c-83bef217d0e1": {
+    "asset": 1677588865802,
+    "meta": 1762762883074,
+    "relativePath": "model\\prefab\\torus.prefab"
+  },
+  "f6e6dd15-71d1-4ffe-ace7-24fd39942c05": {
+    "asset": 1677588865809,
+    "meta": 1762762883075,
+    "relativePath": "obsolete"
+  },
+  "8a96b965-2dc0-4e03-aa90-3b79cb93b5b4": {
+    "asset": 1677588865808,
+    "meta": 1762762883086,
+    "relativePath": "obsolete\\atom.png"
+  },
+  "f743d2b6-b7ea-4c14-a55b-547ed4d0a045": {
+    "asset": 1677588865811,
+    "meta": 1762762883087,
+    "relativePath": "particle"
+  },
+  "b8223619-7e38-47c4-841f-9160c232495a": {
+    "asset": 1677588865806,
+    "meta": 1762762883347,
+    "relativePath": "obsolete\\atom.plist"
+  },
+  "d0a82d39-bede-46c4-b698-c81ff0dedfff": {
+    "asset": 1677588865811,
+    "meta": 1762762883096,
+    "relativePath": "particle\\atom.png"
+  },
+  "b2687ac4-099e-403c-a192-ff477686f4f5": {
+    "asset": 1677588865810,
+    "meta": 1762762883348,
+    "relativePath": "particle\\atom.plist"
+  },
+  "ae6c6c98-11e4-452f-8758-75f5c6a56e83": {
+    "asset": 1677588865843,
+    "meta": 1762762883097,
+    "relativePath": "prefab"
+  },
+  "897ef7a1-4860-4f64-968d-f5924b18668a": {
+    "asset": 1677588865815,
+    "meta": 1762762883099,
+    "relativePath": "prefab\\2d-camera.prefab"
+  },
+  "70d7cdb0-04cd-41bb-9480-c06a4785f386": {
+    "asset": 1677588865816,
+    "meta": 1762762883101,
+    "relativePath": "prefab\\3d-camera.prefab"
+  },
+  "70bbeb73-6dc2-4ee4-8faf-76b3a0e34ec4": {
+    "asset": 1677588865817,
+    "meta": 1762762883103,
+    "relativePath": "prefab\\3d-particle.prefab"
+  },
+  "ed88f13d-fcad-4848-aa35-65a2cb973584": {
+    "asset": 1677588865818,
+    "meta": 1762762883104,
+    "relativePath": "prefab\\3d-stage.prefab"
+  },
+  "972b9a4d-47ee-4c74-b5c3-61d8a69bc29f": {
+    "asset": 1677588865819,
+    "meta": 1762762883106,
+    "relativePath": "prefab\\button.prefab"
+  },
+  "2c937608-2562-40ea-b264-7395df6f0cea": {
+    "asset": 1677588865820,
+    "meta": 1762762883108,
+    "relativePath": "prefab\\canvas.prefab"
+  },
+  "61aeb05b-3b32-452b-8eed-2b76deeed554": {
+    "asset": 1677588865821,
+    "meta": 1762762883110,
+    "relativePath": "prefab\\editbox.prefab"
+  },
+  "27756ebb-3d33-44b0-9b96-e858fadd4dd4": {
+    "asset": 1677588865822,
+    "meta": 1762762883112,
+    "relativePath": "prefab\\label.prefab"
+  },
+  "785a442c-3ceb-45be-a46e-7317f625f3b9": {
+    "asset": 1677588865823,
+    "meta": 1762762883114,
+    "relativePath": "prefab\\layout.prefab"
+  },
+  "a3ee0214-b432-4865-9666-4a3211814282": {
+    "asset": 1677588865828,
+    "meta": 1762762883115,
+    "relativePath": "prefab\\light"
+  },
+  "61906da3-7003-4bda-9abc-5769c76faee4": {
+    "asset": 1677588865824,
+    "meta": 1762762883116,
+    "relativePath": "prefab\\light\\ambient.prefab"
+  },
+  "ddb99b39-7004-47cd-9705-751905c43c46": {
+    "asset": 1677588865825,
+    "meta": 1762762883118,
+    "relativePath": "prefab\\light\\directional.prefab"
+  },
+  "0cf30284-9073-46bc-9eba-e62b69dbbff3": {
+    "asset": 1677588865826,
+    "meta": 1762762883120,
+    "relativePath": "prefab\\light\\point.prefab"
+  },
+  "f5331fd2-bf42-4ee3-a3fd-3e1657600eff": {
+    "asset": 1677588865827,
+    "meta": 1762762883121,
+    "relativePath": "prefab\\light\\spot.prefab"
+  },
+  "ca8401fe-ad6e-41a8-bd46-8e3e4e9945be": {
+    "asset": 1677588865828,
+    "meta": 1762762883123,
+    "relativePath": "prefab\\pageview.prefab"
+  },
+  "cd33edea-55f5-46c2-958d-357a01384a36": {
+    "asset": 1677588865829,
+    "meta": 1762762883125,
+    "relativePath": "prefab\\particlesystem.prefab"
+  },
+  "5965ffac-69da-4b55-bcde-9225d0613c28": {
+    "asset": 1677588865830,
+    "meta": 1762762883127,
+    "relativePath": "prefab\\progressBar.prefab"
+  },
+  "4a37dd57-78cd-4cec-aad4-f11a73d12b63": {
+    "asset": 1677588865831,
+    "meta": 1762762883128,
+    "relativePath": "prefab\\richtext.prefab"
+  },
+  "32044bd2-481f-4cf1-a656-e2b2fb1594eb": {
+    "asset": 1677588865832,
+    "meta": 1762762883131,
+    "relativePath": "prefab\\scrollview.prefab"
+  },
+  "0004d1cf-a0ad-47d8-ab17-34d3db9d35a3": {
+    "asset": 1677588865833,
+    "meta": 1762762883133,
+    "relativePath": "prefab\\slider.prefab"
+  },
+  "1f55e3be-b89b-4b79-88de-47fd31018044": {
+    "asset": 1677588865835,
+    "meta": 1762762883143,
+    "relativePath": "prefab\\sprite_splash.prefab"
+  },
+  "96083d03-c332-4a3f-9386-d03e2d19e8ee": {
+    "asset": 1677588865834,
+    "meta": 1762762883148,
+    "relativePath": "prefab\\sprite.prefab"
+  },
+  "7de03a80-4457-438d-95a7-3e7cdffd6086": {
+    "asset": 1677588865836,
+    "meta": 1762762883152,
+    "relativePath": "prefab\\tiledmap.prefab"
+  },
+  "0e42ba95-1fa1-46aa-b2cf-143cd1bcee2c": {
+    "asset": 1677588865837,
+    "meta": 1762762883156,
+    "relativePath": "prefab\\tiledtile.prefab"
+  },
+  "0d784963-d024-4ea6-a7db-03be0ad63010": {
+    "asset": 1677588865838,
+    "meta": 1762762883160,
+    "relativePath": "prefab\\toggle.prefab"
+  },
+  "bf0a434c-84dd-4a8e-a08a-7a36f180cc75": {
+    "asset": 1677588865839,
+    "meta": 1762762883163,
+    "relativePath": "prefab\\toggleContainer.prefab"
+  },
+  "d1b8be49-b0a0-435c-83b7-552bed4bbe35": {
+    "asset": 1677588865840,
+    "meta": 1762762883168,
+    "relativePath": "prefab\\toggleGroup.prefab"
+  },
+  "232d2782-c4bd-4bb4-9e01-909f03d6d3b9": {
+    "asset": 1677588865841,
+    "meta": 1762762883171,
+    "relativePath": "prefab\\videoplayer.prefab"
+  },
+  "d8afc78c-4eac-4a9f-83dd-67bc70344d33": {
+    "asset": 1677588865856,
+    "meta": 1762762883174,
+    "relativePath": "resources"
+  },
+  "294c1663-4adf-4a1e-a795-53808011a38a": {
+    "asset": 1677588865855,
+    "meta": 1762762883175,
+    "relativePath": "resources\\effects"
+  },
+  "30682f87-9f0d-4f17-8a44-72863791461b": {
+    "asset": 1677588865844,
+    "meta": 1762762883186,
+    "relativePath": "resources\\effects\\builtin-2d-graphics.effect"
+  },
+  "144c3297-af63-49e8-b8ef-1cfa29b3be28": {
+    "asset": 1677588865845,
+    "meta": 1762762883194,
+    "relativePath": "resources\\effects\\builtin-2d-gray-sprite.effect"
+  },
+  "f18742d7-56d2-4eb5-ae49-2d9d710b37c8": {
+    "asset": 1677588865847,
+    "meta": 1762762883211,
+    "relativePath": "resources\\effects\\builtin-2d-label.effect"
+  },
+  "8c5001fd-07ee-4a4b-a8a0-63e15195e94d": {
+    "asset": 1677588865842,
+    "meta": 1762762883212,
+    "relativePath": "prefab\\webview.prefab"
+  },
+  "0e93aeaa-0b53-4e40-b8e0-6268b4e07bd7": {
+    "asset": 1677588865847,
+    "meta": 1762762883219,
+    "relativePath": "resources\\effects\\builtin-2d-spine.effect"
+  },
+  "2874f8dd-416c-4440-81b7-555975426e93": {
+    "asset": 1677588865848,
+    "meta": 1762762883227,
+    "relativePath": "resources\\effects\\builtin-2d-sprite.effect"
+  },
+  "829a282c-b049-4019-bd38-5ace8d8a6417": {
+    "asset": 1677588865849,
+    "meta": 1762762883282,
+    "relativePath": "resources\\effects\\builtin-3d-particle.effect"
+  },
+  "2a7c0036-e0b3-4fe1-8998-89a54b8a2bec": {
+    "asset": 1677588865851,
+    "meta": 1762762883299,
+    "relativePath": "resources\\effects\\builtin-3d-trail.effect"
+  },
+  "c0040c95-c57f-49cd-9cbc-12316b73d0d4": {
+    "asset": 1677588865852,
+    "meta": 1762762883305,
+    "relativePath": "resources\\effects\\builtin-clear-stencil.effect"
+  },
+  "6d91e591-4ce0-465c-809f-610ec95019c6": {
+    "asset": 1677588865853,
+    "meta": 1762762883316,
+    "relativePath": "resources\\effects\\builtin-unlit.effect"
+  },
+  "bbee2217-c261-49bd-a8ce-708d6bcc3500": {
+    "asset": 1677588865866,
+    "meta": 1762762883316,
+    "relativePath": "resources\\materials"
+  },
+  "6f801092-0c37-4f30-89ef-c8d960825b36": {
+    "asset": 1677588865857,
+    "meta": 1762762883364,
+    "relativePath": "resources\\materials\\builtin-2d-base.mtl"
+  },
+  "a153945d-2511-4c14-be7b-05d242f47d57": {
+    "asset": 1677588865858,
+    "meta": 1762762883365,
+    "relativePath": "resources\\materials\\builtin-2d-graphics.mtl"
+  },
+  "3a7bb79f-32fd-422e-ada2-96f518fed422": {
+    "asset": 1677588865859,
+    "meta": 1762762883366,
+    "relativePath": "resources\\materials\\builtin-2d-gray-sprite.mtl"
+  },
+  "e02d87d4-e599-4d16-8001-e14891ac6506": {
+    "asset": 1677588865860,
+    "meta": 1762762883366,
+    "relativePath": "resources\\materials\\builtin-2d-label.mtl"
+  },
+  "7afd064b-113f-480e-b793-8817d19f63c3": {
+    "asset": 1677588865861,
+    "meta": 1762762883367,
+    "relativePath": "resources\\materials\\builtin-2d-spine.mtl"
+  },
+  "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432": {
+    "asset": 1677588865862,
+    "meta": 1762762883369,
+    "relativePath": "resources\\materials\\builtin-2d-sprite.mtl"
+  },
+  "432fa09c-cf03-4cff-a186-982604408a07": {
+    "asset": 1677588865863,
+    "meta": 1762762883369,
+    "relativePath": "resources\\materials\\builtin-3d-particle.mtl"
+  },
+  "466d4f9b-e5f4-4ea8-85d5-3c6e9a65658a": {
+    "asset": 1677588865864,
+    "meta": 1762762883370,
+    "relativePath": "resources\\materials\\builtin-3d-trail.mtl"
+  },
+  "cf7e0bb8-a81c-44a9-ad79-d28d43991032": {
+    "asset": 1677588865865,
+    "meta": 1762762883371,
+    "relativePath": "resources\\materials\\builtin-clear-stencil.mtl"
+  },
+  "2a296057-247c-4a1c-bbeb-0548b6c98650": {
+    "asset": 1677588865866,
+    "meta": 1762762883372,
+    "relativePath": "resources\\materials\\builtin-unlit.mtl"
+  },
+  "954fec8b-cd16-4bb9-a3b7-7719660e7558": {
+    "asset": 1677588865805,
+    "meta": 1762762883372,
+    "relativePath": "model\\primitives.fbx"
+  },
+  "2147ad02-7b76-4274-8b19-f305f656d77c": {
+    "asset": 1762764407409,
+    "meta": 1762764420614,
+    "relativePath": "cooking\\ietm\\cusMission.ts"
+  },
+  "c62096b1-3eb4-4de5-974d-e29f96a61c20": {
+    "asset": 1762764492526,
+    "meta": 1762764492540,
+    "relativePath": "cooking\\animCook\\xit_hong.anim"
+  },
+  "0317a163-7710-426f-851d-a152460abfe0": {
+    "asset": 1762764538124,
+    "meta": 1762764538138,
+    "relativePath": "cooking\\animCook\\xit_kem.anim"
+  },
+  "f8f1b254-ec26-4a37-90d6-f32446e232f2": {
+    "asset": 1762767741338,
+    "meta": 1762767741350,
+    "relativePath": "anim\\hand\\hand_move.anim"
+  },
+  "32d54513-c43d-4f66-a8f0-d4a945f089f0": {
+    "asset": 1762768444389,
+    "meta": 1762768481493,
+    "relativePath": "cooking\\ietm\\cake2.ts"
+  },
+  "c0e7d5c9-d782-4d68-83ed-475942fcb590": {
+    "asset": 1762769505240,
+    "meta": 1762769506760,
+    "relativePath": "cooking\\ietm\\cake.ts"
+  },
+  "00603e08-58f5-4fee-a678-5ce835d40706": {
+    "asset": 1762769984792,
+    "meta": 1762770002804,
+    "relativePath": "scripts\\APP\\CC2.ts"
   }
 }

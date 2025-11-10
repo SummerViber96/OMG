@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "KhayBun",
+    "texture": "281847cb-7709-42da-9603-13fe33273e2d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      383,
+      184
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      383,
+      184
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

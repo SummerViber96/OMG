@@ -1,0 +1,139 @@
+
+Icecream.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ch_1
+  rotate: false
+  xy: 2, 28
+  size: 102, 98
+  orig: 102, 98
+  offset: 0, 0
+  index: -1
+Ch_2
+  rotate: true
+  xy: 191, 34
+  size: 37, 64
+  orig: 37, 64
+  offset: 0, 0
+  index: -1
+Ch_3
+  rotate: true
+  xy: 257, 35
+  size: 36, 61
+  orig: 36, 61
+  offset: 0, 0
+  index: -1
+Ch_4
+  rotate: false
+  xy: 33, 2
+  size: 21, 24
+  orig: 21, 24
+  offset: 0, 0
+  index: -1
+Ch_5
+  rotate: false
+  xy: 106, 16
+  size: 83, 55
+  orig: 83, 55
+  offset: 0, 0
+  index: -1
+Ch_6
+  rotate: true
+  xy: 320, 45
+  size: 26, 61
+  orig: 26, 61
+  offset: 0, 0
+  index: -1
+Glass1
+  rotate: true
+  xy: 106, 73
+  size: 53, 99
+  orig: 53, 99
+  offset: 0, 0
+  index: -1
+Glass12
+  rotate: false
+  xy: 320, 14
+  size: 53, 29
+  orig: 53, 29
+  offset: 0, 0
+  index: -1
+Glass22
+  rotate: false
+  xy: 246, 2
+  size: 52, 30
+  orig: 52, 30
+  offset: 0, 0
+  index: -1
+Glass2_A
+  rotate: false
+  xy: 300, 14
+  size: 18, 19
+  orig: 18, 19
+  offset: 0, 0
+  index: -1
+Glass2_B
+  rotate: true
+  xy: 2, 2
+  size: 24, 29
+  orig: 24, 29
+  offset: 0, 0
+  index: -1
+Glass2_C
+  rotate: false
+  xy: 426, 8
+  size: 34, 33
+  orig: 34, 33
+  offset: 0, 0
+  index: -1
+Glass2_D
+  rotate: false
+  xy: 464, 39
+  size: 37, 33
+  orig: 37, 33
+  offset: 0, 0
+  index: -1
+cream
+  rotate: false
+  xy: 375, 8
+  size: 49, 33
+  orig: 49, 33
+  offset: 0, 0
+  index: -1
+glass2
+  rotate: true
+  xy: 409, 74
+  size: 52, 99
+  orig: 52, 99
+  offset: 0, 0
+  index: -1
+glass3
+  rotate: true
+  xy: 207, 73
+  size: 53, 99
+  orig: 53, 99
+  offset: 0, 0
+  index: -1
+glass33
+  rotate: false
+  xy: 409, 43
+  size: 53, 29
+  orig: 53, 29
+  offset: 0, 0
+  index: -1
+glass4
+  rotate: true
+  xy: 308, 73
+  size: 53, 99
+  orig: 53, 99
+  offset: 0, 0
+  index: -1
+glass42
+  rotate: false
+  xy: 191, 2
+  size: 53, 30
+  orig: 53, 30
+  offset: 0, 0
+  index: -1

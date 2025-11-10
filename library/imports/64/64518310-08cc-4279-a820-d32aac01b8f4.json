@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Boy-export",
+    "texture": "df471751-4994-441d-860d-acf6566b2eea",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      632,
+      264
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      636,
+      268
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

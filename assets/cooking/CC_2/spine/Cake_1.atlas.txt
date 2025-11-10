@@ -1,0 +1,76 @@
+
+Cake_1.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+K_1_1
+  rotate: false
+  xy: 117, 175
+  size: 138, 76
+  orig: 138, 76
+  offset: 0, 0
+  index: -1
+K_1_2
+  rotate: false
+  xy: 157, 253
+  size: 141, 102
+  orig: 141, 102
+  offset: 0, 0
+  index: -1
+K_1_3
+  rotate: true
+  xy: 118, 31
+  size: 142, 102
+  orig: 142, 102
+  offset: 0, 0
+  index: -1
+K_2_1
+  rotate: false
+  xy: 300, 219
+  size: 145, 78
+  orig: 145, 78
+  offset: 0, 0
+  index: -1
+K_2_2
+  rotate: false
+  xy: 300, 299
+  size: 148, 101
+  orig: 148, 101
+  offset: 0, 0
+  index: -1
+K_A
+  rotate: true
+  xy: 2, 162
+  size: 178, 113
+  orig: 178, 113
+  offset: 0, 0
+  index: -1
+K_B
+  rotate: false
+  xy: 300, 402
+  size: 178, 105
+  orig: 178, 105
+  offset: 0, 0
+  index: -1
+Smoke_2
+  rotate: true
+  xy: 2, 2
+  size: 158, 114
+  orig: 158, 114
+  offset: 0, 0
+  index: -1
+Smoke_3
+  rotate: false
+  xy: 157, 357
+  size: 141, 150
+  orig: 141, 150
+  offset: 0, 0
+  index: -1
+Smoke_4
+  rotate: false
+  xy: 2, 342
+  size: 153, 165
+  orig: 153, 165
+  offset: 0, 0
+  index: -1

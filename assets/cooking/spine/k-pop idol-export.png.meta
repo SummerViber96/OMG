@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "598b0659-3fbf-472b-8907-fec81dae2977",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 980,
+  "height": 316,
+  "platformSettings": {},
+  "subMetas": {
+    "k-pop idol-export": {
+      "ver": "1.0.4",
+      "uuid": "6d1e865f-df8c-4f14-8194-b2d2d1509c1a",
+      "rawTextureUuid": "598b0659-3fbf-472b-8907-fec81dae2977",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0,
+      "trimX": 2,
+      "trimY": 2,
+      "width": 975,
+      "height": 312,
+      "rawWidth": 980,
+      "rawHeight": 316,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

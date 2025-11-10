@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "M1DoubleCoin",
+    "texture": "bdc0003e-1e6d-419d-96bb-0ae96dfd6196",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      96,
+      57
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      96,
+      57
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

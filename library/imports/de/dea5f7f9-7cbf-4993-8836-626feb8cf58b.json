@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MeatTray",
+    "texture": "df2c4dfa-4322-43e3-bee4-98832ac2f9e7",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      357,
+      128
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      357,
+      128
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

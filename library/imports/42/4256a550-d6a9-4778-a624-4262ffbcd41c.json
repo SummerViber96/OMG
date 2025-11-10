@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "TableLeft",
+    "texture": "c12ce930-007d-4690-bcdf-498c744c9833",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      200,
+      860
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      200,
+      860
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

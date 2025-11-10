@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "FrenchFriesTray",
+    "texture": "443290b0-c1cb-4d18-9f3d-ccc0adad285b",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      278,
+      175
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      280,
+      176
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Deco1",
+    "texture": "f72a1ef0-d0ab-4590-8eae-9559162c949f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      180,
+      230
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      180,
+      230
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

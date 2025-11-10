@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Hot dog",
+    "texture": "258f9d98-8314-4e01-9fc3-37dc66374f7b",
+    "atlas": "",
+    "rect": [
+      4,
+      4,
+      835,
+      281
+    ],
+    "offset": [
+      -0.5,
+      -0.5
+    ],
+    "originalSize": [
+      844,
+      288
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

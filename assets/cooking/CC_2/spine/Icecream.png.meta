@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "6ee99bbc-1211-4e09-be67-24f3ca940340",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "Icecream": {
+      "ver": "1.0.4",
+      "uuid": "9900f927-8e12-4cee-b9d5-68100d85c159",
+      "rawTextureUuid": "6ee99bbc-1211-4e09-be67-24f3ca940340",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 4,
+      "trimY": 2,
+      "width": 504,
+      "height": 124,
+      "rawWidth": 512,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

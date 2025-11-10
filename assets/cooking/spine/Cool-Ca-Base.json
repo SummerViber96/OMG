@@ -1,0 +1,101 @@
+{
+"skeleton": { "hash": "/dYkVXxpOVGL+mH/qJdEJhs0dDk", "spine": "3.7.94", "width": 0, "height": 0, "images": "./images/", "audio": "D:/CV Nguyen/1FME/Cooking Chaos/Res/06-Burger Barn/Spine/Cool-Ca-Base" },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "3", "bone": "root" },
+	{ "name": "DM2", "bone": "root" },
+	{ "name": "DM1", "bone": "root" }
+],
+"skins": {
+	"default": {
+		"3": {
+			"3": { "x": 1.87, "y": 104.19, "width": 376, "height": 458 }
+		},
+		"DM1": {
+			"DM1": { "x": 2.87, "y": 59.19, "width": 374, "height": 366 }
+		},
+		"DM2": {
+			"DM2": { "x": 2.87, "y": 104.69, "width": 374, "height": 457 }
+		}
+	}
+},
+"animations": {
+	"Coolca1": {
+		"slots": {
+			"DM1": {
+				"attachment": [
+					{ "time": 0, "name": "DM1" }
+				]
+			}
+		},
+		"bones": {
+			"root": {
+				"rotate": [
+					{ "time": 2, "angle": 0 }
+				]
+			}
+		}
+	},
+	"Coolca1-idle": {
+		"slots": {
+			"DM1": {
+				"attachment": [
+					{ "time": 0, "name": "DM1" }
+				]
+			}
+		}
+	},
+	"Coolca2": {
+		"slots": {
+			"DM2": {
+				"attachment": [
+					{ "time": 0, "name": "DM2" }
+				]
+			}
+		},
+		"bones": {
+			"root": {
+				"rotate": [
+					{ "time": 2, "angle": 0 }
+				]
+			}
+		}
+	},
+	"Coolca2-idle": {
+		"slots": {
+			"DM2": {
+				"attachment": [
+					{ "time": 0, "name": "DM2" }
+				]
+			}
+		}
+	},
+	"Coolca3": {
+		"slots": {
+			"3": {
+				"attachment": [
+					{ "time": 0, "name": "3" }
+				]
+			}
+		},
+		"bones": {
+			"root": {
+				"rotate": [
+					{ "time": 2, "angle": 0 }
+				]
+			}
+		}
+	},
+	"Coolca3-idle": {
+		"slots": {
+			"3": {
+				"attachment": [
+					{ "time": 0, "name": "3" }
+				]
+			}
+		}
+	}
+}
+}

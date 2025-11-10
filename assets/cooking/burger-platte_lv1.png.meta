@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "8e487070-ff90-4a7a-a22d-d3debf3dc107",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 130,
+  "height": 130,
+  "platformSettings": {},
+  "subMetas": {
+    "burger-platte_lv1": {
+      "ver": "1.0.4",
+      "uuid": "c2ba29b1-3610-4942-9de4-b9ed311c7858",
+      "rawTextureUuid": "8e487070-ff90-4a7a-a22d-d3debf3dc107",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -20,
+      "trimX": 1,
+      "trimY": 40,
+      "width": 129,
+      "height": 90,
+      "rawWidth": 130,
+      "rawHeight": 130,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

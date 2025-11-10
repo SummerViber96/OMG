@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "12adf4a4-8e18-4337-a081-7c04395a5511",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 232,
+  "height": 192,
+  "platformSettings": {},
+  "subMetas": {
+    "FrenchFries#3": {
+      "ver": "1.0.4",
+      "uuid": "9ce01f2b-3ae5-4603-8ddd-9778adfb6d84",
+      "rawTextureUuid": "12adf4a4-8e18-4337-a081-7c04395a5511",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 231,
+      "height": 192,
+      "rawWidth": 232,
+      "rawHeight": 192,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

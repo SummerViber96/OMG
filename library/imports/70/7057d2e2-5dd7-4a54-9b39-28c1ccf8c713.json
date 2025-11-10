@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "KhayDrink",
+    "texture": "f387ba54-52b7-4c9d-b794-4e08cb754e8f",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      725,
+      388
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      728,
+      388
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

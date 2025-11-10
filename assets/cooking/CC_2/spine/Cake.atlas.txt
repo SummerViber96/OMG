@@ -1,0 +1,104 @@
+
+Cake.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Cake_1
+  rotate: true
+  xy: 2, 10
+  size: 173, 160
+  orig: 173, 160
+  offset: 0, 0
+  index: -1
+Cake_2
+  rotate: false
+  xy: 2, 185
+  size: 172, 163
+  orig: 172, 163
+  offset: 0, 0
+  index: -1
+GB_1
+  rotate: false
+  xy: 164, 75
+  size: 171, 93
+  orig: 171, 93
+  offset: 0, 0
+  index: -1
+GB_2
+  rotate: false
+  xy: 186, 372
+  size: 176, 132
+  orig: 176, 132
+  offset: 0, 0
+  index: -1
+GP_1
+  rotate: false
+  xy: 186, 269
+  size: 175, 101
+  orig: 175, 101
+  offset: 0, 0
+  index: -1
+GP_2
+  rotate: true
+  xy: 364, 327
+  size: 177, 118
+  orig: 177, 118
+  offset: 0, 0
+  index: -1
+GW_1
+  rotate: false
+  xy: 176, 170
+  size: 173, 97
+  orig: 173, 97
+  offset: 0, 0
+  index: -1
+GW_2
+  rotate: false
+  xy: 2, 350
+  size: 182, 154
+  orig: 182, 154
+  offset: 0, 0
+  index: -1
+GW_31
+  rotate: false
+  xy: 257, 2
+  size: 50, 33
+  orig: 50, 33
+  offset: 0, 0
+  index: -1
+GW_32
+  rotate: true
+  xy: 456, 275
+  size: 50, 38
+  orig: 50, 38
+  offset: 0, 0
+  index: -1
+K1
+  rotate: false
+  xy: 164, 8
+  size: 91, 65
+  orig: 91, 65
+  offset: 0, 0
+  index: -1
+K2
+  rotate: false
+  xy: 257, 37
+  size: 91, 36
+  orig: 91, 36
+  offset: 0, 0
+  index: -1
+K3
+  rotate: false
+  xy: 363, 260
+  size: 91, 65
+  orig: 91, 65
+  offset: 0, 0
+  index: -1
+K4
+  rotate: false
+  xy: 351, 193
+  size: 91, 65
+  orig: 91, 65
+  offset: 0, 0
+  index: -1

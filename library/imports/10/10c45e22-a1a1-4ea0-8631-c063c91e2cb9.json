@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "CheeseTray",
+    "texture": "5c3289ce-9b85-4142-b8a9-b75f6514c504",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      239,
+      139
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      240,
+      140
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

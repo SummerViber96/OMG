@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Cook.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nCook.png\r\nsize: 444,464\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nPatty\r\n  rotate: false\r\n  xy: 230, 316\r\n  size: 194, 144\r\n  orig: 194, 144\r\n  offset: 0, 0\r\n  index: -1\r\nPatty-burnt\r\n  rotate: false\r\n  xy: 230, 170\r\n  size: 194, 144\r\n  orig: 194, 144\r\n  offset: 0, 0\r\n  index: -1\r\nPatty-cook\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 218, 147\r\n  orig: 218, 147\r\n  offset: 0, 0\r\n  index: -1\r\nSausage\r\n  rotate: false\r\n  xy: 222, 9\r\n  size: 217, 140\r\n  orig: 217, 140\r\n  offset: 0, 0\r\n  index: -1\r\nSausage-burnt\r\n  rotate: false\r\n  xy: 2, 151\r\n  size: 226, 142\r\n  orig: 226, 142\r\n  offset: 0, 0\r\n  index: -1\r\nSausage-cook\r\n  rotate: false\r\n  xy: 2, 295\r\n  size: 226, 165\r\n  orig: 226, 165\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "SausageTray",
+    "texture": "6f88cec6-67c8-488a-8793-585e769394c6",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      360,
+      151
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      360,
+      152
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

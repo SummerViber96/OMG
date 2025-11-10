@@ -1,0 +1,177 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "Cool-Ca-Base",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "/dYkVXxpOVGL+mH/qJdEJhs0dDk",
+      "spine": "3.7.94",
+      "width": 0,
+      "height": 0,
+      "images": "./images/",
+      "audio": "D:/CV Nguyen/1FME/Cooking Chaos/Res/06-Burger Barn/Spine/Cool-Ca-Base"
+    },
+    "bones": [
+      {
+        "name": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "3",
+        "bone": "root"
+      },
+      {
+        "name": "DM2",
+        "bone": "root"
+      },
+      {
+        "name": "DM1",
+        "bone": "root"
+      }
+    ],
+    "skins": {
+      "default": {
+        "3": {
+          "3": {
+            "x": 1.87,
+            "y": 104.19,
+            "width": 376,
+            "height": 458
+          }
+        },
+        "DM1": {
+          "DM1": {
+            "x": 2.87,
+            "y": 59.19,
+            "width": 374,
+            "height": 366
+          }
+        },
+        "DM2": {
+          "DM2": {
+            "x": 2.87,
+            "y": 104.69,
+            "width": 374,
+            "height": 457
+          }
+        }
+      }
+    },
+    "animations": {
+      "Coolca1": {
+        "slots": {
+          "DM1": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "DM1"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "root": {
+            "rotate": [
+              {
+                "time": 2,
+                "angle": 0
+              }
+            ]
+          }
+        }
+      },
+      "Coolca1-idle": {
+        "slots": {
+          "DM1": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "DM1"
+              }
+            ]
+          }
+        }
+      },
+      "Coolca2": {
+        "slots": {
+          "DM2": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "DM2"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "root": {
+            "rotate": [
+              {
+                "time": 2,
+                "angle": 0
+              }
+            ]
+          }
+        }
+      },
+      "Coolca2-idle": {
+        "slots": {
+          "DM2": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "DM2"
+              }
+            ]
+          }
+        }
+      },
+      "Coolca3": {
+        "slots": {
+          "3": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "3"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "root": {
+            "rotate": [
+              {
+                "time": 2,
+                "angle": 0
+              }
+            ]
+          }
+        }
+      },
+      "Coolca3-idle": {
+        "slots": {
+          "3": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "3"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\r\nCool-Ca-Base.png\r\nsize: 832,748\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\n3\r\n  rotate: true\r\n  xy: 2, 2\r\n  size: 372, 456\r\n  orig: 376, 458\r\n  offset: 1, 1\r\n  index: -1\r\nDM1\r\n  rotate: false\r\n  xy: 2, 382\r\n  size: 370, 364\r\n  orig: 374, 366\r\n  offset: 1, 1\r\n  index: -1\r\nDM2\r\n  rotate: true\r\n  xy: 374, 376\r\n  size: 370, 455\r\n  orig: 374, 457\r\n  offset: 1, 1\r\n  index: -1\r\n",
+  "textures": [
+    {
+      "__uuid__": "36cb626f-cd23-45ac-9e58-7e02fd710a58"
+    }
+  ],
+  "textureNames": [
+    "Cool-Ca-Base.png"
+  ],
+  "scale": 1
+}

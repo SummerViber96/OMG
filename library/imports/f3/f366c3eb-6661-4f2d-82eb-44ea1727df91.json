@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MeatPanLock",
+    "texture": "3b94bbf8-c18a-4db3-9edd-f940bf383fb6",
+    "atlas": "",
+    "rect": [
+      3,
+      4,
+      107,
+      130
+    ],
+    "offset": [
+      -1.5,
+      1
+    ],
+    "originalSize": [
+      116,
+      140
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

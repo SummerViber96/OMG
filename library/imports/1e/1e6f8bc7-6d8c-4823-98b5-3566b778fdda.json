@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MainTray",
+    "texture": "88a9653d-1650-4f34-b5f2-e9cfd0bcdd52",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      600,
+      340
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      600,
+      340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

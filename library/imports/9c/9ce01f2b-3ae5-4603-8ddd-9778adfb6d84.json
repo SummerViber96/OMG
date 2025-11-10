@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "FrenchFries#3",
+    "texture": "12adf4a4-8e18-4337-a081-7c04395a5511",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      231,
+      192
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      232,
+      192
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

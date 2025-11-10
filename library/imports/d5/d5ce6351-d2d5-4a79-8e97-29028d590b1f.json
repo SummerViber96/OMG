@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "HotdogPanLock",
+    "texture": "8a6824cf-a993-42e6-b622-23a41485957f",
+    "atlas": "",
+    "rect": [
+      3,
+      3,
+      111,
+      128
+    ],
+    "offset": [
+      -1.5,
+      1
+    ],
+    "originalSize": [
+      120,
+      136
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

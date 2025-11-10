@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Sauce#3",
+    "texture": "18e9d8a6-dff4-4bfb-8d47-440f5d3515f3",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      211,
+      198
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      211,
+      201
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

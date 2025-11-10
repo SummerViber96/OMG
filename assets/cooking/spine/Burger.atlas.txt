@@ -1,0 +1,69 @@
+
+Burger.png
+size: 544,432
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Burger копия
+  rotate: true
+  xy: 2, 2
+  size: 202, 128
+  orig: 202, 128
+  offset: 0, 0
+  index: -1
+Cheese
+  rotate: true
+  xy: 2, 206
+  size: 221, 127
+  orig: 221, 127
+  offset: 0, 0
+  index: -1
+Lettuce
+  rotate: true
+  xy: 131, 210
+  size: 217, 144
+  orig: 217, 144
+  offset: 0, 0
+  index: -1
+Patty
+  rotate: true
+  xy: 132, 18
+  size: 190, 154
+  orig: 190, 154
+  offset: 0, 0
+  index: -1
+TomatoesA
+  rotate: false
+  xy: 288, 26
+  size: 120, 98
+  orig: 120, 98
+  offset: 0, 0
+  index: -1
+TomatoesB
+  rotate: false
+  xy: 288, 126
+  size: 121, 113
+  orig: 121, 113
+  offset: 0, 0
+  index: -1
+Top bun 1
+  rotate: true
+  xy: 416, 244
+  size: 183, 125
+  orig: 183, 125
+  offset: 0, 0
+  index: -1
+Top bun 2
+  rotate: true
+  xy: 416, 59
+  size: 183, 125
+  orig: 183, 125
+  offset: 0, 0
+  index: -1
+Top bun 3
+  rotate: true
+  xy: 277, 241
+  size: 186, 137
+  orig: 186, 137
+  offset: 0, 0
+  index: -1

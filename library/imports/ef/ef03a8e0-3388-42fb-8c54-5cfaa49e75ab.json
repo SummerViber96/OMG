@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BurgerBun#1",
+    "texture": "a3d31886-4c91-4c46-9ff9-6bf2af8d9f3b",
+    "atlas": "",
+    "rect": [
+      0,
+      6,
+      295,
+      148
+    ],
+    "offset": [
+      0,
+      -3
+    ],
+    "originalSize": [
+      295,
+      154
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

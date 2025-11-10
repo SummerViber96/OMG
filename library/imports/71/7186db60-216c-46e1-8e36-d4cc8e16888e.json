@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "SaladTray",
+    "texture": "e2a5cb8e-81f0-40c4-befc-15b5bf7f7072",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      239,
+      139
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      240,
+      140
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

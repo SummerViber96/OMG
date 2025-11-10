@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "salad_lv3",
+    "texture": "ca5763b3-f8f1-44e2-b6bc-e14fdec1913f",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      317,
+      179
+    ],
+    "offset": [
+      -1.5,
+      -0.5
+    ],
+    "originalSize": [
+      320,
+      180
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

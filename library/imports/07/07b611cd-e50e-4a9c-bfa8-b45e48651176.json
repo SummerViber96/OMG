@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Blueburry#1",
+    "texture": "2b50b9eb-982f-42e0-9b29-a8e69ec98293",
+    "atlas": "",
+    "rect": [
+      27,
+      28,
+      120,
+      85
+    ],
+    "offset": [
+      1.5,
+      -10.5
+    ],
+    "originalSize": [
+      171,
+      120
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

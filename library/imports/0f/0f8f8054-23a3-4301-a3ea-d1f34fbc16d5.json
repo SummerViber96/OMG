@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Hot dog.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\nHot dog.png\nsize: 844,288\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nBun 1\n  rotate: false\n  xy: 2, 7\n  size: 172, 129\n  orig: 172, 129\n  offset: 0, 0\n  index: -1\nBun 2\n  rotate: false\n  xy: 176, 2\n  size: 172, 129\n  orig: 172, 129\n  offset: 0, 0\n  index: -1\nBun 3\n  rotate: false\n  xy: 350, 2\n  size: 172, 129\n  orig: 172, 129\n  offset: 0, 0\n  index: -1\nBun lvl1\n  rotate: false\n  xy: 487, 133\n  size: 172, 153\n  orig: 172, 153\n  offset: 0, 0\n  index: -1\nBun lvl2, lvl3\n  rotate: false\n  xy: 661, 133\n  size: 172, 153\n  orig: 172, 153\n  offset: 0, 0\n  index: -1\nMustard\n  rotate: false\n  xy: 524, 37\n  size: 155, 94\n  orig: 155, 94\n  offset: 0, 0\n  index: -1\nPickle1\n  rotate: false\n  xy: 737, 13\n  size: 51, 60\n  orig: 51, 60\n  offset: 0, 0\n  index: -1\nPickle2\n  rotate: false\n  xy: 681, 19\n  size: 54, 57\n  orig: 54, 57\n  offset: 0, 0\n  index: -1\nPickle3\n  rotate: false\n  xy: 790, 13\n  size: 50, 60\n  orig: 50, 60\n  offset: 0, 0\n  index: -1\nPickle4\n  rotate: false\n  xy: 742, 75\n  size: 55, 56\n  orig: 55, 56\n  offset: 0, 0\n  index: -1\nPickle5\n  rotate: false\n  xy: 681, 78\n  size: 59, 53\n  orig: 59, 53\n  offset: 0, 0\n  index: -1\nSausage\n  rotate: false\n  xy: 257, 135\n  size: 228, 151\n  orig: 228, 151\n  offset: 0, 0\n  index: -1\nShadow\n  rotate: false\n  xy: 2, 138\n  size: 253, 148\n  orig: 253, 148\n  offset: 0, 0\n  index: -1\n"
+}

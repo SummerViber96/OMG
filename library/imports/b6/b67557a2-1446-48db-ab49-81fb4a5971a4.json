@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bun_burger_lv2",
+    "texture": "4952aabb-f3c8-4c5c-8b9a-ede4a8ae890f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      201,
+      120
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      202,
+      120
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

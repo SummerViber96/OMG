@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "DrinkMachine#2",
+    "texture": "969111b9-d8ff-4597-a6c0-94a7398eaaf1",
+    "atlas": "",
+    "rect": [
+      50,
+      10,
+      331,
+      228
+    ],
+    "offset": [
+      -4.5,
+      -2
+    ],
+    "originalSize": [
+      440,
+      244
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

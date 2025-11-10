@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cool-Ca",
+    "texture": "fbcc42e4-a8c6-4656-bb1b-6b97d6aed1c6",
+    "atlas": "",
+    "rect": [
+      3,
+      3,
+      282,
+      518
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      288,
+      524
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

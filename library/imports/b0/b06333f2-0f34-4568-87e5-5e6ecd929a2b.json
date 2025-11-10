@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Cake_1.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nCake_1.png\r\nsize: 512,512\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nK_1_1\r\n  rotate: false\r\n  xy: 117, 175\r\n  size: 138, 76\r\n  orig: 138, 76\r\n  offset: 0, 0\r\n  index: -1\r\nK_1_2\r\n  rotate: false\r\n  xy: 157, 253\r\n  size: 141, 102\r\n  orig: 141, 102\r\n  offset: 0, 0\r\n  index: -1\r\nK_1_3\r\n  rotate: true\r\n  xy: 118, 31\r\n  size: 142, 102\r\n  orig: 142, 102\r\n  offset: 0, 0\r\n  index: -1\r\nK_2_1\r\n  rotate: false\r\n  xy: 300, 219\r\n  size: 145, 78\r\n  orig: 145, 78\r\n  offset: 0, 0\r\n  index: -1\r\nK_2_2\r\n  rotate: false\r\n  xy: 300, 299\r\n  size: 148, 101\r\n  orig: 148, 101\r\n  offset: 0, 0\r\n  index: -1\r\nK_A\r\n  rotate: true\r\n  xy: 2, 162\r\n  size: 178, 113\r\n  orig: 178, 113\r\n  offset: 0, 0\r\n  index: -1\r\nK_B\r\n  rotate: false\r\n  xy: 300, 402\r\n  size: 178, 105\r\n  orig: 178, 105\r\n  offset: 0, 0\r\n  index: -1\r\nSmoke_2\r\n  rotate: true\r\n  xy: 2, 2\r\n  size: 158, 114\r\n  orig: 158, 114\r\n  offset: 0, 0\r\n  index: -1\r\nSmoke_3\r\n  rotate: false\r\n  xy: 157, 357\r\n  size: 141, 150\r\n  orig: 141, 150\r\n  offset: 0, 0\r\n  index: -1\r\nSmoke_4\r\n  rotate: false\r\n  xy: 2, 342\r\n  size: 153, 165\r\n  orig: 153, 165\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

@@ -2,6 +2,12 @@
 require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');
 require('./assets/HF/touch');
+require('./assets/cooking/ietm/cake');
+require('./assets/cooking/ietm/cake2');
+require('./assets/cooking/ietm/cusMission');
+require('./assets/cooking/ietm/hotdog');
+require('./assets/cooking/ietm/preBread');
+require('./assets/scripts/APP/CC2');
 require('./assets/scripts/APP/GameApp');
 require('./assets/scripts/APP/mainGun');
 require('./assets/scripts/APP/mainMusic');

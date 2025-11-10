@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "HotdogOrder4#2",
+    "texture": "716e806a-237c-4dc6-8b3f-10970e91a386",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      226,
+      173
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      226,
+      173
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

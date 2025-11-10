@@ -1,0 +1,48 @@
+
+Cook.png
+size: 444,464
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Patty
+  rotate: false
+  xy: 230, 316
+  size: 194, 144
+  orig: 194, 144
+  offset: 0, 0
+  index: -1
+Patty-burnt
+  rotate: false
+  xy: 230, 170
+  size: 194, 144
+  orig: 194, 144
+  offset: 0, 0
+  index: -1
+Patty-cook
+  rotate: false
+  xy: 2, 2
+  size: 218, 147
+  orig: 218, 147
+  offset: 0, 0
+  index: -1
+Sausage
+  rotate: false
+  xy: 222, 9
+  size: 217, 140
+  orig: 217, 140
+  offset: 0, 0
+  index: -1
+Sausage-burnt
+  rotate: false
+  xy: 2, 151
+  size: 226, 142
+  orig: 226, 142
+  offset: 0, 0
+  index: -1
+Sausage-cook
+  rotate: false
+  xy: 2, 295
+  size: 226, 165
+  orig: 226, 165
+  offset: 0, 0
+  index: -1

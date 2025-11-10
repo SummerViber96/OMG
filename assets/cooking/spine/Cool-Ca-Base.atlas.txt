@@ -1,0 +1,27 @@
+
+Cool-Ca-Base.png
+size: 832,748
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+3
+  rotate: true
+  xy: 2, 2
+  size: 372, 456
+  orig: 376, 458
+  offset: 1, 1
+  index: -1
+DM1
+  rotate: false
+  xy: 2, 382
+  size: 370, 364
+  orig: 374, 366
+  offset: 1, 1
+  index: -1
+DM2
+  rotate: true
+  xy: 374, 376
+  size: 370, 455
+  orig: 374, 457
+  offset: 1, 1
+  index: -1

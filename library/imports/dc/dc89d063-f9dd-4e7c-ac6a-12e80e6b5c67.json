@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Cool-Ca-Base.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nCool-Ca-Base.png\r\nsize: 832,748\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\n3\r\n  rotate: true\r\n  xy: 2, 2\r\n  size: 372, 456\r\n  orig: 376, 458\r\n  offset: 1, 1\r\n  index: -1\r\nDM1\r\n  rotate: false\r\n  xy: 2, 382\r\n  size: 370, 364\r\n  orig: 374, 366\r\n  offset: 1, 1\r\n  index: -1\r\nDM2\r\n  rotate: true\r\n  xy: 374, 376\r\n  size: 370, 455\r\n  orig: 374, 457\r\n  offset: 1, 1\r\n  index: -1\r\n"
+}

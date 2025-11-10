@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Granny-export",
+    "texture": "ca595f7e-9009-4a66-9255-4d71a624afc3",
+    "atlas": "",
+    "rect": [
+      2,
+      4,
+      992,
+      422
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      996,
+      428
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

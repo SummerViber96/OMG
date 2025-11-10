@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pan_m1_lv1",
+    "texture": "84499fc6-3852-44ae-a855-06c94d0d6ce9",
+    "atlas": "",
+    "rect": [
+      43,
+      41,
+      101,
+      72
+    ],
+    "offset": [
+      1.5,
+      -18
+    ],
+    "originalSize": [
+      184,
+      118
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

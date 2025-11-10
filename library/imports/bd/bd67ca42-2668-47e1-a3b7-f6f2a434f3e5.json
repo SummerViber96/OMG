@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Mazine#3",
+    "texture": "12349130-ae9d-47d9-b897-1b0f4d373245",
+    "atlas": "",
+    "rect": [
+      28,
+      0,
+      211,
+      292
+    ],
+    "offset": [
+      13.5,
+      0
+    ],
+    "originalSize": [
+      240,
+      292
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+
+Hot dog.png
+size: 844,288
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Bun 1
+  rotate: false
+  xy: 350, 4
+  size: 172, 129
+  orig: 172, 129
+  offset: 0, 0
+  index: -1
+Bun 2
+  rotate: false
+  xy: 2, 2
+  size: 172, 129
+  orig: 172, 129
+  offset: 0, 0
+  index: -1
+Bun 3
+  rotate: false
+  xy: 176, 2
+  size: 172, 129
+  orig: 172, 129
+  offset: 0, 0
+  index: -1
+Bun lvl1
+  rotate: false
+  xy: 2, 133
+  size: 172, 153
+  orig: 172, 153
+  offset: 0, 0
+  index: -1
+Bun lvl2, lvl3
+  rotate: false
+  xy: 176, 133
+  size: 172, 153
+  orig: 172, 153
+  offset: 0, 0
+  index: -1
+Mustard
+  rotate: true
+  xy: 730, 131
+  size: 155, 94
+  orig: 155, 94
+  offset: 0, 0
+  index: -1
+Pickle1
+  rotate: true
+  xy: 730, 20
+  size: 51, 60
+  orig: 51, 60
+  offset: 0, 0
+  index: -1
+Pickle2
+  rotate: false
+  xy: 524, 76
+  size: 54, 57
+  orig: 54, 57
+  offset: 0, 0
+  index: -1
+Pickle3
+  rotate: false
+  xy: 792, 69
+  size: 50, 60
+  orig: 50, 60
+  offset: 0, 0
+  index: -1
+Pickle4
+  rotate: false
+  xy: 730, 73
+  size: 55, 56
+  orig: 55, 56
+  offset: 0, 0
+  index: -1
+Pickle5
+  rotate: true
+  xy: 524, 15
+  size: 59, 53
+  orig: 59, 53
+  offset: 0, 0
+  index: -1
+Sausage
+  rotate: false
+  xy: 350, 135
+  size: 228, 151
+  orig: 228, 151
+  offset: 0, 0
+  index: -1
+Shadow
+  rotate: true
+  xy: 580, 33
+  size: 253, 148
+  orig: 253, 148
+  offset: 0, 0
+  index: -1

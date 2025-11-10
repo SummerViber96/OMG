@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "HotdogBun#1",
+    "texture": "65a31397-57f4-44d2-a06c-49a635f3b234",
+    "atlas": "",
+    "rect": [
+      11,
+      4,
+      251,
+      232
+    ],
+    "offset": [
+      0.5,
+      6
+    ],
+    "originalSize": [
+      272,
+      252
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

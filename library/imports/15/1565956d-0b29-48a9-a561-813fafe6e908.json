@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "burger-platte_lv2",
+    "texture": "8b30f4cc-4fc9-4872-98b0-b2e268e38ca4",
+    "atlas": "",
+    "rect": [
+      1,
+      25,
+      129,
+      105
+    ],
+    "offset": [
+      0.5,
+      -12.5
+    ],
+    "originalSize": [
+      130,
+      130
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

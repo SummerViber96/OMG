@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "DishM1",
+    "texture": "e94c32b8-5873-4af6-9254-f54b25a9b8c1",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      312,
+      176
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      312,
+      176
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

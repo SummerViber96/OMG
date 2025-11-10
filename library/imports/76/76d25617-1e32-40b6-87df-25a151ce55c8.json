@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "HotdogPlate",
+    "texture": "eca07037-04e7-4381-80e1-b7db6260efa5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      300,
+      172
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      300,
+      172
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

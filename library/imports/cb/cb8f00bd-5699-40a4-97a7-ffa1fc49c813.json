@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hotdog_pan_lv2",
+    "texture": "6441fddf-44ae-4d86-8680-d90403177aa6",
+    "atlas": "",
+    "rect": [
+      25,
+      1,
+      234,
+      165
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      284,
+      168
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

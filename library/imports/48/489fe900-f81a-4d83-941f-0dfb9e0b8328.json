@@ -1,0 +1,863 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "Cool-Ca",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "DXZPh2/cNT6k9FQU8TrPYx0jhRs",
+      "spine": "3.7.94",
+      "width": 0,
+      "height": 0,
+      "images": "./images/",
+      "audio": "D:/CV Nguyen/1FME/Cooking Chaos/Res/06-Burger Barn/Spine/Cool-Ca"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "bone",
+        "parent": "root",
+        "x": -0.22,
+        "y": 0.16
+      },
+      {
+        "name": "OngHut1",
+        "parent": "root",
+        "x": -2.38,
+        "y": 98.54
+      },
+      {
+        "name": "OngHut2",
+        "parent": "root",
+        "x": -28.78,
+        "y": 234.36
+      },
+      {
+        "name": "OngHut3",
+        "parent": "OngHut2",
+        "x": 1.54,
+        "y": 12.74
+      },
+      {
+        "name": "CocaCola1-NAP",
+        "parent": "bone",
+        "x": -7.09,
+        "y": 121.06
+      },
+      {
+        "name": "CocaCola2-NAP",
+        "parent": "bone",
+        "x": -32.03,
+        "y": 239.64
+      },
+      {
+        "name": "CocaCola3-NAP",
+        "parent": "CocaCola2-NAP",
+        "x": 2.37,
+        "y": 21.43
+      }
+    ],
+    "slots": [
+      {
+        "name": "CocaCola1-BOT",
+        "bone": "bone"
+      },
+      {
+        "name": "OngHut1",
+        "bone": "OngHut1"
+      },
+      {
+        "name": "CocaCola1-TOP",
+        "bone": "bone"
+      },
+      {
+        "name": "CocaCola1-NAP",
+        "bone": "CocaCola1-NAP"
+      },
+      {
+        "name": "CocaCola2-BOT",
+        "bone": "bone"
+      },
+      {
+        "name": "OngHut2",
+        "bone": "OngHut2"
+      },
+      {
+        "name": "CocaCola2-TOP",
+        "bone": "bone"
+      },
+      {
+        "name": "CocaCola2-NAP",
+        "bone": "CocaCola2-NAP"
+      },
+      {
+        "name": "CocaCola3-BOT",
+        "bone": "bone"
+      },
+      {
+        "name": "OngHut3",
+        "bone": "OngHut3"
+      },
+      {
+        "name": "CocaCola3-TOP",
+        "bone": "bone"
+      },
+      {
+        "name": "CocaCola3-NAP",
+        "bone": "CocaCola3-NAP"
+      }
+    ],
+    "skins": {
+      "default": {
+        "CocaCola1-BOT": {
+          "CocaCola1-BOT": {
+            "x": -6.79,
+            "y": 62.55,
+            "width": 111,
+            "height": 177
+          }
+        },
+        "CocaCola1-NAP": {
+          "CocaCola1-NAP": {
+            "x": 3.29,
+            "y": -0.02,
+            "width": 27,
+            "height": 18
+          }
+        },
+        "CocaCola1-TOP": {
+          "CocaCola1-TOP": {
+            "x": -6.79,
+            "y": 52.55,
+            "width": 111,
+            "height": 157
+          }
+        },
+        "CocaCola2-BOT": {
+          "CocaCola2-BOT": {
+            "x": -8.29,
+            "y": 112.55,
+            "width": 114,
+            "height": 279
+          }
+        },
+        "CocaCola2-NAP": {
+          "CocaCola2-NAP": {
+            "x": 1.74,
+            "y": -5.09,
+            "width": 58,
+            "height": 37
+          }
+        },
+        "CocaCola2-TOP": {
+          "CocaCola2-TOP": {
+            "x": -29.29,
+            "y": 224.55,
+            "width": 52,
+            "height": 35
+          }
+        },
+        "CocaCola3-BOT": {
+          "CocaCola3-BOT": {
+            "x": -6.29,
+            "y": 125.05,
+            "width": 110,
+            "height": 302
+          }
+        },
+        "CocaCola3-NAP": {
+          "CocaCola3-NAP": {
+            "x": 0.36,
+            "y": -3.02,
+            "width": 60,
+            "height": 40
+          }
+        },
+        "CocaCola3-TOP": {
+          "CocaCola3-TOP": {
+            "x": -28.29,
+            "y": 247.55,
+            "width": 54,
+            "height": 35
+          }
+        },
+        "OngHut1": {
+          "OngHut1": {
+            "x": 4.37,
+            "y": -16.84,
+            "width": 61,
+            "height": 175
+          }
+        },
+        "OngHut2": {
+          "OngHut2": {
+            "x": -0.74,
+            "y": -27.15,
+            "width": 20,
+            "height": 164
+          }
+        },
+        "OngHut3": {
+          "OngHut3": {
+            "x": 5.22,
+            "y": -13.39,
+            "width": 33,
+            "height": 139
+          }
+        }
+      }
+    },
+    "animations": {
+      "Coca1": {
+        "slots": {
+          "CocaCola1-BOT": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola1-BOT"
+              }
+            ]
+          },
+          "CocaCola1-NAP": {
+            "color": [
+              {
+                "time": 0.5333,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola1-NAP"
+              }
+            ]
+          },
+          "CocaCola1-TOP": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola1-TOP"
+              }
+            ]
+          },
+          "OngHut1": {
+            "attachment": [
+              {
+                "time": 0.5,
+                "name": "OngHut1"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone": {
+            "rotate": [
+              {
+                "time": 0.1333,
+                "angle": 0
+              },
+              {
+                "time": 0.2667,
+                "angle": 1.9
+              },
+              {
+                "time": 0.3333,
+                "angle": -1.56
+              },
+              {
+                "time": 0.4,
+                "angle": 1.9
+              }
+            ],
+            "scale": [
+              {
+                "time": 0,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 0.1333,
+                "x": 1.062,
+                "y": 0.92,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.4,
+                "x": 1.062,
+                "y": 0.92
+              },
+              {
+                "time": 0.5333,
+                "x": 1,
+                "y": 1.037
+              }
+            ]
+          },
+          "CocaCola1-NAP": {
+            "rotate": [
+              {
+                "time": 0.4,
+                "angle": 0
+              },
+              {
+                "time": 0.5333,
+                "angle": -23.41
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.4,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "time": 0.5333,
+                "x": -0.69,
+                "y": 1.3
+              },
+              {
+                "time": 0.6,
+                "x": -1.45,
+                "y": 1.32
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.4,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 0.5333,
+                "x": 0.8,
+                "y": 0.716
+              }
+            ],
+            "shear": [
+              {
+                "time": 0.4,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "time": 0.5333,
+                "x": 48.31,
+                "y": 0
+              }
+            ]
+          },
+          "OngHut1": {
+            "rotate": [
+              {
+                "time": 0.5,
+                "angle": 43.4
+              },
+              {
+                "time": 0.8333,
+                "angle": 0
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.5,
+                "x": -100.4,
+                "y": 134.03
+              },
+              {
+                "time": 0.6,
+                "x": -65.77,
+                "y": 89.35
+              },
+              {
+                "time": 0.7333,
+                "x": -19.93,
+                "y": 44.68
+              },
+              {
+                "time": 0.8333,
+                "x": 0,
+                "y": 0
+              }
+            ]
+          }
+        }
+      },
+      "Coca1-idle": {
+        "slots": {
+          "CocaCola1-BOT": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola1-BOT"
+              }
+            ]
+          },
+          "CocaCola1-TOP": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola1-TOP"
+              }
+            ]
+          },
+          "OngHut1": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "OngHut1"
+              }
+            ]
+          }
+        }
+      },
+      "Coca2": {
+        "slots": {
+          "CocaCola2-BOT": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola2-BOT"
+              }
+            ]
+          },
+          "CocaCola2-NAP": {
+            "color": [
+              {
+                "time": 0.5,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola2-NAP"
+              }
+            ]
+          },
+          "CocaCola2-TOP": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola2-TOP"
+              }
+            ]
+          },
+          "OngHut2": {
+            "color": [
+              {
+                "time": 0.5,
+                "color": "ffffff22"
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffffff"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.5,
+                "name": "OngHut2"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone": {
+            "rotate": [
+              {
+                "time": 0.1333,
+                "angle": 0
+              },
+              {
+                "time": 0.2667,
+                "angle": 1.9
+              },
+              {
+                "time": 0.3333,
+                "angle": -1.56
+              },
+              {
+                "time": 0.4,
+                "angle": 1.9
+              }
+            ],
+            "scale": [
+              {
+                "time": 0,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 0.1333,
+                "x": 1.062,
+                "y": 0.92,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.4,
+                "x": 1.062,
+                "y": 0.92
+              },
+              {
+                "time": 0.5333,
+                "x": 1,
+                "y": 1.037
+              }
+            ]
+          },
+          "OngHut2": {
+            "rotate": [
+              {
+                "time": 0.5,
+                "angle": -44.21
+              },
+              {
+                "time": 0.6667,
+                "angle": -13.25
+              },
+              {
+                "time": 0.8333,
+                "angle": 0
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.5,
+                "x": 111.73,
+                "y": 160.27
+              },
+              {
+                "time": 0.6667,
+                "x": 8.73,
+                "y": 99.25
+              },
+              {
+                "time": 0.8333,
+                "x": -8.47,
+                "y": 5.8
+              }
+            ]
+          },
+          "CocaCola2-NAP": {
+            "rotate": [
+              {
+                "time": 0.4,
+                "angle": 0
+              },
+              {
+                "time": 0.5,
+                "angle": 154.63
+              },
+              {
+                "time": 0.6,
+                "angle": -64.81
+              },
+              {
+                "time": 0.6667,
+                "angle": 0
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.4,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "time": 0.5,
+                "x": -65.27,
+                "y": 104.59
+              },
+              {
+                "time": 0.6,
+                "x": -142.46,
+                "y": 94.68
+              },
+              {
+                "time": 0.6667,
+                "x": -241.06,
+                "y": -43.23
+              },
+              {
+                "time": 0.8333,
+                "x": -279.73,
+                "y": -161.01
+              }
+            ]
+          }
+        }
+      },
+      "Coca2-idle": {
+        "slots": {
+          "CocaCola2-BOT": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola2-BOT"
+              }
+            ]
+          },
+          "CocaCola2-TOP": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola2-TOP"
+              }
+            ]
+          },
+          "OngHut2": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "OngHut2"
+              }
+            ]
+          }
+        }
+      },
+      "Coca3": {
+        "slots": {
+          "CocaCola2-NAP": {
+            "color": [
+              {
+                "time": 0.5,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffff00"
+              }
+            ]
+          },
+          "CocaCola3-BOT": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola3-BOT"
+              }
+            ]
+          },
+          "CocaCola3-NAP": {
+            "color": [
+              {
+                "time": 0.5,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola3-NAP"
+              }
+            ]
+          },
+          "CocaCola3-TOP": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola3-TOP"
+              }
+            ]
+          },
+          "OngHut2": {
+            "color": [
+              {
+                "time": 0.5,
+                "color": "ffffff22"
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffffff"
+              }
+            ]
+          },
+          "OngHut3": {
+            "attachment": [
+              {
+                "time": 0.5,
+                "name": "OngHut3"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone": {
+            "rotate": [
+              {
+                "time": 0.1333,
+                "angle": 0
+              },
+              {
+                "time": 0.2667,
+                "angle": 1.9
+              },
+              {
+                "time": 0.3333,
+                "angle": -1.56
+              },
+              {
+                "time": 0.4,
+                "angle": 1.9
+              }
+            ],
+            "scale": [
+              {
+                "time": 0,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 0.1333,
+                "x": 1.062,
+                "y": 0.92,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.4,
+                "x": 1.062,
+                "y": 0.92
+              },
+              {
+                "time": 0.5333,
+                "x": 1,
+                "y": 1.037
+              }
+            ]
+          },
+          "OngHut2": {
+            "rotate": [
+              {
+                "time": 0.5,
+                "angle": -44.21
+              },
+              {
+                "time": 0.6667,
+                "angle": -13.25
+              },
+              {
+                "time": 0.8333,
+                "angle": 0
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.5,
+                "x": 111.73,
+                "y": 160.27
+              },
+              {
+                "time": 0.6667,
+                "x": 8.73,
+                "y": 99.25
+              },
+              {
+                "time": 0.8333,
+                "x": -8.47,
+                "y": 5.8
+              }
+            ]
+          },
+          "CocaCola2-NAP": {
+            "rotate": [
+              {
+                "time": 0.4,
+                "angle": 0
+              },
+              {
+                "time": 0.5,
+                "angle": 154.63
+              },
+              {
+                "time": 0.6,
+                "angle": -64.81
+              },
+              {
+                "time": 0.6667,
+                "angle": 0
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.4,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "time": 0.5,
+                "x": -65.27,
+                "y": 104.59
+              },
+              {
+                "time": 0.6,
+                "x": -142.46,
+                "y": 94.68
+              },
+              {
+                "time": 0.6667,
+                "x": -241.06,
+                "y": -43.23
+              },
+              {
+                "time": 0.8333,
+                "x": -279.73,
+                "y": -161.01
+              }
+            ]
+          }
+        }
+      },
+      "Coca3-idle": {
+        "slots": {
+          "CocaCola3-BOT": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola3-BOT"
+              }
+            ]
+          },
+          "CocaCola3-TOP": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "CocaCola3-TOP"
+              }
+            ]
+          },
+          "OngHut3": {
+            "attachment": [
+              {
+                "time": 0,
+                "name": "OngHut3"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\r\nCool-Ca.png\r\nsize: 288,524\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nCocaCola1-BOT\r\n  rotate: false\r\n  xy: 114, 345\r\n  size: 111, 177\r\n  orig: 111, 177\r\n  offset: 0, 0\r\n  index: -1\r\nCocaCola1-NAP\r\n  rotate: false\r\n  xy: 258, 84\r\n  size: 27, 18\r\n  orig: 27, 18\r\n  offset: 0, 0\r\n  index: -1\r\nCocaCola1-TOP\r\n  rotate: true\r\n  xy: 114, 232\r\n  size: 111, 157\r\n  orig: 111, 157\r\n  offset: 0, 0\r\n  index: -1\r\nCocaCola2-BOT\r\n  rotate: true\r\n  xy: 2, 104\r\n  size: 114, 279\r\n  orig: 114, 279\r\n  offset: 0, 0\r\n  index: -1\r\nCocaCola2-NAP\r\n  rotate: false\r\n  xy: 143, 2\r\n  size: 58, 37\r\n  orig: 58, 37\r\n  offset: 0, 0\r\n  index: -1\r\nCocaCola2-TOP\r\n  rotate: true\r\n  xy: 221, 50\r\n  size: 52, 35\r\n  orig: 52, 35\r\n  offset: 0, 0\r\n  index: -1\r\nCocaCola3-BOT\r\n  rotate: false\r\n  xy: 2, 220\r\n  size: 110, 302\r\n  orig: 110, 302\r\n  offset: 0, 0\r\n  index: -1\r\nCocaCola3-NAP\r\n  rotate: true\r\n  xy: 179, 42\r\n  size: 60, 40\r\n  orig: 60, 40\r\n  offset: 0, 0\r\n  index: -1\r\nCocaCola3-TOP\r\n  rotate: false\r\n  xy: 203, 5\r\n  size: 54, 35\r\n  orig: 54, 35\r\n  offset: 0, 0\r\n  index: -1\r\nOngHut1\r\n  rotate: true\r\n  xy: 2, 41\r\n  size: 61, 175\r\n  orig: 61, 175\r\n  offset: 0, 0\r\n  index: -1\r\nOngHut2\r\n  rotate: false\r\n  xy: 227, 358\r\n  size: 20, 164\r\n  orig: 20, 164\r\n  offset: 0, 0\r\n  index: -1\r\nOngHut3\r\n  rotate: true\r\n  xy: 2, 6\r\n  size: 33, 139\r\n  orig: 33, 139\r\n  offset: 0, 0\r\n  index: -1\r\n",
+  "textures": [
+    {
+      "__uuid__": "fbcc42e4-a8c6-4656-bb1b-6b97d6aed1c6"
+    }
+  ],
+  "textureNames": [
+    "Cool-Ca.png"
+  ],
+  "scale": 1
+}

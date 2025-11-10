@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cheese#1",
+    "texture": "a74b0dab-6f87-422e-82b7-ac4a4124fbae",
+    "atlas": "",
+    "rect": [
+      1,
+      16,
+      160,
+      102
+    ],
+    "offset": [
+      0,
+      -6.5
+    ],
+    "originalSize": [
+      162,
+      121
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

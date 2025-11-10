@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "soda_machine_lv1",
+    "texture": "2f6a0198-64d2-40ff-a2ce-a953735a01ba",
+    "atlas": "",
+    "rect": [
+      0,
+      24,
+      199,
+      196
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      200,
+      244
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

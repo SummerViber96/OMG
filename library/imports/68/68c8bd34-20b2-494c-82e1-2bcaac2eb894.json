@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "CocaMachine#3",
+    "texture": "0609dc28-d89f-4182-b8ea-192510385e72",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      374,
+      456
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      374,
+      456
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

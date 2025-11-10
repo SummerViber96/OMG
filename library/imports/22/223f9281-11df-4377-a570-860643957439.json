@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "SauceTray",
+    "texture": "41f48136-82e9-4f3b-afee-ac32ea681cf0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      200,
+      136
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      200,
+      136
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

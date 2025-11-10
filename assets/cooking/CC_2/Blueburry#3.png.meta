@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "84a2a7c1-8117-453a-95f5-7231f6143c4b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 171,
+  "height": 120,
+  "platformSettings": {},
+  "subMetas": {
+    "Blueburry#3": {
+      "ver": "1.0.4",
+      "uuid": "12215680-0a6f-45b9-8158-3ad2cd58f209",
+      "rawTextureUuid": "84a2a7c1-8117-453a-95f5-7231f6143c4b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 171,
+      "height": 120,
+      "rawWidth": 171,
+      "rawHeight": 120,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

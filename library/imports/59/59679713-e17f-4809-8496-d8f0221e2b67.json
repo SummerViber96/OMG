@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chaokhoai",
+    "texture": "162b3304-1396-446d-944d-5808b56ba328",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      353,
+      285
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      353,
+      286
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

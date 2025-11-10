@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pan-burger_lv1",
+    "texture": "f7973337-7680-43c8-a15c-fb216a34e612",
+    "atlas": "",
+    "rect": [
+      52,
+      9,
+      180,
+      150
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      284,
+      168
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

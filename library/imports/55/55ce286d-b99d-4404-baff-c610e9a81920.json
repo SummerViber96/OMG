@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "meat_lv3",
+    "texture": "56533769-23fb-479a-9cc2-d5de710a0fdf",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      243,
+      91
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      243,
+      91
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

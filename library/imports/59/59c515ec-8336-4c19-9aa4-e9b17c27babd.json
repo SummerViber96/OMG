@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Smoke.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nSmoke.png\r\nsize: 512,256\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nkhoi\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 275, 206\r\n  orig: 275, 206\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

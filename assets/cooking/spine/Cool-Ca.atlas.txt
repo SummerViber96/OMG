@@ -1,0 +1,90 @@
+
+Cool-Ca.png
+size: 288,524
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+CocaCola1-BOT
+  rotate: false
+  xy: 114, 345
+  size: 111, 177
+  orig: 111, 177
+  offset: 0, 0
+  index: -1
+CocaCola1-NAP
+  rotate: false
+  xy: 258, 84
+  size: 27, 18
+  orig: 27, 18
+  offset: 0, 0
+  index: -1
+CocaCola1-TOP
+  rotate: true
+  xy: 114, 232
+  size: 111, 157
+  orig: 111, 157
+  offset: 0, 0
+  index: -1
+CocaCola2-BOT
+  rotate: true
+  xy: 2, 104
+  size: 114, 279
+  orig: 114, 279
+  offset: 0, 0
+  index: -1
+CocaCola2-NAP
+  rotate: false
+  xy: 143, 2
+  size: 58, 37
+  orig: 58, 37
+  offset: 0, 0
+  index: -1
+CocaCola2-TOP
+  rotate: true
+  xy: 221, 50
+  size: 52, 35
+  orig: 52, 35
+  offset: 0, 0
+  index: -1
+CocaCola3-BOT
+  rotate: false
+  xy: 2, 220
+  size: 110, 302
+  orig: 110, 302
+  offset: 0, 0
+  index: -1
+CocaCola3-NAP
+  rotate: true
+  xy: 179, 42
+  size: 60, 40
+  orig: 60, 40
+  offset: 0, 0
+  index: -1
+CocaCola3-TOP
+  rotate: false
+  xy: 203, 5
+  size: 54, 35
+  orig: 54, 35
+  offset: 0, 0
+  index: -1
+OngHut1
+  rotate: true
+  xy: 2, 41
+  size: 61, 175
+  orig: 61, 175
+  offset: 0, 0
+  index: -1
+OngHut2
+  rotate: false
+  xy: 227, 358
+  size: 20, 164
+  orig: 20, 164
+  offset: 0, 0
+  index: -1
+OngHut3
+  rotate: true
+  xy: 2, 6
+  size: 33, 139
+  orig: 33, 139
+  offset: 0, 0
+  index: -1

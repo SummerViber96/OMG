@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Mask1",
+    "texture": "21dc2216-84a8-49fe-8a9c-6efefead4ebc",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      90,
+      295
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      90,
+      295
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

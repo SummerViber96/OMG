@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Salad#1",
+    "texture": "5e8f7d79-c7b3-4a1b-b15b-47e49993ddc4",
+    "atlas": "",
+    "rect": [
+      0,
+      10,
+      234,
+      123
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      234,
+      142
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

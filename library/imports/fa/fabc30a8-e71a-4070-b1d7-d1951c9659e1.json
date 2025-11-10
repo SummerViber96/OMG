@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "sausage_lv1",
+    "texture": "22cd67ff-3845-47d2-badf-7dc35c58ff61",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      153,
+      64
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      154,
+      65
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

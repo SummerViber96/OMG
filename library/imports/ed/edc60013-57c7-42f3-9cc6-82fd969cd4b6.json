@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hotdog_plate_lv3",
+    "texture": "ffcc6706-8232-456f-866c-d06228d83079",
+    "atlas": "",
+    "rect": [
+      0,
+      20,
+      116,
+      94
+    ],
+    "offset": [
+      0,
+      -9.5
+    ],
+    "originalSize": [
+      116,
+      115
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

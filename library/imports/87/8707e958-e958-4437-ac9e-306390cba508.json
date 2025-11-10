@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MeatPan",
+    "texture": "03ea048b-05ca-478f-a804-94dd22253d62",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      160,
+      144
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      160,
+      144
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "UI_icon_handtutorial",
+    "texture": "ba363478-4429-47cd-bcbf-022846711913",
+    "atlas": "",
+    "rect": [
+      3,
+      0,
+      88,
+      128
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      93,
+      128
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

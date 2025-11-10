@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "DrinkOrder#1",
+    "texture": "cb2cb217-f507-41ea-a08e-abc86df10924",
+    "atlas": "",
+    "rect": [
+      8,
+      5,
+      63,
+      124
+    ],
+    "offset": [
+      0,
+      -1.5
+    ],
+    "originalSize": [
+      79,
+      131
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

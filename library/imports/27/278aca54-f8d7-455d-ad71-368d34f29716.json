@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MazineTray",
+    "texture": "f829b80b-b143-4e95-b9b6-e737df4e4d97",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      200,
+      136
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      200,
+      136
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

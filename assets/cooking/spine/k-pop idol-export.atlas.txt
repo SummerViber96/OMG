@@ -1,0 +1,279 @@
+
+k-pop idol-export.png
+size: 980,316
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Anger
+  rotate: false
+  xy: 611, 10
+  size: 60, 69
+  orig: 60, 69
+  offset: 0, 0
+  index: -1
+Arm
+  rotate: true
+  xy: 475, 82
+  size: 81, 145
+  orig: 81, 145
+  offset: 0, 0
+  index: -1
+Arm-Mic-R
+  rotate: true
+  xy: 838, 58
+  size: 100, 124
+  orig: 100, 124
+  offset: 0, 0
+  index: -1
+Arm-R
+  rotate: true
+  xy: 622, 81
+  size: 81, 145
+  orig: 81, 145
+  offset: 0, 0
+  index: -1
+Body
+  rotate: false
+  xy: 2, 92
+  size: 224, 222
+  orig: 224, 222
+  offset: 0, 0
+  index: -1
+Brow-Angry-L
+  rotate: true
+  xy: 812, 56
+  size: 38, 23
+  orig: 38, 23
+  offset: 0, 0
+  index: -1
+Brow-Angry-R
+  rotate: false
+  xy: 812, 31
+  size: 38, 23
+  orig: 38, 23
+  offset: 0, 0
+  index: -1
+Brow-L
+  rotate: false
+  xy: 769, 81
+  size: 41, 13
+  orig: 41, 13
+  offset: 0, 0
+  index: -1
+Brow-R
+  rotate: true
+  xy: 964, 117
+  size: 41, 13
+  orig: 41, 13
+  offset: 0, 0
+  index: -1
+Eye closed-L
+  rotate: false
+  xy: 822, 2
+  size: 44, 27
+  orig: 44, 27
+  offset: 0, 0
+  index: -1
+Eye closed-R
+  rotate: true
+  xy: 782, 34
+  size: 45, 28
+  orig: 45, 28
+  offset: 0, 0
+  index: -1
+Eye-L
+  rotate: false
+  xy: 868, 30
+  size: 41, 26
+  orig: 41, 26
+  offset: 0, 0
+  index: -1
+Eye-R
+  rotate: false
+  xy: 868, 2
+  size: 41, 26
+  orig: 41, 26
+  offset: 0, 0
+  index: -1
+Face
+  rotate: true
+  xy: 228, 24
+  size: 154, 178
+  orig: 154, 178
+  offset: 0, 0
+  index: -1
+Face-ANGRY
+  rotate: true
+  xy: 845, 160
+  size: 154, 133
+  orig: 154, 133
+  offset: 0, 0
+  index: -1
+Fist
+  rotate: true
+  xy: 2, 26
+  size: 64, 180
+  orig: 64, 180
+  offset: 0, 0
+  index: -1
+Hair
+  rotate: false
+  xy: 479, 165
+  size: 181, 149
+  orig: 181, 149
+  offset: 0, 0
+  index: -1
+Hair shadow
+  rotate: false
+  xy: 475, 9
+  size: 134, 71
+  orig: 134, 71
+  offset: 0, 0
+  index: -1
+Hair-Angry
+  rotate: false
+  xy: 662, 164
+  size: 181, 150
+  orig: 181, 150
+  offset: 0, 0
+  index: -1
+Lips-Angry1
+  rotate: false
+  xy: 728, 2
+  size: 46, 19
+  orig: 46, 19
+  offset: 0, 0
+  index: -1
+Lips-Angry2
+  rotate: false
+  xy: 184, 63
+  size: 42, 27
+  orig: 42, 27
+  offset: 0, 0
+  index: -1
+Lips-Happy
+  rotate: true
+  xy: 408, 2
+  size: 46, 31
+  orig: 46, 31
+  offset: 0, 0
+  index: -1
+Lips-Idle
+  rotate: true
+  xy: 441, 2
+  size: 46, 18
+  orig: 46, 18
+  offset: 0, 0
+  index: -1
+Lips-Sad
+  rotate: false
+  xy: 776, 2
+  size: 44, 19
+  orig: 44, 19
+  offset: 0, 0
+  index: -1
+Mic
+  rotate: true
+  xy: 228, 180
+  size: 134, 249
+  orig: 134, 249
+  offset: 0, 0
+  index: -1
+Music notes1
+  rotate: false
+  xy: 408, 50
+  size: 65, 128
+  orig: 65, 128
+  offset: 0, 0
+  index: -1
+Music notes2
+  rotate: false
+  xy: 769, 96
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+Music notes3
+  rotate: true
+  xy: 728, 23
+  size: 56, 52
+  orig: 56, 52
+  offset: 0, 0
+  index: -1
+Music notes4
+  rotate: false
+  xy: 673, 14
+  size: 53, 65
+  orig: 53, 65
+  offset: 0, 0
+  index: -1
+Pupil-L
+  rotate: false
+  xy: 74, 4
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+Pupil-L-angry
+  rotate: false
+  xy: 911, 4
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+Pupil-R
+  rotate: false
+  xy: 96, 4
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+Pupil-R-angry
+  rotate: false
+  xy: 933, 4
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+Shine1
+  rotate: false
+  xy: 184, 24
+  size: 37, 37
+  orig: 37, 37
+  offset: 0, 0
+  index: -1
+Shine2
+  rotate: false
+  xy: 911, 26
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+Shine3
+  rotate: false
+  xy: 943, 26
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+White-L
+  rotate: false
+  xy: 2, 3
+  size: 34, 21
+  orig: 34, 21
+  offset: 0, 0
+  index: -1
+White-R
+  rotate: false
+  xy: 38, 3
+  size: 34, 21
+  orig: 34, 21
+  offset: 0, 0
+  index: -1
+Wrinkle
+  rotate: false
+  xy: 118, 7
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1
