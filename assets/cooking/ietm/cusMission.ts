@@ -38,8 +38,7 @@ export default class NewClass extends cc.Component {
     }
 
     updateMission() {
-                    cc.audioEngine.play(this.gamePlay.soundNice, false, 1)
-
+       cc.audioEngine.play(this.gamePlay.soundNice, false, 1)
         this.count--;
         this.anim.setAnimation(0, "8.happy", true)
         this.pop.getChildByName("right").active = true
@@ -65,16 +64,18 @@ export default class NewClass extends cc.Component {
         if (value == true) {
             this.anim.setAnimation(0, "8.happy", false)
             this.pop.getChildByName("right").active = true
+            this.node.getChildByName("happy").active=true
         }
         else {
             this.anim.setAnimation(0, "7.angry_idle", false)
             this.pop.getChildByName("wrong").active = true
+            this.node.getChildByName("angry").active=true
 
         }
 
     }
     update(dt) {
-        // this.lbCount.string = this.count.toString()
+        this.lbCount.string = this.count.toString()
 
     }
     happy() {

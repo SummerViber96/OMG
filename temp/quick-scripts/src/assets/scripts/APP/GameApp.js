@@ -190,7 +190,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.isTargetCus.getComponent("cusMission").checkBread(child);
             }
         }).start();
-        this.creatFxColor(pos, 1.5);
+        this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5);
     };
     NewClass.prototype.btn_tuongCa = function () {
         var _this = this;

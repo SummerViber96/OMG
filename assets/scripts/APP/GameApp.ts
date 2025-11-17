@@ -189,7 +189,7 @@ export default class NewClass extends cc.Component {
             }
         }).start()
 
-        this.creatFxColor(pos, 1.5)
+        this.creatFxColor(pos.add(cc.v3(0,50)), 1.5)
     }
     isDelaytuong = false
     btn_tuongCa() {
