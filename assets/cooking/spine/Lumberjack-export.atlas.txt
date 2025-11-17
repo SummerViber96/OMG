@@ -1,0 +1,405 @@
+
+Lumberjack-export.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 300, 249
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+2
+  rotate: false
+  xy: 897, 232
+  size: 52, 50
+  orig: 52, 50
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 828, 3
+  size: 21, 20
+  orig: 21, 20
+  offset: 0, 0
+  index: -1
+4
+  rotate: true
+  xy: 707, 17
+  size: 58, 53
+  orig: 58, 53
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 300, 293
+  size: 30, 28
+  orig: 30, 28
+  offset: 0, 0
+  index: -1
+Arm-L
+  rotate: false
+  xy: 548, 44
+  size: 89, 136
+  orig: 89, 136
+  offset: 0, 0
+  index: -1
+Arm-R
+  rotate: 180
+  xy: 523, 185
+  size: 89, 136
+  orig: 89, 136
+  offset: 0, 0
+  index: -1
+Beard
+  rotate: true
+  xy: 603, 162
+  size: 141, 119
+  orig: 141, 119
+  offset: 0, 0
+  index: -1
+Body
+  rotate: false
+  xy: 2, 3
+  size: 220, 192
+  orig: 220, 192
+  offset: 0, 0
+  index: -1
+BodyL
+  rotate: false
+  xy: 945, 4
+  size: 33, 61
+  orig: 33, 61
+  offset: 0, 0
+  index: -1
+BodyR
+  rotate: false
+  xy: 185, 134
+  size: 33, 61
+  orig: 33, 61
+  offset: 0, 0
+  index: -1
+Brow-Angry-L
+  rotate: true
+  xy: 2, 110
+  size: 36, 18
+  orig: 36, 18
+  offset: 0, 0
+  index: -1
+Brow-Angry-R
+  rotate: false
+  xy: 957, 238
+  size: 35, 18
+  orig: 35, 18
+  offset: 0, 0
+  index: -1
+Brow-L
+  rotate: false
+  xy: 962, 254
+  size: 32, 14
+  orig: 32, 14
+  offset: 0, 0
+  index: -1
+Brow-R
+  rotate: false
+  xy: 300, 222
+  size: 32, 14
+  orig: 32, 14
+  offset: 0, 0
+  index: -1
+Bunny brows-L
+  rotate: false
+  xy: 2, 188
+  size: 10, 7
+  orig: 10, 7
+  offset: 0, 0
+  index: -1
+Bunny brows-R
+  rotate: false
+  xy: 2, 101
+  size: 10, 7
+  orig: 10, 7
+  offset: 0, 0
+  index: -1
+Bunny-Mouth
+  rotate: false
+  xy: 970, 8
+  size: 18, 15
+  orig: 18, 15
+  offset: 0, 0
+  index: -1
+Bunny-WL
+  rotate: false
+  xy: 14, 190
+  size: 4, 5
+  orig: 4, 5
+  offset: 0, 0
+  index: -1
+Bunny-WR
+  rotate: false
+  xy: 2, 182
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+Bunny-nose
+  rotate: false
+  xy: 300, 272
+  size: 27, 19
+  orig: 27, 19
+  offset: 0, 0
+  index: -1
+Ear
+  rotate: false
+  xy: 366, 6
+  size: 42, 41
+  orig: 42, 46
+  offset: 0, 5
+  index: -1
+Ear копия
+  rotate: false
+  xy: 2, 146
+  size: 37, 50
+  orig: 38, 50
+  offset: 0, 0
+  index: -1
+Eye-L
+  rotate: false
+  xy: 676, 4
+  size: 29, 25
+  orig: 29, 25
+  offset: 0, 0
+  index: -1
+Eye-R
+  rotate: false
+  xy: 637, 5
+  size: 29, 25
+  orig: 29, 25
+  offset: 0, 0
+  index: -1
+Hair
+  rotate: true
+  xy: 918, 139
+  size: 92, 48
+  orig: 93, 48
+  offset: 0, 0
+  index: -1
+Hand-Angry-L
+  rotate: false
+  xy: 696, 78
+  size: 91, 132
+  orig: 91, 134
+  offset: 0, 0
+  index: -1
+Hand-Angry-R
+  rotate: false
+  xy: 734, 190
+  size: 90, 132
+  orig: 90, 134
+  offset: 0, 0
+  index: -1
+Hand-L
+  rotate: true
+  xy: 479, 42
+  size: 197, 68
+  orig: 197, 68
+  offset: 0, 0
+  index: -1
+Hand-R
+  rotate: true
+  xy: 366, 24
+  size: 180, 124
+  orig: 180, 124
+  offset: 0, 0
+  index: -1
+Hands
+  rotate: false
+  xy: 2, 197
+  size: 296, 124
+  orig: 296, 124
+  offset: 0, 0
+  index: -1
+Head
+  rotate: 270
+  xy: 328, 184
+  size: 137, 145
+  orig: 137, 145
+  offset: 0, 0
+  index: -1
+Head-Angry
+  rotate: true
+  xy: 632, 27
+  size: 139, 75
+  orig: 140, 78
+  offset: 1, 3
+  index: -1
+HeadB
+  rotate: false
+  xy: 223, 7
+  size: 141, 188
+  orig: 141, 188
+  offset: 0, 0
+  index: -1
+Lips-Normal
+  rotate: false
+  xy: 40, 3
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+Lips-Sad
+  rotate: false
+  xy: 151, 5
+  size: 32, 12
+  orig: 32, 12
+  offset: 0, 0
+  index: -1
+Líp-Smile
+  rotate: false
+  xy: 959, 217
+  size: 35, 19
+  orig: 35, 21
+  offset: 0, 0
+  index: -1
+Moustache
+  rotate: true
+  xy: 932, 56
+  size: 88, 38
+  orig: 88, 38
+  offset: 0, 0
+  index: -1
+Moustache-L
+  rotate: true
+  xy: 962, 67
+  size: 47, 33
+  orig: 47, 33
+  offset: 0, 0
+  index: -1
+Moustache-R
+  rotate: true
+  xy: 962, 140
+  size: 46, 32
+  orig: 46, 32
+  offset: 0, 0
+  index: -1
+Mouth-Angry
+  rotate: false
+  xy: 408, 5
+  size: 46, 18
+  orig: 46, 18
+  offset: 0, 0
+  index: -1
+Pompon
+  rotate: false
+  xy: 947, 271
+  size: 48, 51
+  orig: 48, 51
+  offset: 0, 0
+  index: -1
+Pupil-L
+  rotate: false
+  xy: 203, 116
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1
+Pupil-R
+  rotate: false
+  xy: 300, 204
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+Shadow-L
+  rotate: 180
+  xy: 896, 9
+  size: 58, 139
+  orig: 58, 139
+  offset: 0, 0
+  index: -1
+Shadow-R
+  rotate: 180
+  xy: 866, 92
+  size: 58, 139
+  orig: 58, 139
+  offset: 0, 0
+  index: -1
+Steam-L
+  rotate: true
+  xy: 849, 217
+  size: 82, 46
+  orig: 82, 46
+  offset: 0, 0
+  index: -1
+Steam-R
+  rotate: true
+  xy: 857, 7
+  size: 82, 46
+  orig: 82, 46
+  offset: 0, 0
+  index: -1
+Suspenders-L
+  rotate: true
+  xy: 464, 4
+  size: 49, 176
+  orig: 50, 177
+  offset: 0, 0
+  index: -1
+Suspenders-R
+  rotate: 180
+  xy: 765, 8
+  size: 50, 175
+  orig: 50, 175
+  offset: 0, 0
+  index: -1
+Thumb-L
+  rotate: false
+  xy: 183, 4
+  size: 38, 46
+  orig: 40, 46
+  offset: 0, 0
+  index: -1
+Thumb-R
+  rotate: false
+  xy: 2, 7
+  size: 40, 44
+  orig: 40, 45
+  offset: 0, 0
+  index: -1
+WHITE
+  rotate: false
+  xy: 8, 184
+  size: 2, 2
+  orig: 2, 2
+  offset: 0, 0
+  index: -1
+White-L
+  rotate: false
+  xy: 905, 8
+  size: 27, 18
+  orig: 27, 18
+  offset: 0, 0
+  index: -1
+White-R
+  rotate: false
+  xy: 968, 188
+  size: 27, 18
+  orig: 27, 18
+  offset: 0, 0
+  index: -1
+suspenders-angry-L
+  rotate: 180
+  xy: 807, 149
+  size: 69, 172
+  orig: 69, 172
+  offset: 0, 0
+  index: -1
+suspenders-angry-R
+  rotate: 180
+  xy: 794, 3
+  size: 69, 172
+  orig: 69, 172
+  offset: 0, 0
+  index: -1

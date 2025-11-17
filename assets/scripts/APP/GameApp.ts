@@ -32,6 +32,10 @@ export default class NewClass extends cc.Component {
     preHotDog: cc.Prefab = null;
     @property(cc.Prefab)
     preBread: cc.Prefab = null;
+    @property(cc.Prefab)
+    preBuger: cc.Prefab = null;
+    @property(cc.Prefab)
+    preMeat: cc.Prefab = null;
     @property(cc.Node)
     tuongOt: cc.Node = null;
     @property(cc.Node)
@@ -39,15 +43,23 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     listKhayBanhMi: cc.Node = null;
     @property(cc.Node)
+    listKhayBuger: cc.Node = null;
+    @property(cc.Node)
     listHand: cc.Node = null;
     @property(cc.AudioClip)
     soundChesse: cc.AudioClip = null
     @property(cc.AudioClip)
     soundWrong: cc.AudioClip = null
-       @property(cc.AudioClip)
+    @property(cc.AudioClip)
     soundNice: cc.AudioClip = null
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
+    @property(cc.Node)
+    btnMeatNode: cc.Node = null;
+    @property(cc.Node)
+    btnBugerNode: cc.Node = null;
+    @property(cc.Node)
+    btnVegettableNode: cc.Node = null;
     // @property(cc.AudioClip)
     // soundBg:cc.AudioClip=null;
 
@@ -90,7 +102,7 @@ export default class NewClass extends cc.Component {
     }
     nextCus() {
         this.countCus++
-        if (this.countCus == 3) {
+        if (this.countCus == 6) {
             this.onEndGame()
         }
         else {
@@ -105,17 +117,30 @@ export default class NewClass extends cc.Component {
                     cc.audioEngine.play(this.soundShowPop, false, 1)
 
                 }, 0.1)
+                if (this.countCus == 3) {
+                    this.btnBugerNode.getComponent(cc.Button).enabled = true;
+                    this.btnVegettableNode.getComponent(cc.Button).enabled = true;
+                    this.btnMeatNode.getComponent(cc.Button).enabled = true;
+                    this.btnBugerNode.children[0].active = false;
+                    this.btnMeatNode.children[0].active = false
+                    this.btnVegettableNode.children[0].active = false
+
+                    this.offGray(this.btnBugerNode);
+                    this.offGray(this.btnVegettableNode);
+                    this.offGray(this.btnMeatNode);
+                    this.listHand.children[5].active = true
+                }
             }).start()
         }
 
     }
     arrHotDog = [null, null, null, null, null, null];
     arrBreak = [null, null, null];
+    arrBuger = [null, null, null];
     arrTuongCa = []
     btn_hotDog(event) {
         // if (this.arrHotDog.length >= 6) return;
         let check = this.checkSlotHotDog()
-        console.log(check)
         if (check == null) return;
 
         cc.audioEngine.play(this.soundShowPop, false, 1)
@@ -124,7 +149,7 @@ export default class NewClass extends cc.Component {
             this.listHand.children[1].active = true
 
         }, 0.5)
-        let dem = this.arrHotDog.length
+        // let dem = this.arrHotDog.length
         let hotDog = cc.instantiate(this.preHotDog);
         console.log(this.listChao)
         hotDog.parent = this.listChao.children[check];
@@ -134,6 +159,22 @@ export default class NewClass extends cc.Component {
         let pos = event.currentTarget.position
         this.creatFxColor(pos, 2)
 
+    }
+    btn_meat() {
+        let check = this.checkSlotHotDog()
+        if (check == null) return;
+        this.listHand.children[5].opacity = 0
+        this.scheduleOnce(() => {
+            this.listHand.children[6].active = true
+        }, 0.5)
+        cc.audioEngine.play(this.soundShowPop, false, 1)
+        let meat = cc.instantiate(this.preMeat);
+        meat.parent = this.listChao.children[check];
+        meat.position = cc.v3(0, 0)
+        meat.getComponent("meat").value = check
+        this.arrHotDog[check] = meat
+        // let pos = this.listHand.children[5].position
+        // this.creatFxColor(pos, 2)
     }
     checkSlotHotDog() {
         for (let i = 0; i < this.arrHotDog.length; i++) {
@@ -147,6 +188,27 @@ export default class NewClass extends cc.Component {
         }
         return null
     }
+    checkSlotBuger() {
+        for (let i = 0; i < this.arrBuger.length; i++) {
+            if (this.arrBuger[i] == null) return i
+        }
+        return null
+    }
+
+
+    setGray(node) {
+        node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-gray-sprite', node.getComponent(cc.Sprite)));
+
+    }
+    offGray(node) {
+        node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-sprite', node.getComponent(cc.Sprite)));
+    }
+
+
+
+
+
+
     btn_bread(event) {
         // if (this.arrBreak.length >= 3) return;
         // let dem = this.arrBreak.length
@@ -167,6 +229,23 @@ export default class NewClass extends cc.Component {
         let pos = event.currentTarget.position
         this.creatFxColor(pos, 2)
 
+    }
+    btn_buger(event) {
+        let check = this.checkSlotBuger()
+        if (check == null) return;
+        cc.audioEngine.play(this.soundShowPop, false, 1)
+
+        let bread = cc.instantiate(this.preBuger);
+        bread.parent = this.listKhayBuger.children[check];
+        bread.position = cc.v3(30, 10)
+        bread.getComponent("buger").value = check
+        this.arrBuger[check] = bread
+        this.listHand.children[6].opacity = 0
+        this.scheduleOnce(() => {
+            this.listHand.children[7].active = true
+        }, 0.5)
+        let pos = event.currentTarget.position
+        this.creatFxColor(pos, 2)
     }
     sellBread(value) {
         // console.log(value)
@@ -189,7 +268,30 @@ export default class NewClass extends cc.Component {
             }
         }).start()
 
-        this.creatFxColor(pos.add(cc.v3(0,50)), 1.5)
+        this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5)
+    }
+    sellBuger(value) {
+        // console.log(value)
+        if (this.isTargetCus == null) return;
+        if (this.isTargetPop == null) return;
+        // this.listHand.children[4].opacity = 0
+        this.listHand.children[8].opacity = 0
+
+        let child = this.arrBuger[value];
+        this.arrBuger[value] = null;
+        let posEnd = this.isTargetPop.position
+        posEnd = this.isTargetPop.parent.convertToWorldSpaceAR(posEnd)
+        posEnd = child.parent.convertToNodeSpaceAR(posEnd)
+        let pos = child.parent.convertToWorldSpaceAR(child.position);
+        pos = this.node.convertToNodeSpaceAR(pos)
+        cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(() => {
+            child.opacity = 0
+            if (this.isTargetCus) {
+                this.isTargetCus.getComponent("cusMission").checkBuger(child)
+            }
+        }).start()
+
+        this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5)
     }
     isDelaytuong = false
     btn_tuongCa() {
@@ -233,7 +335,23 @@ export default class NewClass extends cc.Component {
         }
         return null
     }
+    btn_vegettable() {
+        if (this.arrBuger.length <= 0) return;
+        let bread = this.checkVegettable();
+        if (bread == null) return;
+        cc.audioEngine.play(this.soundShowPop, false, 1);
+        bread.getComponent("buger").getVegettable();
 
+    }
+    checkVegettable() {
+        for (let i = 0; i < this.arrBuger.length; i++) {
+            let chld = this.arrBuger[i]
+            if (chld != null && chld.getComponent("buger").isMeat == true && chld.getComponent("buger").isvegettable == false) {
+                return chld
+            }
+        }
+        return null
+    }
     clickHotDog(value, node) {
         if (this.arrBreak.length <= 0) return;
         let child = this.checkBread()
@@ -261,6 +379,49 @@ export default class NewClass extends cc.Component {
         for (let i = 0; i < this.arrBreak.length; i++) {
             let chld = this.arrBreak[i]
             if (chld != null && chld.getComponent("preBread").isHotDog == false) {
+                return chld
+            }
+        }
+        return null
+    }
+    clearMeat() {
+        let node1 = this.arrHotDog[0];
+        let node2 = this.arrHotDog[1];
+        this.arrHotDog[0] = null;
+        this.arrHotDog[1] = null;
+        this.scheduleOnce(() => {
+            node1.destroy()
+            node2.destroy()
+
+        }, 0.1)
+    }
+    clickMeat(value, node) {
+        if (this.arrBuger.length <= 0) return;
+        let child = this.checkBuger()
+        if (child == null) return;
+        cc.audioEngine.play(this.soundShowPop, false, 1)
+        this.listHand.children[7].opacity = 0
+        this.scheduleOnce(() => {
+            this.listHand.children[8].active = true
+
+        }, 0.5)
+        this.arrHotDog[value] = null
+        child.getComponent("buger").getMeat()
+        let pos = node.parent.convertToWorldSpaceAR(node.position);
+        pos = this.node.convertToNodeSpaceAR(pos)
+        node.opacity = 0
+
+        this.scheduleOnce(() => {
+            node.destroy()
+
+        }, 0.1)
+
+        this.creatFxColor(pos, 1.5)
+    }
+    checkBuger() {
+        for (let i = 0; i < this.arrBuger.length; i++) {
+            let chld = this.arrBuger[i]
+            if (chld != null && chld.getComponent("buger").isMeat == false) {
                 return chld
             }
         }
@@ -343,7 +504,7 @@ export default class NewClass extends cc.Component {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
-            this.camera.node.position = cc.v3(80, 0)
+            this.camera.node.position = cc.v3(-70, 0)
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
@@ -352,14 +513,14 @@ export default class NewClass extends cc.Component {
             const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
-            this.camera.zoomRatio = 1.5
+            this.camera.zoomRatio = 1.1
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 console.log("check iphonex")
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.2
+                this.camera.zoomRatio = 1
 
             }
         }
@@ -380,7 +541,7 @@ export default class NewClass extends cc.Component {
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.95
+                this.camera.zoomRatio = 0.8
             }
         }
 

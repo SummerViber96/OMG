@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BurgerOrder1",
+    "texture": "77528b1e-992a-47af-b842-f89c0fc6bbb9",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      198,
+      199
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      200,
+      199
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

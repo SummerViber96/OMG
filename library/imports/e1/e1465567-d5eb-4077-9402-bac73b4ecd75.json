@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Burger.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\nBurger.png\nsize: 1024,512\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nCheese\n  rotate: false\n  xy: 210, 15\n  size: 111, 64\n  orig: 111, 64\n  offset: 0, 0\n  index: -1\nLettuce\n  rotate: false\n  xy: 2, 7\n  size: 109, 72\n  orig: 109, 72\n  offset: 0, 0\n  index: -1\nPatty\n  rotate: false\n  xy: 113, 2\n  size: 95, 77\n  orig: 95, 77\n  offset: 0, 0\n  index: -1\nTomatoesA\n  rotate: true\n  xy: 571, 19\n  size: 60, 49\n  orig: 60, 49\n  offset: 0, 0\n  index: -1\nTomatoesB\n  rotate: true\n  xy: 512, 18\n  size: 61, 57\n  orig: 61, 57\n  offset: 0, 0\n  index: -1\nTop bun 2\n  rotate: false\n  xy: 418, 16\n  size: 92, 63\n  orig: 92, 63\n  offset: 0, 0\n  index: -1\nTop bun 3\n  rotate: false\n  xy: 323, 10\n  size: 93, 69\n  orig: 93, 69\n  offset: 0, 0\n  index: -1\n"
+}

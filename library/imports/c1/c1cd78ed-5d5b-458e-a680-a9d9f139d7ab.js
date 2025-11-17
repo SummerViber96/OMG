@@ -42,14 +42,20 @@ var NewClass = /** @class */ (function (_super) {
         _this.listCus = null;
         _this.preHotDog = null;
         _this.preBread = null;
+        _this.preBuger = null;
+        _this.preMeat = null;
         _this.tuongOt = null;
         _this.listChao = null;
         _this.listKhayBanhMi = null;
+        _this.listKhayBuger = null;
         _this.listHand = null;
         _this.soundChesse = null;
         _this.soundWrong = null;
         _this.soundNice = null;
         _this.fxColor = null;
+        _this.btnMeatNode = null;
+        _this.btnBugerNode = null;
+        _this.btnVegettableNode = null;
         // @property(cc.AudioClip)
         // soundBg:cc.AudioClip=null;
         _this.isTargetPop = null;
@@ -58,6 +64,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.countCus = 0;
         _this.arrHotDog = [null, null, null, null, null, null];
         _this.arrBreak = [null, null, null];
+        _this.arrBuger = [null, null, null];
         _this.arrTuongCa = [];
         _this.isDelaytuong = false;
         return _this;
@@ -96,7 +103,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.nextCus = function () {
         var _this = this;
         this.countCus++;
-        if (this.countCus == 3) {
+        if (this.countCus == 6) {
             this.onEndGame();
         }
         else {
@@ -110,6 +117,18 @@ var NewClass = /** @class */ (function (_super) {
                 _this.scheduleOnce(function () {
                     cc.audioEngine.play(_this.soundShowPop, false, 1);
                 }, 0.1);
+                if (_this.countCus == 3) {
+                    _this.btnBugerNode.getComponent(cc.Button).enabled = true;
+                    _this.btnVegettableNode.getComponent(cc.Button).enabled = true;
+                    _this.btnMeatNode.getComponent(cc.Button).enabled = true;
+                    _this.btnBugerNode.children[0].active = false;
+                    _this.btnMeatNode.children[0].active = false;
+                    _this.btnVegettableNode.children[0].active = false;
+                    _this.offGray(_this.btnBugerNode);
+                    _this.offGray(_this.btnVegettableNode);
+                    _this.offGray(_this.btnMeatNode);
+                    _this.listHand.children[5].active = true;
+                }
             }).start();
         }
     };
@@ -117,7 +136,6 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         // if (this.arrHotDog.length >= 6) return;
         var check = this.checkSlotHotDog();
-        console.log(check);
         if (check == null)
             return;
         cc.audioEngine.play(this.soundShowPop, false, 1);
@@ -125,7 +143,7 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.listHand.children[1].active = true;
         }, 0.5);
-        var dem = this.arrHotDog.length;
+        // let dem = this.arrHotDog.length
         var hotDog = cc.instantiate(this.preHotDog);
         console.log(this.listChao);
         hotDog.parent = this.listChao.children[check];
@@ -134,6 +152,24 @@ var NewClass = /** @class */ (function (_super) {
         this.arrHotDog[check] = hotDog;
         var pos = event.currentTarget.position;
         this.creatFxColor(pos, 2);
+    };
+    NewClass.prototype.btn_meat = function () {
+        var _this = this;
+        var check = this.checkSlotHotDog();
+        if (check == null)
+            return;
+        this.listHand.children[5].opacity = 0;
+        this.scheduleOnce(function () {
+            _this.listHand.children[6].active = true;
+        }, 0.5);
+        cc.audioEngine.play(this.soundShowPop, false, 1);
+        var meat = cc.instantiate(this.preMeat);
+        meat.parent = this.listChao.children[check];
+        meat.position = cc.v3(0, 0);
+        meat.getComponent("meat").value = check;
+        this.arrHotDog[check] = meat;
+        // let pos = this.listHand.children[5].position
+        // this.creatFxColor(pos, 2)
     };
     NewClass.prototype.checkSlotHotDog = function () {
         for (var i = 0; i < this.arrHotDog.length; i++) {
@@ -148,6 +184,19 @@ var NewClass = /** @class */ (function (_super) {
                 return i;
         }
         return null;
+    };
+    NewClass.prototype.checkSlotBuger = function () {
+        for (var i = 0; i < this.arrBuger.length; i++) {
+            if (this.arrBuger[i] == null)
+                return i;
+        }
+        return null;
+    };
+    NewClass.prototype.setGray = function (node) {
+        node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-gray-sprite', node.getComponent(cc.Sprite)));
+    };
+    NewClass.prototype.offGray = function (node) {
+        node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-sprite', node.getComponent(cc.Sprite)));
     };
     NewClass.prototype.btn_bread = function (event) {
         var _this = this;
@@ -165,6 +214,24 @@ var NewClass = /** @class */ (function (_super) {
         this.listHand.children[1].opacity = 0;
         this.scheduleOnce(function () {
             _this.listHand.children[2].active = true;
+        }, 0.5);
+        var pos = event.currentTarget.position;
+        this.creatFxColor(pos, 2);
+    };
+    NewClass.prototype.btn_buger = function (event) {
+        var _this = this;
+        var check = this.checkSlotBuger();
+        if (check == null)
+            return;
+        cc.audioEngine.play(this.soundShowPop, false, 1);
+        var bread = cc.instantiate(this.preBuger);
+        bread.parent = this.listKhayBuger.children[check];
+        bread.position = cc.v3(30, 10);
+        bread.getComponent("buger").value = check;
+        this.arrBuger[check] = bread;
+        this.listHand.children[6].opacity = 0;
+        this.scheduleOnce(function () {
+            _this.listHand.children[7].active = true;
         }, 0.5);
         var pos = event.currentTarget.position;
         this.creatFxColor(pos, 2);
@@ -188,6 +255,30 @@ var NewClass = /** @class */ (function (_super) {
             child.opacity = 0;
             if (_this.isTargetCus) {
                 _this.isTargetCus.getComponent("cusMission").checkBread(child);
+            }
+        }).start();
+        this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5);
+    };
+    NewClass.prototype.sellBuger = function (value) {
+        var _this = this;
+        // console.log(value)
+        if (this.isTargetCus == null)
+            return;
+        if (this.isTargetPop == null)
+            return;
+        // this.listHand.children[4].opacity = 0
+        this.listHand.children[8].opacity = 0;
+        var child = this.arrBuger[value];
+        this.arrBuger[value] = null;
+        var posEnd = this.isTargetPop.position;
+        posEnd = this.isTargetPop.parent.convertToWorldSpaceAR(posEnd);
+        posEnd = child.parent.convertToNodeSpaceAR(posEnd);
+        var pos = child.parent.convertToWorldSpaceAR(child.position);
+        pos = this.node.convertToNodeSpaceAR(pos);
+        cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(function () {
+            child.opacity = 0;
+            if (_this.isTargetCus) {
+                _this.isTargetCus.getComponent("cusMission").checkBuger(child);
             }
         }).start();
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5);
@@ -233,6 +324,24 @@ var NewClass = /** @class */ (function (_super) {
         }
         return null;
     };
+    NewClass.prototype.btn_vegettable = function () {
+        if (this.arrBuger.length <= 0)
+            return;
+        var bread = this.checkVegettable();
+        if (bread == null)
+            return;
+        cc.audioEngine.play(this.soundShowPop, false, 1);
+        bread.getComponent("buger").getVegettable();
+    };
+    NewClass.prototype.checkVegettable = function () {
+        for (var i = 0; i < this.arrBuger.length; i++) {
+            var chld = this.arrBuger[i];
+            if (chld != null && chld.getComponent("buger").isMeat == true && chld.getComponent("buger").isvegettable == false) {
+                return chld;
+            }
+        }
+        return null;
+    };
     NewClass.prototype.clickHotDog = function (value, node) {
         var _this = this;
         if (this.arrBreak.length <= 0)
@@ -259,6 +368,47 @@ var NewClass = /** @class */ (function (_super) {
         for (var i = 0; i < this.arrBreak.length; i++) {
             var chld = this.arrBreak[i];
             if (chld != null && chld.getComponent("preBread").isHotDog == false) {
+                return chld;
+            }
+        }
+        return null;
+    };
+    NewClass.prototype.clearMeat = function () {
+        var node1 = this.arrHotDog[0];
+        var node2 = this.arrHotDog[1];
+        this.arrHotDog[0] = null;
+        this.arrHotDog[1] = null;
+        this.scheduleOnce(function () {
+            node1.destroy();
+            node2.destroy();
+        }, 0.1);
+    };
+    NewClass.prototype.clickMeat = function (value, node) {
+        var _this = this;
+        if (this.arrBuger.length <= 0)
+            return;
+        var child = this.checkBuger();
+        if (child == null)
+            return;
+        cc.audioEngine.play(this.soundShowPop, false, 1);
+        this.listHand.children[7].opacity = 0;
+        this.scheduleOnce(function () {
+            _this.listHand.children[8].active = true;
+        }, 0.5);
+        this.arrHotDog[value] = null;
+        child.getComponent("buger").getMeat();
+        var pos = node.parent.convertToWorldSpaceAR(node.position);
+        pos = this.node.convertToNodeSpaceAR(pos);
+        node.opacity = 0;
+        this.scheduleOnce(function () {
+            node.destroy();
+        }, 0.1);
+        this.creatFxColor(pos, 1.5);
+    };
+    NewClass.prototype.checkBuger = function () {
+        for (var i = 0; i < this.arrBuger.length; i++) {
+            var chld = this.arrBuger[i];
+            if (chld != null && chld.getComponent("buger").isMeat == false) {
                 return chld;
             }
         }
@@ -336,19 +486,19 @@ var NewClass = /** @class */ (function (_super) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            this.camera.node.position = cc.v3(80, 0);
+            this.camera.node.position = cc.v3(-70, 0);
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
             var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
-            this.camera.zoomRatio = 1.5;
+            this.camera.zoomRatio = 1.1;
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 console.log("check iphonex");
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.2;
+                this.camera.zoomRatio = 1;
             }
         }
         else {
@@ -364,7 +514,7 @@ var NewClass = /** @class */ (function (_super) {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.95;
+                this.camera.zoomRatio = 0.8;
             }
         }
     };
@@ -411,6 +561,12 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.Prefab)
     ], NewClass.prototype, "preBread", void 0);
     __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "preBuger", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "preMeat", void 0);
+    __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tuongOt", void 0);
     __decorate([
@@ -419,6 +575,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listKhayBanhMi", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listKhayBuger", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listHand", void 0);
@@ -434,6 +593,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "fxColor", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnMeatNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnBugerNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnVegettableNode", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

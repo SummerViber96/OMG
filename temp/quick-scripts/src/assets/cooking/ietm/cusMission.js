@@ -31,6 +31,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.bread = true;
         _this.hotDog = true;
         _this.chili = false;
+        _this.buger = false;
+        _this.vegettable = false;
+        _this.meat = false;
         _this.count = 3;
         _this.lbCount = null;
         _this.pop = null;
@@ -46,7 +49,20 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isEnd)
             return;
         var breadComp = bread.getComponent("preBread");
-        if (this.hotDog == breadComp.isHotDog && this.chili == breadComp.isTuongCa) {
+        if (this.bread == true && this.hotDog == breadComp.isHotDog && this.chili == breadComp.isTuongCa) {
+            this.updateMission();
+        }
+        else {
+            this.isEnd = true;
+            this.end(false);
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 1);
+        }
+    };
+    NewClass.prototype.checkBuger = function (buger) {
+        if (this.isEnd)
+            return;
+        var breadComp = buger.getComponent("buger");
+        if (this.buger == true && this.meat == breadComp.isMeat && this.vegettable == breadComp.isvegettable) {
             this.updateMission();
         }
         else {
@@ -72,7 +88,7 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.gamePlay.soundClosePop, false, 1);
             cc.tween(_this.pop).to(0.3, { scale: 0 }).start();
-            cc.tween(_this.node).to(0.8, { position: cc.v3(-700, 123.591) }).call(function () {
+            cc.tween(_this.node).to(1, { position: cc.v3(-900, 123.591) }).call(function () {
                 _this.node.active = false;
                 _this.gamePlay.nextCus();
             }).start();
@@ -107,6 +123,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Boolean)
     ], NewClass.prototype, "chili", void 0);
+    __decorate([
+        property(cc.Boolean)
+    ], NewClass.prototype, "buger", void 0);
+    __decorate([
+        property(cc.Boolean)
+    ], NewClass.prototype, "vegettable", void 0);
+    __decorate([
+        property(cc.Boolean)
+    ], NewClass.prototype, "meat", void 0);
     __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "count", void 0);

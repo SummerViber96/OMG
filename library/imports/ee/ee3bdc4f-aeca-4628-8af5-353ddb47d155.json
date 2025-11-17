@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Macho-export",
+    "texture": "d8531b70-3a01-499e-92ef-50e226e2014f",
+    "atlas": "",
+    "rect": [
+      2,
+      3,
+      278,
+      889
+    ],
+    "offset": [
+      -115,
+      64.5
+    ],
+    "originalSize": [
+      512,
+      1024
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

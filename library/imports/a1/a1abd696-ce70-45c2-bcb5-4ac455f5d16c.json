@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Lumberjack-export",
+    "texture": "546ff55a-59dc-4ba5-b015-b666da301c1b",
+    "atlas": "",
+    "rect": [
+      2,
+      3,
+      993,
+      319
+    ],
+    "offset": [
+      -13.5,
+      93.5
+    ],
+    "originalSize": [
+      1024,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

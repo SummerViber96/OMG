@@ -10,6 +10,12 @@ export default class NewClass extends cc.Component {
     hotDog = true;
     @property(cc.Boolean)
     chili = false
+    @property(cc.Boolean)
+    buger = false
+    @property(cc.Boolean)
+    vegettable = false
+    @property(cc.Boolean)
+    meat = false
     @property(cc.Integer)
     count = 3
     @property(cc.Label)
@@ -27,7 +33,20 @@ export default class NewClass extends cc.Component {
     checkBread(bread) {
         if (this.isEnd) return;
         let breadComp = bread.getComponent("preBread");
-        if (this.hotDog == breadComp.isHotDog && this.chili == breadComp.isTuongCa) {
+        if (this.bread == true && this.hotDog == breadComp.isHotDog && this.chili == breadComp.isTuongCa) {
+            this.updateMission()
+        }
+        else {
+            this.isEnd = true
+            this.end(false)
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 1)
+        }
+    }
+    checkBuger(buger) {
+        if (this.isEnd) return;
+
+        let breadComp = buger.getComponent("buger");
+        if (this.buger == true && this.meat == breadComp.isMeat && this.vegettable == breadComp.isvegettable) {
             this.updateMission()
         }
         else {
@@ -38,7 +57,7 @@ export default class NewClass extends cc.Component {
     }
 
     updateMission() {
-       cc.audioEngine.play(this.gamePlay.soundNice, false, 1)
+        cc.audioEngine.play(this.gamePlay.soundNice, false, 1)
         this.count--;
         this.anim.setAnimation(0, "8.happy", true)
         this.pop.getChildByName("right").active = true
@@ -55,7 +74,7 @@ export default class NewClass extends cc.Component {
             cc.audioEngine.play(this.gamePlay.soundClosePop, false, 1)
 
             cc.tween(this.pop).to(0.3, { scale: 0 }).start()
-            cc.tween(this.node).to(0.8, { position: cc.v3(-700, 123.591) }).call(() => {
+            cc.tween(this.node).to(1, { position: cc.v3(-900, 123.591) }).call(() => {
                 this.node.active = false
                 this.gamePlay.nextCus()
 
@@ -64,12 +83,12 @@ export default class NewClass extends cc.Component {
         if (value == true) {
             this.anim.setAnimation(0, "8.happy", false)
             this.pop.getChildByName("right").active = true
-            this.node.getChildByName("happy").active=true
+            this.node.getChildByName("happy").active = true
         }
         else {
             this.anim.setAnimation(0, "7.angry_idle", false)
             this.pop.getChildByName("wrong").active = true
-            this.node.getChildByName("angry").active=true
+            this.node.getChildByName("angry").active = true
 
         }
 

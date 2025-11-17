@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "f281f442-7fcf-41f4-b63e-21b1811c59f3",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 512,
+  "platformSettings": {},
+  "subMetas": {
+    "Barbie-export": {
+      "ver": "1.0.4",
+      "uuid": "b660ab5b-f1a0-4ec3-818d-35dede351c73",
+      "rawTextureUuid": "f281f442-7fcf-41f4-b63e-21b1811c59f3",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -45,
+      "offsetY": 119,
+      "trimX": 3,
+      "trimY": 3,
+      "width": 928,
+      "height": 268,
+      "rawWidth": 1024,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
