@@ -48,6 +48,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.listHand = null;
         _this.soundChesse = null;
         _this.soundWrong = null;
+        _this.soundNice = null;
         _this.fxColor = null;
         // @property(cc.AudioClip)
         // soundBg:cc.AudioClip=null;
@@ -185,7 +186,9 @@ var NewClass = /** @class */ (function (_super) {
         pos = this.node.convertToNodeSpaceAR(pos);
         cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(function () {
             child.opacity = 0;
-            _this.isTargetCus.getComponent("cusMission").checkBread(child);
+            if (_this.isTargetCus) {
+                _this.isTargetCus.getComponent("cusMission").checkBread(child);
+            }
         }).start();
         this.creatFxColor(pos, 1.5);
     };
@@ -425,6 +428,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundWrong", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundNice", void 0);
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "fxColor", void 0);

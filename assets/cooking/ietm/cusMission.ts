@@ -38,9 +38,12 @@ export default class NewClass extends cc.Component {
     }
 
     updateMission() {
+                    cc.audioEngine.play(this.gamePlay.soundNice, false, 1)
+
         this.count--;
         this.anim.setAnimation(0, "8.happy", true)
-
+        this.pop.getChildByName("right").active = true
+        this.pop.getChildByName("right").getComponent(cc.Animation).play()
         if (this.count == 0) {
             this.isEnd = true
 
@@ -61,9 +64,11 @@ export default class NewClass extends cc.Component {
         }, 0.5)
         if (value == true) {
             this.anim.setAnimation(0, "8.happy", false)
+            this.pop.getChildByName("right").active = true
         }
         else {
             this.anim.setAnimation(0, "7.angry_idle", false)
+            this.pop.getChildByName("wrong").active = true
 
         }
 
@@ -74,10 +79,10 @@ export default class NewClass extends cc.Component {
     }
     happy() {
         this.anim.setAnimation(0, "happy1.5s", false)
-        this.scheduleOnce(()=>{
-        this.anim.setAnimation(0, "idle", true)
+        this.scheduleOnce(() => {
+            this.anim.setAnimation(0, "idle", true)
 
-        },1)
+        }, 1)
 
     }
 }

@@ -44,6 +44,8 @@ export default class NewClass extends cc.Component {
     soundChesse: cc.AudioClip = null
     @property(cc.AudioClip)
     soundWrong: cc.AudioClip = null
+       @property(cc.AudioClip)
+    soundNice: cc.AudioClip = null
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
     // @property(cc.AudioClip)
@@ -178,10 +180,13 @@ export default class NewClass extends cc.Component {
         posEnd = this.isTargetPop.parent.convertToWorldSpaceAR(posEnd)
         posEnd = child.parent.convertToNodeSpaceAR(posEnd)
         let pos = child.parent.convertToWorldSpaceAR(child.position);
-        pos=this.node.convertToNodeSpaceAR(pos)
+        pos = this.node.convertToNodeSpaceAR(pos)
         cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(() => {
             child.opacity = 0
-            this.isTargetCus.getComponent("cusMission").checkBread(child)
+            if (this.isTargetCus) {
+                this.isTargetCus.getComponent("cusMission").checkBread(child)
+
+            }
         }).start()
 
         this.creatFxColor(pos, 1.5)

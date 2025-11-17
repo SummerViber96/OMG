@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chiliBox",
+    "texture": "d1bb3f34-0b01-47f5-ad36-592dba5397d1",
+    "atlas": "",
+    "rect": [
+      76,
+      6,
+      223,
+      495
+    ],
+    "offset": [
+      9,
+      2.5
+    ],
+    "originalSize": [
+      357,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

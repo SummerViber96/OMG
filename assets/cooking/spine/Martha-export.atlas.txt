@@ -1,0 +1,293 @@
+
+Martha-export.png
+size: 1964,376
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1Hair
+  rotate: false
+  xy: 1801, 145
+  size: 155, 113
+  orig: 155, 113
+  offset: 0, 0
+  index: -1
+2ForeArmR
+  rotate: false
+  xy: 671, 6
+  size: 271, 141
+  orig: 271, 141
+  offset: 0, 0
+  index: -1
+2Hair
+  rotate: false
+  xy: 1592, 66
+  size: 93, 137
+  orig: 93, 137
+  offset: 0, 0
+  index: -1
+3Hair
+  rotate: false
+  xy: 286, 52
+  size: 110, 78
+  orig: 110, 78
+  offset: 0, 0
+  index: -1
+4Hair
+  rotate: false
+  xy: 398, 8
+  size: 84, 122
+  orig: 84, 122
+  offset: 0, 0
+  index: -1
+5Hair
+  rotate: false
+  xy: 484, 10
+  size: 90, 120
+  orig: 90, 120
+  offset: 0, 0
+  index: -1
+Apron
+  rotate: false
+  xy: 1191, 27
+  size: 249, 140
+  orig: 249, 140
+  offset: 0, 0
+  index: -1
+Arm2
+  rotate: false
+  xy: 260, 132
+  size: 296, 242
+  orig: 296, 242
+  offset: 0, 0
+  index: -1
+ArmL
+  rotate: false
+  xy: 1204, 175
+  size: 96, 199
+  orig: 96, 199
+  offset: 0, 0
+  index: -1
+ArmR
+  rotate: false
+  xy: 1103, 169
+  size: 99, 205
+  orig: 99, 205
+  offset: 0, 0
+  index: -1
+BackHair
+  rotate: false
+  xy: 830, 152
+  size: 271, 222
+  orig: 271, 222
+  offset: 0, 0
+  index: -1
+Big smile
+  rotate: false
+  xy: 177, 41
+  size: 65, 33
+  orig: 65, 33
+  offset: 0, 0
+  index: -1
+Body
+  rotate: false
+  xy: 2, 76
+  size: 256, 298
+  orig: 256, 298
+  offset: 0, 0
+  index: -1
+EyebrowL
+  rotate: false
+  xy: 340, 32
+  size: 41, 18
+  orig: 41, 18
+  offset: 0, 0
+  index: -1
+EyebrowL-SAD
+  rotate: false
+  xy: 558, 135
+  size: 40, 12
+  orig: 40, 12
+  offset: 0, 0
+  index: -1
+EyebrowR
+  rotate: false
+  xy: 344, 12
+  size: 41, 18
+  orig: 41, 18
+  offset: 0, 0
+  index: -1
+EyebrowR-SAD
+  rotate: false
+  xy: 600, 135
+  size: 40, 12
+  orig: 40, 12
+  offset: 0, 0
+  index: -1
+EyelidsL
+  rotate: false
+  xy: 642, 138
+  size: 27, 9
+  orig: 27, 9
+  offset: 0, 0
+  index: -1
+EyelidsR
+  rotate: false
+  xy: 1103, 158
+  size: 27, 9
+  orig: 27, 9
+  offset: 0, 0
+  index: -1
+EyesL
+  rotate: false
+  xy: 232, 12
+  size: 42, 27
+  orig: 42, 27
+  offset: 0, 0
+  index: -1
+EyesR
+  rotate: false
+  xy: 244, 48
+  size: 40, 26
+  orig: 40, 26
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 1442, 32
+  size: 148, 169
+  orig: 148, 169
+  offset: 0, 0
+  index: -1
+FaceSad
+  rotate: false
+  xy: 1495, 205
+  size: 148, 169
+  orig: 148, 169
+  offset: 0, 0
+  index: -1
+ForeArmL
+  rotate: false
+  xy: 1394, 203
+  size: 99, 171
+  orig: 99, 171
+  offset: 0, 0
+  index: -1
+ForeArmL копия
+  rotate: false
+  xy: 1801, 260
+  size: 160, 114
+  orig: 160, 114
+  offset: 0, 0
+  index: -1
+ForeArmR
+  rotate: false
+  xy: 1302, 193
+  size: 90, 181
+  orig: 90, 181
+  offset: 0, 0
+  index: -1
+ForeArmR копия
+  rotate: false
+  xy: 1645, 245
+  size: 154, 129
+  orig: 154, 129
+  offset: 0, 0
+  index: -1
+HandL
+  rotate: false
+  xy: 1824, 60
+  size: 120, 83
+  orig: 120, 83
+  offset: 0, 0
+  index: -1
+HandL 2
+  rotate: false
+  xy: 1747, 25
+  size: 75, 118
+  orig: 75, 118
+  offset: 0, 0
+  index: -1
+HandR
+  rotate: false
+  xy: 1687, 146
+  size: 102, 97
+  orig: 102, 97
+  offset: 0, 0
+  index: -1
+HandR 2
+  rotate: false
+  xy: 576, 3
+  size: 70, 130
+  orig: 70, 130
+  offset: 0, 0
+  index: -1
+Hat
+  rotate: false
+  xy: 558, 149
+  size: 270, 225
+  orig: 270, 225
+  offset: 0, 0
+  index: -1
+Layer 3
+  rotate: false
+  xy: 1687, 24
+  size: 58, 119
+  orig: 58, 119
+  offset: 0, 0
+  index: -1
+Lips Sad
+  rotate: false
+  xy: 177, 9
+  size: 53, 30
+  orig: 53, 30
+  offset: 0, 0
+  index: -1
+Lips Smile
+  rotate: false
+  xy: 276, 23
+  size: 62, 23
+  orig: 62, 23
+  offset: 0, 0
+  index: -1
+PupilL
+  rotate: false
+  xy: 260, 96
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+PupilR
+  rotate: false
+  xy: 260, 114
+  size: 17, 16
+  orig: 17, 16
+  offset: 0, 0
+  index: -1
+Shadow-ArmL
+  rotate: false
+  xy: 944, 2
+  size: 245, 148
+  orig: 245, 148
+  offset: 0, 0
+  index: -1
+Shadow-ArmR
+  rotate: false
+  xy: 2, 6
+  size: 173, 68
+  orig: 173, 68
+  offset: 0, 0
+  index: -1
+WhitesL
+  rotate: false
+  xy: 276, 2
+  size: 32, 19
+  orig: 32, 19
+  offset: 0, 0
+  index: -1
+WhitesR
+  rotate: false
+  xy: 310, 2
+  size: 32, 19
+  orig: 32, 19
+  offset: 0, 0
+  index: -1

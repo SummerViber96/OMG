@@ -56,8 +56,11 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.updateMission = function () {
+        cc.audioEngine.play(this.gamePlay.soundNice, false, 1);
         this.count--;
         this.anim.setAnimation(0, "8.happy", true);
+        this.pop.getChildByName("right").active = true;
+        this.pop.getChildByName("right").getComponent(cc.Animation).play();
         if (this.count == 0) {
             this.isEnd = true;
             this.end(true);
@@ -76,9 +79,11 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.5);
         if (value == true) {
             this.anim.setAnimation(0, "8.happy", false);
+            this.pop.getChildByName("right").active = true;
         }
         else {
             this.anim.setAnimation(0, "7.angry_idle", false);
+            this.pop.getChildByName("wrong").active = true;
         }
     };
     NewClass.prototype.update = function (dt) {

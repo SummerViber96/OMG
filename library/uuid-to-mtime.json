@@ -6925,8 +6925,8 @@
     "relativePath": "HF\\GamePLay.ts"
   },
   "0b7f9dac-b354-4f2a-bea4-79c5d89d0604": {
-    "asset": 1763053126522,
-    "meta": 1763053126535,
+    "asset": 1763267286566,
+    "meta": 1763267286583,
     "relativePath": "scenes\\App.fire"
   },
   "fa4eae0b-43a9-4d8c-a363-51914721f27c": {
@@ -6956,7 +6956,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1763051578440,
+    "meta": 1763265150484,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7036,7 +7036,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761763030039,
-    "meta": 1763051578438,
+    "meta": 1763265150481,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7106,7 +7106,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761763009587,
-    "meta": 1763051578437,
+    "meta": 1763265150482,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -7410,8 +7410,8 @@
     "relativePath": "scripts\\APP\\mainMusic.ts"
   },
   "e5292322-8f76-4afa-9ad7-1b7db9dc0007": {
-    "asset": 1762751685631,
-    "meta": 1763051578230,
+    "asset": 1763223937527,
+    "meta": 1763265150460,
     "relativePath": "cooking"
   },
   "a3d31886-4c91-4c46-9ff9-6bf2af8d9f3b": {
@@ -7755,19 +7755,9 @@
     "relativePath": "cooking\\New Folder"
   },
   "3e476b89-e788-4b16-8eda-140bb8d9b65c": {
-    "asset": 1762748749989,
-    "meta": 1763051578408,
+    "asset": 1763223372385,
+    "meta": 1763265150461,
     "relativePath": "cooking\\spine"
-  },
-  "c64a076a-c28f-4cd6-a1c9-caa81cac96bc": {
-    "asset": 1762656583371,
-    "meta": 1762656583399,
-    "relativePath": "cooking\\spine\\k-pop idol-export.atlas.txt"
-  },
-  "516e8012-70be-4a84-bf28-a7bd453f23fe": {
-    "asset": 1762656583371,
-    "meta": 1762656583438,
-    "relativePath": "cooking\\spine\\k-pop idol-export.json"
   },
   "b018050a-5fc1-4688-97b7-5897e5aab039": {
     "asset": 1762656593627,
@@ -7778,16 +7768,6 @@
     "asset": 1762656593629,
     "meta": 1762656593708,
     "relativePath": "cooking\\spine\\Granny-export.json"
-  },
-  "4ffeb826-a89f-47ef-bde2-c68d3ec19f63": {
-    "asset": 1762656600619,
-    "meta": 1762656600637,
-    "relativePath": "cooking\\spine\\Boy-export.atlas.txt"
-  },
-  "7256e325-c613-479d-864e-36da719d8c60": {
-    "asset": 1762656600620,
-    "meta": 1762656600680,
-    "relativePath": "cooking\\spine\\Boy-export.json"
   },
   "fb904768-7231-4937-b11f-a0c3ff2bc74e": {
     "asset": 1762656615648,
@@ -8091,7 +8071,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1763051578452,
+    "meta": 1763265150488,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
@@ -8259,11 +8239,6 @@
     "meta": 1762748663421,
     "relativePath": "cooking\\HotdogBun.png"
   },
-  "df471751-4994-441d-860d-acf6566b2eea": {
-    "asset": 1762723534000,
-    "meta": 1762748769832,
-    "relativePath": "cooking\\spine\\Boy-export.png"
-  },
   "d21a72bf-b8f0-452a-8849-6d3b987a5a84": {
     "asset": 1762723534000,
     "meta": 1762748769834,
@@ -8299,11 +8274,6 @@
     "meta": 1762748769908,
     "relativePath": "cooking\\spine\\Hot dog.png"
   },
-  "598b0659-3fbf-472b-8907-fec81dae2977": {
-    "asset": 1762723534000,
-    "meta": 1762748769926,
-    "relativePath": "cooking\\spine\\k-pop idol-export.png"
-  },
   "c111476a-d646-416d-8610-26ce7c47a39a": {
     "asset": 1762748862424,
     "meta": 1762749099758,
@@ -8333,11 +8303,6 @@
     "asset": 1762750846330,
     "meta": 1762750846334,
     "relativePath": "cooking\\preFab\\preColorFx.prefab"
-  },
-  "c1cd78ed-5d5b-458e-a680-a9d9f139d7ab": {
-    "asset": 1762751447302,
-    "meta": 1762751448492,
-    "relativePath": "scripts\\APP\\GameApp.ts"
   },
   "87735073-b04e-4c60-9ded-c0c4897191c5": {
     "asset": 1762770876647,
@@ -9284,11 +9249,6 @@
     "meta": 1763051576125,
     "relativePath": "model\\primitives.fbx"
   },
-  "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1762764407409,
-    "meta": 1762764420614,
-    "relativePath": "cooking\\ietm\\cusMission.ts"
-  },
   "c62096b1-3eb4-4de5-974d-e29f96a61c20": {
     "asset": 1762764492526,
     "meta": 1762764492540,
@@ -9318,5 +9278,100 @@
     "asset": 1762769984792,
     "meta": 1762770002804,
     "relativePath": "scripts\\APP\\CC2.ts"
+  },
+  "4ffeb826-a89f-47ef-bde2-c68d3ec19f63": {
+    "asset": 1763223175557,
+    "meta": 1763223175624,
+    "relativePath": "cooking\\spine\\Boy-export.atlas.txt"
+  },
+  "df471751-4994-441d-860d-acf6566b2eea": {
+    "asset": 1763223175559,
+    "meta": 1763223175667,
+    "relativePath": "cooking\\spine\\Boy-export.png"
+  },
+  "7256e325-c613-479d-864e-36da719d8c60": {
+    "asset": 1763223175559,
+    "meta": 1763223175693,
+    "relativePath": "cooking\\spine\\Boy-export.json"
+  },
+  "c64a076a-c28f-4cd6-a1c9-caa81cac96bc": {
+    "asset": 1763223372386,
+    "meta": 1763223372459,
+    "relativePath": "cooking\\spine\\k-pop idol-export.atlas.txt"
+  },
+  "598b0659-3fbf-472b-8907-fec81dae2977": {
+    "asset": 1763223372388,
+    "meta": 1763223372487,
+    "relativePath": "cooking\\spine\\k-pop idol-export.png"
+  },
+  "516e8012-70be-4a84-bf28-a7bd453f23fe": {
+    "asset": 1763223372387,
+    "meta": 1763223372507,
+    "relativePath": "cooking\\spine\\k-pop idol-export.json"
+  },
+  "d1bb3f34-0b01-47f5-ad36-592dba5397d1": {
+    "asset": 1763223937526,
+    "meta": 1763223937565,
+    "relativePath": "cooking\\chiliBox.png"
+  },
+  "61937f71-b0ed-444e-86d8-d7d633829103": {
+    "asset": 1763265806771,
+    "meta": 1763265806801,
+    "relativePath": "cooking\\tai_xuong_96.png"
+  },
+  "65f68619-6bf7-4b84-a7b4-9a8389d2040e": {
+    "asset": 1763265806772,
+    "meta": 1763265806803,
+    "relativePath": "cooking\\download_5.png"
+  },
+  "74dd71ab-59fd-46df-ae1b-2da839e6d69b": {
+    "asset": 1763265816024,
+    "meta": 1763265816025,
+    "relativePath": "cooking\\tick"
+  },
+  "7e2968ef-5cab-46f3-8238-e99b65408f06": {
+    "asset": 1763265821535,
+    "meta": 1763265821561,
+    "relativePath": "cooking\\tick\\download_5.png"
+  },
+  "f5dff0fc-d942-42b7-bd4b-77638ba7e8fc": {
+    "asset": 1763265821534,
+    "meta": 1763265821562,
+    "relativePath": "cooking\\tick\\tai_xuong_96.png"
+  },
+  "b9f03c1f-1433-4ea8-bf38-fc9023a84487": {
+    "asset": 1763266313375,
+    "meta": 1763266313394,
+    "relativePath": "anim\\object\\tick_on.anim"
+  },
+  "70d7f802-f542-43b9-a0f4-89be4c74a64c": {
+    "asset": 1763266864540,
+    "meta": 1763266864585,
+    "relativePath": "cooking\\spine\\Martha-export.atlas.txt"
+  },
+  "b6448eeb-7392-4837-9e38-62e05a0e72ec": {
+    "asset": 1763266864542,
+    "meta": 1763266864655,
+    "relativePath": "cooking\\spine\\Martha-export.json"
+  },
+  "e300e84f-cdb1-4557-8fed-3da6bf99bd83": {
+    "asset": 1763266864543,
+    "meta": 1763266864633,
+    "relativePath": "cooking\\spine\\Martha-export.png"
+  },
+  "568baf79-eb5b-4f98-87b8-2627dca8b794": {
+    "asset": 1763267104595,
+    "meta": 1763267105211,
+    "relativePath": "scripts\\APP\\nice.m4a"
+  },
+  "2147ad02-7b76-4274-8b19-f305f656d77c": {
+    "asset": 1763267145316,
+    "meta": 1763267146586,
+    "relativePath": "cooking\\ietm\\cusMission.ts"
+  },
+  "c1cd78ed-5d5b-458e-a680-a9d9f139d7ab": {
+    "asset": 1763267124472,
+    "meta": 1763267146713,
+    "relativePath": "scripts\\APP\\GameApp.ts"
   }
 }
