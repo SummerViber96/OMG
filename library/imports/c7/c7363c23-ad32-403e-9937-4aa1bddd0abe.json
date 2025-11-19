@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Hand.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nHand.png\r\nsize: 440,208\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nRing\r\n  rotate: false\r\n  xy: 205, 4\r\n  size: 50, 50\r\n  orig: 50, 50\r\n  offset: 0, 0\r\n  index: -1\r\nRing2\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 201, 201\r\n  orig: 201, 201\r\n  offset: 0, 0\r\n  index: -1\r\nhand1\r\n  rotate: true\r\n  xy: 205, 56\r\n  size: 147, 119\r\n  orig: 147, 119\r\n  offset: 0, 0\r\n  index: -1\r\nhand2\r\n  rotate: true\r\n  xy: 326, 48\r\n  size: 155, 110\r\n  orig: 155, 110\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}
