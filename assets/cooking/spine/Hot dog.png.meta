@@ -7,8 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
-  "width": 844,
-  "height": 288,
+  "width": 512,
+  "height": 512,
   "platformSettings": {},
   "subMetas": {
     "Hot dog": {

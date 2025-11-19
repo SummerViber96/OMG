@@ -1,0 +1,567 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "Hand",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "RmeAAZjaNjvweY6CSl1Sd/g56C8",
+      "spine": "3.7.94",
+      "width": 146.5,
+      "height": 119,
+      "images": "./images/",
+      "audio": "E:/CV Nguyen/CCR/HAND/anim"
+    },
+    "bones": [
+      {
+        "name": "root",
+        "scaleX": 0.5,
+        "scaleY": 0.5
+      },
+      {
+        "name": "hand1",
+        "parent": "root",
+        "x": 166.44,
+        "y": -86.64
+      },
+      {
+        "name": "hand2",
+        "parent": "hand1",
+        "x": -0.52
+      },
+      {
+        "name": "Ring",
+        "parent": "root",
+        "y": -0.02
+      },
+      {
+        "name": "Ring2",
+        "parent": "root",
+        "x": -0.04,
+        "y": -0.06
+      },
+      {
+        "name": "Ring3",
+        "parent": "root",
+        "x": -0.04,
+        "y": -0.06
+      }
+    ],
+    "slots": [
+      {
+        "name": "Ring",
+        "bone": "Ring"
+      },
+      {
+        "name": "Ring2",
+        "bone": "Ring2"
+      },
+      {
+        "name": "Ring4",
+        "bone": "Ring2"
+      },
+      {
+        "name": "Ring3",
+        "bone": "Ring3"
+      },
+      {
+        "name": "Ring5",
+        "bone": "Ring3"
+      },
+      {
+        "name": "hand1",
+        "bone": "hand1",
+        "attachment": "hand1"
+      },
+      {
+        "name": "hand2",
+        "bone": "hand2"
+      }
+    ],
+    "skins": {
+      "default": {
+        "Ring": {
+          "Ring": {
+            "y": 0.02,
+            "width": 100,
+            "height": 100
+          }
+        },
+        "Ring2": {
+          "Ring2": {
+            "x": 0.04,
+            "y": 0.06,
+            "width": 402,
+            "height": 402
+          }
+        },
+        "Ring3": {
+          "Ring2": {
+            "x": 0.04,
+            "y": 0.06,
+            "width": 402,
+            "height": 402
+          }
+        },
+        "Ring4": {
+          "Ring2": {
+            "x": 0.04,
+            "y": 0.06,
+            "scaleX": 1.226,
+            "scaleY": 1.226,
+            "width": 402,
+            "height": 402
+          }
+        },
+        "Ring5": {
+          "Ring2": {
+            "x": 0.04,
+            "y": 0.06,
+            "scaleX": 1.23,
+            "scaleY": 1.23,
+            "width": 402,
+            "height": 402
+          }
+        },
+        "hand1": {
+          "hand1": {
+            "x": -33.46,
+            "y": 9.82,
+            "width": 293,
+            "height": 238
+          }
+        },
+        "hand2": {
+          "hand2": {
+            "x": -41.45,
+            "y": 0.32,
+            "width": 310,
+            "height": 219
+          }
+        }
+      }
+    },
+    "animations": {
+      "double click": {
+        "slots": {
+          "Ring": {
+            "color": [
+              {
+                "time": 0.2,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.5333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.2,
+                "name": "Ring"
+              }
+            ]
+          },
+          "Ring2": {
+            "color": [
+              {
+                "time": 0.3,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.6333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.3,
+                "name": "Ring2"
+              },
+              {
+                "time": 0.6333,
+                "name": null
+              }
+            ]
+          },
+          "Ring3": {
+            "color": [
+              {
+                "time": 0.5333,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.8333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.5333,
+                "name": "Ring2"
+              },
+              {
+                "time": 0.8333,
+                "name": null
+              }
+            ]
+          },
+          "Ring4": {
+            "color": [
+              {
+                "time": 0.3,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.6333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.3,
+                "name": "Ring2"
+              }
+            ]
+          },
+          "Ring5": {
+            "color": [
+              {
+                "time": 0.5333,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.8333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.5333,
+                "name": "Ring2"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "Ring": {
+            "scale": [
+              {
+                "time": 0.2,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 0.5333,
+                "x": 1.399,
+                "y": 1.399
+              }
+            ]
+          },
+          "Ring2": {
+            "scale": [
+              {
+                "time": 0.3,
+                "x": 0.326,
+                "y": 0.326
+              },
+              {
+                "time": 0.6333,
+                "x": 1,
+                "y": 1
+              }
+            ]
+          },
+          "Ring3": {
+            "scale": [
+              {
+                "time": 0.5333,
+                "x": 0.326,
+                "y": 0.326
+              },
+              {
+                "time": 0.8333,
+                "x": 1,
+                "y": 1
+              }
+            ]
+          },
+          "hand1": {
+            "rotate": [
+              {
+                "time": 0,
+                "angle": -3
+              },
+              {
+                "time": 0.2,
+                "angle": 0
+              },
+              {
+                "time": 0.3667,
+                "angle": -3
+              },
+              {
+                "time": 0.5333,
+                "angle": 0
+              },
+              {
+                "time": 0.8333,
+                "angle": -3
+              }
+            ],
+            "translate": [
+              {
+                "time": 0,
+                "x": 29.07,
+                "y": -1.52
+              },
+              {
+                "time": 0.2,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "time": 0.3667,
+                "x": 29.07,
+                "y": -1.52
+              },
+              {
+                "time": 0.5333,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "time": 0.8333,
+                "x": 29.07,
+                "y": -1.52
+              }
+            ],
+            "scale": [
+              {
+                "time": 0,
+                "x": 1.2,
+                "y": 1.2
+              },
+              {
+                "time": 0.2,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 0.3667,
+                "x": 1.2,
+                "y": 1.2
+              },
+              {
+                "time": 0.5333,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 0.8333,
+                "x": 1.2,
+                "y": 1.2,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.3333,
+                "x": 1.2,
+                "y": 1.2
+              }
+            ]
+          }
+        }
+      },
+      "one click": {
+        "slots": {
+          "Ring": {
+            "color": [
+              {
+                "time": 0.2,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.5,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.2,
+                "name": "Ring"
+              }
+            ]
+          },
+          "Ring2": {
+            "color": [
+              {
+                "time": 0.3,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.6333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.3,
+                "name": "Ring2"
+              },
+              {
+                "time": 0.6333,
+                "name": null
+              }
+            ]
+          },
+          "Ring3": {
+            "color": [
+              {
+                "time": 0.5,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.8333,
+                "color": "ffffff00"
+              }
+            ]
+          },
+          "Ring4": {
+            "color": [
+              {
+                "time": 0.3,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.6333,
+                "color": "ffffff00"
+              }
+            ]
+          },
+          "Ring5": {
+            "color": [
+              {
+                "time": 0.5,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.8333,
+                "color": "ffffff00"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "Ring": {
+            "scale": [
+              {
+                "time": 0.2,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 0.5,
+                "x": 1.399,
+                "y": 1.399
+              }
+            ]
+          },
+          "Ring2": {
+            "scale": [
+              {
+                "time": 0.3,
+                "x": 0.326,
+                "y": 0.326
+              },
+              {
+                "time": 0.6333,
+                "x": 1,
+                "y": 1
+              }
+            ]
+          },
+          "Ring3": {
+            "scale": [
+              {
+                "time": 0.5,
+                "x": 0.326,
+                "y": 0.326
+              },
+              {
+                "time": 0.8333,
+                "x": 1,
+                "y": 1
+              }
+            ]
+          },
+          "hand1": {
+            "rotate": [
+              {
+                "time": 0,
+                "angle": -3
+              },
+              {
+                "time": 0.2,
+                "angle": 0
+              },
+              {
+                "time": 0.3667,
+                "angle": -3
+              }
+            ],
+            "translate": [
+              {
+                "time": 0,
+                "x": 29.07,
+                "y": -1.52
+              },
+              {
+                "time": 0.2,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "time": 0.3667,
+                "x": 29.07,
+                "y": -1.52
+              }
+            ],
+            "scale": [
+              {
+                "time": 0,
+                "x": 1.2,
+                "y": 1.2
+              },
+              {
+                "time": 0.2,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 0.3667,
+                "x": 1.2,
+                "y": 1.2,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.3333,
+                "x": 1.2,
+                "y": 1.2
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\r\nHand.png\r\nsize: 440,208\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nRing\r\n  rotate: false\r\n  xy: 205, 4\r\n  size: 50, 50\r\n  orig: 50, 50\r\n  offset: 0, 0\r\n  index: -1\r\nRing2\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 201, 201\r\n  orig: 201, 201\r\n  offset: 0, 0\r\n  index: -1\r\nhand1\r\n  rotate: true\r\n  xy: 205, 56\r\n  size: 147, 119\r\n  orig: 147, 119\r\n  offset: 0, 0\r\n  index: -1\r\nhand2\r\n  rotate: true\r\n  xy: 326, 48\r\n  size: 155, 110\r\n  orig: 155, 110\r\n  offset: 0, 0\r\n  index: -1\r\n",
+  "textures": [
+    {
+      "__uuid__": "1f742ef5-c5d1-4e79-8e4d-198c2e246019"
+    }
+  ],
+  "textureNames": [
+    "Hand.png"
+  ],
+  "scale": 1
+}
