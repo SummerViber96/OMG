@@ -33,12 +33,14 @@ export default class NewClass extends cc.Component {
         else {
             this.isEnd = true
             this.end(false)
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 1)
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.5)
         }
     }
 
     updateMission() {
-       cc.audioEngine.play(this.gamePlay.soundNice, false, 1)
+        cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5)
+        cc.audioEngine.play(this.gamePlay.soundYes, false, 1)
+
         this.count--;
         this.anim.setAnimation(0, "8.happy", true)
         this.pop.getChildByName("right").active = true
@@ -62,14 +64,16 @@ export default class NewClass extends cc.Component {
             }).start()
         }, 0.5)
         if (value == true) {
+            // cc.audioEngine.play(this.gamePlay.soundNiceGame, false, 1)
+
             this.anim.setAnimation(0, "8.happy", false)
             this.pop.getChildByName("right").active = true
-            this.node.getChildByName("happy").active=true
+            this.node.getChildByName("happy").active = true
         }
         else {
             this.anim.setAnimation(0, "7.angry_idle", false)
             this.pop.getChildByName("wrong").active = true
-            this.node.getChildByName("angry").active=true
+            this.node.getChildByName("angry").active = true
 
         }
 

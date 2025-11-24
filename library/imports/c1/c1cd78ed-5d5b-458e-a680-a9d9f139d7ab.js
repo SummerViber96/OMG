@@ -49,6 +49,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundChesse = null;
         _this.soundWrong = null;
         _this.soundNice = null;
+        _this.soundYes = null;
+        _this.soundNiceGame = null;
         _this.fxColor = null;
         // @property(cc.AudioClip)
         // soundBg:cc.AudioClip=null;
@@ -67,7 +69,7 @@ var NewClass = /** @class */ (function (_super) {
             window.gameReady && window.gameReady();
         }
         this.showCus();
-        cc.audioEngine.play(this.soundBg, true, 1);
+        cc.audioEngine.play(this.soundBg, true, 0.5);
     };
     NewClass.prototype.showCus = function () {
         var _this = this;
@@ -265,7 +267,7 @@ var NewClass = /** @class */ (function (_super) {
         return null;
     };
     NewClass.prototype.onEndGame = function () {
-        cc.audioEngine.play(this.soundWin, false, 1);
+        cc.audioEngine.play(this.soundWin, false, 0.6);
         this.endCard.active = true;
         this.linkToStore.active = true;
     };
@@ -431,6 +433,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundNice", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundYes", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundNiceGame", void 0);
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "fxColor", void 0);

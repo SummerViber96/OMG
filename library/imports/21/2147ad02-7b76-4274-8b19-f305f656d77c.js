@@ -52,11 +52,12 @@ var NewClass = /** @class */ (function (_super) {
         else {
             this.isEnd = true;
             this.end(false);
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 1);
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.5);
         }
     };
     NewClass.prototype.updateMission = function () {
-        cc.audioEngine.play(this.gamePlay.soundNice, false, 1);
+        cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5);
+        cc.audioEngine.play(this.gamePlay.soundYes, false, 1);
         this.count--;
         this.anim.setAnimation(0, "8.happy", true);
         this.pop.getChildByName("right").active = true;
@@ -78,6 +79,7 @@ var NewClass = /** @class */ (function (_super) {
             }).start();
         }, 0.5);
         if (value == true) {
+            // cc.audioEngine.play(this.gamePlay.soundNiceGame, false, 1)
             this.anim.setAnimation(0, "8.happy", false);
             this.pop.getChildByName("right").active = true;
             this.node.getChildByName("happy").active = true;

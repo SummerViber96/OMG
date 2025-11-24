@@ -44,8 +44,12 @@ export default class NewClass extends cc.Component {
     soundChesse: cc.AudioClip = null
     @property(cc.AudioClip)
     soundWrong: cc.AudioClip = null
-       @property(cc.AudioClip)
+    @property(cc.AudioClip)
     soundNice: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundYes: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundNiceGame: cc.AudioClip = null
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
     // @property(cc.AudioClip)
@@ -60,7 +64,7 @@ export default class NewClass extends cc.Component {
             window.gameReady && window.gameReady();
         }
         this.showCus()
-        cc.audioEngine.play(this.soundBg, true, 1)
+        cc.audioEngine.play(this.soundBg, true, 0.5)
     }
     showCus() {
         let child = this.listCus.children[0]
@@ -189,7 +193,7 @@ export default class NewClass extends cc.Component {
             }
         }).start()
 
-        this.creatFxColor(pos.add(cc.v3(0,50)), 1.5)
+        this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5)
     }
     isDelaytuong = false
     btn_tuongCa() {
@@ -267,7 +271,7 @@ export default class NewClass extends cc.Component {
         return null
     }
     onEndGame() {
-        cc.audioEngine.play(this.soundWin, false, 1)
+        cc.audioEngine.play(this.soundWin, false, 0.6)
         this.endCard.active = true;
         this.linkToStore.active = true
     }
