@@ -55,7 +55,7 @@ var NewClass = /** @class */ (function (_super) {
         else {
             this.isEnd = true;
             this.end(false);
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 1);
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8);
         }
     };
     NewClass.prototype.checkBuger = function (buger) {
@@ -68,11 +68,12 @@ var NewClass = /** @class */ (function (_super) {
         else {
             this.isEnd = true;
             this.end(false);
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 1);
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8);
         }
     };
     NewClass.prototype.updateMission = function () {
-        cc.audioEngine.play(this.gamePlay.soundNice, false, 1);
+        cc.audioEngine.play(this.gamePlay.soundYes, false, 1);
+        cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5);
         this.count--;
         this.anim.setAnimation(0, "8.happy", true);
         this.pop.getChildByName("right").active = true;

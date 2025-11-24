@@ -39,7 +39,7 @@ export default class NewClass extends cc.Component {
         else {
             this.isEnd = true
             this.end(false)
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 1)
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
         }
     }
     checkBuger(buger) {
@@ -52,12 +52,13 @@ export default class NewClass extends cc.Component {
         else {
             this.isEnd = true
             this.end(false)
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 1)
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
         }
     }
 
     updateMission() {
-        cc.audioEngine.play(this.gamePlay.soundNice, false, 1)
+        cc.audioEngine.play(this.gamePlay.soundYes,false,1)
+        cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5)
         this.count--;
         this.anim.setAnimation(0, "8.happy", true)
         this.pop.getChildByName("right").active = true

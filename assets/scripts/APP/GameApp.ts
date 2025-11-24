@@ -52,6 +52,8 @@ export default class NewClass extends cc.Component {
     soundWrong: cc.AudioClip = null
     @property(cc.AudioClip)
     soundNice: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundYes:cc.AudioClip=null
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
     @property(cc.Node)
@@ -72,7 +74,7 @@ export default class NewClass extends cc.Component {
             window.gameReady && window.gameReady();
         }
         this.showCus()
-        cc.audioEngine.play(this.soundBg, true, 1)
+        cc.audioEngine.play(this.soundBg, true, 0.5)
     }
     showCus() {
         let child = this.listCus.children[0]
