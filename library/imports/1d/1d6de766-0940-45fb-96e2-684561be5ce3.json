@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "title bg lock 2023",
+    "texture": "c0199bec-7b5d-4144-b821-636dcebc7987",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      207,
+      49
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      207,
+      49
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

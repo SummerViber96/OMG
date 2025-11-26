@@ -98,6 +98,7 @@ var NewClass = /** @class */ (function (_super) {
             this.anim.setAnimation(0, "8.happy", false);
             this.pop.getChildByName("right").active = true;
             this.node.getChildByName("happy").active = true;
+            this.node.getChildByName("vfx_coin").active = true;
         }
         else {
             this.anim.setAnimation(0, "7.angry_idle", false);

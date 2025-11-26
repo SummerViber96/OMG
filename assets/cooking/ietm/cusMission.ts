@@ -57,7 +57,7 @@ export default class NewClass extends cc.Component {
     }
 
     updateMission() {
-        cc.audioEngine.play(this.gamePlay.soundYes,false,1)
+        cc.audioEngine.play(this.gamePlay.soundYes, false, 1)
         cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5)
         this.count--;
         this.anim.setAnimation(0, "8.happy", true)
@@ -85,6 +85,8 @@ export default class NewClass extends cc.Component {
             this.anim.setAnimation(0, "8.happy", false)
             this.pop.getChildByName("right").active = true
             this.node.getChildByName("happy").active = true
+            this.node.getChildByName("vfx_coin").active = true
+
         }
         else {
             this.anim.setAnimation(0, "7.angry_idle", false)
