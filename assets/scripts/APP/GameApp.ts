@@ -1,7 +1,7 @@
 
 
 const { ccclass, property } = cc._decorator;
-
+globalThis.gold = 0
 @ccclass
 export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
@@ -53,7 +53,9 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundNice: cc.AudioClip = null
     @property(cc.AudioClip)
-    soundYes:cc.AudioClip=null
+    soundYes: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundQuest: cc.AudioClip = null
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
     @property(cc.Node)
@@ -62,6 +64,10 @@ export default class NewClass extends cc.Component {
     btnBugerNode: cc.Node = null;
     @property(cc.Node)
     btnVegettableNode: cc.Node = null;
+    @property(cc.Node)
+    barCoin: cc.Node = null
+    @property(cc.Label)
+    lbCoin: cc.Label = null;
     // @property(cc.AudioClip)
     // soundBg:cc.AudioClip=null;
 
@@ -120,21 +126,38 @@ export default class NewClass extends cc.Component {
 
                 }, 0.1)
                 if (this.countCus == 3) {
-                    this.btnBugerNode.getComponent(cc.Button).enabled = true;
-                    this.btnVegettableNode.getComponent(cc.Button).enabled = true;
-                    this.btnMeatNode.getComponent(cc.Button).enabled = true;
-                    this.btnBugerNode.children[0].active = false;
-                    this.btnMeatNode.children[0].active = false
-                    this.btnVegettableNode.children[0].active = false
+                    // globalThis.gold += 200
+                    if (globalThis.gold < 100) {
+                        globalThis.gold += 100;
 
-                    this.offGray(this.btnBugerNode);
-                    this.offGray(this.btnVegettableNode);
-                    this.offGray(this.btnMeatNode);
+                    }
+                    // this.btnBugerNode.getComponent(cc.Button).enabled = true;
+                    // this.btnVegettableNode.getComponent(cc.Button).enabled = true;
+                    // this.btnMeatNode.getComponent(cc.Button).enabled = true;
+                    // this.btnBugerNode.children[0].active = false;
+                    // this.btnMeatNode.children[0].active = false
+                    // this.btnVegettableNode.children[0].active = false
+                    this.onBtn(this.btnMeatNode)
+                    // this.offGray(this.btnBugerNode);
+                    // this.offGray(this.btnVegettableNode);
+                    // this.offGray(this.btnMeatNode);
                     this.listHand.children[5].active = true
                 }
             }).start()
         }
 
+    }
+    onBtn(btn) {
+        btn.getComponent(cc.Button).enabled = true;
+        // btn.children[0].children[0].active = false;
+        let bar = btn.children[0].children[2]
+        this.offGray(bar)
+    }
+    appearBtn(btn) {
+        let bar = btn.children[0].children[2]
+        cc.tween(bar).to(0.3, { scale: 0 }).start()
+        let lock = btn.children[0]
+        cc.tween(lock).to(0.4, { opacity: 0 }).start()
     }
     arrHotDog = [null, null, null, null, null, null];
     arrBreak = [null, null, null];
@@ -162,12 +185,26 @@ export default class NewClass extends cc.Component {
         this.creatFxColor(pos, 2)
 
     }
+    isLockMeat = true
     btn_meat() {
+        if (this.isLockMeat == true && globalThis.gold >= 100) {
+            globalThis.gold -= 100;
+            this.appearBtn(this.btnMeatNode)
+            this.isLockMeat = false
+            cc.audioEngine.play(this.soundQuest,false,0.5)
+            return;
+        }
         let check = this.checkSlotHotDog()
         if (check == null) return;
         this.listHand.children[5].opacity = 0
         this.scheduleOnce(() => {
             this.listHand.children[6].active = true
+            this.onBtn(this.btnBugerNode)
+            if (globalThis.gold < 200) {
+                globalThis.gold += 200;
+
+            }
+
         }, 0.5)
         cc.audioEngine.play(this.soundShowPop, false, 1)
         let meat = cc.instantiate(this.preMeat);
@@ -232,7 +269,17 @@ export default class NewClass extends cc.Component {
         this.creatFxColor(pos, 2)
 
     }
+    isLockBuger = true
+
     btn_buger(event) {
+        if (this.isLockBuger == true && globalThis.gold >= 200) {
+            globalThis.gold -= 200;
+            this.appearBtn(this.btnBugerNode)
+            this.isLockBuger = false
+                        cc.audioEngine.play(this.soundQuest,false,0.5)
+
+            return;
+        }
         let check = this.checkSlotBuger()
         if (check == null) return;
         cc.audioEngine.play(this.soundShowPop, false, 1)
@@ -337,12 +384,27 @@ export default class NewClass extends cc.Component {
         }
         return null
     }
+    isLockVegettable = true
+
     btn_vegettable() {
+        if (this.isLockVegettable == true && globalThis.gold >= 200) {
+            globalThis.gold -= 200;
+            this.appearBtn(this.btnVegettableNode)
+            this.isLockVegettable = false
+                        cc.audioEngine.play(this.soundQuest,false,0.5)
+
+            return;
+        }
         if (this.arrBuger.length <= 0) return;
         let bread = this.checkVegettable();
         if (bread == null) return;
+        this.listHand.children[9].opacity = 0
         cc.audioEngine.play(this.soundShowPop, false, 1);
         bread.getComponent("buger").getVegettable();
+        this.scheduleOnce(() => {
+            this.listHand.children[8].active = false;
+
+        }, 0.3)
 
     }
     checkVegettable() {
@@ -404,8 +466,9 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundShowPop, false, 1)
         this.listHand.children[7].opacity = 0
         this.scheduleOnce(() => {
-            this.listHand.children[8].active = true
-
+            this.listHand.children[9].active = true
+            globalThis.gold += 200
+            this.onBtn(this.btnVegettableNode)
         }, 0.5)
         this.arrHotDog[value] = null
         child.getComponent("buger").getMeat()
@@ -486,6 +549,7 @@ export default class NewClass extends cc.Component {
     //     }
     // }
     update(dt) {
+        this.lbCoin.string = globalThis.gold.toString()
         let deviceResolution = cc.view.getFrameSize();
         if (deviceResolution.width < deviceResolution.height) {
             this.reponsive(true);
@@ -502,6 +566,8 @@ export default class NewClass extends cc.Component {
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = cc.v3(0, -50)
+        this.barCoin.scale = (logic) ? 1.6 : 1
+        // this.barCoin.y=(logic)?400:470
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;

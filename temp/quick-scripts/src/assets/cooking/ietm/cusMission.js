@@ -74,6 +74,9 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.updateMission = function () {
         cc.audioEngine.play(this.gamePlay.soundYes, false, 1);
         cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5);
+        this.node.getChildByName("vfx_coin").active = true;
+        this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play();
+        globalThis.gold += 50;
         this.count--;
         this.anim.setAnimation(0, "8.happy", true);
         this.pop.getChildByName("right").active = true;
@@ -98,7 +101,6 @@ var NewClass = /** @class */ (function (_super) {
             this.anim.setAnimation(0, "8.happy", false);
             this.pop.getChildByName("right").active = true;
             this.node.getChildByName("happy").active = true;
-            this.node.getChildByName("vfx_coin").active = true;
         }
         else {
             this.anim.setAnimation(0, "7.angry_idle", false);

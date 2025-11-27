@@ -455,8 +455,8 @@
     "relativePath": "anim\\tree\\text_show.anim"
   },
   "70838e08-311c-4e4c-909d-7952e186a0a0": {
-    "asset": 1763345369241,
-    "meta": 1764149675822,
+    "asset": 1764152505705,
+    "meta": 1764208576708,
     "relativePath": "anim\\vfx"
   },
   "8ebe7bcb-216a-47ad-9512-5b16c53bc69c": {
@@ -6925,8 +6925,8 @@
     "relativePath": "HF\\GamePLay.ts"
   },
   "0b7f9dac-b354-4f2a-bea4-79c5d89d0604": {
-    "asset": 1764152916985,
-    "meta": 1764152917004,
+    "asset": 1764213782921,
+    "meta": 1764213782939,
     "relativePath": "scenes\\App.fire"
   },
   "fa4eae0b-43a9-4d8c-a363-51914721f27c": {
@@ -6956,7 +6956,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761829220486,
-    "meta": 1764149739092,
+    "meta": 1764208576964,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7036,7 +7036,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761829220461,
-    "meta": 1764149739050,
+    "meta": 1764208576966,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7106,7 +7106,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761829220458,
-    "meta": 1764149739050,
+    "meta": 1764208576962,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -7410,8 +7410,8 @@
     "relativePath": "scripts\\APP\\mainMusic.ts"
   },
   "e5292322-8f76-4afa-9ad7-1b7db9dc0007": {
-    "asset": 1764149673134,
-    "meta": 1764149680971,
+    "asset": 1764151349321,
+    "meta": 1764208576856,
     "relativePath": "cooking"
   },
   "a3d31886-4c91-4c46-9ff9-6bf2af8d9f3b": {
@@ -7946,7 +7946,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1763345369767,
-    "meta": 1764149739438,
+    "meta": 1764208576974,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
@@ -7958,11 +7958,6 @@
     "asset": 1763345369650,
     "meta": 1764149686946,
     "relativePath": "cooking\\preFab\\preHotDog.prefab"
-  },
-  "322676f3-3142-4f0e-9afb-cfc21e3a7e56": {
-    "asset": 1763345369668,
-    "meta": 1764149687485,
-    "relativePath": "cooking\\sound\\Music-Bg-GamePlay-mp3cutnet.mp3"
   },
   "7834fa04-766f-49c1-bd49-05dba1da4efa": {
     "asset": 1763345369686,
@@ -8079,11 +8074,6 @@
     "meta": 1764149688924,
     "relativePath": "cooking\\tomato_lv2.png"
   },
-  "825e68d7-58f9-4329-b8be-f7f217ace41a": {
-    "asset": 1763345369492,
-    "meta": 1764149685034,
-    "relativePath": "cooking\\HotdogBun.png"
-  },
   "d21a72bf-b8f0-452a-8849-6d3b987a5a84": {
     "asset": 1763345369695,
     "meta": 1764149688315,
@@ -8113,11 +8103,6 @@
     "asset": 1763345369601,
     "meta": 1764149685974,
     "relativePath": "cooking\\logo.png"
-  },
-  "97f41450-2f43-43de-be0b-9c6ada4e745e": {
-    "asset": 1763345369662,
-    "meta": 1764149687320,
-    "relativePath": "cooking\\sound\\Game_Win.mp3"
   },
   "a6d17731-f471-4f04-808e-54979f6fadd0": {
     "asset": 1763345369663,
@@ -9014,11 +8999,6 @@
     "meta": 1764149688485,
     "relativePath": "cooking\\spine\\Hot dog.atlas.txt"
   },
-  "16ee75ef-debc-4970-9c87-b166c7def455": {
-    "asset": 1763373552489,
-    "meta": 1764149688513,
-    "relativePath": "cooking\\spine\\Hot dog.png"
-  },
   "272d2b5a-67fa-489a-97e7-c78e811ada80": {
     "asset": 1763373552490,
     "meta": 1764149739454,
@@ -9049,19 +9029,14 @@
     "meta": 1764149681072,
     "relativePath": "cooking\\bgNew.png"
   },
-  "c1cd78ed-5d5b-458e-a680-a9d9f139d7ab": {
-    "asset": 1764149563042,
-    "meta": 1764149700945,
-    "relativePath": "scripts\\APP\\GameApp.ts"
-  },
   "165640fe-f2ed-4aaa-b9b1-7c0701609ec4": {
     "asset": 1764149562992,
     "meta": 1764149690318,
     "relativePath": "cooking\\yes (mp3cut.net).mp3"
   },
   "7d149153-ff6a-4b54-8e8c-b8cfa1364b72": {
-    "asset": 1764149999194,
-    "meta": 1764149999195,
+    "asset": 1764150023642,
+    "meta": 1764208576857,
     "relativePath": "cooking\\lock"
   },
   "68d492b5-839c-42c7-a533-31124732bcb8": {
@@ -9140,8 +9115,8 @@
     "relativePath": "cooking\\lock\\iconLock.png"
   },
   "72ae52ac-85b0-4f9d-afe4-7662cad9240a": {
-    "asset": 1764151347772,
-    "meta": 1764151347782,
+    "asset": 1764151353974,
+    "meta": 1764208576925,
     "relativePath": "cooking\\vfx"
   },
   "5fa0d870-f534-48f1-89a8-7fbb3be41e31": {
@@ -9660,8 +9635,38 @@
     "relativePath": "anim\\vfx\\vfx_coinSpaw.anim"
   },
   "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1764152831415,
-    "meta": 1764152833632,
+    "asset": 1764209251978,
+    "meta": 1764209617014,
     "relativePath": "cooking\\ietm\\cusMission.ts"
+  },
+  "825e68d7-58f9-4329-b8be-f7f217ace41a": {
+    "asset": 1764213176566,
+    "meta": 1764213314507,
+    "relativePath": "cooking\\HotdogBun.png"
+  },
+  "c1cd78ed-5d5b-458e-a680-a9d9f139d7ab": {
+    "asset": 1764213511116,
+    "meta": 1764213515134,
+    "relativePath": "scripts\\APP\\GameApp.ts"
+  },
+  "bf80a4f6-7dfb-42a9-9d78-2a9005ec9ce2": {
+    "asset": 1764213429352,
+    "meta": 1764213516074,
+    "relativePath": "sound\\quest_complete.mp3"
+  },
+  "97f41450-2f43-43de-be0b-9c6ada4e745e": {
+    "asset": 1764213603463,
+    "meta": 1764213664010,
+    "relativePath": "cooking\\sound\\Game_Win.mp3"
+  },
+  "322676f3-3142-4f0e-9afb-cfc21e3a7e56": {
+    "asset": 1764213569147,
+    "meta": 1764213664012,
+    "relativePath": "cooking\\sound\\Music-Bg-GamePlay-mp3cutnet.mp3"
+  },
+  "16ee75ef-debc-4970-9c87-b166c7def455": {
+    "asset": 1764213689668,
+    "meta": 1764213746070,
+    "relativePath": "cooking\\spine\\Hot dog.png"
   }
 }

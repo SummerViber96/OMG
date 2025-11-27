@@ -24,6 +24,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+globalThis.gold = 0;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
@@ -53,10 +54,13 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundWrong = null;
         _this.soundNice = null;
         _this.soundYes = null;
+        _this.soundQuest = null;
         _this.fxColor = null;
         _this.btnMeatNode = null;
         _this.btnBugerNode = null;
         _this.btnVegettableNode = null;
+        _this.barCoin = null;
+        _this.lbCoin = null;
         // @property(cc.AudioClip)
         // soundBg:cc.AudioClip=null;
         _this.isTargetPop = null;
@@ -67,7 +71,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.arrBreak = [null, null, null];
         _this.arrBuger = [null, null, null];
         _this.arrTuongCa = [];
+        _this.isLockMeat = true;
+        _this.isLockBuger = true;
         _this.isDelaytuong = false;
+        _this.isLockVegettable = true;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -119,19 +126,36 @@ var NewClass = /** @class */ (function (_super) {
                     cc.audioEngine.play(_this.soundShowPop, false, 1);
                 }, 0.1);
                 if (_this.countCus == 3) {
-                    _this.btnBugerNode.getComponent(cc.Button).enabled = true;
-                    _this.btnVegettableNode.getComponent(cc.Button).enabled = true;
-                    _this.btnMeatNode.getComponent(cc.Button).enabled = true;
-                    _this.btnBugerNode.children[0].active = false;
-                    _this.btnMeatNode.children[0].active = false;
-                    _this.btnVegettableNode.children[0].active = false;
-                    _this.offGray(_this.btnBugerNode);
-                    _this.offGray(_this.btnVegettableNode);
-                    _this.offGray(_this.btnMeatNode);
+                    // globalThis.gold += 200
+                    if (globalThis.gold < 100) {
+                        globalThis.gold += 100;
+                    }
+                    // this.btnBugerNode.getComponent(cc.Button).enabled = true;
+                    // this.btnVegettableNode.getComponent(cc.Button).enabled = true;
+                    // this.btnMeatNode.getComponent(cc.Button).enabled = true;
+                    // this.btnBugerNode.children[0].active = false;
+                    // this.btnMeatNode.children[0].active = false
+                    // this.btnVegettableNode.children[0].active = false
+                    _this.onBtn(_this.btnMeatNode);
+                    // this.offGray(this.btnBugerNode);
+                    // this.offGray(this.btnVegettableNode);
+                    // this.offGray(this.btnMeatNode);
                     _this.listHand.children[5].active = true;
                 }
             }).start();
         }
+    };
+    NewClass.prototype.onBtn = function (btn) {
+        btn.getComponent(cc.Button).enabled = true;
+        // btn.children[0].children[0].active = false;
+        var bar = btn.children[0].children[2];
+        this.offGray(bar);
+    };
+    NewClass.prototype.appearBtn = function (btn) {
+        var bar = btn.children[0].children[2];
+        cc.tween(bar).to(0.3, { scale: 0 }).start();
+        var lock = btn.children[0];
+        cc.tween(lock).to(0.4, { opacity: 0 }).start();
     };
     NewClass.prototype.btn_hotDog = function (event) {
         var _this = this;
@@ -156,12 +180,23 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_meat = function () {
         var _this = this;
+        if (this.isLockMeat == true && globalThis.gold >= 100) {
+            globalThis.gold -= 100;
+            this.appearBtn(this.btnMeatNode);
+            this.isLockMeat = false;
+            cc.audioEngine.play(this.soundQuest, false, 0.5);
+            return;
+        }
         var check = this.checkSlotHotDog();
         if (check == null)
             return;
         this.listHand.children[5].opacity = 0;
         this.scheduleOnce(function () {
             _this.listHand.children[6].active = true;
+            _this.onBtn(_this.btnBugerNode);
+            if (globalThis.gold < 200) {
+                globalThis.gold += 200;
+            }
         }, 0.5);
         cc.audioEngine.play(this.soundShowPop, false, 1);
         var meat = cc.instantiate(this.preMeat);
@@ -221,6 +256,13 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_buger = function (event) {
         var _this = this;
+        if (this.isLockBuger == true && globalThis.gold >= 200) {
+            globalThis.gold -= 200;
+            this.appearBtn(this.btnBugerNode);
+            this.isLockBuger = false;
+            cc.audioEngine.play(this.soundQuest, false, 0.5);
+            return;
+        }
         var check = this.checkSlotBuger();
         if (check == null)
             return;
@@ -326,13 +368,25 @@ var NewClass = /** @class */ (function (_super) {
         return null;
     };
     NewClass.prototype.btn_vegettable = function () {
+        var _this = this;
+        if (this.isLockVegettable == true && globalThis.gold >= 200) {
+            globalThis.gold -= 200;
+            this.appearBtn(this.btnVegettableNode);
+            this.isLockVegettable = false;
+            cc.audioEngine.play(this.soundQuest, false, 0.5);
+            return;
+        }
         if (this.arrBuger.length <= 0)
             return;
         var bread = this.checkVegettable();
         if (bread == null)
             return;
+        this.listHand.children[9].opacity = 0;
         cc.audioEngine.play(this.soundShowPop, false, 1);
         bread.getComponent("buger").getVegettable();
+        this.scheduleOnce(function () {
+            _this.listHand.children[8].active = false;
+        }, 0.3);
     };
     NewClass.prototype.checkVegettable = function () {
         for (var i = 0; i < this.arrBuger.length; i++) {
@@ -394,7 +448,9 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundShowPop, false, 1);
         this.listHand.children[7].opacity = 0;
         this.scheduleOnce(function () {
-            _this.listHand.children[8].active = true;
+            _this.listHand.children[9].active = true;
+            globalThis.gold += 200;
+            _this.onBtn(_this.btnVegettableNode);
         }, 0.5);
         this.arrHotDog[value] = null;
         child.getComponent("buger").getMeat();
@@ -467,6 +523,7 @@ var NewClass = /** @class */ (function (_super) {
     //     }
     // }
     NewClass.prototype.update = function (dt) {
+        this.lbCoin.string = globalThis.gold.toString();
         var deviceResolution = cc.view.getFrameSize();
         if (deviceResolution.width < deviceResolution.height) {
             this.reponsive(true);
@@ -483,6 +540,8 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, -50);
+        this.barCoin.scale = (logic) ? 1.6 : 1;
+        // this.barCoin.y=(logic)?400:470
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
@@ -595,6 +654,9 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundYes", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundQuest", void 0);
+    __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "fxColor", void 0);
     __decorate([
@@ -606,6 +668,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnVegettableNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "barCoin", void 0);
+    __decorate([
+        property(cc.Label)
+    ], NewClass.prototype, "lbCoin", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
