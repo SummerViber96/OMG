@@ -35,6 +35,10 @@ export default class NewClass extends cc.Component {
     soundWrong: cc.AudioClip = null
     @property(cc.AudioClip)
     soundOpen: cc.AudioClip = null
+        @property(cc.AudioClip)
+    soundCherry: cc.AudioClip = null
+          @property(cc.AudioClip)
+    soundNo: cc.AudioClip = null
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
     @property(cc.Node)
@@ -55,6 +59,10 @@ export default class NewClass extends cc.Component {
     btnXitHong: cc.Node = null;
     @property(cc.Node)
     btnXitKem: cc.Node = null;
+    @property(cc.Node)
+    cherry: cc.Node = null;
+    @property(cc.Node)
+    btnCherry: cc.Node = null;
     cusComp = null
     cake = null;
     // @property(cc.AudioClip)
@@ -119,11 +127,36 @@ export default class NewClass extends cc.Component {
 
     }
     btm_cake2() {
+        this.isTut = 4;
         this.listHand.children[0].active = false
 
         this.cakeMain2.getComponent(cc.Button).enabled = false
 
         this.cakeMain.getComponent(cc.Animation).play("cake_3");
+        cc.audioEngine.play(this.soundWrong, false, 1)
+        this.listCus.children[0].children[0].getComponent(cc.Animation).play()
+        let child = this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0,"angry",true)
+        this.scheduleOnce(() => {
+            this.listHand.children[2].active = true
+        }, 1)
+        this.scheduleOnce(() => {
+            if (this.isTut == 4) {
+                this.btn_xitKem()
+            }
+        }, 5)
+
+    }
+    btn_cherry() {
+        cc.audioEngine.play(this.soundCherry,false,1)
+        this.btnCherry.getComponent(cc.Button).enabled = true
+        this.cherry.getComponent(cc.Animation).play();
+        this.isTut = 6
+        this.listHand.children[3].active = false
+        cc.audioEngine.play(this.soundNo,false,1)
+        this.scheduleOnce(()=>{
+            this.onEndGame()
+
+        },2)
 
     }
     isDelayHong = false
@@ -134,9 +167,29 @@ export default class NewClass extends cc.Component {
         this.listHand.children[1].active = false
         this.scheduleOnce(() => {
             this.listHand.children[0].active = true
-
         }, 1)
         this.isTut = 3
+        this.scheduleOnce(() => {
+            if (this.isTut == 3) {
+                this.btm_cake2()
+            }
+        }, 5)
+    }
+    btn_xitKem() {
+        this.btnXitKem.getComponent(cc.Button).enabled = false
+        cc.audioEngine.play(this.soundChesse, false, 1)
+        this.cakeMain.getComponent(cc.Animation).play("cake_4");
+        this.listHand.children[2].active = false
+        this.scheduleOnce(() => {
+            this.listHand.children[3].active = true
+        }, 1)
+        this.isTut = 5
+        this.scheduleOnce(() => {
+            if (this.isTut == 5) {
+                // this.btm_cake2()
+                this.btn_cherry()
+            }
+        }, 5)
     }
     // btn_xitHong() {
     //     if (!this.isCake) return
@@ -216,70 +269,70 @@ export default class NewClass extends cc.Component {
     isDelayKem = false
     isPhase2 = false
     isPhase3 = false
-    btn_xitKem() {
-        if (!this.isCake) return
+    // btn_xitKem() {
+    //     if (!this.isCake) return
 
-        if (this.isDelayKem) return;
-        if (this.isTang == 1) {
-            if (this.isKem == 0) {
-                this.listHand.children[1].active = false
-                this.scheduleOnce(() => {
-                    this.listHand.children[0].active = true
+    //     if (this.isDelayKem) return;
+    //     if (this.isTang == 1) {
+    //         if (this.isKem == 0) {
+    //             this.listHand.children[1].active = false
+    //             this.scheduleOnce(() => {
+    //                 this.listHand.children[0].active = true
 
-                }, 0.4)
-                this.isTut = 3
+    //             }, 0.4)
+    //             this.isTut = 3
 
-                this.scheduleOnce(() => {
-                    this.cake.getComponent("cake2").xitkem()
-                    this.isPhase2 = false;
-                    this.isPhase3 = true
+    //             this.scheduleOnce(() => {
+    //                 this.cake.getComponent("cake2").xitkem()
+    //                 this.isPhase2 = false;
+    //                 this.isPhase3 = true
 
-                }, 0.5)
-                this.isKem = 1
-            }
-            else {
-                return;
-            }
-        }
-        else {
-            if (this.isKem2 == 0) {
-                this.isTut = 5
+    //             }, 0.5)
+    //             this.isKem = 1
+    //         }
+    //         else {
+    //             return;
+    //         }
+    //     }
+    //     else {
+    //         if (this.isKem2 == 0) {
+    //             this.isTut = 5
 
-                this.scheduleOnce(() => {
-                    this.cake.getComponent("cake2").xitkem()
-                    this.isKem2Qua = true
-                    this.listHand.children[2].active = false
-                    this.listHand.children[3].active = true
-                }, 0.5)
-                this.isKem = 3
-            }
-            else {
-                return;
-            }
-        }
+    //             this.scheduleOnce(() => {
+    //                 this.cake.getComponent("cake2").xitkem()
+    //                 this.isKem2Qua = true
+    //                 this.listHand.children[2].active = false
+    //                 this.listHand.children[3].active = true
+    //             }, 0.5)
+    //             this.isKem = 3
+    //         }
+    //         else {
+    //             return;
+    //         }
+    //     }
 
-        cc.audioEngine.play(this.soundChesse, false, 1)
+    //     cc.audioEngine.play(this.soundChesse, false, 1)
 
-        this.isDelayKem = true;
-        this.xitKem.getComponent(cc.Animation).play();
-        this.xitKem.zIndex = 1
-        this.scheduleOnce(() => {
-            this.xitKem.position = cc.v3(271.958, -373.765)
-            this.isDelayKem = false;
-            this.scheduleOnce(() => {
-                if (this.isTut == 3) {
-                    this.cakeNode.getComponent("cake").tutOnPlate()
-                }
-            }, 5)
-            if (this.isTut == 5) {
-                this.scheduleOnce(() => {
-                    if (this.isTut == 5) {
-                        this.btn_qua()
-                    }
-                }, 5)
-            }
-        }, 0.5)
-    }
+    //     this.isDelayKem = true;
+    //     this.xitKem.getComponent(cc.Animation).play();
+    //     this.xitKem.zIndex = 1
+    //     this.scheduleOnce(() => {
+    //         this.xitKem.position = cc.v3(271.958, -373.765)
+    //         this.isDelayKem = false;
+    //         this.scheduleOnce(() => {
+    //             if (this.isTut == 3) {
+    //                 this.cakeNode.getComponent("cake").tutOnPlate()
+    //             }
+    //         }, 5)
+    //         if (this.isTut == 5) {
+    //             this.scheduleOnce(() => {
+    //                 if (this.isTut == 5) {
+    //                     this.btn_qua()
+    //                 }
+    //             }, 5)
+    //         }
+    //     }, 0.5)
+    // }
     isKem2Qua = null
     btn_qua() {
         if (this.isKem2Qua == null) return;

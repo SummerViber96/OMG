@@ -31,6 +31,7 @@
     "ScrollBar",
     "ScrollView",
     "StudioComponent",
+    "Toggle",
     "TiledMap",
     "VideoPlayer",
     "WebView",
@@ -63,5 +64,5 @@
       "enable": false
     }
   },
-  "last-module-event-record-time": 1762748520832
+  "last-module-event-record-time": 1764693368876
 }

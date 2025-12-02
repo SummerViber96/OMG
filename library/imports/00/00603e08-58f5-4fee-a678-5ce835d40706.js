@@ -43,6 +43,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundChesse = null;
         _this.soundWrong = null;
         _this.soundOpen = null;
+        _this.soundCherry = null;
+        _this.soundNo = null;
         _this.fxColor = null;
         _this.cus = null;
         _this.xitKem = null;
@@ -53,6 +55,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.cakeMain2 = null;
         _this.btnXitHong = null;
         _this.btnXitKem = null;
+        _this.cherry = null;
+        _this.btnCherry = null;
         _this.cusComp = null;
         _this.cake = null;
         // @property(cc.AudioClip)
@@ -71,6 +75,63 @@ var NewClass = /** @class */ (function (_super) {
         _this.isDelayKem = false;
         _this.isPhase2 = false;
         _this.isPhase3 = false;
+        // btn_xitKem() {
+        //     if (!this.isCake) return
+        //     if (this.isDelayKem) return;
+        //     if (this.isTang == 1) {
+        //         if (this.isKem == 0) {
+        //             this.listHand.children[1].active = false
+        //             this.scheduleOnce(() => {
+        //                 this.listHand.children[0].active = true
+        //             }, 0.4)
+        //             this.isTut = 3
+        //             this.scheduleOnce(() => {
+        //                 this.cake.getComponent("cake2").xitkem()
+        //                 this.isPhase2 = false;
+        //                 this.isPhase3 = true
+        //             }, 0.5)
+        //             this.isKem = 1
+        //         }
+        //         else {
+        //             return;
+        //         }
+        //     }
+        //     else {
+        //         if (this.isKem2 == 0) {
+        //             this.isTut = 5
+        //             this.scheduleOnce(() => {
+        //                 this.cake.getComponent("cake2").xitkem()
+        //                 this.isKem2Qua = true
+        //                 this.listHand.children[2].active = false
+        //                 this.listHand.children[3].active = true
+        //             }, 0.5)
+        //             this.isKem = 3
+        //         }
+        //         else {
+        //             return;
+        //         }
+        //     }
+        //     cc.audioEngine.play(this.soundChesse, false, 1)
+        //     this.isDelayKem = true;
+        //     this.xitKem.getComponent(cc.Animation).play();
+        //     this.xitKem.zIndex = 1
+        //     this.scheduleOnce(() => {
+        //         this.xitKem.position = cc.v3(271.958, -373.765)
+        //         this.isDelayKem = false;
+        //         this.scheduleOnce(() => {
+        //             if (this.isTut == 3) {
+        //                 this.cakeNode.getComponent("cake").tutOnPlate()
+        //             }
+        //         }, 5)
+        //         if (this.isTut == 5) {
+        //             this.scheduleOnce(() => {
+        //                 if (this.isTut == 5) {
+        //                     this.btn_qua()
+        //                 }
+        //             }, 5)
+        //         }
+        //     }, 0.5)
+        // }
         _this.isKem2Qua = null;
         _this.arrHotDog = [null, null, null, null, null, null];
         _this.arrBreak = [null, null, null];
@@ -125,9 +186,34 @@ var NewClass = /** @class */ (function (_super) {
         }, 2);
     };
     NewClass.prototype.btm_cake2 = function () {
+        var _this = this;
+        this.isTut = 4;
         this.listHand.children[0].active = false;
         this.cakeMain2.getComponent(cc.Button).enabled = false;
         this.cakeMain.getComponent(cc.Animation).play("cake_3");
+        cc.audioEngine.play(this.soundWrong, false, 1);
+        this.listCus.children[0].children[0].getComponent(cc.Animation).play();
+        var child = this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0, "angry", true);
+        this.scheduleOnce(function () {
+            _this.listHand.children[2].active = true;
+        }, 1);
+        this.scheduleOnce(function () {
+            if (_this.isTut == 4) {
+                _this.btn_xitKem();
+            }
+        }, 5);
+    };
+    NewClass.prototype.btn_cherry = function () {
+        var _this = this;
+        cc.audioEngine.play(this.soundCherry, false, 1);
+        this.btnCherry.getComponent(cc.Button).enabled = true;
+        this.cherry.getComponent(cc.Animation).play();
+        this.isTut = 6;
+        this.listHand.children[3].active = false;
+        cc.audioEngine.play(this.soundNo, false, 1);
+        this.scheduleOnce(function () {
+            _this.onEndGame();
+        }, 2);
     };
     NewClass.prototype.btn_xitHong = function () {
         var _this = this;
@@ -139,6 +225,28 @@ var NewClass = /** @class */ (function (_super) {
             _this.listHand.children[0].active = true;
         }, 1);
         this.isTut = 3;
+        this.scheduleOnce(function () {
+            if (_this.isTut == 3) {
+                _this.btm_cake2();
+            }
+        }, 5);
+    };
+    NewClass.prototype.btn_xitKem = function () {
+        var _this = this;
+        this.btnXitKem.getComponent(cc.Button).enabled = false;
+        cc.audioEngine.play(this.soundChesse, false, 1);
+        this.cakeMain.getComponent(cc.Animation).play("cake_4");
+        this.listHand.children[2].active = false;
+        this.scheduleOnce(function () {
+            _this.listHand.children[3].active = true;
+        }, 1);
+        this.isTut = 5;
+        this.scheduleOnce(function () {
+            if (_this.isTut == 5) {
+                // this.btm_cake2()
+                _this.btn_cherry();
+            }
+        }, 5);
     };
     // btn_xitHong() {
     //     if (!this.isCake) return
@@ -207,66 +315,6 @@ var NewClass = /** @class */ (function (_super) {
                 _this.btn_xitKem();
             }
         }, 5);
-    };
-    NewClass.prototype.btn_xitKem = function () {
-        var _this = this;
-        if (!this.isCake)
-            return;
-        if (this.isDelayKem)
-            return;
-        if (this.isTang == 1) {
-            if (this.isKem == 0) {
-                this.listHand.children[1].active = false;
-                this.scheduleOnce(function () {
-                    _this.listHand.children[0].active = true;
-                }, 0.4);
-                this.isTut = 3;
-                this.scheduleOnce(function () {
-                    _this.cake.getComponent("cake2").xitkem();
-                    _this.isPhase2 = false;
-                    _this.isPhase3 = true;
-                }, 0.5);
-                this.isKem = 1;
-            }
-            else {
-                return;
-            }
-        }
-        else {
-            if (this.isKem2 == 0) {
-                this.isTut = 5;
-                this.scheduleOnce(function () {
-                    _this.cake.getComponent("cake2").xitkem();
-                    _this.isKem2Qua = true;
-                    _this.listHand.children[2].active = false;
-                    _this.listHand.children[3].active = true;
-                }, 0.5);
-                this.isKem = 3;
-            }
-            else {
-                return;
-            }
-        }
-        cc.audioEngine.play(this.soundChesse, false, 1);
-        this.isDelayKem = true;
-        this.xitKem.getComponent(cc.Animation).play();
-        this.xitKem.zIndex = 1;
-        this.scheduleOnce(function () {
-            _this.xitKem.position = cc.v3(271.958, -373.765);
-            _this.isDelayKem = false;
-            _this.scheduleOnce(function () {
-                if (_this.isTut == 3) {
-                    _this.cakeNode.getComponent("cake").tutOnPlate();
-                }
-            }, 5);
-            if (_this.isTut == 5) {
-                _this.scheduleOnce(function () {
-                    if (_this.isTut == 5) {
-                        _this.btn_qua();
-                    }
-                }, 5);
-            }
-        }, 0.5);
     };
     NewClass.prototype.btn_qua = function () {
         var _this = this;
@@ -628,6 +676,12 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundOpen", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundCherry", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundNo", void 0);
+    __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "fxColor", void 0);
     __decorate([
@@ -657,6 +711,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnXitKem", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "cherry", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnCherry", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "b850c920-018a-44f4-885b-e4702b24f8bc",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 183,
+  "height": 232,
+  "platformSettings": {},
+  "subMetas": {
+    "Deco2": {
+      "ver": "1.0.4",
+      "uuid": "945c10d1-af2b-423e-84e3-a471bd2278d9",
+      "rawTextureUuid": "b850c920-018a-44f4-885b-e4702b24f8bc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 0,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 182,
+      "height": 232,
+      "rawWidth": 183,
+      "rawHeight": 232,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
