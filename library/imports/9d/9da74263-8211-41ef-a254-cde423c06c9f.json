@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Image Sequence_017_0032",
+    "texture": "e6b5ec73-cca4-408f-9d8b-97e2b4ad0431",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2560,
+      1440
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2560,
+      1440
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

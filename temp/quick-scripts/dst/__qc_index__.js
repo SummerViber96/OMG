@@ -10,9 +10,14 @@
                     };
                     function __define (exports, require, module) {
                         if (!nodeEnv) {__quick_compile_project__.registerModule(__filename, module);}
+require('./assets/DrawLine/DrawLine');
+require('./assets/DrawLine/LevelManager');
+require('./assets/DrawLine/LevelOutline');
 require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');
 require('./assets/HF/touch');
+require('./assets/NewDraw/DrawCheck');
+require('./assets/NewDraw/GameManager');
 require('./assets/cooking/ietm/cake');
 require('./assets/cooking/ietm/cake2');
 require('./assets/cooking/ietm/cusMission');
@@ -20,6 +25,7 @@ require('./assets/cooking/ietm/hotdog');
 require('./assets/cooking/ietm/preBread');
 require('./assets/scripts/APP/CC2');
 require('./assets/scripts/APP/GameApp');
+require('./assets/scripts/APP/GamePlay');
 require('./assets/scripts/APP/mainGun');
 require('./assets/scripts/APP/mainMusic');
 require('./assets/scripts/APP/volum');
