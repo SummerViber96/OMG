@@ -42,12 +42,17 @@ var NewClass = /** @class */ (function (_super) {
         _this.listCus = null;
         _this.soundChesse = null;
         _this.soundWrong = null;
+        _this.soundOpen = null;
         _this.fxColor = null;
         _this.cus = null;
         _this.xitKem = null;
         _this.xitHong = null;
         _this.listHand = null;
         _this.cakeNode = null;
+        _this.cakeMain = null;
+        _this.cakeMain2 = null;
+        _this.btnXitHong = null;
+        _this.btnXitKem = null;
         _this.cusComp = null;
         _this.cake = null;
         // @property(cc.AudioClip)
@@ -61,6 +66,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isKem = 0;
         _this.isKem2 = 0;
         _this.isTut = 0;
+        _this.isCountCake = 0;
         _this.isDelayHong = false;
         _this.isDelayKem = false;
         _this.isPhase2 = false;
@@ -79,11 +85,11 @@ var NewClass = /** @class */ (function (_super) {
             window.gameReady && window.gameReady();
         }
         this.showCus();
-        cc.audioEngine.play(this.soundBg, true, 1);
+        cc.audioEngine.play(this.soundBg, true, 0.4);
         this.listHand.zIndex = 5;
         this.scheduleOnce(function () {
             if (_this.isTut == 0) {
-                _this.cakeNode.getComponent("cake").tutOnPlate();
+                _this.btn_cake();
             }
         }, 5);
     };
@@ -97,67 +103,102 @@ var NewClass = /** @class */ (function (_super) {
             }
         }, 5);
     };
-    NewClass.prototype.btn_xitHong = function () {
+    NewClass.prototype.btn_cake = function () {
         var _this = this;
-        if (!this.isCake)
-            return;
-        if (this.isDelayHong)
-            return;
-        if (this.isTang == 1) {
-            if (this.isKem == 0) {
-                this.listHand.children[1].active = false;
-                this.isTut = 3;
-                this.scheduleOnce(function () {
-                    _this.listHand.children[0].active = true;
-                }, 0.4);
-                this.scheduleOnce(function () {
-                    _this.cake.getComponent("cake2").xitHong();
-                    _this.isPhase2 = false;
-                    _this.isPhase3 = true;
-                }, 0.4);
-                this.isKem = 1;
-            }
-            else {
-                return;
-            }
+        this.cakeMain.getComponent(cc.Button).enabled = false;
+        if (this.isPhase3 == true) {
+            this.isTang = 2;
+            this.listHand.children[2].active = true;
         }
         else {
-            if (this.isKem2 == 0) {
-                // console.log(this.cake)
-                this.listHand.children[2].active = false;
-                this.listHand.children[3].active = true;
-                this.isTut = 5;
-                this.scheduleOnce(function () {
-                    _this.cake.getComponent("cake2").xitHong();
-                    _this.isKem2Qua = false;
-                }, 0.5);
-                this.isKem = 3;
-            }
-            else {
-                return;
-            }
+            this.listHand.children[1].active = true;
+            this.setTut2();
         }
-        cc.audioEngine.play(this.soundChesse, false, 1);
-        this.isDelayHong = true;
-        this.xitHong.getComponent(cc.Animation).play();
-        this.xitHong.zIndex = 1;
+        this.cakeMain.getComponent(cc.Animation).play("cake_spaw1");
+        this.isTang = 2;
+        this.cusComp.happy();
+        this.isCake = true;
+        this.isPhase2 = true;
+        this.listHand.children[0].active = false;
         this.scheduleOnce(function () {
-            _this.xitHong.position = cc.v3(-271.664, -373.904);
-            _this.isDelayHong = false;
-            _this.scheduleOnce(function () {
-                if (_this.isTut == 3) {
-                    _this.cakeNode.getComponent("cake").tutOnPlate();
-                }
-            }, 5);
-            if (_this.isTut == 5) {
-                _this.scheduleOnce(function () {
-                    if (_this.isTut == 5) {
-                        _this.btn_qua();
-                    }
-                }, 5);
-            }
-        }, 0.4);
+            _this.cakeMain2.active = true;
+        }, 2);
     };
+    NewClass.prototype.btm_cake2 = function () {
+        this.listHand.children[0].active = false;
+        this.cakeMain2.getComponent(cc.Button).enabled = false;
+        this.cakeMain.getComponent(cc.Animation).play("cake_3");
+    };
+    NewClass.prototype.btn_xitHong = function () {
+        var _this = this;
+        this.btnXitHong.getComponent(cc.Button).enabled = false;
+        cc.audioEngine.play(this.soundChesse, false, 1);
+        this.cakeMain.getComponent(cc.Animation).play("cake_2");
+        this.listHand.children[1].active = false;
+        this.scheduleOnce(function () {
+            _this.listHand.children[0].active = true;
+        }, 1);
+        this.isTut = 3;
+    };
+    // btn_xitHong() {
+    //     if (!this.isCake) return
+    //     if (this.isDelayHong) return;
+    //     if (this.isTang == 1) {
+    //         if (this.isKem == 0) {
+    //             this.listHand.children[1].active = false
+    //             this.isTut = 3
+    //             this.scheduleOnce(() => {
+    //                 this.listHand.children[0].active = true
+    //             }, 0.4)
+    //             this.scheduleOnce(() => {
+    //                 this.cake.getComponent("cake2").xitHong()
+    //                 this.isPhase2 = false
+    //                 this.isPhase3 = true
+    //             }, 0.4)
+    //             this.isKem = 1
+    //         }
+    //         else {
+    //             return;
+    //         }
+    //         this.cakeMain.getComponent(cc.Animation).play("cake2");
+    //     }
+    //     else {
+    //         if (this.isKem2 == 0) {
+    //             // console.log(this.cake)
+    //             this.listHand.children[2].active = false
+    //             this.listHand.children[3].active = true
+    //             this.isTut = 5
+    //             this.scheduleOnce(() => {
+    //                 this.cake.getComponent("cake2").xitHong()
+    //                 this.isKem2Qua = false
+    //             }, 0.5)
+    //             this.isKem = 3
+    //         }
+    //         else {
+    //             return;
+    //         }
+    //     }
+    //     cc.audioEngine.play(this.soundChesse, false, 1)
+    //     this.isDelayHong = true;
+    //     this.xitHong.getComponent(cc.Animation).play();
+    //     this.xitHong.zIndex = 1
+    //     this.scheduleOnce(() => {
+    //         this.xitHong.position = cc.v3(-271.664, -373.904)
+    //         this.isDelayHong = false;
+    //         this.scheduleOnce(() => {
+    //             if (this.isTut == 3) {
+    //                 this.cakeNode.getComponent("cake").tutOnPlate()
+    //             }
+    //         }, 5)
+    //         if (this.isTut == 5) {
+    //             this.scheduleOnce(() => {
+    //                 if (this.isTut == 5) {
+    //                     this.btn_qua()
+    //                 }
+    //             }, 5)
+    //         }
+    //     }, 0.4)
+    // }
     NewClass.prototype.setTut4 = function () {
         var _this = this;
         this.isTut = 4;
@@ -248,6 +289,7 @@ var NewClass = /** @class */ (function (_super) {
         var child = this.listCus.children[0];
         child.position = cc.v3(-700, -50);
         cc.tween(child).to(0.8, { position: cc.v3(0, -50) }).call(function () {
+            cc.audioEngine.play(_this.soundOpen, false, 1);
             child.getChildByName("pop").active = true;
             _this.isTargetPop = child.getChildByName("pop");
             _this.isTargetCus = child;
@@ -583,6 +625,9 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundWrong", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundOpen", void 0);
+    __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "fxColor", void 0);
     __decorate([
@@ -600,6 +645,18 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "cakeNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "cakeMain", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "cakeMain2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnXitHong", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnXitKem", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

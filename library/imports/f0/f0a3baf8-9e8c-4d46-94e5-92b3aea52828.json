@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dough",
+    "texture": "070c243d-384d-4f9e-8378-d068286c7b2b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      754,
+      606
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      754,
+      606
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

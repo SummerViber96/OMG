@@ -33,6 +33,8 @@ export default class NewClass extends cc.Component {
     soundChesse: cc.AudioClip = null
     @property(cc.AudioClip)
     soundWrong: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundOpen: cc.AudioClip = null
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
     @property(cc.Node)
@@ -44,7 +46,15 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     listHand: cc.Node = null;
     @property(cc.Node)
-    cakeNode: cc.Node = null
+    cakeNode: cc.Node = null;
+    @property(cc.Node)
+    cakeMain: cc.Node = null;
+    @property(cc.Node)
+    cakeMain2: cc.Node = null;
+    @property(cc.Node)
+    btnXitHong: cc.Node = null;
+    @property(cc.Node)
+    btnXitKem: cc.Node = null;
     cusComp = null
     cake = null;
     // @property(cc.AudioClip)
@@ -64,11 +74,11 @@ export default class NewClass extends cc.Component {
             window.gameReady && window.gameReady();
         }
         this.showCus()
-        cc.audioEngine.play(this.soundBg, true, 1)
+        cc.audioEngine.play(this.soundBg, true, 0.4)
         this.listHand.zIndex = 5
         this.scheduleOnce(() => {
             if (this.isTut == 0) {
-                this.cakeNode.getComponent("cake").tutOnPlate()
+                this.btn_cake()
             }
         }, 5)
     }
@@ -82,72 +92,119 @@ export default class NewClass extends cc.Component {
 
         }, 5)
     }
-    isDelayHong = false
-    btn_xitHong() {
-        if (!this.isCake) return
-        if (this.isDelayHong) return;
-        if (this.isTang == 1) {
+    isCountCake = 0
+    btn_cake() {
+        this.cakeMain.getComponent(cc.Button).enabled = false
+        if (this.isPhase3 == true) {
+            this.isTang = 2
+            this.listHand.children[2].active = true
 
-            if (this.isKem == 0) {
-                this.listHand.children[1].active = false
-                this.isTut = 3
-                this.scheduleOnce(() => {
-                    this.listHand.children[0].active = true
-
-                }, 0.4)
-                this.scheduleOnce(() => {
-                    this.cake.getComponent("cake2").xitHong()
-                    this.isPhase2 = false
-                    this.isPhase3 = true
-
-                }, 0.4)
-                this.isKem = 1
-            }
-            else {
-                return;
-            }
         }
         else {
-            if (this.isKem2 == 0) {
-                // console.log(this.cake)
-                this.listHand.children[2].active = false
-                this.listHand.children[3].active = true
-                this.isTut = 5
+            this.listHand.children[1].active = true
+            this.setTut2()
 
-                this.scheduleOnce(() => {
-                    this.cake.getComponent("cake2").xitHong()
-                    this.isKem2Qua = false
-
-                }, 0.5)
-                this.isKem = 3
-            }
-            else {
-                return;
-            }
         }
-        cc.audioEngine.play(this.soundChesse, false, 1)
+        this.cakeMain.getComponent(cc.Animation).play("cake_spaw1");
 
-        this.isDelayHong = true;
-        this.xitHong.getComponent(cc.Animation).play();
-        this.xitHong.zIndex = 1
+        this.isTang = 2
+        this.cusComp.happy()
+        this.isCake = true;
+        this.isPhase2 = true;
+        this.listHand.children[0].active = false
         this.scheduleOnce(() => {
-            this.xitHong.position = cc.v3(-271.664, -373.904)
-            this.isDelayHong = false;
-            this.scheduleOnce(() => {
-                if (this.isTut == 3) {
-                    this.cakeNode.getComponent("cake").tutOnPlate()
-                }
-            }, 5)
-            if (this.isTut == 5) {
-                this.scheduleOnce(() => {
-                    if (this.isTut == 5) {
-                        this.btn_qua()
-                    }
-                }, 5)
-            }
+            this.cakeMain2.active = true
 
-        }, 0.4)
+        }, 2)
+
     }
+    btm_cake2() {
+        this.listHand.children[0].active = false
+
+        this.cakeMain2.getComponent(cc.Button).enabled = false
+
+        this.cakeMain.getComponent(cc.Animation).play("cake_3");
+
+    }
+    isDelayHong = false
+    btn_xitHong() {
+        this.btnXitHong.getComponent(cc.Button).enabled = false
+        cc.audioEngine.play(this.soundChesse, false, 1)
+        this.cakeMain.getComponent(cc.Animation).play("cake_2");
+        this.listHand.children[1].active = false
+        this.scheduleOnce(() => {
+            this.listHand.children[0].active = true
+
+        }, 1)
+        this.isTut = 3
+    }
+    // btn_xitHong() {
+    //     if (!this.isCake) return
+    //     if (this.isDelayHong) return;
+    //     if (this.isTang == 1) {
+
+    //         if (this.isKem == 0) {
+    //             this.listHand.children[1].active = false
+    //             this.isTut = 3
+    //             this.scheduleOnce(() => {
+    //                 this.listHand.children[0].active = true
+
+    //             }, 0.4)
+    //             this.scheduleOnce(() => {
+    //                 this.cake.getComponent("cake2").xitHong()
+    //                 this.isPhase2 = false
+    //                 this.isPhase3 = true
+
+    //             }, 0.4)
+    //             this.isKem = 1
+    //         }
+    //         else {
+    //             return;
+    //         }
+    //         this.cakeMain.getComponent(cc.Animation).play("cake2");
+
+    //     }
+    //     else {
+    //         if (this.isKem2 == 0) {
+    //             // console.log(this.cake)
+    //             this.listHand.children[2].active = false
+    //             this.listHand.children[3].active = true
+    //             this.isTut = 5
+
+    //             this.scheduleOnce(() => {
+    //                 this.cake.getComponent("cake2").xitHong()
+    //                 this.isKem2Qua = false
+
+    //             }, 0.5)
+    //             this.isKem = 3
+    //         }
+    //         else {
+    //             return;
+    //         }
+    //     }
+    //     cc.audioEngine.play(this.soundChesse, false, 1)
+
+    //     this.isDelayHong = true;
+    //     this.xitHong.getComponent(cc.Animation).play();
+    //     this.xitHong.zIndex = 1
+    //     this.scheduleOnce(() => {
+    //         this.xitHong.position = cc.v3(-271.664, -373.904)
+    //         this.isDelayHong = false;
+    //         this.scheduleOnce(() => {
+    //             if (this.isTut == 3) {
+    //                 this.cakeNode.getComponent("cake").tutOnPlate()
+    //             }
+    //         }, 5)
+    //         if (this.isTut == 5) {
+    //             this.scheduleOnce(() => {
+    //                 if (this.isTut == 5) {
+    //                     this.btn_qua()
+    //                 }
+    //             }, 5)
+    //         }
+
+    //     }, 0.4)
+    // }
     setTut4() {
         this.isTut = 4;
         this.scheduleOnce(() => {
@@ -243,6 +300,7 @@ export default class NewClass extends cc.Component {
         let child = this.listCus.children[0]
         child.position = cc.v3(-700, -50)
         cc.tween(child).to(0.8, { position: cc.v3(0, -50) }).call(() => {
+            cc.audioEngine.play(this.soundOpen, false, 1)
             child.getChildByName("pop").active = true
             this.isTargetPop = child.getChildByName("pop")
             this.isTargetCus = child;

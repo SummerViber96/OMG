@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cake_00249",
+    "texture": "0269d0eb-42ec-4ffe-8f38-9b6213cda13e",
+    "atlas": "",
+    "rect": [
+      1401,
+      1420,
+      481,
+      594
+    ],
+    "offset": [
+      -18.5,
+      -94.5
+    ],
+    "originalSize": [
+      3320,
+      3245
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
