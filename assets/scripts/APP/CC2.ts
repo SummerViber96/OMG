@@ -138,6 +138,7 @@ export default class NewClass extends cc.Component {
         let child = this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0,"angry",true)
         this.scheduleOnce(() => {
             this.listHand.children[2].active = true
+            this.btnXitKem.getComponent(cc.Button).enabled=true
         }, 1)
         this.scheduleOnce(() => {
             if (this.isTut == 4) {
@@ -148,8 +149,10 @@ export default class NewClass extends cc.Component {
     }
     btn_cherry() {
         cc.audioEngine.play(this.soundCherry,false,1)
-        this.btnCherry.getComponent(cc.Button).enabled = true
+        this.btnCherry.getComponent(cc.Button).enabled = false
         this.cherry.getComponent(cc.Animation).play();
+                this.listCus.children[0].children[0].getComponent(cc.Animation).play()
+
         this.isTut = 6
         this.listHand.children[3].active = false
         cc.audioEngine.play(this.soundNo,false,1)
@@ -184,6 +187,7 @@ export default class NewClass extends cc.Component {
             this.listHand.children[3].active = true
         }, 1)
         this.isTut = 5
+        this.btnCherry.getComponent(cc.Button).enabled=true
         this.scheduleOnce(() => {
             if (this.isTut == 5) {
                 // this.btm_cake2()
