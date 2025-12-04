@@ -269,7 +269,7 @@
     "_strokeColor": {
       "__type__": "cc.Color",
       "r": 0,
-      "g": 0,
+      "g": 255,
       "b": 0,
       "a": 255
     },
@@ -310,7 +310,7 @@
     "drawGraphics": {
       "__id__": 6
     },
-    "threshold": 25,
+    "threshold": 50,
     "completePercent": 0.85,
     "_id": ""
   },

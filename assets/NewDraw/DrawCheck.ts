@@ -33,10 +33,15 @@ export default class DrawCheck extends cc.Component {
         // let points = data.children[0].getComponent(cc.PolygonCollider).points
         let points = []
         for (let i = 0; i < data.children[0].childrenCount; i++) {
-            points.push(data.children[0].children[i].position)
+            let pos = data.children[0].children[i].position
+            pos = data.children[0].convertToWorldSpaceAR(pos)
+            pos = this.node.convertToNodeSpaceAR(pos)
+            points.push(pos)
         }
         this.targetPoints = points
-        this.localPoints = []
+        console.log(this.targetPoints)
+        // console.log(this.targetPoints)
+        // this.localPoints = []
     }
 
     public loadMatrixJSON(matrix: number[][]) {
@@ -156,6 +161,7 @@ export default class DrawCheck extends cc.Component {
 
     /** TOUCH START */
     private onTouchStart(event: cc.Event.EventTouch) {
+        if (this.isDrawing) return
         this.isDrawing = true;
         this.matchedCount = 0;
 
@@ -184,17 +190,21 @@ export default class DrawCheck extends cc.Component {
             this.drawGraphics.stroke();
         }
         else {
-            this.drawGraphics.lineTo(this.isTargetPoint.x, this.isTargetPoint.y);
+            this.drawGraphics.lineTo(pos.x, pos.y);
             this.drawGraphics.stroke();
+            console.log("draw")
         }
     }
 
     /** TOUCH END */
     private onTouchEnd() {
         if (!this.isDrawing) return;
-
         this.isDrawing = false;
-        const percent = this.matchedCount / this.targetPoints.length;
+        console.log(this.arrCheck)
+        const uniqueSet = new Set(this.arrCheck);
+        const uniqueArray2 = Array.from(uniqueSet);
+        const percent = uniqueArray2.length / this.targetPoints.length;
+        this.arrCheck = []
 
         if (percent >= this.completePercent) {
             this.win();
@@ -204,28 +214,49 @@ export default class DrawCheck extends cc.Component {
         this.matchedCount = 0
 
     }
-
+    arrCheck = []
     /** KIỂM TRA CÓ GẦN ĐƯỜNG MẪU KHÔNG */
     private isNearPath(p: cc.Vec2): boolean {
         for (let i = 0; i < this.targetPoints.length; i++) {
+
             if (p.sub(this.targetPoints[i]).mag() <= this.threshold) {
-                this.matchedCount++;
-                let pos = this.targetPoints[i]
-                this.isTargetPoint = pos
-                // this.targetPoints.splice(i, 1)
-                return true;
+                // console.log(this.check(i), i)
+                if (this.arrCheck.includes(i)) {
+                    if (this.arrCheck[this.arrCheck.length - 1] == i) {
+                        let pos = this.targetPoints[i]
+                        // this.isTargetPoint = pos
+                        return true;
+
+                    }
+                    else {
+                        console.log("trung diem")
+                        // return false
+                    }
+                }
+                else {
+                    this.matchedCount++;
+                    this.arrCheck.push(i)
+                    let pos = this.targetPoints[i]
+                    this.isTargetPoint = pos
+                    return true;
+
+                }
+
+
+
+
+                // return true;
             }
         }
-        // if (p.sub(this.targetPoints[this.matchedCount]).mag() <= this.threshold) {
-        //     this.matchedCount++;
-        //     let pos = this.targetPoints[this.matchedCount]
-        //     this.isTargetPoint = pos
-        //     // this.targetPoints.splice(i, 1)
-        //     return true;
-        // }
+
         return false;
     }
-
+    check(value) {
+        for (let i = 0; i < this.arrCheck.length; i++) {
+            if (value == i) return true;
+        }
+        return false;
+    }
     /** WIN */
     private win() {
         cc.log("🎉 WIN !!!");
@@ -235,8 +266,13 @@ export default class DrawCheck extends cc.Component {
     /** FAIL */
     private fail() {
         cc.log("❌ FAIL !!!");
-        this.drawGraphics.clear();
-        this.isDrawing = false;
+        this.drawGraphics.strokeColor = cc.Color.RED
+        this.scheduleOnce(() => {
+            this.drawGraphics.clear();
+            this.isDrawing = false;
+            this.arrCheck = []
+
+        }, 0.5)
     }
     /** Load outline từ JSON */
     public loadOutlineFromJSON(data: any) {

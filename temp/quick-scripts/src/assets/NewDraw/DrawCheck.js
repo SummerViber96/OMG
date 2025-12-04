@@ -39,6 +39,7 @@ var DrawCheck = /** @class */ (function (_super) {
         _this.localPoints = [];
         /** TOUCH MOVE */
         _this.isTargetPoint = null;
+        _this.arrCheck = [];
         return _this;
     }
     DrawCheck.prototype.onLoad = function () {
@@ -53,10 +54,15 @@ var DrawCheck = /** @class */ (function (_super) {
         // let points = data.children[0].getComponent(cc.PolygonCollider).points
         var points = [];
         for (var i = 0; i < data.children[0].childrenCount; i++) {
-            points.push(data.children[0].children[i].position);
+            var pos = data.children[0].children[i].position;
+            pos = data.children[0].convertToWorldSpaceAR(pos);
+            pos = this.node.convertToNodeSpaceAR(pos);
+            points.push(pos);
         }
         this.targetPoints = points;
-        this.localPoints = [];
+        console.log(this.targetPoints);
+        // console.log(this.targetPoints)
+        // this.localPoints = []
     };
     DrawCheck.prototype.loadMatrixJSON = function (matrix) {
         var rows = matrix.length;
@@ -150,6 +156,8 @@ var DrawCheck = /** @class */ (function (_super) {
     };
     /** TOUCH START */
     DrawCheck.prototype.onTouchStart = function (event) {
+        if (this.isDrawing)
+            return;
         this.isDrawing = true;
         this.matchedCount = 0;
         var pos = this.node.convertToNodeSpaceAR(event.getLocation());
@@ -170,8 +178,9 @@ var DrawCheck = /** @class */ (function (_super) {
             this.drawGraphics.stroke();
         }
         else {
-            this.drawGraphics.lineTo(this.isTargetPoint.x, this.isTargetPoint.y);
+            this.drawGraphics.lineTo(pos.x, pos.y);
             this.drawGraphics.stroke();
+            console.log("draw");
         }
     };
     /** TOUCH END */
@@ -179,7 +188,11 @@ var DrawCheck = /** @class */ (function (_super) {
         if (!this.isDrawing)
             return;
         this.isDrawing = false;
-        var percent = this.matchedCount / this.targetPoints.length;
+        console.log(this.arrCheck);
+        var uniqueSet = new Set(this.arrCheck);
+        var uniqueArray2 = Array.from(uniqueSet);
+        var percent = uniqueArray2.length / this.targetPoints.length;
+        this.arrCheck = [];
         if (percent >= this.completePercent) {
             this.win();
         }
@@ -192,20 +205,35 @@ var DrawCheck = /** @class */ (function (_super) {
     DrawCheck.prototype.isNearPath = function (p) {
         for (var i = 0; i < this.targetPoints.length; i++) {
             if (p.sub(this.targetPoints[i]).mag() <= this.threshold) {
-                this.matchedCount++;
-                var pos = this.targetPoints[i];
-                this.isTargetPoint = pos;
-                // this.targetPoints.splice(i, 1)
-                return true;
+                // console.log(this.check(i), i)
+                if (this.arrCheck.includes(i)) {
+                    if (this.arrCheck[this.arrCheck.length - 1] == i) {
+                        var pos = this.targetPoints[i];
+                        // this.isTargetPoint = pos
+                        return true;
+                    }
+                    else {
+                        console.log("trung diem");
+                        // return false
+                    }
+                }
+                else {
+                    this.matchedCount++;
+                    this.arrCheck.push(i);
+                    var pos = this.targetPoints[i];
+                    this.isTargetPoint = pos;
+                    return true;
+                }
+                // return true;
             }
         }
-        // if (p.sub(this.targetPoints[this.matchedCount]).mag() <= this.threshold) {
-        //     this.matchedCount++;
-        //     let pos = this.targetPoints[this.matchedCount]
-        //     this.isTargetPoint = pos
-        //     // this.targetPoints.splice(i, 1)
-        //     return true;
-        // }
+        return false;
+    };
+    DrawCheck.prototype.check = function (value) {
+        for (var i = 0; i < this.arrCheck.length; i++) {
+            if (value == i)
+                return true;
+        }
         return false;
     };
     /** WIN */
@@ -215,9 +243,14 @@ var DrawCheck = /** @class */ (function (_super) {
     };
     /** FAIL */
     DrawCheck.prototype.fail = function () {
+        var _this = this;
         cc.log("❌ FAIL !!!");
-        this.drawGraphics.clear();
-        this.isDrawing = false;
+        this.drawGraphics.strokeColor = cc.Color.RED;
+        this.scheduleOnce(function () {
+            _this.drawGraphics.clear();
+            _this.isDrawing = false;
+            _this.arrCheck = [];
+        }, 0.5);
     };
     /** Load outline từ JSON */
     DrawCheck.prototype.loadOutlineFromJSON = function (data) {

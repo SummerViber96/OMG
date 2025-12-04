@@ -6956,7 +6956,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1764699443168,
+    "meta": 1764804946786,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7036,7 +7036,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761763030039,
-    "meta": 1764699443148,
+    "meta": 1764804946782,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7106,7 +7106,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761763009587,
-    "meta": 1764699443147,
+    "meta": 1764804946784,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -7996,7 +7996,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1764699443342,
+    "meta": 1764804946793,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
@@ -9575,8 +9575,8 @@
     "relativePath": "NewDraw"
   },
   "de80e892-a3bc-46eb-9fc9-f99136a93daf": {
-    "asset": 1764699403923,
-    "meta": 1764699430709,
+    "asset": 1764811021192,
+    "meta": 1764811021213,
     "relativePath": "scenes\\DrawLine - 001.fire"
   },
   "cab93cd1-345a-4fd8-9d44-4c6dc3c13130": {
@@ -9585,8 +9585,8 @@
     "relativePath": "prefab\\new"
   },
   "bf9a2b73-2a76-487e-b068-2621604f6313": {
-    "asset": 1764699403677,
-    "meta": 1764699430544,
+    "asset": 1764809611245,
+    "meta": 1764809611265,
     "relativePath": "prefab\\new\\DrawLevel.prefab"
   },
   "f7835c99-c5ab-4692-911d-b3c70344a0d4": {
@@ -9804,14 +9804,14 @@
     "meta": 1764699429932,
     "relativePath": "NewDraw\\GameManager.ts"
   },
-  "13835ab0-bfd7-4f4a-af62-0d13f21f3836": {
-    "asset": 1764699402569,
-    "meta": 1764699429858,
-    "relativePath": "NewDraw\\DrawCheck.ts"
-  },
   "d47443e5-d36e-4781-ade8-b31c54b9c426": {
     "asset": 1764699403095,
     "meta": 1764699422078,
     "relativePath": "anim\\drawLine"
+  },
+  "13835ab0-bfd7-4f4a-af62-0d13f21f3836": {
+    "asset": 1764810983332,
+    "meta": 1764810984184,
+    "relativePath": "NewDraw\\DrawCheck.ts"
   }
 }
