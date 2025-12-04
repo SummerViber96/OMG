@@ -7820,14 +7820,21 @@
     },
     "_enabled": true,
     "soundShowPop": null,
-    "soundClosePop": null,
+    "soundYouCant": {
+      "__uuid__": "dafb7a7f-2237-476a-a7fc-a46d7c2fd2ff"
+    },
     "soundBg": {
       "__uuid__": "6eed6fbd-3d86-41d3-bd56-c5999355aa23"
     },
     "soundWin": {
       "__uuid__": "97f41450-2f43-43de-be0b-9c6ada4e745e"
     },
-    "soundLose": null,
+    "soundLose": {
+      "__uuid__": "85f5487a-0ea5-4e71-9255-7823ef693185"
+    },
+    "soundNoDau": {
+      "__uuid__": "f2889d8f-e88d-4cee-b5b7-85ed0b6d83b4"
+    },
     "tut": null,
     "hand": null,
     "endCard": {

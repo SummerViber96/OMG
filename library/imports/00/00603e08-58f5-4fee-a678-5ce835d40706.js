@@ -29,10 +29,11 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.soundShowPop = null;
-        _this.soundClosePop = null;
+        _this.soundYouCant = null;
         _this.soundBg = null;
         _this.soundWin = null;
         _this.soundLose = null;
+        _this.soundNoDau = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -70,6 +71,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isKem = 0;
         _this.isKem2 = 0;
         _this.isTut = 0;
+        _this.idSound = null;
         _this.isCountCake = 0;
         _this.isDelayHong = false;
         _this.isDelayKem = false;
@@ -140,29 +142,27 @@ var NewClass = /** @class */ (function (_super) {
         return _this;
     }
     NewClass.prototype.start = function () {
-        var _this = this;
         this.cusComp = this.cus.getComponent("cusMission");
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
         this.showCus();
-        cc.audioEngine.play(this.soundBg, true, 0.4);
+        cc.audioEngine.play(this.soundBg, true, 0.3);
         this.listHand.zIndex = 5;
-        this.scheduleOnce(function () {
-            if (_this.isTut == 0) {
-                _this.btn_cake();
-            }
-        }, 5);
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 0) {
+        //         this.btn_cake()
+        //     }
+        // }, 5)
     };
     NewClass.prototype.setTut2 = function () {
-        var _this = this;
         this.isTut = 2;
-        this.scheduleOnce(function () {
-            console.log(_this.isTut);
-            if (_this.isTut == 2) {
-                _this.btn_xitHong();
-            }
-        }, 5);
+        // this.scheduleOnce(() => {
+        //     console.log(this.isTut)
+        //     if (this.isTut == 2) {
+        //         this.btn_xitHong()
+        //     }
+        // }, 5)
     };
     NewClass.prototype.btn_cake = function () {
         var _this = this;
@@ -191,34 +191,37 @@ var NewClass = /** @class */ (function (_super) {
         this.listHand.children[0].active = false;
         this.cakeMain2.getComponent(cc.Button).enabled = false;
         this.cakeMain.getComponent(cc.Animation).play("cake_3");
-        cc.audioEngine.play(this.soundWrong, false, 1);
+        cc.audioEngine.play(this.soundYouCant, false, 1);
         this.listCus.children[0].children[0].getComponent(cc.Animation).play();
         var child = this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0, "angry", true);
         this.scheduleOnce(function () {
             _this.listHand.children[2].active = true;
             _this.btnXitKem.getComponent(cc.Button).enabled = true;
         }, 1);
-        this.scheduleOnce(function () {
-            if (_this.isTut == 4) {
-                _this.btn_xitKem();
-            }
-        }, 5);
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 4) {
+        //         this.btn_xitKem()
+        //     }
+        // }, 5)
     };
     NewClass.prototype.btn_cherry = function () {
         var _this = this;
+        cc.audioEngine.play(this.soundNoDau, false, 1);
         cc.audioEngine.play(this.soundCherry, false, 1);
         this.btnCherry.getComponent(cc.Button).enabled = false;
         this.cherry.getComponent(cc.Animation).play();
         this.listCus.children[0].children[0].getComponent(cc.Animation).play();
         this.isTut = 6;
         this.listHand.children[3].active = false;
-        cc.audioEngine.play(this.soundNo, false, 1);
         this.scheduleOnce(function () {
             _this.onEndGame();
         }, 2);
     };
     NewClass.prototype.btn_xitHong = function () {
         var _this = this;
+        cc.audioEngine.stop(this.idSound);
+        cc.audioEngine.play(this.soundNo, false, 1);
+        this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0, "walk-angry", true);
         this.btnXitHong.getComponent(cc.Button).enabled = false;
         cc.audioEngine.play(this.soundChesse, false, 1);
         this.cakeMain.getComponent(cc.Animation).play("cake_2");
@@ -227,14 +230,15 @@ var NewClass = /** @class */ (function (_super) {
             _this.listHand.children[0].active = true;
         }, 1);
         this.isTut = 3;
-        this.scheduleOnce(function () {
-            if (_this.isTut == 3) {
-                _this.btm_cake2();
-            }
-        }, 5);
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 3) {
+        //         this.btm_cake2()
+        //     }
+        // }, 5)
     };
     NewClass.prototype.btn_xitKem = function () {
         var _this = this;
+        cc.audioEngine.play(this.soundWrong, false, 1);
         this.btnXitKem.getComponent(cc.Button).enabled = false;
         cc.audioEngine.play(this.soundChesse, false, 1);
         this.cakeMain.getComponent(cc.Animation).play("cake_4");
@@ -244,12 +248,12 @@ var NewClass = /** @class */ (function (_super) {
         }, 1);
         this.isTut = 5;
         this.btnCherry.getComponent(cc.Button).enabled = true;
-        this.scheduleOnce(function () {
-            if (_this.isTut == 5) {
-                // this.btm_cake2()
-                _this.btn_cherry();
-            }
-        }, 5);
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 5) {
+        //         // this.btm_cake2()
+        //         this.btn_cherry()
+        //     }
+        // }, 5)
     };
     // btn_xitHong() {
     //     if (!this.isCake) return
@@ -311,13 +315,12 @@ var NewClass = /** @class */ (function (_super) {
     //     }, 0.4)
     // }
     NewClass.prototype.setTut4 = function () {
-        var _this = this;
         this.isTut = 4;
-        this.scheduleOnce(function () {
-            if (_this.isTut == 4) {
-                _this.btn_xitKem();
-            }
-        }, 5);
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 4) {
+        //         this.btn_xitKem()
+        //     }
+        // }, 5)
     };
     NewClass.prototype.btn_qua = function () {
         var _this = this;
@@ -340,7 +343,7 @@ var NewClass = /** @class */ (function (_super) {
         var child = this.listCus.children[0];
         child.position = cc.v3(-700, -50);
         cc.tween(child).to(0.8, { position: cc.v3(0, -50) }).call(function () {
-            cc.audioEngine.play(_this.soundOpen, false, 1);
+            _this.idSound = cc.audioEngine.play(_this.soundOpen, false, 1);
             child.getChildByName("pop").active = true;
             _this.isTargetPop = child.getChildByName("pop");
             _this.isTargetCus = child;
@@ -530,7 +533,7 @@ var NewClass = /** @class */ (function (_super) {
         return null;
     };
     NewClass.prototype.onEndGame = function () {
-        cc.audioEngine.play(this.soundWin, false, 1);
+        cc.audioEngine.play(this.soundLose, false, 1);
         this.endCard.active = true;
         this.linkToStore.active = true;
     };
@@ -638,7 +641,7 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "soundShowPop", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundClosePop", void 0);
+    ], NewClass.prototype, "soundYouCant", void 0);
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundBg", void 0);
@@ -648,6 +651,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundLose", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundNoDau", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);

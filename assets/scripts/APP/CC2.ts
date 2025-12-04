@@ -7,13 +7,15 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundShowPop: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundClosePop: cc.AudioClip = null
+    soundYouCant: cc.AudioClip = null
     @property(cc.AudioClip)
     soundBg: cc.AudioClip = null
     @property(cc.AudioClip)
     soundWin: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundLose: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundNoDau: cc.AudioClip = null;
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -35,9 +37,9 @@ export default class NewClass extends cc.Component {
     soundWrong: cc.AudioClip = null
     @property(cc.AudioClip)
     soundOpen: cc.AudioClip = null
-        @property(cc.AudioClip)
+    @property(cc.AudioClip)
     soundCherry: cc.AudioClip = null
-          @property(cc.AudioClip)
+    @property(cc.AudioClip)
     soundNo: cc.AudioClip = null
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
@@ -76,29 +78,30 @@ export default class NewClass extends cc.Component {
     isKem = 0;
     isKem2 = 0;
     isTut = 0
+    idSound = null
     start() {
         this.cusComp = this.cus.getComponent("cusMission")
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
         this.showCus()
-        cc.audioEngine.play(this.soundBg, true, 0.4)
+        cc.audioEngine.play(this.soundBg, true, 0.3)
         this.listHand.zIndex = 5
-        this.scheduleOnce(() => {
-            if (this.isTut == 0) {
-                this.btn_cake()
-            }
-        }, 5)
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 0) {
+        //         this.btn_cake()
+        //     }
+        // }, 5)
     }
     setTut2() {
         this.isTut = 2
-        this.scheduleOnce(() => {
-            console.log(this.isTut)
-            if (this.isTut == 2) {
-                this.btn_xitHong()
-            }
+        // this.scheduleOnce(() => {
+        //     console.log(this.isTut)
+        //     if (this.isTut == 2) {
+        //         this.btn_xitHong()
+        //     }
 
-        }, 5)
+        // }, 5)
     }
     isCountCake = 0
     btn_cake() {
@@ -133,37 +136,40 @@ export default class NewClass extends cc.Component {
         this.cakeMain2.getComponent(cc.Button).enabled = false
 
         this.cakeMain.getComponent(cc.Animation).play("cake_3");
-        cc.audioEngine.play(this.soundWrong, false, 1)
+        cc.audioEngine.play(this.soundYouCant, false, 1)
         this.listCus.children[0].children[0].getComponent(cc.Animation).play()
-        let child = this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0,"angry",true)
+        let child = this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0, "angry", true)
         this.scheduleOnce(() => {
             this.listHand.children[2].active = true
-            this.btnXitKem.getComponent(cc.Button).enabled=true
+            this.btnXitKem.getComponent(cc.Button).enabled = true
         }, 1)
-        this.scheduleOnce(() => {
-            if (this.isTut == 4) {
-                this.btn_xitKem()
-            }
-        }, 5)
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 4) {
+        //         this.btn_xitKem()
+        //     }
+        // }, 5)
 
     }
     btn_cherry() {
-        cc.audioEngine.play(this.soundCherry,false,1)
+        cc.audioEngine.play(this.soundNoDau, false, 1)
+        cc.audioEngine.play(this.soundCherry, false, 1)
         this.btnCherry.getComponent(cc.Button).enabled = false
         this.cherry.getComponent(cc.Animation).play();
-                this.listCus.children[0].children[0].getComponent(cc.Animation).play()
+        this.listCus.children[0].children[0].getComponent(cc.Animation).play()
 
         this.isTut = 6
         this.listHand.children[3].active = false
-        cc.audioEngine.play(this.soundNo,false,1)
-        this.scheduleOnce(()=>{
+        this.scheduleOnce(() => {
             this.onEndGame()
 
-        },2)
+        }, 2)
 
     }
     isDelayHong = false
     btn_xitHong() {
+        cc.audioEngine.stop(this.idSound)
+        cc.audioEngine.play(this.soundNo, false, 1)
+        this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0, "walk-angry", true)
         this.btnXitHong.getComponent(cc.Button).enabled = false
         cc.audioEngine.play(this.soundChesse, false, 1)
         this.cakeMain.getComponent(cc.Animation).play("cake_2");
@@ -172,13 +178,15 @@ export default class NewClass extends cc.Component {
             this.listHand.children[0].active = true
         }, 1)
         this.isTut = 3
-        this.scheduleOnce(() => {
-            if (this.isTut == 3) {
-                this.btm_cake2()
-            }
-        }, 5)
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 3) {
+        //         this.btm_cake2()
+        //     }
+        // }, 5)
     }
     btn_xitKem() {
+        cc.audioEngine.play(this.soundWrong, false, 1)
+
         this.btnXitKem.getComponent(cc.Button).enabled = false
         cc.audioEngine.play(this.soundChesse, false, 1)
         this.cakeMain.getComponent(cc.Animation).play("cake_4");
@@ -187,13 +195,13 @@ export default class NewClass extends cc.Component {
             this.listHand.children[3].active = true
         }, 1)
         this.isTut = 5
-        this.btnCherry.getComponent(cc.Button).enabled=true
-        this.scheduleOnce(() => {
-            if (this.isTut == 5) {
-                // this.btm_cake2()
-                this.btn_cherry()
-            }
-        }, 5)
+        this.btnCherry.getComponent(cc.Button).enabled = true
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 5) {
+        //         // this.btm_cake2()
+        //         this.btn_cherry()
+        //     }
+        // }, 5)
     }
     // btn_xitHong() {
     //     if (!this.isCake) return
@@ -264,11 +272,11 @@ export default class NewClass extends cc.Component {
     // }
     setTut4() {
         this.isTut = 4;
-        this.scheduleOnce(() => {
-            if (this.isTut == 4) {
-                this.btn_xitKem()
-            }
-        }, 5)
+        // this.scheduleOnce(() => {
+        //     if (this.isTut == 4) {
+        //         this.btn_xitKem()
+        //     }
+        // }, 5)
     }
     isDelayKem = false
     isPhase2 = false
@@ -357,7 +365,7 @@ export default class NewClass extends cc.Component {
         let child = this.listCus.children[0]
         child.position = cc.v3(-700, -50)
         cc.tween(child).to(0.8, { position: cc.v3(0, -50) }).call(() => {
-            cc.audioEngine.play(this.soundOpen, false, 1)
+            this.idSound = cc.audioEngine.play(this.soundOpen, false, 1)
             child.getChildByName("pop").active = true
             this.isTargetPop = child.getChildByName("pop")
             this.isTargetCus = child;
@@ -556,7 +564,7 @@ export default class NewClass extends cc.Component {
         return null
     }
     onEndGame() {
-        cc.audioEngine.play(this.soundWin, false, 1)
+        cc.audioEngine.play(this.soundLose, false, 1)
         this.endCard.active = true;
         this.linkToStore.active = true
     }
