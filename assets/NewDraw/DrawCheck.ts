@@ -21,7 +21,10 @@ export default class DrawCheck extends cc.Component {
     private matchedCount: number = 0;
     private matrixPoints: cc.Vec2[] = [];
     localPoints = []
+    countFail = 0
+    gamePlay = null
     onLoad() {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameManager")
         this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
@@ -260,19 +263,52 @@ export default class DrawCheck extends cc.Component {
     /** WIN */
     private win() {
         cc.log("🎉 WIN !!!");
+        if (this.isEndGame) return;
+        this.isEndGame = true
         cc.Canvas.instance.node.getComponent("GameManager").winGame()
     }
-
+    clearGame() {
+         this.node.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.node.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        this.node.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+        this.drawGraphics.clear()
+        this.targetGraphics.clear()
+    }
     /** FAIL */
+    isEndGame = false
+    isDelayDem = false
+
     private fail() {
         cc.log("❌ FAIL !!!");
+        if (this.isEndGame) return;
+        this.isEndGame = true
         this.drawGraphics.strokeColor = cc.Color.RED
-        this.scheduleOnce(() => {
-            this.drawGraphics.clear();
-            this.isDrawing = false;
-            this.arrCheck = []
+        this.gamePlay.fail()
+        if (this.isDelayDem == false) {
+            this.isDelayDem = true
+            this.countFail++
 
-        }, 0.5)
+            this.scheduleOnce(() => {
+                this.isDelayDem = false
+
+            }, 1)
+        }
+        cc.audioEngine.play(this.gamePlay.soundFail, false, 1)
+
+        if (this.countFail == 2) {
+            this.gamePlay.nextLevel()
+        }
+        else {
+            this.scheduleOnce(() => {
+                this.drawGraphics.clear();
+                this.isDrawing = false;
+                this.arrCheck = []
+                this.isEndGame = false
+
+            }, 0.5)
+        }
+
     }
     /** Load outline từ JSON */
     public loadOutlineFromJSON(data: any) {

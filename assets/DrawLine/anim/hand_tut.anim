@@ -1,0 +1,60 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "hand_tut",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.1666666666666667,
+  "sample": 60,
+  "speed": 0.5,
+  "wrapMode": 2,
+  "curveData": {
+    "paths": {
+      "hand": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                0
+              ],
+              "motionPath": []
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                291,
+                3
+              ],
+              "motionPath": [
+                [
+                  240,
+                  -171,
+                  283,
+                  -116,
+                  161,
+                  -272
+                ]
+              ]
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                16,
+                -325
+              ],
+              "motionPath": []
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 1.1666666666666667,
+      "func": "",
+      "params": []
+    }
+  ]
+}

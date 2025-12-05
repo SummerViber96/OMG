@@ -37,12 +37,18 @@ var DrawCheck = /** @class */ (function (_super) {
         _this.matchedCount = 0;
         _this.matrixPoints = [];
         _this.localPoints = [];
+        _this.countFail = 0;
+        _this.gamePlay = null;
         /** TOUCH MOVE */
         _this.isTargetPoint = null;
         _this.arrCheck = [];
+        /** FAIL */
+        _this.isEndGame = false;
+        _this.isDelayDem = false;
         return _this;
     }
     DrawCheck.prototype.onLoad = function () {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameManager");
         this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
@@ -239,18 +245,46 @@ var DrawCheck = /** @class */ (function (_super) {
     /** WIN */
     DrawCheck.prototype.win = function () {
         cc.log("🎉 WIN !!!");
+        if (this.isEndGame)
+            return;
+        this.isEndGame = true;
         cc.Canvas.instance.node.getComponent("GameManager").winGame();
     };
-    /** FAIL */
+    DrawCheck.prototype.clearGame = function () {
+        this.node.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.node.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        this.node.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+        this.drawGraphics.clear();
+        this.targetGraphics.clear();
+    };
     DrawCheck.prototype.fail = function () {
         var _this = this;
         cc.log("❌ FAIL !!!");
+        if (this.isEndGame)
+            return;
+        this.isEndGame = true;
         this.drawGraphics.strokeColor = cc.Color.RED;
-        this.scheduleOnce(function () {
-            _this.drawGraphics.clear();
-            _this.isDrawing = false;
-            _this.arrCheck = [];
-        }, 0.5);
+        this.gamePlay.fail();
+        if (this.isDelayDem == false) {
+            this.isDelayDem = true;
+            this.countFail++;
+            this.scheduleOnce(function () {
+                _this.isDelayDem = false;
+            }, 1);
+        }
+        cc.audioEngine.play(this.gamePlay.soundFail, false, 1);
+        if (this.countFail == 2) {
+            this.gamePlay.nextLevel();
+        }
+        else {
+            this.scheduleOnce(function () {
+                _this.drawGraphics.clear();
+                _this.isDrawing = false;
+                _this.arrCheck = [];
+                _this.isEndGame = false;
+            }, 0.5);
+        }
     };
     /** Load outline từ JSON */
     DrawCheck.prototype.loadOutlineFromJSON = function (data) {
