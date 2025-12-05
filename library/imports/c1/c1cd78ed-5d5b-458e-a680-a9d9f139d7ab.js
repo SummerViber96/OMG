@@ -59,8 +59,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.btnMeatNode = null;
         _this.btnBugerNode = null;
         _this.btnVegettableNode = null;
+        _this.btnBread = null;
         _this.barCoin = null;
         _this.lbCoin = null;
+        _this.isTutChili = false;
         // @property(cc.AudioClip)
         // soundBg:cc.AudioClip=null;
         _this.isTargetPop = null;
@@ -127,9 +129,9 @@ var NewClass = /** @class */ (function (_super) {
                 }, 0.1);
                 if (_this.countCus == 3) {
                     // globalThis.gold += 200
-                    if (globalThis.gold < 100) {
-                        globalThis.gold += 100;
-                    }
+                    // if (globalThis.gold < 100) {
+                    //     globalThis.gold += 100;
+                    // }
                     // this.btnBugerNode.getComponent(cc.Button).enabled = true;
                     // this.btnVegettableNode.getComponent(cc.Button).enabled = true;
                     // this.btnMeatNode.getComponent(cc.Button).enabled = true;
@@ -163,6 +165,7 @@ var NewClass = /** @class */ (function (_super) {
         var check = this.checkSlotHotDog();
         if (check == null)
             return;
+        this.btnBread.getComponent(cc.Button).enabled = true;
         cc.audioEngine.play(this.soundShowPop, false, 1);
         this.listHand.children[0].opacity = 0;
         this.scheduleOnce(function () {
@@ -194,9 +197,9 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.listHand.children[6].active = true;
             _this.onBtn(_this.btnBugerNode);
-            if (globalThis.gold < 200) {
-                globalThis.gold += 200;
-            }
+            // if (globalThis.gold < 200) {
+            //     globalThis.gold += 200;
+            // }
         }, 0.5);
         cc.audioEngine.play(this.soundShowPop, false, 1);
         var meat = cc.instantiate(this.preMeat);
@@ -280,7 +283,6 @@ var NewClass = /** @class */ (function (_super) {
         this.creatFxColor(pos, 2);
     };
     NewClass.prototype.sellBread = function (value) {
-        var _this = this;
         // console.log(value)
         if (this.isTargetCus == null)
             return;
@@ -296,10 +298,10 @@ var NewClass = /** @class */ (function (_super) {
         pos = this.node.convertToNodeSpaceAR(pos);
         cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(function () {
             child.opacity = 0;
-            if (_this.isTargetCus) {
-                _this.isTargetCus.getComponent("cusMission").checkBread(child);
-            }
         }).start();
+        if (this.isTargetCus) {
+            this.isTargetCus.getComponent("cusMission").checkBread(child);
+        }
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5);
     };
     NewClass.prototype.sellBuger = function (value) {
@@ -338,6 +340,7 @@ var NewClass = /** @class */ (function (_super) {
         this.isDelaytuong = true;
         cc.audioEngine.play(this.soundShowPop, false, 1);
         this.listHand.children[3].opacity = 0;
+        this.isTutChili = false;
         this.scheduleOnce(function () {
             _this.listHand.children[4].active = true;
         }, 1);
@@ -408,6 +411,7 @@ var NewClass = /** @class */ (function (_super) {
         this.listHand.children[2].opacity = 0;
         this.scheduleOnce(function () {
             _this.listHand.children[3].active = true;
+            _this.isTutChili = true;
         }, 0.5);
         this.arrHotDog[value] = null;
         child.getComponent("preBread").getHotDog();
@@ -449,7 +453,7 @@ var NewClass = /** @class */ (function (_super) {
         this.listHand.children[7].opacity = 0;
         this.scheduleOnce(function () {
             _this.listHand.children[9].active = true;
-            globalThis.gold += 200;
+            // globalThis.gold += 200
             _this.onBtn(_this.btnVegettableNode);
         }, 0.5);
         this.arrHotDog[value] = null;
@@ -577,6 +581,15 @@ var NewClass = /** @class */ (function (_super) {
                 this.camera.zoomRatio = 0.8;
             }
         }
+        if (this.isTutChili) {
+            this.listHand.children[3].opacity = 0;
+            if (this.arrBreak.length <= 0)
+                return;
+            var bread = this.checkTuongCa();
+            if (bread == null)
+                return;
+            this.listHand.children[3].opacity = 255;
+        }
     };
     __decorate([
         property(cc.AudioClip)
@@ -668,6 +681,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnVegettableNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnBread", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "barCoin", void 0);

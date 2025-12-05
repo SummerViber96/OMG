@@ -65,9 +65,12 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     btnVegettableNode: cc.Node = null;
     @property(cc.Node)
+    btnBread: cc.Node = null;
+    @property(cc.Node)
     barCoin: cc.Node = null
     @property(cc.Label)
     lbCoin: cc.Label = null;
+    isTutChili = false
     // @property(cc.AudioClip)
     // soundBg:cc.AudioClip=null;
 
@@ -127,10 +130,10 @@ export default class NewClass extends cc.Component {
                 }, 0.1)
                 if (this.countCus == 3) {
                     // globalThis.gold += 200
-                    if (globalThis.gold < 100) {
-                        globalThis.gold += 100;
+                    // if (globalThis.gold < 100) {
+                    //     globalThis.gold += 100;
 
-                    }
+                    // }
                     // this.btnBugerNode.getComponent(cc.Button).enabled = true;
                     // this.btnVegettableNode.getComponent(cc.Button).enabled = true;
                     // this.btnMeatNode.getComponent(cc.Button).enabled = true;
@@ -167,9 +170,10 @@ export default class NewClass extends cc.Component {
         // if (this.arrHotDog.length >= 6) return;
         let check = this.checkSlotHotDog()
         if (check == null) return;
-
+        this.btnBread.getComponent(cc.Button).enabled = true
         cc.audioEngine.play(this.soundShowPop, false, 1)
         this.listHand.children[0].opacity = 0
+
         this.scheduleOnce(() => {
             this.listHand.children[1].active = true
 
@@ -191,7 +195,8 @@ export default class NewClass extends cc.Component {
             globalThis.gold -= 100;
             this.appearBtn(this.btnMeatNode)
             this.isLockMeat = false
-            cc.audioEngine.play(this.soundQuest,false,0.5)
+            cc.audioEngine.play(this.soundQuest, false, 0.5)
+
             return;
         }
         let check = this.checkSlotHotDog()
@@ -200,10 +205,10 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.listHand.children[6].active = true
             this.onBtn(this.btnBugerNode)
-            if (globalThis.gold < 200) {
-                globalThis.gold += 200;
+            // if (globalThis.gold < 200) {
+            //     globalThis.gold += 200;
 
-            }
+            // }
 
         }, 0.5)
         cc.audioEngine.play(this.soundShowPop, false, 1)
@@ -276,7 +281,7 @@ export default class NewClass extends cc.Component {
             globalThis.gold -= 200;
             this.appearBtn(this.btnBugerNode)
             this.isLockBuger = false
-                        cc.audioEngine.play(this.soundQuest,false,0.5)
+            cc.audioEngine.play(this.soundQuest, false, 0.5)
 
             return;
         }
@@ -311,12 +316,12 @@ export default class NewClass extends cc.Component {
         pos = this.node.convertToNodeSpaceAR(pos)
         cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(() => {
             child.opacity = 0
-            if (this.isTargetCus) {
-                this.isTargetCus.getComponent("cusMission").checkBread(child)
 
-            }
         }).start()
+        if (this.isTargetCus) {
+            this.isTargetCus.getComponent("cusMission").checkBread(child)
 
+        }
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5)
     }
     sellBuger(value) {
@@ -343,6 +348,7 @@ export default class NewClass extends cc.Component {
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5)
     }
     isDelaytuong = false
+
     btn_tuongCa() {
         if (this.isDelaytuong) return;
         if (this.arrBreak.length <= 0) return;
@@ -351,6 +357,7 @@ export default class NewClass extends cc.Component {
         this.isDelaytuong = true
         cc.audioEngine.play(this.soundShowPop, false, 1)
         this.listHand.children[3].opacity = 0
+        this.isTutChili = false
         this.scheduleOnce(() => {
             this.listHand.children[4].active = true
 
@@ -391,7 +398,7 @@ export default class NewClass extends cc.Component {
             globalThis.gold -= 200;
             this.appearBtn(this.btnVegettableNode)
             this.isLockVegettable = false
-                        cc.audioEngine.play(this.soundQuest,false,0.5)
+            cc.audioEngine.play(this.soundQuest, false, 0.5)
 
             return;
         }
@@ -424,6 +431,7 @@ export default class NewClass extends cc.Component {
         this.listHand.children[2].opacity = 0
         this.scheduleOnce(() => {
             this.listHand.children[3].active = true
+            this.isTutChili = true;
 
         }, 0.5)
         this.arrHotDog[value] = null
@@ -467,7 +475,7 @@ export default class NewClass extends cc.Component {
         this.listHand.children[7].opacity = 0
         this.scheduleOnce(() => {
             this.listHand.children[9].active = true
-            globalThis.gold += 200
+            // globalThis.gold += 200
             this.onBtn(this.btnVegettableNode)
         }, 0.5)
         this.arrHotDog[value] = null
@@ -611,6 +619,14 @@ export default class NewClass extends cc.Component {
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 0.8
             }
+        }
+        if (this.isTutChili) {
+            this.listHand.children[3].opacity = 0
+
+            if (this.arrBreak.length <= 0) return;
+            let bread = this.checkTuongCa();
+            if (bread == null) return;
+            this.listHand.children[3].opacity = 255
         }
 
     }

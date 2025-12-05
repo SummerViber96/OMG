@@ -37,9 +37,12 @@ export default class NewClass extends cc.Component {
             this.updateMission()
         }
         else {
-            this.isEnd = true
-            this.end(false)
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
+            this.scheduleOnce(() => {
+                this.isEnd = true
+                this.end(false)
+                cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
+            }, 0.4)
+
         }
     }
     checkBuger(buger) {
@@ -57,20 +60,24 @@ export default class NewClass extends cc.Component {
     }
 
     updateMission() {
-        cc.audioEngine.play(this.gamePlay.soundYes, false, 1)
-        cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5)
-        this.node.getChildByName("vfx_coin").active = true
-        this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play()
-        globalThis.gold+=50
-        this.count--;
-        this.anim.setAnimation(0, "8.happy", true)
-        this.pop.getChildByName("right").active = true
-        this.pop.getChildByName("right").getComponent(cc.Animation).play()
-        if (this.count == 0) {
-            this.isEnd = true
 
-            this.end(true)
-        }
+        this.count--;
+        this.scheduleOnce(() => {
+            cc.audioEngine.play(this.gamePlay.soundYes, false, 1)
+            cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5)
+            this.node.getChildByName("vfx_coin").active = true
+            this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play()
+            globalThis.gold += 50
+            this.anim.setAnimation(0, "8.happy", true)
+            this.pop.getChildByName("right").active = true
+            this.pop.getChildByName("right").getComponent(cc.Animation).play()
+            if (this.count == 0) {
+                this.isEnd = true
+
+                this.end(true)
+            }
+        }, 0.4)
+
     }
     end(value) {
         this.gamePlay.successCus()

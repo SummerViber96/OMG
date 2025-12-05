@@ -46,6 +46,7 @@ var NewClass = /** @class */ (function (_super) {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameApp");
     };
     NewClass.prototype.checkBread = function (bread) {
+        var _this = this;
         if (this.isEnd)
             return;
         var breadComp = bread.getComponent("preBread");
@@ -53,9 +54,11 @@ var NewClass = /** @class */ (function (_super) {
             this.updateMission();
         }
         else {
-            this.isEnd = true;
-            this.end(false);
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8);
+            this.scheduleOnce(function () {
+                _this.isEnd = true;
+                _this.end(false);
+                cc.audioEngine.play(_this.gamePlay.soundWrong, false, 0.8);
+            }, 0.4);
         }
     };
     NewClass.prototype.checkBuger = function (buger) {
@@ -72,19 +75,22 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.updateMission = function () {
-        cc.audioEngine.play(this.gamePlay.soundYes, false, 1);
-        cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5);
-        this.node.getChildByName("vfx_coin").active = true;
-        this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play();
-        globalThis.gold += 50;
+        var _this = this;
         this.count--;
-        this.anim.setAnimation(0, "8.happy", true);
-        this.pop.getChildByName("right").active = true;
-        this.pop.getChildByName("right").getComponent(cc.Animation).play();
-        if (this.count == 0) {
-            this.isEnd = true;
-            this.end(true);
-        }
+        this.scheduleOnce(function () {
+            cc.audioEngine.play(_this.gamePlay.soundYes, false, 1);
+            cc.audioEngine.play(_this.gamePlay.soundNice, false, 0.5);
+            _this.node.getChildByName("vfx_coin").active = true;
+            _this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play();
+            globalThis.gold += 50;
+            _this.anim.setAnimation(0, "8.happy", true);
+            _this.pop.getChildByName("right").active = true;
+            _this.pop.getChildByName("right").getComponent(cc.Animation).play();
+            if (_this.count == 0) {
+                _this.isEnd = true;
+                _this.end(true);
+            }
+        }, 0.4);
     };
     NewClass.prototype.end = function (value) {
         var _this = this;
