@@ -63,12 +63,16 @@ var NewClass = /** @class */ (function (_super) {
         _this.barCoin = null;
         _this.lbCoin = null;
         _this.isTutChili = false;
+        _this.isTutMeat = false;
+        _this.isTutVegetTable = false;
+        _this.isTutClickMeat = false;
         // @property(cc.AudioClip)
         // soundBg:cc.AudioClip=null;
         _this.isTargetPop = null;
         _this.isTargetCus = null;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.countCus = 0;
+        _this.isStep = 0;
         _this.arrHotDog = [null, null, null, null, null, null];
         _this.arrBreak = [null, null, null];
         _this.arrBuger = [null, null, null];
@@ -77,6 +81,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isLockBuger = true;
         _this.isDelaytuong = false;
         _this.isLockVegettable = true;
+        _this.arrTutHand = [false, false, false, false];
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -128,20 +133,7 @@ var NewClass = /** @class */ (function (_super) {
                     cc.audioEngine.play(_this.soundShowPop, false, 1);
                 }, 0.1);
                 if (_this.countCus == 3) {
-                    // globalThis.gold += 200
-                    // if (globalThis.gold < 100) {
-                    //     globalThis.gold += 100;
-                    // }
-                    // this.btnBugerNode.getComponent(cc.Button).enabled = true;
-                    // this.btnVegettableNode.getComponent(cc.Button).enabled = true;
-                    // this.btnMeatNode.getComponent(cc.Button).enabled = true;
-                    // this.btnBugerNode.children[0].active = false;
-                    // this.btnMeatNode.children[0].active = false
-                    // this.btnVegettableNode.children[0].active = false
                     _this.onBtn(_this.btnMeatNode);
-                    // this.offGray(this.btnBugerNode);
-                    // this.offGray(this.btnVegettableNode);
-                    // this.offGray(this.btnMeatNode);
                     _this.listHand.children[5].active = true;
                 }
             }).start();
@@ -190,6 +182,8 @@ var NewClass = /** @class */ (function (_super) {
             cc.audioEngine.play(this.soundQuest, false, 0.5);
             return;
         }
+        if (this.isLockMeat)
+            return;
         var check = this.checkSlotHotDog();
         if (check == null)
             return;
@@ -197,9 +191,9 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.listHand.children[6].active = true;
             _this.onBtn(_this.btnBugerNode);
-            // if (globalThis.gold < 200) {
-            //     globalThis.gold += 200;
-            // }
+            if (globalThis.gold < 150 && _this.countCus >= 3) {
+                globalThis.gold += 150;
+            }
         }, 0.5);
         cc.audioEngine.play(this.soundShowPop, false, 1);
         var meat = cc.instantiate(this.preMeat);
@@ -259,13 +253,15 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_buger = function (event) {
         var _this = this;
-        if (this.isLockBuger == true && globalThis.gold >= 200) {
-            globalThis.gold -= 200;
+        if (this.isLockBuger == true && globalThis.gold >= 150) {
+            globalThis.gold -= 150;
             this.appearBtn(this.btnBugerNode);
             this.isLockBuger = false;
             cc.audioEngine.play(this.soundQuest, false, 0.5);
             return;
         }
+        if (this.isLockBuger)
+            return;
         var check = this.checkSlotBuger();
         if (check == null)
             return;
@@ -372,13 +368,15 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_vegettable = function () {
         var _this = this;
-        if (this.isLockVegettable == true && globalThis.gold >= 200) {
-            globalThis.gold -= 200;
+        if (this.isLockVegettable == true && globalThis.gold >= 150) {
+            globalThis.gold -= 150;
             this.appearBtn(this.btnVegettableNode);
             this.isLockVegettable = false;
             cc.audioEngine.play(this.soundQuest, false, 0.5);
             return;
         }
+        if (this.isLockVegettable)
+            return;
         if (this.arrBuger.length <= 0)
             return;
         var bread = this.checkVegettable();
@@ -409,10 +407,13 @@ var NewClass = /** @class */ (function (_super) {
             return;
         cc.audioEngine.play(this.soundShowPop, false, 1);
         this.listHand.children[2].opacity = 0;
-        this.scheduleOnce(function () {
-            _this.listHand.children[3].active = true;
-            _this.isTutChili = true;
-        }, 0.5);
+        if (this.arrTutHand[3] == false) {
+            this.scheduleOnce(function () {
+                _this.listHand.children[3].active = true;
+                _this.isTutChili = true;
+            }, 0.5);
+            this.arrTutHand[3] = true;
+        }
         this.arrHotDog[value] = null;
         child.getComponent("preBread").getHotDog();
         var pos = node.parent.convertToWorldSpaceAR(node.position);
@@ -452,7 +453,7 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundShowPop, false, 1);
         this.listHand.children[7].opacity = 0;
         this.scheduleOnce(function () {
-            _this.listHand.children[9].active = true;
+            // this.listHand.children[9].active = true
             // globalThis.gold += 200
             _this.onBtn(_this.btnVegettableNode);
         }, 0.5);
@@ -481,51 +482,6 @@ var NewClass = /** @class */ (function (_super) {
         this.linkToStore.active = true;
     };
     // btn_choose(event, value) {
-    //     console.log(value)
-    //     switch (value) {
-    //         case "0":
-    //             this.hand.active = false
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             // this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(1)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             // this.hand.active = true
-    //             break;
-    //         case "1":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(2)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "2":
-    //             this.sceneGun.position = cc.v3(3000, 0)
-    //             this.sceneGun.active = true
-    //             this.sceneGun.getComponent("mainGun").loadData(1)
-    //             this.sceneGun.getComponent(cc.Animation).play()
-    //             this.sceneMain.active = false
-    //             break;
-    //         case "3":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(3)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "4":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(4)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "5":
-    //             this.sceneGun.position = cc.v3(3000, 0)
-    //             this.sceneGun.active = true
-    //             this.sceneGun.getComponent("mainGun").loadData(2)
-    //             this.sceneGun.getComponent(cc.Animation).play()
-    //             this.sceneMain.active = false
-    //             break;
-    //     }
-    // }
     NewClass.prototype.update = function (dt) {
         this.lbCoin.string = globalThis.gold.toString();
         var deviceResolution = cc.view.getFrameSize();
@@ -581,7 +537,7 @@ var NewClass = /** @class */ (function (_super) {
                 this.camera.zoomRatio = 0.8;
             }
         }
-        if (this.isTutChili) {
+        if (this.isTutChili == true) {
             this.listHand.children[3].opacity = 0;
             if (this.arrBreak.length <= 0)
                 return;

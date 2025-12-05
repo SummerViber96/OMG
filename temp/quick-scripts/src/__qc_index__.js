@@ -11,6 +11,7 @@ require('./assets/cooking/ietm/meat');
 require('./assets/cooking/ietm/preBread');
 require('./assets/scripts/APP/CC2');
 require('./assets/scripts/APP/GameApp');
+require('./assets/scripts/APP/lock');
 require('./assets/scripts/APP/mainGun');
 require('./assets/scripts/APP/mainMusic');
 require('./assets/scripts/APP/volum');

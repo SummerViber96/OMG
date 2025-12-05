@@ -71,6 +71,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     lbCoin: cc.Label = null;
     isTutChili = false
+    isTutMeat = false
+    isTutVegetTable = false
+    isTutClickMeat = false
     // @property(cc.AudioClip)
     // soundBg:cc.AudioClip=null;
 
@@ -129,27 +132,14 @@ export default class NewClass extends cc.Component {
 
                 }, 0.1)
                 if (this.countCus == 3) {
-                    // globalThis.gold += 200
-                    // if (globalThis.gold < 100) {
-                    //     globalThis.gold += 100;
-
-                    // }
-                    // this.btnBugerNode.getComponent(cc.Button).enabled = true;
-                    // this.btnVegettableNode.getComponent(cc.Button).enabled = true;
-                    // this.btnMeatNode.getComponent(cc.Button).enabled = true;
-                    // this.btnBugerNode.children[0].active = false;
-                    // this.btnMeatNode.children[0].active = false
-                    // this.btnVegettableNode.children[0].active = false
                     this.onBtn(this.btnMeatNode)
-                    // this.offGray(this.btnBugerNode);
-                    // this.offGray(this.btnVegettableNode);
-                    // this.offGray(this.btnMeatNode);
                     this.listHand.children[5].active = true
                 }
             }).start()
         }
 
     }
+    isStep = 0
     onBtn(btn) {
         btn.getComponent(cc.Button).enabled = true;
         // btn.children[0].children[0].active = false;
@@ -199,16 +189,17 @@ export default class NewClass extends cc.Component {
 
             return;
         }
+        if (this.isLockMeat) return;
         let check = this.checkSlotHotDog()
         if (check == null) return;
         this.listHand.children[5].opacity = 0
         this.scheduleOnce(() => {
             this.listHand.children[6].active = true
             this.onBtn(this.btnBugerNode)
-            // if (globalThis.gold < 200) {
-            //     globalThis.gold += 200;
+            if (globalThis.gold < 150 && this.countCus >= 3) {
+                globalThis.gold += 150;
 
-            // }
+            }
 
         }, 0.5)
         cc.audioEngine.play(this.soundShowPop, false, 1)
@@ -277,14 +268,15 @@ export default class NewClass extends cc.Component {
     isLockBuger = true
 
     btn_buger(event) {
-        if (this.isLockBuger == true && globalThis.gold >= 200) {
-            globalThis.gold -= 200;
+        if (this.isLockBuger == true && globalThis.gold >= 150) {
+            globalThis.gold -= 150;
             this.appearBtn(this.btnBugerNode)
             this.isLockBuger = false
             cc.audioEngine.play(this.soundQuest, false, 0.5)
 
             return;
         }
+        if (this.isLockBuger) return
         let check = this.checkSlotBuger()
         if (check == null) return;
         cc.audioEngine.play(this.soundShowPop, false, 1)
@@ -394,14 +386,15 @@ export default class NewClass extends cc.Component {
     isLockVegettable = true
 
     btn_vegettable() {
-        if (this.isLockVegettable == true && globalThis.gold >= 200) {
-            globalThis.gold -= 200;
+        if (this.isLockVegettable == true && globalThis.gold >= 150) {
+            globalThis.gold -= 150;
             this.appearBtn(this.btnVegettableNode)
             this.isLockVegettable = false
             cc.audioEngine.play(this.soundQuest, false, 0.5)
 
             return;
         }
+        if (this.isLockVegettable) return;
         if (this.arrBuger.length <= 0) return;
         let bread = this.checkVegettable();
         if (bread == null) return;
@@ -423,17 +416,22 @@ export default class NewClass extends cc.Component {
         }
         return null
     }
+    arrTutHand = [false, false, false, false]
     clickHotDog(value, node) {
         if (this.arrBreak.length <= 0) return;
         let child = this.checkBread()
         if (child == null) return;
         cc.audioEngine.play(this.soundShowPop, false, 1)
         this.listHand.children[2].opacity = 0
-        this.scheduleOnce(() => {
-            this.listHand.children[3].active = true
-            this.isTutChili = true;
+        if (this.arrTutHand[3] == false) {
+            this.scheduleOnce(() => {
+                this.listHand.children[3].active = true
+                this.isTutChili = true;
 
-        }, 0.5)
+            }, 0.5)
+            this.arrTutHand[3] = true
+        }
+
         this.arrHotDog[value] = null
         child.getComponent("preBread").getHotDog()
         let pos = node.parent.convertToWorldSpaceAR(node.position);
@@ -474,7 +472,7 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundShowPop, false, 1)
         this.listHand.children[7].opacity = 0
         this.scheduleOnce(() => {
-            this.listHand.children[9].active = true
+            // this.listHand.children[9].active = true
             // globalThis.gold += 200
             this.onBtn(this.btnVegettableNode)
         }, 0.5)
@@ -506,56 +504,7 @@ export default class NewClass extends cc.Component {
         this.linkToStore.active = true
     }
     // btn_choose(event, value) {
-    //     console.log(value)
-    //     switch (value) {
-    //         case "0":
-    //             this.hand.active = false
 
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             // this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(1)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             // this.hand.active = true
-    //             break;
-    //         case "1":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-
-    //             this.sceneMusic.getComponent("mainMusic").loadData(2)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "2":
-    //             this.sceneGun.position = cc.v3(3000, 0)
-    //             this.sceneGun.active = true
-    //             this.sceneGun.getComponent("mainGun").loadData(1)
-    //             this.sceneGun.getComponent(cc.Animation).play()
-    //             this.sceneMain.active = false
-    //             break;
-    //         case "3":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-
-    //             this.sceneMusic.getComponent("mainMusic").loadData(3)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "4":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-
-    //             this.sceneMusic.getComponent("mainMusic").loadData(4)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "5":
-    //             this.sceneGun.position = cc.v3(3000, 0)
-    //             this.sceneGun.active = true
-    //             this.sceneGun.getComponent("mainGun").loadData(2)
-    //             this.sceneGun.getComponent(cc.Animation).play()
-    //             this.sceneMain.active = false
-
-    //             break;
-    //     }
-    // }
     update(dt) {
         this.lbCoin.string = globalThis.gold.toString()
         let deviceResolution = cc.view.getFrameSize();
@@ -620,7 +569,7 @@ export default class NewClass extends cc.Component {
                 this.camera.zoomRatio = 0.8
             }
         }
-        if (this.isTutChili) {
+        if (this.isTutChili == true) {
             this.listHand.children[3].opacity = 0
 
             if (this.arrBreak.length <= 0) return;
