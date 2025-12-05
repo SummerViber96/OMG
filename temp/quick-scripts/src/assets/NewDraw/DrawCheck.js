@@ -175,6 +175,9 @@ var DrawCheck = /** @class */ (function (_super) {
     DrawCheck.prototype.onTouchMove = function (event) {
         if (!this.isDrawing)
             return;
+        if (this.gamePlay.hand.active == true) {
+            this.gamePlay.hand.active = false;
+        }
         var pos = this.node.convertToNodeSpaceAR(event.getLocation());
         // Vẽ
         // Kiểm tra
@@ -187,6 +190,13 @@ var DrawCheck = /** @class */ (function (_super) {
             this.drawGraphics.lineTo(pos.x, pos.y);
             this.drawGraphics.stroke();
             console.log("draw");
+        }
+        var uniqueSet = new Set(this.arrCheck);
+        var uniqueArray2 = Array.from(uniqueSet);
+        var percent = uniqueArray2.length / this.targetPoints.length;
+        // this.arrCheck = []
+        if (percent >= this.completePercent) {
+            this.win();
         }
     };
     /** TOUCH END */

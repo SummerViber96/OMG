@@ -15,9 +15,7 @@
   "excluded-modules": [
     "DragonBones",
     "EditBox",
-    "Graphics",
     "Geom Utils",
-    "Mask",
     "Mesh",
     "MotionStreak",
     "NodePool",
@@ -63,5 +61,5 @@
       "enable": false
     }
   },
-  "last-module-event-record-time": 1763994754509
+  "last-module-event-record-time": 1764908329279
 }

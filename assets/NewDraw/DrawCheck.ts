@@ -180,7 +180,9 @@ export default class DrawCheck extends cc.Component {
     isTargetPoint = null
     private onTouchMove(event: cc.Event.EventTouch) {
         if (!this.isDrawing) return;
-
+        if (this.gamePlay.hand.active == true) {
+            this.gamePlay.hand.active = false
+        }
         const pos = this.node.convertToNodeSpaceAR(event.getLocation());
 
         // Vẽ
@@ -196,6 +198,16 @@ export default class DrawCheck extends cc.Component {
             this.drawGraphics.lineTo(pos.x, pos.y);
             this.drawGraphics.stroke();
             console.log("draw")
+        }
+
+
+        const uniqueSet = new Set(this.arrCheck);
+        const uniqueArray2 = Array.from(uniqueSet);
+        const percent = uniqueArray2.length / this.targetPoints.length;
+        // this.arrCheck = []
+
+        if (percent >= this.completePercent) {
+            this.win();
         }
     }
 
@@ -268,7 +280,7 @@ export default class DrawCheck extends cc.Component {
         cc.Canvas.instance.node.getComponent("GameManager").winGame()
     }
     clearGame() {
-         this.node.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.node.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.node.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
         this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);

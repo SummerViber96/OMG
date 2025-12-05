@@ -38,9 +38,12 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundFail = null;
         _this.hand = null;
         _this.linkToStore = null;
+        // @property(cc.Node)
+        // hand:cc.Node=null
         _this.level = 1;
         _this.isLocalLevel = null;
         _this.isNextLevel = null;
+        _this.adChanel = '{{__adv_channels_adapter__}}';
         // loadPolygonLevel(id: number) {
         //     cc.resources.load(`levels_polygon/level${id}`, cc.JsonAsset, (err, json: cc.JsonAsset) => {
         //         const raw = json.json as number[][];
@@ -54,14 +57,19 @@ var NewClass = /** @class */ (function (_super) {
         //     });
         // }
         _this.levelNode = null;
+        _this.isFirst = false;
+        _this.isvertical = false;
         return _this;
-        // update (dt) {}
     }
     NewClass.prototype.start = function () {
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
         cc.audioEngine.play(this.soundBg, true, 0.5);
         this.loadLevel(this.level);
     };
     NewClass.prototype.loadLevel = function (level) {
+        var _this = this;
         if (this.level == 4) {
             this.linkToStore.active = true;
             var data_1 = this.listLevelNode[level - 1];
@@ -81,6 +89,12 @@ var NewClass = /** @class */ (function (_super) {
         data.active = true;
         this.isLocalLevel = data;
         cc.tween(data).to(0.3, { scale: 1.1 }).to(0.05, { scale: 1 }).start();
+        this.scheduleOnce(function () {
+            if (_this.isFirst == false) {
+                _this.hand.active = true;
+                _this.isFirst = true;
+            }
+        }, 0.5);
         // Gọi hàm load
         // levelNode.getComponent("DrawCheck").loadLevel();
         // levelNode.getComponent("DrawCheck").loadOutlineFromJSON(levelDataJSON);
@@ -113,6 +127,24 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.5);
     };
     NewClass.prototype.fail = function () {
+    };
+    NewClass.prototype.update = function (dt) {
+        var canvas = this.node.getComponent(cc.Canvas);
+        if (cc.winSize.width < cc.winSize.height) {
+            if (!this.isvertical) {
+                this.isvertical = true;
+                canvas.fitHeight = false;
+                canvas.fitWidth = true;
+                if (cc.winSize.height / cc.winSize.width < 1.35) {
+                    canvas.fitHeight = true;
+                }
+            }
+        }
+        else {
+            this.isvertical = false;
+            canvas.fitHeight = true;
+            canvas.fitWidth = false;
+        }
     };
     __decorate([
         property(cc.Prefab)

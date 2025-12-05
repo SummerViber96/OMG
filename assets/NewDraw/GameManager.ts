@@ -25,10 +25,17 @@ export default class NewClass extends cc.Component {
     hand: cc.Node = null
     @property(cc.Node)
     linkToStore: cc.Node = null
+    // @property(cc.Node)
+    // hand:cc.Node=null
     level = 1
     isLocalLevel = null;
     isNextLevel = null
+        adChanel = '{{__adv_channels_adapter__}}'
+
     start() {
+          if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
         cc.audioEngine.play(this.soundBg, true, 0.5)
         this.loadLevel(this.level)
 
@@ -49,6 +56,7 @@ export default class NewClass extends cc.Component {
     //     });
     // }
     levelNode = null
+    isFirst = false
     loadLevel(level) {
 
 
@@ -71,6 +79,12 @@ export default class NewClass extends cc.Component {
         data.active = true;
         this.isLocalLevel = data
         cc.tween(data).to(0.3, { scale: 1.1 }).to(0.05, { scale: 1 }).start()
+        this.scheduleOnce(() => {
+            if (this.isFirst == false) {
+                this.hand.active = true
+                this.isFirst = true
+            }
+        }, 0.5)
         // Gọi hàm load
         // levelNode.getComponent("DrawCheck").loadLevel();
         // levelNode.getComponent("DrawCheck").loadOutlineFromJSON(levelDataJSON);
@@ -105,5 +119,30 @@ export default class NewClass extends cc.Component {
     fail() {
 
     }
-    // update (dt) {}
+    isvertical = false
+    update(dt) {
+        let canvas = this.node.getComponent(cc.Canvas);
+
+        if (cc.winSize.width < cc.winSize.height) {
+            if (!this.isvertical) {
+                this.isvertical = true;
+                canvas.fitHeight = false;
+                canvas.fitWidth = true;
+
+                if (cc.winSize.height / cc.winSize.width < 1.35) {
+                    canvas.fitHeight = true;
+
+                }
+
+
+            }
+        }
+        else {
+
+            this.isvertical = false;
+            canvas.fitHeight = true;
+            canvas.fitWidth = false;
+
+        }
+    }
 }
