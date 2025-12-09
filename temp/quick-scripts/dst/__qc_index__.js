@@ -10,7 +10,9 @@
                     };
                     function __define (exports, require, module) {
                         if (!nodeEnv) {__quick_compile_project__.registerModule(__filename, module);}
+require('./assets/DrawGame/DrawMask');
 require('./assets/DrawLine/DrawLine');
+require('./assets/DrawLine/DrawToReveal');
 require('./assets/DrawLine/LevelManager');
 require('./assets/DrawLine/LevelOutline');
 require('./assets/HF/GamePLay');

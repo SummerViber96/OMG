@@ -31,7 +31,7 @@ var DrawCheck = /** @class */ (function (_super) {
         _this.targetGraphics = null;
         _this.drawGraphics = null;
         _this.threshold = 25;
-        _this.completePercent = 0.9;
+        _this.completePercent = 0.98;
         _this.targetPoints = [];
         _this.isDrawing = false;
         _this.matchedCount = 0;
@@ -39,6 +39,9 @@ var DrawCheck = /** @class */ (function (_super) {
         _this.localPoints = [];
         _this.countFail = 0;
         _this.gamePlay = null;
+        _this.targetPoint = cc.v2(0, 0);
+        _this.isStartPoint = null;
+        _this.isEndPoint = null;
         /** TOUCH MOVE */
         _this.isTargetPoint = null;
         _this.arrCheck = [];
@@ -66,99 +69,8 @@ var DrawCheck = /** @class */ (function (_super) {
             points.push(pos);
         }
         this.targetPoints = points;
-        console.log(this.targetPoints);
         // console.log(this.targetPoints)
         // this.localPoints = []
-    };
-    DrawCheck.prototype.loadMatrixJSON = function (matrix) {
-        var rows = matrix.length;
-        var cols = matrix[0].length;
-        var outlinePoints = [];
-        var cellSize = 20; // scale mỗi ô pixel -> 20px
-        // Quét ma trận
-        for (var y = 0; y < rows; y++) {
-            for (var x = 0; x < cols; x++) {
-                if (matrix[y][x] === -1) {
-                    var worldX = (x - cols / 2) * cellSize;
-                    var worldY = (rows / 2 - y) * cellSize;
-                    outlinePoints.push(cc.v2(worldX, worldY));
-                }
-            }
-        }
-        // // Lưu lại
-        // this.matrixPoints = outlinePoints;
-        // cc.log("Total outline pixel points:", outlinePoints.length);
-        // // Vẽ lên targetGraphics
-        // this.drawFromPixelPoints(outlinePoints);
-        // // Generate lại targetPoints
-        // this.targetPoints = outlinePoints;
-        this.matrixPoints = outlinePoints;
-        this.targetPoints = outlinePoints; // FIX: targetPoints chính là pixel points
-        cc.log("Total outline pixel points:", outlinePoints.length);
-        // FIX: vẽ đúng dạng pixel, không nối zig-zag
-        this.drawPixelDots(outlinePoints);
-    };
-    DrawCheck.prototype.drawPixelDots = function (points) {
-        var g = this.targetGraphics;
-        g.clear();
-        g.lineWidth = 1;
-        g.fillColor = cc.color(180, 180, 180);
-        for (var _i = 0, points_1 = points; _i < points_1.length; _i++) {
-            var p = points_1[_i];
-            g.circle(p.x, p.y, 5);
-            g.fill();
-        }
-    };
-    // private drawFromPixelPoints(points: cc.Vec2[]) {
-    //     const g = this.targetGraphics;
-    //     g.clear();
-    //     g.lineWidth = 8;
-    //     g.strokeColor = cc.color(180, 180, 180);
-    //     if (points.length == 0) return;
-    //     // Nối trực tiếp (hoặc bạn có thể nhóm theo cluster)
-    //     g.moveTo(points[0].x, points[0].y);
-    //     for (let i = 1; i < points.length; i++) {
-    //         g.lineTo(points[i].x, points[i].y);
-    //     }
-    //     g.stroke();
-    // }
-    /** VẼ HÌNH MẪU */
-    DrawCheck.prototype.drawSampleShape = function () {
-        var g = this.targetGraphics;
-        g.lineWidth = 10;
-        g.strokeColor = cc.color(180, 180, 180);
-        // Square
-        g.moveTo(-200, 100);
-        g.lineTo(200, 100);
-        g.lineTo(200, -300);
-        g.lineTo(-200, -300);
-        g.lineTo(-200, 100);
-        // Circle
-        g.circle(0, -200, 240);
-        g.stroke();
-    };
-    /** TẠO DANH SÁCH ĐIỂM OUTLINE */
-    DrawCheck.prototype.generateTargetPoints = function () {
-        this.targetPoints = [];
-        // Square
-        for (var t = 0; t <= 1; t += 0.01) {
-            this.targetPoints.push(cc.v2(-100 + t * 200, 50));
-        }
-        for (var t = 0; t <= 1; t += 0.01) {
-            this.targetPoints.push(cc.v2(100, 50 - t * 200));
-        }
-        for (var t = 0; t <= 1; t += 0.01) {
-            this.targetPoints.push(cc.v2(100 - t * 200, -150));
-        }
-        for (var t = 0; t <= 1; t += 0.01) {
-            this.targetPoints.push(cc.v2(-100, -150 + t * 200));
-        }
-        // Circle
-        var center = cc.v2(0, -200);
-        var radius = 120;
-        for (var a = 0; a <= Math.PI * 2; a += 0.05) {
-            this.targetPoints.push(cc.v2(center.x + Math.cos(a) * radius, center.y + Math.sin(a) * radius));
-        }
     };
     /** TOUCH START */
     DrawCheck.prototype.onTouchStart = function (event) {
@@ -166,11 +78,20 @@ var DrawCheck = /** @class */ (function (_super) {
             return;
         this.isDrawing = true;
         this.matchedCount = 0;
+        // console.log("start")
         var pos = this.node.convertToNodeSpaceAR(event.getLocation());
         this.drawGraphics.clear();
-        this.drawGraphics.lineWidth = 14;
+        this.drawGraphics.lineWidth = 28;
         this.drawGraphics.strokeColor = cc.color(0, 255, 0);
-        this.drawGraphics.moveTo(pos.x, pos.y);
+        // this.drawGraphics.moveTo(pos.x, pos.y);
+        this.isStartPoint = null;
+        if (this.isNearPath(pos)) {
+            this.drawGraphics.moveTo(this.targetPoint.x, this.targetPoint.y);
+            // this.drawGraphics.moveTo(pos2.x, pos2.y);
+        }
+        else {
+            // console.log("no")
+        }
     };
     DrawCheck.prototype.onTouchMove = function (event) {
         if (!this.isDrawing)
@@ -182,14 +103,31 @@ var DrawCheck = /** @class */ (function (_super) {
         // Vẽ
         // Kiểm tra
         if (!this.isNearPath(pos)) {
-            this.fail();
-            this.drawGraphics.lineTo(pos.x, pos.y);
-            this.drawGraphics.stroke();
+            // this.fail();
+            // this.drawGraphics.lineTo(pos.x, pos.y);
+            // this.drawGraphics.stroke();
         }
         else {
-            this.drawGraphics.lineTo(pos.x, pos.y);
-            this.drawGraphics.stroke();
-            console.log("draw");
+            // this.drawGraphics.lineTo(pos.x, pos.y);
+            // let pos2 = this.targetPoints[this.arrCheck[this.arrCheck.length - 1]]
+            // this.drawGraphics.lineTo(pos2.x, pos2.y);
+            // this.drawGraphics.stroke();
+            //ve lai
+            // console.log("draw",this.isStartPoint, this.arrCheck[this.arrCheck.length])
+            // for (let i = this.isStartPoint + 1; i <= this.arrCheck[this.arrCheck.length-1]; i++) {
+            //     let pos2 = this.targetPoints[i]
+            //     this.drawGraphics.lineTo(pos2.x, pos2.y);
+            //     this.drawGraphics.stroke();
+            // }
+            this.drawGraphics.clear();
+            this.drawGraphics.lineWidth = 28;
+            this.drawGraphics.strokeColor = cc.color(0, 255, 0);
+            this.drawGraphics.moveTo(this.targetPoints[this.isStartPoint].x, this.targetPoints[this.isStartPoint].y);
+            for (var i = 0; i < this.arrCheck.length; i++) {
+                var pos2 = this.targetPoints[this.arrCheck[i]];
+                this.drawGraphics.lineTo(pos2.x, pos2.y);
+                this.drawGraphics.stroke();
+            }
         }
         var uniqueSet = new Set(this.arrCheck);
         var uniqueArray2 = Array.from(uniqueSet);
@@ -204,16 +142,16 @@ var DrawCheck = /** @class */ (function (_super) {
         if (!this.isDrawing)
             return;
         this.isDrawing = false;
-        console.log(this.arrCheck);
         var uniqueSet = new Set(this.arrCheck);
         var uniqueArray2 = Array.from(uniqueSet);
         var percent = uniqueArray2.length / this.targetPoints.length;
+        var arr = this.arrCheck;
         this.arrCheck = [];
         if (percent >= this.completePercent) {
             this.win();
         }
         else {
-            this.fail();
+            this.fail(arr);
         }
         this.matchedCount = 0;
     };
@@ -221,24 +159,39 @@ var DrawCheck = /** @class */ (function (_super) {
     DrawCheck.prototype.isNearPath = function (p) {
         for (var i = 0; i < this.targetPoints.length; i++) {
             if (p.sub(this.targetPoints[i]).mag() <= this.threshold) {
-                // console.log(this.check(i), i)
                 if (this.arrCheck.includes(i)) {
                     if (this.arrCheck[this.arrCheck.length - 1] == i) {
                         var pos = this.targetPoints[i];
-                        // this.isTargetPoint = pos
+                        this.targetPoint = pos;
                         return true;
                     }
                     else {
-                        console.log("trung diem");
+                        // console.log("trung diem")
                         // return false
                     }
                 }
                 else {
-                    this.matchedCount++;
-                    this.arrCheck.push(i);
-                    var pos = this.targetPoints[i];
-                    this.isTargetPoint = pos;
-                    return true;
+                    var nextPos = this.targetPoints[i];
+                    if (this.arrCheck.length > 0 && nextPos.sub(this.targetPoints[this.arrCheck[this.arrCheck.length - 1]]).mag() <= 100) {
+                        this.matchedCount++;
+                        this.arrCheck.push(i);
+                        if (this.isStartPoint == null) {
+                            this.isStartPoint = i;
+                        }
+                        var pos = this.targetPoints[i];
+                        this.targetPoint = pos;
+                        return true;
+                    }
+                    else if (this.arrCheck.length == 0) {
+                        this.matchedCount++;
+                        this.arrCheck.push(i);
+                        if (this.isStartPoint == null) {
+                            this.isStartPoint = i;
+                        }
+                        var pos = this.targetPoints[i];
+                        this.targetPoint = pos;
+                        return true;
+                    }
                 }
                 // return true;
             }
@@ -268,13 +221,22 @@ var DrawCheck = /** @class */ (function (_super) {
         this.drawGraphics.clear();
         this.targetGraphics.clear();
     };
-    DrawCheck.prototype.fail = function () {
+    DrawCheck.prototype.fail = function (arr) {
         var _this = this;
         cc.log("❌ FAIL !!!");
         if (this.isEndGame)
             return;
         this.isEndGame = true;
+        // this.drawGraphics.strokeColor = cc.Color.RED
+        this.drawGraphics.clear();
+        this.drawGraphics.lineWidth = 28;
         this.drawGraphics.strokeColor = cc.Color.RED;
+        this.drawGraphics.moveTo(this.targetPoints[this.isStartPoint].x, this.targetPoints[this.isStartPoint].y);
+        for (var i = 0; i < arr.length; i++) {
+            var pos2 = this.targetPoints[arr[i]];
+            this.drawGraphics.lineTo(pos2.x, pos2.y);
+            this.drawGraphics.stroke();
+        }
         this.gamePlay.fail();
         if (this.isDelayDem == false) {
             this.isDelayDem = true;
@@ -284,7 +246,7 @@ var DrawCheck = /** @class */ (function (_super) {
             }, 1);
         }
         cc.audioEngine.play(this.gamePlay.soundFail, false, 1);
-        if (this.countFail == 2) {
+        if (this.countFail == 3) {
             this.gamePlay.nextLevel();
         }
         else {

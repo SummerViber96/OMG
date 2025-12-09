@@ -15,6 +15,8 @@ export default class NewClass extends cc.Component {
     level1Node: cc.Node = null
     @property(cc.Node)
     listLevelNode: cc.Node[] = []
+    @property(cc.Prefab)
+    listPreLevel:cc.Prefab[]=[]
     @property(cc.AudioClip)
     soundBg: cc.AudioClip = null;
     @property(cc.AudioClip)
@@ -60,7 +62,7 @@ export default class NewClass extends cc.Component {
     loadLevel(level) {
 
 
-        if (this.level == 4) {
+        if (this.level == 5) {
             this.linkToStore.active = true
             let data = this.listLevelNode[level - 1];
             data.scale = 0.2
@@ -69,7 +71,7 @@ export default class NewClass extends cc.Component {
             cc.tween(data).to(0.3, { scale: 1.1 }).to(0.05, { scale: 1 }).start()
             return;
         }
-        const prefab = this.level1
+        const prefab = this.listPreLevel[level-1]
         const levelNode = cc.instantiate(prefab);
         this.node.addChild(levelNode);
         levelNode.getComponent("DrawCheck").loadLevel(this.listLevelNode[level - 1])
@@ -83,6 +85,7 @@ export default class NewClass extends cc.Component {
             if (this.isFirst == false) {
                 this.hand.active = true
                 this.isFirst = true
+                this.hand.zIndex=100
             }
         }, 0.5)
         // Gọi hàm load

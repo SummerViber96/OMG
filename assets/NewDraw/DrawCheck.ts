@@ -13,7 +13,7 @@ export default class DrawCheck extends cc.Component {
     threshold: number = 25;
 
     @property
-    completePercent: number = 0.9;
+    completePercent: number = 0.98;
 
 
     private targetPoints: cc.Vec2[] = [];
@@ -23,6 +23,9 @@ export default class DrawCheck extends cc.Component {
     localPoints = []
     countFail = 0
     gamePlay = null
+    targetPoint = cc.v2(0, 0)
+    isStartPoint = null
+    isEndPoint = null
     onLoad() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameManager")
         this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
@@ -42,138 +45,33 @@ export default class DrawCheck extends cc.Component {
             points.push(pos)
         }
         this.targetPoints = points
-        console.log(this.targetPoints)
         // console.log(this.targetPoints)
         // this.localPoints = []
     }
 
-    public loadMatrixJSON(matrix: number[][]) {
-        const rows = matrix.length;
-        const cols = matrix[0].length;
-
-        let outlinePoints: cc.Vec2[] = [];
-        let cellSize = 20;   // scale mỗi ô pixel -> 20px
-
-        // Quét ma trận
-        for (let y = 0; y < rows; y++) {
-            for (let x = 0; x < cols; x++) {
-                if (matrix[y][x] === -1) {
-
-                    let worldX = (x - cols / 2) * cellSize;
-                    let worldY = (rows / 2 - y) * cellSize;
-
-                    outlinePoints.push(cc.v2(worldX, worldY));
-                }
-            }
-        }
-
-        // // Lưu lại
-        // this.matrixPoints = outlinePoints;
-        // cc.log("Total outline pixel points:", outlinePoints.length);
-
-        // // Vẽ lên targetGraphics
-        // this.drawFromPixelPoints(outlinePoints);
-
-        // // Generate lại targetPoints
-        // this.targetPoints = outlinePoints;
-        this.matrixPoints = outlinePoints;
-        this.targetPoints = outlinePoints;     // FIX: targetPoints chính là pixel points
-        cc.log("Total outline pixel points:", outlinePoints.length);
-
-        // FIX: vẽ đúng dạng pixel, không nối zig-zag
-        this.drawPixelDots(outlinePoints);
-    }
-    private drawPixelDots(points: cc.Vec2[]) {
-        const g = this.targetGraphics;
-        g.clear();
-        g.lineWidth = 1;
-        g.fillColor = cc.color(180, 180, 180);
-
-        for (let p of points) {
-            g.circle(p.x, p.y, 5);
-            g.fill();
-        }
-    }
-    // private drawFromPixelPoints(points: cc.Vec2[]) {
-    //     const g = this.targetGraphics;
-    //     g.clear();
-    //     g.lineWidth = 8;
-    //     g.strokeColor = cc.color(180, 180, 180);
-
-    //     if (points.length == 0) return;
-
-    //     // Nối trực tiếp (hoặc bạn có thể nhóm theo cluster)
-    //     g.moveTo(points[0].x, points[0].y);
-
-    //     for (let i = 1; i < points.length; i++) {
-    //         g.lineTo(points[i].x, points[i].y);
-    //     }
-
-    //     g.stroke();
-    // }
-    /** VẼ HÌNH MẪU */
-    private drawSampleShape() {
-        const g = this.targetGraphics;
-        g.lineWidth = 10;
-        g.strokeColor = cc.color(180, 180, 180);
-
-        // Square
-        g.moveTo(-200, 100);
-        g.lineTo(200, 100);
-        g.lineTo(200, -300);
-        g.lineTo(-200, -300);
-        g.lineTo(-200, 100);
-
-        // Circle
-        g.circle(0, -200, 240);
-
-        g.stroke();
-    }
-
-    /** TẠO DANH SÁCH ĐIỂM OUTLINE */
-    private generateTargetPoints() {
-        this.targetPoints = [];
-
-        // Square
-        for (let t = 0; t <= 1; t += 0.01) {
-            this.targetPoints.push(cc.v2(-100 + t * 200, 50));
-        }
-        for (let t = 0; t <= 1; t += 0.01) {
-            this.targetPoints.push(cc.v2(100, 50 - t * 200));
-        }
-        for (let t = 0; t <= 1; t += 0.01) {
-            this.targetPoints.push(cc.v2(100 - t * 200, -150));
-        }
-        for (let t = 0; t <= 1; t += 0.01) {
-            this.targetPoints.push(cc.v2(-100, -150 + t * 200));
-        }
-
-        // Circle
-        const center = cc.v2(0, -200);
-        const radius = 120;
-
-        for (let a = 0; a <= Math.PI * 2; a += 0.05) {
-            this.targetPoints.push(
-                cc.v2(
-                    center.x + Math.cos(a) * radius,
-                    center.y + Math.sin(a) * radius
-                )
-            );
-        }
-    }
 
     /** TOUCH START */
     private onTouchStart(event: cc.Event.EventTouch) {
         if (this.isDrawing) return
         this.isDrawing = true;
         this.matchedCount = 0;
-
+        // console.log("start")
         const pos = this.node.convertToNodeSpaceAR(event.getLocation());
 
         this.drawGraphics.clear();
-        this.drawGraphics.lineWidth = 14;
+        this.drawGraphics.lineWidth = 28;
         this.drawGraphics.strokeColor = cc.color(0, 255, 0);
-        this.drawGraphics.moveTo(pos.x, pos.y);
+        // this.drawGraphics.moveTo(pos.x, pos.y);
+        this.isStartPoint = null
+        if (this.isNearPath(pos)) {
+            this.drawGraphics.moveTo(this.targetPoint.x, this.targetPoint.y);
+            // this.drawGraphics.moveTo(pos2.x, pos2.y);
+
+        }
+        else {
+            // console.log("no")
+        }
+
     }
 
     /** TOUCH MOVE */
@@ -184,23 +82,37 @@ export default class DrawCheck extends cc.Component {
             this.gamePlay.hand.active = false
         }
         const pos = this.node.convertToNodeSpaceAR(event.getLocation());
-
         // Vẽ
-
-
         // Kiểm tra
         if (!this.isNearPath(pos)) {
-            this.fail();
-            this.drawGraphics.lineTo(pos.x, pos.y);
-            this.drawGraphics.stroke();
+            // this.fail();
+            // this.drawGraphics.lineTo(pos.x, pos.y);
+            // this.drawGraphics.stroke();
         }
         else {
-            this.drawGraphics.lineTo(pos.x, pos.y);
-            this.drawGraphics.stroke();
-            console.log("draw")
+            // this.drawGraphics.lineTo(pos.x, pos.y);
+            // let pos2 = this.targetPoints[this.arrCheck[this.arrCheck.length - 1]]
+            // this.drawGraphics.lineTo(pos2.x, pos2.y);
+
+            // this.drawGraphics.stroke();
+            //ve lai
+            // console.log("draw",this.isStartPoint, this.arrCheck[this.arrCheck.length])
+            // for (let i = this.isStartPoint + 1; i <= this.arrCheck[this.arrCheck.length-1]; i++) {
+            //     let pos2 = this.targetPoints[i]
+            //     this.drawGraphics.lineTo(pos2.x, pos2.y);
+            //     this.drawGraphics.stroke();
+            // }
+            this.drawGraphics.clear();
+            this.drawGraphics.lineWidth = 28;
+            this.drawGraphics.strokeColor = cc.color(0, 255, 0);
+            this.drawGraphics.moveTo(this.targetPoints[this.isStartPoint].x, this.targetPoints[this.isStartPoint].y);
+
+            for (let i = 0; i < this.arrCheck.length; i++) {
+                let pos2 = this.targetPoints[this.arrCheck[i]]
+                this.drawGraphics.lineTo(pos2.x, pos2.y);
+                this.drawGraphics.stroke();
+            }
         }
-
-
         const uniqueSet = new Set(this.arrCheck);
         const uniqueArray2 = Array.from(uniqueSet);
         const percent = uniqueArray2.length / this.targetPoints.length;
@@ -215,16 +127,16 @@ export default class DrawCheck extends cc.Component {
     private onTouchEnd() {
         if (!this.isDrawing) return;
         this.isDrawing = false;
-        console.log(this.arrCheck)
         const uniqueSet = new Set(this.arrCheck);
         const uniqueArray2 = Array.from(uniqueSet);
         const percent = uniqueArray2.length / this.targetPoints.length;
+        let arr = this.arrCheck
         this.arrCheck = []
 
         if (percent >= this.completePercent) {
             this.win();
         } else {
-            this.fail();
+            this.fail(arr);
         }
         this.matchedCount = 0
 
@@ -235,25 +147,46 @@ export default class DrawCheck extends cc.Component {
         for (let i = 0; i < this.targetPoints.length; i++) {
 
             if (p.sub(this.targetPoints[i]).mag() <= this.threshold) {
-                // console.log(this.check(i), i)
                 if (this.arrCheck.includes(i)) {
                     if (this.arrCheck[this.arrCheck.length - 1] == i) {
                         let pos = this.targetPoints[i]
-                        // this.isTargetPoint = pos
+                        this.targetPoint = pos
                         return true;
 
                     }
                     else {
-                        console.log("trung diem")
+                        // console.log("trung diem")
                         // return false
                     }
                 }
                 else {
-                    this.matchedCount++;
-                    this.arrCheck.push(i)
-                    let pos = this.targetPoints[i]
-                    this.isTargetPoint = pos
-                    return true;
+                    let nextPos = this.targetPoints[i]
+                    if (this.arrCheck.length > 0 && nextPos.sub(this.targetPoints[this.arrCheck[this.arrCheck.length - 1]]).mag() <= 100) {
+                        this.matchedCount++;
+                        this.arrCheck.push(i)
+                        if (this.isStartPoint == null) {
+                            this.isStartPoint = i
+
+                        }
+                        let pos = this.targetPoints[i]
+                        this.targetPoint = pos
+                        return true;
+                    }
+                    else if (this.arrCheck.length == 0) {
+                        this.matchedCount++;
+                        this.arrCheck.push(i)
+                        if (this.isStartPoint == null) {
+                            this.isStartPoint = i
+
+                        }
+                        let pos = this.targetPoints[i]
+                        this.targetPoint = pos
+                        return true;
+                    }
+
+
+
+
 
                 }
 
@@ -291,11 +224,21 @@ export default class DrawCheck extends cc.Component {
     isEndGame = false
     isDelayDem = false
 
-    private fail() {
+    private fail(arr) {
         cc.log("❌ FAIL !!!");
         if (this.isEndGame) return;
         this.isEndGame = true
+        // this.drawGraphics.strokeColor = cc.Color.RED
+        this.drawGraphics.clear();
+        this.drawGraphics.lineWidth = 28;
         this.drawGraphics.strokeColor = cc.Color.RED
+        this.drawGraphics.moveTo(this.targetPoints[this.isStartPoint].x, this.targetPoints[this.isStartPoint].y);
+
+        for (let i = 0; i < arr.length; i++) {
+            let pos2 = this.targetPoints[arr[i]]
+            this.drawGraphics.lineTo(pos2.x, pos2.y);
+            this.drawGraphics.stroke();
+        }
         this.gamePlay.fail()
         if (this.isDelayDem == false) {
             this.isDelayDem = true
@@ -308,7 +251,7 @@ export default class DrawCheck extends cc.Component {
         }
         cc.audioEngine.play(this.gamePlay.soundFail, false, 1)
 
-        if (this.countFail == 2) {
+        if (this.countFail == 3) {
             this.gamePlay.nextLevel()
         }
         else {

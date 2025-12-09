@@ -33,6 +33,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.win = null;
         _this.level1Node = null;
         _this.listLevelNode = [];
+        _this.listPreLevel = [];
         _this.soundBg = null;
         _this.soundWin = null;
         _this.soundFail = null;
@@ -70,7 +71,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.loadLevel = function (level) {
         var _this = this;
-        if (this.level == 4) {
+        if (this.level == 5) {
             this.linkToStore.active = true;
             var data_1 = this.listLevelNode[level - 1];
             data_1.scale = 0.2;
@@ -79,7 +80,7 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(data_1).to(0.3, { scale: 1.1 }).to(0.05, { scale: 1 }).start();
             return;
         }
-        var prefab = this.level1;
+        var prefab = this.listPreLevel[level - 1];
         var levelNode = cc.instantiate(prefab);
         this.node.addChild(levelNode);
         levelNode.getComponent("DrawCheck").loadLevel(this.listLevelNode[level - 1]);
@@ -93,6 +94,7 @@ var NewClass = /** @class */ (function (_super) {
             if (_this.isFirst == false) {
                 _this.hand.active = true;
                 _this.isFirst = true;
+                _this.hand.zIndex = 100;
             }
         }, 0.5);
         // Gọi hàm load
@@ -161,6 +163,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listLevelNode", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "listPreLevel", void 0);
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundBg", void 0);
