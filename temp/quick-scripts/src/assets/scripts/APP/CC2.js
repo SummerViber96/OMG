@@ -34,6 +34,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundWin = null;
         _this.soundLose = null;
         _this.soundNoDau = null;
+        _this.soundHmm = null;
+        _this.soundEror = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -189,6 +191,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         this.isTut = 4;
         this.listHand.children[0].active = false;
+        cc.audioEngine.play(this.soundEror, false, 0.5);
         this.cakeMain2.getComponent(cc.Button).enabled = false;
         this.cakeMain.getComponent(cc.Animation).play("cake_3");
         cc.audioEngine.play(this.soundYouCant, false, 1);
@@ -208,6 +211,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         cc.audioEngine.play(this.soundNoDau, false, 1);
         cc.audioEngine.play(this.soundCherry, false, 1);
+        cc.audioEngine.play(this.soundEror, false, 0.5);
         this.btnCherry.getComponent(cc.Button).enabled = false;
         this.cherry.getComponent(cc.Animation).play();
         this.listCus.children[0].children[0].getComponent(cc.Animation).play();
@@ -221,6 +225,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         cc.audioEngine.stop(this.idSound);
         cc.audioEngine.play(this.soundNo, false, 1);
+        cc.audioEngine.play(this.soundEror, false, 0.5);
         this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0, "walk-angry", true);
         this.btnXitHong.getComponent(cc.Button).enabled = false;
         cc.audioEngine.play(this.soundChesse, false, 1);
@@ -239,6 +244,8 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_xitKem = function () {
         var _this = this;
         cc.audioEngine.play(this.soundWrong, false, 1);
+        cc.audioEngine.play(this.soundHmm, false, 1);
+        cc.audioEngine.play(this.soundEror, false, 0.5);
         this.btnXitKem.getComponent(cc.Button).enabled = false;
         cc.audioEngine.play(this.soundChesse, false, 1);
         this.cakeMain.getComponent(cc.Animation).play("cake_4");
@@ -654,6 +661,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundNoDau", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundHmm", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundEror", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);

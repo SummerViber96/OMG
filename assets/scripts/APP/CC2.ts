@@ -16,6 +16,10 @@ export default class NewClass extends cc.Component {
     soundLose: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundNoDau: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundHmm: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundEror: cc.AudioClip = null;
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -132,6 +136,7 @@ export default class NewClass extends cc.Component {
     btm_cake2() {
         this.isTut = 4;
         this.listHand.children[0].active = false
+        cc.audioEngine.play(this.soundEror,false,0.5)
 
         this.cakeMain2.getComponent(cc.Button).enabled = false
 
@@ -153,6 +158,8 @@ export default class NewClass extends cc.Component {
     btn_cherry() {
         cc.audioEngine.play(this.soundNoDau, false, 1)
         cc.audioEngine.play(this.soundCherry, false, 1)
+                cc.audioEngine.play(this.soundEror,false,0.5)
+
         this.btnCherry.getComponent(cc.Button).enabled = false
         this.cherry.getComponent(cc.Animation).play();
         this.listCus.children[0].children[0].getComponent(cc.Animation).play()
@@ -169,6 +176,7 @@ export default class NewClass extends cc.Component {
     btn_xitHong() {
         cc.audioEngine.stop(this.idSound)
         cc.audioEngine.play(this.soundNo, false, 1)
+        cc.audioEngine.play(this.soundEror, false, 0.5)
         this.listCus.children[0].children[1].getComponent(sp.Skeleton).setAnimation(0, "walk-angry", true)
         this.btnXitHong.getComponent(cc.Button).enabled = false
         cc.audioEngine.play(this.soundChesse, false, 1)
@@ -186,6 +194,8 @@ export default class NewClass extends cc.Component {
     }
     btn_xitKem() {
         cc.audioEngine.play(this.soundWrong, false, 1)
+        cc.audioEngine.play(this.soundHmm, false, 1)
+        cc.audioEngine.play(this.soundEror, false, 0.5)
 
         this.btnXitKem.getComponent(cc.Button).enabled = false
         cc.audioEngine.play(this.soundChesse, false, 1)
