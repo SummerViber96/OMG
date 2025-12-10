@@ -32,6 +32,8 @@ var DrawCheck = /** @class */ (function (_super) {
         _this.drawGraphics = null;
         _this.threshold = 25;
         _this.completePercent = 0.98;
+        _this.glowGraphics = null;
+        _this.lightNode = null;
         _this.targetPoints = [];
         _this.isDrawing = false;
         _this.matchedCount = 0;
@@ -44,6 +46,36 @@ var DrawCheck = /** @class */ (function (_super) {
         _this.isEndPoint = null;
         /** TOUCH MOVE */
         _this.isTargetPoint = null;
+        // private onTouchMove(event: cc.Event.EventTouch) {
+        //     if (!this.isDrawing) return;
+        //     if (this.gamePlay.hand.active == true) {
+        //         this.gamePlay.hand.active = false
+        //     }
+        //     const pos = this.node.convertToNodeSpaceAR(event.getLocation());
+        //     // Vẽ
+        //     // Kiểm tra
+        //     if (!this.isNearPath(pos)) {
+        //     }
+        //     else {
+        //         this.drawGraphics.clear();
+        //         this.drawGraphics.lineWidth = 28;
+        //         this.drawGraphics.strokeColor = cc.color(0, 255, 0);
+        //         this.drawGraphics.moveTo(this.targetPoints[this.isStartPoint].x, this.targetPoints[this.isStartPoint].y);
+        //         for (let i = 0; i < this.arrCheck.length; i++) {
+        //             let pos2 = this.targetPoints[this.arrCheck[i]]
+        //             this.drawGraphics.lineTo(pos2.x, pos2.y);
+        //         }
+        //         this.drawGraphics.stroke();
+        //     }
+        //     const uniqueSet = new Set(this.arrCheck);
+        //     const uniqueArray2 = Array.from(uniqueSet);
+        //     const percent = uniqueArray2.length / this.targetPoints.length;
+        //     // this.arrCheck = []
+        //     if (percent >= this.completePercent) {
+        //         this.win();
+        //     }
+        // }
+        _this.isDelay = false;
         _this.arrCheck = [];
         /** FAIL */
         _this.isEndGame = false;
@@ -94,45 +126,39 @@ var DrawCheck = /** @class */ (function (_super) {
         }
     };
     DrawCheck.prototype.onTouchMove = function (event) {
-        if (!this.isDrawing)
+        if (!this.isDrawing || this.isEndGame)
             return;
         if (this.gamePlay.hand.active == true) {
             this.gamePlay.hand.active = false;
         }
         var pos = this.node.convertToNodeSpaceAR(event.getLocation());
-        // Vẽ
-        // Kiểm tra
         if (!this.isNearPath(pos)) {
-            // this.fail();
-            // this.drawGraphics.lineTo(pos.x, pos.y);
-            // this.drawGraphics.stroke();
-        }
-        else {
-            // this.drawGraphics.lineTo(pos.x, pos.y);
-            // let pos2 = this.targetPoints[this.arrCheck[this.arrCheck.length - 1]]
-            // this.drawGraphics.lineTo(pos2.x, pos2.y);
-            // this.drawGraphics.stroke();
-            //ve lai
-            // console.log("draw",this.isStartPoint, this.arrCheck[this.arrCheck.length])
-            // for (let i = this.isStartPoint + 1; i <= this.arrCheck[this.arrCheck.length-1]; i++) {
-            //     let pos2 = this.targetPoints[i]
-            //     this.drawGraphics.lineTo(pos2.x, pos2.y);
-            //     this.drawGraphics.stroke();
+            // let min = 1000
+            // let index = 0
+            // for (let i = 0; i < this.targetPoints.length; i++) {
+            //     if (pos.sub(this.targetPoints[i]).mag() <= min) {
+            //         min = pos.sub(this.targetPoints[i]).mag()
+            //         index = i
+            //     }
             // }
-            this.drawGraphics.clear();
-            this.drawGraphics.lineWidth = 28;
-            this.drawGraphics.strokeColor = cc.color(0, 255, 0);
-            this.drawGraphics.moveTo(this.targetPoints[this.isStartPoint].x, this.targetPoints[this.isStartPoint].y);
-            for (var i = 0; i < this.arrCheck.length; i++) {
-                var pos2 = this.targetPoints[this.arrCheck[i]];
-                this.drawGraphics.lineTo(pos2.x, pos2.y);
-                this.drawGraphics.stroke();
-            }
+            // if (min != 1000) {
+            //     this.matchedCount++;
+            //     // if (localId - i == 2) {
+            //     //     this.arrCheck.push(i + 1)
+            //     // }
+            //     // else if (i - localId == 2) {
+            //     //     this.arrCheck.push(i - 1)
+            //     // }
+            //     this.arrCheck.push(index)
+            //     // let pos = this.targetPoints[i]
+            //     // this.targetPoint = pos
+            // }
+            return;
         }
+        this.redrawLine(); // vẽ lại toàn bộ 1 lần duy nhất
         var uniqueSet = new Set(this.arrCheck);
         var uniqueArray2 = Array.from(uniqueSet);
         var percent = uniqueArray2.length / this.targetPoints.length;
-        // this.arrCheck = []
         if (percent >= this.completePercent) {
             this.win();
         }
@@ -147,6 +173,7 @@ var DrawCheck = /** @class */ (function (_super) {
         var percent = uniqueArray2.length / this.targetPoints.length;
         var arr = this.arrCheck;
         this.arrCheck = [];
+        this.lightNode.active = false;
         if (percent >= this.completePercent) {
             this.win();
         }
@@ -155,11 +182,34 @@ var DrawCheck = /** @class */ (function (_super) {
         }
         this.matchedCount = 0;
     };
+    DrawCheck.prototype.redrawLine = function () {
+        this.drawGraphics.clear();
+        this.drawGraphics.lineWidth = 40;
+        this.drawGraphics.strokeColor = cc.color(0, 255, 0);
+        // for (let i = 1; i < this.arrCheck.length; i++) {
+        //     if (this.arrCheck[i - 1] + 1 == this.arrCheck[i + 2]) {
+        //         this.arrCheck.splice(i, 2)
+        //     }
+        // }
+        // this.glowGraphics.clear();
+        // this.glowGraphics.lineWidth = 40;
+        // this.glowGraphics.strokeColor = cc.color(100, 255, 255, 120); // mờ
+        if (this.arrCheck.length <= 1)
+            return;
+        var start = this.targetPoints[this.arrCheck[0]];
+        this.drawGraphics.moveTo(start.x, start.y);
+        for (var i = 1; i < this.arrCheck.length; i++) {
+            var p = this.targetPoints[this.arrCheck[i]];
+            this.drawGraphics.lineTo(p.x, p.y);
+        }
+        this.drawGraphics.stroke();
+        this.updateMovingLight();
+    };
     /** KIỂM TRA CÓ GẦN ĐƯỜNG MẪU KHÔNG */
     DrawCheck.prototype.isNearPath = function (p) {
         for (var i = 0; i < this.targetPoints.length; i++) {
             if (p.sub(this.targetPoints[i]).mag() <= this.threshold) {
-                if (this.arrCheck.includes(i)) {
+                if (this.arrCheck.includes(i) && i != this.arrCheck[0]) {
                     if (this.arrCheck[this.arrCheck.length - 1] == i) {
                         var pos = this.targetPoints[i];
                         this.targetPoint = pos;
@@ -169,11 +219,31 @@ var DrawCheck = /** @class */ (function (_super) {
                         // console.log("trung diem")
                         // return false
                     }
+                    var lastIndex = this.arrCheck[this.arrCheck.length - 1];
+                    if ((i == lastIndex - 1) || (i == lastIndex + 1)) {
+                        var tp = this.targetPoints[i];
+                        this.arrCheck.pop();
+                        this.targetPoint = tp;
+                        return true;
+                    }
                 }
                 else {
                     var nextPos = this.targetPoints[i];
-                    if (this.arrCheck.length > 0 && nextPos.sub(this.targetPoints[this.arrCheck[this.arrCheck.length - 1]]).mag() <= 100) {
+                    var localId = this.arrCheck[this.arrCheck.length - 1];
+                    if (this.arrCheck.length > 0 && nextPos.sub(this.targetPoints[this.arrCheck[this.arrCheck.length - 1]]).mag() <= 120) {
                         this.matchedCount++;
+                        if (localId - i == 2) {
+                            this.arrCheck.push(i + 1);
+                        }
+                        else if (i - localId == 2) {
+                            this.arrCheck.push(i - 1);
+                        }
+                        else if (localId - i == 3) {
+                            this.arrCheck.push(i + 2);
+                        }
+                        else if (i - localId == 3) {
+                            this.arrCheck.push(i - 2);
+                        }
                         this.arrCheck.push(i);
                         if (this.isStartPoint == null) {
                             this.isStartPoint = i;
@@ -184,6 +254,12 @@ var DrawCheck = /** @class */ (function (_super) {
                     }
                     else if (this.arrCheck.length == 0) {
                         this.matchedCount++;
+                        if (localId - i == 2) {
+                            this.arrCheck.push(i + 1);
+                        }
+                        else if (i - localId == 2) {
+                            this.arrCheck.push(i - 1);
+                        }
                         this.arrCheck.push(i);
                         if (this.isStartPoint == null) {
                             this.isStartPoint = i;
@@ -193,11 +269,45 @@ var DrawCheck = /** @class */ (function (_super) {
                         return true;
                     }
                 }
-                // return true;
             }
         }
         return false;
     };
+    // private isNearPath(pos: cc.Vec2): boolean {
+    //     for (let i = 0; i < this.targetPoints.length; i++) {
+    //         let tp = this.targetPoints[i];
+    //         if (pos.sub(tp).mag() <= this.threshold) {
+    //             // Nếu chưa có điểm → bắt đầu
+    //             if (this.arrCheck.length === 0) {
+    //                 this.arrCheck.push(i);
+    //                 this.isStartPoint = i;
+    //                 this.targetPoint = tp;
+    //                 return true;
+    //             }
+    //             let lastIndex = this.arrCheck[this.arrCheck.length - 1];
+    //             // Nếu trùng cuối → chỉ cập nhật vẽ
+    //             if (i === lastIndex) {
+    //                 this.targetPoint = tp;
+    //                 return true;
+    //             }
+    //             // 🔥 Phải đi đúng thứ tự liền kề (không nhảy đoạn)
+    //             if (i === lastIndex + 1) {
+    //                 this.arrCheck.push(i);
+    //                 this.targetPoint = tp;
+    //                 return true;
+    //             }
+    //             // 🔥 Cho phép đi lùi để xóa đường phía sau
+    //             if (i === lastIndex - 1) {
+    //                 this.arrCheck.pop();
+    //                 this.targetPoint = tp;
+    //                 return true;
+    //             }
+    //             // ❌ Đi sai hướng → ra ngoài → fail
+    //             return false;
+    //         }
+    //     }
+    //     return false;
+    // }
     DrawCheck.prototype.check = function (value) {
         for (var i = 0; i < this.arrCheck.length; i++) {
             if (value == i)
@@ -210,6 +320,7 @@ var DrawCheck = /** @class */ (function (_super) {
         cc.log("🎉 WIN !!!");
         if (this.isEndGame)
             return;
+        this.lightNode.active = false;
         this.isEndGame = true;
         cc.Canvas.instance.node.getComponent("GameManager").winGame();
     };
@@ -306,6 +417,24 @@ var DrawCheck = /** @class */ (function (_super) {
         }
         cc.log("Total target points:", this.targetPoints.length);
     };
+    DrawCheck.prototype.updateMovingLight = function () {
+        if (!this.lightNode)
+            return;
+        if (this.arrCheck.length === 0)
+            return;
+        var lastIndex = this.arrCheck[this.arrCheck.length - 1];
+        var p = this.targetPoints[lastIndex];
+        this.lightNode.active = true;
+        this.lightNode.parent = this.node.parent;
+        this.lightNode.scale = 0.2;
+        this.lightNode.setPosition(p);
+    };
+    DrawCheck.prototype.update = function (dt) {
+        if (!this.lightNode)
+            return;
+        var s = 1 + Math.sin(Date.now() * 0.01) * 0.1;
+        this.lightNode.scale = s;
+    };
     __decorate([
         property(cc.Graphics)
     ], DrawCheck.prototype, "targetGraphics", void 0);
@@ -318,6 +447,12 @@ var DrawCheck = /** @class */ (function (_super) {
     __decorate([
         property
     ], DrawCheck.prototype, "completePercent", void 0);
+    __decorate([
+        property(cc.Graphics)
+    ], DrawCheck.prototype, "glowGraphics", void 0);
+    __decorate([
+        property(cc.Node)
+    ], DrawCheck.prototype, "lightNode", void 0);
     DrawCheck = __decorate([
         ccclass
     ], DrawCheck);

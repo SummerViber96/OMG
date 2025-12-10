@@ -533,8 +533,8 @@
     "drawGraphics": {
       "__id__": 6
     },
-    "threshold": 30,
-    "completePercent": 0.95,
+    "threshold": 40,
+    "completePercent": 0.98,
     "_id": ""
   },
   {
