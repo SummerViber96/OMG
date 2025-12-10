@@ -53,9 +53,11 @@ export default class NewClass extends cc.Component {
             this.updateMission()
         }
         else {
-            this.isEnd = true
-            this.end(false)
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
+            this.scheduleOnce(() => {
+                this.isEnd = true
+                this.end(false)
+                cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
+            }, 0.4)
         }
     }
 
@@ -71,13 +73,13 @@ export default class NewClass extends cc.Component {
             this.anim.setAnimation(0, "8.happy", true)
             this.pop.getChildByName("right").active = true
             this.pop.getChildByName("right").getComponent(cc.Animation).play()
-            if (this.count == 0) {
-                this.isEnd = true
 
-                this.end(true)
-            }
         }, 0.4)
+        if (this.count == 0) {
+            this.isEnd = true
 
+            this.end(true)
+        }
     }
     end(value) {
         this.gamePlay.successCus()
@@ -87,7 +89,7 @@ export default class NewClass extends cc.Component {
             cc.tween(this.pop).to(0.3, { scale: 0 }).start()
             cc.tween(this.node).to(1, { position: cc.v3(-900, 123.591) }).call(() => {
                 this.node.active = false
-                this.gamePlay.nextCus()
+                this.gamePlay.nextCus(value)
 
             }).start()
         }, 0.5)

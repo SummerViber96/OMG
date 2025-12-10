@@ -62,6 +62,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.checkBuger = function (buger) {
+        var _this = this;
         if (this.isEnd)
             return;
         var breadComp = buger.getComponent("buger");
@@ -69,9 +70,11 @@ var NewClass = /** @class */ (function (_super) {
             this.updateMission();
         }
         else {
-            this.isEnd = true;
-            this.end(false);
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8);
+            this.scheduleOnce(function () {
+                _this.isEnd = true;
+                _this.end(false);
+                cc.audioEngine.play(_this.gamePlay.soundWrong, false, 0.8);
+            }, 0.4);
         }
     };
     NewClass.prototype.updateMission = function () {
@@ -86,11 +89,11 @@ var NewClass = /** @class */ (function (_super) {
             _this.anim.setAnimation(0, "8.happy", true);
             _this.pop.getChildByName("right").active = true;
             _this.pop.getChildByName("right").getComponent(cc.Animation).play();
-            if (_this.count == 0) {
-                _this.isEnd = true;
-                _this.end(true);
-            }
         }, 0.4);
+        if (this.count == 0) {
+            this.isEnd = true;
+            this.end(true);
+        }
     };
     NewClass.prototype.end = function (value) {
         var _this = this;
@@ -100,7 +103,7 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(_this.pop).to(0.3, { scale: 0 }).start();
             cc.tween(_this.node).to(1, { position: cc.v3(-900, 123.591) }).call(function () {
                 _this.node.active = false;
-                _this.gamePlay.nextCus();
+                _this.gamePlay.nextCus(value);
             }).start();
         }, 0.5);
         if (value == true) {

@@ -30,9 +30,12 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.lockCurrent = 100;
         _this.bg = null;
+        _this.tag = "";
+        _this.gameplay = null;
         return _this;
     }
     NewClass.prototype.start = function () {
+        this.gameplay = cc.Canvas.instance.node.getComponent("GameApp");
     };
     NewClass.prototype.setGray = function (img) {
         img.setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-gray-sprite', img));
@@ -42,7 +45,9 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.update = function (dt) {
         if (globalThis.gold >= this.lockCurrent) {
-            this.offGray(this.bg);
+            if ((this.tag == "buger" && this.gameplay.isNoBuger == false) || (this.tag == "veget" && this.gameplay.isNoVeget == false) || this.tag == "meat") {
+                this.offGray(this.bg);
+            }
         }
         else {
             this.setGray(this.bg);
@@ -54,6 +59,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Sprite)
     ], NewClass.prototype, "bg", void 0);
+    __decorate([
+        property(cc.String)
+    ], NewClass.prototype, "tag", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

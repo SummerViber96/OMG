@@ -2,6 +2,7 @@
 
 const { ccclass, property } = cc._decorator;
 globalThis.gold = 0
+globalThis.scGame = false
 @ccclass
 export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
@@ -78,15 +79,17 @@ export default class NewClass extends cc.Component {
     // soundBg:cc.AudioClip=null;
 
     isTargetPop = null;
+    isStep = 0
     isTargetCus = null;
     adChanel = '{{__adv_channels_adapter__}}'
     countCus = 0
+    idSound = null
     start() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
         this.showCus()
-        cc.audioEngine.play(this.soundBg, true, 0.5)
+        this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
     }
     showCus() {
         let child = this.listCus.children[0]
@@ -114,10 +117,10 @@ export default class NewClass extends cc.Component {
         pre.position = pos
         pre.scale = scale
     }
-    nextCus() {
+    nextCus(value) {
         this.countCus++
         if (this.countCus == 6) {
-            this.onEndGame()
+            this.onEndGame(value)
         }
         else {
             let child = this.listCus.children[this.countCus]
@@ -132,14 +135,23 @@ export default class NewClass extends cc.Component {
 
                 }, 0.1)
                 if (this.countCus == 3) {
+                    this.isStep = 1
                     this.onBtn(this.btnMeatNode)
+                    if (globalThis.gold < 100) {
+                        globalThis.gold = 100
+                    }
                     this.listHand.children[5].active = true
+                }
+                else if (this.countCus == 4 && this.isLockVegettable == true) {
+                    if (globalThis.gold < 150) {
+                        globalThis.gold = 150
+                    }
                 }
             }).start()
         }
 
     }
-    isStep = 0
+
     onBtn(btn) {
         btn.getComponent(cc.Button).enabled = true;
         // btn.children[0].children[0].active = false;
@@ -186,6 +198,7 @@ export default class NewClass extends cc.Component {
             this.appearBtn(this.btnMeatNode)
             this.isLockMeat = false
             cc.audioEngine.play(this.soundQuest, false, 0.5)
+            this.isNoBuger = false
 
             return;
         }
@@ -193,13 +206,19 @@ export default class NewClass extends cc.Component {
         let check = this.checkSlotHotDog()
         if (check == null) return;
         this.listHand.children[5].opacity = 0
-        this.scheduleOnce(() => {
-            this.listHand.children[6].active = true
-            this.onBtn(this.btnBugerNode)
-            if (globalThis.gold < 150 && this.countCus >= 3) {
-                globalThis.gold += 150;
 
+        this.scheduleOnce(() => {
+            if (this.isStep == 1) {
+                this.isStep = 2
+                this.listHand.children[6].active = true
+                if (globalThis.gold < 150 && this.countCus >= 3) {
+                    globalThis.gold += 150;
+
+                }
             }
+
+            this.onBtn(this.btnBugerNode)
+
 
         }, 0.5)
         cc.audioEngine.play(this.soundShowPop, false, 1)
@@ -266,13 +285,15 @@ export default class NewClass extends cc.Component {
 
     }
     isLockBuger = true
-
+    isNoBuger = true
     btn_buger(event) {
+        if (this.isNoBuger) return;
         if (this.isLockBuger == true && globalThis.gold >= 150) {
             globalThis.gold -= 150;
             this.appearBtn(this.btnBugerNode)
             this.isLockBuger = false
             cc.audioEngine.play(this.soundQuest, false, 0.5)
+            this.isNoVeget = false
 
             return;
         }
@@ -287,11 +308,28 @@ export default class NewClass extends cc.Component {
         bread.getComponent("buger").value = check
         this.arrBuger[check] = bread
         this.listHand.children[6].opacity = 0
-        this.scheduleOnce(() => {
-            this.listHand.children[7].active = true
-        }, 0.5)
+        // this.scheduleOnce(() => {
+        // }, 0.5)
         let pos = event.currentTarget.position
         this.creatFxColor(pos, 2)
+        if (this.isStep == 2) {
+            let checkMeat = this.checkHaveMeat();
+            if (checkMeat != null) {
+                this.listHand.children[7].active = true
+                let pos = checkMeat.parent.convertToWorldSpaceAR(checkMeat.position);
+                pos = this.listHand.convertToNodeSpaceAR(pos);
+                console.log(pos)
+                this.listHand.children[7].position = pos.add(cc.v3(0, 100))
+                this.isStep = 3
+            }
+
+        }
+    }
+    checkHaveMeat() {
+        for (let i = 0; i < this.arrHotDog.length; i++) {
+            if (this.arrHotDog[i] != null && this.arrHotDog[i].name == "preMeat") return this.arrHotDog[i]
+        }
+        return null
     }
     sellBread(value) {
         // console.log(value)
@@ -332,11 +370,11 @@ export default class NewClass extends cc.Component {
         pos = this.node.convertToNodeSpaceAR(pos)
         cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(() => {
             child.opacity = 0
-            if (this.isTargetCus) {
-                this.isTargetCus.getComponent("cusMission").checkBuger(child)
-            }
-        }).start()
 
+        }).start()
+        if (this.isTargetCus) {
+            this.isTargetCus.getComponent("cusMission").checkBuger(child)
+        }
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5)
     }
     isDelaytuong = false
@@ -350,10 +388,10 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundShowPop, false, 1)
         this.listHand.children[3].opacity = 0
         this.isTutChili = false
-        this.scheduleOnce(() => {
-            this.listHand.children[4].active = true
+        // this.scheduleOnce(() => {
+        //     this.listHand.children[4].active = true
 
-        }, 1)
+        // }, 1)
         let posStart = bread.position.add(cc.v3(40, 150));
         posStart = bread.parent.convertToWorldSpaceAR(posStart);
         posStart = this.node.convertToNodeSpaceAR(posStart)
@@ -384,8 +422,9 @@ export default class NewClass extends cc.Component {
         return null
     }
     isLockVegettable = true
-
+    isNoVeget = true
     btn_vegettable() {
+        if (this.isNoVeget) return
         if (this.isLockVegettable == true && globalThis.gold >= 150) {
             globalThis.gold -= 150;
             this.appearBtn(this.btnVegettableNode)
@@ -425,7 +464,7 @@ export default class NewClass extends cc.Component {
         this.listHand.children[2].opacity = 0
         if (this.arrTutHand[3] == false) {
             this.scheduleOnce(() => {
-                this.listHand.children[3].active = true
+                this.listHand.children[4].active = true
                 this.isTutChili = true;
 
             }, 0.5)
@@ -498,8 +537,16 @@ export default class NewClass extends cc.Component {
         }
         return null
     }
-    onEndGame() {
-        cc.audioEngine.play(this.soundWin, false, 1)
+    onEndGame(value) {
+        if (value == true) {
+            cc.audioEngine.play(this.soundWin, false, 1)
+
+        }
+        else {
+            cc.audioEngine.stop(this.idSound)
+            cc.audioEngine.play(this.soundLose, false, 1)
+
+        }
         this.endCard.active = true;
         this.linkToStore.active = true
     }

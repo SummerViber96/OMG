@@ -25,6 +25,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 globalThis.gold = 0;
+globalThis.scGame = false;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
@@ -69,18 +70,21 @@ var NewClass = /** @class */ (function (_super) {
         // @property(cc.AudioClip)
         // soundBg:cc.AudioClip=null;
         _this.isTargetPop = null;
+        _this.isStep = 0;
         _this.isTargetCus = null;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.countCus = 0;
-        _this.isStep = 0;
+        _this.idSound = null;
         _this.arrHotDog = [null, null, null, null, null, null];
         _this.arrBreak = [null, null, null];
         _this.arrBuger = [null, null, null];
         _this.arrTuongCa = [];
         _this.isLockMeat = true;
         _this.isLockBuger = true;
+        _this.isNoBuger = true;
         _this.isDelaytuong = false;
         _this.isLockVegettable = true;
+        _this.isNoVeget = true;
         _this.arrTutHand = [false, false, false, false];
         return _this;
     }
@@ -89,7 +93,7 @@ var NewClass = /** @class */ (function (_super) {
             window.gameReady && window.gameReady();
         }
         this.showCus();
-        cc.audioEngine.play(this.soundBg, true, 0.5);
+        this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
     };
     NewClass.prototype.showCus = function () {
         var _this = this;
@@ -115,11 +119,11 @@ var NewClass = /** @class */ (function (_super) {
         pre.position = pos;
         pre.scale = scale;
     };
-    NewClass.prototype.nextCus = function () {
+    NewClass.prototype.nextCus = function (value) {
         var _this = this;
         this.countCus++;
         if (this.countCus == 6) {
-            this.onEndGame();
+            this.onEndGame(value);
         }
         else {
             var child_1 = this.listCus.children[this.countCus];
@@ -133,8 +137,17 @@ var NewClass = /** @class */ (function (_super) {
                     cc.audioEngine.play(_this.soundShowPop, false, 1);
                 }, 0.1);
                 if (_this.countCus == 3) {
+                    _this.isStep = 1;
                     _this.onBtn(_this.btnMeatNode);
+                    if (globalThis.gold < 100) {
+                        globalThis.gold = 100;
+                    }
                     _this.listHand.children[5].active = true;
+                }
+                else if (_this.countCus == 4 && _this.isLockVegettable == true) {
+                    if (globalThis.gold < 150) {
+                        globalThis.gold = 150;
+                    }
                 }
             }).start();
         }
@@ -180,6 +193,7 @@ var NewClass = /** @class */ (function (_super) {
             this.appearBtn(this.btnMeatNode);
             this.isLockMeat = false;
             cc.audioEngine.play(this.soundQuest, false, 0.5);
+            this.isNoBuger = false;
             return;
         }
         if (this.isLockMeat)
@@ -189,11 +203,14 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.listHand.children[5].opacity = 0;
         this.scheduleOnce(function () {
-            _this.listHand.children[6].active = true;
-            _this.onBtn(_this.btnBugerNode);
-            if (globalThis.gold < 150 && _this.countCus >= 3) {
-                globalThis.gold += 150;
+            if (_this.isStep == 1) {
+                _this.isStep = 2;
+                _this.listHand.children[6].active = true;
+                if (globalThis.gold < 150 && _this.countCus >= 3) {
+                    globalThis.gold += 150;
+                }
             }
+            _this.onBtn(_this.btnBugerNode);
         }, 0.5);
         cc.audioEngine.play(this.soundShowPop, false, 1);
         var meat = cc.instantiate(this.preMeat);
@@ -252,12 +269,14 @@ var NewClass = /** @class */ (function (_super) {
         this.creatFxColor(pos, 2);
     };
     NewClass.prototype.btn_buger = function (event) {
-        var _this = this;
+        if (this.isNoBuger)
+            return;
         if (this.isLockBuger == true && globalThis.gold >= 150) {
             globalThis.gold -= 150;
             this.appearBtn(this.btnBugerNode);
             this.isLockBuger = false;
             cc.audioEngine.play(this.soundQuest, false, 0.5);
+            this.isNoVeget = false;
             return;
         }
         if (this.isLockBuger)
@@ -272,11 +291,28 @@ var NewClass = /** @class */ (function (_super) {
         bread.getComponent("buger").value = check;
         this.arrBuger[check] = bread;
         this.listHand.children[6].opacity = 0;
-        this.scheduleOnce(function () {
-            _this.listHand.children[7].active = true;
-        }, 0.5);
+        // this.scheduleOnce(() => {
+        // }, 0.5)
         var pos = event.currentTarget.position;
         this.creatFxColor(pos, 2);
+        if (this.isStep == 2) {
+            var checkMeat = this.checkHaveMeat();
+            if (checkMeat != null) {
+                this.listHand.children[7].active = true;
+                var pos_1 = checkMeat.parent.convertToWorldSpaceAR(checkMeat.position);
+                pos_1 = this.listHand.convertToNodeSpaceAR(pos_1);
+                console.log(pos_1);
+                this.listHand.children[7].position = pos_1.add(cc.v3(0, 100));
+                this.isStep = 3;
+            }
+        }
+    };
+    NewClass.prototype.checkHaveMeat = function () {
+        for (var i = 0; i < this.arrHotDog.length; i++) {
+            if (this.arrHotDog[i] != null && this.arrHotDog[i].name == "preMeat")
+                return this.arrHotDog[i];
+        }
+        return null;
     };
     NewClass.prototype.sellBread = function (value) {
         // console.log(value)
@@ -301,7 +337,6 @@ var NewClass = /** @class */ (function (_super) {
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5);
     };
     NewClass.prototype.sellBuger = function (value) {
-        var _this = this;
         // console.log(value)
         if (this.isTargetCus == null)
             return;
@@ -318,10 +353,10 @@ var NewClass = /** @class */ (function (_super) {
         pos = this.node.convertToNodeSpaceAR(pos);
         cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(function () {
             child.opacity = 0;
-            if (_this.isTargetCus) {
-                _this.isTargetCus.getComponent("cusMission").checkBuger(child);
-            }
         }).start();
+        if (this.isTargetCus) {
+            this.isTargetCus.getComponent("cusMission").checkBuger(child);
+        }
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5);
     };
     NewClass.prototype.btn_tuongCa = function () {
@@ -337,9 +372,9 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundShowPop, false, 1);
         this.listHand.children[3].opacity = 0;
         this.isTutChili = false;
-        this.scheduleOnce(function () {
-            _this.listHand.children[4].active = true;
-        }, 1);
+        // this.scheduleOnce(() => {
+        //     this.listHand.children[4].active = true
+        // }, 1)
         var posStart = bread.position.add(cc.v3(40, 150));
         posStart = bread.parent.convertToWorldSpaceAR(posStart);
         posStart = this.node.convertToNodeSpaceAR(posStart);
@@ -368,6 +403,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_vegettable = function () {
         var _this = this;
+        if (this.isNoVeget)
+            return;
         if (this.isLockVegettable == true && globalThis.gold >= 150) {
             globalThis.gold -= 150;
             this.appearBtn(this.btnVegettableNode);
@@ -409,7 +446,7 @@ var NewClass = /** @class */ (function (_super) {
         this.listHand.children[2].opacity = 0;
         if (this.arrTutHand[3] == false) {
             this.scheduleOnce(function () {
-                _this.listHand.children[3].active = true;
+                _this.listHand.children[4].active = true;
                 _this.isTutChili = true;
             }, 0.5);
             this.arrTutHand[3] = true;
@@ -476,8 +513,14 @@ var NewClass = /** @class */ (function (_super) {
         }
         return null;
     };
-    NewClass.prototype.onEndGame = function () {
-        cc.audioEngine.play(this.soundWin, false, 1);
+    NewClass.prototype.onEndGame = function (value) {
+        if (value == true) {
+            cc.audioEngine.play(this.soundWin, false, 1);
+        }
+        else {
+            cc.audioEngine.stop(this.idSound);
+            cc.audioEngine.play(this.soundLose, false, 1);
+        }
         this.endCard.active = true;
         this.linkToStore.active = true;
     };
