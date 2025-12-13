@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "CookingCrush_Logo (2) (1)",
+    "texture": "5ff12032-0f34-42fc-892a-7110cbbcd65a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      988,
+      599
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      988,
+      599
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
