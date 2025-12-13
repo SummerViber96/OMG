@@ -83,11 +83,14 @@ export default class NewClass extends cc.Component {
     isKem2 = 0;
     isTut = 0
     idSound = null
-    start() {
-        this.cusComp = this.cus.getComponent("cusMission")
-        if (this.adChanel == 'Mintegral') {
+    protected onLoad(): void {
+           if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
+    }
+    start() {
+        this.cusComp = this.cus.getComponent("cusMission")
+     
         this.showCus()
         cc.audioEngine.play(this.soundBg, true, 0.3)
         this.listHand.zIndex = 5

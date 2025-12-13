@@ -143,11 +143,13 @@ var NewClass = /** @class */ (function (_super) {
         _this.isDelaytuong = false;
         return _this;
     }
-    NewClass.prototype.start = function () {
-        this.cusComp = this.cus.getComponent("cusMission");
+    NewClass.prototype.onLoad = function () {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
+    };
+    NewClass.prototype.start = function () {
+        this.cusComp = this.cus.getComponent("cusMission");
         this.showCus();
         cc.audioEngine.play(this.soundBg, true, 0.3);
         this.listHand.zIndex = 5;
