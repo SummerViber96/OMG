@@ -9595,8 +9595,8 @@
     "relativePath": "cooking\\yes (mp3cut.net).mp3"
   },
   "0b7f9dac-b354-4f2a-bea4-79c5d89d0604": {
-    "asset": 1765609270070,
-    "meta": 1765609270086,
+    "asset": 1765610315533,
+    "meta": 1765610315552,
     "relativePath": "scenes\\App.fire"
   },
   "568baf79-eb5b-4f98-87b8-2627dca8b794": {
@@ -9684,9 +9684,14 @@
     "meta": 1765609161538,
     "relativePath": "scripts\\APP\\lock.ts"
   },
+  "3946d9ac-d06a-4835-9f85-29f8135d0a70": {
+    "asset": 1765609546073,
+    "meta": 1765609968528,
+    "relativePath": "cooking\\CC_2\\CookingCrush_Logo (2) (1).png"
+  },
   "c1cd78ed-5d5b-458e-a680-a9d9f139d7ab": {
-    "asset": 1765609264859,
-    "meta": 1765609267818,
+    "asset": 1765609747817,
+    "meta": 1765609749317,
     "relativePath": "scripts\\APP\\GameApp.ts"
   }
 }

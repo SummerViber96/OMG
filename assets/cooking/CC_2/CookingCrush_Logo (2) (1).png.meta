@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "3946d9ac-d06a-4835-9f85-29f8135d0a70",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 988,
+  "height": 599,
+  "platformSettings": {},
+  "subMetas": {
+    "CookingCrush_Logo (2) (1)": {
+      "ver": "1.0.4",
+      "uuid": "66ab0979-903f-4f05-ab20-722efed71d64",
+      "rawTextureUuid": "3946d9ac-d06a-4835-9f85-29f8135d0a70",
+      "trimType": "none",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 988,
+      "height": 599,
+      "rawWidth": 988,
+      "rawHeight": 599,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
