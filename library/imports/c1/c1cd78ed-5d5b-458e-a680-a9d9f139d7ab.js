@@ -88,10 +88,12 @@ var NewClass = /** @class */ (function (_super) {
         _this.arrTutHand = [false, false, false, false];
         return _this;
     }
-    NewClass.prototype.start = function () {
+    NewClass.prototype.onLoad = function () {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
+    };
+    NewClass.prototype.start = function () {
         this.showCus();
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
     };

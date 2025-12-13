@@ -48,7 +48,7 @@
                 "type": "dock-h",
                 "children": [
                   {
-                    "width": 596,
+                    "width": 996.984375,
                     "height": 651,
                     "type": "panel",
                     "active": 0,
@@ -57,7 +57,7 @@
                     ]
                   },
                   {
-                    "width": 665,
+                    "width": 264,
                     "height": 651,
                     "type": "panel",
                     "active": 0,
@@ -104,7 +104,8 @@
         "cocos-services"
       ]
     },
-    "worker": {}
+    "worker": {},
+    "window-1765609192606": {}
   },
   "panels": {
     "builder": {

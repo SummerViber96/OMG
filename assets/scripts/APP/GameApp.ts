@@ -84,10 +84,13 @@ export default class NewClass extends cc.Component {
     adChanel = '{{__adv_channels_adapter__}}'
     countCus = 0
     idSound = null
-    start() {
+    onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
+    }
+    start() {
+
         this.showCus()
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
     }
