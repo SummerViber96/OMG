@@ -330,6 +330,8 @@ var NewClass = /** @class */ (function (_super) {
         var canvas = this.node.getComponent(cc.Canvas);
         this.camera.zoomRatio = 1;
         this.endCard.scale = (logic) ? 1.2 : 0.7;
+        this.listCus.scale = (logic) ? 1.5 : 1;
+        this.listCus.position = (logic) ? cc.v3(0, -100) : cc.v3(0, -34);
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
@@ -347,7 +349,6 @@ var NewClass = /** @class */ (function (_super) {
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             this.camera.zoomRatio = 1.5;
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                console.log("check iphonex");
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.2;
