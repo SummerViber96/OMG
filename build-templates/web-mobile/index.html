@@ -188,17 +188,17 @@
   </div>
   <script id="AdUrl">
     var clickTag = '';
-    var androidLink = '';
+    var androidLink = 'https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games';
     var iosLink = 'https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games';
     var defaultLink = '';
     openAdUrl = function (adChanel) {
       if (cc.sys.os == cc.sys.OS_ANDROID) {
-        clickTag = 'https://apps.apple.com/us/app/cooking-crush-cooking-games/id1468882189';
+        clickTag = 'https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games';
       }
       else if (cc.sys.os == cc.sys.OS_IOS) {
-        clickTag = 'https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games';
+        clickTag = 'https://apps.apple.com/us/app/cooking-crush-cooking-games/id1468882189';
       } else {
-        clickTag = '';
+        clickTag = 'https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games';
       }
       var adNetwork = '{{__adv_channels_adapter__}}';
       switch (adChanel) {

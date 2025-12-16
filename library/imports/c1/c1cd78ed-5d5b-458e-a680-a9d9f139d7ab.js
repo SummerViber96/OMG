@@ -328,6 +328,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
+        this.listCus.scale = (logic) ? 1.5 : 1;
+        this.listCus.position = (logic) ? cc.v3(0, -100) : cc.v3(0, -34);
         this.camera.zoomRatio = 1;
         this.endCard.scale = (logic) ? 1.2 : 0.7;
         this.logo.scale = (logic) ? 0.6 : 0.4;
@@ -338,7 +340,7 @@ var NewClass = /** @class */ (function (_super) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            this.camera.node.position = cc.v3(80, 0);
+            this.camera.node.position = cc.v3(80, 150);
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
