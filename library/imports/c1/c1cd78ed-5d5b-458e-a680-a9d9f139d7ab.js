@@ -546,19 +546,23 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, -50);
         this.barCoin.scale = (logic) ? 1.6 : 1;
+        this.listCus.scale = (logic) ? 1.8 : 1;
+        this.listCus.position = (logic) ? cc.v3(0, -100) : cc.v3(0, -34);
+        this.btnVegettableNode.position = (logic) ? cc.v3(-312, -727.999) : cc.v3(-751, -259);
+        this.btnBugerNode.position = (logic) ? cc.v3(-680, -523) : cc.v3(-710, -523);
         // this.barCoin.y=(logic)?400:470
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            this.camera.node.position = cc.v3(-70, 0);
+            this.camera.node.position = cc.v3(-70, 350);
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
             var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
-            this.camera.zoomRatio = 1.1;
+            this.camera.zoomRatio = 1.25;
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 console.log("check iphonex");
             }

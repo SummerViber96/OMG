@@ -574,12 +574,16 @@ export default class NewClass extends cc.Component {
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = cc.v3(0, -50)
         this.barCoin.scale = (logic) ? 1.6 : 1
+        this.listCus.scale = (logic) ? 1.8 : 1
+        this.listCus.position = (logic) ? cc.v3(0, -100) : cc.v3(0, -34)
+        this.btnVegettableNode.position = (logic) ? cc.v3(-312, -727.999) : cc.v3(-751, -259)
+        this.btnBugerNode.position=(logic)?cc.v3(-680,-523):cc.v3(-710,-523)
         // this.barCoin.y=(logic)?400:470
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
-            this.camera.node.position = cc.v3(-70, 0)
+            this.camera.node.position = cc.v3(-70, 350)
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
@@ -588,7 +592,7 @@ export default class NewClass extends cc.Component {
             const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
-            this.camera.zoomRatio = 1.1
+            this.camera.zoomRatio = 1.25
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 console.log("check iphonex")

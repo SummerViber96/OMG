@@ -183,17 +183,17 @@
   </div>
   <script id="AdUrl">
     var clickTag = '';
-    var androidLink = '';
+    var androidLink = 'https://play.google.com/store/apps/details?id=com.cooking.chaos.restaurant.games';
     var iosLink = 'https://play.google.com/store/apps/details?id=com.cooking.chaos.restaurant.games';
     var defaultLink = '';
     openAdUrl = function (adChanel) {
       if (cc.sys.os == cc.sys.OS_ANDROID) {
-        clickTag = 'https://apps.apple.com/us/app/cooking-chaos-cooking-games/id6739048278';
+        clickTag = 'https://play.google.com/store/apps/details?id=com.cooking.chaos.restaurant.games';
       }
       else if (cc.sys.os == cc.sys.OS_IOS) {
-        clickTag = 'https://play.google.com/store/apps/details?id=com.cooking.chaos.restaurant.games';
+        clickTag = 'https://apps.apple.com/us/app/cooking-chaos-cooking-games/id6739048278';
       } else {
-        clickTag = '';
+        clickTag = 'https://play.google.com/store/apps/details?id=com.cooking.chaos.restaurant.games';
       }
       var adNetwork = '{{__adv_channels_adapter__}}';
       switch (adChanel) {
