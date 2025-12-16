@@ -575,7 +575,7 @@ export default class NewClass extends cc.Component {
         this.camera.node.position = cc.v3(0, -50)
         this.barCoin.scale = (logic) ? 1.6 : 1
         this.listCus.scale = (logic) ? 1.8 : 1
-        this.listCus.position = (logic) ? cc.v3(0, -100) : cc.v3(0, -34)
+        this.listCus.position = (logic) ? cc.v3(0, -130) : cc.v3(0, -34)
         this.btnVegettableNode.position = (logic) ? cc.v3(-312, -727.999) : cc.v3(-751, -259)
         this.btnBugerNode.position=(logic)?cc.v3(-680,-523):cc.v3(-710,-523)
         // this.barCoin.y=(logic)?400:470
