@@ -565,8 +565,8 @@
     "relativePath": "prefab\\tree.prefab"
   },
   "5ac3afaa-e931-4ba4-a643-89d66b4157f7": {
-    "asset": 1765788324089,
-    "meta": 1765876741859,
+    "asset": 1765884161254,
+    "meta": 1765884201118,
     "relativePath": "scenes"
   },
   "e36e27a3-29e3-4284-b879-a39eb6ec879e": {
@@ -6946,7 +6946,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761829220486,
-    "meta": 1765876788330,
+    "meta": 1765884201705,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7026,7 +7026,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761829220461,
-    "meta": 1765876788307,
+    "meta": 1765884201704,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7055,8 +7055,8 @@
     "relativePath": "APP\\Slides bar.png"
   },
   "cdf0b8ba-5fcf-477f-a761-6b2937f53023": {
-    "asset": 1765876643283,
-    "meta": 1765876742014,
+    "asset": 1765884161255,
+    "meta": 1765884201126,
     "relativePath": "scripts\\APP"
   },
   "a4536730-e50b-4a6f-b3b5-f23ac231d4bb": {
@@ -7096,7 +7096,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761829220458,
-    "meta": 1765876788306,
+    "meta": 1765884201703,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -7400,8 +7400,8 @@
     "relativePath": "scripts\\APP\\mainMusic.ts"
   },
   "e5292322-8f76-4afa-9ad7-1b7db9dc0007": {
-    "asset": 1765876708619,
-    "meta": 1765876716216,
+    "asset": 1765884161251,
+    "meta": 1765884201032,
     "relativePath": "cooking"
   },
   "a3d31886-4c91-4c46-9ff9-6bf2af8d9f3b": {
@@ -7931,7 +7931,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1763345369767,
-    "meta": 1765876788577,
+    "meta": 1765884201710,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
@@ -7945,8 +7945,8 @@
     "relativePath": "cooking\\preFab\\preHotDog.prefab"
   },
   "7834fa04-766f-49c1-bd49-05dba1da4efa": {
-    "asset": 1765876643698,
-    "meta": 1765876724017,
+    "asset": 1765884161251,
+    "meta": 1765884201084,
     "relativePath": "cooking\\sound"
   },
   "b4b866a5-551a-4de2-959e-b21c64dd1675": {
@@ -8095,8 +8095,8 @@
     "relativePath": "cooking\\sound\\wrong.mp3"
   },
   "30c059fa-27d7-4547-aae5-ffc87ebade69": {
-    "asset": 1764900896343,
-    "meta": 1765876716980,
+    "asset": 1765884161219,
+    "meta": 1765884201058,
     "relativePath": "cooking\\CC_2"
   },
   "02e6effa-fef7-48b4-a4ad-d40e4f63f6ad": {
@@ -9165,8 +9165,8 @@
     "relativePath": "scripts\\APP\\lock.ts"
   },
   "0b7f9dac-b354-4f2a-bea4-79c5d89d0604": {
-    "asset": 1765883661644,
-    "meta": 1765883661660,
+    "asset": 1765884736997,
+    "meta": 1765884737014,
     "relativePath": "scenes\\App.fire"
   },
   "9836134e-b892-4283-b6b2-78b5acf3ed45": {
@@ -9670,38 +9670,53 @@
     "relativePath": "resources\\materials\\builtin-unlit.mtl"
   },
   "c1cd78ed-5d5b-458e-a680-a9d9f139d7ab": {
-    "asset": 1765880720552,
-    "meta": 1765880721531,
+    "asset": 1765884161255,
+    "meta": 1765884201375,
     "relativePath": "scripts\\APP\\GameApp.ts"
   },
   "8773ef15-c357-454e-b8a1-f62130d6967c": {
-    "asset": 1765881681890,
-    "meta": 1765882044459,
+    "asset": 1765884161244,
+    "meta": 1765884201100,
     "relativePath": "cooking\\ChatGPT Image 17_15_13 16 thg 12, 2025 (3).png"
   },
   "6f88cec6-67c8-488a-8793-585e769394c6": {
-    "asset": 1765882502886,
-    "meta": 1765882508979,
+    "asset": 1765884161245,
+    "meta": 1765884201083,
     "relativePath": "cooking\\SausageTray.png"
   },
   "d9118604-9993-4cf8-a841-ab734ab3dfca": {
-    "asset": 1765882760842,
-    "meta": 1765882845934,
+    "asset": 1765884161251,
+    "meta": 1765884201702,
     "relativePath": "cooking\\sound\\Game_Lose.mp3"
   },
   "a4082f11-2f0a-4b2b-9a59-699a7bfd81e9": {
-    "asset": 1765882978323,
-    "meta": 1765883345564,
+    "asset": 1765884161240,
+    "meta": 1765884201074,
     "relativePath": "cooking\\ChatGPT Image 17_15_13 16 thg 12, 2025 (3) (1).png"
   },
   "24f82fe2-00f1-4f01-8976-2c790a7b50ee": {
-    "asset": 1765883486239,
-    "meta": 1765883523699,
+    "asset": 1765884161250,
+    "meta": 1765884201065,
     "relativePath": "cooking\\bgban.jpg"
   },
   "d3408a38-3b6d-4e82-abde-1759f67f7624": {
-    "asset": 1765883643170,
-    "meta": 1765883643193,
+    "asset": 1765884161248,
+    "meta": 1765884201057,
     "relativePath": "cooking\\bgNew.jpg"
+  },
+  "86e0c833-a43e-4f1d-b919-96bfe7a6efbf": {
+    "asset": 1765884260505,
+    "meta": 1765884260506,
+    "relativePath": "cooking\\common"
+  },
+  "536c5d4b-d53d-4a38-8243-af51100bbf56": {
+    "asset": 1765884270433,
+    "meta": 1765884270474,
+    "relativePath": "cooking\\common\\CookingCrush_Logo (2) (1).png"
+  },
+  "df1d99e4-6fb6-4d60-8683-1ed5ff04a926": {
+    "asset": 1765884657196,
+    "meta": 1765884657604,
+    "relativePath": "cooking\\common\\download cooking chaos now.mp3"
   }
 }

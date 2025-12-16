@@ -542,7 +542,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "1f50cb38-a303-4e37-9eb5-5af35362a426"
+      "__uuid__": "b1ebe1f1-d092-4301-9ed7-8cd7cc3c9d97"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -636,7 +636,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "1f50cb38-a303-4e37-9eb5-5af35362a426"
+      "__uuid__": "b1ebe1f1-d092-4301-9ed7-8cd7cc3c9d97"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -730,7 +730,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "1f50cb38-a303-4e37-9eb5-5af35362a426"
+      "__uuid__": "b1ebe1f1-d092-4301-9ed7-8cd7cc3c9d97"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -824,7 +824,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "1f50cb38-a303-4e37-9eb5-5af35362a426"
+      "__uuid__": "b1ebe1f1-d092-4301-9ed7-8cd7cc3c9d97"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -918,7 +918,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "1f50cb38-a303-4e37-9eb5-5af35362a426"
+      "__uuid__": "b1ebe1f1-d092-4301-9ed7-8cd7cc3c9d97"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -20482,8 +20482,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
-      "height": 170
+      "width": 945,
+      "height": 563
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -20501,8 +20501,8 @@
         0,
         0,
         1,
-        3,
-        3,
+        1,
+        1,
         1
       ]
     },
@@ -20535,10 +20535,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "d2f16501-3932-4833-be0c-60861b32c999"
+      "__uuid__": "167b423f-6138-460c-9f18-c6a2d7eb521d"
     },
     "_type": 0,
-    "_sizeMode": 0,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -20709,9 +20709,9 @@
       "__id__": 437
     },
     "_enabled": true,
-    "androidLink": "https://play.google.com/store/apps/details?id=com.cooking.chaos.restaurant.games",
-    "iosLink": "https://apps.apple.com/us/app/cooking-chaos-cooking-games/id6739048278",
-    "defaultLink": "https://play.google.com/store/apps/details?id=com.cooking.chaos.restaurant.games",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games",
+    "iosLink": "https://apps.apple.com/us/app/cooking-crush-cooking-games/id1468882189",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games",
     "_id": "dflW3HNjBHWKSc4Ugar800"
   },
   {
@@ -21271,8 +21271,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 900,
-      "height": 765
+      "width": 1323,
+      "height": 788.2
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -21324,7 +21324,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "d2f16501-3932-4833-be0c-60861b32c999"
+      "__uuid__": "167b423f-6138-460c-9f18-c6a2d7eb521d"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -21381,7 +21381,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1152.4,
+      "width": 1175.7,
       "height": 140
     },
     "_anchorPoint": {
@@ -21394,7 +21394,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -260.863,
+        -222.049,
         0,
         0,
         0,
@@ -23159,10 +23159,10 @@
       "__uuid__": "322676f3-3142-4f0e-9afb-cfc21e3a7e56"
     },
     "soundWin": {
-      "__uuid__": "a8ec8794-6b58-4ced-91eb-3aaffefcc081"
+      "__uuid__": "df1d99e4-6fb6-4d60-8683-1ed5ff04a926"
     },
     "soundLose": {
-      "__uuid__": "9652b014-1696-401d-8ba9-30f333c23167"
+      "__uuid__": "df1d99e4-6fb6-4d60-8683-1ed5ff04a926"
     },
     "tut": {
       "__id__": 479
