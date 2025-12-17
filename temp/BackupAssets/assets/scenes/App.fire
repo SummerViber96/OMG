@@ -11144,7 +11144,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 988,
+      "width": 949,
       "height": 599
     },
     "_anchorPoint": {
@@ -11163,8 +11163,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        0.8,
+        0.8,
         1
       ]
     },
@@ -11197,7 +11197,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "bd563237-10c7-4a19-99f1-01f87b416cc2"
+      "__uuid__": "d99f773e-9462-413a-b127-c3116649fcc2"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -11371,9 +11371,9 @@
       "__id__": 236
     },
     "_enabled": true,
-    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games",
-    "iosLink": "https://apps.apple.com/us/app/cooking-crush-cooking-games/id1468882189",
-    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
+    "iosLink": "https://apps.apple.com/us/app/cooking-crunch-cooking-games/id6754305934",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
     "_id": "dflW3HNjBHWKSc4Ugar800"
   },
   {
@@ -11986,7 +11986,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "bd563237-10c7-4a19-99f1-01f87b416cc2"
+      "__uuid__": "d99f773e-9462-413a-b127-c3116649fcc2"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -13717,10 +13717,10 @@
       "__uuid__": "322676f3-3142-4f0e-9afb-cfc21e3a7e56"
     },
     "soundWin": {
-      "__uuid__": "18a66db2-f00c-40b2-851a-68d661749e26"
+      "__uuid__": "5ddbbaca-1ce2-4407-843a-ede17d201c4e"
     },
     "soundLose": {
-      "__uuid__": "18a66db2-f00c-40b2-851a-68d661749e26"
+      "__uuid__": "5ddbbaca-1ce2-4407-843a-ede17d201c4e"
     },
     "tut": {
       "__id__": 278
