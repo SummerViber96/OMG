@@ -13717,9 +13717,11 @@
       "__uuid__": "322676f3-3142-4f0e-9afb-cfc21e3a7e56"
     },
     "soundWin": {
-      "__uuid__": "97f41450-2f43-43de-be0b-9c6ada4e745e"
+      "__uuid__": "18a66db2-f00c-40b2-851a-68d661749e26"
     },
-    "soundLose": null,
+    "soundLose": {
+      "__uuid__": "18a66db2-f00c-40b2-851a-68d661749e26"
+    },
     "tut": {
       "__id__": 278
     },

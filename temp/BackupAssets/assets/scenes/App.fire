@@ -5454,7 +5454,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "ac3e00e7-443e-4a8b-b712-da876fcea3a7"
+      "__uuid__": "3f7f9e39-498a-4096-ae74-a6a80bdd81c9"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -13717,9 +13717,11 @@
       "__uuid__": "322676f3-3142-4f0e-9afb-cfc21e3a7e56"
     },
     "soundWin": {
-      "__uuid__": "97f41450-2f43-43de-be0b-9c6ada4e745e"
+      "__uuid__": "18a66db2-f00c-40b2-851a-68d661749e26"
     },
-    "soundLose": null,
+    "soundLose": {
+      "__uuid__": "18a66db2-f00c-40b2-851a-68d661749e26"
+    },
     "tut": {
       "__id__": 278
     },
