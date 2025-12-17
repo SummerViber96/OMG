@@ -185,7 +185,6 @@ export default class NewClass extends cc.Component {
         }, 0.5)
         // let dem = this.arrHotDog.length
         let hotDog = cc.instantiate(this.preHotDog);
-        console.log(this.listChao)
         hotDog.parent = this.listChao.children[check];
         hotDog.position = cc.v3(0, 0)
         hotDog.getComponent("hotdog").value = check
@@ -321,7 +320,6 @@ export default class NewClass extends cc.Component {
                 this.listHand.children[7].active = true
                 let pos = checkMeat.parent.convertToWorldSpaceAR(checkMeat.position);
                 pos = this.listHand.convertToNodeSpaceAR(pos);
-                console.log(pos)
                 this.listHand.children[7].position = pos.add(cc.v3(0, 100))
                 this.isStep = 3
             }
@@ -595,7 +593,6 @@ export default class NewClass extends cc.Component {
             this.camera.zoomRatio = 1.25
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                console.log("check iphonex")
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {

@@ -180,7 +180,6 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.5);
         // let dem = this.arrHotDog.length
         var hotDog = cc.instantiate(this.preHotDog);
-        console.log(this.listChao);
         hotDog.parent = this.listChao.children[check];
         hotDog.position = cc.v3(0, 0);
         hotDog.getComponent("hotdog").value = check;
@@ -303,7 +302,6 @@ var NewClass = /** @class */ (function (_super) {
                 this.listHand.children[7].active = true;
                 var pos_1 = checkMeat.parent.convertToWorldSpaceAR(checkMeat.position);
                 pos_1 = this.listHand.convertToNodeSpaceAR(pos_1);
-                console.log(pos_1);
                 this.listHand.children[7].position = pos_1.add(cc.v3(0, 100));
                 this.isStep = 3;
             }
@@ -564,7 +562,6 @@ var NewClass = /** @class */ (function (_super) {
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             this.camera.zoomRatio = 1.25;
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                console.log("check iphonex");
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1;
