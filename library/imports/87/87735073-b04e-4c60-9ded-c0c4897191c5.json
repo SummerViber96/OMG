@@ -1430,7 +1430,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "5d9d04ef-46c4-487b-9e30-eaab0c003e1c"
+      "__uuid__": "f6532709-0284-470e-afd8-cbfbe9f492d8"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -6665,7 +6665,7 @@
         "__id__": 166
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 169
@@ -7829,7 +7829,7 @@
     },
     "soundWin": null,
     "soundLose": {
-      "__uuid__": "85f5487a-0ea5-4e71-9255-7823ef693185"
+      "__uuid__": "ad883086-9c04-4d3d-8f76-9a436ddb6b50"
     },
     "soundNoDau": {
       "__uuid__": "f2889d8f-e88d-4cee-b5b7-85ed0b6d83b4"

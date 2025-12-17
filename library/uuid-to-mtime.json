@@ -9395,8 +9395,8 @@
     "relativePath": "cooking\\animCook\\cake_3.anim"
   },
   "87735073-b04e-4c60-9ded-c0c4897191c5": {
-    "asset": 1765963572112,
-    "meta": 1765963572125,
+    "asset": 1765964318733,
+    "meta": 1765964318748,
     "relativePath": "scenes\\CC_2.fire"
   },
   "79fba47e-34a9-4556-b77a-a9ed4363da5c": {
@@ -10163,5 +10163,15 @@
     "asset": 1765963256605,
     "meta": 1765963257216,
     "relativePath": "cooking\\CookingCrunch\\Think You can Do better Cooking Crunch try now.mp3"
+  },
+  "ad883086-9c04-4d3d-8f76-9a436ddb6b50": {
+    "asset": 1765964036709,
+    "meta": 1765964037530,
+    "relativePath": "cooking\\CookingCrunch\\Think-You-can-Do-better-Cooking.mp3"
+  },
+  "a9ceefc1-0f6b-4e87-b60b-61de22a888f9": {
+    "asset": 1765964306868,
+    "meta": 1765964306919,
+    "relativePath": "cooking\\banNew.jpg"
   }
 }
