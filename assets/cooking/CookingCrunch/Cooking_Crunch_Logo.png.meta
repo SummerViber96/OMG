@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "486225a8-dd39-476e-9471-a3118af52dcd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 949,
+  "height": 599,
+  "platformSettings": {},
+  "subMetas": {
+    "Cooking_Crunch_Logo": {
+      "ver": "1.0.4",
+      "uuid": "1708bdaa-dc08-4997-bff6-b4302c1b3f09",
+      "rawTextureUuid": "486225a8-dd39-476e-9471-a3118af52dcd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 949,
+      "height": 599,
+      "rawWidth": 949,
+      "rawHeight": 599,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cooking_Crunch_Logo",
+    "texture": "486225a8-dd39-476e-9471-a3118af52dcd",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      949,
+      599
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      949,
+      599
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
