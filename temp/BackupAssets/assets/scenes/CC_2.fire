@@ -1429,7 +1429,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "5d9d04ef-46c4-487b-9e30-eaab0c003e1c"
+      "__uuid__": "f6532709-0284-470e-afd8-cbfbe9f492d8"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -6269,8 +6269,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 949,
-      "height": 599
+      "width": 805,
+      "height": 805
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6281,15 +6281,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        116.456,
+        269.353,
         0,
         0,
         0,
         0,
         1,
-        1.2,
-        1.2,
+        1.3,
+        1.3,
         1
       ]
     },
@@ -6322,7 +6322,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4e686c6a-9d7e-45e3-b371-3ecb0941e7b7"
+      "__uuid__": "bdaa4666-1f73-4304-8e5c-aee8a8ed67e2"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -6496,9 +6496,9 @@
       "__id__": 136
     },
     "_enabled": true,
-    "androidLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
-    "iosLink": "https://apps.apple.com/us/app/cooking-crunch-cooking-games/id6754305934",
-    "defaultLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
+    "iosLink": "https://apps.apple.com/us/app/kitchen-craze-cooking-games/id1155324155",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
     "_id": "dflW3HNjBHWKSc4Ugar800"
   },
   {
@@ -6857,8 +6857,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1086.8,
-      "height": 658.9
+      "width": 1449,
+      "height": 1449
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6910,7 +6910,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4e686c6a-9d7e-45e3-b371-3ecb0941e7b7"
+      "__uuid__": "bdaa4666-1f73-4304-8e5c-aee8a8ed67e2"
     },
     "_type": 0,
     "_sizeMode": 0,

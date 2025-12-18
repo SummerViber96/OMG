@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Kitchen_Craze_Logo",
+    "texture": "29dbf65d-6d0e-43c3-bee0-ae837eecc8df",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      805,
+      805
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      805,
+      805
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
