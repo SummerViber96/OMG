@@ -6946,7 +6946,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1766071291293,
+    "meta": 1766072782439,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7026,7 +7026,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761763030039,
-    "meta": 1766071291272,
+    "meta": 1766072782437,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7096,7 +7096,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761763009587,
-    "meta": 1766071291271,
+    "meta": 1766072782436,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -7400,8 +7400,8 @@
     "relativePath": "scripts\\APP\\mainMusic.ts"
   },
   "e5292322-8f76-4afa-9ad7-1b7db9dc0007": {
-    "asset": 1766071256522,
-    "meta": 1766071271720,
+    "asset": 1766071756134,
+    "meta": 1766072782415,
     "relativePath": "cooking"
   },
   "a3d31886-4c91-4c46-9ff9-6bf2af8d9f3b": {
@@ -7886,7 +7886,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1766071291549,
+    "meta": 1766072782443,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
@@ -9295,8 +9295,8 @@
     "relativePath": "cooking\\spine\\Hot dog.png"
   },
   "0b7f9dac-b354-4f2a-bea4-79c5d89d0604": {
-    "asset": 1766072309682,
-    "meta": 1766072309705,
+    "asset": 1766072802975,
+    "meta": 1766072803006,
     "relativePath": "scenes\\App.fire"
   },
   "c1cd78ed-5d5b-458e-a680-a9d9f139d7ab": {
@@ -9740,8 +9740,8 @@
     "relativePath": "cooking\\New Folder"
   },
   "44c9daf3-071a-4798-8d02-97dca11ea49c": {
-    "asset": 1766071733434,
-    "meta": 1766071733435,
+    "asset": 1766071762378,
+    "meta": 1766072782416,
     "relativePath": "cooking\\kitchen"
   },
   "bc9e1f43-639e-418f-b5f9-d41dde408543": {
