@@ -1,7 +1,7 @@
 {
   "2c57eeae-95a7-4ca9-87d9-802977e12c2d": {
-    "asset": 1766073124928,
-    "meta": 1766073145895,
+    "asset": 1766074867643,
+    "meta": 1766074902790,
     "relativePath": "anim"
   },
   "bc781772-a602-42de-a9a2-0b20ae7bfc22": {
@@ -345,8 +345,8 @@
     "relativePath": "anim\\obj\\cong\\cong_close.anim"
   },
   "50cb9f62-8e2c-4040-aa62-f5da1812321f": {
-    "asset": 1766073124929,
-    "meta": 1766073146298,
+    "asset": 1766074867643,
+    "meta": 1766074902791,
     "relativePath": "anim\\object"
   },
   "336d5ed1-309d-4418-a9f5-e58686136107": {
@@ -455,8 +455,8 @@
     "relativePath": "anim\\tree\\text_show.anim"
   },
   "70838e08-311c-4e4c-909d-7952e186a0a0": {
-    "asset": 1766073125021,
-    "meta": 1766073146436,
+    "asset": 1766074867735,
+    "meta": 1766074902793,
     "relativePath": "anim\\vfx"
   },
   "8ebe7bcb-216a-47ad-9512-5b16c53bc69c": {
@@ -485,8 +485,8 @@
     "relativePath": "font\\PoetsenOne-Regular.ttf"
   },
   "f04df98e-5752-4828-989f-dc1d07346f80": {
-    "asset": 1765625702067,
-    "meta": 1766073154997,
+    "asset": 1766074867647,
+    "meta": 1766074906472,
     "relativePath": "prefab"
   },
   "f18b6c04-4331-41bd-a591-5c441c28f8ca": {
@@ -565,8 +565,8 @@
     "relativePath": "prefab\\tree.prefab"
   },
   "5ac3afaa-e931-4ba4-a643-89d66b4157f7": {
-    "asset": 1766073125206,
-    "meta": 1766073155309,
+    "asset": 1766074867866,
+    "meta": 1766074906472,
     "relativePath": "scenes"
   },
   "e36e27a3-29e3-4284-b879-a39eb6ec879e": {
@@ -640,8 +640,8 @@
     "relativePath": "scripts\\YC_5.ts"
   },
   "d95c840d-dc9a-435c-a9ef-7276dc0c3137": {
-    "asset": 1766073124941,
-    "meta": 1766073156864,
+    "asset": 1766074867650,
+    "meta": 1766074906766,
     "relativePath": "sound"
   },
   "46d36575-f3c9-4052-91c6-bd14a5f580da": {
@@ -1640,8 +1640,8 @@
     "relativePath": "textures\\UI\\Warning.png"
   },
   "79ec4778-ad4d-484a-8e91-c215d7585b99": {
-    "asset": 1766073124943,
-    "meta": 1766073166408,
+    "asset": 1766074867651,
+    "meta": 1766074906768,
     "relativePath": "textures\\vfx"
   },
   "b6f7f0f4-137b-4f2e-8b9a-33a87a77469d": {
@@ -6951,7 +6951,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1766073166710,
+    "meta": 1766074906772,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7031,7 +7031,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761763030039,
-    "meta": 1766073166691,
+    "meta": 1766074906771,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7060,8 +7060,8 @@
     "relativePath": "APP\\Slides bar.png"
   },
   "cdf0b8ba-5fcf-477f-a761-6b2937f53023": {
-    "asset": 1766073125207,
-    "meta": 1766073155379,
+    "asset": 1766074867867,
+    "meta": 1766074906483,
     "relativePath": "scripts\\APP"
   },
   "a4536730-e50b-4a6f-b3b5-f23ac231d4bb": {
@@ -7101,7 +7101,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761763009587,
-    "meta": 1766073166691,
+    "meta": 1766074906770,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -7405,8 +7405,8 @@
     "relativePath": "scripts\\APP\\mainMusic.ts"
   },
   "e5292322-8f76-4afa-9ad7-1b7db9dc0007": {
-    "asset": 1766073143869,
-    "meta": 1766073147663,
+    "asset": 1766074867845,
+    "meta": 1766074902803,
     "relativePath": "cooking"
   },
   "a3d31886-4c91-4c46-9ff9-6bf2af8d9f3b": {
@@ -7500,8 +7500,8 @@
     "relativePath": "cooking\\HotdogOrder2#1.png"
   },
   "154c79eb-a77a-4c44-8b99-84efd35c1fe2": {
-    "asset": 1766073125121,
-    "meta": 1766073151794,
+    "asset": 1766074867821,
+    "meta": 1766074906168,
     "relativePath": "cooking\\HotdogOrder1#2.png"
   },
   "211fdb90-baaf-40dd-888d-40b7c33ca5ba": {
@@ -7565,8 +7565,8 @@
     "relativePath": "cooking\\MazineTray.png"
   },
   "a62586e6-93ea-476b-b685-48bd157d8c90": {
-    "asset": 1765625702252,
-    "meta": 1766073152283,
+    "asset": 1766074867823,
+    "meta": 1766074906264,
     "relativePath": "cooking\\Meat#3.png"
   },
   "3b94bbf8-c18a-4db3-9edd-f940bf383fb6": {
@@ -7590,8 +7590,8 @@
     "relativePath": "cooking\\MeatPan.png"
   },
   "5a5ba9d0-ebc1-4a93-8391-6543d8e1b323": {
-    "asset": 1766073125131,
-    "meta": 1766073152450,
+    "asset": 1766074867824,
+    "meta": 1766074906283,
     "relativePath": "cooking\\Salad#3.png"
   },
   "5e8f7d79-c7b3-4a1b-b15b-47e49993ddc4": {
@@ -7600,8 +7600,8 @@
     "relativePath": "cooking\\Salad#1.png"
   },
   "d9d53772-7688-4d5c-bea5-984cf41ef489": {
-    "asset": 1766073125130,
-    "meta": 1766073152431,
+    "asset": 1766074867824,
+    "meta": 1766074906273,
     "relativePath": "cooking\\Salad#2.png"
   },
   "6f88cec6-67c8-488a-8793-585e769394c6": {
@@ -7630,8 +7630,8 @@
     "relativePath": "cooking\\HotdogOrder3#2.png"
   },
   "063dd7bd-d127-409a-b192-dbaa8ba0dfc3": {
-    "asset": 1765625702251,
-    "meta": 1766073152284,
+    "asset": 1766074867822,
+    "meta": 1766074906246,
     "relativePath": "cooking\\Meat#2.png"
   },
   "00c0a4fc-4ca5-4a41-beb2-1daa39f7bb63": {
@@ -7745,18 +7745,18 @@
     "relativePath": "cooking\\KhayDrink.png"
   },
   "3e476b89-e788-4b16-8eda-140bb8d9b65c": {
-    "asset": 1766073125205,
-    "meta": 1766073152705,
+    "asset": 1766074867866,
+    "meta": 1766074906395,
     "relativePath": "cooking\\spine"
   },
   "c64a076a-c28f-4cd6-a1c9-caa81cac96bc": {
-    "asset": 1766073125203,
-    "meta": 1766073152877,
+    "asset": 1766074867864,
+    "meta": 1766074906458,
     "relativePath": "cooking\\spine\\k-pop idol-export.atlas.txt"
   },
   "516e8012-70be-4a84-bf28-a7bd453f23fe": {
-    "asset": 1766073125204,
-    "meta": 1766073166945,
+    "asset": 1766074867865,
+    "meta": 1766074906904,
     "relativePath": "cooking\\spine\\k-pop idol-export.json"
   },
   "b018050a-5fc1-4688-97b7-5897e5aab039": {
@@ -7770,13 +7770,13 @@
     "relativePath": "cooking\\spine\\Granny-export.json"
   },
   "4ffeb826-a89f-47ef-bde2-c68d3ec19f63": {
-    "asset": 1766073125197,
-    "meta": 1766073152707,
+    "asset": 1766074867859,
+    "meta": 1766074906397,
     "relativePath": "cooking\\spine\\Boy-export.atlas.txt"
   },
   "7256e325-c613-479d-864e-36da719d8c60": {
-    "asset": 1766073125199,
-    "meta": 1766073166898,
+    "asset": 1766074867860,
+    "meta": 1766074906873,
     "relativePath": "cooking\\spine\\Boy-export.json"
   },
   "fb904768-7231-4937-b11f-a0c3ff2bc74e": {
@@ -7820,8 +7820,8 @@
     "relativePath": "cooking\\DrinkServe#3.png"
   },
   "62fcac1a-0f85-4a46-ac31-e25c24a635d7": {
-    "asset": 1765625702282,
-    "meta": 1766073151699,
+    "asset": 1766074867838,
+    "meta": 1766074906098,
     "relativePath": "cooking\\hotdog_plate_lv1.png"
   },
   "6055be1d-d4eb-4b3d-afdc-bf1f308c18d9": {
@@ -7850,8 +7850,8 @@
     "relativePath": "cooking\\Mazine#1.png"
   },
   "6557c263-6018-4c6b-9016-fbc617027eae": {
-    "asset": 1765625702293,
-    "meta": 1766073152233,
+    "asset": 1766074867841,
+    "meta": 1766074906226,
     "relativePath": "cooking\\meat_lv1.png"
   },
   "d8f72511-d873-47d2-a491-d282bcd64d7a": {
@@ -7875,13 +7875,13 @@
     "relativePath": "cooking\\pan-burger_lv2.png"
   },
   "56533769-23fb-479a-9cc2-d5de710a0fdf": {
-    "asset": 1765625702294,
-    "meta": 1766073152256,
+    "asset": 1766074867843,
+    "meta": 1766074906241,
     "relativePath": "cooking\\meat_lv3.png"
   },
   "22cd67ff-3845-47d2-badf-7dc35c58ff61": {
-    "asset": 1765625702296,
-    "meta": 1766073152503,
+    "asset": 1766074867844,
+    "meta": 1766074906292,
     "relativePath": "cooking\\sausage_lv1.png"
   },
   "753d751b-aaeb-4402-9a8c-63437b88334f": {
@@ -7905,18 +7905,18 @@
     "relativePath": "cooking\\cheese_lv3.png"
   },
   "0a56e0fc-a998-4929-8086-689ac643bad2": {
-    "asset": 1765625702249,
-    "meta": 1766073151766,
+    "asset": 1766074867821,
+    "meta": 1766074906121,
     "relativePath": "cooking\\HotdogBun#3.png"
   },
   "eef7974c-f31f-4f4a-b684-3390aee7a9a6": {
-    "asset": 1765625702248,
-    "meta": 1766073151738,
+    "asset": 1766074867819,
+    "meta": 1766074906114,
     "relativePath": "cooking\\HotdogBun#2.png"
   },
   "65a31397-57f4-44d2-a06c-49a635f3b234": {
-    "asset": 1765625702247,
-    "meta": 1766073151736,
+    "asset": 1766074867818,
+    "meta": 1766074906101,
     "relativePath": "cooking\\HotdogBun#1.png"
   },
   "2f6a0198-64d2-40ff-a2ce-a953735a01ba": {
@@ -8005,13 +8005,13 @@
     "relativePath": "cooking\\spine\\Smoke.png"
   },
   "18825b73-ff43-41a9-ac66-c738e4d76f3e": {
-    "asset": 1766073125201,
-    "meta": 1766073152823,
+    "asset": 1766074867861,
+    "meta": 1766074906440,
     "relativePath": "cooking\\spine\\Hot dog.atlas.txt"
   },
   "272d2b5a-67fa-489a-97e7-c78e811ada80": {
-    "asset": 1766073125202,
-    "meta": 1766073166935,
+    "asset": 1766074867863,
+    "meta": 1766074906884,
     "relativePath": "cooking\\spine\\Hot dog.json"
   },
   "489fe900-f81a-4d83-941f-0dfb9e0b8328": {
@@ -8055,13 +8055,13 @@
     "relativePath": "cooking\\spine\\Burger.json"
   },
   "e316d39d-eb3a-4d0e-ac32-9154d1e94a64": {
-    "asset": 1766073125169,
-    "meta": 1766073151947,
+    "asset": 1766074867839,
+    "meta": 1766074906122,
     "relativePath": "cooking\\ietm"
   },
   "eb7ca460-9857-4d9e-ae63-65ddbbca597c": {
-    "asset": 1766073125141,
-    "meta": 1766073147664,
+    "asset": 1766074867826,
+    "meta": 1766074902803,
     "relativePath": "cooking\\animCook"
   },
   "2ffe5239-a243-42ef-9090-f6b6dc7ceb1d": {
@@ -8081,12 +8081,12 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1766073166926,
+    "meta": 1766074906874,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
-    "asset": 1766073125172,
-    "meta": 1766073152349,
+    "asset": 1766074867843,
+    "meta": 1766074906248,
     "relativePath": "cooking\\preFab"
   },
   "5596d9ad-c828-4b5b-b864-8da75d7d57c8": {
@@ -8100,13 +8100,13 @@
     "relativePath": "cooking\\sound\\Music-Bg-GamePlay-mp3cutnet.mp3"
   },
   "7834fa04-766f-49c1-bd49-05dba1da4efa": {
-    "asset": 1766073125197,
-    "meta": 1766073152568,
+    "asset": 1766074867858,
+    "meta": 1766074906293,
     "relativePath": "cooking\\sound"
   },
   "bb3c8d65-ecfb-49cb-af3d-a39363cfabaf": {
-    "asset": 1766073125172,
-    "meta": 1766073152360,
+    "asset": 1766074867843,
+    "meta": 1766074906250,
     "relativePath": "cooking\\preFab\\preBread.prefab"
   },
   "b4b866a5-551a-4de2-959e-b21c64dd1675": {
@@ -8210,8 +8210,8 @@
     "relativePath": "cooking\\HotdogOrder1#3.png"
   },
   "060fd63b-cafb-4e9a-8d64-1414c1bd3265": {
-    "asset": 1765625702294,
-    "meta": 1766073152231,
+    "asset": 1766074867842,
+    "meta": 1766074906220,
     "relativePath": "cooking\\meat_lv2.png"
   },
   "881bb8c0-015b-4d89-8b9d-0cb621ae9f3f": {
@@ -8220,13 +8220,13 @@
     "relativePath": "cooking\\multiply.png"
   },
   "28f7c00a-c2d3-49ce-a341-4c84dcb73fda": {
-    "asset": 1765625702296,
-    "meta": 1766073152498,
+    "asset": 1766074867845,
+    "meta": 1766074906291,
     "relativePath": "cooking\\sausage_lv2.png"
   },
   "5bee6ad7-2196-43b2-b623-d341fc042dac": {
-    "asset": 1765625702297,
-    "meta": 1766073152512,
+    "asset": 1766074867845,
+    "meta": 1766074906302,
     "relativePath": "cooking\\sausage_lv3.png"
   },
   "d0e2e53c-362b-40fa-ac1b-517acfad1938": {
@@ -8245,8 +8245,8 @@
     "relativePath": "cooking\\HotdogBun.png"
   },
   "df471751-4994-441d-860d-acf6566b2eea": {
-    "asset": 1766073125199,
-    "meta": 1766073152741,
+    "asset": 1766074867860,
+    "meta": 1766074906430,
     "relativePath": "cooking\\spine\\Boy-export.png"
   },
   "d21a72bf-b8f0-452a-8849-6d3b987a5a84": {
@@ -8270,8 +8270,8 @@
     "relativePath": "cooking\\spine\\Cool-Ca.png"
   },
   "ca595f7e-9009-4a66-9255-4d71a624afc3": {
-    "asset": 1766073125200,
-    "meta": 1766073152849,
+    "asset": 1766074867861,
+    "meta": 1766074906433,
     "relativePath": "cooking\\spine\\Granny-export.png"
   },
   "258f9d98-8314-4e01-9fc3-37dc66374f7b": {
@@ -8280,13 +8280,13 @@
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.png"
   },
   "16ee75ef-debc-4970-9c87-b166c7def455": {
-    "asset": 1766073125203,
-    "meta": 1766073152859,
+    "asset": 1766074867863,
+    "meta": 1766074906465,
     "relativePath": "cooking\\spine\\Hot dog.png"
   },
   "598b0659-3fbf-472b-8907-fec81dae2977": {
-    "asset": 1766073125205,
-    "meta": 1766073152902,
+    "asset": 1766074867866,
+    "meta": 1766074906767,
     "relativePath": "cooking\\spine\\k-pop idol-export.png"
   },
   "c111476a-d646-416d-8610-26ce7c47a39a": {
@@ -8310,23 +8310,23 @@
     "relativePath": "cooking\\sound\\wrong.mp3"
   },
   "9d44f72a-8957-4bf8-a12d-4e8ad238d5c5": {
-    "asset": 1766073125021,
-    "meta": 1766073146446,
+    "asset": 1766074867736,
+    "meta": 1766074902796,
     "relativePath": "anim\\vfx\\fx_color.anim"
   },
   "e55e89fe-01c5-49bb-8553-23c7c732eaf9": {
-    "asset": 1766073125172,
-    "meta": 1766073152362,
+    "asset": 1766074867843,
+    "meta": 1766074906252,
     "relativePath": "cooking\\preFab\\preColorFx.prefab"
   },
   "c1cd78ed-5d5b-458e-a680-a9d9f139d7ab": {
-    "asset": 1766073125207,
-    "meta": 1766073155568,
+    "asset": 1766074867867,
+    "meta": 1766074906765,
     "relativePath": "scripts\\APP\\GameApp.ts"
   },
   "30c059fa-27d7-4547-aae5-ffc87ebade69": {
-    "asset": 1766073125114,
-    "meta": 1766073148072,
+    "asset": 1766074867815,
+    "meta": 1766074902897,
     "relativePath": "cooking\\CC_2"
   },
   "02e6effa-fef7-48b4-a4ad-d40e4f63f6ad": {
@@ -8520,8 +8520,8 @@
     "relativePath": "cooking\\CC_2\\m2t2_lv2.png"
   },
   "20d31ad2-4bea-47da-89e7-6f6b4662ecd8": {
-    "asset": 1766073125115,
-    "meta": 1766073148746,
+    "asset": 1766074867816,
+    "meta": 1766074903160,
     "relativePath": "cooking\\CC_2\\spine"
   },
   "5259decc-71af-4cce-8fd8-ae664c0356eb": {
@@ -9105,8 +9105,8 @@
     "relativePath": "model\\primitives.fbx"
   },
   "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1766073125169,
-    "meta": 1766073152073,
+    "asset": 1766074867839,
+    "meta": 1766074906153,
     "relativePath": "cooking\\ietm\\cusMission.ts"
   },
   "c62096b1-3eb4-4de5-974d-e29f96a61c20": {
@@ -9135,1063 +9135,1063 @@
     "relativePath": "cooking\\ietm\\cake.ts"
   },
   "b9c3c36e-124a-4f21-90b9-f224ef45b41e": {
-    "asset": 1766073125173,
-    "meta": 1766073152576,
+    "asset": 1766074867846,
+    "meta": 1766074906303,
     "relativePath": "cooking\\sound\\Alright.m4a"
   },
   "d8b22b70-8d0e-44ef-a3a5-93bcf257cf0e": {
-    "asset": 1766073125194,
-    "meta": 1766073152605,
+    "asset": 1766074867855,
+    "meta": 1766074906330,
     "relativePath": "cooking\\sound\\cheerful-gaming-background-music.mp3"
   },
   "bb798075-0102-4d77-942a-0f613eb972e8": {
-    "asset": 1766073125092,
-    "meta": 1766073148910,
+    "asset": 1766074867795,
+    "meta": 1766074903217,
     "relativePath": "cooking\\CCK"
   },
   "070c243d-384d-4f9e-8378-d068286c7b2b": {
-    "asset": 1766073125078,
-    "meta": 1766073151100,
+    "asset": 1766074867783,
+    "meta": 1766074905440,
     "relativePath": "cooking\\CCK\\dough.png"
   },
   "825e1035-416e-4a40-9a59-600d02a79733": {
-    "asset": 1766073125092,
-    "meta": 1766073151356,
+    "asset": 1766074867795,
+    "meta": 1766074905658,
     "relativePath": "cooking\\CCK\\stand_04.png"
   },
   "ba601a8d-9b9d-453f-aadd-086fbc10f1af": {
-    "asset": 1766073125033,
-    "meta": 1766073148911,
+    "asset": 1766074867742,
+    "meta": 1766074903218,
     "relativePath": "cooking\\CCK\\Cake1"
   },
   "49c52e50-82ca-4fa0-a67d-ac2e9de5ff15": {
-    "asset": 1766073125140,
-    "meta": 1766073147692,
+    "asset": 1766074867826,
+    "meta": 1766074902811,
     "relativePath": "cooking\\animCook\\cake_spaw1.anim"
   },
   "0e2fa451-6470-45d9-9acc-89172c9682d2": {
-    "asset": 1766073125089,
-    "meta": 1766073151335,
+    "asset": 1766074867792,
+    "meta": 1766074905629,
     "relativePath": "cooking\\CCK\\stand_04 (1).png"
   },
   "8189ed98-472f-4f84-acc4-965ce8c9d71f": {
-    "asset": 1766073125028,
-    "meta": 1766073149005,
+    "asset": 1766074867737,
+    "meta": 1766074903303,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00135.png"
   },
   "d3577d83-e816-4cbe-84bb-736e7f5f871b": {
-    "asset": 1766073125028,
-    "meta": 1766073149014,
+    "asset": 1766074867738,
+    "meta": 1766074903311,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00137.png"
   },
   "c852240a-63ff-4327-90cb-06d1ec03bac9": {
-    "asset": 1766073125029,
-    "meta": 1766073149057,
+    "asset": 1766074867738,
+    "meta": 1766074903349,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00139.png"
   },
   "e4de1175-daf6-47af-992f-d5c48bea605e": {
-    "asset": 1766073125031,
-    "meta": 1766073149113,
+    "asset": 1766074867739,
+    "meta": 1766074903394,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00145.png"
   },
   "e5d50b18-c4bb-4015-aea3-e14b007c0cb6": {
-    "asset": 1766073125030,
-    "meta": 1766073149064,
+    "asset": 1766074867739,
+    "meta": 1766074903356,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00141.png"
   },
   "9c7026ed-b48b-4aae-bcdc-e6c38c943b50": {
-    "asset": 1766073125030,
-    "meta": 1766073149106,
+    "asset": 1766074867739,
+    "meta": 1766074903401,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00143.png"
   },
   "61353818-9929-4c4c-bafd-bb190dcc6072": {
-    "asset": 1766073125033,
-    "meta": 1766073149216,
+    "asset": 1766074867741,
+    "meta": 1766074903495,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00150.png"
   },
   "2eaadee6-ede8-44ee-a8a2-fcc029c58ed3": {
-    "asset": 1766073125032,
-    "meta": 1766073149223,
+    "asset": 1766074867741,
+    "meta": 1766074903486,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00149.png"
   },
   "16e41049-6f46-44e3-a496-db34180707e9": {
-    "asset": 1766073125031,
-    "meta": 1766073149168,
+    "asset": 1766074867740,
+    "meta": 1766074903440,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00148.png"
   },
   "639a8bd4-f648-4267-8e3f-135f1fc8d297": {
-    "asset": 1766073125031,
-    "meta": 1766073149161,
+    "asset": 1766074867740,
+    "meta": 1766074903447,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00147.png"
   },
   "753682aa-cdb8-4769-ad22-7588938c4a7c": {
-    "asset": 1766073125027,
-    "meta": 1766073148969,
+    "asset": 1766074867737,
+    "meta": 1766074903258,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00133.png"
   },
   "f5161885-e269-46d2-b8ca-5fb12f0be755": {
-    "asset": 1766073125027,
-    "meta": 1766073148959,
+    "asset": 1766074867736,
+    "meta": 1766074903265,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00131.png"
   },
   "38253402-7ea8-4afc-80b8-b26354813d4f": {
-    "asset": 1766073125033,
-    "meta": 1766073149285,
+    "asset": 1766074867742,
+    "meta": 1766074903547,
     "relativePath": "cooking\\CCK\\Cake1\\Cake_00151.png"
   },
   "f261a6c5-9c21-4f56-bdd1-1896d0d873a0": {
-    "asset": 1766073125046,
-    "meta": 1766073149225,
+    "asset": 1766074867755,
+    "meta": 1766074903496,
     "relativePath": "cooking\\CCK\\Cake2"
   },
   "4bb78279-b5eb-4c14-9638-6465c5fa22bd": {
-    "asset": 1766073125036,
-    "meta": 1766073149381,
+    "asset": 1766074867744,
+    "meta": 1766074903645,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00189.png"
   },
   "b45dbe43-421b-4bd8-9d25-fc28378c9ee2": {
-    "asset": 1766073125034,
-    "meta": 1766073149277,
+    "asset": 1766074867742,
+    "meta": 1766074903535,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00181.png"
   },
   "a8762de5-9003-490a-9ec6-e830257f711b": {
-    "asset": 1766073125036,
-    "meta": 1766073149427,
+    "asset": 1766074867745,
+    "meta": 1766074903696,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00191.png"
   },
   "765d7149-182a-4bc2-bdef-e9f5f9bb46f8": {
-    "asset": 1766073125035,
-    "meta": 1766073149336,
+    "asset": 1766074867743,
+    "meta": 1766074903596,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00185.png"
   },
   "52203164-d511-4ad3-ac7d-2ee2af9d7e8e": {
-    "asset": 1766073125039,
-    "meta": 1766073149521,
+    "asset": 1766074867747,
+    "meta": 1766074903796,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00201.png"
   },
   "ff9a5d6c-7035-4635-9ea2-14fc1bf96543": {
-    "asset": 1766073125037,
-    "meta": 1766073149420,
+    "asset": 1766074867745,
+    "meta": 1766074903690,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00193.png"
   },
   "673fba0c-b624-41e1-b44f-b20d61a484ff": {
-    "asset": 1766073125038,
-    "meta": 1766073149473,
+    "asset": 1766074867745,
+    "meta": 1766074903739,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00195.png"
   },
   "a10d8739-d6a7-454f-9152-c67fc67febae": {
-    "asset": 1766073125040,
-    "meta": 1766073149577,
+    "asset": 1766074867748,
+    "meta": 1766074903845,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00205.png"
   },
   "39d39d43-9992-4b6b-ad2b-1a12d594c7d2": {
-    "asset": 1766073125035,
-    "meta": 1766073149375,
+    "asset": 1766074867744,
+    "meta": 1766074903638,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00187.png"
   },
   "85e91cb7-3341-41ee-877a-985524e95497": {
-    "asset": 1766073125039,
-    "meta": 1766073149570,
+    "asset": 1766074867748,
+    "meta": 1766074903838,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00203.png"
   },
   "a757553d-5f15-42ba-98e8-2591a7e05579": {
-    "asset": 1766073125041,
-    "meta": 1766073149683,
+    "asset": 1766074867750,
+    "meta": 1766074903938,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00211.png"
   },
   "b928e5e0-b811-41ee-b761-089bbe609234": {
-    "asset": 1766073125038,
-    "meta": 1766073149479,
+    "asset": 1766074867746,
+    "meta": 1766074903745,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00197.png"
   },
   "96488565-26ab-4c14-89b0-4d3d57fc9b3e": {
-    "asset": 1766073125041,
-    "meta": 1766073149675,
+    "asset": 1766074867750,
+    "meta": 1766074903945,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00213.png"
   },
   "07a1e631-6530-4494-acdb-62d886f5cb6d": {
-    "asset": 1766073125041,
-    "meta": 1766073149628,
+    "asset": 1766074867749,
+    "meta": 1766074903890,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00209.png"
   },
   "0c85f074-68f2-43f0-a65d-7515ae2b5263": {
-    "asset": 1766073125040,
-    "meta": 1766073149622,
+    "asset": 1766074867749,
+    "meta": 1766074903896,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00207.png"
   },
   "13e6783b-fe96-41d0-a198-4ffe4cb46f68": {
-    "asset": 1766073125043,
-    "meta": 1766073149772,
+    "asset": 1766074867751,
+    "meta": 1766074904046,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00219.png"
   },
   "ab511f9b-9803-4bd2-989a-0c14807208c0": {
-    "asset": 1766073125042,
-    "meta": 1766073149722,
+    "asset": 1766074867750,
+    "meta": 1766074903995,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00215.png"
   },
   "0c2846e7-a6ef-4247-a154-6fb705a43cf0": {
-    "asset": 1766073125043,
-    "meta": 1766073149779,
+    "asset": 1766074867752,
+    "meta": 1766074904040,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00221.png"
   },
   "d2dd6b8a-1a6a-4795-a8d2-d6f24114470c": {
-    "asset": 1766073125042,
-    "meta": 1766073149729,
+    "asset": 1766074867751,
+    "meta": 1766074903989,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00217.png"
   },
   "013fd827-0806-4660-b714-6da65a44f71d": {
-    "asset": 1766073125044,
-    "meta": 1766073149817,
+    "asset": 1766074867752,
+    "meta": 1766074904094,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00223.png"
   },
   "bf791f0d-9741-460c-a33f-4fa8e26ce10a": {
-    "asset": 1766073125044,
-    "meta": 1766073149823,
+    "asset": 1766074867753,
+    "meta": 1766074904088,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00225.png"
   },
   "6b61f7e9-1414-454a-8924-0fbd65167672": {
-    "asset": 1766073125039,
-    "meta": 1766073149528,
+    "asset": 1766074867746,
+    "meta": 1766074903790,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00199.png"
   },
   "9e460ee1-9e65-4112-bec3-65eeb6bd4be0": {
-    "asset": 1766073125045,
-    "meta": 1766073149873,
+    "asset": 1766074867753,
+    "meta": 1766074904139,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00227.png"
   },
   "b2a26c66-727f-457a-835f-62f0eeaeef7c": {
-    "asset": 1766073125034,
-    "meta": 1766073149330,
+    "asset": 1766074867743,
+    "meta": 1766074903589,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00183.png"
   },
   "fc499032-885f-47ac-a852-37db4747ad9a": {
-    "asset": 1766073125045,
-    "meta": 1766073149924,
+    "asset": 1766074867754,
+    "meta": 1766074904199,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00231.png"
   },
   "c53d54fc-4e1a-4259-b528-3590328b3a08": {
-    "asset": 1766073125045,
-    "meta": 1766073149866,
+    "asset": 1766074867754,
+    "meta": 1766074904144,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00229.png"
   },
   "96302ce5-7620-4448-b9ad-ac8013ebc77e": {
-    "asset": 1766073125046,
-    "meta": 1766073149917,
+    "asset": 1766074867754,
+    "meta": 1766074904189,
     "relativePath": "cooking\\CCK\\Cake2\\Cake_00232.png"
   },
   "ae91f3a9-9c7f-4bb6-b673-fa0151ff413f": {
-    "asset": 1766073125139,
-    "meta": 1766073147666,
+    "asset": 1766074867825,
+    "meta": 1766074902805,
     "relativePath": "cooking\\animCook\\cake_2.anim"
   },
   "e711b75f-da2d-446f-8949-e998d5c0c17b": {
-    "asset": 1766073125058,
-    "meta": 1766073149918,
+    "asset": 1766074867765,
+    "meta": 1766074904191,
     "relativePath": "cooking\\CCK\\Cake3"
   },
   "fe4759be-be97-4d41-82c6-e46002c76546": {
-    "asset": 1766073125139,
-    "meta": 1766073147669,
+    "asset": 1766074867825,
+    "meta": 1766074902808,
     "relativePath": "cooking\\animCook\\cake_3.anim"
   },
   "87735073-b04e-4c60-9ded-c0c4897191c5": {
-    "asset": 1766073416369,
-    "meta": 1766073416381,
+    "asset": 1766074932653,
+    "meta": 1766074932671,
     "relativePath": "scenes\\CC_2.fire"
   },
   "79fba47e-34a9-4556-b77a-a9ed4363da5c": {
-    "asset": 1766073125069,
-    "meta": 1766073150502,
+    "asset": 1766074867774,
+    "meta": 1766074904785,
     "relativePath": "cooking\\CCK\\Cake4"
   },
   "34d32ace-a4d2-461b-b6a8-5c9b1cafce65": {
-    "asset": 1766073125059,
-    "meta": 1766073150526,
+    "asset": 1766074867766,
+    "meta": 1766074904811,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00278.png"
   },
   "37959d1a-7555-429d-a86e-a3db9de3e4c1": {
-    "asset": 1766073125059,
-    "meta": 1766073150562,
+    "asset": 1766074867766,
+    "meta": 1766074904848,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00286.png"
   },
   "13155799-30d8-4a8b-b82f-06a8bdf7fd66": {
-    "asset": 1766073125059,
-    "meta": 1766073150555,
+    "asset": 1766074867766,
+    "meta": 1766074904841,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00282.png"
   },
   "7c6232cb-570e-424f-9c01-ab278a4b792c": {
-    "asset": 1766073125060,
-    "meta": 1766073150585,
+    "asset": 1766074867767,
+    "meta": 1766074904870,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00292.png"
   },
   "94ddad2a-ce28-49e8-ba34-4c3612cfba6d": {
-    "asset": 1766073125061,
-    "meta": 1766073150602,
+    "asset": 1766074867768,
+    "meta": 1766074904887,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00296.png"
   },
   "1bb089cd-8b41-4b0c-8678-90489e0ec7b7": {
-    "asset": 1766073125061,
-    "meta": 1766073150608,
+    "asset": 1766074867768,
+    "meta": 1766074904891,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00300.png"
   },
   "664d55a1-ebb5-408f-ab60-958837569c83": {
-    "asset": 1766073125062,
-    "meta": 1766073150624,
+    "asset": 1766074867768,
+    "meta": 1766074904910,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00304.png"
   },
   "b1f291a2-6494-469c-a50a-0591e46f7886": {
-    "asset": 1766073125060,
-    "meta": 1766073150578,
+    "asset": 1766074867767,
+    "meta": 1766074904863,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00290.png"
   },
   "f5d1ebbc-50d8-4556-a2ae-8fd37c006ac8": {
-    "asset": 1766073125062,
-    "meta": 1766073150630,
+    "asset": 1766074867769,
+    "meta": 1766074904913,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00306.png"
   },
   "e05cb2ea-6ff5-47d2-8c8b-8ad21453c2cd": {
-    "asset": 1766073125063,
-    "meta": 1766073150654,
+    "asset": 1766074867769,
+    "meta": 1766074904936,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00314.png"
   },
   "1d3cfeee-af8d-440e-8c55-cff09383adcc": {
-    "asset": 1766073125064,
-    "meta": 1766073150692,
+    "asset": 1766074867770,
+    "meta": 1766074904982,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00324.png"
   },
   "73472545-fd5f-4b62-9fed-f14d4562d640": {
-    "asset": 1766073125064,
-    "meta": 1766073150670,
+    "asset": 1766074867770,
+    "meta": 1766074904960,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00318.png"
   },
   "9418a473-b40f-48d6-8bfc-77109f71c472": {
-    "asset": 1766073125065,
-    "meta": 1766073150715,
+    "asset": 1766074867771,
+    "meta": 1766074905009,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00332.png"
   },
   "d64fdd91-1850-426d-a469-1649c364d173": {
-    "asset": 1766073125065,
-    "meta": 1766073150700,
+    "asset": 1766074867771,
+    "meta": 1766074904984,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00328.png"
   },
   "fb617971-ee23-4bbf-9d49-9d798cc67704": {
-    "asset": 1766073125064,
-    "meta": 1766073150676,
+    "asset": 1766074867770,
+    "meta": 1766074904958,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00320.png"
   },
   "d5528eab-773c-4e62-9495-7618ebbe7b66": {
-    "asset": 1766073125067,
-    "meta": 1766073150767,
+    "asset": 1766074867773,
+    "meta": 1766074905055,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00348.png"
   },
   "99d7dca5-a175-4dbd-b33e-53eeed4c3c11": {
-    "asset": 1766073125065,
-    "meta": 1766073150722,
+    "asset": 1766074867772,
+    "meta": 1766074905005,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00334.png"
   },
   "3881df9d-54cb-4ad4-8b14-31e01e5e6864": {
-    "asset": 1766073125066,
-    "meta": 1766073150745,
+    "asset": 1766074867773,
+    "meta": 1766074905030,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00342.png"
   },
   "207109c0-23b6-436b-ac14-024b308c8118": {
-    "asset": 1766073125067,
-    "meta": 1766073150759,
+    "asset": 1766074867773,
+    "meta": 1766074905052,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00346.png"
   },
   "394a1ba1-5bd2-4648-9e0b-ee1a2ce635d2": {
-    "asset": 1766073125068,
-    "meta": 1766073150791,
+    "asset": 1766074867774,
+    "meta": 1766074905076,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00356.png"
   },
   "2f1b743c-f47c-4268-809f-c13ace5de531": {
-    "asset": 1766073125068,
-    "meta": 1766073150782,
+    "asset": 1766074867774,
+    "meta": 1766074905080,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00352.png"
   },
   "a666166c-01f0-42b4-a3b0-58e4245f0015": {
-    "asset": 1766073125066,
-    "meta": 1766073150736,
+    "asset": 1766074867772,
+    "meta": 1766074905032,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00338.png"
   },
   "cee42767-0b5c-479f-bb62-d37bed8e88de": {
-    "asset": 1766073125063,
-    "meta": 1766073150647,
+    "asset": 1766074867769,
+    "meta": 1766074904933,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00310.png"
   },
   "e5b10719-30ed-46f4-8ac6-79145bfdf33a": {
-    "asset": 1766073125068,
-    "meta": 1766073150806,
+    "asset": 1766074867774,
+    "meta": 1766074905104,
     "relativePath": "cooking\\CCK\\Cake4\\Cake_00360.png"
   },
   "101942c8-5a43-4ffe-a7fd-ce4422deb43f": {
-    "asset": 1766073125140,
-    "meta": 1766073147682,
+    "asset": 1766074867826,
+    "meta": 1766074902810,
     "relativePath": "cooking\\animCook\\cake_4.anim"
   },
   "224bca57-9379-4520-b2c8-7e427551db31": {
-    "asset": 1766073125197,
-    "meta": 1766073152700,
+    "asset": 1766074867858,
+    "meta": 1766074906394,
     "relativePath": "cooking\\sound\\what are you.m4a"
   },
   "ebd13923-945b-4704-bc24-8791d986f5d6": {
-    "asset": 1766073125074,
-    "meta": 1766073150792,
+    "asset": 1766074867779,
+    "meta": 1766074905081,
     "relativePath": "cooking\\CCK\\Cherry"
   },
   "9ccb7e38-76b9-4e7c-a13f-4a41ba552f86": {
-    "asset": 1766073125071,
-    "meta": 1766073150889,
+    "asset": 1766074867776,
+    "meta": 1766074905206,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00406.png"
   },
   "70ac410c-062f-4c4d-a7f7-b0514b251d08": {
-    "asset": 1766073125069,
-    "meta": 1766073150830,
+    "asset": 1766074867775,
+    "meta": 1766074905111,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00400.png"
   },
   "64043705-1429-41aa-81c6-95a5382d6b50": {
-    "asset": 1766073125069,
-    "meta": 1766073150846,
+    "asset": 1766074867775,
+    "meta": 1766074905151,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00402.png"
   },
   "0ea6e5b4-98bf-4855-abe5-a0e44d131b04": {
-    "asset": 1766073125071,
-    "meta": 1766073150920,
+    "asset": 1766074867776,
+    "meta": 1766074905199,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00408.png"
   },
   "8becb01c-9a6f-4e1f-8351-09b2b2cba45d": {
-    "asset": 1766073125072,
-    "meta": 1766073150972,
+    "asset": 1766074867778,
+    "meta": 1766074905309,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00414.png"
   },
   "06a94c31-eb41-4db2-9ec7-65147b0b94e4": {
-    "asset": 1766073125072,
-    "meta": 1766073150978,
+    "asset": 1766074867777,
+    "meta": 1766074905248,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00412.png"
   },
   "710b93c7-9dab-474f-b27b-f4109cc99fde": {
-    "asset": 1766073125071,
-    "meta": 1766073150929,
+    "asset": 1766074867777,
+    "meta": 1766074905254,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00410.png"
   },
   "2f684d70-2d93-4088-8f92-2cc86aba3bd9": {
-    "asset": 1766073125072,
-    "meta": 1766073151022,
+    "asset": 1766074867778,
+    "meta": 1766074905302,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00416.png"
   },
   "b55e77a8-0a15-44fa-9192-9ab1b4955215": {
-    "asset": 1766073125070,
-    "meta": 1766073150866,
+    "asset": 1766074867776,
+    "meta": 1766074905157,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00404.png"
   },
   "dfe98b39-68b8-4b05-b307-2fe85572f756": {
-    "asset": 1766073125073,
-    "meta": 1766073151068,
+    "asset": 1766074867779,
+    "meta": 1766074905352,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00420.png"
   },
   "8fb350a0-300e-4280-aa2b-c883ac371952": {
-    "asset": 1766073125073,
-    "meta": 1766073151028,
+    "asset": 1766074867778,
+    "meta": 1766074905359,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00418.png"
   },
   "0b5fed50-d495-4402-93bb-c2b97483a962": {
-    "asset": 1766073125074,
-    "meta": 1766073151113,
+    "asset": 1766074867779,
+    "meta": 1766074905405,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00424.png"
   },
   "88f92ecd-9432-4b03-8aae-a313ba91500f": {
-    "asset": 1766073125074,
-    "meta": 1766073151075,
+    "asset": 1766074867779,
+    "meta": 1766074905399,
     "relativePath": "cooking\\CCK\\Cherry\\Cake2_00422.png"
   },
   "fb882746-6673-46d5-952a-2af5bee87674": {
-    "asset": 1766073125140,
-    "meta": 1766073147685,
+    "asset": 1766074867826,
+    "meta": 1766074902813,
     "relativePath": "cooking\\animCook\\cherry.anim"
   },
   "d9919694-853b-4aab-a38f-772cb74e6cc5": {
-    "asset": 1766073125196,
-    "meta": 1766073152619,
+    "asset": 1766074867857,
+    "meta": 1766074906340,
     "relativePath": "cooking\\sound\\cherry.mp4"
   },
   "91f10471-5e88-4437-b6ad-771164046db4": {
-    "asset": 1766073125195,
-    "meta": 1766073152608,
+    "asset": 1766074867856,
+    "meta": 1766074906329,
     "relativePath": "cooking\\sound\\cherry (mp3cut.net).mp3"
   },
   "6cfd930d-2a48-4f28-8808-d1d01c08df7c": {
-    "asset": 1766073125094,
-    "meta": 1766073148104,
+    "asset": 1766074867796,
+    "meta": 1766074902928,
     "relativePath": "cooking\\CC_2\\BackGround (1).jpg"
   },
   "81a2621d-e61e-4927-8b7b-2dc508172239": {
-    "asset": 1766073125106,
-    "meta": 1766073148655,
+    "asset": 1766074867807,
+    "meta": 1766074903102,
     "relativePath": "cooking\\CC_2\\Main1Order3.png"
   },
   "34ab6717-d3ae-48be-ac4e-f9507217a135": {
-    "asset": 1766073125107,
-    "meta": 1766073148654,
+    "asset": 1766074867807,
+    "meta": 1766074903119,
     "relativePath": "cooking\\CC_2\\Main1Order4.png"
   },
   "317ae4e4-ee81-4b20-b3c6-7f1c6802abcf": {
-    "asset": 1766073125108,
-    "meta": 1766073148670,
+    "asset": 1766074867808,
+    "meta": 1766074903133,
     "relativePath": "cooking\\CC_2\\Main2Order2.png"
   },
   "255ab8b9-69b7-4c47-b1ee-7b8a9c04d9b3": {
-    "asset": 1766073125107,
-    "meta": 1766073148669,
+    "asset": 1766074867808,
+    "meta": 1766074903118,
     "relativePath": "cooking\\CC_2\\Main2Order1.png"
   },
   "81d2f10d-7e59-479b-9b19-651e0df027c6": {
-    "asset": 1766073125108,
-    "meta": 1766073148686,
+    "asset": 1766074867809,
+    "meta": 1766074903134,
     "relativePath": "cooking\\CC_2\\Main2Order3.png"
   },
   "ffae91b8-c4b4-49af-a006-9d1e5675ff4f": {
-    "asset": 1766073125109,
-    "meta": 1766073148684,
+    "asset": 1766074867809,
+    "meta": 1766074903148,
     "relativePath": "cooking\\CC_2\\Main2Order4.png"
   },
   "65ff0555-d2ed-4f9c-86eb-f7040a887341": {
-    "asset": 1766073125114,
-    "meta": 1766073148747,
+    "asset": 1766074867815,
+    "meta": 1766074903159,
     "relativePath": "cooking\\CC_2\\pan_m1_lv3.png"
   },
   "72f11a5f-9a77-4401-ad8d-4b700e47bd22": {
-    "asset": 1766073125095,
-    "meta": 1766073148107,
+    "asset": 1766074867797,
+    "meta": 1766074902950,
     "relativePath": "cooking\\CC_2\\BackGround.jpg"
   },
   "84a2a7c1-8117-453a-95f5-7231f6143c4b": {
-    "asset": 1766073125096,
-    "meta": 1766073148155,
+    "asset": 1766074867798,
+    "meta": 1766074902957,
     "relativePath": "cooking\\CC_2\\Blueburry#3.png"
   },
   "4b5fdec1-7928-42bb-b5f5-6ce7d44becc9": {
-    "asset": 1766073125096,
-    "meta": 1766073148141,
+    "asset": 1766074867798,
+    "meta": 1766074902943,
     "relativePath": "cooking\\CC_2\\Blueburry#2.png"
   },
   "17ad89f4-960f-44fa-9a5b-16bd8f8c5055": {
-    "asset": 1766073125101,
-    "meta": 1766073148434,
+    "asset": 1766074867801,
+    "meta": 1766074903014,
     "relativePath": "cooking\\CC_2\\M1T1#2.png"
   },
   "16e28cf9-5517-4663-a49d-f2b57542c22d": {
-    "asset": 1766073125100,
-    "meta": 1766073148417,
+    "asset": 1766074867801,
+    "meta": 1766074903015,
     "relativePath": "cooking\\CC_2\\M1T1#1.png"
   },
   "9ad3729a-b2e2-41d8-ade8-42a2e0fd9372": {
-    "asset": 1766073125101,
-    "meta": 1766073148432,
+    "asset": 1766074867802,
+    "meta": 1766074903029,
     "relativePath": "cooking\\CC_2\\M1T1#3.png"
   },
   "2f5a68c9-8a21-4e77-9a85-8ca7b71da849": {
-    "asset": 1766073125102,
-    "meta": 1766073148467,
+    "asset": 1766074867803,
+    "meta": 1766074903031,
     "relativePath": "cooking\\CC_2\\M1T2#1.png"
   },
   "346162c1-047e-4bf5-be5f-22b665d4aa8e": {
-    "asset": 1766073125102,
-    "meta": 1766073148482,
+    "asset": 1766074867803,
+    "meta": 1766074903046,
     "relativePath": "cooking\\CC_2\\M1T2#2.png"
   },
   "41fbb470-546a-4ee0-912a-c1ba3f6b13e4": {
-    "asset": 1766073125102,
-    "meta": 1766073148485,
+    "asset": 1766074867803,
+    "meta": 1766074903045,
     "relativePath": "cooking\\CC_2\\M1T2#3.png"
   },
   "b24e343b-ba6e-4ac2-a96f-51cbebaa37ec": {
-    "asset": 1766073125114,
-    "meta": 1766073148519,
+    "asset": 1766074867815,
+    "meta": 1766074903059,
     "relativePath": "cooking\\CC_2\\m2t1_lv1.png"
   },
   "2274eb94-45b7-456d-b3ff-82479728c432": {
-    "asset": 1766073125103,
-    "meta": 1766073148562,
+    "asset": 1766074867804,
+    "meta": 1766074903073,
     "relativePath": "cooking\\CC_2\\M2T1#1.png"
   },
   "cc6e8396-3b13-49fc-8759-d778a0532cc5": {
-    "asset": 1766073125106,
-    "meta": 1766073148625,
+    "asset": 1766074867806,
+    "meta": 1766074903087,
     "relativePath": "cooking\\CC_2\\M2T2#2.png"
   },
   "ecb9966c-f859-48af-95de-702525212e04": {
-    "asset": 1766073125105,
-    "meta": 1766073148610,
+    "asset": 1766074867806,
+    "meta": 1766074903089,
     "relativePath": "cooking\\CC_2\\M2T2#1.png"
   },
   "3a5f76bf-196c-4c2a-aa71-0cb96ea9fbf6": {
-    "asset": 1766073125106,
-    "meta": 1766073148624,
+    "asset": 1766074867806,
+    "meta": 1766074903104,
     "relativePath": "cooking\\CC_2\\M2T2#3.png"
   },
   "21dc2216-84a8-49fe-8a9c-6efefead4ebc": {
-    "asset": 1766073125110,
-    "meta": 1766073148700,
+    "asset": 1766074867810,
+    "meta": 1766074903161,
     "relativePath": "cooking\\CC_2\\Mask1.png"
   },
   "c12ce930-007d-4690-bcdf-498c744c9833": {
-    "asset": 1766073125112,
-    "meta": 1766073148880,
+    "asset": 1766074867812,
+    "meta": 1766074903199,
     "relativePath": "cooking\\CC_2\\TableLeft.png"
   },
   "40e1b32d-c768-41b0-ac51-32a81c36b2c2": {
-    "asset": 1766073125112,
-    "meta": 1766073148895,
+    "asset": 1766074867813,
+    "meta": 1766074903200,
     "relativePath": "cooking\\CC_2\\TableRight.png"
   },
   "8a000066-e2fc-4810-83f7-a806604fc911": {
-    "asset": 1766073125113,
-    "meta": 1766073148923,
+    "asset": 1766074867814,
+    "meta": 1766074903216,
     "relativePath": "cooking\\CC_2\\Tray.png"
   },
   "5dd98c0c-18ed-4595-8a67-8cd9936408f6": {
-    "asset": 1766073125115,
-    "meta": 1766073148832,
+    "asset": 1766074867816,
+    "meta": 1766074903178,
     "relativePath": "cooking\\CC_2\\spine\\Char 9.png"
   },
   "7b7f552c-3a68-4963-9368-289235705921": {
-    "asset": 1766073125047,
-    "meta": 1766073149964,
+    "asset": 1766074867756,
+    "meta": 1766074904254,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00235.png"
   },
   "306f0e07-f1ac-420e-9405-155d8ed7c902": {
-    "asset": 1766073125047,
-    "meta": 1766073149971,
+    "asset": 1766074867755,
+    "meta": 1766074904247,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00233.png"
   },
   "8c8ede82-fc6d-4dde-b8e3-03387a701656": {
-    "asset": 1766073125048,
-    "meta": 1766073150016,
+    "asset": 1766074867756,
+    "meta": 1766074904308,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00239.png"
   },
   "0d9eb015-8534-4a20-ace3-b94bfe895c70": {
-    "asset": 1766073125047,
-    "meta": 1766073150023,
+    "asset": 1766074867756,
+    "meta": 1766074904301,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00237.png"
   },
   "c3639861-fcc1-4e85-b9d1-9cfe83908e3e": {
-    "asset": 1766073125048,
-    "meta": 1766073150075,
+    "asset": 1766074867757,
+    "meta": 1766074904363,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00241.png"
   },
   "cff64156-0e80-4449-88ef-30c795b003ec": {
-    "asset": 1766073125049,
-    "meta": 1766073150068,
+    "asset": 1766074867757,
+    "meta": 1766074904354,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00243.png"
   },
   "655660c8-82e2-401a-8444-920d4ece636e": {
-    "asset": 1766073125049,
-    "meta": 1766073150126,
+    "asset": 1766074867758,
+    "meta": 1766074904423,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00245.png"
   },
   "d5e11f7d-a54a-44a4-8115-b6e1b56c47dd": {
-    "asset": 1766073125050,
-    "meta": 1766073150120,
+    "asset": 1766074867758,
+    "meta": 1766074904414,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00247.png"
   },
   "db1c9ff8-2d72-4d99-88ec-8c4fafddd0e9": {
-    "asset": 1766073125051,
-    "meta": 1766073150178,
+    "asset": 1766074867759,
+    "meta": 1766074904471,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00251.png"
   },
   "0269d0eb-42ec-4ffe-8f38-9b6213cda13e": {
-    "asset": 1766073125050,
-    "meta": 1766073150170,
+    "asset": 1766074867758,
+    "meta": 1766074904477,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00249.png"
   },
   "368181d8-205b-471a-82b8-9f6a76476c16": {
-    "asset": 1766073125051,
-    "meta": 1766073150230,
+    "asset": 1766074867759,
+    "meta": 1766074904525,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00253.png"
   },
   "9430b641-98ea-4c09-97cd-f2beb5466131": {
-    "asset": 1766073125052,
-    "meta": 1766073150236,
+    "asset": 1766074867760,
+    "meta": 1766074904531,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00255.png"
   },
   "8a4e70a6-eab3-4c2c-a289-e6471f3d2729": {
-    "asset": 1766073125052,
-    "meta": 1766073150287,
+    "asset": 1766074867760,
+    "meta": 1766074904582,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00257.png"
   },
   "244918b9-a059-4ca8-b3e3-5bd28fc26c27": {
-    "asset": 1766073125053,
-    "meta": 1766073150280,
+    "asset": 1766074867761,
+    "meta": 1766074904576,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00259.png"
   },
   "0257dc32-a4d7-413a-b225-0c3f64c6e5bd": {
-    "asset": 1766073125054,
-    "meta": 1766073150346,
+    "asset": 1766074867762,
+    "meta": 1766074904632,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00263.png"
   },
   "38a74a30-58a6-4c0e-b149-964428779c8d": {
-    "asset": 1766073125053,
-    "meta": 1766073150339,
+    "asset": 1766074867761,
+    "meta": 1766074904625,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00261.png"
   },
   "4ae552a1-db5d-4d54-b71e-c7e9c4fbfedf": {
-    "asset": 1766073125054,
-    "meta": 1766073150394,
+    "asset": 1766074867762,
+    "meta": 1766074904676,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00265.png"
   },
   "11e4d8d8-6543-49c9-bafd-4795729dfef8": {
-    "asset": 1766073125055,
-    "meta": 1766073150400,
+    "asset": 1766074867763,
+    "meta": 1766074904683,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00267.png"
   },
   "bcb09a87-c531-402d-83b1-a37911b919ae": {
-    "asset": 1766073125056,
-    "meta": 1766073150442,
+    "asset": 1766074867763,
+    "meta": 1766074904727,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00271.png"
   },
   "885e76d4-e475-4b2c-81e0-2d3c0bdd8b51": {
-    "asset": 1766073125056,
-    "meta": 1766073150449,
+    "asset": 1766074867763,
+    "meta": 1766074904733,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00269.png"
   },
   "77f3f27c-e73b-43b6-a7ae-5ed46c891d93": {
-    "asset": 1766073125057,
-    "meta": 1766073150495,
+    "asset": 1766074867764,
+    "meta": 1766074904784,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00273.png"
   },
   "3332b1d1-7093-4317-8817-2ff638d00614": {
-    "asset": 1766073125057,
-    "meta": 1766073150501,
+    "asset": 1766074867764,
+    "meta": 1766074904778,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00275.png"
   },
   "1aeab049-1785-4bde-8dd0-d8f4a9a7f566": {
-    "asset": 1766073125058,
-    "meta": 1766073150542,
+    "asset": 1766074867765,
+    "meta": 1766074904826,
     "relativePath": "cooking\\CCK\\Cake3\\Cake_00277.png"
   },
   "b850c920-018a-44f4-885b-e4702b24f8bc": {
-    "asset": 1766073125119,
-    "meta": 1766073151500,
+    "asset": 1766074867817,
+    "meta": 1766074906084,
     "relativePath": "cooking\\Deco2.png"
   },
   "b70a8974-d18a-4f84-ba4a-5cc9813f6d73": {
-    "asset": 1766073125167,
-    "meta": 1766073148071,
+    "asset": 1766074867837,
+    "meta": 1766074902919,
     "relativePath": "cooking\\cake-menu.png"
   },
   "52a46dbd-6061-467e-a7d3-8b39fb3189b3": {
-    "asset": 1766073125169,
-    "meta": 1766073152154,
+    "asset": 1766074867840,
+    "meta": 1766074906187,
     "relativePath": "cooking\\m2t1_lv1.png"
   },
   "a352e1e3-7018-4e30-ae9e-f9aa00bbeb64": {
-    "asset": 1766073125168,
-    "meta": 1766073151499,
+    "asset": 1766074867837,
+    "meta": 1766074906076,
     "relativePath": "cooking\\dish_m1_lv1.png"
   },
   "beae3ca3-d2cc-4589-a103-9cbeb4f47132": {
-    "asset": 1766073125170,
-    "meta": 1766073152163,
+    "asset": 1766074867840,
+    "meta": 1766074906189,
     "relativePath": "cooking\\m2t1_lv2.png"
   },
   "7ba7f2cb-4140-4793-81c5-128784f10220": {
-    "asset": 1766073125170,
-    "meta": 1766073152170,
+    "asset": 1766074867841,
+    "meta": 1766074906204,
     "relativePath": "cooking\\m2t1_lv3.png"
   },
   "a3b24c98-2402-4a2e-acf9-0ad2ab1b8a41": {
-    "asset": 1766073125127,
-    "meta": 1766073152179,
+    "asset": 1766074867821,
+    "meta": 1766074906206,
     "relativePath": "cooking\\M2T1#2.png"
   },
   "e94c32b8-5873-4af6-9254-f54b25a9b8c1": {
-    "asset": 1766073125099,
-    "meta": 1766073148272,
+    "asset": 1766074867800,
+    "meta": 1766074902998,
     "relativePath": "cooking\\CC_2\\DishM1.png"
   },
   "f72a1ef0-d0ab-4590-8eae-9559162c949f": {
-    "asset": 1766073125098,
-    "meta": 1766073148198,
+    "asset": 1766074867799,
+    "meta": 1766074902985,
     "relativePath": "cooking\\CC_2\\Deco1.png"
   },
   "02737772-1809-4860-b5cb-b3f76cdc89d4": {
-    "asset": 1766073125098,
-    "meta": 1766073148199,
+    "asset": 1766074867799,
+    "meta": 1766074902999,
     "relativePath": "cooking\\CC_2\\Deco2.png"
   },
   "ff196e36-bfc2-4903-ac87-a75197f2ef69": {
-    "asset": 1766073125097,
-    "meta": 1766073148183,
+    "asset": 1766074867799,
+    "meta": 1766074902978,
     "relativePath": "cooking\\CC_2\\CookingCrush_Logo (2) (1).png"
   },
   "01cf473f-1520-4cd8-8872-dd3f1ca9109e": {
-    "asset": 1766073125089,
-    "meta": 1766073151101,
+    "asset": 1766074867792,
+    "meta": 1766074905407,
     "relativePath": "cooking\\CCK\\fire"
   },
   "ef95ef62-148a-49c7-a34c-215dc20ec4d2": {
-    "asset": 1766073125080,
-    "meta": 1766073151153,
+    "asset": 1766074867784,
+    "meta": 1766074905457,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00332.png"
   },
   "31fda807-3da1-4a16-8f6e-6937781d3731": {
-    "asset": 1766073125081,
-    "meta": 1766073151171,
+    "asset": 1766074867785,
+    "meta": 1766074905474,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00336.png"
   },
   "70cf3658-90cd-4e85-b217-d90e448ec447": {
-    "asset": 1766073125078,
-    "meta": 1766073151123,
+    "asset": 1766074867783,
+    "meta": 1766074905427,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00328.png"
   },
   "d2bf7114-6252-4123-849a-0a4a5063339a": {
-    "asset": 1766073125079,
-    "meta": 1766073151134,
+    "asset": 1766074867784,
+    "meta": 1766074905449,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00330.png"
   },
   "f10c4db3-5272-464c-8b6b-115dd5c92c4a": {
-    "asset": 1766073125080,
-    "meta": 1766073151162,
+    "asset": 1766074867785,
+    "meta": 1766074905465,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00334.png"
   },
   "9da1e595-0f25-408c-a5ff-fb650cdca5f0": {
-    "asset": 1766073125082,
-    "meta": 1766073151197,
+    "asset": 1766074867786,
+    "meta": 1766074905500,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00342.png"
   },
   "3912a88a-9482-4d47-bc0e-4b9d080fbfbe": {
-    "asset": 1766073125084,
-    "meta": 1766073151234,
+    "asset": 1766074867788,
+    "meta": 1766074905534,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00350.png"
   },
   "2875cf86-b542-4424-8923-8f749b130aae": {
-    "asset": 1766073125081,
-    "meta": 1766073151179,
+    "asset": 1766074867785,
+    "meta": 1766074905483,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00338.png"
   },
   "9de46b6c-757a-4c45-8fac-913d435319c2": {
-    "asset": 1766073125083,
-    "meta": 1766073151206,
+    "asset": 1766074867787,
+    "meta": 1766074905508,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00344.png"
   },
   "430345d8-65c6-446c-a174-274d45bad958": {
-    "asset": 1766073125083,
-    "meta": 1766073151225,
+    "asset": 1766074867787,
+    "meta": 1766074905525,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00348.png"
   },
   "8d34777c-4c06-48a6-9057-1e523eaf9337": {
-    "asset": 1766073125083,
-    "meta": 1766073151216,
+    "asset": 1766074867787,
+    "meta": 1766074905516,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00346.png"
   },
   "9a1ce6b4-5e66-43f4-a03d-4bf23ba44990": {
-    "asset": 1766073125086,
-    "meta": 1766073151271,
+    "asset": 1766074867789,
+    "meta": 1766074905568,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00358.png"
   },
   "748373c0-4c76-4a6a-bea3-ecd5379f3aad": {
-    "asset": 1766073125085,
-    "meta": 1766073151262,
+    "asset": 1766074867789,
+    "meta": 1766074905560,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00356.png"
   },
   "fa077bec-0b66-4a53-818a-d7c8c7d8ff8a": {
-    "asset": 1766073125085,
-    "meta": 1766073151253,
+    "asset": 1766074867788,
+    "meta": 1766074905552,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00354.png"
   },
   "3b6c73ac-c511-4072-a9cf-61d48aa87eb7": {
-    "asset": 1766073125084,
-    "meta": 1766073151243,
+    "asset": 1766074867788,
+    "meta": 1766074905542,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00352.png"
   },
   "01720c81-e681-4cc8-96de-dd73b1f5344e": {
-    "asset": 1766073125086,
-    "meta": 1766073151281,
+    "asset": 1766074867790,
+    "meta": 1766074905576,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00360.png"
   },
   "74cdcdf9-defc-4a91-aa36-d1839e025561": {
-    "asset": 1766073125087,
-    "meta": 1766073151290,
+    "asset": 1766074867790,
+    "meta": 1766074905586,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00362.png"
   },
   "833af64c-e5f7-4eb2-af50-39de1cd3e3ec": {
-    "asset": 1766073125088,
-    "meta": 1766073151308,
+    "asset": 1766074867791,
+    "meta": 1766074905602,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00366.png"
   },
   "e945d557-7650-456b-88cd-6be47492f874": {
-    "asset": 1766073125082,
-    "meta": 1766073151189,
+    "asset": 1766074867786,
+    "meta": 1766074905492,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00340.png"
   },
   "fc01cc52-ddde-401c-b179-8c3e41448186": {
-    "asset": 1766073125088,
-    "meta": 1766073151300,
+    "asset": 1766074867791,
+    "meta": 1766074905594,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00364.png"
   },
   "8c0f2a1e-54de-4c63-879b-570f2d103d4e": {
-    "asset": 1766073125088,
-    "meta": 1766073151316,
+    "asset": 1766074867792,
+    "meta": 1766074905610,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00368.png"
   },
   "247bc3fc-27a8-4c14-9916-57690d818f2e": {
-    "asset": 1766073125141,
-    "meta": 1766073147698,
+    "asset": 1766074867826,
+    "meta": 1766074902815,
     "relativePath": "cooking\\animCook\\vfx_fire.anim"
   },
   "2cff1e41-d7c6-4f7f-b95d-faa9b2ffe7bd": {
-    "asset": 1766073125104,
-    "meta": 1766073148553,
+    "asset": 1766074867805,
+    "meta": 1766074903060,
     "relativePath": "cooking\\CC_2\\M2T1.png"
   },
   "2f8ec961-050c-42c5-aea1-2e47caadaf62": {
-    "asset": 1766073125111,
-    "meta": 1766073148865,
+    "asset": 1766074867812,
+    "meta": 1766074903182,
     "relativePath": "cooking\\CC_2\\Table.png"
   },
   "75167800-2dfc-4632-82c4-e7e24fa35f3f": {
-    "asset": 1766073125173,
-    "meta": 1766073152589,
+    "asset": 1766074867846,
+    "meta": 1766074906315,
     "relativePath": "cooking\\sound\\Alright.mp3"
   },
   "e069b732-3a8a-4fca-8122-87e9c584e3f0": {
-    "asset": 1765625702298,
-    "meta": 1766073152645,
+    "asset": 1766074867847,
+    "meta": 1766074906360,
     "relativePath": "cooking\\sound\\Game-Lose.mp3"
   },
   "d9118604-9993-4cf8-a841-ab734ab3dfca": {
-    "asset": 1765898704542,
-    "meta": 1766073152633,
+    "asset": 1766074867847,
+    "meta": 1766074906356,
     "relativePath": "cooking\\sound\\Game_Lose.mp3"
   },
   "c3d5f556-e896-48d4-b7fe-5a79c19c9c62": {
-    "asset": 1766073125104,
-    "meta": 1766073148569,
+    "asset": 1766074867805,
+    "meta": 1766074903074,
     "relativePath": "cooking\\CC_2\\M2T1#2.png"
   },
   "88a9653d-1650-4f34-b5f2-e9cfd0bcdd52": {
-    "asset": 1766073125110,
-    "meta": 1766073148702,
+    "asset": 1766074867810,
+    "meta": 1766074903150,
     "relativePath": "cooking\\CC_2\\MainTray.png"
   },
   "b62b5af0-68e9-4f12-a0dc-03a696a39b38": {
-    "asset": 1766073125112,
-    "meta": 1766073148908,
+    "asset": 1766074867813,
+    "meta": 1766074903219,
     "relativePath": "cooking\\CC_2\\TableTop.png"
   },
   "6b1c169d-88b6-40c5-8ca5-b614e04e5135": {
-    "asset": 1766073125089,
-    "meta": 1766073151326,
+    "asset": 1766074867792,
+    "meta": 1766074905619,
     "relativePath": "cooking\\CCK\\fire\\Cake2_00370.png"
   },
   "6eed6fbd-3d86-41d3-bd56-c5999355aa23": {
-    "asset": 1766073125190,
-    "meta": 1766073152593,
+    "asset": 1766074867852,
+    "meta": 1766074906317,
     "relativePath": "cooking\\sound\\cheerful-gaming-background-music (mp3cut.net).mp3"
   },
   "5a212260-ca0b-4afd-bf0e-539b9aa2c4fe": {
-    "asset": 1766073125184,
-    "meta": 1766073152674,
+    "asset": 1766074867848,
+    "meta": 1766074906380,
     "relativePath": "cooking\\sound\\No NO (mp3cut.net).mp3"
   },
   "f2889d8f-e88d-4cee-b5b7-85ed0b6d83b4": {
-    "asset": 1766073125185,
-    "meta": 1766073152665,
+    "asset": 1766074867848,
+    "meta": 1766074906378,
     "relativePath": "cooking\\sound\\No my daughter (mp3cut.net).mp3"
   },
   "dafb7a7f-2237-476a-a7fc-a46d7c2fd2ff": {
-    "asset": 1766073125186,
-    "meta": 1766073152723,
+    "asset": 1766074867849,
+    "meta": 1766074906413,
     "relativePath": "cooking\\sound\\You Cant (mp3cut.net).mp3"
   },
   "85f5487a-0ea5-4e71-9255-7823ef693185": {
     "asset": 1766071160926,
-    "meta": 1766073152691,
+    "meta": 1766074906384,
     "relativePath": "cooking\\sound\\Thnink (mp3cut.net).mp3"
   },
   "fee72417-0ff4-4956-bdd9-7ee73aa2ff90": {
-    "asset": 1766073125197,
-    "meta": 1766073152622,
+    "asset": 1766074867858,
+    "meta": 1766074906344,
     "relativePath": "cooking\\sound\\female angry 1.mp3"
   },
   "00603e08-58f5-4fee-a678-5ce835d40706": {
-    "asset": 1766073125207,
-    "meta": 1766073155500,
+    "asset": 1766074867867,
+    "meta": 1766074906653,
     "relativePath": "scripts\\APP\\CC2.ts"
   },
   "8a5a1336-91fa-441c-81cd-e440c0981b39": {
-    "asset": 1766073125143,
-    "meta": 1766073147732,
+    "asset": 1766074867828,
+    "meta": 1766074902838,
     "relativePath": "cooking\\ban (1) (1).png"
   },
   "a04e566a-cca5-4667-8e3c-23954102f4ef": {
-    "asset": 1766073125145,
-    "meta": 1766073147756,
+    "asset": 1766074867831,
+    "meta": 1766074902859,
     "relativePath": "cooking\\ban (2) (1).png"
   },
   "a2005aeb-726e-4756-b838-ce4f60fb85fe": {
-    "asset": 1766073125150,
-    "meta": 1766073147806,
+    "asset": 1766074867836,
+    "meta": 1766074902892,
     "relativePath": "cooking\\ban2.png"
   },
   "299560cf-0859-4cce-ae50-71191acc47be": {
-    "asset": 1766073125147,
-    "meta": 1766073147787,
+    "asset": 1766074867833,
+    "meta": 1766074902878,
     "relativePath": "cooking\\ban2 (1).png"
   },
   "3a0cc55f-0831-432e-9779-e70bcfbf9403": {
-    "asset": 1766073125145,
-    "meta": 1766073147774,
+    "asset": 1766074867832,
+    "meta": 1766074902853,
     "relativePath": "cooking\\ban2 (1) (1) (1).png"
   },
   "23852726-20d5-4007-9ba1-c68ca07d4245": {
-    "asset": 1766073125144,
-    "meta": 1766073147753,
+    "asset": 1766074867829,
+    "meta": 1766074902836,
     "relativePath": "cooking\\ban (2) (1) (1) (1).png"
   },
   "10b8eb1e-9dba-4819-9f0f-d1ac616a2a3c": {
-    "asset": 1766073125119,
-    "meta": 1766073151451,
+    "asset": 1766074867817,
+    "meta": 1766074905631,
     "relativePath": "cooking\\CookingCrunch"
   },
   "e3cf1924-f779-48d3-ae73-34195ad7e997": {
     "asset": 1766073125117,
-    "meta": 1766073151471,
+    "meta": 1766074905645,
     "relativePath": "cooking\\CookingCrunch\\Cooking_Crunch_Logo.png"
   },
   "ce845baf-59c5-42e4-993e-fc980a999f82": {
-    "asset": 1766073125118,
-    "meta": 1766073151483,
+    "asset": 1766074867817,
+    "meta": 1766074906066,
     "relativePath": "cooking\\CookingCrunch\\Think You can Do better Cooking Crunch try now.mp3"
   },
   "ad883086-9c04-4d3d-8f76-9a436ddb6b50": {
     "asset": 1766073125119,
-    "meta": 1766073151490,
+    "meta": 1766074906065,
     "relativePath": "cooking\\CookingCrunch\\Think-You-can-Do-better-Cooking.mp3"
   },
   "a9ceefc1-0f6b-4e87-b60b-61de22a888f9": {
-    "asset": 1766073125164,
-    "meta": 1766073147810,
+    "asset": 1766074867836,
+    "meta": 1766074902896,
     "relativePath": "cooking\\banNew.jpg"
   },
   "6adc2601-ac81-482a-9146-3d4ac8588948": {
     "asset": 1762656557989,
-    "meta": 1766073152324,
+    "meta": 1766074906247,
     "relativePath": "cooking\\New Folder"
   },
   "a976387c-ec2b-43a9-9288-1edfa9acaa7f": {
-    "asset": 1766073194509,
-    "meta": 1766073194510,
+    "asset": 1766074867840,
+    "meta": 1766074906154,
     "relativePath": "cooking\\kitchen"
   },
   "a286de87-b538-4a27-b4c7-7ece4242df14": {
-    "asset": 1766073205755,
-    "meta": 1766073206233,
+    "asset": 1766074411550,
+    "meta": 1766074906174,
     "relativePath": "cooking\\kitchen\\Think You can Do better_KC.mp3"
   },
   "29dbf65d-6d0e-43c3-bee0-ae837eecc8df": {
-    "asset": 1766073223929,
-    "meta": 1766073288905,
+    "asset": 1766074411551,
+    "meta": 1766074906169,
     "relativePath": "cooking\\kitchen\\Kitchen_Craze_Logo.png"
   }
 }
