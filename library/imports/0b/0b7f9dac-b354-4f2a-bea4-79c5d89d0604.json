@@ -11145,8 +11145,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 949,
-      "height": 599
+      "width": 805,
+      "height": 805
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -11157,15 +11157,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        109.747,
+        193.035,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        1.2,
+        1.2,
         1
       ]
     },
@@ -11198,7 +11198,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "1708bdaa-dc08-4997-bff6-b4302c1b3f09"
+      "__uuid__": "9e2199e1-8743-42e2-9e2f-f0893d001264"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -11372,9 +11372,9 @@
       "__id__": 236
     },
     "_enabled": true,
-    "androidLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
-    "iosLink": "https://apps.apple.com/us/app/cooking-crunch-cooking-games/id6754305934",
-    "defaultLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
+    "iosLink": "https://apps.apple.com/us/app/kitchen-craze-cooking-games/id1155324155",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
     "_id": "dflW3HNjBHWKSc4Ugar800"
   },
   {
@@ -11934,8 +11934,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1383.2,
-      "height": 838.6
+      "width": 1529.5,
+      "height": 1529.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -11987,7 +11987,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "1708bdaa-dc08-4997-bff6-b4302c1b3f09"
+      "__uuid__": "9e2199e1-8743-42e2-9e2f-f0893d001264"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -13718,10 +13718,10 @@
       "__uuid__": "322676f3-3142-4f0e-9afb-cfc21e3a7e56"
     },
     "soundWin": {
-      "__uuid__": "18a66db2-f00c-40b2-851a-68d661749e26"
+      "__uuid__": "922a4174-9df9-4474-99c3-de1c1b560a2b"
     },
     "soundLose": {
-      "__uuid__": "18a66db2-f00c-40b2-851a-68d661749e26"
+      "__uuid__": "922a4174-9df9-4474-99c3-de1c1b560a2b"
     },
     "tut": {
       "__id__": 278
