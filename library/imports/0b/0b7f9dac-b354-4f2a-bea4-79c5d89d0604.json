@@ -20483,8 +20483,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 949,
-      "height": 599
+      "width": 805,
+      "height": 805
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -20502,8 +20502,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        1.3,
+        1.3,
         1
       ]
     },
@@ -20536,7 +20536,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "f7471019-4b51-454d-b62f-39077ab8b35c"
+      "__uuid__": "2e98cac5-d353-4c29-80d1-a2f820d6fb74"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -20710,9 +20710,9 @@
       "__id__": 437
     },
     "_enabled": true,
-    "androidLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
-    "iosLink": "https://apps.apple.com/us/app/cooking-crunch-cooking-games/id6754305934",
-    "defaultLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
+    "iosLink": "https://apps.apple.com/us/app/kitchen-craze-cooking-games/id1155324155",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
     "_id": "dflW3HNjBHWKSc4Ugar800"
   },
   {
@@ -21272,8 +21272,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1323,
-      "height": 788.2
+      "width": 1449,
+      "height": 1449
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -21325,7 +21325,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "f7471019-4b51-454d-b62f-39077ab8b35c"
+      "__uuid__": "2e98cac5-d353-4c29-80d1-a2f820d6fb74"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -23160,10 +23160,10 @@
       "__uuid__": "322676f3-3142-4f0e-9afb-cfc21e3a7e56"
     },
     "soundWin": {
-      "__uuid__": "37862389-8556-4fd6-846f-333d8e7491d8"
+      "__uuid__": "2d1ace88-5099-413f-afe8-d385fced9e3e"
     },
     "soundLose": {
-      "__uuid__": "37862389-8556-4fd6-846f-333d8e7491d8"
+      "__uuid__": "2d1ace88-5099-413f-afe8-d385fced9e3e"
     },
     "tut": {
       "__id__": 479
