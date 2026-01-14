@@ -1,0 +1,251 @@
+
+Waiter-ver2.png
+size: 844, 396
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+back-L-arm
+  rotate: false
+  xy: 528, 2
+  size: 80, 67
+  orig: 82, 69
+  offset: 1, 1
+  index: -1
+back-L-foot
+  rotate: true
+  xy: 803, 84
+  size: 61, 32
+  orig: 63, 34
+  offset: 1, 1
+  index: -1
+back-L-forearm
+  rotate: false
+  xy: 693, 143
+  size: 70, 41
+  orig: 72, 43
+  offset: 1, 1
+  index: -1
+back-L-leg
+  rotate: true
+  xy: 546, 334
+  size: 59, 183
+  orig: 59, 183
+  offset: 0, 0
+  index: -1
+back-body
+  rotate: false
+  xy: 421, 165
+  size: 113, 104
+  orig: 113, 104
+  offset: 0, 0
+  index: -1
+back-hand
+  rotate: false
+  xy: 711, 80
+  size: 56, 61
+  orig: 56, 61
+  offset: 0, 0
+  index: -1
+back-head
+  rotate: false
+  xy: 206, 153
+  size: 213, 240
+  orig: 215, 242
+  offset: 1, 1
+  index: -1
+back-undercoat
+  rotate: false
+  xy: 421, 271
+  size: 123, 122
+  orig: 123, 122
+  offset: 0, 0
+  index: -1
+front-L-arm
+  rotate: true
+  xy: 530, 71
+  size: 56, 93
+  orig: 56, 94
+  offset: 0, 1
+  index: -1
+front-L-foot
+  rotate: true
+  xy: 780, 12
+  size: 67, 43
+  orig: 67, 43
+  offset: 0, 0
+  index: -1
+front-L-forearm1
+  rotate: false
+  xy: 625, 38
+  size: 84, 89
+  orig: 85, 89
+  offset: 1, 0
+  index: -1
+front-L-forearm2
+  rotate: false
+  xy: 731, 337
+  size: 107, 56
+  orig: 107, 56
+  offset: 0, 0
+  index: -1
+front-L-forearm3
+  rotate: true
+  xy: 435, 81
+  size: 82, 93
+  orig: 82, 93
+  offset: 0, 0
+  index: -1
+front-L-leg
+  rotate: true
+  xy: 536, 129
+  size: 67, 155
+  orig: 67, 155
+  offset: 0, 0
+  index: -1
+front-L-leg2
+  rotate: true
+  xy: 546, 267
+  size: 65, 165
+  orig: 65, 165
+  offset: 0, 0
+  index: -1
+front-R-arm
+  rotate: true
+  xy: 435, 15
+  size: 64, 91
+  orig: 64, 97
+  offset: 0, 6
+  index: -1
+front-R-foot
+  rotate: true
+  xy: 386, 11
+  size: 85, 47
+  orig: 86, 47
+  offset: 0, 0
+  index: -1
+front-R-forearm
+  rotate: false
+  xy: 713, 240
+  size: 87, 76
+  orig: 88, 76
+  offset: 0, 0
+  index: -1
+front-R-forearm2
+  rotate: false
+  xy: 294, 15
+  size: 90, 81
+  orig: 90, 81
+  offset: 0, 0
+  index: -1
+front-R-forearm3
+  rotate: false
+  xy: 323, 98
+  size: 110, 53
+  orig: 110, 53
+  offset: 0, 0
+  index: -1
+front-R-leg
+  rotate: true
+  xy: 536, 198
+  size: 67, 162
+  orig: 67, 162
+  offset: 0, 0
+  index: -1
+front-body
+  rotate: true
+  xy: 2, 11
+  size: 121, 189
+  orig: 121, 189
+  offset: 0, 0
+  index: -1
+front-brows
+  rotate: false
+  xy: 731, 318
+  size: 109, 17
+  orig: 111, 19
+  offset: 1, 1
+  index: -1
+front-close-eyes
+  rotate: false
+  xy: 206, 122
+  size: 115, 29
+  orig: 115, 29
+  offset: 0, 0
+  index: -1
+front-eyes
+  rotate: false
+  xy: 700, 212
+  size: 109, 26
+  orig: 111, 28
+  offset: 1, 1
+  index: -1
+front-head
+  rotate: false
+  xy: 2, 134
+  size: 202, 259
+  orig: 204, 261
+  offset: 1, 1
+  index: -1
+front-iris
+  rotate: false
+  xy: 700, 186
+  size: 86, 24
+  orig: 88, 26
+  offset: 1, 1
+  index: -1
+front-mouth1
+  rotate: false
+  xy: 711, 44
+  size: 65, 34
+  orig: 67, 36
+  offset: 1, 1
+  index: -1
+front-mouth2
+  rotate: false
+  xy: 717, 9
+  size: 61, 33
+  orig: 63, 35
+  offset: 1, 1
+  index: -1
+front-mouth3
+  rotate: true
+  xy: 802, 258
+  size: 58, 40
+  orig: 60, 42
+  offset: 1, 1
+  index: -1
+front-mouth4
+  rotate: false
+  xy: 765, 147
+  size: 48, 37
+  orig: 50, 39
+  offset: 1, 1
+  index: -1
+front-mouth5
+  rotate: true
+  xy: 769, 81
+  size: 64, 32
+  orig: 66, 34
+  offset: 1, 1
+  index: -1
+front-ribbon
+  rotate: true
+  xy: 811, 209
+  size: 47, 23
+  orig: 47, 23
+  offset: 0, 0
+  index: -1
+front-sad-brows
+  rotate: false
+  xy: 610, 6
+  size: 105, 30
+  orig: 107, 32
+  offset: 1, 1
+  index: -1
+front-under-coat
+  rotate: false
+  xy: 193, 22
+  size: 99, 98
+  orig: 99, 98
+  offset: 0, 0
+  index: -1

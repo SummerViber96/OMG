@@ -25,6 +25,7 @@ require('./assets/scripts/APP/mainMusic');
 require('./assets/scripts/APP/volum');
 require('./assets/scripts/Game28');
 require('./assets/scripts/HF/cus');
+require('./assets/scripts/Hotelhair/Scene1');
 require('./assets/scripts/ICY_14/Player');
 require('./assets/scripts/ICY_19');
 require('./assets/scripts/YC_11');

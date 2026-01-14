@@ -1,9 +1,10 @@
 
-
+globalThis.coin = 0;
 const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
+<<<<<<< Updated upstream
     @property(cc.AudioClip)
     soundShowPop: cc.AudioClip = null;
     @property(cc.AudioClip)
@@ -14,6 +15,17 @@ export default class NewClass extends cc.Component {
     soundWin: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundLose: cc.AudioClip = null;
+=======
+
+    @property(cc.AudioClip)
+    soundBg: cc.AudioClip = null
+    @property(cc.AudioClip)
+    hairCut: cc.AudioClip = null
+    @property(sp.Skeleton)
+    char1: sp.Skeleton = null;
+    @property(sp.Skeleton)
+    char2: sp.Skeleton = null
+>>>>>>> Stashed changes
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -26,24 +38,32 @@ export default class NewClass extends cc.Component {
     camera: cc.Camera = null;
     @property(cc.Node)
     logo: cc.Node = null;
-    @property(cc.Node)
-    listCus: cc.Node = null;
 
+<<<<<<< Updated upstream
     @property(cc.AudioClip)
     soundChesse: cc.AudioClip = null
     @property(cc.AudioClip)
     soundWrong: cc.AudioClip = null
+=======
+    @property(cc.Node)
+    barCoin: cc.Node = null
+>>>>>>> Stashed changes
     @property(cc.Prefab)
-    fxColor: cc.Prefab = null
+    preCoin: cc.Prefab = null
+    @property(cc.Label)
+    lbCoin: cc.Label = null
     @property(cc.Node)
-    cus: cc.Node = null;
+    scene2: cc.Node = null
+    @property(cc.Camera)
+    uiCamera: cc.Camera = null;
     @property(cc.Node)
-    xitKem: cc.Node = null;
+    uiNode: cc.Node = null
     @property(cc.Node)
-    xitHong: cc.Node = null;
+    btnUnlock: cc.Node = null;
     @property(cc.Node)
-    listHand: cc.Node = null;
+    rem2: cc.Node = null;
     @property(cc.Node)
+<<<<<<< Updated upstream
     cakeNode: cc.Node = null
     cusComp = null
     cake = null;
@@ -58,11 +78,18 @@ export default class NewClass extends cc.Component {
     isKem = 0;
     isKem2 = 0;
     isTut = 0
+=======
+    placeChar2: cc.Node = null
+    private selectedItem: cc.Node = null;
+
+    adChanel = '{{__adv_channels_adapter__}}'
+
+>>>>>>> Stashed changes
     start() {
-        this.cusComp = this.cus.getComponent("cusMission")
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
+<<<<<<< Updated upstream
         this.showCus()
         cc.audioEngine.play(this.soundBg, true, 1)
         this.listHand.zIndex = 5
@@ -251,252 +278,153 @@ export default class NewClass extends cc.Component {
             //     cc.audioEngine.play(this.soundShowPop, false, 1)
 
             // }, 0.1)
+=======
+        cc.audioEngine.play(this.soundBg, true, 0.3)
+        cc.audioEngine.play(this.hairCut, false, 1)
+        this.startScene()
+    }
+    startScene() {
+        let char1Node = this.char1.node
+        cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(() => {
+            this.char1.setAnimation(0, "Happy", false);
+            char1Node.scaleX = -1.5;
+            this.scheduleOnce(() => {
+                this.giveCoin()
+
+            }, 0.3)
+>>>>>>> Stashed changes
         }).start()
+    }
+    giveCoin() {
+        let posStart = this.char1.node.parent.convertToWorldSpaceAR(this.char1.node.position);
+        posStart = this.camera.getWorldToScreenPoint(posStart);
+        posStart = this.uiCamera.getScreenToWorldPoint(posStart);
+        posStart = this.uiNode.convertToNodeSpaceAR(posStart).add(cc.v3(0, 420));
+        let posEnd = this.barCoin.children[1].position;
+        posEnd = this.barCoin.convertToWorldSpaceAR(posEnd);
+        posEnd = this.uiNode.convertToNodeSpaceAR(posEnd)
 
-    }
-    successCus() {
-        this.isTargetCus = null;
-        this.isTargetPop = null;
-
-    }
-    creatFxColor(pos, scale) {
-        let pre = cc.instantiate(this.fxColor)
-        pre.parent = this.node
-        pre.position = pos
-        pre.scale = scale
-    }
-    nextCus() {
-        this.countCus++
-        if (this.countCus == 3) {
-            this.onEndGame()
+        let midPos = cc.v2((posEnd.x + 500), (posStart.y + posEnd.y) / 2)
+        for (let i = 0; i < 8; i++) {
+            this.scheduleOnce(() => {
+                let coin = cc.instantiate(this.preCoin);
+                coin.parent = this.node;
+                coin.parent = this.uiNode;
+                coin.position = posStart;
+                cc.tween(coin).bezierTo(1, cc.v2(posStart.x, posStart.y), midPos, cc.v2(posEnd.x, posEnd.y)).start()
+                cc.tween(coin).to(1, { scale: 1.3 }).call(() => {
+                    coin.destroy()
+                    globalThis.coin += 50
+                }).start()
+            }, 0.05 * i)
         }
-        else {
-            let child = this.listCus.children[this.countCus]
-            child.position = cc.v3(700, 123.591)
-            child.active = true
-            cc.tween(child).to(0.8, { position: cc.v3(0, 123.591) }).call(() => {
-                child.getChildByName("pop").active = true
-                this.isTargetPop = child.getChildByName("pop")
-                this.isTargetCus = child;
-                this.scheduleOnce(() => {
-                    cc.audioEngine.play(this.soundShowPop, false, 1)
-
-                }, 0.1)
+        this.scheduleOnce(() => {
+            this.btnUnlock.getComponent(cc.Animation).play()
+        }, 0.6)
+        this.scheduleOnce(() => {
+            this.char1.setAnimation(0, "Walk", true);
+            this.char1.node.zIndex = 2
+            cc.tween(this.char1.node).by(4, { position: cc.v3(1600, 0) }).call(() => {
+                this.char1.node.active = false
             }).start()
-        }
-
-    }
-    arrHotDog = [null, null, null, null, null, null];
-    arrBreak = [null, null, null];
-    arrTuongCa = []
-    btn_hotDog(event) {
-        // if (this.arrHotDog.length >= 6) return;
-        let check = this.checkSlotHotDog()
-        console.log(check)
-        if (check == null) return;
-
-        cc.audioEngine.play(this.soundShowPop, false, 1)
-        this.listHand.children[0].opacity = 0
-        this.scheduleOnce(() => {
-            this.listHand.children[1].active = true
-
-        }, 0.5)
-        let dem = this.arrHotDog.length
-        let hotDog = cc.instantiate(this.preHotDog);
-        console.log(this.listChao)
-        hotDog.parent = this.listChao.children[check];
-        hotDog.position = cc.v3(0, 0)
-        hotDog.getComponent("hotdog").value = check
-        this.arrHotDog[check] = hotDog
-        let pos = event.currentTarget.position
-        this.creatFxColor(pos, 2)
-
-    }
-    checkSlotHotDog() {
-        for (let i = 0; i < this.arrHotDog.length; i++) {
-            if (this.arrHotDog[i] == null) return i
-        }
-        return null
-    }
-    checkSlotBread() {
-        for (let i = 0; i < this.arrBreak.length; i++) {
-            if (this.arrBreak[i] == null) return i
-        }
-        return null
-    }
-    btn_bread(event) {
-        // if (this.arrBreak.length >= 3) return;
-        // let dem = this.arrBreak.length
-        let check = this.checkSlotBread()
-        if (check == null) return;
-        cc.audioEngine.play(this.soundShowPop, false, 1)
-
-        let bread = cc.instantiate(this.preBread);
-        bread.parent = this.listKhayBanhMi.children[check];
-        bread.position = cc.v3(0, 0)
-        bread.getComponent("preBread").value = check
-        this.arrBreak[check] = bread
-        this.listHand.children[1].opacity = 0
-        this.scheduleOnce(() => {
-            this.listHand.children[2].active = true
-
-        }, 0.5)
-        let pos = event.currentTarget.position
-        this.creatFxColor(pos, 2)
-
-    }
-    sellBread(value) {
-        // console.log(value)
-        if (this.isTargetCus == null) return;
-        if (this.isTargetPop == null) return;
-        this.listHand.children[4].opacity = 0
-
-        let child = this.arrBreak[value];
-        this.arrBreak[value] = null;
-        let posEnd = this.isTargetPop.position
-        posEnd = this.isTargetPop.parent.convertToWorldSpaceAR(posEnd)
-        posEnd = child.parent.convertToNodeSpaceAR(posEnd)
-        let pos = child.parent.convertToWorldSpaceAR(child.position);
-        pos = this.node.convertToNodeSpaceAR(pos)
-        cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(() => {
-            child.opacity = 0
-            this.isTargetCus.getComponent("cusMission").checkBread(child)
-        }).start()
-
-        this.creatFxColor(pos, 1.5)
-    }
-    isDelaytuong = false
-    btn_tuongCa() {
-        if (this.isDelaytuong) return;
-        if (this.arrBreak.length <= 0) return;
-        let bread = this.checkTuongCa();
-        if (bread == null) return;
-        this.isDelaytuong = true
-        cc.audioEngine.play(this.soundShowPop, false, 1)
-        this.listHand.children[3].opacity = 0
-        this.scheduleOnce(() => {
-            this.listHand.children[4].active = true
 
         }, 1)
-        let posStart = bread.position.add(cc.v3(40, 150));
-        posStart = bread.parent.convertToWorldSpaceAR(posStart);
-        posStart = this.node.convertToNodeSpaceAR(posStart)
-        let posEnd = this.tuongOt.position
-        let posMid = cc.v2((posStart.x + posEnd.x) / 2, (posStart.y + posEnd.y) / 2 + 100)
-        this.tuongOt.getComponent(cc.Animation).play()
-        this.scheduleOnce(() => {
-            bread.getComponent("preBread").getTuongCa()
-            cc.audioEngine.play(this.soundChesse, false, 1)
+        this.char2.setAnimation(0, "Walk", true);
+        cc.tween(this.char2.node).to(3, { position: cc.v3(-407, -925) }).call(() => {
+            this.char2.setAnimation(0, "Talk", true);
+            this.char2.node.getChildByName("pop").active = true
 
-        }, 0.25)
-        cc.tween(this.tuongOt).bezierTo(0.5, cc.v2(posEnd.x, posEnd.y), cc.v2(posMid.x, posMid.y), cc.v2(posStart.x, posStart.y)).call(() => {
-
-        }).delay(0.2).call(() => {
-            this.tuongOt.position = posEnd
-            this.tuongOt.children[0].angle = 0
-            this.isDelaytuong = false
         }).start()
 
+
     }
-    checkTuongCa() {
-        for (let i = 0; i < this.arrBreak.length; i++) {
-            let chld = this.arrBreak[i]
-            if (chld != null && chld.getComponent("preBread").isHotDog == true && chld.getComponent("preBread").isTuongCa == false) {
-                return chld
-            }
+    btn_unlock() {
+        this.btnUnlock.active = false;
+        this.rem2.opacity = 0
+        this.rem2.active = true
+        cc.tween(this.rem2).to(0.3, { opacity: 255 }).start()
+        this.onEventListener()
+    }
+    onEventListener() {
+        this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+    }
+    offEventListener() {
+        this.node.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.node.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        this.node.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+    }
+    onTouchStart(event: cc.Event.EventTouch) {
+        if (this.selectedItem) return
+
+        let screenPos = event.getLocation();
+
+        let worldPos = this.camera.getScreenToWorldPoint(screenPos);
+
+        // Chuyển world → local (node main)
+        let localPos = this.node.convertToNodeSpaceAR(worldPos);
+        if (this.char2.node.position.sub(localPos).mag() < 300) {
+            this.char2.node.setPosition(localPos);
+            this.selectedItem = this.char2.node
         }
-        return null
+        // Đặt vị trí cho item
+
+        // this.main.guideDrag.active = false;
+        // this.node.opacity = 0
     }
 
-    clickHotDog(value, node) {
-        if (this.arrBreak.length <= 0) return;
-        let child = this.checkBread()
-        if (child == null) return;
-        cc.audioEngine.play(this.soundShowPop, false, 1)
-        this.listHand.children[2].opacity = 0
-        this.scheduleOnce(() => {
-            this.listHand.children[3].active = true
+    onTouchMove(event: cc.Event.EventTouch) {
+        if (!this.selectedItem) return;
+        let screenPos = event.getLocation();
 
-        }, 0.5)
-        this.arrHotDog[value] = null
-        child.getComponent("preBread").getHotDog()
-        let pos = node.parent.convertToWorldSpaceAR(node.position);
-        pos = this.node.convertToNodeSpaceAR(pos)
-        node.opacity = 0
+        let worldPos = this.camera.getScreenToWorldPoint(screenPos);
 
-        this.scheduleOnce(() => {
-            node.destroy()
+        // Chuyển world → local (node main)
+        let localPos = this.node.convertToNodeSpaceAR(worldPos);
 
-        }, 0.1)
-
-        this.creatFxColor(pos, 1.5)
+        // Đặt vị trí cho item
+        this.selectedItem.setPosition(localPos);
     }
-    checkBread() {
-        for (let i = 0; i < this.arrBreak.length; i++) {
-            let chld = this.arrBreak[i]
-            if (chld != null && chld.getComponent("preBread").isHotDog == false) {
-                return chld
-            }
+
+    onTouchEnd(event: cc.Event.EventTouch) {
+        if (!this.selectedItem) return;
+
+        let screenPos = event.getLocation();
+
+        let worldPos = this.camera.getScreenToWorldPoint(screenPos);
+
+        // Chuyển world → local (node main)
+        let localPos = this.node.convertToNodeSpaceAR(worldPos);
+
+        // Đặt vị trí cho item
+        this.selectedItem.setPosition(localPos);
+        let check = this.checkOnFloor(localPos);
+        if (check == true) {
+            this.selectedItem.position = cc.v3(-500, -259)
+            this.offEventListener()
         }
-        return null
+    }
+    checkOnFloor(localPos) {
+        if (localPos.sub(this.placeChar2.position).mag() <= 600) {
+            return true
+        }
+        else {
+            this.selectedItem.position = cc.v3(-407, -925)
+            this.selectedItem = null
+            return false;
+        }
     }
     onEndGame() {
         cc.audioEngine.play(this.soundWin, false, 1)
         this.endCard.active = true;
         this.linkToStore.active = true
     }
-    // btn_choose(event, value) {
-    //     console.log(value)
-    //     switch (value) {
-    //         case "0":
-    //             this.hand.active = false
 
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             // this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(1)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             // this.hand.active = true
-    //             break;
-    //         case "1":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-
-    //             this.sceneMusic.getComponent("mainMusic").loadData(2)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "2":
-    //             this.sceneGun.position = cc.v3(3000, 0)
-    //             this.sceneGun.active = true
-    //             this.sceneGun.getComponent("mainGun").loadData(1)
-    //             this.sceneGun.getComponent(cc.Animation).play()
-    //             this.sceneMain.active = false
-    //             break;
-    //         case "3":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-
-    //             this.sceneMusic.getComponent("mainMusic").loadData(3)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "4":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-
-    //             this.sceneMusic.getComponent("mainMusic").loadData(4)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "5":
-    //             this.sceneGun.position = cc.v3(3000, 0)
-    //             this.sceneGun.active = true
-    //             this.sceneGun.getComponent("mainGun").loadData(2)
-    //             this.sceneGun.getComponent(cc.Animation).play()
-    //             this.sceneMain.active = false
-
-    //             break;
-    //     }
-    // }
     update(dt) {
+        this.lbCoin.string = globalThis.coin.toString()
         let deviceResolution = cc.view.getFrameSize();
         if (deviceResolution.width < deviceResolution.height) {
             this.reponsive(true);

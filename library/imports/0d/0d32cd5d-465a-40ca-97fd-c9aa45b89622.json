@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ham",
+    "texture": "ff4c6565-da01-4d0d-97de-6b4c9939af6b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      84,
+      125
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      84,
+      125
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

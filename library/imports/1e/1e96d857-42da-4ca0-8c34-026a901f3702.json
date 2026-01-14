@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dressing-props",
+    "texture": "124416ab-7ad4-4faf-87e1-1e5cc212d25c",
+    "atlas": "",
+    "rect": [
+      337,
+      92,
+      353,
+      749
+    ],
+    "offset": [
+      10.5,
+      4
+    ],
+    "originalSize": [
+      1006,
+      941
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

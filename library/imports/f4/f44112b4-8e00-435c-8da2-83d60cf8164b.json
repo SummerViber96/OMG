@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Upgrade_Button",
+    "texture": "ec5e97f2-c180-4bd0-9d20-4e4a21cae0ca",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      163,
+      152
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      163,
+      152
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

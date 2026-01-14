@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Curtain2",
+    "texture": "568e00c5-1111-4008-82a5-5a5860b71abf",
+    "atlas": "",
+    "rect": [
+      5,
+      2,
+      151,
+      245
+    ],
+    "offset": [
+      1.5,
+      56.5
+    ],
+    "originalSize": [
+      158,
+      362
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

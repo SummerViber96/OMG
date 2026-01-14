@@ -1,0 +1,146 @@
+
+cutHair.png
+size: 328, 1940
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+Girl_00000
+  rotate: false
+  xy: 2, 1714
+  size: 160, 224
+  orig: 962, 960
+  offset: 397, 301
+  index: -1
+Girl_00001
+  rotate: false
+  xy: 2, 1489
+  size: 160, 223
+  orig: 962, 960
+  offset: 397, 302
+  index: -1
+Girl_00002
+  rotate: false
+  xy: 2, 1266
+  size: 160, 221
+  orig: 962, 960
+  offset: 397, 304
+  index: -1
+Girl_00003
+  rotate: false
+  xy: 2, 1044
+  size: 160, 220
+  orig: 962, 960
+  offset: 397, 305
+  index: -1
+Girl_00004
+  rotate: false
+  xy: 2, 823
+  size: 160, 219
+  orig: 962, 960
+  offset: 397, 306
+  index: -1
+Girl_00005
+  rotate: false
+  xy: 2, 608
+  size: 160, 213
+  orig: 962, 960
+  offset: 397, 312
+  index: -1
+Girl_00006
+  rotate: false
+  xy: 2, 400
+  size: 160, 206
+  orig: 962, 960
+  offset: 397, 319
+  index: -1
+Girl_00007
+  rotate: false
+  xy: 2, 198
+  size: 160, 200
+  orig: 962, 960
+  offset: 397, 325
+  index: -1
+Girl_00008
+  rotate: false
+  xy: 2, 2
+  size: 160, 194
+  orig: 962, 960
+  offset: 397, 331
+  index: -1
+Girl_00009
+  rotate: false
+  xy: 164, 1750
+  size: 160, 188
+  orig: 962, 960
+  offset: 397, 337
+  index: -1
+Girl_00010
+  rotate: false
+  xy: 164, 1567
+  size: 160, 181
+  orig: 962, 960
+  offset: 397, 344
+  index: -1
+Girl_00011
+  rotate: false
+  xy: 164, 1390
+  size: 160, 175
+  orig: 962, 960
+  offset: 397, 350
+  index: -1
+Girl_00012
+  rotate: false
+  xy: 164, 1219
+  size: 160, 169
+  orig: 962, 960
+  offset: 397, 356
+  index: -1
+Girl_00013
+  rotate: false
+  xy: 164, 1056
+  size: 160, 161
+  orig: 962, 960
+  offset: 397, 364
+  index: -1
+Girl_00014
+  rotate: false
+  xy: 164, 900
+  size: 160, 154
+  orig: 962, 960
+  offset: 397, 371
+  index: -1
+Girl_00015
+  rotate: false
+  xy: 164, 752
+  size: 160, 146
+  orig: 962, 960
+  offset: 397, 379
+  index: -1
+Girl_00016
+  rotate: false
+  xy: 164, 188
+  size: 160, 139
+  orig: 962, 960
+  offset: 397, 386
+  index: -1
+Girl_00017
+  rotate: false
+  xy: 164, 329
+  size: 160, 139
+  orig: 962, 960
+  offset: 397, 386
+  index: -1
+Girl_00018
+  rotate: false
+  xy: 164, 470
+  size: 160, 139
+  orig: 962, 960
+  offset: 397, 386
+  index: -1
+Girl_00019
+  rotate: false
+  xy: 164, 611
+  size: 160, 139
+  orig: 962, 960
+  offset: 397, 386
+  index: -1

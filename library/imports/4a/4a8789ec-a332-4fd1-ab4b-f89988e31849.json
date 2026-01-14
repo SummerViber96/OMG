@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Ad_PSD",
+    "texture": "251d89c6-3fd4-42a5-97e9-4e6e326e4d68",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      466,
+      832
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      466,
+      832
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

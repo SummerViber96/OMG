@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Capturedemo",
+    "texture": "decee28f-c3ee-4cca-bb48-ade3f46fae16",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      621,
+      1097
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      621,
+      1097
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

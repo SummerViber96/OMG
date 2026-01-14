@@ -23,22 +23,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+globalThis.coin = 0;
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+<<<<<<< Updated upstream
         _this.soundShowPop = null;
         _this.soundClosePop = null;
         _this.soundBg = null;
         _this.soundWin = null;
         _this.soundLose = null;
+=======
+        _this.soundBg = null;
+        _this.hairCut = null;
+        _this.char1 = null;
+        _this.char2 = null;
+>>>>>>> Stashed changes
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
         _this.linkToStore = null;
         _this.camera = null;
         _this.logo = null;
+<<<<<<< Updated upstream
         _this.listCus = null;
         _this.soundChesse = null;
         _this.soundWrong = null;
@@ -255,239 +264,148 @@ var NewClass = /** @class */ (function (_super) {
             // this.scheduleOnce(() => {
             //     cc.audioEngine.play(this.soundShowPop, false, 1)
             // }, 0.1)
+=======
+        _this.barCoin = null;
+        _this.preCoin = null;
+        _this.lbCoin = null;
+        _this.scene2 = null;
+        _this.uiCamera = null;
+        _this.uiNode = null;
+        _this.btnUnlock = null;
+        _this.rem2 = null;
+        _this.placeChar2 = null;
+        _this.selectedItem = null;
+        _this.adChanel = '{{__adv_channels_adapter__}}';
+        return _this;
+    }
+    NewClass.prototype.start = function () {
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
+        cc.audioEngine.play(this.soundBg, true, 0.3);
+        cc.audioEngine.play(this.hairCut, false, 1);
+        this.startScene();
+    };
+    NewClass.prototype.startScene = function () {
+        var _this = this;
+        var char1Node = this.char1.node;
+        cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(function () {
+            _this.char1.setAnimation(0, "Happy", false);
+            char1Node.scaleX = -1.5;
+            _this.scheduleOnce(function () {
+                _this.giveCoin();
+            }, 0.3);
+>>>>>>> Stashed changes
         }).start();
     };
-    NewClass.prototype.successCus = function () {
-        this.isTargetCus = null;
-        this.isTargetPop = null;
-    };
-    NewClass.prototype.creatFxColor = function (pos, scale) {
-        var pre = cc.instantiate(this.fxColor);
-        pre.parent = this.node;
-        pre.position = pos;
-        pre.scale = scale;
-    };
-    NewClass.prototype.nextCus = function () {
+    NewClass.prototype.giveCoin = function () {
         var _this = this;
-        this.countCus++;
-        if (this.countCus == 3) {
-            this.onEndGame();
+        var posStart = this.char1.node.parent.convertToWorldSpaceAR(this.char1.node.position);
+        posStart = this.camera.getWorldToScreenPoint(posStart);
+        posStart = this.uiCamera.getScreenToWorldPoint(posStart);
+        posStart = this.uiNode.convertToNodeSpaceAR(posStart).add(cc.v3(0, 420));
+        var posEnd = this.barCoin.children[1].position;
+        posEnd = this.barCoin.convertToWorldSpaceAR(posEnd);
+        posEnd = this.uiNode.convertToNodeSpaceAR(posEnd);
+        var midPos = cc.v2((posEnd.x + 500), (posStart.y + posEnd.y) / 2);
+        for (var i = 0; i < 8; i++) {
+            this.scheduleOnce(function () {
+                var coin = cc.instantiate(_this.preCoin);
+                coin.parent = _this.node;
+                coin.parent = _this.uiNode;
+                coin.position = posStart;
+                cc.tween(coin).bezierTo(1, cc.v2(posStart.x, posStart.y), midPos, cc.v2(posEnd.x, posEnd.y)).start();
+                cc.tween(coin).to(1, { scale: 1.3 }).call(function () {
+                    coin.destroy();
+                    globalThis.coin += 50;
+                }).start();
+            }, 0.05 * i);
+        }
+        this.scheduleOnce(function () {
+            _this.btnUnlock.getComponent(cc.Animation).play();
+        }, 0.6);
+        this.scheduleOnce(function () {
+            _this.char1.setAnimation(0, "Walk", true);
+            _this.char1.node.zIndex = 2;
+            cc.tween(_this.char1.node).by(4, { position: cc.v3(1600, 0) }).call(function () {
+                _this.char1.node.active = false;
+            }).start();
+        }, 1);
+        this.char2.setAnimation(0, "Walk", true);
+        cc.tween(this.char2.node).to(3, { position: cc.v3(-407, -925) }).call(function () {
+            _this.char2.setAnimation(0, "Talk", true);
+            _this.char2.node.getChildByName("pop").active = true;
+        }).start();
+    };
+    NewClass.prototype.btn_unlock = function () {
+        this.btnUnlock.active = false;
+        this.rem2.opacity = 0;
+        this.rem2.active = true;
+        cc.tween(this.rem2).to(0.3, { opacity: 255 }).start();
+        this.onEventListener();
+    };
+    NewClass.prototype.onEventListener = function () {
+        this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+    };
+    NewClass.prototype.onTouchStart = function (event) {
+        if (this.selectedItem)
+            return;
+        var screenPos = event.getLocation();
+        var worldPos = this.camera.getScreenToWorldPoint(screenPos);
+        // Chuyển world → local (node main)
+        var localPos = this.node.convertToNodeSpaceAR(worldPos);
+        if (this.char2.node.position.sub(localPos).mag() < 300) {
+            this.char2.node.setPosition(localPos);
+            this.selectedItem = this.char2.node;
+        }
+        // Đặt vị trí cho item
+        // this.main.guideDrag.active = false;
+        // this.node.opacity = 0
+    };
+    NewClass.prototype.onTouchMove = function (event) {
+        if (!this.selectedItem)
+            return;
+        var screenPos = event.getLocation();
+        var worldPos = this.camera.getScreenToWorldPoint(screenPos);
+        // Chuyển world → local (node main)
+        var localPos = this.node.convertToNodeSpaceAR(worldPos);
+        // Đặt vị trí cho item
+        this.selectedItem.setPosition(localPos);
+    };
+    NewClass.prototype.onTouchEnd = function (event) {
+        if (!this.selectedItem)
+            return;
+        var screenPos = event.getLocation();
+        var worldPos = this.camera.getScreenToWorldPoint(screenPos);
+        // Chuyển world → local (node main)
+        var localPos = this.node.convertToNodeSpaceAR(worldPos);
+        // Đặt vị trí cho item
+        this.selectedItem.setPosition(localPos);
+        var check = this.checkOnFloor(localPos);
+        if (check == true) {
+            this.selectedItem.position = cc.v3(-500, -259);
+        }
+    };
+    NewClass.prototype.checkOnFloor = function (localPos) {
+        if (localPos.sub(this.placeChar2.position).mag() <= 600) {
+            return true;
         }
         else {
-            var child_1 = this.listCus.children[this.countCus];
-            child_1.position = cc.v3(700, 123.591);
-            child_1.active = true;
-            cc.tween(child_1).to(0.8, { position: cc.v3(0, 123.591) }).call(function () {
-                child_1.getChildByName("pop").active = true;
-                _this.isTargetPop = child_1.getChildByName("pop");
-                _this.isTargetCus = child_1;
-                _this.scheduleOnce(function () {
-                    cc.audioEngine.play(_this.soundShowPop, false, 1);
-                }, 0.1);
-            }).start();
+            this.selectedItem.position = cc.v3(-407, -925);
+            this.selectedItem = null;
+            return false;
         }
-    };
-    NewClass.prototype.btn_hotDog = function (event) {
-        var _this = this;
-        // if (this.arrHotDog.length >= 6) return;
-        var check = this.checkSlotHotDog();
-        console.log(check);
-        if (check == null)
-            return;
-        cc.audioEngine.play(this.soundShowPop, false, 1);
-        this.listHand.children[0].opacity = 0;
-        this.scheduleOnce(function () {
-            _this.listHand.children[1].active = true;
-        }, 0.5);
-        var dem = this.arrHotDog.length;
-        var hotDog = cc.instantiate(this.preHotDog);
-        console.log(this.listChao);
-        hotDog.parent = this.listChao.children[check];
-        hotDog.position = cc.v3(0, 0);
-        hotDog.getComponent("hotdog").value = check;
-        this.arrHotDog[check] = hotDog;
-        var pos = event.currentTarget.position;
-        this.creatFxColor(pos, 2);
-    };
-    NewClass.prototype.checkSlotHotDog = function () {
-        for (var i = 0; i < this.arrHotDog.length; i++) {
-            if (this.arrHotDog[i] == null)
-                return i;
-        }
-        return null;
-    };
-    NewClass.prototype.checkSlotBread = function () {
-        for (var i = 0; i < this.arrBreak.length; i++) {
-            if (this.arrBreak[i] == null)
-                return i;
-        }
-        return null;
-    };
-    NewClass.prototype.btn_bread = function (event) {
-        var _this = this;
-        // if (this.arrBreak.length >= 3) return;
-        // let dem = this.arrBreak.length
-        var check = this.checkSlotBread();
-        if (check == null)
-            return;
-        cc.audioEngine.play(this.soundShowPop, false, 1);
-        var bread = cc.instantiate(this.preBread);
-        bread.parent = this.listKhayBanhMi.children[check];
-        bread.position = cc.v3(0, 0);
-        bread.getComponent("preBread").value = check;
-        this.arrBreak[check] = bread;
-        this.listHand.children[1].opacity = 0;
-        this.scheduleOnce(function () {
-            _this.listHand.children[2].active = true;
-        }, 0.5);
-        var pos = event.currentTarget.position;
-        this.creatFxColor(pos, 2);
-    };
-    NewClass.prototype.sellBread = function (value) {
-        var _this = this;
-        // console.log(value)
-        if (this.isTargetCus == null)
-            return;
-        if (this.isTargetPop == null)
-            return;
-        this.listHand.children[4].opacity = 0;
-        var child = this.arrBreak[value];
-        this.arrBreak[value] = null;
-        var posEnd = this.isTargetPop.position;
-        posEnd = this.isTargetPop.parent.convertToWorldSpaceAR(posEnd);
-        posEnd = child.parent.convertToNodeSpaceAR(posEnd);
-        var pos = child.parent.convertToWorldSpaceAR(child.position);
-        pos = this.node.convertToNodeSpaceAR(pos);
-        cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(50, 0)), scale: 0.7 }).call(function () {
-            child.opacity = 0;
-            _this.isTargetCus.getComponent("cusMission").checkBread(child);
-        }).start();
-        this.creatFxColor(pos, 1.5);
-    };
-    NewClass.prototype.btn_tuongCa = function () {
-        var _this = this;
-        if (this.isDelaytuong)
-            return;
-        if (this.arrBreak.length <= 0)
-            return;
-        var bread = this.checkTuongCa();
-        if (bread == null)
-            return;
-        this.isDelaytuong = true;
-        cc.audioEngine.play(this.soundShowPop, false, 1);
-        this.listHand.children[3].opacity = 0;
-        this.scheduleOnce(function () {
-            _this.listHand.children[4].active = true;
-        }, 1);
-        var posStart = bread.position.add(cc.v3(40, 150));
-        posStart = bread.parent.convertToWorldSpaceAR(posStart);
-        posStart = this.node.convertToNodeSpaceAR(posStart);
-        var posEnd = this.tuongOt.position;
-        var posMid = cc.v2((posStart.x + posEnd.x) / 2, (posStart.y + posEnd.y) / 2 + 100);
-        this.tuongOt.getComponent(cc.Animation).play();
-        this.scheduleOnce(function () {
-            bread.getComponent("preBread").getTuongCa();
-            cc.audioEngine.play(_this.soundChesse, false, 1);
-        }, 0.25);
-        cc.tween(this.tuongOt).bezierTo(0.5, cc.v2(posEnd.x, posEnd.y), cc.v2(posMid.x, posMid.y), cc.v2(posStart.x, posStart.y)).call(function () {
-        }).delay(0.2).call(function () {
-            _this.tuongOt.position = posEnd;
-            _this.tuongOt.children[0].angle = 0;
-            _this.isDelaytuong = false;
-        }).start();
-    };
-    NewClass.prototype.checkTuongCa = function () {
-        for (var i = 0; i < this.arrBreak.length; i++) {
-            var chld = this.arrBreak[i];
-            if (chld != null && chld.getComponent("preBread").isHotDog == true && chld.getComponent("preBread").isTuongCa == false) {
-                return chld;
-            }
-        }
-        return null;
-    };
-    NewClass.prototype.clickHotDog = function (value, node) {
-        var _this = this;
-        if (this.arrBreak.length <= 0)
-            return;
-        var child = this.checkBread();
-        if (child == null)
-            return;
-        cc.audioEngine.play(this.soundShowPop, false, 1);
-        this.listHand.children[2].opacity = 0;
-        this.scheduleOnce(function () {
-            _this.listHand.children[3].active = true;
-        }, 0.5);
-        this.arrHotDog[value] = null;
-        child.getComponent("preBread").getHotDog();
-        var pos = node.parent.convertToWorldSpaceAR(node.position);
-        pos = this.node.convertToNodeSpaceAR(pos);
-        node.opacity = 0;
-        this.scheduleOnce(function () {
-            node.destroy();
-        }, 0.1);
-        this.creatFxColor(pos, 1.5);
-    };
-    NewClass.prototype.checkBread = function () {
-        for (var i = 0; i < this.arrBreak.length; i++) {
-            var chld = this.arrBreak[i];
-            if (chld != null && chld.getComponent("preBread").isHotDog == false) {
-                return chld;
-            }
-        }
-        return null;
     };
     NewClass.prototype.onEndGame = function () {
         cc.audioEngine.play(this.soundWin, false, 1);
         this.endCard.active = true;
         this.linkToStore.active = true;
     };
-    // btn_choose(event, value) {
-    //     console.log(value)
-    //     switch (value) {
-    //         case "0":
-    //             this.hand.active = false
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             // this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(1)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             // this.hand.active = true
-    //             break;
-    //         case "1":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(2)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "2":
-    //             this.sceneGun.position = cc.v3(3000, 0)
-    //             this.sceneGun.active = true
-    //             this.sceneGun.getComponent("mainGun").loadData(1)
-    //             this.sceneGun.getComponent(cc.Animation).play()
-    //             this.sceneMain.active = false
-    //             break;
-    //         case "3":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(3)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "4":
-    //             this.sceneMusic.position = cc.v3(3000, 0)
-    //             this.sceneMusic.active = true
-    //             this.sceneMusic.getComponent("mainMusic").loadData(4)
-    //             this.sceneMusic.getComponent(cc.Animation).play()
-    //             break;
-    //         case "5":
-    //             this.sceneGun.position = cc.v3(3000, 0)
-    //             this.sceneGun.active = true
-    //             this.sceneGun.getComponent("mainGun").loadData(2)
-    //             this.sceneGun.getComponent(cc.Animation).play()
-    //             this.sceneMain.active = false
-    //             break;
-    //     }
-    // }
     NewClass.prototype.update = function (dt) {
+        this.lbCoin.string = globalThis.coin.toString();
         var deviceResolution = cc.view.getFrameSize();
         if (deviceResolution.width < deviceResolution.height) {
             this.reponsive(true);
@@ -542,20 +460,29 @@ var NewClass = /** @class */ (function (_super) {
     };
     __decorate([
         property(cc.AudioClip)
+<<<<<<< Updated upstream
     ], NewClass.prototype, "soundShowPop", void 0);
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundClosePop", void 0);
     __decorate([
         property(cc.AudioClip)
+=======
+>>>>>>> Stashed changes
     ], NewClass.prototype, "soundBg", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundWin", void 0);
+    ], NewClass.prototype, "hairCut", void 0);
     __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundLose", void 0);
+        property(sp.Skeleton)
+    ], NewClass.prototype, "char1", void 0);
     __decorate([
+<<<<<<< Updated upstream
+=======
+        property(sp.Skeleton)
+    ], NewClass.prototype, "char2", void 0);
+    __decorate([
+>>>>>>> Stashed changes
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);
     __decorate([
@@ -575,6 +502,7 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "logo", void 0);
     __decorate([
         property(cc.Node)
+<<<<<<< Updated upstream
     ], NewClass.prototype, "listCus", void 0);
     __decorate([
         property(cc.AudioClip)
@@ -582,24 +510,37 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundWrong", void 0);
+=======
+    ], NewClass.prototype, "barCoin", void 0);
+>>>>>>> Stashed changes
     __decorate([
         property(cc.Prefab)
-    ], NewClass.prototype, "fxColor", void 0);
+    ], NewClass.prototype, "preCoin", void 0);
+    __decorate([
+        property(cc.Label)
+    ], NewClass.prototype, "lbCoin", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "cus", void 0);
+    ], NewClass.prototype, "scene2", void 0);
+    __decorate([
+        property(cc.Camera)
+    ], NewClass.prototype, "uiCamera", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "xitKem", void 0);
+    ], NewClass.prototype, "uiNode", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "xitHong", void 0);
+    ], NewClass.prototype, "btnUnlock", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "listHand", void 0);
+    ], NewClass.prototype, "rem2", void 0);
     __decorate([
         property(cc.Node)
+<<<<<<< Updated upstream
     ], NewClass.prototype, "cakeNode", void 0);
+=======
+    ], NewClass.prototype, "placeChar2", void 0);
+>>>>>>> Stashed changes
     NewClass = __decorate([
         ccclass
     ], NewClass);
