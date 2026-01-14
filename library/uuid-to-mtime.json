@@ -6951,7 +6951,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1768353193230,
+    "meta": 1768434037935,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7031,7 +7031,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761763030039,
-    "meta": 1768353193227,
+    "meta": 1768434037933,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7101,7 +7101,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761763009587,
-    "meta": 1768353193226,
+    "meta": 1768434037934,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -8081,7 +8081,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1768353193231,
+    "meta": 1768434037940,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
@@ -9135,8 +9135,8 @@
     "relativePath": "cooking\\ietm\\cake.ts"
   },
   "ae218166-ebf7-40ca-9108-f457885dc73a": {
-    "asset": 1768352919134,
-    "meta": 1768353104876,
+    "asset": 1768433958107,
+    "meta": 1768434037882,
     "relativePath": "anim\\HotelHair"
   },
   "93d4f539-cd8b-416c-be56-121023231291": {
@@ -9325,8 +9325,8 @@
     "relativePath": "cooking\\CC_2\\TableTop.png"
   },
   "a666218a-fd7b-432c-9a12-a19b61a03f0d": {
-    "asset": 1768352919048,
-    "meta": 1768353105342,
+    "asset": 1768411012605,
+    "meta": 1768434037924,
     "relativePath": "HotelHair"
   },
   "251d89c6-3fd4-42a5-97e9-4e6e326e4d68": {
@@ -9439,16 +9439,6 @@
     "meta": 1768353105690,
     "relativePath": "HotelHair\\demo3.PNG"
   },
-  "124416ab-7ad4-4faf-87e1-1e5cc212d25c": {
-    "asset": 1768352918888,
-    "meta": 1768353105722,
-    "relativePath": "HotelHair\\dressing-props.png"
-  },
-  "bb70c302-4c9d-42e9-b9a7-bc4aadcdc27d": {
-    "asset": 1768352918907,
-    "meta": 1768353105885,
-    "relativePath": "HotelHair\\dressing.png"
-  },
   "ed51c333-06b6-4826-85ac-55c5b9c98d3d": {
     "asset": 1768352918403,
     "meta": 1768353105929,
@@ -9525,8 +9515,8 @@
     "relativePath": "HotelHair\\Upgrade_Button.png"
   },
   "a192fd38-0725-48ea-ab48-d6467214b5c1": {
-    "asset": 1768353458723,
-    "meta": 1768353458739,
+    "asset": 1768434188933,
+    "meta": 1768434188949,
     "relativePath": "scenes\\HotelHair.fire"
   },
   "e65759a9-40e9-469f-b97d-4a15a4dcb1b3": {
@@ -9550,8 +9540,398 @@
     "relativePath": "scenes\\App.fire"
   },
   "00603e08-58f5-4fee-a678-5ce835d40706": {
-    "asset": 1768353495932,
-    "meta": 1768353497012,
+    "asset": 1768408539492,
+    "meta": 1768408540380,
     "relativePath": "scripts\\APP\\CC2.ts"
+  },
+  "bb70c302-4c9d-42e9-b9a7-bc4aadcdc27d": {
+    "asset": 1768409111402,
+    "meta": 1768409111604,
+    "relativePath": "HotelHair\\dressing.png"
+  },
+  "e2a102f1-187f-45cd-a5b1-46608a04e555": {
+    "asset": 1768409111402,
+    "meta": 1768409111791,
+    "relativePath": "HotelHair\\table.png"
+  },
+  "542fc773-2de7-4ae0-bbd7-91d98dee8fa8": {
+    "asset": 1768409163013,
+    "meta": 1768409163052,
+    "relativePath": "HotelHair\\demo4.PNG"
+  },
+  "124416ab-7ad4-4faf-87e1-1e5cc212d25c": {
+    "asset": 1768410462896,
+    "meta": 1768410463019,
+    "relativePath": "HotelHair\\dressing-props.png"
+  },
+  "00f2b559-432d-451e-a76b-3b76eaceb14d": {
+    "asset": 1768410856836,
+    "meta": 1768410868304,
+    "relativePath": "HotelHair\\maysay.png"
+  },
+  "19b0f26c-f4fa-4417-86a1-e4ff1a7f2dc4": {
+    "asset": 1768411078270,
+    "meta": 1768434037926,
+    "relativePath": "HotelHair\\dau goi"
+  },
+  "7a6a6821-ac82-476a-8b2d-421092a78cc2": {
+    "asset": 1768411012604,
+    "meta": 1768411012665,
+    "relativePath": "HotelHair\\dyer.png"
+  },
+  "20b713a2-7676-4f84-8fe4-579e4b797582": {
+    "asset": 1768411078103,
+    "meta": 1768411078367,
+    "relativePath": "HotelHair\\dau goi\\dressing_00048.png"
+  },
+  "dbf7c359-6eb3-41c3-ab41-83c16125743c": {
+    "asset": 1768411078103,
+    "meta": 1768411078378,
+    "relativePath": "HotelHair\\dau goi\\dressing_00046.png"
+  },
+  "344d9c5d-21b8-4df3-aed5-9087f8e71f20": {
+    "asset": 1768411078103,
+    "meta": 1768411078447,
+    "relativePath": "HotelHair\\dau goi\\dressing_00051.png"
+  },
+  "221d12bd-3667-4b88-9dc6-2f3249b2b149": {
+    "asset": 1768411078103,
+    "meta": 1768411078458,
+    "relativePath": "HotelHair\\dau goi\\dressing_00047.png"
+  },
+  "fde1adf4-1c4e-4d00-8e7c-5ad1546bcd60": {
+    "asset": 1768411078102,
+    "meta": 1768411078524,
+    "relativePath": "HotelHair\\dau goi\\dressing_00045.png"
+  },
+  "276135d0-92b5-492a-bf0b-59c9bcc77023": {
+    "asset": 1768411078103,
+    "meta": 1768411078534,
+    "relativePath": "HotelHair\\dau goi\\dressing_00050.png"
+  },
+  "01e665ac-f345-421c-8efd-b1fa130efe47": {
+    "asset": 1768411078103,
+    "meta": 1768411078600,
+    "relativePath": "HotelHair\\dau goi\\dressing_00049.png"
+  },
+  "21e4f0c7-4112-4356-9c5e-3d9d3b08077d": {
+    "asset": 1768411078103,
+    "meta": 1768411078609,
+    "relativePath": "HotelHair\\dau goi\\dressing_00055.png"
+  },
+  "d2272b70-81ec-4238-844f-7e8804a35525": {
+    "asset": 1768411078103,
+    "meta": 1768411078672,
+    "relativePath": "HotelHair\\dau goi\\dressing_00052.png"
+  },
+  "49989787-e8de-4fb8-aee7-444aa447fc5e": {
+    "asset": 1768411078103,
+    "meta": 1768411078682,
+    "relativePath": "HotelHair\\dau goi\\dressing_00057.png"
+  },
+  "97e08016-bcee-40c7-a25c-ccdfa7b958d3": {
+    "asset": 1768411078103,
+    "meta": 1768411078755,
+    "relativePath": "HotelHair\\dau goi\\dressing_00056.png"
+  },
+  "a5bf6b3b-66f4-44a3-b8c7-71838dffc136": {
+    "asset": 1768411078103,
+    "meta": 1768411078764,
+    "relativePath": "HotelHair\\dau goi\\dressing_00053.png"
+  },
+  "72cf94d1-52ed-43bb-b4b0-faf391a4541a": {
+    "asset": 1768411078103,
+    "meta": 1768411078832,
+    "relativePath": "HotelHair\\dau goi\\dressing_00058.png"
+  },
+  "91c11483-b43c-4538-b57e-84031117da28": {
+    "asset": 1768411078103,
+    "meta": 1768411078842,
+    "relativePath": "HotelHair\\dau goi\\dressing_00059.png"
+  },
+  "83bd8910-ef36-48b2-b92e-11bfe28b359d": {
+    "asset": 1768411078104,
+    "meta": 1768411078915,
+    "relativePath": "HotelHair\\dau goi\\dressing_00062.png"
+  },
+  "8ee6aea7-b721-4dd0-b4b0-13efa0d110f8": {
+    "asset": 1768411078104,
+    "meta": 1768411078925,
+    "relativePath": "HotelHair\\dau goi\\dressing_00063.png"
+  },
+  "60183086-a6de-47b2-b72b-a249285e6368": {
+    "asset": 1768411078104,
+    "meta": 1768411078991,
+    "relativePath": "HotelHair\\dau goi\\dressing_00064.png"
+  },
+  "7eb71cfb-6c0d-4188-828f-8ca3420362e2": {
+    "asset": 1768411078104,
+    "meta": 1768411079001,
+    "relativePath": "HotelHair\\dau goi\\dressing_00065.png"
+  },
+  "1ed243ff-71bb-4390-8afb-79edf8ee8bd2": {
+    "asset": 1768411078104,
+    "meta": 1768411079070,
+    "relativePath": "HotelHair\\dau goi\\dressing_00067.png"
+  },
+  "55a08e69-1102-4b97-8ce2-a40f08866381": {
+    "asset": 1768411078104,
+    "meta": 1768411079081,
+    "relativePath": "HotelHair\\dau goi\\dressing_00069.png"
+  },
+  "8f68f816-0af0-4fe8-b89c-a66ba8bc6ae6": {
+    "asset": 1768411078104,
+    "meta": 1768411079152,
+    "relativePath": "HotelHair\\dau goi\\dressing_00061.png"
+  },
+  "19dc17e1-4880-4479-8333-6ef3080de383": {
+    "asset": 1768411078104,
+    "meta": 1768411079161,
+    "relativePath": "HotelHair\\dau goi\\dressing_00068.png"
+  },
+  "ff939b3b-a607-4b51-a9be-9f0f4f5cbeec": {
+    "asset": 1768411078104,
+    "meta": 1768411079234,
+    "relativePath": "HotelHair\\dau goi\\dressing_00066.png"
+  },
+  "766606a6-2374-4b5c-bfd5-b1a339e524d5": {
+    "asset": 1768411078104,
+    "meta": 1768411079244,
+    "relativePath": "HotelHair\\dau goi\\dressing_00072.png"
+  },
+  "fc5408af-e1a0-46a6-a396-401441470782": {
+    "asset": 1768411078104,
+    "meta": 1768411079314,
+    "relativePath": "HotelHair\\dau goi\\dressing_00071.png"
+  },
+  "846fd296-13e0-4101-9676-22241c2b96c4": {
+    "asset": 1768411078103,
+    "meta": 1768411079323,
+    "relativePath": "HotelHair\\dau goi\\dressing_00060.png"
+  },
+  "8280e723-117c-4049-aaa9-fdd11d82e3b3": {
+    "asset": 1768411078104,
+    "meta": 1768411079393,
+    "relativePath": "HotelHair\\dau goi\\dressing_00070.png"
+  },
+  "4437dba9-62fd-4aa5-8f3b-b06079e4e83a": {
+    "asset": 1768411078105,
+    "meta": 1768411079405,
+    "relativePath": "HotelHair\\dau goi\\dressing_00074.png"
+  },
+  "fe2bd60c-0543-40c4-b25e-284df5222bac": {
+    "asset": 1768411078105,
+    "meta": 1768411079472,
+    "relativePath": "HotelHair\\dau goi\\dressing_00073.png"
+  },
+  "5b0d0155-e267-4840-b203-0240d88ea17e": {
+    "asset": 1768411078105,
+    "meta": 1768411079481,
+    "relativePath": "HotelHair\\dau goi\\dressing_00076.png"
+  },
+  "b4270079-b0c8-42e3-b6f3-4d169c548110": {
+    "asset": 1768411078105,
+    "meta": 1768411079551,
+    "relativePath": "HotelHair\\dau goi\\dressing_00075.png"
+  },
+  "da13f61f-e3e4-444d-978b-525f1923a190": {
+    "asset": 1768411078105,
+    "meta": 1768411079560,
+    "relativePath": "HotelHair\\dau goi\\dressing_00078.png"
+  },
+  "725a2549-c19b-4525-a55d-45d6427a055c": {
+    "asset": 1768411078105,
+    "meta": 1768411079625,
+    "relativePath": "HotelHair\\dau goi\\dressing_00080.png"
+  },
+  "dfb171ea-b8af-4048-a14e-e132c8fb7470": {
+    "asset": 1768411078105,
+    "meta": 1768411079634,
+    "relativePath": "HotelHair\\dau goi\\dressing_00079.png"
+  },
+  "db717283-f7b7-4282-bd7c-cd3e44724100": {
+    "asset": 1768411078105,
+    "meta": 1768411079699,
+    "relativePath": "HotelHair\\dau goi\\dressing_00081.png"
+  },
+  "b4af9595-2013-45aa-8568-1a3142a0a97a": {
+    "asset": 1768411078105,
+    "meta": 1768411079709,
+    "relativePath": "HotelHair\\dau goi\\dressing_00082.png"
+  },
+  "8799f5e3-938b-4a24-b86a-e71d1913ac4f": {
+    "asset": 1768411078105,
+    "meta": 1768411079776,
+    "relativePath": "HotelHair\\dau goi\\dressing_00085.png"
+  },
+  "515654ff-11ac-420d-acc7-b97680879489": {
+    "asset": 1768411078105,
+    "meta": 1768411079785,
+    "relativePath": "HotelHair\\dau goi\\dressing_00083.png"
+  },
+  "20b70f81-0c0f-45ed-93bd-62e09e6f4738": {
+    "asset": 1768411078105,
+    "meta": 1768411079849,
+    "relativePath": "HotelHair\\dau goi\\dressing_00087.png"
+  },
+  "f29915e9-265b-4909-98a6-bc09aaf84244": {
+    "asset": 1768411078105,
+    "meta": 1768411079857,
+    "relativePath": "HotelHair\\dau goi\\dressing_00089.png"
+  },
+  "af5b8afd-7f1f-43b0-bf54-9a899c99adae": {
+    "asset": 1768411078105,
+    "meta": 1768411079927,
+    "relativePath": "HotelHair\\dau goi\\dressing_00077.png"
+  },
+  "5ea9c1b5-ab1f-4b8b-b620-6567e157da1e": {
+    "asset": 1768411078105,
+    "meta": 1768411079938,
+    "relativePath": "HotelHair\\dau goi\\dressing_00086.png"
+  },
+  "d6400313-99b8-45f8-b7f9-d3a414b6d228": {
+    "asset": 1768411078105,
+    "meta": 1768411080004,
+    "relativePath": "HotelHair\\dau goi\\dressing_00091.png"
+  },
+  "7795d188-c4b2-424c-92a5-35fea87fdd4e": {
+    "asset": 1768411078103,
+    "meta": 1768411080013,
+    "relativePath": "HotelHair\\dau goi\\dressing_00054.png"
+  },
+  "cca3d3ac-b458-466a-8784-508dbd1641f0": {
+    "asset": 1768411078105,
+    "meta": 1768411080085,
+    "relativePath": "HotelHair\\dau goi\\dressing_00084.png"
+  },
+  "1cc6ede7-974c-434f-a0df-98e1353a6032": {
+    "asset": 1768411078105,
+    "meta": 1768411080095,
+    "relativePath": "HotelHair\\dau goi\\dressing_00088.png"
+  },
+  "6c2d1145-8fab-44f1-9e58-ead77aed3f5b": {
+    "asset": 1768411078105,
+    "meta": 1768411080165,
+    "relativePath": "HotelHair\\dau goi\\dressing_00092.png"
+  },
+  "4237731e-57ee-4a48-b7cd-1a9d7567a9c0": {
+    "asset": 1768411078105,
+    "meta": 1768411080177,
+    "relativePath": "HotelHair\\dau goi\\dressing_00090.png"
+  },
+  "74de7286-92c1-4688-92ea-8470bc37e051": {
+    "asset": 1768411078105,
+    "meta": 1768411080249,
+    "relativePath": "HotelHair\\dau goi\\dressing_00096.png"
+  },
+  "d297b68a-ca98-46a7-882a-e6c7bf7a8ac3": {
+    "asset": 1768411078105,
+    "meta": 1768411080259,
+    "relativePath": "HotelHair\\dau goi\\dressing_00093.png"
+  },
+  "0343f8fb-267d-4afd-858e-2fc999fa48b0": {
+    "asset": 1768411078105,
+    "meta": 1768411080330,
+    "relativePath": "HotelHair\\dau goi\\dressing_00095.png"
+  },
+  "67ffdc88-e05e-4513-a7e0-b1a666d6b27a": {
+    "asset": 1768411078105,
+    "meta": 1768411080340,
+    "relativePath": "HotelHair\\dau goi\\dressing_00097.png"
+  },
+  "3e34504b-6f26-4e79-825f-b8756b735f08": {
+    "asset": 1768411078105,
+    "meta": 1768411080413,
+    "relativePath": "HotelHair\\dau goi\\dressing_00094.png"
+  },
+  "292507fc-46c1-4314-a5d0-7785ec2de206": {
+    "asset": 1768411078105,
+    "meta": 1768411080425,
+    "relativePath": "HotelHair\\dau goi\\dressing_00102.png"
+  },
+  "3330812c-9d55-4084-a21b-9a5b79fdb161": {
+    "asset": 1768411078105,
+    "meta": 1768411080493,
+    "relativePath": "HotelHair\\dau goi\\dressing_00099.png"
+  },
+  "aaeaa2f0-319b-4b21-991e-6d97140c9fc4": {
+    "asset": 1768411078105,
+    "meta": 1768411080502,
+    "relativePath": "HotelHair\\dau goi\\dressing_00100.png"
+  },
+  "90f69323-0667-4022-a0fe-b674ae002b8f": {
+    "asset": 1768411078105,
+    "meta": 1768411080570,
+    "relativePath": "HotelHair\\dau goi\\dressing_00098.png"
+  },
+  "700aa6fb-5139-4cc6-aa7b-d38e8e340d19": {
+    "asset": 1768411078105,
+    "meta": 1768411080580,
+    "relativePath": "HotelHair\\dau goi\\dressing_00101.png"
+  },
+  "5b727c12-54a8-4211-b4d2-d152837faf27": {
+    "asset": 1768411078106,
+    "meta": 1768411080650,
+    "relativePath": "HotelHair\\dau goi\\dressing_00104.png"
+  },
+  "bf12e5b0-37ae-40a7-a825-585137f95877": {
+    "asset": 1768411078106,
+    "meta": 1768411080661,
+    "relativePath": "HotelHair\\dau goi\\dressing_00105.png"
+  },
+  "27f509fb-5fe1-4592-b94d-0ae7028a996c": {
+    "asset": 1768411078106,
+    "meta": 1768411080735,
+    "relativePath": "HotelHair\\dau goi\\dressing_00107.png"
+  },
+  "30612c7f-32ba-45ad-bcd2-d6fbcd90201b": {
+    "asset": 1768411078106,
+    "meta": 1768411080745,
+    "relativePath": "HotelHair\\dau goi\\dressing_00103.png"
+  },
+  "32d9ee68-b6c0-4643-a7f0-260254e6064f": {
+    "asset": 1768411078106,
+    "meta": 1768411080819,
+    "relativePath": "HotelHair\\dau goi\\dressing_00108.png"
+  },
+  "62745a51-5b0f-4198-a9f6-7daaffa35e1c": {
+    "asset": 1768411078106,
+    "meta": 1768411080827,
+    "relativePath": "HotelHair\\dau goi\\dressing_00111.png"
+  },
+  "58267621-1c61-4cfe-9764-67fc9cbf830a": {
+    "asset": 1768411078106,
+    "meta": 1768411080898,
+    "relativePath": "HotelHair\\dau goi\\dressing_00110.png"
+  },
+  "d2cd4fcb-8e14-45fb-89b8-073f63a10367": {
+    "asset": 1768411078106,
+    "meta": 1768411080910,
+    "relativePath": "HotelHair\\dau goi\\dressing_00109.png"
+  },
+  "42a378c8-fe8a-4994-baa9-6d5e7a372ba3": {
+    "asset": 1768411078106,
+    "meta": 1768411080982,
+    "relativePath": "HotelHair\\dau goi\\dressing_00106.png"
+  },
+  "f2cea4c6-4df5-49bc-b32b-d73fc0eb6e8e": {
+    "asset": 1768411078106,
+    "meta": 1768411080995,
+    "relativePath": "HotelHair\\dau goi\\dressing_00113.png"
+  },
+  "c7a41bc4-48b3-47c1-99bf-1f585dc65a66": {
+    "asset": 1768411078106,
+    "meta": 1768411081055,
+    "relativePath": "HotelHair\\dau goi\\dressing_00112.png"
+  },
+  "f154f643-2f45-4d3c-9f07-8876fe5dab30": {
+    "asset": 1768433492952,
+    "meta": 1768433492969,
+    "relativePath": "anim\\HotelHair\\tut_sambo.anim"
+  },
+  "ff117c2d-c0f5-45b2-ac04-bce3d3fee24b": {
+    "asset": 1768433987579,
+    "meta": 1768433987595,
+    "relativePath": "anim\\HotelHair\\tut_dau goi.anim"
   }
 }

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "maysay",
+    "texture": "00f2b559-432d-451e-a76b-3b76eaceb14d",
+    "atlas": "",
+    "rect": [
+      404,
+      971,
+      316,
+      407
+    ],
+    "offset": [
+      -398,
+      -214.5
+    ],
+    "originalSize": [
+      1920,
+      1920
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

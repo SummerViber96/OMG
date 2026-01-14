@@ -171,10 +171,16 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.moveStep2 = function () {
+        var _this = this;
         this.rem2.zIndex = 2;
         this.char2.setAnimation(0, "Walk", true);
+        this.char2.node.getChildByName("pop").active = false;
         cc.tween(this.char2.node).to(1, { position: cc.v3(-193, -259) }).call(function () {
         }).start();
+        this.scheduleOnce(function () {
+            cc.tween(_this.camera).to(0.5, { zoomRatio: 2.1 }).start();
+            cc.tween(_this.camera.node).to(0.5, { position: cc.v3(-182, 0) }).start();
+        }, 1);
     };
     NewClass.prototype.checkOnFloor = function (localPos) {
         if (localPos.sub(this.placeChar2.position).mag() <= 600) {
@@ -203,13 +209,13 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1.05;
+        // this.camera.zoomRatio = 1.05
         this.endCard.scale = (logic) ? 1.2 : 0.7;
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         if (logic == true) {
-            this.camera.node.position = cc.v3(0, 100);
+            // this.camera.node.position = cc.v3(0, 100)
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
@@ -219,19 +225,19 @@ var NewClass = /** @class */ (function (_super) {
             var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
-            this.camera.zoomRatio = 2.5;
+            // this.camera.zoomRatio = 2.5
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 console.log("check iphonex");
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.8;
+                // this.camera.zoomRatio = 1.8
             }
         }
         else {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            this.camera.node.position = cc.v3(0, -30);
+            // this.camera.node.position = cc.v3(0, -30)
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
@@ -241,7 +247,7 @@ var NewClass = /** @class */ (function (_super) {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.95;
+                // this.camera.zoomRatio = 0.95
             }
         }
     };

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dressing_00111",
+    "texture": "62745a51-5b0f-4198-a9f6-7daaffa35e1c",
+    "atlas": "",
+    "rect": [
+      1177,
+      1070,
+      282,
+      286
+    ],
+    "offset": [
+      358,
+      -253
+    ],
+    "originalSize": [
+      1920,
+      1920
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

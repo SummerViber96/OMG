@@ -182,11 +182,15 @@ export default class NewClass extends cc.Component {
     }
     moveStep2() {
         this.rem2.zIndex = 2
-        this.char2.setAnimation(0,"Walk",true);
-        this.char2.node.getChildByName("pop").active=false
-        cc.tween(this.char2.node).to(1,{position:cc.v3(-193,-259)}).call(()=>{
+        this.char2.setAnimation(0, "Walk", true);
+        this.char2.node.getChildByName("pop").active = false
+        cc.tween(this.char2.node).to(1, { position: cc.v3(-193, -259) }).call(() => {
 
         }).start()
+        this.scheduleOnce(() => {
+            cc.tween(this.camera).to(0.5, { zoomRatio: 2.1 }).start()
+            cc.tween(this.camera.node).to(0.5,{position:cc.v3(-182,0)}).start()
+        }, 1)
     }
     checkOnFloor(localPos) {
         if (localPos.sub(this.placeChar2.position).mag() <= 600) {
@@ -216,13 +220,13 @@ export default class NewClass extends cc.Component {
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1.05
+        // this.camera.zoomRatio = 1.05
         this.endCard.scale = (logic) ? 1.2 : 0.7
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         if (logic == true) {
-            this.camera.node.position = cc.v3(0, 100)
+            // this.camera.node.position = cc.v3(0, 100)
 
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
@@ -235,14 +239,14 @@ export default class NewClass extends cc.Component {
             const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
-            this.camera.zoomRatio = 2.5
+            // this.camera.zoomRatio = 2.5
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 console.log("check iphonex")
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.8
+                // this.camera.zoomRatio = 1.8
 
             }
         }
@@ -250,7 +254,7 @@ export default class NewClass extends cc.Component {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
-            this.camera.node.position = cc.v3(0, -30)
+            // this.camera.node.position = cc.v3(0, -30)
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
 
@@ -263,7 +267,7 @@ export default class NewClass extends cc.Component {
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.95
+                // this.camera.zoomRatio = 0.95
             }
         }
 

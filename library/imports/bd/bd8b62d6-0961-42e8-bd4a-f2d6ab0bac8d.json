@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dyer",
+    "texture": "7a6a6821-ac82-476a-8b2d-421092a78cc2",
+    "atlas": "",
+    "rect": [
+      250,
+      258,
+      572,
+      496
+    ],
+    "offset": [
+      33,
+      -35.5
+    ],
+    "originalSize": [
+      1006,
+      941
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
