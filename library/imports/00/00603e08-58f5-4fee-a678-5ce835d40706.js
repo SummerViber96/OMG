@@ -29,242 +29,16 @@ var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-<<<<<<< Updated upstream
-        _this.soundShowPop = null;
-        _this.soundClosePop = null;
-        _this.soundBg = null;
-        _this.soundWin = null;
-        _this.soundLose = null;
-=======
         _this.soundBg = null;
         _this.hairCut = null;
         _this.char1 = null;
         _this.char2 = null;
->>>>>>> Stashed changes
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
         _this.linkToStore = null;
         _this.camera = null;
         _this.logo = null;
-<<<<<<< Updated upstream
-        _this.listCus = null;
-        _this.soundChesse = null;
-        _this.soundWrong = null;
-        _this.fxColor = null;
-        _this.cus = null;
-        _this.xitKem = null;
-        _this.xitHong = null;
-        _this.listHand = null;
-        _this.cakeNode = null;
-        _this.cusComp = null;
-        _this.cake = null;
-        // @property(cc.AudioClip)
-        // soundBg:cc.AudioClip=null;
-        _this.isCake = false;
-        _this.isTargetPop = null;
-        _this.isTargetCus = null;
-        _this.adChanel = '{{__adv_channels_adapter__}}';
-        _this.countCus = 0;
-        _this.isTang = 1;
-        _this.isKem = 0;
-        _this.isKem2 = 0;
-        _this.isTut = 0;
-        _this.isDelayHong = false;
-        _this.isDelayKem = false;
-        _this.isPhase2 = false;
-        _this.isPhase3 = false;
-        _this.isKem2Qua = null;
-        _this.arrHotDog = [null, null, null, null, null, null];
-        _this.arrBreak = [null, null, null];
-        _this.arrTuongCa = [];
-        _this.isDelaytuong = false;
-        return _this;
-    }
-    NewClass.prototype.start = function () {
-        var _this = this;
-        this.cusComp = this.cus.getComponent("cusMission");
-        if (this.adChanel == 'Mintegral') {
-            window.gameReady && window.gameReady();
-        }
-        this.showCus();
-        cc.audioEngine.play(this.soundBg, true, 1);
-        this.listHand.zIndex = 5;
-        this.scheduleOnce(function () {
-            if (_this.isTut == 0) {
-                _this.cakeNode.getComponent("cake").tutOnPlate();
-            }
-        }, 5);
-    };
-    NewClass.prototype.setTut2 = function () {
-        var _this = this;
-        this.isTut = 2;
-        this.scheduleOnce(function () {
-            console.log(_this.isTut);
-            if (_this.isTut == 2) {
-                _this.btn_xitHong();
-            }
-        }, 5);
-    };
-    NewClass.prototype.btn_xitHong = function () {
-        var _this = this;
-        if (!this.isCake)
-            return;
-        if (this.isDelayHong)
-            return;
-        if (this.isTang == 1) {
-            if (this.isKem == 0) {
-                this.listHand.children[1].active = false;
-                this.isTut = 3;
-                this.scheduleOnce(function () {
-                    _this.listHand.children[0].active = true;
-                }, 0.4);
-                this.scheduleOnce(function () {
-                    _this.cake.getComponent("cake2").xitHong();
-                    _this.isPhase2 = false;
-                    _this.isPhase3 = true;
-                }, 0.4);
-                this.isKem = 1;
-            }
-            else {
-                return;
-            }
-        }
-        else {
-            if (this.isKem2 == 0) {
-                // console.log(this.cake)
-                this.listHand.children[2].active = false;
-                this.listHand.children[3].active = true;
-                this.isTut = 5;
-                this.scheduleOnce(function () {
-                    _this.cake.getComponent("cake2").xitHong();
-                    _this.isKem2Qua = false;
-                }, 0.5);
-                this.isKem = 3;
-            }
-            else {
-                return;
-            }
-        }
-        cc.audioEngine.play(this.soundChesse, false, 1);
-        this.isDelayHong = true;
-        this.xitHong.getComponent(cc.Animation).play();
-        this.xitHong.zIndex = 1;
-        this.scheduleOnce(function () {
-            _this.xitHong.position = cc.v3(-271.664, -373.904);
-            _this.isDelayHong = false;
-            _this.scheduleOnce(function () {
-                if (_this.isTut == 3) {
-                    _this.cakeNode.getComponent("cake").tutOnPlate();
-                }
-            }, 5);
-            if (_this.isTut == 5) {
-                _this.scheduleOnce(function () {
-                    if (_this.isTut == 5) {
-                        _this.btn_qua();
-                    }
-                }, 5);
-            }
-        }, 0.4);
-    };
-    NewClass.prototype.setTut4 = function () {
-        var _this = this;
-        this.isTut = 4;
-        this.scheduleOnce(function () {
-            if (_this.isTut == 4) {
-                _this.btn_xitKem();
-            }
-        }, 5);
-    };
-    NewClass.prototype.btn_xitKem = function () {
-        var _this = this;
-        if (!this.isCake)
-            return;
-        if (this.isDelayKem)
-            return;
-        if (this.isTang == 1) {
-            if (this.isKem == 0) {
-                this.listHand.children[1].active = false;
-                this.scheduleOnce(function () {
-                    _this.listHand.children[0].active = true;
-                }, 0.4);
-                this.isTut = 3;
-                this.scheduleOnce(function () {
-                    _this.cake.getComponent("cake2").xitkem();
-                    _this.isPhase2 = false;
-                    _this.isPhase3 = true;
-                }, 0.5);
-                this.isKem = 1;
-            }
-            else {
-                return;
-            }
-        }
-        else {
-            if (this.isKem2 == 0) {
-                this.isTut = 5;
-                this.scheduleOnce(function () {
-                    _this.cake.getComponent("cake2").xitkem();
-                    _this.isKem2Qua = true;
-                    _this.listHand.children[2].active = false;
-                    _this.listHand.children[3].active = true;
-                }, 0.5);
-                this.isKem = 3;
-            }
-            else {
-                return;
-            }
-        }
-        cc.audioEngine.play(this.soundChesse, false, 1);
-        this.isDelayKem = true;
-        this.xitKem.getComponent(cc.Animation).play();
-        this.xitKem.zIndex = 1;
-        this.scheduleOnce(function () {
-            _this.xitKem.position = cc.v3(271.958, -373.765);
-            _this.isDelayKem = false;
-            _this.scheduleOnce(function () {
-                if (_this.isTut == 3) {
-                    _this.cakeNode.getComponent("cake").tutOnPlate();
-                }
-            }, 5);
-            if (_this.isTut == 5) {
-                _this.scheduleOnce(function () {
-                    if (_this.isTut == 5) {
-                        _this.btn_qua();
-                    }
-                }, 5);
-            }
-        }, 0.5);
-    };
-    NewClass.prototype.btn_qua = function () {
-        var _this = this;
-        if (this.isKem2Qua == null)
-            return;
-        this.isTut = 6;
-        this.listHand.children[3].active = false;
-        if (this.isKem2Qua) {
-            this.cake.getComponent("cake2").xitQuaKem();
-        }
-        else {
-            this.cake.getComponent("cake2").xitQua();
-        }
-        this.scheduleOnce(function () {
-            _this.onEndGame();
-        }, 1);
-    };
-    NewClass.prototype.showCus = function () {
-        var _this = this;
-        var child = this.listCus.children[0];
-        child.position = cc.v3(-700, -50);
-        cc.tween(child).to(0.8, { position: cc.v3(0, -50) }).call(function () {
-            child.getChildByName("pop").active = true;
-            _this.isTargetPop = child.getChildByName("pop");
-            _this.isTargetCus = child;
-            _this.listHand.children[0].active = true;
-            // this.scheduleOnce(() => {
-            //     cc.audioEngine.play(this.soundShowPop, false, 1)
-            // }, 0.1)
-=======
         _this.barCoin = null;
         _this.preCoin = null;
         _this.lbCoin = null;
@@ -295,7 +69,6 @@ var NewClass = /** @class */ (function (_super) {
             _this.scheduleOnce(function () {
                 _this.giveCoin();
             }, 0.3);
->>>>>>> Stashed changes
         }).start();
     };
     NewClass.prototype.giveCoin = function () {
@@ -350,6 +123,12 @@ var NewClass = /** @class */ (function (_super) {
         this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
         this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
     };
+    NewClass.prototype.offEventListener = function () {
+        this.node.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.node.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        this.node.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+    };
     NewClass.prototype.onTouchStart = function (event) {
         if (this.selectedItem)
             return;
@@ -387,7 +166,12 @@ var NewClass = /** @class */ (function (_super) {
         var check = this.checkOnFloor(localPos);
         if (check == true) {
             this.selectedItem.position = cc.v3(-500, -259);
+            this.offEventListener();
         }
+    };
+    NewClass.prototype.moveStep2 = function () {
+        this.rem2.zIndex = 2;
+        this.char2.setAnimation(0, "Walk", true);
     };
     NewClass.prototype.checkOnFloor = function (localPos) {
         if (localPos.sub(this.placeChar2.position).mag() <= 600) {
@@ -400,7 +184,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.onEndGame = function () {
-        cc.audioEngine.play(this.soundWin, false, 1);
+        cc.audioEngine.play(this.soundLose, false, 1);
         this.endCard.active = true;
         this.linkToStore.active = true;
     };
@@ -460,15 +244,6 @@ var NewClass = /** @class */ (function (_super) {
     };
     __decorate([
         property(cc.AudioClip)
-<<<<<<< Updated upstream
-    ], NewClass.prototype, "soundShowPop", void 0);
-    __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundClosePop", void 0);
-    __decorate([
-        property(cc.AudioClip)
-=======
->>>>>>> Stashed changes
     ], NewClass.prototype, "soundBg", void 0);
     __decorate([
         property(cc.AudioClip)
@@ -477,12 +252,9 @@ var NewClass = /** @class */ (function (_super) {
         property(sp.Skeleton)
     ], NewClass.prototype, "char1", void 0);
     __decorate([
-<<<<<<< Updated upstream
-=======
         property(sp.Skeleton)
     ], NewClass.prototype, "char2", void 0);
     __decorate([
->>>>>>> Stashed changes
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);
     __decorate([
@@ -502,17 +274,7 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "logo", void 0);
     __decorate([
         property(cc.Node)
-<<<<<<< Updated upstream
-    ], NewClass.prototype, "listCus", void 0);
-    __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundChesse", void 0);
-    __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundWrong", void 0);
-=======
     ], NewClass.prototype, "barCoin", void 0);
->>>>>>> Stashed changes
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "preCoin", void 0);
@@ -536,11 +298,7 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "rem2", void 0);
     __decorate([
         property(cc.Node)
-<<<<<<< Updated upstream
-    ], NewClass.prototype, "cakeNode", void 0);
-=======
     ], NewClass.prototype, "placeChar2", void 0);
->>>>>>> Stashed changes
     NewClass = __decorate([
         ccclass
     ], NewClass);

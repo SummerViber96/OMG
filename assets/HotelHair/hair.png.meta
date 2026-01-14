@@ -1,6 +1,6 @@
 {
   "ver": "2.3.5",
-  "uuid": "e03ae430-7ebe-480a-9438-71c9e7195886",
+  "uuid": "61b1a671-cb44-4c46-84f4-eda5fb70ef3f",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -13,8 +13,8 @@
   "subMetas": {
     "Hair": {
       "ver": "1.0.4",
-      "uuid": "2d3265db-4d4a-41ca-856f-f0fd2fdf3390",
-      "rawTextureUuid": "e03ae430-7ebe-480a-9438-71c9e7195886",
+      "uuid": "5016040b-6a1d-49dc-8fb0-6c0d52f16714",
+      "rawTextureUuid": "61b1a671-cb44-4c46-84f4-eda5fb70ef3f",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
