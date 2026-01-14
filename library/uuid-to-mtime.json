@@ -9525,8 +9525,8 @@
     "relativePath": "HotelHair\\Upgrade_Button.png"
   },
   "a192fd38-0725-48ea-ab48-d6467214b5c1": {
-    "asset": 1768353276476,
-    "meta": 1768353276490,
+    "asset": 1768353458723,
+    "meta": 1768353458739,
     "relativePath": "scenes\\HotelHair.fire"
   },
   "e65759a9-40e9-469f-b97d-4a15a4dcb1b3": {
@@ -9550,8 +9550,8 @@
     "relativePath": "scenes\\App.fire"
   },
   "00603e08-58f5-4fee-a678-5ce835d40706": {
-    "asset": 1768353237957,
-    "meta": 1768353241666,
+    "asset": 1768353495932,
+    "meta": 1768353497012,
     "relativePath": "scripts\\APP\\CC2.ts"
   }
 }

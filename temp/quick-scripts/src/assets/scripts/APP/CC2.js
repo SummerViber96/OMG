@@ -167,11 +167,14 @@ var NewClass = /** @class */ (function (_super) {
         if (check == true) {
             this.selectedItem.position = cc.v3(-500, -259);
             this.offEventListener();
+            this.moveStep2();
         }
     };
     NewClass.prototype.moveStep2 = function () {
         this.rem2.zIndex = 2;
         this.char2.setAnimation(0, "Walk", true);
+        cc.tween(this.char2.node).to(1, { position: cc.v3(-193, -259) }).call(function () {
+        }).start();
     };
     NewClass.prototype.checkOnFloor = function (localPos) {
         if (localPos.sub(this.placeChar2.position).mag() <= 600) {

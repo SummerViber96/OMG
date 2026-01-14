@@ -177,11 +177,16 @@ export default class NewClass extends cc.Component {
         if (check == true) {
             this.selectedItem.position = cc.v3(-500, -259)
             this.offEventListener()
+            this.moveStep2()
         }
     }
     moveStep2() {
         this.rem2.zIndex = 2
         this.char2.setAnimation(0,"Walk",true);
+        this.char2.node.getChildByName("pop").active=false
+        cc.tween(this.char2.node).to(1,{position:cc.v3(-193,-259)}).call(()=>{
+
+        }).start()
     }
     checkOnFloor(localPos) {
         if (localPos.sub(this.placeChar2.position).mag() <= 600) {
