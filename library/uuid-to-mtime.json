@@ -9620,8 +9620,8 @@
     "relativePath": "HotelHair\\Hand.png"
   },
   "a192fd38-0725-48ea-ab48-d6467214b5c1": {
-    "asset": 1768479013188,
-    "meta": 1768479013212,
+    "asset": 1768479598229,
+    "meta": 1768479598249,
     "relativePath": "scenes\\HotelHair.fire"
   },
   "9836134e-b892-4283-b6b2-78b5acf3ed45": {
@@ -10168,5 +10168,10 @@
     "asset": 1768478942365,
     "meta": 1768478962290,
     "relativePath": "HotelHair\\logo-game.png"
+  },
+  "e690ffdb-b6e8-43f7-bfd6-b238aef2601f": {
+    "asset": 1768479395994,
+    "meta": 1768479396045,
+    "relativePath": "HotelHair\\HandHair.png"
   }
 }
