@@ -1,0 +1,153 @@
+
+wind.png
+size: 943, 943
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dressing_00206
+  rotate: false
+  xy: 749, 31
+  size: 176, 167
+  orig: 576, 576
+  offset: 156, 224
+  index: -1
+dressing_00207
+  rotate: false
+  xy: 632, 754
+  size: 208, 187
+  orig: 576, 576
+  offset: 168, 230
+  index: -1
+dressing_00208
+  rotate: false
+  xy: 212, 745
+  size: 212, 196
+  orig: 576, 576
+  offset: 170, 228
+  index: -1
+dressing_00209
+  rotate: false
+  xy: 2, 739
+  size: 208, 202
+  orig: 576, 576
+  offset: 172, 229
+  index: -1
+dressing_00210
+  rotate: true
+  xy: 426, 744
+  size: 197, 204
+  orig: 576, 576
+  offset: 176, 226
+  index: -1
+dressing_00211
+  rotate: true
+  xy: 419, 546
+  size: 196, 197
+  orig: 576, 576
+  offset: 173, 226
+  index: -1
+dressing_00212
+  rotate: false
+  xy: 415, 358
+  size: 194, 186
+  orig: 576, 576
+  offset: 170, 224
+  index: -1
+dressing_00213
+  rotate: false
+  xy: 205, 170
+  size: 192, 187
+  orig: 576, 576
+  offset: 173, 224
+  index: -1
+dressing_00214
+  rotate: false
+  xy: 618, 377
+  size: 200, 184
+  orig: 576, 576
+  offset: 170, 226
+  index: -1
+dressing_00215
+  rotate: false
+  xy: 2, 356
+  size: 201, 188
+  orig: 576, 576
+  offset: 169, 227
+  index: -1
+dressing_00216
+  rotate: false
+  xy: 210, 359
+  size: 203, 187
+  orig: 576, 576
+  offset: 164, 230
+  index: -1
+dressing_00217
+  rotate: false
+  xy: 212, 548
+  size: 205, 195
+  orig: 576, 576
+  offset: 165, 233
+  index: -1
+dressing_00218
+  rotate: false
+  xy: 2, 546
+  size: 206, 191
+  orig: 576, 576
+  offset: 166, 241
+  index: -1
+dressing_00219
+  rotate: false
+  xy: 632, 563
+  size: 205, 189
+  orig: 576, 576
+  offset: 164, 243
+  index: -1
+dressing_00220
+  rotate: true
+  xy: 2, 175
+  size: 179, 180
+  orig: 576, 576
+  offset: 163, 252
+  index: -1
+dressing_00221
+  rotate: true
+  xy: 578, 17
+  size: 181, 169
+  orig: 576, 576
+  offset: 163, 255
+  index: -1
+dressing_00222
+  rotate: false
+  xy: 399, 180
+  size: 177, 176
+  orig: 576, 576
+  offset: 171, 256
+  index: -1
+dressing_00223
+  rotate: true
+  xy: 196, 6
+  size: 162, 182
+  orig: 576, 576
+  offset: 164, 249
+  index: -1
+dressing_00224
+  rotate: false
+  xy: 611, 200
+  size: 182, 175
+  orig: 576, 576
+  offset: 163, 246
+  index: -1
+dressing_00225
+  rotate: false
+  xy: 399, 2
+  size: 172, 176
+  orig: 576, 576
+  offset: 164, 246
+  index: -1
+dressing_00226
+  rotate: false
+  xy: 2, 6
+  size: 192, 167
+  orig: 576, 576
+  offset: 161, 245
+  index: -1

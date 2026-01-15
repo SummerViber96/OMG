@@ -1,0 +1,70 @@
+{
+"skeleton": { "hash": "g+CFZekut+0", "spine": "3.8-from-4.0-from-4.1-from-4.2.43", "x": -960, "y": -960, "width": 1920, "height": 1920 },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "wind", "bone": "root", "attachment": "dressing_00226" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"wind": {
+				"dressing_00206": { "width": 1920, "height": 1920 },
+				"dressing_00207": { "width": 1920, "height": 1920 },
+				"dressing_00208": { "width": 1920, "height": 1920 },
+				"dressing_00209": { "width": 1920, "height": 1920 },
+				"dressing_00210": { "width": 1920, "height": 1920 },
+				"dressing_00211": { "width": 1920, "height": 1920 },
+				"dressing_00212": { "width": 1920, "height": 1920 },
+				"dressing_00213": { "width": 1920, "height": 1920 },
+				"dressing_00214": { "width": 1920, "height": 1920 },
+				"dressing_00215": { "width": 1920, "height": 1920 },
+				"dressing_00216": { "width": 1920, "height": 1920 },
+				"dressing_00217": { "width": 1920, "height": 1920 },
+				"dressing_00218": { "width": 1920, "height": 1920 },
+				"dressing_00219": { "width": 1920, "height": 1920 },
+				"dressing_00220": { "width": 1920, "height": 1920 },
+				"dressing_00221": { "width": 1920, "height": 1920 },
+				"dressing_00222": { "width": 1920, "height": 1920 },
+				"dressing_00223": { "width": 1920, "height": 1920 },
+				"dressing_00224": { "width": 1920, "height": 1920 },
+				"dressing_00225": { "width": 1920, "height": 1920 },
+				"dressing_00226": { "width": 1920, "height": 1920 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"wind": {
+				"attachment": [
+					{ "name": "dressing_00206" },
+					{ "time": 0.0333, "name": "dressing_00207" },
+					{ "time": 0.0667, "name": "dressing_00208" },
+					{ "time": 0.1, "name": "dressing_00209" },
+					{ "time": 0.1333, "name": "dressing_00210" },
+					{ "time": 0.1667, "name": "dressing_00211" },
+					{ "time": 0.2, "name": "dressing_00212" },
+					{ "time": 0.2333, "name": "dressing_00213" },
+					{ "time": 0.2667, "name": "dressing_00214" },
+					{ "time": 0.3, "name": "dressing_00215" },
+					{ "time": 0.3333, "name": "dressing_00216" },
+					{ "time": 0.3667, "name": "dressing_00217" },
+					{ "time": 0.4, "name": "dressing_00218" },
+					{ "time": 0.4333, "name": "dressing_00219" },
+					{ "time": 0.4667, "name": "dressing_00220" },
+					{ "time": 0.5, "name": "dressing_00221" },
+					{ "time": 0.5333, "name": "dressing_00222" },
+					{ "time": 0.5667, "name": "dressing_00223" },
+					{ "time": 0.6, "name": "dressing_00224" },
+					{ "time": 0.6333, "name": "dressing_00225" },
+					{ "time": 0.6667, "name": "dressing_00226" }
+				]
+			}
+		}
+	}
+}
+}

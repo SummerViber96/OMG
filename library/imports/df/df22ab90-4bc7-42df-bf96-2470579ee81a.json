@@ -1,0 +1,224 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "wind",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "g+CFZekut+0",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2.43",
+      "x": -960,
+      "y": -960,
+      "width": 1920,
+      "height": 1920
+    },
+    "bones": [
+      {
+        "name": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "wind",
+        "bone": "root",
+        "attachment": "dressing_00226"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "wind": {
+            "dressing_00206": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00207": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00208": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00209": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00210": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00211": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00212": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00213": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00214": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00215": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00216": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00217": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00218": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00219": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00220": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00221": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00222": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00223": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00224": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00225": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00226": {
+              "width": 1920,
+              "height": 1920
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "wind": {
+            "attachment": [
+              {
+                "name": "dressing_00206"
+              },
+              {
+                "time": 0.0333,
+                "name": "dressing_00207"
+              },
+              {
+                "time": 0.0667,
+                "name": "dressing_00208"
+              },
+              {
+                "time": 0.1,
+                "name": "dressing_00209"
+              },
+              {
+                "time": 0.1333,
+                "name": "dressing_00210"
+              },
+              {
+                "time": 0.1667,
+                "name": "dressing_00211"
+              },
+              {
+                "time": 0.2,
+                "name": "dressing_00212"
+              },
+              {
+                "time": 0.2333,
+                "name": "dressing_00213"
+              },
+              {
+                "time": 0.2667,
+                "name": "dressing_00214"
+              },
+              {
+                "time": 0.3,
+                "name": "dressing_00215"
+              },
+              {
+                "time": 0.3333,
+                "name": "dressing_00216"
+              },
+              {
+                "time": 0.3667,
+                "name": "dressing_00217"
+              },
+              {
+                "time": 0.4,
+                "name": "dressing_00218"
+              },
+              {
+                "time": 0.4333,
+                "name": "dressing_00219"
+              },
+              {
+                "time": 0.4667,
+                "name": "dressing_00220"
+              },
+              {
+                "time": 0.5,
+                "name": "dressing_00221"
+              },
+              {
+                "time": 0.5333,
+                "name": "dressing_00222"
+              },
+              {
+                "time": 0.5667,
+                "name": "dressing_00223"
+              },
+              {
+                "time": 0.6,
+                "name": "dressing_00224"
+              },
+              {
+                "time": 0.6333,
+                "name": "dressing_00225"
+              },
+              {
+                "time": 0.6667,
+                "name": "dressing_00226"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nwind.png\nsize: 943, 943\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00206\n  rotate: false\n  xy: 749, 31\n  size: 176, 167\n  orig: 576, 576\n  offset: 156, 224\n  index: -1\ndressing_00207\n  rotate: false\n  xy: 632, 754\n  size: 208, 187\n  orig: 576, 576\n  offset: 168, 230\n  index: -1\ndressing_00208\n  rotate: false\n  xy: 212, 745\n  size: 212, 196\n  orig: 576, 576\n  offset: 170, 228\n  index: -1\ndressing_00209\n  rotate: false\n  xy: 2, 739\n  size: 208, 202\n  orig: 576, 576\n  offset: 172, 229\n  index: -1\ndressing_00210\n  rotate: true\n  xy: 426, 744\n  size: 197, 204\n  orig: 576, 576\n  offset: 176, 226\n  index: -1\ndressing_00211\n  rotate: true\n  xy: 419, 546\n  size: 196, 197\n  orig: 576, 576\n  offset: 173, 226\n  index: -1\ndressing_00212\n  rotate: false\n  xy: 415, 358\n  size: 194, 186\n  orig: 576, 576\n  offset: 170, 224\n  index: -1\ndressing_00213\n  rotate: false\n  xy: 205, 170\n  size: 192, 187\n  orig: 576, 576\n  offset: 173, 224\n  index: -1\ndressing_00214\n  rotate: false\n  xy: 618, 377\n  size: 200, 184\n  orig: 576, 576\n  offset: 170, 226\n  index: -1\ndressing_00215\n  rotate: false\n  xy: 2, 356\n  size: 201, 188\n  orig: 576, 576\n  offset: 169, 227\n  index: -1\ndressing_00216\n  rotate: false\n  xy: 210, 359\n  size: 203, 187\n  orig: 576, 576\n  offset: 164, 230\n  index: -1\ndressing_00217\n  rotate: false\n  xy: 212, 548\n  size: 205, 195\n  orig: 576, 576\n  offset: 165, 233\n  index: -1\ndressing_00218\n  rotate: false\n  xy: 2, 546\n  size: 206, 191\n  orig: 576, 576\n  offset: 166, 241\n  index: -1\ndressing_00219\n  rotate: false\n  xy: 632, 563\n  size: 205, 189\n  orig: 576, 576\n  offset: 164, 243\n  index: -1\ndressing_00220\n  rotate: true\n  xy: 2, 175\n  size: 179, 180\n  orig: 576, 576\n  offset: 163, 252\n  index: -1\ndressing_00221\n  rotate: true\n  xy: 578, 17\n  size: 181, 169\n  orig: 576, 576\n  offset: 163, 255\n  index: -1\ndressing_00222\n  rotate: false\n  xy: 399, 180\n  size: 177, 176\n  orig: 576, 576\n  offset: 171, 256\n  index: -1\ndressing_00223\n  rotate: true\n  xy: 196, 6\n  size: 162, 182\n  orig: 576, 576\n  offset: 164, 249\n  index: -1\ndressing_00224\n  rotate: false\n  xy: 611, 200\n  size: 182, 175\n  orig: 576, 576\n  offset: 163, 246\n  index: -1\ndressing_00225\n  rotate: false\n  xy: 399, 2\n  size: 172, 176\n  orig: 576, 576\n  offset: 164, 246\n  index: -1\ndressing_00226\n  rotate: false\n  xy: 2, 6\n  size: 192, 167\n  orig: 576, 576\n  offset: 161, 245\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "614ab253-1d74-439b-b600-76b5f2ec306d"
+    }
+  ],
+  "textureNames": [
+    "wind.png"
+  ],
+  "scale": 1
+}
