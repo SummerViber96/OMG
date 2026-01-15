@@ -1,7 +1,7 @@
 {
-"skeleton": { "hash": "eYopxsqnVNA", "spine": "3.8-from-4.0-from-4.1-from-4.2-from-4.3.39-beta", "x": -960, "y": -960, "width": 1920, "height": 1920 },
+"skeleton": { "hash": "IHF7XNZ13CQ", "spine": "3.8-from-4.0-from-4.1-from-4.2-from-4.3.39-beta", "x": -960, "y": -960, "width": 1920, "height": 1920 },
 "bones": [
-	{ "name": "root" }
+	{ "name": "root", "scaleX": 0.3, "scaleY": 0.3 }
 ],
 "slots": [
 	{ "name": "girl", "bone": "root", "attachment": "dressing_00215" }

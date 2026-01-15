@@ -6587,9 +6587,9 @@
       "__id__": 134
     },
     "_enabled": true,
-    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
-    "iosLink": "https://apps.apple.com/us/app/kitchen-craze-cooking-games/id1155324155",
-    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.my.perfect.hotel.games",
+    "iosLink": "https://apps.apple.com/us/app/my-hotel-grand-guest-mania/id6505137952",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.my.perfect.hotel.games",
     "_id": "dflW3HNjBHWKSc4Ugar800"
   },
   {
@@ -7803,10 +7803,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "9a708003-4476-43f1-bb89-ecd117ba23f9"
+      "__uuid__": "b2016f92-e9b3-44b8-b167-4ef17078b356"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -19239,15 +19239,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        16.446,
-        0,
+        5.388,
+        -29.487,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        3.4,
+        3.4,
         1
       ]
     },

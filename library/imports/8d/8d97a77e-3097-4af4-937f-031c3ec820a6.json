@@ -5,7 +5,7 @@
   "_native": "",
   "_skeletonJson": {
     "skeleton": {
-      "hash": "eYopxsqnVNA",
+      "hash": "IHF7XNZ13CQ",
       "spine": "3.8-from-4.0-from-4.1-from-4.2-from-4.3.39-beta",
       "x": -960,
       "y": -960,
@@ -14,7 +14,9 @@
     },
     "bones": [
       {
-        "name": "root"
+        "name": "root",
+        "scaleX": 0.3,
+        "scaleY": 0.3
       }
     ],
     "slots": [
@@ -176,34 +178,14 @@
       }
     }
   },
-  "_atlasText": "\ngirl_saytoc.png\nsize: 1472, 1772\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00217\n  rotate: false\n  xy: 2, 737\n  size: 733, 1030\n  orig: 1344, 1344\n  offset: 304, 120\n  index: -1\ndressing_00222\n  rotate: false\n  xy: 737, 737\n  size: 733, 1030\n  orig: 1344, 1344\n  offset: 304, 120\n  index: -1\ndressing_00227\n  rotate: true\n  xy: 2, 2\n  size: 733, 1030\n  orig: 1344, 1344\n  offset: 304, 120\n  index: -1\n\ngirl_saytoc_2.png\nsize: 1468, 1768\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00216\n  rotate: false\n  xy: 2, 734\n  size: 730, 1030\n  orig: 1344, 1344\n  offset: 307, 120\n  index: -1\ndressing_00221\n  rotate: false\n  xy: 734, 734\n  size: 730, 1030\n  orig: 1344, 1344\n  offset: 307, 120\n  index: -1\ndressing_00226\n  rotate: true\n  xy: 2, 2\n  size: 730, 1030\n  orig: 1344, 1344\n  offset: 307, 120\n  index: -1\n\ngirl_saytoc_3.png\nsize: 1764, 1456\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00215\n  rotate: true\n  xy: 734, 728\n  size: 724, 1026\n  orig: 1344, 1344\n  offset: 308, 120\n  index: -1\ndressing_00220\n  rotate: true\n  xy: 734, 2\n  size: 724, 1026\n  orig: 1344, 1344\n  offset: 308, 120\n  index: -1\ndressing_00231\n  rotate: false\n  xy: 2, 422\n  size: 730, 1030\n  orig: 1344, 1344\n  offset: 307, 120\n  index: -1\n\ngirl_saytoc_4.png\nsize: 1448, 1756\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00218\n  rotate: false\n  xy: 728, 730\n  size: 718, 1024\n  orig: 1344, 1344\n  offset: 312, 120\n  index: -1\ndressing_00225\n  rotate: false\n  xy: 2, 728\n  size: 724, 1026\n  orig: 1344, 1344\n  offset: 308, 120\n  index: -1\ndressing_00230\n  rotate: true\n  xy: 2, 2\n  size: 724, 1026\n  orig: 1344, 1344\n  offset: 308, 120\n  index: -1\n\ngirl_saytoc_5.png\nsize: 1444, 1752\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00219\n  rotate: true\n  xy: 2, 2\n  size: 721, 1020\n  orig: 1344, 1344\n  offset: 305, 120\n  index: -1\ndressing_00223\n  rotate: false\n  xy: 2, 725\n  size: 718, 1024\n  orig: 1344, 1344\n  offset: 312, 120\n  index: -1\ndressing_00228\n  rotate: false\n  xy: 722, 725\n  size: 718, 1024\n  orig: 1344, 1344\n  offset: 312, 120\n  index: -1\n\ngirl_saytoc_6.png\nsize: 1448, 1024\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00224\n  rotate: false\n  xy: 2, 2\n  size: 721, 1020\n  orig: 1344, 1344\n  offset: 305, 120\n  index: -1\ndressing_00229\n  rotate: false\n  xy: 725, 2\n  size: 721, 1020\n  orig: 1344, 1344\n  offset: 305, 120\n  index: -1\n",
+  "_atlasText": "\ngirl_saytoc.png\nsize: 2016, 1244\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00215\n  rotate: false\n  xy: 635, 358\n  size: 310, 440\n  orig: 576, 576\n  offset: 132, 51\n  index: -1\ndressing_00216\n  rotate: false\n  xy: 319, 800\n  size: 314, 442\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00217\n  rotate: false\n  xy: 2, 800\n  size: 315, 442\n  orig: 576, 576\n  offset: 130, 51\n  index: -1\ndressing_00218\n  rotate: true\n  xy: 1573, 935\n  size: 307, 439\n  orig: 576, 576\n  offset: 134, 51\n  index: -1\ndressing_00219\n  rotate: true\n  xy: 1573, 624\n  size: 309, 438\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00220\n  rotate: true\n  xy: 890, 46\n  size: 310, 440\n  orig: 576, 576\n  offset: 132, 51\n  index: -1\ndressing_00221\n  rotate: false\n  xy: 319, 356\n  size: 314, 442\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00222\n  rotate: false\n  xy: 2, 356\n  size: 315, 442\n  orig: 576, 576\n  offset: 130, 51\n  index: -1\ndressing_00223\n  rotate: false\n  xy: 1259, 361\n  size: 308, 439\n  orig: 576, 576\n  offset: 134, 51\n  index: -1\ndressing_00224\n  rotate: true\n  xy: 1569, 313\n  size: 309, 438\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00225\n  rotate: false\n  xy: 947, 358\n  size: 310, 440\n  orig: 576, 576\n  offset: 132, 51\n  index: -1\ndressing_00226\n  rotate: true\n  xy: 446, 40\n  size: 314, 442\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00227\n  rotate: true\n  xy: 2, 39\n  size: 315, 442\n  orig: 576, 576\n  offset: 130, 51\n  index: -1\ndressing_00228\n  rotate: false\n  xy: 1263, 803\n  size: 308, 439\n  orig: 576, 576\n  offset: 134, 51\n  index: -1\ndressing_00229\n  rotate: true\n  xy: 1332, 2\n  size: 309, 438\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00230\n  rotate: false\n  xy: 951, 802\n  size: 310, 440\n  orig: 576, 576\n  offset: 132, 51\n  index: -1\ndressing_00231\n  rotate: false\n  xy: 635, 800\n  size: 314, 442\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\n",
   "textures": [
     {
       "__uuid__": "0fcf19e6-8561-4ea6-91fb-7cc108be7a03"
-    },
-    {
-      "__uuid__": "eb6017ec-3025-49ad-93a9-8fd306274d92"
-    },
-    {
-      "__uuid__": "c6616f0f-e6ac-4676-9133-9c30d2158a2c"
-    },
-    {
-      "__uuid__": "c296050b-7f63-4e75-835b-cd8bacd09033"
-    },
-    {
-      "__uuid__": "a61f90ea-d3a4-4230-ab44-ff333114ea0a"
-    },
-    {
-      "__uuid__": "ee044448-8190-42dc-b9cb-5d129990797c"
     }
   ],
   "textureNames": [
-    "girl_saytoc.png",
-    "girl_saytoc_2.png",
-    "girl_saytoc_3.png",
-    "girl_saytoc_4.png",
-    "girl_saytoc_5.png",
-    "girl_saytoc_6.png"
+    "girl_saytoc.png"
   ],
   "scale": 1
 }

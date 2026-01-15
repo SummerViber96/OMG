@@ -1,22 +1,22 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "girl_saytoc",
-    "texture": "0fcf19e6-8561-4ea6-91fb-7cc108be7a03",
+    "name": "Fail (1) (1)",
+    "texture": "7c88af07-f8b8-40a5-8d89-4f4c278c8bba",
     "atlas": "",
     "rect": [
-      2,
-      3,
-      2009,
-      1239
+      47,
+      44,
+      419,
+      417
     ],
     "offset": [
-      -1.5,
-      -0.5
+      0.5,
+      3.5
     ],
     "originalSize": [
-      2016,
-      1244
+      512,
+      512
     ],
     "capInsets": [
       0,
