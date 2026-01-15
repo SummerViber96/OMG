@@ -13,6 +13,8 @@ export default class NewClass extends cc.Component {
     char1: sp.Skeleton = null;
     @property(sp.Skeleton)
     char2: sp.Skeleton = null
+    @property(sp.Skeleton)
+    char3: sp.Skeleton = null
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -48,12 +50,16 @@ export default class NewClass extends cc.Component {
     placeChar2: cc.Node = null
     @property(cc.Node)
     itemShambo: cc.Node = null;
+    @property(cc.Node)
+    itemVoiHoaSen: cc.Node = null;
+    @property(cc.Node)
+    itemMaySay: cc.Node = null;
     @property(sp.Skeleton)
     charDress: sp.Skeleton = null;
     @property(sp.Skeleton)
     xabong: sp.Skeleton = null;
     @property(cc.Node)
-    charDressManager:cc.Node=null
+    charDressManager: cc.Node = null
 
     private selectedItem: cc.Node = null;
 
@@ -226,6 +232,52 @@ export default class NewClass extends cc.Component {
             this.charDress.setAnimation(0, "Boil", true);
             this.xabong.setAnimation(0, "show", false)
         }, 0.4)
+    }
+    btn_tam() {
+        this.itemVoiHoaSen.getComponent(cc.Button).enabled = false;
+        this.itemVoiHoaSen.getComponent(cc.Animation).play();
+        this.scheduleOnce(() => {
+            this.itemVoiHoaSen.children[0].children[0].active = true
+            this.charDress.node.active = false;
+            this.charDressManager.children[2].active = true
+        }, 0.6)
+    }
+    btn_saytoc() {
+        this.itemMaySay.getComponent(cc.Button).enabled = false;
+        this.itemMaySay.getComponent(cc.Animation).play();
+        this.scheduleOnce(() => {
+            this.itemMaySay.children[0].children[0].active = true
+            this.charDressManager.children[0].active = true;
+            this.charDressManager.children[1].active = false;
+            this.charDressManager.children[2].active = false;
+            this.charDress.node.active = false
+
+        }, 0.5)
+        this.scheduleOnce(() => {
+            this.itemMaySay.children[0].children[0].active = false
+
+        }, 2)
+        this.scheduleOnce(() => {
+            this.charDressManager.children[0].active = false;
+            this.charDressManager.children[1].active = true;
+
+        }, 2.3)
+        this.scheduleOnce(() => {
+            this.moveStep3()
+        }, 2.6)
+    }
+    moveStep3() {
+        this.scene2.zIndex = 3
+        this.scene2.scale = 2
+        this.char2.node.active = false
+        cc.tween(this.scene2).to(0.5, { scale: 1, position: cc.v3(0, 0) }).call(() => {
+            this.scene3.active = false
+            this.char3.node.active = true
+            cc.tween(this.char3.node).to(0.5, { position: cc.v3(-456, -243) }).call(()=>{
+                this.char3.setAnimation(0,"Angry",true)
+            }).start()
+        }).start()
+
     }
     onEndGame() {
         cc.audioEngine.play(this.soundLose, false, 1)

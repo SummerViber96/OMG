@@ -1,0 +1,66 @@
+{
+"skeleton": { "hash": "j0ghzfOw52Q", "spine": "3.8-from-4.0-from-4.1-from-4.2.43", "x": -192, "y": -192, "width": 384, "height": 384 },
+"bones": [
+	{ "name": "root", "scaleX": 0.2, "scaleY": 0.2 }
+],
+"slots": [
+	{ "name": "idle", "bone": "root", "attachment": "dressing_00214" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"idle": {
+				"dressing_00178": { "width": 1920, "height": 1920 },
+				"dressing_00180": { "width": 1920, "height": 1920 },
+				"dressing_00182": { "width": 1920, "height": 1920 },
+				"dressing_00184": { "width": 1920, "height": 1920 },
+				"dressing_00186": { "width": 1920, "height": 1920 },
+				"dressing_00188": { "width": 1920, "height": 1920 },
+				"dressing_00190": { "width": 1920, "height": 1920 },
+				"dressing_00192": { "width": 1920, "height": 1920 },
+				"dressing_00194": { "width": 1920, "height": 1920 },
+				"dressing_00196": { "width": 1920, "height": 1920 },
+				"dressing_00198": { "width": 1920, "height": 1920 },
+				"dressing_00200": { "width": 1920, "height": 1920 },
+				"dressing_00202": { "width": 1920, "height": 1920 },
+				"dressing_00204": { "width": 1920, "height": 1920 },
+				"dressing_00206": { "width": 1920, "height": 1920 },
+				"dressing_00208": { "width": 1920, "height": 1920 },
+				"dressing_00210": { "width": 1920, "height": 1920 },
+				"dressing_00212": { "width": 1920, "height": 1920 },
+				"dressing_00214": { "width": 1920, "height": 1920 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"idle": {
+				"attachment": [
+					{ "name": "dressing_00178" },
+					{ "time": 0.0333, "name": "dressing_00180" },
+					{ "time": 0.0667, "name": "dressing_00182" },
+					{ "time": 0.1, "name": "dressing_00184" },
+					{ "time": 0.1333, "name": "dressing_00186" },
+					{ "time": 0.1667, "name": "dressing_00188" },
+					{ "time": 0.2, "name": "dressing_00190" },
+					{ "time": 0.2333, "name": "dressing_00192" },
+					{ "time": 0.2667, "name": "dressing_00194" },
+					{ "time": 0.3, "name": "dressing_00196" },
+					{ "time": 0.3333, "name": "dressing_00198" },
+					{ "time": 0.3667, "name": "dressing_00200" },
+					{ "time": 0.4, "name": "dressing_00202" },
+					{ "time": 0.4333, "name": "dressing_00204" },
+					{ "time": 0.4667, "name": "dressing_00206" },
+					{ "time": 0.5, "name": "dressing_00208" },
+					{ "time": 0.5333, "name": "dressing_00210" },
+					{ "time": 0.5667, "name": "dressing_00212" },
+					{ "time": 0.6, "name": "dressing_00214" }
+				]
+			}
+		}
+	}
+}
+}

@@ -33,6 +33,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.hairCut = null;
         _this.char1 = null;
         _this.char2 = null;
+        _this.char3 = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -50,6 +51,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.rem2 = null;
         _this.placeChar2 = null;
         _this.itemShambo = null;
+        _this.itemVoiHoaSen = null;
+        _this.itemMaySay = null;
         _this.charDress = null;
         _this.xabong = null;
         _this.charDressManager = null;
@@ -212,6 +215,51 @@ var NewClass = /** @class */ (function (_super) {
             _this.xabong.setAnimation(0, "show", false);
         }, 0.4);
     };
+    NewClass.prototype.btn_tam = function () {
+        var _this = this;
+        this.itemVoiHoaSen.getComponent(cc.Button).enabled = false;
+        this.itemVoiHoaSen.getComponent(cc.Animation).play();
+        this.scheduleOnce(function () {
+            _this.itemVoiHoaSen.children[0].children[0].active = true;
+            _this.charDress.node.active = false;
+            _this.charDressManager.children[2].active = true;
+        }, 0.6);
+    };
+    NewClass.prototype.btn_saytoc = function () {
+        var _this = this;
+        this.itemMaySay.getComponent(cc.Button).enabled = false;
+        this.itemMaySay.getComponent(cc.Animation).play();
+        this.scheduleOnce(function () {
+            _this.itemMaySay.children[0].children[0].active = true;
+            _this.charDressManager.children[0].active = true;
+            _this.charDressManager.children[1].active = false;
+            _this.charDressManager.children[2].active = false;
+            _this.charDress.node.active = false;
+        }, 0.5);
+        this.scheduleOnce(function () {
+            _this.itemMaySay.children[0].children[0].active = false;
+        }, 2);
+        this.scheduleOnce(function () {
+            _this.charDressManager.children[0].active = false;
+            _this.charDressManager.children[1].active = true;
+        }, 2.3);
+        this.scheduleOnce(function () {
+            _this.moveStep3();
+        }, 2.6);
+    };
+    NewClass.prototype.moveStep3 = function () {
+        var _this = this;
+        this.scene2.zIndex = 3;
+        this.scene2.scale = 2;
+        this.char2.node.active = false;
+        cc.tween(this.scene2).to(0.5, { scale: 1, position: cc.v3(0, 0) }).call(function () {
+            _this.scene3.active = false;
+            _this.char3.node.active = true;
+            cc.tween(_this.char3.node).to(0.5, { position: cc.v3(-456, -243) }).call(function () {
+                _this.char3.setAnimation(0, "Angry", true);
+            }).start();
+        }).start();
+    };
     NewClass.prototype.onEndGame = function () {
         cc.audioEngine.play(this.soundLose, false, 1);
         this.endCard.active = true;
@@ -284,6 +332,9 @@ var NewClass = /** @class */ (function (_super) {
         property(sp.Skeleton)
     ], NewClass.prototype, "char2", void 0);
     __decorate([
+        property(sp.Skeleton)
+    ], NewClass.prototype, "char3", void 0);
+    __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);
     __decorate([
@@ -334,6 +385,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "itemShambo", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "itemVoiHoaSen", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "itemMaySay", void 0);
     __decorate([
         property(sp.Skeleton)
     ], NewClass.prototype, "charDress", void 0);

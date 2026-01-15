@@ -1,0 +1,145 @@
+
+char_uot.png
+size: 1670, 1670
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dressing_00178
+  rotate: false
+  xy: 2, 1253
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00180
+  rotate: false
+  xy: 2, 836
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00182
+  rotate: false
+  xy: 419, 1253
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00184
+  rotate: false
+  xy: 2, 419
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00186
+  rotate: false
+  xy: 419, 836
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00188
+  rotate: false
+  xy: 836, 1253
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00190
+  rotate: false
+  xy: 2, 2
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00192
+  rotate: false
+  xy: 419, 419
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00194
+  rotate: false
+  xy: 836, 836
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00196
+  rotate: false
+  xy: 1253, 1253
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00198
+  rotate: false
+  xy: 419, 2
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00200
+  rotate: false
+  xy: 836, 419
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00202
+  rotate: false
+  xy: 1253, 836
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00204
+  rotate: false
+  xy: 836, 2
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00206
+  rotate: false
+  xy: 1253, 419
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00208
+  rotate: false
+  xy: 1253, 2
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+
+char_uot_2.png
+size: 836, 836
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dressing_00210
+  rotate: false
+  xy: 2, 419
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00212
+  rotate: false
+  xy: 2, 2
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
+dressing_00214
+  rotate: false
+  xy: 419, 419
+  size: 415, 415
+  orig: 576, 576
+  offset: 83, 46
+  index: -1
