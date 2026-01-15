@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "neduoi",
+    "texture": "9bc78ebd-fdf9-487a-8cef-233e11590114",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1924,
+      587
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1924,
+      587
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

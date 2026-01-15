@@ -12,7 +12,18 @@ export default class NewClass extends cc.Component {
     listCard: cc.Node = null;
     @property(cc.AudioClip)
     soundWrong: cc.AudioClip = null;
-
+    @property(cc.Node)
+    shirt: cc.Node = null
+    @property(cc.Node)
+    hand: cc.Node = null;
+    @property(cc.Node)
+    tut: cc.Node = null;
+    @property(cc.Node)
+    ticket: cc.Node = null
+    @property(cc.Node)
+    daoCao: cc.Node = null
+    @property(cc.Node)
+    tutHam:cc.Node=null
     start() {
         let self = this
         this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
@@ -20,15 +31,28 @@ export default class NewClass extends cc.Component {
             // if (name == 'animation') {
             // }
             self.animCutShirt.node.active = false
-            console.log("end")
 
         });
-        this.showStep1()
 
+        this.scheduleOnce(() => {
+            if (this.isTab) return;
+            this.hand.active = true
+        }, 2)
+    }
+    isTab = false
+    tap() {
+        if (this.isTab) return;
+        this.isTab = true
+        this.tut.active = false;
+        this.hand.active = false
+        this.shirt.active = false
+        this.animCutShirt.node.active = true
+        this.showStep1()
     }
     showStep1() {
-        cc.tween(this.camera).to(1.8, { zoomRatio: 1.5 }).start()
-        cc.tween(this.camera.node).to(1.8, { position: cc.v3(0, -100) }).start()
+        // cc.tween(this.camera).to(1.8, { zoomRatio: 1.5 }).start()
+        cc.tween(this.node).to(1.8, { scale: 1.5, position: cc.v3(0, 100) }).start()
+        // cc.tween(this.camera.node).to(1.8, { position: cc.v3(0, -100) }).start()
         this.scheduleOnce(() => {
             this.listCard.active = true
         }, 1)
@@ -36,7 +60,11 @@ export default class NewClass extends cc.Component {
     btn_chooseCard(event, value) {
         switch (value) {
             case "0":
-                this.listCard.active=false
+                this.listCard.active = false;
+                this.ticket.active = true
+                this.ticket.getComponent("Scratch_ticket").addEvent()
+                // this.daoCao.active=true
+                this.tutHam.active=true
                 break;
             case "1":
                 let btn = event.currentTarget;

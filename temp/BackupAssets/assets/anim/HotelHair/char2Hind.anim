@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "char2Hind",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.5,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            -407,
+            -925,
+            0
+          ]
+        },
+        {
+          "frame": 0.6666666666666666,
+          "value": [
+            -520.864,
+            -245.023,
+            0
+          ]
+        }
+      ],
+      "opacity": [
+        {
+          "frame": 0.8,
+          "value": 255
+        },
+        {
+          "frame": 1.0333333333333334,
+          "value": 0
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 1.5,
+      "func": "",
+      "params": []
+    }
+  ]
+}

@@ -32,24 +32,46 @@ var NewClass = /** @class */ (function (_super) {
         _this.animCutShirt = null;
         _this.listCard = null;
         _this.soundWrong = null;
+        _this.shirt = null;
+        _this.hand = null;
+        _this.tut = null;
+        _this.ticket = null;
+        _this.daoCao = null;
+        _this.tutHam = null;
+        _this.isTab = false;
         return _this;
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
+        var _this = this;
         var self = this;
         this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
             var name = trackEntry.animation ? trackEntry.animation.name : '';
             // if (name == 'animation') {
             // }
             self.animCutShirt.node.active = false;
-            console.log("end");
         });
+        this.scheduleOnce(function () {
+            if (_this.isTab)
+                return;
+            _this.hand.active = true;
+        }, 2);
+    };
+    NewClass.prototype.tap = function () {
+        if (this.isTab)
+            return;
+        this.isTab = true;
+        this.tut.active = false;
+        this.hand.active = false;
+        this.shirt.active = false;
+        this.animCutShirt.node.active = true;
         this.showStep1();
     };
     NewClass.prototype.showStep1 = function () {
         var _this = this;
-        cc.tween(this.camera).to(1.8, { zoomRatio: 1.5 }).start();
-        cc.tween(this.camera.node).to(1.8, { position: cc.v3(0, -100) }).start();
+        // cc.tween(this.camera).to(1.8, { zoomRatio: 1.5 }).start()
+        cc.tween(this.node).to(1.8, { scale: 1.5, position: cc.v3(0, 100) }).start();
+        // cc.tween(this.camera.node).to(1.8, { position: cc.v3(0, -100) }).start()
         this.scheduleOnce(function () {
             _this.listCard.active = true;
         }, 1);
@@ -58,6 +80,10 @@ var NewClass = /** @class */ (function (_super) {
         switch (value) {
             case "0":
                 this.listCard.active = false;
+                this.ticket.active = true;
+                this.ticket.getComponent("Scratch_ticket").addEvent();
+                // this.daoCao.active=true
+                this.tutHam.active = true;
                 break;
             case "1":
                 var btn = event.currentTarget;
@@ -78,6 +104,24 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundWrong", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "shirt", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "hand", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "tut", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "ticket", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "daoCao", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "tutHam", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "logo-game",
+    "texture": "703f783e-bf44-4da8-ad7f-f955c91eaa9f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      825,
+      410
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      825,
+      410
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
