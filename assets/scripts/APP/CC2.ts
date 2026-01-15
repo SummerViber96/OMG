@@ -34,6 +34,8 @@ export default class NewClass extends cc.Component {
     lbCoin: cc.Label = null
     @property(cc.Node)
     scene2: cc.Node = null
+    @property(cc.Node)
+    scene3: cc.Node = null
     @property(cc.Camera)
     uiCamera: cc.Camera = null;
     @property(cc.Node)
@@ -44,6 +46,15 @@ export default class NewClass extends cc.Component {
     rem2: cc.Node = null;
     @property(cc.Node)
     placeChar2: cc.Node = null
+    @property(cc.Node)
+    itemShambo: cc.Node = null;
+    @property(sp.Skeleton)
+    charDress: sp.Skeleton = null;
+    @property(sp.Skeleton)
+    xabong: sp.Skeleton = null;
+    @property(cc.Node)
+    charDressManager:cc.Node=null
+
     private selectedItem: cc.Node = null;
 
     adChanel = '{{__adv_channels_adapter__}}'
@@ -188,9 +199,15 @@ export default class NewClass extends cc.Component {
 
         }).start()
         this.scheduleOnce(() => {
-            cc.tween(this.camera).to(0.5, { zoomRatio: 2.1 }).start()
-            cc.tween(this.camera.node).to(0.5,{position:cc.v3(-182,0)}).start()
+            // cc.tween(this.camera).to(0.5, { zoomRatio: 2.1 }).start()
+            // cc.tween(this.camera.node).to(0.5, { position: cc.v3(-182, 0) }).start()
+            cc.tween(this.scene2).to(0.5, { position: cc.v3(320, 0), scale: 2.1 }).start()
         }, 1)
+        this.scheduleOnce(() => {
+            this.scene3.opacity = 0;
+            this.scene3.active = true;
+            cc.tween(this.scene3).to(0.3, { opacity: 255 }).start()
+        }, 1.6)
     }
     checkOnFloor(localPos) {
         if (localPos.sub(this.placeChar2.position).mag() <= 600) {
@@ -201,6 +218,14 @@ export default class NewClass extends cc.Component {
             this.selectedItem = null
             return false;
         }
+    }
+    btn_shambo() {
+        this.itemShambo.getComponent(cc.Button).enabled = false;
+        this.itemShambo.getComponent(cc.Animation).play()
+        this.scheduleOnce(() => {
+            this.charDress.setAnimation(0, "Boil", true);
+            this.xabong.setAnimation(0, "show", false)
+        }, 0.4)
     }
     onEndGame() {
         cc.audioEngine.play(this.soundLose, false, 1)

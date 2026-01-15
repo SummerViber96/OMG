@@ -9339,25 +9339,10 @@
     "meta": 1768353105375,
     "relativePath": "HotelHair\\anim"
   },
-  "380af3a3-7709-4606-8665-2013e130e9d3": {
-    "asset": 1768352918540,
-    "meta": 1768353105377,
-    "relativePath": "HotelHair\\anim\\3.atlas.txt"
-  },
-  "81161c2c-430d-47c6-87d5-2b2630379042": {
-    "asset": 1768352918582,
-    "meta": 1768353105421,
-    "relativePath": "HotelHair\\anim\\3.png"
-  },
   "be3715ce-0e8b-40a2-8943-dba86b680f16": {
     "asset": 1768352918599,
     "meta": 1768353105423,
     "relativePath": "HotelHair\\anim\\7.atlas.txt"
-  },
-  "5a1b13e5-5858-4e48-aa32-8f00b6e72142": {
-    "asset": 1768352918561,
-    "meta": 1768353106352,
-    "relativePath": "HotelHair\\anim\\3.json"
   },
   "3eed7659-d203-47c7-906c-93ffe7b85412": {
     "asset": 1768352918642,
@@ -9515,8 +9500,8 @@
     "relativePath": "HotelHair\\Upgrade_Button.png"
   },
   "a192fd38-0725-48ea-ab48-d6467214b5c1": {
-    "asset": 1768434188933,
-    "meta": 1768434188949,
+    "asset": 1768439922572,
+    "meta": 1768439922590,
     "relativePath": "scenes\\HotelHair.fire"
   },
   "e65759a9-40e9-469f-b97d-4a15a4dcb1b3": {
@@ -9539,11 +9524,6 @@
     "meta": 1768353106309,
     "relativePath": "scenes\\App.fire"
   },
-  "00603e08-58f5-4fee-a678-5ce835d40706": {
-    "asset": 1768408539492,
-    "meta": 1768408540380,
-    "relativePath": "scripts\\APP\\CC2.ts"
-  },
   "bb70c302-4c9d-42e9-b9a7-bc4aadcdc27d": {
     "asset": 1768409111402,
     "meta": 1768409111604,
@@ -9563,11 +9543,6 @@
     "asset": 1768410462896,
     "meta": 1768410463019,
     "relativePath": "HotelHair\\dressing-props.png"
-  },
-  "00f2b559-432d-451e-a76b-3b76eaceb14d": {
-    "asset": 1768410856836,
-    "meta": 1768410868304,
-    "relativePath": "HotelHair\\maysay.png"
   },
   "19b0f26c-f4fa-4417-86a1-e4ff1a7f2dc4": {
     "asset": 1768411078270,
@@ -9933,5 +9908,170 @@
     "asset": 1768433987579,
     "meta": 1768433987595,
     "relativePath": "anim\\HotelHair\\tut_dau goi.anim"
+  },
+  "00f2b559-432d-451e-a76b-3b76eaceb14d": {
+    "asset": 1768434546319,
+    "meta": 1768434546392,
+    "relativePath": "HotelHair\\maysay.png"
+  },
+  "380af3a3-7709-4606-8665-2013e130e9d3": {
+    "asset": 1768434662916,
+    "meta": 1768434663011,
+    "relativePath": "HotelHair\\anim\\3.atlas.txt"
+  },
+  "81161c2c-430d-47c6-87d5-2b2630379042": {
+    "asset": 1768434662917,
+    "meta": 1768434663060,
+    "relativePath": "HotelHair\\anim\\3.png"
+  },
+  "5a1b13e5-5858-4e48-aa32-8f00b6e72142": {
+    "asset": 1768434662917,
+    "meta": 1768434663089,
+    "relativePath": "HotelHair\\anim\\3.json"
+  },
+  "4756efce-dfc8-45a8-a452-d62a8c0e7f7a": {
+    "asset": 1768436244590,
+    "meta": 1768436244629,
+    "relativePath": "HotelHair\\anim\\xabong.atlas.txt"
+  },
+  "d71b7638-476e-48d9-a259-067d3aff7aaa": {
+    "asset": 1768436244590,
+    "meta": 1768436244795,
+    "relativePath": "HotelHair\\anim\\xabong.json"
+  },
+  "ea60bd1d-7796-4cae-8345-12b773a22713": {
+    "asset": 1768436244594,
+    "meta": 1768436244656,
+    "relativePath": "HotelHair\\anim\\xabong_11.png"
+  },
+  "648848af-677e-460a-8615-ba5504f16ca6": {
+    "asset": 1768436244594,
+    "meta": 1768436244674,
+    "relativePath": "HotelHair\\anim\\xabong.png"
+  },
+  "f81b31fa-bddc-43d2-882d-712b74ea9c56": {
+    "asset": 1768436244595,
+    "meta": 1768436244682,
+    "relativePath": "HotelHair\\anim\\xabong_2.png"
+  },
+  "0f601ebc-be45-4283-bcce-1751eb053ba0": {
+    "asset": 1768436244596,
+    "meta": 1768436244702,
+    "relativePath": "HotelHair\\anim\\xabong_7.png"
+  },
+  "b103e130-f933-45f2-b555-c27015f2e264": {
+    "asset": 1768436244596,
+    "meta": 1768436244710,
+    "relativePath": "HotelHair\\anim\\xabong_8.png"
+  },
+  "6067f42a-4441-4dfc-9763-33f9b4ef1505": {
+    "asset": 1768436244598,
+    "meta": 1768436244729,
+    "relativePath": "HotelHair\\anim\\xabong_10.png"
+  },
+  "e2562dae-dd71-4f44-bc4b-8b36ef361c35": {
+    "asset": 1768436244597,
+    "meta": 1768436244736,
+    "relativePath": "HotelHair\\anim\\xabong_3.png"
+  },
+  "642ef621-d747-46ae-83c4-74f5ab31c84e": {
+    "asset": 1768436244598,
+    "meta": 1768436244754,
+    "relativePath": "HotelHair\\anim\\xabong_5.png"
+  },
+  "db7822e4-0390-46c7-8b9d-b53b5667ff32": {
+    "asset": 1768436244598,
+    "meta": 1768436244765,
+    "relativePath": "HotelHair\\anim\\xabong_4.png"
+  },
+  "cdf97e30-5ba9-467a-9ddc-55fabb2601f5": {
+    "asset": 1768436244598,
+    "meta": 1768436244782,
+    "relativePath": "HotelHair\\anim\\xabong_9.png"
+  },
+  "82e99779-fb35-4be7-84c1-8ba3d5a6ec61": {
+    "asset": 1768436244598,
+    "meta": 1768436244790,
+    "relativePath": "HotelHair\\anim\\xabong_6.png"
+  },
+  "77e735d4-8e37-41c1-b61b-90af58fc7d79": {
+    "asset": 1768436760497,
+    "meta": 1768436760510,
+    "relativePath": "anim\\HotelHair\\item_shambo.anim"
+  },
+  "8d97a77e-3097-4af4-937f-031c3ec820a6": {
+    "asset": 1768438806798,
+    "meta": 1768438807101,
+    "relativePath": "HotelHair\\anim\\girl_saytoc.json"
+  },
+  "acc673cb-d8a9-4f4e-ae3d-ea3be57f0914": {
+    "asset": 1768438806798,
+    "meta": 1768438806842,
+    "relativePath": "HotelHair\\anim\\girl_saytoc.atlas.txt"
+  },
+  "ee044448-8190-42dc-b9cb-5d129990797c": {
+    "asset": 1768438806808,
+    "meta": 1768438806936,
+    "relativePath": "HotelHair\\anim\\girl_saytoc_6.png"
+  },
+  "a61f90ea-d3a4-4230-ab44-ff333114ea0a": {
+    "asset": 1768438806814,
+    "meta": 1768438806955,
+    "relativePath": "HotelHair\\anim\\girl_saytoc_5.png"
+  },
+  "0fcf19e6-8561-4ea6-91fb-7cc108be7a03": {
+    "asset": 1768438806815,
+    "meta": 1768438807000,
+    "relativePath": "HotelHair\\anim\\girl_saytoc.png"
+  },
+  "eb6017ec-3025-49ad-93a9-8fd306274d92": {
+    "asset": 1768438806815,
+    "meta": 1768438807019,
+    "relativePath": "HotelHair\\anim\\girl_saytoc_2.png"
+  },
+  "c296050b-7f63-4e75-835b-cd8bacd09033": {
+    "asset": 1768438806816,
+    "meta": 1768438807069,
+    "relativePath": "HotelHair\\anim\\girl_saytoc_4.png"
+  },
+  "c6616f0f-e6ac-4676-9133-9c30d2158a2c": {
+    "asset": 1768438806817,
+    "meta": 1768438807095,
+    "relativePath": "HotelHair\\anim\\girl_saytoc_3.png"
+  },
+  "f70507f2-533a-4a05-89e6-f0ae7e303a6c": {
+    "asset": 1768439295479,
+    "meta": 1768439295561,
+    "relativePath": "HotelHair\\anim\\girlNo.atlas.txt"
+  },
+  "35fc9306-205d-40f3-9c7f-1e7d98d2d061": {
+    "asset": 1768439295484,
+    "meta": 1768439295598,
+    "relativePath": "HotelHair\\anim\\girlNo.png"
+  },
+  "a2d763ea-3354-4c2f-b157-46b4a94d70e0": {
+    "asset": 1768439295484,
+    "meta": 1768439295627,
+    "relativePath": "HotelHair\\anim\\girlNo.json"
+  },
+  "00603e08-58f5-4fee-a678-5ce835d40706": {
+    "asset": 1768439429233,
+    "meta": 1768439873937,
+    "relativePath": "scripts\\APP\\CC2.ts"
+  },
+  "37ab3114-7c6c-4c65-bffc-a60498edf746": {
+    "asset": 1768439879301,
+    "meta": 1768439879318,
+    "relativePath": "HotelHair\\anim\\tam.atlas.txt"
+  },
+  "c42fdd90-ab22-4e2b-809d-8406aa16fca6": {
+    "asset": 1768439879301,
+    "meta": 1768439879358,
+    "relativePath": "HotelHair\\anim\\tam.json"
+  },
+  "8c5fd1b9-c70a-40e8-b93b-ffe1c6c991b5": {
+    "asset": 1768439879303,
+    "meta": 1768439879355,
+    "relativePath": "HotelHair\\anim\\tam.png"
   }
 }

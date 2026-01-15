@@ -1,0 +1,155 @@
+
+girl_saytoc.png
+size: 1472, 1772
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dressing_00217
+  rotate: false
+  xy: 2, 737
+  size: 733, 1030
+  orig: 1344, 1344
+  offset: 304, 120
+  index: -1
+dressing_00222
+  rotate: false
+  xy: 737, 737
+  size: 733, 1030
+  orig: 1344, 1344
+  offset: 304, 120
+  index: -1
+dressing_00227
+  rotate: true
+  xy: 2, 2
+  size: 733, 1030
+  orig: 1344, 1344
+  offset: 304, 120
+  index: -1
+
+girl_saytoc_2.png
+size: 1468, 1768
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dressing_00216
+  rotate: false
+  xy: 2, 734
+  size: 730, 1030
+  orig: 1344, 1344
+  offset: 307, 120
+  index: -1
+dressing_00221
+  rotate: false
+  xy: 734, 734
+  size: 730, 1030
+  orig: 1344, 1344
+  offset: 307, 120
+  index: -1
+dressing_00226
+  rotate: true
+  xy: 2, 2
+  size: 730, 1030
+  orig: 1344, 1344
+  offset: 307, 120
+  index: -1
+
+girl_saytoc_3.png
+size: 1764, 1456
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dressing_00215
+  rotate: true
+  xy: 734, 728
+  size: 724, 1026
+  orig: 1344, 1344
+  offset: 308, 120
+  index: -1
+dressing_00220
+  rotate: true
+  xy: 734, 2
+  size: 724, 1026
+  orig: 1344, 1344
+  offset: 308, 120
+  index: -1
+dressing_00231
+  rotate: false
+  xy: 2, 422
+  size: 730, 1030
+  orig: 1344, 1344
+  offset: 307, 120
+  index: -1
+
+girl_saytoc_4.png
+size: 1448, 1756
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dressing_00218
+  rotate: false
+  xy: 728, 730
+  size: 718, 1024
+  orig: 1344, 1344
+  offset: 312, 120
+  index: -1
+dressing_00225
+  rotate: false
+  xy: 2, 728
+  size: 724, 1026
+  orig: 1344, 1344
+  offset: 308, 120
+  index: -1
+dressing_00230
+  rotate: true
+  xy: 2, 2
+  size: 724, 1026
+  orig: 1344, 1344
+  offset: 308, 120
+  index: -1
+
+girl_saytoc_5.png
+size: 1444, 1752
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dressing_00219
+  rotate: true
+  xy: 2, 2
+  size: 721, 1020
+  orig: 1344, 1344
+  offset: 305, 120
+  index: -1
+dressing_00223
+  rotate: false
+  xy: 2, 725
+  size: 718, 1024
+  orig: 1344, 1344
+  offset: 312, 120
+  index: -1
+dressing_00228
+  rotate: false
+  xy: 722, 725
+  size: 718, 1024
+  orig: 1344, 1344
+  offset: 312, 120
+  index: -1
+
+girl_saytoc_6.png
+size: 1448, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dressing_00224
+  rotate: false
+  xy: 2, 2
+  size: 721, 1020
+  orig: 1344, 1344
+  offset: 305, 120
+  index: -1
+dressing_00229
+  rotate: false
+  xy: 725, 2
+  size: 721, 1020
+  orig: 1344, 1344
+  offset: 305, 120
+  index: -1

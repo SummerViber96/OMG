@@ -1,0 +1,247 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "tam",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "cm9zAqnWcrI",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2-from-4.3.39-beta",
+      "x": -192,
+      "y": -192,
+      "width": 384,
+      "height": 384
+    },
+    "bones": [
+      {
+        "name": "root",
+        "scaleX": 0.2,
+        "scaleY": 0.2
+      }
+    ],
+    "slots": [
+      {
+        "name": "buoctam",
+        "bone": "root",
+        "attachment": "dressing_00133"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "buoctam": {
+            "dressing_00133": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00135": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00137": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00139": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00141": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00143": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00145": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00147": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00149": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00151": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00153": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00155": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00157": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00159": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00161": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00163": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00165": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00167": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00169": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00171": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00173": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00175": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00177": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00179": {
+              "width": 1920,
+              "height": 1920
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "buoctam": {
+            "attachment": [
+              {
+                "time": 0.033333335,
+                "name": "dressing_00135"
+              },
+              {
+                "time": 0.06666667,
+                "name": "dressing_00137"
+              },
+              {
+                "time": 0.10000001,
+                "name": "dressing_00139"
+              },
+              {
+                "time": 0.13333334,
+                "name": "dressing_00141"
+              },
+              {
+                "time": 0.16666667,
+                "name": "dressing_00143"
+              },
+              {
+                "time": 0.20000002,
+                "name": "dressing_00145"
+              },
+              {
+                "time": 0.23333335,
+                "name": "dressing_00147"
+              },
+              {
+                "time": 0.26666668,
+                "name": "dressing_00149"
+              },
+              {
+                "time": 0.3,
+                "name": "dressing_00151"
+              },
+              {
+                "time": 0.33333334,
+                "name": "dressing_00153"
+              },
+              {
+                "time": 0.36666667,
+                "name": "dressing_00155"
+              },
+              {
+                "time": 0.40000004,
+                "name": "dressing_00157"
+              },
+              {
+                "time": 0.43333337,
+                "name": "dressing_00159"
+              },
+              {
+                "time": 0.4666667,
+                "name": "dressing_00161"
+              },
+              {
+                "time": 0.5,
+                "name": "dressing_00163"
+              },
+              {
+                "time": 0.53333336,
+                "name": "dressing_00165"
+              },
+              {
+                "time": 0.5666667,
+                "name": "dressing_00167"
+              },
+              {
+                "time": 0.6,
+                "name": "dressing_00169"
+              },
+              {
+                "time": 0.6333334,
+                "name": "dressing_00171"
+              },
+              {
+                "time": 0.6666667,
+                "name": "dressing_00173"
+              },
+              {
+                "time": 0.70000005,
+                "name": "dressing_00175"
+              },
+              {
+                "time": 0.73333335,
+                "name": "dressing_00177"
+              },
+              {
+                "time": 0.7666667,
+                "name": "dressing_00179"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\ntam.png\nsize: 1644, 1132\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00133\n  rotate: true\n  xy: 1117, 592\n  size: 263, 270\n  orig: 576, 576\n  offset: 160, 164\n  index: -1\ndressing_00135\n  rotate: false\n  xy: 278, 8\n  size: 272, 277\n  orig: 576, 576\n  offset: 152, 157\n  index: -1\ndressing_00137\n  rotate: true\n  xy: 285, 849\n  size: 278, 279\n  orig: 576, 576\n  offset: 145, 155\n  index: -1\ndressing_00139\n  rotate: false\n  xy: 2, 566\n  size: 277, 281\n  orig: 576, 576\n  offset: 144, 153\n  index: -1\ndressing_00141\n  rotate: false\n  xy: 834, 287\n  size: 274, 270\n  orig: 576, 576\n  offset: 146, 163\n  index: -1\ndressing_00143\n  rotate: false\n  xy: 1375, 7\n  size: 261, 272\n  orig: 576, 576\n  offset: 158, 160\n  index: -1\ndressing_00145\n  rotate: false\n  xy: 1381, 328\n  size: 247, 262\n  orig: 576, 576\n  offset: 174, 169\n  index: -1\ndressing_00147\n  rotate: false\n  xy: 834, 10\n  size: 269, 275\n  orig: 576, 576\n  offset: 150, 157\n  index: -1\ndressing_00149\n  rotate: false\n  xy: 281, 569\n  size: 277, 278\n  orig: 576, 576\n  offset: 142, 154\n  index: -1\ndressing_00151\n  rotate: true\n  xy: 2, 849\n  size: 278, 281\n  orig: 576, 576\n  offset: 139, 151\n  index: -1\ndressing_00153\n  rotate: false\n  xy: 841, 559\n  size: 274, 284\n  orig: 576, 576\n  offset: 142, 148\n  index: -1\ndressing_00155\n  rotate: true\n  xy: 2, 2\n  size: 275, 271\n  orig: 576, 576\n  offset: 141, 160\n  index: -1\ndressing_00157\n  rotate: true\n  xy: 1105, 16\n  size: 263, 268\n  orig: 576, 576\n  offset: 154, 163\n  index: -1\ndressing_00159\n  rotate: false\n  xy: 1110, 281\n  size: 269, 276\n  orig: 576, 576\n  offset: 147, 156\n  index: -1\ndressing_00161\n  rotate: true\n  xy: 560, 567\n  size: 276, 279\n  orig: 576, 576\n  offset: 140, 154\n  index: -1\ndressing_00163\n  rotate: false\n  xy: 566, 845\n  size: 277, 282\n  orig: 576, 576\n  offset: 138, 152\n  index: -1\ndressing_00165\n  rotate: false\n  xy: 2, 279\n  size: 274, 285\n  orig: 576, 576\n  offset: 141, 149\n  index: -1\ndressing_00167\n  rotate: false\n  xy: 845, 857\n  size: 275, 270\n  orig: 576, 576\n  offset: 141, 164\n  index: -1\ndressing_00169\n  rotate: true\n  xy: 1122, 864\n  size: 263, 269\n  orig: 576, 576\n  offset: 155, 165\n  index: -1\ndressing_00171\n  rotate: false\n  xy: 552, 12\n  size: 266, 270\n  orig: 576, 576\n  offset: 152, 165\n  index: -1\ndressing_00173\n  rotate: false\n  xy: 281, 287\n  size: 275, 280\n  orig: 576, 576\n  offset: 144, 93\n  index: -1\ndressing_00175\n  rotate: false\n  xy: 558, 284\n  size: 274, 281\n  orig: 576, 576\n  offset: 143, 29\n  index: -1\ndressing_00177\n  rotate: true\n  xy: 1393, 853\n  size: 274, 246\n  orig: 576, 576\n  offset: 146, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "8c5fd1b9-c70a-40e8-b93b-ffe1c6c991b5"
+    }
+  ],
+  "textureNames": [
+    "tam.png"
+  ],
+  "scale": 1
+}

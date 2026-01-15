@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "girl_saytoc_5",
+    "texture": "a61f90ea-d3a4-4230-ab44-ff333114ea0a",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      1438,
+      1747
+    ],
+    "offset": [
+      -1,
+      0.5
+    ],
+    "originalSize": [
+      1444,
+      1752
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

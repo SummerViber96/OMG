@@ -1,0 +1,134 @@
+{
+"skeleton": { "hash": "TkHbzVpiRYQ", "spine": "3.8-from-4.0-from-4.1-from-4.2-from-4.3.39-beta", "x": -960, "y": -960, "width": 1920, "height": 1920 },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "bambo", "bone": "root" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"bambo": {
+				"dressing_00066": { "width": 1920, "height": 1920 },
+				"dressing_00067": { "width": 1920, "height": 1920 },
+				"dressing_00068": { "width": 1920, "height": 1920 },
+				"dressing_00069": { "width": 1920, "height": 1920 },
+				"dressing_00070": { "width": 1920, "height": 1920 },
+				"dressing_00071": { "width": 1920, "height": 1920 },
+				"dressing_00072": { "width": 1920, "height": 1920 },
+				"dressing_00073": { "width": 1920, "height": 1920 },
+				"dressing_00074": { "width": 1920, "height": 1920 },
+				"dressing_00075": { "width": 1920, "height": 1920 },
+				"dressing_00076": { "width": 1920, "height": 1920 },
+				"dressing_00077": { "width": 1920, "height": 1920 },
+				"dressing_00078": { "width": 1920, "height": 1920 },
+				"dressing_00079": { "width": 1920, "height": 1920 },
+				"dressing_00080": { "width": 1920, "height": 1920 },
+				"dressing_00081": { "width": 1920, "height": 1920 },
+				"dressing_00082": { "width": 1920, "height": 1920 },
+				"dressing_00083": { "width": 1920, "height": 1920 },
+				"dressing_00084": { "width": 1920, "height": 1920 },
+				"dressing_00085": { "width": 1920, "height": 1920 },
+				"dressing_00086": { "width": 1920, "height": 1920 },
+				"dressing_00087": { "width": 1920, "height": 1920 },
+				"dressing_00088": { "width": 1920, "height": 1920 },
+				"dressing_00089": { "width": 1920, "height": 1920 },
+				"dressing_00090": { "width": 1920, "height": 1920 },
+				"dressing_00091": { "width": 1920, "height": 1920 },
+				"dressing_00092": { "width": 1920, "height": 1920 },
+				"dressing_00093": { "width": 1920, "height": 1920 },
+				"dressing_00094": { "width": 1920, "height": 1920 },
+				"dressing_00095": { "width": 1920, "height": 1920 },
+				"dressing_00096": { "width": 1920, "height": 1920 },
+				"dressing_00097": { "width": 1920, "height": 1920 },
+				"dressing_00098": { "width": 1920, "height": 1920 },
+				"dressing_00099": { "width": 1920, "height": 1920 },
+				"dressing_00100": { "width": 1920, "height": 1920 },
+				"dressing_00101": { "width": 1920, "height": 1920 },
+				"dressing_00102": { "width": 1920, "height": 1920 },
+				"dressing_00103": { "width": 1920, "height": 1920 },
+				"dressing_00104": { "width": 1920, "height": 1920 },
+				"dressing_00105": { "width": 1920, "height": 1920 },
+				"dressing_00106": { "width": 1920, "height": 1920 }
+			}
+		}
+	}
+],
+"animations": {
+	"idle": {
+		"slots": {
+			"bambo": {
+				"attachment": [
+					{ "name": "dressing_00085" },
+					{ "time": 0.033333335, "name": "dressing_00086" },
+					{ "time": 0.06666667, "name": "dressing_00087" },
+					{ "time": 0.10000001, "name": "dressing_00088" },
+					{ "time": 0.13333334, "name": "dressing_00089" },
+					{ "time": 0.16666667, "name": "dressing_00090" },
+					{ "time": 0.20000002, "name": "dressing_00091" },
+					{ "time": 0.23333335, "name": "dressing_00092" },
+					{ "time": 0.26666668, "name": "dressing_00093" },
+					{ "time": 0.3, "name": "dressing_00094" },
+					{ "time": 0.33333334, "name": "dressing_00095" },
+					{ "time": 0.36666667, "name": "dressing_00096" },
+					{ "time": 0.40000004, "name": "dressing_00097" },
+					{ "time": 0.43333337, "name": "dressing_00098" },
+					{ "time": 0.4666667, "name": "dressing_00099" },
+					{ "time": 0.5, "name": "dressing_00100" },
+					{ "time": 0.53333336, "name": "dressing_00101" },
+					{ "time": 0.5666667, "name": "dressing_00102" },
+					{ "time": 0.6, "name": "dressing_00103" },
+					{ "time": 0.6333334, "name": "dressing_00104" },
+					{ "time": 0.6666667, "name": "dressing_00105" },
+					{ "time": 0.70000005, "name": "dressing_00106" }
+				]
+			}
+		}
+	},
+	"show": {
+		"slots": {
+			"bambo": {
+				"attachment": [
+					{ "name": "dressing_00066" },
+					{ "time": 0.033333335, "name": "dressing_00067" },
+					{ "time": 0.06666667, "name": "dressing_00068" },
+					{ "time": 0.10000001, "name": "dressing_00069" },
+					{ "time": 0.13333334, "name": "dressing_00070" },
+					{ "time": 0.16666667, "name": "dressing_00071" },
+					{ "time": 0.20000002, "name": "dressing_00072" },
+					{ "time": 0.23333335, "name": "dressing_00073" },
+					{ "time": 0.26666668, "name": "dressing_00074" },
+					{ "time": 0.3, "name": "dressing_00075" },
+					{ "time": 0.33333334, "name": "dressing_00076" },
+					{ "time": 0.36666667, "name": "dressing_00077" },
+					{ "time": 0.40000004, "name": "dressing_00078" },
+					{ "time": 0.43333337, "name": "dressing_00079" },
+					{ "time": 0.4666667, "name": "dressing_00080" },
+					{ "time": 0.5, "name": "dressing_00081" },
+					{ "time": 0.53333336, "name": "dressing_00082" },
+					{ "time": 0.5666667, "name": "dressing_00083" },
+					{ "time": 0.6, "name": "dressing_00084" },
+					{ "time": 0.6333334, "name": "dressing_00085" },
+					{ "time": 0.6666667, "name": "dressing_00086" },
+					{ "time": 0.70000005, "name": "dressing_00087" },
+					{ "time": 0.73333335, "name": "dressing_00088" },
+					{ "time": 0.7666667, "name": "dressing_00089" },
+					{ "time": 0.8000001, "name": "dressing_00090" },
+					{ "time": 0.8333334, "name": "dressing_00091" },
+					{ "time": 0.86666673, "name": "dressing_00092" },
+					{ "time": 0.90000004, "name": "dressing_00093" },
+					{ "time": 0.9333334, "name": "dressing_00094" },
+					{ "time": 0.9666667, "name": "dressing_00095" },
+					{ "time": 1, "name": "dressing_00096" },
+					{ "time": 1.0333334, "name": "dressing_00097" },
+					{ "time": 1.0666667, "name": "dressing_00098" },
+					{ "time": 1.1, "name": "dressing_00099" },
+					{ "time": 1.1333334, "name": "dressing_00100" }
+				]
+			}
+		}
+	}
+}
+}

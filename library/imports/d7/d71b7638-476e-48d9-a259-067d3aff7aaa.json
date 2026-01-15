@@ -1,0 +1,494 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "xabong",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "TkHbzVpiRYQ",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2-from-4.3.39-beta",
+      "x": -960,
+      "y": -960,
+      "width": 1920,
+      "height": 1920
+    },
+    "bones": [
+      {
+        "name": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "bambo",
+        "bone": "root"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "bambo": {
+            "dressing_00066": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00067": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00068": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00069": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00070": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00071": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00072": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00073": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00074": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00075": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00076": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00077": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00078": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00079": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00080": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00081": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00082": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00083": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00084": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00085": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00086": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00087": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00088": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00089": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00090": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00091": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00092": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00093": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00094": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00095": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00096": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00097": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00098": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00099": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00100": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00101": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00102": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00103": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00104": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00105": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00106": {
+              "width": 1920,
+              "height": 1920
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "idle": {
+        "slots": {
+          "bambo": {
+            "attachment": [
+              {
+                "name": "dressing_00085"
+              },
+              {
+                "time": 0.033333335,
+                "name": "dressing_00086"
+              },
+              {
+                "time": 0.06666667,
+                "name": "dressing_00087"
+              },
+              {
+                "time": 0.10000001,
+                "name": "dressing_00088"
+              },
+              {
+                "time": 0.13333334,
+                "name": "dressing_00089"
+              },
+              {
+                "time": 0.16666667,
+                "name": "dressing_00090"
+              },
+              {
+                "time": 0.20000002,
+                "name": "dressing_00091"
+              },
+              {
+                "time": 0.23333335,
+                "name": "dressing_00092"
+              },
+              {
+                "time": 0.26666668,
+                "name": "dressing_00093"
+              },
+              {
+                "time": 0.3,
+                "name": "dressing_00094"
+              },
+              {
+                "time": 0.33333334,
+                "name": "dressing_00095"
+              },
+              {
+                "time": 0.36666667,
+                "name": "dressing_00096"
+              },
+              {
+                "time": 0.40000004,
+                "name": "dressing_00097"
+              },
+              {
+                "time": 0.43333337,
+                "name": "dressing_00098"
+              },
+              {
+                "time": 0.4666667,
+                "name": "dressing_00099"
+              },
+              {
+                "time": 0.5,
+                "name": "dressing_00100"
+              },
+              {
+                "time": 0.53333336,
+                "name": "dressing_00101"
+              },
+              {
+                "time": 0.5666667,
+                "name": "dressing_00102"
+              },
+              {
+                "time": 0.6,
+                "name": "dressing_00103"
+              },
+              {
+                "time": 0.6333334,
+                "name": "dressing_00104"
+              },
+              {
+                "time": 0.6666667,
+                "name": "dressing_00105"
+              },
+              {
+                "time": 0.70000005,
+                "name": "dressing_00106"
+              }
+            ]
+          }
+        }
+      },
+      "show": {
+        "slots": {
+          "bambo": {
+            "attachment": [
+              {
+                "name": "dressing_00066"
+              },
+              {
+                "time": 0.033333335,
+                "name": "dressing_00067"
+              },
+              {
+                "time": 0.06666667,
+                "name": "dressing_00068"
+              },
+              {
+                "time": 0.10000001,
+                "name": "dressing_00069"
+              },
+              {
+                "time": 0.13333334,
+                "name": "dressing_00070"
+              },
+              {
+                "time": 0.16666667,
+                "name": "dressing_00071"
+              },
+              {
+                "time": 0.20000002,
+                "name": "dressing_00072"
+              },
+              {
+                "time": 0.23333335,
+                "name": "dressing_00073"
+              },
+              {
+                "time": 0.26666668,
+                "name": "dressing_00074"
+              },
+              {
+                "time": 0.3,
+                "name": "dressing_00075"
+              },
+              {
+                "time": 0.33333334,
+                "name": "dressing_00076"
+              },
+              {
+                "time": 0.36666667,
+                "name": "dressing_00077"
+              },
+              {
+                "time": 0.40000004,
+                "name": "dressing_00078"
+              },
+              {
+                "time": 0.43333337,
+                "name": "dressing_00079"
+              },
+              {
+                "time": 0.4666667,
+                "name": "dressing_00080"
+              },
+              {
+                "time": 0.5,
+                "name": "dressing_00081"
+              },
+              {
+                "time": 0.53333336,
+                "name": "dressing_00082"
+              },
+              {
+                "time": 0.5666667,
+                "name": "dressing_00083"
+              },
+              {
+                "time": 0.6,
+                "name": "dressing_00084"
+              },
+              {
+                "time": 0.6333334,
+                "name": "dressing_00085"
+              },
+              {
+                "time": 0.6666667,
+                "name": "dressing_00086"
+              },
+              {
+                "time": 0.70000005,
+                "name": "dressing_00087"
+              },
+              {
+                "time": 0.73333335,
+                "name": "dressing_00088"
+              },
+              {
+                "time": 0.7666667,
+                "name": "dressing_00089"
+              },
+              {
+                "time": 0.8000001,
+                "name": "dressing_00090"
+              },
+              {
+                "time": 0.8333334,
+                "name": "dressing_00091"
+              },
+              {
+                "time": 0.86666673,
+                "name": "dressing_00092"
+              },
+              {
+                "time": 0.90000004,
+                "name": "dressing_00093"
+              },
+              {
+                "time": 0.9333334,
+                "name": "dressing_00094"
+              },
+              {
+                "time": 0.9666667,
+                "name": "dressing_00095"
+              },
+              {
+                "time": 1,
+                "name": "dressing_00096"
+              },
+              {
+                "time": 1.0333334,
+                "name": "dressing_00097"
+              },
+              {
+                "time": 1.0666667,
+                "name": "dressing_00098"
+              },
+              {
+                "time": 1.1,
+                "name": "dressing_00099"
+              },
+              {
+                "time": 1.1333334,
+                "name": "dressing_00100"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nxabong.png\nsize: 1000, 892\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00066\n  rotate: false\n  xy: 2, 823\n  size: 64, 64\n  orig: 1344, 1344\n  offset: 545, 549\n  index: -1\ndressing_00067\n  rotate: true\n  xy: 68, 757\n  size: 130, 442\n  orig: 1344, 1344\n  offset: 509, 549\n  index: -1\ndressing_00068\n  rotate: false\n  xy: 2, 313\n  size: 460, 442\n  orig: 1344, 1344\n  offset: 432, 549\n  index: -1\ndressing_00069\n  rotate: false\n  xy: 464, 2\n  size: 486, 442\n  orig: 1344, 1344\n  offset: 432, 549\n  index: -1\ndressing_00074\n  rotate: false\n  xy: 512, 446\n  size: 486, 441\n  orig: 1344, 1344\n  offset: 431, 550\n  index: -1\n\nxabong_2.png\nsize: 980, 892\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00070\n  rotate: false\n  xy: 2, 446\n  size: 486, 442\n  orig: 1344, 1344\n  offset: 432, 549\n  index: -1\ndressing_00071\n  rotate: false\n  xy: 490, 446\n  size: 486, 442\n  orig: 1344, 1344\n  offset: 432, 549\n  index: -1\ndressing_00072\n  rotate: false\n  xy: 2, 2\n  size: 485, 442\n  orig: 1344, 1344\n  offset: 432, 549\n  index: -1\ndressing_00073\n  rotate: false\n  xy: 489, 2\n  size: 486, 442\n  orig: 1344, 1344\n  offset: 431, 549\n  index: -1\n\nxabong_3.png\nsize: 980, 892\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00075\n  rotate: false\n  xy: 2, 448\n  size: 486, 442\n  orig: 1344, 1344\n  offset: 431, 549\n  index: -1\ndressing_00076\n  rotate: false\n  xy: 490, 447\n  size: 486, 443\n  orig: 1344, 1344\n  offset: 430, 549\n  index: -1\ndressing_00077\n  rotate: false\n  xy: 2, 3\n  size: 486, 443\n  orig: 1344, 1344\n  offset: 430, 549\n  index: -1\ndressing_00078\n  rotate: false\n  xy: 490, 2\n  size: 485, 443\n  orig: 1344, 1344\n  offset: 430, 549\n  index: -1\n\nxabong_4.png\nsize: 1008, 920\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00082\n  rotate: false\n  xy: 518, 460\n  size: 485, 456\n  orig: 1344, 1344\n  offset: 428, 535\n  index: -1\ndressing_00083\n  rotate: false\n  xy: 518, 2\n  size: 484, 456\n  orig: 1344, 1344\n  offset: 428, 535\n  index: -1\ndressing_00091\n  rotate: false\n  xy: 2, 463\n  size: 514, 453\n  orig: 1344, 1344\n  offset: 425, 538\n  index: -1\ndressing_00093\n  rotate: false\n  xy: 2, 8\n  size: 514, 453\n  orig: 1344, 1344\n  offset: 424, 537\n  index: -1\n\nxabong_5.png\nsize: 1008, 920\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00080\n  rotate: false\n  xy: 519, 461\n  size: 485, 457\n  orig: 1344, 1344\n  offset: 429, 534\n  index: -1\ndressing_00081\n  rotate: false\n  xy: 518, 2\n  size: 484, 457\n  orig: 1344, 1344\n  offset: 429, 534\n  index: -1\ndressing_00092\n  rotate: false\n  xy: 2, 465\n  size: 515, 453\n  orig: 1344, 1344\n  offset: 424, 537\n  index: -1\ndressing_00094\n  rotate: false\n  xy: 2, 10\n  size: 514, 453\n  orig: 1344, 1344\n  offset: 424, 537\n  index: -1\n\nxabong_6.png\nsize: 1024, 928\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00079\n  rotate: false\n  xy: 518, 464\n  size: 484, 459\n  orig: 1344, 1344\n  offset: 430, 533\n  index: -1\ndressing_00085\n  rotate: false\n  xy: 2, 14\n  size: 514, 454\n  orig: 1344, 1344\n  offset: 427, 537\n  index: -1\ndressing_00095\n  rotate: false\n  xy: 2, 470\n  size: 514, 453\n  orig: 1344, 1344\n  offset: 423, 537\n  index: -1\ndressing_00106\n  rotate: false\n  xy: 518, 2\n  size: 504, 460\n  orig: 1344, 1344\n  offset: 424, 530\n  index: -1\n\nxabong_7.png\nsize: 976, 916\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00084\n  rotate: false\n  xy: 2, 458\n  size: 515, 455\n  orig: 1344, 1344\n  offset: 427, 536\n  index: -1\ndressing_00086\n  rotate: true\n  xy: 519, 397\n  size: 516, 454\n  orig: 1344, 1344\n  offset: 426, 537\n  index: -1\ndressing_00087\n  rotate: false\n  xy: 2, 2\n  size: 515, 454\n  orig: 1344, 1344\n  offset: 426, 537\n  index: -1\n\nxabong_8.png\nsize: 976, 916\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00088\n  rotate: false\n  xy: 2, 458\n  size: 515, 454\n  orig: 1344, 1344\n  offset: 426, 537\n  index: -1\ndressing_00089\n  rotate: false\n  xy: 2, 2\n  size: 515, 454\n  orig: 1344, 1344\n  offset: 425, 537\n  index: -1\ndressing_00090\n  rotate: true\n  xy: 519, 397\n  size: 515, 454\n  orig: 1344, 1344\n  offset: 425, 537\n  index: -1\n\nxabong_9.png\nsize: 980, 972\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00096\n  rotate: false\n  xy: 2, 516\n  size: 513, 454\n  orig: 1344, 1344\n  offset: 423, 536\n  index: -1\ndressing_00097\n  rotate: true\n  xy: 2, 2\n  size: 512, 455\n  orig: 1344, 1344\n  offset: 423, 535\n  index: -1\ndressing_00098\n  rotate: false\n  xy: 459, 6\n  size: 512, 455\n  orig: 1344, 1344\n  offset: 423, 535\n  index: -1\ndressing_00104\n  rotate: true\n  xy: 517, 463\n  size: 507, 459\n  orig: 1344, 1344\n  offset: 423, 531\n  index: -1\n\nxabong_10.png\nsize: 1024, 924\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00099\n  rotate: false\n  xy: 2, 6\n  size: 510, 455\n  orig: 1344, 1344\n  offset: 423, 535\n  index: -1\ndressing_00100\n  rotate: false\n  xy: 2, 463\n  size: 510, 456\n  orig: 1344, 1344\n  offset: 423, 534\n  index: -1\ndressing_00102\n  rotate: false\n  xy: 514, 462\n  size: 508, 457\n  orig: 1344, 1344\n  offset: 423, 533\n  index: -1\ndressing_00103\n  rotate: false\n  xy: 514, 2\n  size: 507, 458\n  orig: 1344, 1344\n  offset: 423, 532\n  index: -1\n\nxabong_11.png\nsize: 924, 516\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00101\n  rotate: true\n  xy: 2, 2\n  size: 509, 457\n  orig: 1344, 1344\n  offset: 423, 533\n  index: -1\ndressing_00105\n  rotate: true\n  xy: 461, 6\n  size: 505, 459\n  orig: 1344, 1344\n  offset: 424, 531\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "648848af-677e-460a-8615-ba5504f16ca6"
+    },
+    {
+      "__uuid__": "f81b31fa-bddc-43d2-882d-712b74ea9c56"
+    },
+    {
+      "__uuid__": "e2562dae-dd71-4f44-bc4b-8b36ef361c35"
+    },
+    {
+      "__uuid__": "db7822e4-0390-46c7-8b9d-b53b5667ff32"
+    },
+    {
+      "__uuid__": "642ef621-d747-46ae-83c4-74f5ab31c84e"
+    },
+    {
+      "__uuid__": "82e99779-fb35-4be7-84c1-8ba3d5a6ec61"
+    },
+    {
+      "__uuid__": "0f601ebc-be45-4283-bcce-1751eb053ba0"
+    },
+    {
+      "__uuid__": "b103e130-f933-45f2-b555-c27015f2e264"
+    },
+    {
+      "__uuid__": "cdf97e30-5ba9-467a-9ddc-55fabb2601f5"
+    },
+    {
+      "__uuid__": "6067f42a-4441-4dfc-9763-33f9b4ef1505"
+    },
+    {
+      "__uuid__": "ea60bd1d-7796-4cae-8345-12b773a22713"
+    }
+  ],
+  "textureNames": [
+    "xabong.png",
+    "xabong_2.png",
+    "xabong_3.png",
+    "xabong_4.png",
+    "xabong_5.png",
+    "xabong_6.png",
+    "xabong_7.png",
+    "xabong_8.png",
+    "xabong_9.png",
+    "xabong_10.png",
+    "xabong_11.png"
+  ],
+  "scale": 1
+}

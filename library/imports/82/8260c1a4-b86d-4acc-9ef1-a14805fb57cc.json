@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "xabong_2",
+    "texture": "f81b31fa-bddc-43d2-882d-712b74ea9c56",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      974,
+      886
+    ],
+    "offset": [
+      -1,
+      1
+    ],
+    "originalSize": [
+      980,
+      892
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

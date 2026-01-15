@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tam",
+    "texture": "8c5fd1b9-c70a-40e8-b93b-ffe1c6c991b5",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      1637,
+      1125
+    ],
+    "offset": [
+      -1.5,
+      1.5
+    ],
+    "originalSize": [
+      1644,
+      1132
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

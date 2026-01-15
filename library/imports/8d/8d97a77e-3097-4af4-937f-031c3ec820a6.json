@@ -1,0 +1,209 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "girl_saytoc",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "eYopxsqnVNA",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2-from-4.3.39-beta",
+      "x": -960,
+      "y": -960,
+      "width": 1920,
+      "height": 1920
+    },
+    "bones": [
+      {
+        "name": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "girl",
+        "bone": "root",
+        "attachment": "dressing_00215"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "girl": {
+            "dressing_00215": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00216": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00217": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00218": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00219": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00220": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00221": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00222": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00223": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00224": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00225": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00226": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00227": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00228": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00229": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00230": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00231": {
+              "width": 1920,
+              "height": 1920
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "idle": {
+        "slots": {
+          "girl": {
+            "attachment": [
+              {
+                "time": 0.033333335,
+                "name": "dressing_00216"
+              },
+              {
+                "time": 0.06666667,
+                "name": "dressing_00217"
+              },
+              {
+                "time": 0.10000001,
+                "name": "dressing_00218"
+              },
+              {
+                "time": 0.13333334,
+                "name": "dressing_00219"
+              },
+              {
+                "time": 0.16666667,
+                "name": "dressing_00220"
+              },
+              {
+                "time": 0.20000002,
+                "name": "dressing_00221"
+              },
+              {
+                "time": 0.23333335,
+                "name": "dressing_00222"
+              },
+              {
+                "time": 0.26666668,
+                "name": "dressing_00223"
+              },
+              {
+                "time": 0.3,
+                "name": "dressing_00224"
+              },
+              {
+                "time": 0.33333334,
+                "name": "dressing_00225"
+              },
+              {
+                "time": 0.36666667,
+                "name": "dressing_00226"
+              },
+              {
+                "time": 0.40000004,
+                "name": "dressing_00227"
+              },
+              {
+                "time": 0.43333337,
+                "name": "dressing_00228"
+              },
+              {
+                "time": 0.4666667,
+                "name": "dressing_00229"
+              },
+              {
+                "time": 0.5,
+                "name": "dressing_00230"
+              },
+              {
+                "time": 0.53333336,
+                "name": "dressing_00231"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\ngirl_saytoc.png\nsize: 1472, 1772\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00217\n  rotate: false\n  xy: 2, 737\n  size: 733, 1030\n  orig: 1344, 1344\n  offset: 304, 120\n  index: -1\ndressing_00222\n  rotate: false\n  xy: 737, 737\n  size: 733, 1030\n  orig: 1344, 1344\n  offset: 304, 120\n  index: -1\ndressing_00227\n  rotate: true\n  xy: 2, 2\n  size: 733, 1030\n  orig: 1344, 1344\n  offset: 304, 120\n  index: -1\n\ngirl_saytoc_2.png\nsize: 1468, 1768\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00216\n  rotate: false\n  xy: 2, 734\n  size: 730, 1030\n  orig: 1344, 1344\n  offset: 307, 120\n  index: -1\ndressing_00221\n  rotate: false\n  xy: 734, 734\n  size: 730, 1030\n  orig: 1344, 1344\n  offset: 307, 120\n  index: -1\ndressing_00226\n  rotate: true\n  xy: 2, 2\n  size: 730, 1030\n  orig: 1344, 1344\n  offset: 307, 120\n  index: -1\n\ngirl_saytoc_3.png\nsize: 1764, 1456\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00215\n  rotate: true\n  xy: 734, 728\n  size: 724, 1026\n  orig: 1344, 1344\n  offset: 308, 120\n  index: -1\ndressing_00220\n  rotate: true\n  xy: 734, 2\n  size: 724, 1026\n  orig: 1344, 1344\n  offset: 308, 120\n  index: -1\ndressing_00231\n  rotate: false\n  xy: 2, 422\n  size: 730, 1030\n  orig: 1344, 1344\n  offset: 307, 120\n  index: -1\n\ngirl_saytoc_4.png\nsize: 1448, 1756\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00218\n  rotate: false\n  xy: 728, 730\n  size: 718, 1024\n  orig: 1344, 1344\n  offset: 312, 120\n  index: -1\ndressing_00225\n  rotate: false\n  xy: 2, 728\n  size: 724, 1026\n  orig: 1344, 1344\n  offset: 308, 120\n  index: -1\ndressing_00230\n  rotate: true\n  xy: 2, 2\n  size: 724, 1026\n  orig: 1344, 1344\n  offset: 308, 120\n  index: -1\n\ngirl_saytoc_5.png\nsize: 1444, 1752\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00219\n  rotate: true\n  xy: 2, 2\n  size: 721, 1020\n  orig: 1344, 1344\n  offset: 305, 120\n  index: -1\ndressing_00223\n  rotate: false\n  xy: 2, 725\n  size: 718, 1024\n  orig: 1344, 1344\n  offset: 312, 120\n  index: -1\ndressing_00228\n  rotate: false\n  xy: 722, 725\n  size: 718, 1024\n  orig: 1344, 1344\n  offset: 312, 120\n  index: -1\n\ngirl_saytoc_6.png\nsize: 1448, 1024\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00224\n  rotate: false\n  xy: 2, 2\n  size: 721, 1020\n  orig: 1344, 1344\n  offset: 305, 120\n  index: -1\ndressing_00229\n  rotate: false\n  xy: 725, 2\n  size: 721, 1020\n  orig: 1344, 1344\n  offset: 305, 120\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "0fcf19e6-8561-4ea6-91fb-7cc108be7a03"
+    },
+    {
+      "__uuid__": "eb6017ec-3025-49ad-93a9-8fd306274d92"
+    },
+    {
+      "__uuid__": "c6616f0f-e6ac-4676-9133-9c30d2158a2c"
+    },
+    {
+      "__uuid__": "c296050b-7f63-4e75-835b-cd8bacd09033"
+    },
+    {
+      "__uuid__": "a61f90ea-d3a4-4230-ab44-ff333114ea0a"
+    },
+    {
+      "__uuid__": "ee044448-8190-42dc-b9cb-5d129990797c"
+    }
+  ],
+  "textureNames": [
+    "girl_saytoc.png",
+    "girl_saytoc_2.png",
+    "girl_saytoc_3.png",
+    "girl_saytoc_4.png",
+    "girl_saytoc_5.png",
+    "girl_saytoc_6.png"
+  ],
+  "scale": 1
+}

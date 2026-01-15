@@ -43,11 +43,16 @@ var NewClass = /** @class */ (function (_super) {
         _this.preCoin = null;
         _this.lbCoin = null;
         _this.scene2 = null;
+        _this.scene3 = null;
         _this.uiCamera = null;
         _this.uiNode = null;
         _this.btnUnlock = null;
         _this.rem2 = null;
         _this.placeChar2 = null;
+        _this.itemShambo = null;
+        _this.charDress = null;
+        _this.xabong = null;
+        _this.charDressManager = null;
         _this.selectedItem = null;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         return _this;
@@ -178,9 +183,15 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.char2.node).to(1, { position: cc.v3(-193, -259) }).call(function () {
         }).start();
         this.scheduleOnce(function () {
-            cc.tween(_this.camera).to(0.5, { zoomRatio: 2.1 }).start();
-            cc.tween(_this.camera.node).to(0.5, { position: cc.v3(-182, 0) }).start();
+            // cc.tween(this.camera).to(0.5, { zoomRatio: 2.1 }).start()
+            // cc.tween(this.camera.node).to(0.5, { position: cc.v3(-182, 0) }).start()
+            cc.tween(_this.scene2).to(0.5, { position: cc.v3(320, 0), scale: 2.1 }).start();
         }, 1);
+        this.scheduleOnce(function () {
+            _this.scene3.opacity = 0;
+            _this.scene3.active = true;
+            cc.tween(_this.scene3).to(0.3, { opacity: 255 }).start();
+        }, 1.6);
     };
     NewClass.prototype.checkOnFloor = function (localPos) {
         if (localPos.sub(this.placeChar2.position).mag() <= 600) {
@@ -191,6 +202,15 @@ var NewClass = /** @class */ (function (_super) {
             this.selectedItem = null;
             return false;
         }
+    };
+    NewClass.prototype.btn_shambo = function () {
+        var _this = this;
+        this.itemShambo.getComponent(cc.Button).enabled = false;
+        this.itemShambo.getComponent(cc.Animation).play();
+        this.scheduleOnce(function () {
+            _this.charDress.setAnimation(0, "Boil", true);
+            _this.xabong.setAnimation(0, "show", false);
+        }, 0.4);
     };
     NewClass.prototype.onEndGame = function () {
         cc.audioEngine.play(this.soundLose, false, 1);
@@ -294,6 +314,9 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.Node)
     ], NewClass.prototype, "scene2", void 0);
     __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "scene3", void 0);
+    __decorate([
         property(cc.Camera)
     ], NewClass.prototype, "uiCamera", void 0);
     __decorate([
@@ -308,6 +331,18 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "placeChar2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "itemShambo", void 0);
+    __decorate([
+        property(sp.Skeleton)
+    ], NewClass.prototype, "charDress", void 0);
+    __decorate([
+        property(sp.Skeleton)
+    ], NewClass.prototype, "xabong", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "charDressManager", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
