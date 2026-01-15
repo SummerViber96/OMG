@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "HandHair (1)",
+    "texture": "5ee7178b-9afd-4330-a795-7f5c33716b2a",
+    "atlas": "",
+    "rect": [
+      2,
+      1,
+      385,
+      408
+    ],
+    "offset": [
+      -0.5,
+      3.5
+    ],
+    "originalSize": [
+      390,
+      417
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

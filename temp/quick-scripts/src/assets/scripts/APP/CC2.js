@@ -66,6 +66,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.char2Parent = null;
         _this.listHand = null;
         _this.touchNode = null;
+        _this.water = null;
+        _this.dryer = null;
+        _this.sambo = null;
         _this.selectedItem = null;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.arrBtn = [];
@@ -79,7 +82,6 @@ var NewClass = /** @class */ (function (_super) {
             window.gameReady && window.gameReady();
         }
         cc.audioEngine.play(this.soundBg, true, 0.3);
-        cc.audioEngine.play(this.hairCut, false, 1);
         this.arrBtn = [this.itemShambo, this.itemVoiHoaSen, this.itemMaySay];
         // this.startScene()
     };
@@ -264,6 +266,7 @@ var NewClass = /** @class */ (function (_super) {
         this.itemShambo.getComponent(cc.Button).enabled = false;
         this.itemShambo.getComponent(cc.Animation).play();
         this.scheduleOnce(function () {
+            cc.audioEngine.play(_this.sambo, false, 1);
             if (_this.countStep > 1) {
                 _this.charDressManager.children[1].active = true;
                 _this.xabong2.node.active = true;
@@ -289,6 +292,7 @@ var NewClass = /** @class */ (function (_super) {
         this.itemVoiHoaSen.getComponent(cc.Button).enabled = false;
         this.itemVoiHoaSen.getComponent(cc.Animation).play();
         this.scheduleOnce(function () {
+            cc.audioEngine.play(_this.water, false, 1);
             _this.itemVoiHoaSen.children[0].children[0].active = true;
             _this.charDress.node.active = false;
             _this.charDressManager.children[2].active = true;
@@ -308,6 +312,7 @@ var NewClass = /** @class */ (function (_super) {
         this.itemMaySay.getComponent(cc.Button).enabled = false;
         this.itemMaySay.getComponent(cc.Animation).play();
         this.scheduleOnce(function () {
+            cc.audioEngine.play(_this.dryer, false, 1);
             _this.itemMaySay.children[0].children[0].active = true;
             _this.charDressManager.children[0].active = true;
             _this.charDressManager.children[1].active = false;
@@ -540,6 +545,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "touchNode", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "water", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "dryer", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "sambo", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

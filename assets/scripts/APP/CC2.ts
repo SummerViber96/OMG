@@ -80,6 +80,12 @@ export default class NewClass extends cc.Component {
     listHand: cc.Node = null
     @property(cc.Node)
     touchNode: cc.Node = null
+    @property(cc.AudioClip)
+    water: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    dryer: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    sambo: cc.AudioClip = null
 
     private selectedItem: cc.Node = null;
 
@@ -90,7 +96,6 @@ export default class NewClass extends cc.Component {
             window.gameReady && window.gameReady();
         }
         cc.audioEngine.play(this.soundBg, true, 0.3)
-        cc.audioEngine.play(this.hairCut, false, 1)
         this.arrBtn = [this.itemShambo, this.itemVoiHoaSen, this.itemMaySay]
         // this.startScene()
     }
@@ -290,9 +295,9 @@ export default class NewClass extends cc.Component {
         this.itemShambo.getComponent(cc.Button).enabled = false;
         this.itemShambo.getComponent(cc.Animation).play()
         this.scheduleOnce(() => {
+                cc.audioEngine.play(this.sambo, false, 1)
 
             if (this.countStep > 1) {
-
                 this.charDressManager.children[1].active = true;
                 this.xabong2.node.active = true
                 this.xabong2.setAnimation(0, "show", false)
@@ -319,6 +324,8 @@ export default class NewClass extends cc.Component {
         this.itemVoiHoaSen.getComponent(cc.Button).enabled = false;
         this.itemVoiHoaSen.getComponent(cc.Animation).play();
         this.scheduleOnce(() => {
+            cc.audioEngine.play(this.water, false, 1)
+
             this.itemVoiHoaSen.children[0].children[0].active = true
             this.charDress.node.active = false;
             this.charDressManager.children[2].active = true
@@ -341,6 +348,8 @@ export default class NewClass extends cc.Component {
         this.itemMaySay.getComponent(cc.Button).enabled = false;
         this.itemMaySay.getComponent(cc.Animation).play();
         this.scheduleOnce(() => {
+            cc.audioEngine.play(this.dryer, false, 1)
+
             this.itemMaySay.children[0].children[0].active = true
             this.charDressManager.children[0].active = true;
             this.charDressManager.children[1].active = false;
@@ -389,7 +398,7 @@ export default class NewClass extends cc.Component {
     moveStep3() {
         // this.scene2.zIndex = 3
         this.scene2.scale = 2
-                this.scene2.active=true
+        this.scene2.active = true
 
         this.char2.node.active = false
         cc.tween(this.scene2).to(0.5, { scale: 1, position: cc.v3(100, 0) }).call(() => {
@@ -403,7 +412,7 @@ export default class NewClass extends cc.Component {
 
     }
     onEndGame() {
-        this.scene2.active=true
+        this.scene2.active = true
         this.scheduleOnce(() => {
             this.failUI.active = true;
 

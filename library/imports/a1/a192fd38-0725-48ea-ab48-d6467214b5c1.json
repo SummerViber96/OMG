@@ -2162,6 +2162,9 @@
     "tutHam": {
       "__id__": 47
     },
+    "soundCao": {
+      "__uuid__": "61b7bb66-a235-4d01-9d19-139e8284d949"
+    },
     "_id": "2bLjEWfFdCWbKVlCmGnhEg"
   },
   {
@@ -2819,8 +2822,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 771,
-      "height": 817
+      "width": 385,
+      "height": 408
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2838,8 +2841,8 @@
         0,
         0,
         1,
-        0.5,
-        0.5,
+        1,
+        1,
         1
       ]
     },
@@ -2872,7 +2875,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "71760caa-ede7-4aee-8247-30e76af2962a"
+      "__uuid__": "198e3627-a59e-483f-9ce6-abdf03aebf86"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -2925,6 +2928,12 @@
     },
     "tutHam": {
       "__id__": 47
+    },
+    "soundPopUp": {
+      "__uuid__": "ca67c11a-3fc2-46eb-b563-b3e82b00b972"
+    },
+    "hairCut": {
+      "__uuid__": "d5ab606f-e480-42cd-9ec7-8161473802b6"
     },
     "_id": "39LjqQjnBDyb/r9q7NvS9T"
   },
@@ -30255,7 +30264,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 353,
-      "height": 749
+      "height": 748
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -30540,7 +30549,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 266,
-      "height": 313
+      "height": 312
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -31531,7 +31540,9 @@
     "soundBg": {
       "__uuid__": "4b5ee48e-da44-4451-b623-6aa5c01d22d5"
     },
-    "hairCut": null,
+    "hairCut": {
+      "__uuid__": "d5ab606f-e480-42cd-9ec7-8161473802b6"
+    },
     "char1": {
       "__id__": 73
     },
@@ -31627,6 +31638,15 @@
     },
     "touchNode": {
       "__id__": 570
+    },
+    "water": {
+      "__uuid__": "e5cf46f1-5972-439e-947b-5a8860177ea9"
+    },
+    "dryer": {
+      "__uuid__": "b7cf8d38-5448-480c-90fc-54246d118a75"
+    },
+    "sambo": {
+      "__uuid__": "c69fdc11-293a-458d-8167-36815d140f7a"
     },
     "_id": "f5pITnvKBN5JJrruw8salh"
   }

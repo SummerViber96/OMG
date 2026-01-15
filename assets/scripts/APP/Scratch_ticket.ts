@@ -17,6 +17,8 @@ export default class Scratch_ticket extends cc.Component {
   ham: cc.Node = null
   @property(cc.Node)
   tutHam: cc.Node = null
+  @property(cc.AudioClip)
+  soundCao: cc.AudioClip = null
   progerss = 0;
 
   gamePlay = null;
@@ -50,8 +52,15 @@ export default class Scratch_ticket extends cc.Component {
     // this.gamePlay.handSwipe.active = false;
     // this.gamePlay.handSwipe2.active = false;
   }
-
+  isDelaySound = false
   touchMoveEvent(event) {
+    if (!this.isDelaySound) {
+      this.isDelaySound = true;
+      cc.audioEngine.play(this.soundCao,false,1)
+      this.scheduleOnce(() => {
+        this.isDelaySound = false
+      }, 0.1)
+    }
     let pos = event.getLocation()
     pos = this.camera.getScreenToWorldPoint(pos);
     let posHam = this.ham.parent.convertToNodeSpaceAR(pos)
@@ -88,7 +97,7 @@ export default class Scratch_ticket extends cc.Component {
     }
     if (this.progerss >= 30) {
       this.beforeDestroy();
-      this.ham.active=false
+      this.ham.active = false
       this.scheduleOnce(() => {
         this.gamePlay.completeScene();
 

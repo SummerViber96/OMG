@@ -23,7 +23,11 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     daoCao: cc.Node = null
     @property(cc.Node)
-    tutHam:cc.Node=null
+    tutHam: cc.Node = null
+    @property(cc.AudioClip)
+    soundPopUp: cc.AudioClip = null
+      @property(cc.AudioClip)
+    hairCut: cc.AudioClip = null
     start() {
         let self = this
         this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
@@ -42,6 +46,8 @@ export default class NewClass extends cc.Component {
     isTab = false
     tap() {
         if (this.isTab) return;
+        cc.audioEngine.play(this.hairCut, false, 1)
+
         this.isTab = true
         this.tut.active = false;
         this.hand.active = false
@@ -55,6 +61,7 @@ export default class NewClass extends cc.Component {
         // cc.tween(this.camera.node).to(1.8, { position: cc.v3(0, -100) }).start()
         this.scheduleOnce(() => {
             this.listCard.active = true
+            cc.audioEngine.play(this.soundPopUp, false, 1)
         }, 1)
     }
     btn_chooseCard(event, value) {
@@ -64,7 +71,7 @@ export default class NewClass extends cc.Component {
                 this.ticket.active = true
                 this.ticket.getComponent("Scratch_ticket").addEvent()
                 // this.daoCao.active=true
-                this.tutHam.active=true
+                this.tutHam.active = true
                 break;
             case "1":
                 let btn = event.currentTarget;

@@ -38,6 +38,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.ticket = null;
         _this.daoCao = null;
         _this.tutHam = null;
+        _this.soundPopUp = null;
+        _this.hairCut = null;
         _this.isTab = false;
         return _this;
         // update (dt) {}
@@ -60,6 +62,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.tap = function () {
         if (this.isTab)
             return;
+        cc.audioEngine.play(this.hairCut, false, 1);
         this.isTab = true;
         this.tut.active = false;
         this.hand.active = false;
@@ -74,6 +77,7 @@ var NewClass = /** @class */ (function (_super) {
         // cc.tween(this.camera.node).to(1.8, { position: cc.v3(0, -100) }).start()
         this.scheduleOnce(function () {
             _this.listCard.active = true;
+            cc.audioEngine.play(_this.soundPopUp, false, 1);
         }, 1);
     };
     NewClass.prototype.btn_chooseCard = function (event, value) {
@@ -122,6 +126,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tutHam", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundPopUp", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "hairCut", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

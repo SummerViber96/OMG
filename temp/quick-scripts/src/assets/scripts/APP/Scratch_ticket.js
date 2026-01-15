@@ -37,8 +37,10 @@ var Scratch_ticket = /** @class */ (function (_super) {
         _this.lineWidth = 0;
         _this.ham = null;
         _this.tutHam = null;
+        _this.soundCao = null;
         _this.progerss = 0;
         _this.gamePlay = null;
+        _this.isDelaySound = false;
         _this.calcDebugger = false; // 辅助开关，开启则会绘制划开涂层所属的小格子
         _this.tempDrawPoints = [];
         _this.polygonPointsList = [];
@@ -71,6 +73,14 @@ var Scratch_ticket = /** @class */ (function (_super) {
         // this.gamePlay.handSwipe2.active = false;
     };
     Scratch_ticket.prototype.touchMoveEvent = function (event) {
+        var _this = this;
+        if (!this.isDelaySound) {
+            this.isDelaySound = true;
+            cc.audioEngine.play(this.soundCao, false, 1);
+            this.scheduleOnce(function () {
+                _this.isDelaySound = false;
+            }, 0.1);
+        }
         var pos = event.getLocation();
         pos = this.camera.getScreenToWorldPoint(pos);
         var posHam = this.ham.parent.convertToNodeSpaceAR(pos);
@@ -183,6 +193,9 @@ var Scratch_ticket = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], Scratch_ticket.prototype, "tutHam", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], Scratch_ticket.prototype, "soundCao", void 0);
     Scratch_ticket = __decorate([
         ccclass
     ], Scratch_ticket);
