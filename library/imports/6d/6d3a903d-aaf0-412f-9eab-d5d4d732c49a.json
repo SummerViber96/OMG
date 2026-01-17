@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dyerRed",
+    "texture": "661ca24a-d78b-480f-94f3-4ce92c1a7d68",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      676,
+      603
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      676,
+      603
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

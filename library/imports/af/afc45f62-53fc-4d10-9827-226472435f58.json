@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dressing-propsRed",
+    "texture": "eb4370fc-7518-4e94-8ef4-c8488144af0e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      462,
+      853
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      462,
+      853
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -40,6 +40,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.tutHam = null;
         _this.soundPopUp = null;
         _this.hairCut = null;
+        _this.soundClick = null;
         _this.isTab = false;
         return _this;
         // update (dt) {}
@@ -81,6 +82,7 @@ var NewClass = /** @class */ (function (_super) {
         }, 1);
     };
     NewClass.prototype.btn_chooseCard = function (event, value) {
+        cc.audioEngine.play(this.soundClick, false, 1);
         switch (value) {
             case "0":
                 this.listCard.active = false;
@@ -132,6 +134,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "hairCut", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundClick", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -28,6 +28,8 @@ export default class NewClass extends cc.Component {
     soundPopUp: cc.AudioClip = null
       @property(cc.AudioClip)
     hairCut: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundClick:cc.AudioClip=null
     start() {
         let self = this
         this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
@@ -65,6 +67,7 @@ export default class NewClass extends cc.Component {
         }, 1)
     }
     btn_chooseCard(event, value) {
+        cc.audioEngine.play(this.soundClick,false,1)
         switch (value) {
             case "0":
                 this.listCard.active = false;

@@ -86,11 +86,31 @@ export default class NewClass extends cc.Component {
     dryer: cc.AudioClip = null;
     @property(cc.AudioClip)
     sambo: cc.AudioClip = null
-
+    @property(cc.AudioClip)
+    soundThank: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundHi: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundAngry1: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundAngry2: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundTranscreen: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundClick: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundWrong: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundCoin: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundFail: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundUnlock: cc.AudioClip = null
     private selectedItem: cc.Node = null;
 
     adChanel = '{{__adv_channels_adapter__}}'
     arrBtn = []
+    isStep = 0
     start() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
@@ -112,10 +132,13 @@ export default class NewClass extends cc.Component {
     startScene() {
         this.barCoin.active = true
         let char1Node = this.char1.node
+        cc.audioEngine.play(this.soundTranscreen, false, 1)
         cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(() => {
             this.char1.setAnimation(0, "Happy", false);
+            cc.audioEngine.play(this.soundThank, false, 1)
             char1Node.scaleX = -1.5;
             this.scheduleOnce(() => {
+                cc.audioEngine.play(this.soundCoin, false, 1)
                 this.giveCoin()
             }, 0.3)
         }).start()
@@ -123,6 +146,7 @@ export default class NewClass extends cc.Component {
         cc.tween(this.char2.node.parent).to(2.7, { position: cc.v3(-407, -925) }).call(() => {
             this.char2.setAnimation(0, "Talk", true);
             this.char2.node.getChildByName("pop").active = true
+            cc.audioEngine.play(this.soundHi, false, 1)
             this.scheduleOnce(() => {
                 if (this.isunlock) return;
                 this.handScene21.active = true;
@@ -174,6 +198,9 @@ export default class NewClass extends cc.Component {
     countStep = 0
     btn_unlock() {
         if (this.isunlock) return;
+        cc.audioEngine.play(this.soundUnlock, false, 1)
+
+        globalThis.coin -= 350
         this.handScene21.active = false
         this.isunlock = true
         this.btnUnlock.active = false;
@@ -288,14 +315,16 @@ export default class NewClass extends cc.Component {
     }
     isClick = false
     btn_shambo() {
+        if (this.isStep > 1) return;
+        this.isStep = 1
         this.countStep++
         this.listHand.children[0].active = false
-
+        cc.audioEngine.play(this.soundClick, false, 1)
         this.arrBtn[0] = null;
         this.itemShambo.getComponent(cc.Button).enabled = false;
         this.itemShambo.getComponent(cc.Animation).play()
         this.scheduleOnce(() => {
-                cc.audioEngine.play(this.sambo, false, 1)
+            cc.audioEngine.play(this.sambo, false, 1)
 
             if (this.countStep > 1) {
                 this.charDressManager.children[1].active = true;
@@ -318,7 +347,15 @@ export default class NewClass extends cc.Component {
 
     }
     btn_tam() {
+        if (this.isStep! - 1) {
+            cc.audioEngine.play(this.soundWrong, false, 0.5)
+            this.itemVoiHoaSen.getComponent(cc.Animation).play("item_wrong");
+            return;
+        }
+        this.isStep = 2
         this.countStep++
+        cc.audioEngine.play(this.soundClick, false, 0.7)
+
         this.arrBtn[1] = null;
         this.listHand.children[1].active = false
         this.itemVoiHoaSen.getComponent(cc.Button).enabled = false;
@@ -326,7 +363,7 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             cc.audioEngine.play(this.water, false, 1)
 
-            this.itemVoiHoaSen.children[0].children[0].active = true
+            this.itemVoiHoaSen.children[1].children[0].active = true
             this.charDress.node.active = false;
             this.charDressManager.children[2].active = true
             this.charDressManager.children[0].active = false
@@ -334,14 +371,26 @@ export default class NewClass extends cc.Component {
 
 
         }, 0.6)
+        this.scheduleOnce(() => {
+
+            cc.audioEngine.play(this.soundAngry1, false, 0.7)
+        }, 1)
         this.checkEnd()
         this.unschedule(this.checkHindGame)
         this.scheduleOnce(this.checkHindGame, 3)
     }
     btn_saytoc() {
+        if (this.isStep! - 2) {
+            cc.audioEngine.play(this.soundWrong, false, 0.5)
+            this.itemMaySay.getComponent(cc.Animation).play("item_wrong");
+
+            return;
+        }
+        this.isStep = 3
         this.countStep++
         this.arrBtn[2] = null;
         this.listHand.children[2].active = false
+        cc.audioEngine.play(this.soundClick, false, 0.7)
 
         this.xabong2.node.active = false
 
@@ -350,7 +399,7 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             cc.audioEngine.play(this.dryer, false, 1)
 
-            this.itemMaySay.children[0].children[0].active = true
+            this.itemMaySay.children[1].children[0].active = true
             this.charDressManager.children[0].active = true;
             this.charDressManager.children[1].active = false;
             this.charDressManager.children[2].active = false;
@@ -358,7 +407,7 @@ export default class NewClass extends cc.Component {
 
         }, 0.5)
         this.scheduleOnce(() => {
-            this.itemMaySay.children[0].children[0].active = false
+            this.itemMaySay.children[1].children[0].active = false
 
         }, 2)
         this.scheduleOnce(() => {
@@ -399,11 +448,14 @@ export default class NewClass extends cc.Component {
         // this.scene2.zIndex = 3
         this.scene2.scale = 2
         this.scene2.active = true
+        cc.audioEngine.play(this.soundTranscreen, false, 0.5)
 
         this.char2.node.active = false
         cc.tween(this.scene2).to(0.5, { scale: 1, position: cc.v3(100, 0) }).call(() => {
             this.scene3.active = false
             this.char3.node.active = true
+            cc.audioEngine.play(this.soundAngry2, false, 0.5)
+
             cc.tween(this.char3.node).to(0.5, { position: cc.v3(-456, -243) }).call(() => {
                 this.char3.setAnimation(0, "Angry", true)
                 this.onEndGame()
@@ -414,6 +466,9 @@ export default class NewClass extends cc.Component {
     onEndGame() {
         this.scene2.active = true
         this.scheduleOnce(() => {
+            cc.audioEngine.play(this.soundTranscreen, false, 0.5)
+            cc.audioEngine.play(this.soundFail, false, 1)
+
             this.failUI.active = true;
 
         }, 0.5)
@@ -439,7 +494,7 @@ export default class NewClass extends cc.Component {
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
         // this.camera.zoomRatio = 1.05
-        this.endCard.scale = (logic) ? 0.7 : 0.7
+        this.endCard.scale = (logic) ? 0.7 : 1.2
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false

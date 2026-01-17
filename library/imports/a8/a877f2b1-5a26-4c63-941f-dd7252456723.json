@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "maysayRed",
+    "texture": "bf1ee4c5-43d3-4a91-bd5b-59818d63c390",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      353,
+      407
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      353,
+      407
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

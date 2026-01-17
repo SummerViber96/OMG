@@ -69,9 +69,20 @@ var NewClass = /** @class */ (function (_super) {
         _this.water = null;
         _this.dryer = null;
         _this.sambo = null;
+        _this.soundThank = null;
+        _this.soundHi = null;
+        _this.soundAngry1 = null;
+        _this.soundAngry2 = null;
+        _this.soundTranscreen = null;
+        _this.soundClick = null;
+        _this.soundWrong = null;
+        _this.soundCoin = null;
+        _this.soundFail = null;
+        _this.soundUnlock = null;
         _this.selectedItem = null;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.arrBtn = [];
+        _this.isStep = 0;
         _this.isunlock = false;
         _this.countStep = 0;
         _this.isClick = false;
@@ -100,10 +111,13 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         this.barCoin.active = true;
         var char1Node = this.char1.node;
+        cc.audioEngine.play(this.soundTranscreen, false, 1);
         cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(function () {
             _this.char1.setAnimation(0, "Happy", false);
+            cc.audioEngine.play(_this.soundThank, false, 1);
             char1Node.scaleX = -1.5;
             _this.scheduleOnce(function () {
+                cc.audioEngine.play(_this.soundCoin, false, 1);
                 _this.giveCoin();
             }, 0.3);
         }).start();
@@ -111,6 +125,7 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.char2.node.parent).to(2.7, { position: cc.v3(-407, -925) }).call(function () {
             _this.char2.setAnimation(0, "Talk", true);
             _this.char2.node.getChildByName("pop").active = true;
+            cc.audioEngine.play(_this.soundHi, false, 1);
             _this.scheduleOnce(function () {
                 if (_this.isunlock)
                     return;
@@ -158,6 +173,8 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_unlock = function () {
         if (this.isunlock)
             return;
+        cc.audioEngine.play(this.soundUnlock, false, 1);
+        globalThis.coin -= 350;
         this.handScene21.active = false;
         this.isunlock = true;
         this.btnUnlock.active = false;
@@ -260,8 +277,12 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_shambo = function () {
         var _this = this;
+        if (this.isStep > 1)
+            return;
+        this.isStep = 1;
         this.countStep++;
         this.listHand.children[0].active = false;
+        cc.audioEngine.play(this.soundClick, false, 1);
         this.arrBtn[0] = null;
         this.itemShambo.getComponent(cc.Button).enabled = false;
         this.itemShambo.getComponent(cc.Animation).play();
@@ -286,41 +307,58 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_tam = function () {
         var _this = this;
+        if (this.isStep - 1) {
+            cc.audioEngine.play(this.soundWrong, false, 0.5);
+            this.itemVoiHoaSen.getComponent(cc.Animation).play("item_wrong");
+            return;
+        }
+        this.isStep = 2;
         this.countStep++;
+        cc.audioEngine.play(this.soundClick, false, 0.7);
         this.arrBtn[1] = null;
         this.listHand.children[1].active = false;
         this.itemVoiHoaSen.getComponent(cc.Button).enabled = false;
         this.itemVoiHoaSen.getComponent(cc.Animation).play();
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.water, false, 1);
-            _this.itemVoiHoaSen.children[0].children[0].active = true;
+            _this.itemVoiHoaSen.children[1].children[0].active = true;
             _this.charDress.node.active = false;
             _this.charDressManager.children[2].active = true;
             _this.charDressManager.children[0].active = false;
             _this.charDressManager.children[1].active = false;
         }, 0.6);
+        this.scheduleOnce(function () {
+            cc.audioEngine.play(_this.soundAngry1, false, 0.7);
+        }, 1);
         this.checkEnd();
         this.unschedule(this.checkHindGame);
         this.scheduleOnce(this.checkHindGame, 3);
     };
     NewClass.prototype.btn_saytoc = function () {
         var _this = this;
+        if (this.isStep - 2) {
+            cc.audioEngine.play(this.soundWrong, false, 0.5);
+            this.itemMaySay.getComponent(cc.Animation).play("item_wrong");
+            return;
+        }
+        this.isStep = 3;
         this.countStep++;
         this.arrBtn[2] = null;
         this.listHand.children[2].active = false;
+        cc.audioEngine.play(this.soundClick, false, 0.7);
         this.xabong2.node.active = false;
         this.itemMaySay.getComponent(cc.Button).enabled = false;
         this.itemMaySay.getComponent(cc.Animation).play();
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.dryer, false, 1);
-            _this.itemMaySay.children[0].children[0].active = true;
+            _this.itemMaySay.children[1].children[0].active = true;
             _this.charDressManager.children[0].active = true;
             _this.charDressManager.children[1].active = false;
             _this.charDressManager.children[2].active = false;
             _this.charDress.node.active = false;
         }, 0.5);
         this.scheduleOnce(function () {
-            _this.itemMaySay.children[0].children[0].active = false;
+            _this.itemMaySay.children[1].children[0].active = false;
         }, 2);
         this.scheduleOnce(function () {
             _this.charDressManager.children[0].active = false;
@@ -358,10 +396,12 @@ var NewClass = /** @class */ (function (_super) {
         // this.scene2.zIndex = 3
         this.scene2.scale = 2;
         this.scene2.active = true;
+        cc.audioEngine.play(this.soundTranscreen, false, 0.5);
         this.char2.node.active = false;
         cc.tween(this.scene2).to(0.5, { scale: 1, position: cc.v3(100, 0) }).call(function () {
             _this.scene3.active = false;
             _this.char3.node.active = true;
+            cc.audioEngine.play(_this.soundAngry2, false, 0.5);
             cc.tween(_this.char3.node).to(0.5, { position: cc.v3(-456, -243) }).call(function () {
                 _this.char3.setAnimation(0, "Angry", true);
                 _this.onEndGame();
@@ -372,6 +412,8 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         this.scene2.active = true;
         this.scheduleOnce(function () {
+            cc.audioEngine.play(_this.soundTranscreen, false, 0.5);
+            cc.audioEngine.play(_this.soundFail, false, 1);
             _this.failUI.active = true;
         }, 0.5);
         this.scheduleOnce(function () {
@@ -394,7 +436,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
         // this.camera.zoomRatio = 1.05
-        this.endCard.scale = (logic) ? 0.7 : 0.7;
+        this.endCard.scale = (logic) ? 0.7 : 1.2;
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
@@ -554,6 +596,36 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "sambo", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundThank", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundHi", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundAngry1", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundAngry2", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundTranscreen", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundClick", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundWrong", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundCoin", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundFail", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundUnlock", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
