@@ -1,251 +1,251 @@
 
 Waiter-ver2.png
-size: 844, 396
+size: 792, 112
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
 back-L-arm
-  rotate: false
-  xy: 528, 2
-  size: 80, 67
-  orig: 82, 69
-  offset: 1, 1
+  rotate: true
+  xy: 718, 69
+  size: 41, 35
+  orig: 41, 35
+  offset: 0, 0
   index: -1
 back-L-foot
   rotate: true
-  xy: 803, 84
-  size: 61, 32
-  orig: 63, 34
-  offset: 1, 1
+  xy: 759, 4
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
   index: -1
 back-L-forearm
   rotate: false
-  xy: 693, 143
-  size: 70, 41
-  orig: 72, 43
-  offset: 1, 1
+  xy: 379, 3
+  size: 36, 22
+  orig: 36, 22
+  offset: 0, 0
   index: -1
 back-L-leg
-  rotate: true
-  xy: 546, 334
-  size: 59, 183
-  orig: 59, 183
+  rotate: false
+  xy: 321, 18
+  size: 30, 92
+  orig: 30, 92
   offset: 0, 0
   index: -1
 back-body
-  rotate: false
-  xy: 421, 165
-  size: 113, 104
-  orig: 113, 104
+  rotate: true
+  xy: 540, 53
+  size: 57, 52
+  orig: 57, 52
   offset: 0, 0
   index: -1
 back-hand
-  rotate: false
-  xy: 711, 80
-  size: 56, 61
-  orig: 56, 61
+  rotate: true
+  xy: 759, 38
+  size: 28, 31
+  orig: 28, 31
   offset: 0, 0
   index: -1
 back-head
-  rotate: false
-  xy: 206, 153
-  size: 213, 240
-  orig: 215, 242
-  offset: 1, 1
+  rotate: true
+  xy: 2, 2
+  size: 108, 121
+  orig: 108, 121
+  offset: 0, 0
   index: -1
 back-undercoat
-  rotate: false
-  xy: 421, 271
-  size: 123, 122
-  orig: 123, 122
+  rotate: true
+  xy: 460, 48
+  size: 62, 61
+  orig: 62, 61
   offset: 0, 0
   index: -1
 front-L-arm
-  rotate: true
-  xy: 530, 71
-  size: 56, 93
-  orig: 56, 94
-  offset: 0, 1
+  rotate: false
+  xy: 630, 7
+  size: 28, 47
+  orig: 28, 47
+  offset: 0, 0
   index: -1
 front-L-foot
-  rotate: true
-  xy: 780, 12
-  size: 67, 43
-  orig: 67, 43
+  rotate: false
+  xy: 755, 88
+  size: 34, 22
+  orig: 34, 22
   offset: 0, 0
   index: -1
 front-L-forearm1
   rotate: false
-  xy: 625, 38
-  size: 84, 89
-  orig: 85, 89
-  offset: 1, 0
+  xy: 660, 17
+  size: 43, 45
+  orig: 43, 45
+  offset: 0, 0
   index: -1
 front-L-forearm2
   rotate: false
-  xy: 731, 337
-  size: 107, 56
-  orig: 107, 56
+  xy: 439, 2
+  size: 54, 28
+  orig: 54, 28
   offset: 0, 0
   index: -1
 front-L-forearm3
-  rotate: true
-  xy: 435, 81
-  size: 82, 93
-  orig: 82, 93
+  rotate: false
+  xy: 535, 3
+  size: 41, 47
+  orig: 41, 47
   offset: 0, 0
   index: -1
 front-L-leg
-  rotate: true
-  xy: 536, 129
-  size: 67, 155
-  orig: 67, 155
+  rotate: false
+  xy: 424, 32
+  size: 34, 78
+  orig: 34, 78
   offset: 0, 0
   index: -1
 front-L-leg2
-  rotate: true
-  xy: 546, 267
-  size: 65, 165
-  orig: 65, 165
+  rotate: false
+  xy: 353, 27
+  size: 33, 83
+  orig: 33, 83
   offset: 0, 0
   index: -1
 front-R-arm
-  rotate: true
-  xy: 435, 15
-  size: 64, 91
-  orig: 64, 97
-  offset: 0, 6
+  rotate: false
+  xy: 641, 64
+  size: 32, 46
+  orig: 32, 49
+  offset: 0, 3
   index: -1
 front-R-foot
   rotate: true
-  xy: 386, 11
-  size: 85, 47
-  orig: 86, 47
+  xy: 705, 20
+  size: 43, 24
+  orig: 43, 24
   offset: 0, 0
   index: -1
 front-R-forearm
-  rotate: false
-  xy: 713, 240
-  size: 87, 76
-  orig: 88, 76
+  rotate: true
+  xy: 495, 2
+  size: 44, 38
+  orig: 44, 38
   offset: 0, 0
   index: -1
 front-R-forearm2
-  rotate: false
-  xy: 294, 15
-  size: 90, 81
-  orig: 90, 81
+  rotate: true
+  xy: 675, 65
+  size: 45, 41
+  orig: 45, 41
   offset: 0, 0
   index: -1
 front-R-forearm3
-  rotate: false
-  xy: 323, 98
-  size: 110, 53
-  orig: 110, 53
+  rotate: true
+  xy: 594, 55
+  size: 55, 27
+  orig: 55, 27
   offset: 0, 0
   index: -1
 front-R-leg
-  rotate: true
-  xy: 536, 198
-  size: 67, 162
-  orig: 67, 162
+  rotate: false
+  xy: 388, 29
+  size: 34, 81
+  orig: 34, 81
   offset: 0, 0
   index: -1
 front-body
-  rotate: true
-  xy: 2, 11
-  size: 121, 189
-  orig: 121, 189
+  rotate: false
+  xy: 258, 15
+  size: 61, 95
+  orig: 61, 95
   offset: 0, 0
   index: -1
 front-brows
   rotate: false
-  xy: 731, 318
-  size: 109, 17
-  orig: 111, 19
-  offset: 1, 1
+  xy: 258, 3
+  size: 56, 10
+  orig: 56, 10
+  offset: 0, 0
   index: -1
 front-close-eyes
-  rotate: false
-  xy: 206, 122
-  size: 115, 29
-  orig: 115, 29
+  rotate: true
+  xy: 523, 52
+  size: 58, 15
+  orig: 58, 15
   offset: 0, 0
   index: -1
 front-eyes
   rotate: false
-  xy: 700, 212
-  size: 109, 26
-  orig: 111, 28
-  offset: 1, 1
+  xy: 321, 2
+  size: 56, 14
+  orig: 56, 14
+  offset: 0, 0
   index: -1
 front-head
-  rotate: false
-  xy: 2, 134
-  size: 202, 259
-  orig: 204, 261
-  offset: 1, 1
+  rotate: true
+  xy: 125, 8
+  size: 102, 131
+  orig: 102, 131
+  offset: 0, 0
   index: -1
 front-iris
   rotate: false
-  xy: 700, 186
-  size: 86, 24
-  orig: 88, 26
-  offset: 1, 1
+  xy: 660, 2
+  size: 44, 13
+  orig: 44, 13
+  offset: 0, 0
   index: -1
 front-mouth1
   rotate: false
-  xy: 711, 44
-  size: 65, 34
-  orig: 67, 36
-  offset: 1, 1
+  xy: 755, 68
+  size: 34, 18
+  orig: 34, 18
+  offset: 0, 0
   index: -1
 front-mouth2
   rotate: false
-  xy: 717, 9
-  size: 61, 33
-  orig: 63, 35
-  offset: 1, 1
+  xy: 706, 2
+  size: 32, 16
+  orig: 32, 18
+  offset: 0, 1
   index: -1
 front-mouth3
   rotate: true
-  xy: 802, 258
-  size: 58, 40
-  orig: 60, 42
-  offset: 1, 1
+  xy: 731, 37
+  size: 30, 21
+  orig: 30, 21
+  offset: 0, 0
   index: -1
 front-mouth4
-  rotate: false
-  xy: 765, 147
-  size: 48, 37
-  orig: 50, 39
-  offset: 1, 1
+  rotate: true
+  xy: 417, 2
+  size: 25, 20
+  orig: 25, 20
+  offset: 0, 0
   index: -1
 front-mouth5
   rotate: true
-  xy: 769, 81
-  size: 64, 32
-  orig: 66, 34
-  offset: 1, 1
+  xy: 740, 2
+  size: 33, 17
+  orig: 33, 17
+  offset: 0, 0
   index: -1
 front-ribbon
-  rotate: true
-  xy: 811, 209
-  size: 47, 23
-  orig: 47, 23
+  rotate: false
+  xy: 460, 34
+  size: 24, 12
+  orig: 24, 12
   offset: 0, 0
   index: -1
 front-sad-brows
-  rotate: false
-  xy: 610, 6
-  size: 105, 30
-  orig: 107, 32
-  offset: 1, 1
+  rotate: true
+  xy: 623, 56
+  size: 54, 16
+  orig: 54, 16
+  offset: 0, 0
   index: -1
 front-under-coat
   rotate: false
-  xy: 193, 22
-  size: 99, 98
-  orig: 99, 98
+  xy: 578, 2
+  size: 50, 49
+  orig: 50, 49
   offset: 0, 0
   index: -1

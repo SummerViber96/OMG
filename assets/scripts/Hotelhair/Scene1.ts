@@ -26,10 +26,10 @@ export default class NewClass extends cc.Component {
     tutHam: cc.Node = null
     @property(cc.AudioClip)
     soundPopUp: cc.AudioClip = null
-      @property(cc.AudioClip)
+    @property(cc.AudioClip)
     hairCut: cc.AudioClip = null
     @property(cc.AudioClip)
-    soundClick:cc.AudioClip=null
+    soundClick: cc.AudioClip = null
     start() {
         let self = this
         this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
@@ -63,11 +63,20 @@ export default class NewClass extends cc.Component {
         // cc.tween(this.camera.node).to(1.8, { position: cc.v3(0, -100) }).start()
         this.scheduleOnce(() => {
             this.listCard.active = true
+            this.scheduleOnce(() => {
+                if (this.isClickCard == false) {
+                    this.listCard.getChildByName("hand").active = true
+                }
+            }, 2)
             cc.audioEngine.play(this.soundPopUp, false, 1)
         }, 1)
     }
+    isClickCard = false
     btn_chooseCard(event, value) {
-        cc.audioEngine.play(this.soundClick,false,1)
+        this.isClickCard = true
+                    this.listCard.getChildByName("hand").active = false
+
+        cc.audioEngine.play(this.soundClick, false, 1)
         switch (value) {
             case "0":
                 this.listCard.active = false;

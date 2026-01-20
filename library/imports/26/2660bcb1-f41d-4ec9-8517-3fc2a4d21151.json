@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Back_hair (2) (1)",
+    "texture": "e956f79c-d906-41af-9888-b280d0d4945d",
+    "atlas": "",
+    "rect": [
+      48,
+      3,
+      439,
+      412
+    ],
+    "offset": [
+      -2.5,
+      1.5
+    ],
+    "originalSize": [
+      540,
+      421
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

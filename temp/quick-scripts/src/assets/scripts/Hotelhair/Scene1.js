@@ -42,6 +42,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.hairCut = null;
         _this.soundClick = null;
         _this.isTab = false;
+        _this.isClickCard = false;
         return _this;
         // update (dt) {}
     }
@@ -78,10 +79,17 @@ var NewClass = /** @class */ (function (_super) {
         // cc.tween(this.camera.node).to(1.8, { position: cc.v3(0, -100) }).start()
         this.scheduleOnce(function () {
             _this.listCard.active = true;
+            _this.scheduleOnce(function () {
+                if (_this.isClickCard == false) {
+                    _this.listCard.getChildByName("hand").active = true;
+                }
+            }, 2);
             cc.audioEngine.play(_this.soundPopUp, false, 1);
         }, 1);
     };
     NewClass.prototype.btn_chooseCard = function (event, value) {
+        this.isClickCard = true;
+        this.listCard.getChildByName("hand").active = false;
         cc.audioEngine.play(this.soundClick, false, 1);
         switch (value) {
             case "0":

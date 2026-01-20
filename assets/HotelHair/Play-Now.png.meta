@@ -11,18 +11,18 @@
   "height": 231,
   "platformSettings": {},
   "subMetas": {
-    "Play-Now": {
+    "play-now": {
       "ver": "1.0.4",
       "uuid": "a0f4e0fa-5451-4e01-a720-e6c35789e827",
       "rawTextureUuid": "155eb062-0bd3-4254-b7e5-a412ffc620fc",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
-      "offsetX": 0,
+      "offsetX": 0.5,
       "offsetY": 0,
-      "trimX": 0,
+      "trimX": 1,
       "trimY": 0,
-      "width": 854,
+      "width": 853,
       "height": 231,
       "rawWidth": 854,
       "rawHeight": 231,

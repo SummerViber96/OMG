@@ -1,353 +1,118 @@
 
 xabong.png
-size: 1000, 892
+size: 1464, 408
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
 dressing_00066
   rotate: false
-  xy: 2, 823
-  size: 64, 64
-  orig: 1344, 1344
-  offset: 545, 549
+  xy: 1429, 183
+  size: 28, 28
+  orig: 576, 576
+  offset: 233, 235
   index: -1
 dressing_00067
-  rotate: true
-  xy: 68, 757
-  size: 130, 442
-  orig: 1344, 1344
-  offset: 509, 549
+  rotate: false
+  xy: 1403, 213
+  size: 56, 190
+  orig: 576, 576
+  offset: 218, 235
   index: -1
 dressing_00068
   rotate: false
-  xy: 2, 313
-  size: 460, 442
-  orig: 1344, 1344
-  offset: 432, 549
+  xy: 1229, 3
+  size: 198, 190
+  orig: 576, 576
+  offset: 185, 235
   index: -1
 dressing_00069
   rotate: false
-  xy: 464, 2
-  size: 486, 442
-  orig: 1344, 1344
-  offset: 432, 549
+  xy: 2, 3
+  size: 209, 190
+  orig: 576, 576
+  offset: 185, 235
   index: -1
-dressing_00074
-  rotate: false
-  xy: 512, 446
-  size: 486, 441
-  orig: 1344, 1344
-  offset: 431, 550
-  index: -1
-
-xabong_2.png
-size: 980, 892
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
 dressing_00070
   rotate: false
-  xy: 2, 446
-  size: 486, 442
-  orig: 1344, 1344
-  offset: 432, 549
+  xy: 213, 3
+  size: 209, 190
+  orig: 576, 576
+  offset: 185, 235
   index: -1
 dressing_00071
-  rotate: false
-  xy: 490, 446
-  size: 486, 442
-  orig: 1344, 1344
-  offset: 432, 549
+  rotate: true
+  xy: 827, 3
+  size: 208, 190
+  orig: 576, 576
+  offset: 185, 235
   index: -1
 dressing_00072
-  rotate: false
-  xy: 2, 2
-  size: 485, 442
-  orig: 1344, 1344
-  offset: 432, 549
+  rotate: true
+  xy: 1019, 195
+  size: 208, 190
+  orig: 576, 576
+  offset: 185, 235
   index: -1
 dressing_00073
   rotate: false
-  xy: 489, 2
-  size: 486, 442
-  orig: 1344, 1344
-  offset: 431, 549
+  xy: 1019, 3
+  size: 208, 190
+  orig: 576, 576
+  offset: 185, 235
   index: -1
-
-xabong_3.png
-size: 980, 892
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
+dressing_00074
+  rotate: false
+  xy: 424, 3
+  size: 209, 190
+  orig: 576, 576
+  offset: 184, 235
+  index: -1
 dressing_00075
   rotate: false
-  xy: 2, 448
-  size: 486, 442
-  orig: 1344, 1344
-  offset: 431, 549
+  xy: 597, 213
+  size: 209, 190
+  orig: 576, 576
+  offset: 184, 235
   index: -1
 dressing_00076
-  rotate: false
-  xy: 490, 447
-  size: 486, 443
-  orig: 1344, 1344
-  offset: 430, 549
+  rotate: true
+  xy: 635, 2
+  size: 209, 190
+  orig: 576, 576
+  offset: 184, 235
   index: -1
 dressing_00077
   rotate: false
-  xy: 2, 3
-  size: 486, 443
-  orig: 1344, 1344
-  offset: 430, 549
+  xy: 808, 213
+  size: 209, 190
+  orig: 576, 576
+  offset: 184, 235
   index: -1
 dressing_00078
-  rotate: false
-  xy: 490, 2
-  size: 485, 443
-  orig: 1344, 1344
-  offset: 430, 549
+  rotate: true
+  xy: 1211, 195
+  size: 208, 190
+  orig: 576, 576
+  offset: 184, 235
   index: -1
-
-xabong_4.png
-size: 1008, 920
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
-dressing_00082
-  rotate: false
-  xy: 518, 460
-  size: 485, 456
-  orig: 1344, 1344
-  offset: 428, 535
+dressing_00079
+  rotate: true
+  xy: 2, 195
+  size: 208, 197
+  orig: 576, 576
+  offset: 184, 228
   index: -1
-dressing_00083
-  rotate: false
-  xy: 518, 2
-  size: 484, 456
-  orig: 1344, 1344
-  offset: 428, 535
-  index: -1
-dressing_00091
-  rotate: false
-  xy: 2, 463
-  size: 514, 453
-  orig: 1344, 1344
-  offset: 425, 538
-  index: -1
-dressing_00093
-  rotate: false
-  xy: 2, 8
-  size: 514, 453
-  orig: 1344, 1344
-  offset: 424, 537
-  index: -1
-
-xabong_5.png
-size: 1008, 920
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
 dressing_00080
-  rotate: false
-  xy: 519, 461
-  size: 485, 457
-  orig: 1344, 1344
-  offset: 429, 534
+  rotate: true
+  xy: 201, 195
+  size: 208, 196
+  orig: 576, 576
+  offset: 184, 229
   index: -1
 dressing_00081
-  rotate: false
-  xy: 518, 2
-  size: 484, 457
-  orig: 1344, 1344
-  offset: 429, 534
-  index: -1
-dressing_00092
-  rotate: false
-  xy: 2, 465
-  size: 515, 453
-  orig: 1344, 1344
-  offset: 424, 537
-  index: -1
-dressing_00094
-  rotate: false
-  xy: 2, 10
-  size: 514, 453
-  orig: 1344, 1344
-  offset: 424, 537
-  index: -1
-
-xabong_6.png
-size: 1024, 928
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
-dressing_00079
-  rotate: false
-  xy: 518, 464
-  size: 484, 459
-  orig: 1344, 1344
-  offset: 430, 533
-  index: -1
-dressing_00085
-  rotate: false
-  xy: 2, 14
-  size: 514, 454
-  orig: 1344, 1344
-  offset: 427, 537
-  index: -1
-dressing_00095
-  rotate: false
-  xy: 2, 470
-  size: 514, 453
-  orig: 1344, 1344
-  offset: 423, 537
-  index: -1
-dressing_00106
-  rotate: false
-  xy: 518, 2
-  size: 504, 460
-  orig: 1344, 1344
-  offset: 424, 530
-  index: -1
-
-xabong_7.png
-size: 976, 916
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
-dressing_00084
-  rotate: false
-  xy: 2, 458
-  size: 515, 455
-  orig: 1344, 1344
-  offset: 427, 536
-  index: -1
-dressing_00086
   rotate: true
-  xy: 519, 397
-  size: 516, 454
-  orig: 1344, 1344
-  offset: 426, 537
-  index: -1
-dressing_00087
-  rotate: false
-  xy: 2, 2
-  size: 515, 454
-  orig: 1344, 1344
-  offset: 426, 537
-  index: -1
-
-xabong_8.png
-size: 976, 916
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
-dressing_00088
-  rotate: false
-  xy: 2, 458
-  size: 515, 454
-  orig: 1344, 1344
-  offset: 426, 537
-  index: -1
-dressing_00089
-  rotate: false
-  xy: 2, 2
-  size: 515, 454
-  orig: 1344, 1344
-  offset: 425, 537
-  index: -1
-dressing_00090
-  rotate: true
-  xy: 519, 397
-  size: 515, 454
-  orig: 1344, 1344
-  offset: 425, 537
-  index: -1
-
-xabong_9.png
-size: 980, 972
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
-dressing_00096
-  rotate: false
-  xy: 2, 516
-  size: 513, 454
-  orig: 1344, 1344
-  offset: 423, 536
-  index: -1
-dressing_00097
-  rotate: true
-  xy: 2, 2
-  size: 512, 455
-  orig: 1344, 1344
-  offset: 423, 535
-  index: -1
-dressing_00098
-  rotate: false
-  xy: 459, 6
-  size: 512, 455
-  orig: 1344, 1344
-  offset: 423, 535
-  index: -1
-dressing_00104
-  rotate: true
-  xy: 517, 463
-  size: 507, 459
-  orig: 1344, 1344
-  offset: 423, 531
-  index: -1
-
-xabong_10.png
-size: 1024, 924
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
-dressing_00099
-  rotate: false
-  xy: 2, 6
-  size: 510, 455
-  orig: 1344, 1344
-  offset: 423, 535
-  index: -1
-dressing_00100
-  rotate: false
-  xy: 2, 463
-  size: 510, 456
-  orig: 1344, 1344
-  offset: 423, 534
-  index: -1
-dressing_00102
-  rotate: false
-  xy: 514, 462
-  size: 508, 457
-  orig: 1344, 1344
-  offset: 423, 533
-  index: -1
-dressing_00103
-  rotate: false
-  xy: 514, 2
-  size: 507, 458
-  orig: 1344, 1344
-  offset: 423, 532
-  index: -1
-
-xabong_11.png
-size: 924, 516
-format: RGBA8888
-filter: Linear, Linear
-repeat: none
-dressing_00101
-  rotate: true
-  xy: 2, 2
-  size: 509, 457
-  orig: 1344, 1344
-  offset: 423, 533
-  index: -1
-dressing_00105
-  rotate: true
-  xy: 461, 6
-  size: 505, 459
-  orig: 1344, 1344
-  offset: 424, 531
+  xy: 399, 195
+  size: 208, 196
+  orig: 576, 576
+  offset: 184, 229
   index: -1

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "nuibot",
+    "texture": "b12d99f1-12db-40b4-86b9-a1b95a3fa20f",
+    "atlas": "",
+    "rect": [
+      0,
+      55,
+      1024,
+      969
+    ],
+    "offset": [
+      0,
+      -27.5
+    ],
+    "originalSize": [
+      1024,
+      1024
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

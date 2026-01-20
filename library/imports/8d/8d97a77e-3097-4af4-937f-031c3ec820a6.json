@@ -5,8 +5,8 @@
   "_native": "",
   "_skeletonJson": {
     "skeleton": {
-      "hash": "IHF7XNZ13CQ",
-      "spine": "3.8-from-4.0-from-4.1-from-4.2-from-4.3.39-beta",
+      "hash": "Ww7duVFwL4Q",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2.32",
       "x": -960,
       "y": -960,
       "width": 1920,
@@ -15,27 +15,28 @@
     "bones": [
       {
         "name": "root",
-        "scaleX": 0.3,
-        "scaleY": 0.3
+        "scaleX": 0.5,
+        "scaleY": 0.5
       }
     ],
     "slots": [
       {
-        "name": "girl",
+        "name": "anim",
         "bone": "root",
-        "attachment": "dressing_00215"
+        "attachment": "dressing_00228"
       }
     ],
     "skins": [
       {
         "name": "default",
         "attachments": {
-          "girl": {
+          "anim": {
             "dressing_00215": {
               "width": 1920,
               "height": 1920
             },
             "dressing_00216": {
+              "path": "dressing_00215",
               "width": 1920,
               "height": 1920
             },
@@ -44,6 +45,7 @@
               "height": 1920
             },
             "dressing_00218": {
+              "path": "dressing_00217",
               "width": 1920,
               "height": 1920
             },
@@ -52,6 +54,7 @@
               "height": 1920
             },
             "dressing_00220": {
+              "path": "dressing_00219",
               "width": 1920,
               "height": 1920
             },
@@ -60,6 +63,7 @@
               "height": 1920
             },
             "dressing_00222": {
+              "path": "dressing_00221",
               "width": 1920,
               "height": 1920
             },
@@ -68,6 +72,7 @@
               "height": 1920
             },
             "dressing_00224": {
+              "path": "dressing_00223",
               "width": 1920,
               "height": 1920
             },
@@ -76,6 +81,7 @@
               "height": 1920
             },
             "dressing_00226": {
+              "path": "dressing_00225",
               "width": 1920,
               "height": 1920
             },
@@ -84,6 +90,7 @@
               "height": 1920
             },
             "dressing_00228": {
+              "path": "dressing_00227",
               "width": 1920,
               "height": 1920
             },
@@ -91,11 +98,15 @@
               "width": 1920,
               "height": 1920
             },
-            "dressing_00230": {
+            "dressing_00231": {
               "width": 1920,
               "height": 1920
             },
-            "dressing_00231": {
+            "dressing_00233": {
+              "width": 1920,
+              "height": 1920
+            },
+            "dressing_00235": {
               "width": 1920,
               "height": 1920
             }
@@ -104,40 +115,43 @@
       }
     ],
     "animations": {
-      "idle": {
+      "animation": {
         "slots": {
-          "girl": {
+          "anim": {
             "attachment": [
               {
-                "time": 0.033333335,
+                "name": "dressing_00215"
+              },
+              {
+                "time": 0.0333,
                 "name": "dressing_00216"
               },
               {
-                "time": 0.06666667,
+                "time": 0.0667,
                 "name": "dressing_00217"
               },
               {
-                "time": 0.10000001,
+                "time": 0.1,
                 "name": "dressing_00218"
               },
               {
-                "time": 0.13333334,
+                "time": 0.1333,
                 "name": "dressing_00219"
               },
               {
-                "time": 0.16666667,
+                "time": 0.1667,
                 "name": "dressing_00220"
               },
               {
-                "time": 0.20000002,
+                "time": 0.2,
                 "name": "dressing_00221"
               },
               {
-                "time": 0.23333335,
+                "time": 0.2333,
                 "name": "dressing_00222"
               },
               {
-                "time": 0.26666668,
+                "time": 0.2667,
                 "name": "dressing_00223"
               },
               {
@@ -145,32 +159,36 @@
                 "name": "dressing_00224"
               },
               {
-                "time": 0.33333334,
+                "time": 0.3333,
                 "name": "dressing_00225"
               },
               {
-                "time": 0.36666667,
+                "time": 0.3667,
                 "name": "dressing_00226"
               },
               {
-                "time": 0.40000004,
+                "time": 0.4,
                 "name": "dressing_00227"
               },
               {
-                "time": 0.43333337,
+                "time": 0.4333,
                 "name": "dressing_00228"
               },
               {
-                "time": 0.4666667,
+                "time": 0.4667,
                 "name": "dressing_00229"
               },
               {
                 "time": 0.5,
-                "name": "dressing_00230"
+                "name": "dressing_00231"
               },
               {
-                "time": 0.53333336,
-                "name": "dressing_00231"
+                "time": 0.5333,
+                "name": "dressing_00233"
+              },
+              {
+                "time": 0.5667,
+                "name": "dressing_00235"
               }
             ]
           }
@@ -178,7 +196,7 @@
       }
     }
   },
-  "_atlasText": "\ngirl_saytoc.png\nsize: 2016, 1244\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00215\n  rotate: false\n  xy: 635, 358\n  size: 310, 440\n  orig: 576, 576\n  offset: 132, 51\n  index: -1\ndressing_00216\n  rotate: false\n  xy: 319, 800\n  size: 314, 442\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00217\n  rotate: false\n  xy: 2, 800\n  size: 315, 442\n  orig: 576, 576\n  offset: 130, 51\n  index: -1\ndressing_00218\n  rotate: true\n  xy: 1573, 935\n  size: 307, 439\n  orig: 576, 576\n  offset: 134, 51\n  index: -1\ndressing_00219\n  rotate: true\n  xy: 1573, 624\n  size: 309, 438\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00220\n  rotate: true\n  xy: 890, 46\n  size: 310, 440\n  orig: 576, 576\n  offset: 132, 51\n  index: -1\ndressing_00221\n  rotate: false\n  xy: 319, 356\n  size: 314, 442\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00222\n  rotate: false\n  xy: 2, 356\n  size: 315, 442\n  orig: 576, 576\n  offset: 130, 51\n  index: -1\ndressing_00223\n  rotate: false\n  xy: 1259, 361\n  size: 308, 439\n  orig: 576, 576\n  offset: 134, 51\n  index: -1\ndressing_00224\n  rotate: true\n  xy: 1569, 313\n  size: 309, 438\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00225\n  rotate: false\n  xy: 947, 358\n  size: 310, 440\n  orig: 576, 576\n  offset: 132, 51\n  index: -1\ndressing_00226\n  rotate: true\n  xy: 446, 40\n  size: 314, 442\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00227\n  rotate: true\n  xy: 2, 39\n  size: 315, 442\n  orig: 576, 576\n  offset: 130, 51\n  index: -1\ndressing_00228\n  rotate: false\n  xy: 1263, 803\n  size: 308, 439\n  orig: 576, 576\n  offset: 134, 51\n  index: -1\ndressing_00229\n  rotate: true\n  xy: 1332, 2\n  size: 309, 438\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\ndressing_00230\n  rotate: false\n  xy: 951, 802\n  size: 310, 440\n  orig: 576, 576\n  offset: 132, 51\n  index: -1\ndressing_00231\n  rotate: false\n  xy: 635, 800\n  size: 314, 442\n  orig: 576, 576\n  offset: 131, 51\n  index: -1\n",
+  "_atlasText": "\ngirl_saytoc.png\nsize: 1420, 784\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\ndressing_00215\n  rotate: false\n  xy: 531, 413\n  size: 259, 366\n  orig: 480, 480\n  offset: 110, 43\n  index: -1\ndressing_00217\n  rotate: false\n  xy: 2, 411\n  size: 263, 368\n  orig: 480, 480\n  offset: 108, 43\n  index: -1\ndressing_00219\n  rotate: false\n  xy: 1160, 415\n  size: 258, 364\n  orig: 480, 480\n  offset: 109, 43\n  index: -1\ndressing_00221\n  rotate: false\n  xy: 267, 411\n  size: 262, 368\n  orig: 480, 480\n  offset: 109, 43\n  index: -1\ndressing_00223\n  rotate: true\n  xy: 792, 261\n  size: 257, 366\n  orig: 480, 480\n  offset: 111, 43\n  index: -1\ndressing_00225\n  rotate: false\n  xy: 531, 45\n  size: 259, 366\n  orig: 480, 480\n  offset: 110, 43\n  index: -1\ndressing_00227\n  rotate: false\n  xy: 2, 41\n  size: 263, 368\n  orig: 480, 480\n  offset: 108, 43\n  index: -1\ndressing_00229\n  rotate: false\n  xy: 1160, 49\n  size: 258, 364\n  orig: 480, 480\n  offset: 109, 43\n  index: -1\ndressing_00231\n  rotate: false\n  xy: 267, 41\n  size: 262, 368\n  orig: 480, 480\n  offset: 109, 43\n  index: -1\ndressing_00233\n  rotate: true\n  xy: 792, 2\n  size: 257, 366\n  orig: 480, 480\n  offset: 111, 43\n  index: -1\ndressing_00235\n  rotate: true\n  xy: 792, 520\n  size: 259, 366\n  orig: 480, 480\n  offset: 110, 43\n  index: -1\n",
   "textures": [
     {
       "__uuid__": "0fcf19e6-8561-4ea6-91fb-7cc108be7a03"

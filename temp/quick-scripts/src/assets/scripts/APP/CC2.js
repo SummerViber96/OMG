@@ -130,7 +130,7 @@ var NewClass = /** @class */ (function (_super) {
                 if (_this.isunlock)
                     return;
                 _this.handScene21.active = true;
-            }, 1);
+            }, 2);
         }).start();
     };
     NewClass.prototype.giveCoin = function () {
@@ -174,7 +174,11 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isunlock)
             return;
         cc.audioEngine.play(this.soundUnlock, false, 1);
-        globalThis.coin -= 350;
+        for (var i = 0; i < 35; i++) {
+            this.scheduleOnce(function () {
+                globalThis.coin -= 10;
+            }, 0.02 * i);
+        }
         this.handScene21.active = false;
         this.isunlock = true;
         this.btnUnlock.active = false;
@@ -263,6 +267,11 @@ var NewClass = /** @class */ (function (_super) {
             _this.scene3.active = true;
             cc.tween(_this.scene3).to(0.3, { opacity: 255 }).start();
             _this.barCoin.active = false;
+            _this.scheduleOnce(function () {
+                if (_this.isStep == 0) {
+                    _this.listHand.children[0].active = true;
+                }
+            }, 2.3);
         }, 1.3);
     };
     NewClass.prototype.checkOnFloor = function (localPos) {
@@ -298,12 +307,12 @@ var NewClass = /** @class */ (function (_super) {
             }
             else {
                 _this.charDress.setAnimation(0, "Boil", true);
-                _this.xabong.setAnimation(0, "show", false);
+                _this.xabong.setAnimation(0, "animation", false);
             }
         }, 0.4);
         this.checkEnd();
         this.unschedule(this.checkHindGame);
-        this.scheduleOnce(this.checkHindGame, 3);
+        this.scheduleOnce(this.checkHindGame, 4);
     };
     NewClass.prototype.btn_tam = function () {
         var _this = this;
@@ -332,7 +341,7 @@ var NewClass = /** @class */ (function (_super) {
         }, 1);
         this.checkEnd();
         this.unschedule(this.checkHindGame);
-        this.scheduleOnce(this.checkHindGame, 3);
+        this.scheduleOnce(this.checkHindGame, 4);
     };
     NewClass.prototype.btn_saytoc = function () {
         var _this = this;
@@ -365,7 +374,7 @@ var NewClass = /** @class */ (function (_super) {
             _this.charDressManager.children[1].active = true;
         }, 2.3);
         this.unschedule(this.checkHindGame);
-        this.scheduleOnce(this.checkHindGame, 3);
+        this.scheduleOnce(this.checkHindGame, 4);
         this.checkEnd();
     };
     NewClass.prototype.checkHindGame = function () {

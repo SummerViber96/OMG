@@ -150,7 +150,7 @@ export default class NewClass extends cc.Component {
             this.scheduleOnce(() => {
                 if (this.isunlock) return;
                 this.handScene21.active = true;
-            }, 1)
+            }, 2)
         }).start()
     }
     giveCoin() {
@@ -199,8 +199,12 @@ export default class NewClass extends cc.Component {
     btn_unlock() {
         if (this.isunlock) return;
         cc.audioEngine.play(this.soundUnlock, false, 1)
+        for (let i = 0; i < 35; i++) {
+            this.scheduleOnce(() => {
+                globalThis.coin -= 10
 
-        globalThis.coin -= 350
+            }, 0.02 * i)
+        }
         this.handScene21.active = false
         this.isunlock = true
         this.btnUnlock.active = false;
@@ -301,6 +305,12 @@ export default class NewClass extends cc.Component {
             this.scene3.active = true;
             cc.tween(this.scene3).to(0.3, { opacity: 255 }).start()
             this.barCoin.active = false
+            this.scheduleOnce(() => {
+                if (this.isStep == 0) {
+                    this.listHand.children[0].active = true
+                }
+
+            }, 2.3)
         }, 1.3)
     }
     checkOnFloor(localPos) {
@@ -337,13 +347,13 @@ export default class NewClass extends cc.Component {
             }
             else {
                 this.charDress.setAnimation(0, "Boil", true);
-                this.xabong.setAnimation(0, "show", false)
+                this.xabong.setAnimation(0, "animation", false)
             }
 
         }, 0.4)
         this.checkEnd()
         this.unschedule(this.checkHindGame)
-        this.scheduleOnce(this.checkHindGame, 3)
+        this.scheduleOnce(this.checkHindGame, 4)
 
     }
     btn_tam() {
@@ -377,7 +387,7 @@ export default class NewClass extends cc.Component {
         }, 1)
         this.checkEnd()
         this.unschedule(this.checkHindGame)
-        this.scheduleOnce(this.checkHindGame, 3)
+        this.scheduleOnce(this.checkHindGame, 4)
     }
     btn_saytoc() {
         if (this.isStep! - 2) {
@@ -416,7 +426,7 @@ export default class NewClass extends cc.Component {
 
         }, 2.3)
         this.unschedule(this.checkHindGame)
-        this.scheduleOnce(this.checkHindGame, 3)
+        this.scheduleOnce(this.checkHindGame, 4)
 
         this.checkEnd()
 

@@ -49,14 +49,21 @@ export default class Scratch_ticket extends cc.Component {
     let point = this.ticketNode.convertToNodeSpaceAR(pos);
     this.clearMask(point);
     this.ham.active = true
+    cc.audioEngine.stop(this.isIdCao)
+    this.isIdCao = cc.audioEngine.play(this.soundCao, false, 2)
+    this.isDelaySound = true;
+    this.scheduleOnce(() => {
+      this.isDelaySound = false
+    }, 0.2)
     // this.gamePlay.handSwipe.active = false;
     // this.gamePlay.handSwipe2.active = false;
   }
   isDelaySound = false
+  isIdCao = null
   touchMoveEvent(event) {
     if (!this.isDelaySound) {
       this.isDelaySound = true;
-      cc.audioEngine.play(this.soundCao,false,1)
+      cc.audioEngine.play(this.soundCao, false, 2)
       this.scheduleOnce(() => {
         this.isDelaySound = false
       }, 0.1)

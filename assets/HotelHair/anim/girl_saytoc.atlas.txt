@@ -1,125 +1,83 @@
 
 girl_saytoc.png
-size: 2016, 1244
+size: 1420, 784
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
 dressing_00215
   rotate: false
-  xy: 635, 358
-  size: 310, 440
-  orig: 576, 576
-  offset: 132, 51
-  index: -1
-dressing_00216
-  rotate: false
-  xy: 319, 800
-  size: 314, 442
-  orig: 576, 576
-  offset: 131, 51
+  xy: 531, 413
+  size: 259, 366
+  orig: 480, 480
+  offset: 110, 43
   index: -1
 dressing_00217
   rotate: false
-  xy: 2, 800
-  size: 315, 442
-  orig: 576, 576
-  offset: 130, 51
-  index: -1
-dressing_00218
-  rotate: true
-  xy: 1573, 935
-  size: 307, 439
-  orig: 576, 576
-  offset: 134, 51
+  xy: 2, 411
+  size: 263, 368
+  orig: 480, 480
+  offset: 108, 43
   index: -1
 dressing_00219
-  rotate: true
-  xy: 1573, 624
-  size: 309, 438
-  orig: 576, 576
-  offset: 131, 51
-  index: -1
-dressing_00220
-  rotate: true
-  xy: 890, 46
-  size: 310, 440
-  orig: 576, 576
-  offset: 132, 51
+  rotate: false
+  xy: 1160, 415
+  size: 258, 364
+  orig: 480, 480
+  offset: 109, 43
   index: -1
 dressing_00221
   rotate: false
-  xy: 319, 356
-  size: 314, 442
-  orig: 576, 576
-  offset: 131, 51
-  index: -1
-dressing_00222
-  rotate: false
-  xy: 2, 356
-  size: 315, 442
-  orig: 576, 576
-  offset: 130, 51
+  xy: 267, 411
+  size: 262, 368
+  orig: 480, 480
+  offset: 109, 43
   index: -1
 dressing_00223
-  rotate: false
-  xy: 1259, 361
-  size: 308, 439
-  orig: 576, 576
-  offset: 134, 51
-  index: -1
-dressing_00224
   rotate: true
-  xy: 1569, 313
-  size: 309, 438
-  orig: 576, 576
-  offset: 131, 51
+  xy: 792, 261
+  size: 257, 366
+  orig: 480, 480
+  offset: 111, 43
   index: -1
 dressing_00225
   rotate: false
-  xy: 947, 358
-  size: 310, 440
-  orig: 576, 576
-  offset: 132, 51
-  index: -1
-dressing_00226
-  rotate: true
-  xy: 446, 40
-  size: 314, 442
-  orig: 576, 576
-  offset: 131, 51
+  xy: 531, 45
+  size: 259, 366
+  orig: 480, 480
+  offset: 110, 43
   index: -1
 dressing_00227
-  rotate: true
-  xy: 2, 39
-  size: 315, 442
-  orig: 576, 576
-  offset: 130, 51
-  index: -1
-dressing_00228
   rotate: false
-  xy: 1263, 803
-  size: 308, 439
-  orig: 576, 576
-  offset: 134, 51
+  xy: 2, 41
+  size: 263, 368
+  orig: 480, 480
+  offset: 108, 43
   index: -1
 dressing_00229
-  rotate: true
-  xy: 1332, 2
-  size: 309, 438
-  orig: 576, 576
-  offset: 131, 51
-  index: -1
-dressing_00230
   rotate: false
-  xy: 951, 802
-  size: 310, 440
-  orig: 576, 576
-  offset: 132, 51
+  xy: 1160, 49
+  size: 258, 364
+  orig: 480, 480
+  offset: 109, 43
   index: -1
 dressing_00231
   rotate: false
-  xy: 635, 800
-  size: 314, 442
-  orig: 576, 576
-  offset: 131, 51
+  xy: 267, 41
+  size: 262, 368
+  orig: 480, 480
+  offset: 109, 43
+  index: -1
+dressing_00233
+  rotate: true
+  xy: 792, 2
+  size: 257, 366
+  orig: 480, 480
+  offset: 111, 43
+  index: -1
+dressing_00235
+  rotate: true
+  xy: 792, 520
+  size: 259, 366
+  orig: 480, 480
+  offset: 110, 43
   index: -1

@@ -1,58 +1,61 @@
 {
-"skeleton": { "hash": "IHF7XNZ13CQ", "spine": "3.8-from-4.0-from-4.1-from-4.2-from-4.3.39-beta", "x": -960, "y": -960, "width": 1920, "height": 1920 },
+"skeleton": { "hash": "Ww7duVFwL4Q", "spine": "3.8-from-4.0-from-4.1-from-4.2.32", "x": -960, "y": -960, "width": 1920, "height": 1920 },
 "bones": [
-	{ "name": "root", "scaleX": 0.3, "scaleY": 0.3 }
+	{ "name": "root", "scaleX": 0.5, "scaleY": 0.5 }
 ],
 "slots": [
-	{ "name": "girl", "bone": "root", "attachment": "dressing_00215" }
+	{ "name": "anim", "bone": "root", "attachment": "dressing_00228" }
 ],
 "skins": [
 	{
 		"name": "default",
 		"attachments": {
-			"girl": {
+			"anim": {
 				"dressing_00215": { "width": 1920, "height": 1920 },
-				"dressing_00216": { "width": 1920, "height": 1920 },
+				"dressing_00216": { "path": "dressing_00215", "width": 1920, "height": 1920 },
 				"dressing_00217": { "width": 1920, "height": 1920 },
-				"dressing_00218": { "width": 1920, "height": 1920 },
+				"dressing_00218": { "path": "dressing_00217", "width": 1920, "height": 1920 },
 				"dressing_00219": { "width": 1920, "height": 1920 },
-				"dressing_00220": { "width": 1920, "height": 1920 },
+				"dressing_00220": { "path": "dressing_00219", "width": 1920, "height": 1920 },
 				"dressing_00221": { "width": 1920, "height": 1920 },
-				"dressing_00222": { "width": 1920, "height": 1920 },
+				"dressing_00222": { "path": "dressing_00221", "width": 1920, "height": 1920 },
 				"dressing_00223": { "width": 1920, "height": 1920 },
-				"dressing_00224": { "width": 1920, "height": 1920 },
+				"dressing_00224": { "path": "dressing_00223", "width": 1920, "height": 1920 },
 				"dressing_00225": { "width": 1920, "height": 1920 },
-				"dressing_00226": { "width": 1920, "height": 1920 },
+				"dressing_00226": { "path": "dressing_00225", "width": 1920, "height": 1920 },
 				"dressing_00227": { "width": 1920, "height": 1920 },
-				"dressing_00228": { "width": 1920, "height": 1920 },
+				"dressing_00228": { "path": "dressing_00227", "width": 1920, "height": 1920 },
 				"dressing_00229": { "width": 1920, "height": 1920 },
-				"dressing_00230": { "width": 1920, "height": 1920 },
-				"dressing_00231": { "width": 1920, "height": 1920 }
+				"dressing_00231": { "width": 1920, "height": 1920 },
+				"dressing_00233": { "width": 1920, "height": 1920 },
+				"dressing_00235": { "width": 1920, "height": 1920 }
 			}
 		}
 	}
 ],
 "animations": {
-	"idle": {
+	"animation": {
 		"slots": {
-			"girl": {
+			"anim": {
 				"attachment": [
-					{ "time": 0.033333335, "name": "dressing_00216" },
-					{ "time": 0.06666667, "name": "dressing_00217" },
-					{ "time": 0.10000001, "name": "dressing_00218" },
-					{ "time": 0.13333334, "name": "dressing_00219" },
-					{ "time": 0.16666667, "name": "dressing_00220" },
-					{ "time": 0.20000002, "name": "dressing_00221" },
-					{ "time": 0.23333335, "name": "dressing_00222" },
-					{ "time": 0.26666668, "name": "dressing_00223" },
+					{ "name": "dressing_00215" },
+					{ "time": 0.0333, "name": "dressing_00216" },
+					{ "time": 0.0667, "name": "dressing_00217" },
+					{ "time": 0.1, "name": "dressing_00218" },
+					{ "time": 0.1333, "name": "dressing_00219" },
+					{ "time": 0.1667, "name": "dressing_00220" },
+					{ "time": 0.2, "name": "dressing_00221" },
+					{ "time": 0.2333, "name": "dressing_00222" },
+					{ "time": 0.2667, "name": "dressing_00223" },
 					{ "time": 0.3, "name": "dressing_00224" },
-					{ "time": 0.33333334, "name": "dressing_00225" },
-					{ "time": 0.36666667, "name": "dressing_00226" },
-					{ "time": 0.40000004, "name": "dressing_00227" },
-					{ "time": 0.43333337, "name": "dressing_00228" },
-					{ "time": 0.4666667, "name": "dressing_00229" },
-					{ "time": 0.5, "name": "dressing_00230" },
-					{ "time": 0.53333336, "name": "dressing_00231" }
+					{ "time": 0.3333, "name": "dressing_00225" },
+					{ "time": 0.3667, "name": "dressing_00226" },
+					{ "time": 0.4, "name": "dressing_00227" },
+					{ "time": 0.4333, "name": "dressing_00228" },
+					{ "time": 0.4667, "name": "dressing_00229" },
+					{ "time": 0.5, "name": "dressing_00231" },
+					{ "time": 0.5333, "name": "dressing_00233" },
+					{ "time": 0.5667, "name": "dressing_00235" }
 				]
 			}
 		}

@@ -1,244 +1,244 @@
 
 3.png
-size: 488, 520
+size: 428,304
 format: RGBA8888
-filter: Linear, Linear
+filter: Linear,Linear
 repeat: none
 close-eyes
   rotate: false
-  xy: 314, 9
-  size: 103, 31
-  orig: 104, 32
-  offset: 1, 0
+  xy: 329, 88
+  size: 75, 23
+  orig: 75, 23
+  offset: 0, 0
   index: -1
 eyebrow1
   rotate: false
-  xy: 310, 383
-  size: 34, 13
-  orig: 34, 13
+  xy: 74, 14
+  size: 25, 10
+  orig: 25, 10
   offset: 0, 0
   index: -1
 eyebrow2
   rotate: false
-  xy: 80, 2
-  size: 25, 14
-  orig: 25, 14
+  xy: 74, 2
+  size: 18, 10
+  orig: 18, 10
   offset: 0, 0
   index: -1
 eyes
   rotate: false
-  xy: 272, 278
-  size: 97, 24
-  orig: 97, 24
+  xy: 2, 7
+  size: 70, 17
+  orig: 70, 17
   offset: 0, 0
   index: -1
 iris
-  rotate: true
-  xy: 165, 5
-  size: 75, 21
-  orig: 75, 21
+  rotate: false
+  xy: 329, 71
+  size: 54, 15
+  orig: 54, 15
   offset: 0, 0
   index: -1
 mouth
   rotate: false
-  xy: 412, 315
-  size: 41, 15
-  orig: 41, 15
+  xy: 101, 133
+  size: 30, 11
+  orig: 30, 11
   offset: 0, 0
   index: -1
 mouth-angry
   rotate: false
-  xy: 437, 63
-  size: 45, 24
-  orig: 46, 25
-  offset: 1, 1
+  xy: 374, 9
+  size: 33, 18
+  orig: 33, 18
+  offset: 0, 0
   index: -1
 mouth-haha
   rotate: false
-  xy: 371, 279
-  size: 50, 29
-  orig: 50, 29
+  xy: 245, 2
+  size: 36, 21
+  orig: 36, 21
   offset: 0, 0
   index: -1
 mouth-hehe
-  rotate: true
-  xy: 455, 280
-  size: 50, 24
-  orig: 50, 24
+  rotate: false
+  xy: 322, 52
+  size: 36, 17
+  orig: 36, 17
   offset: 0, 0
   index: -1
 mouth-talking1
-  rotate: true
-  xy: 188, 38
-  size: 42, 30
-  orig: 42, 30
+  rotate: false
+  xy: 374, 29
+  size: 30, 22
+  orig: 30, 22
   offset: 0, 0
   index: -1
 mouth-talking2
-  rotate: true
-  xy: 455, 184
-  size: 24, 22
-  orig: 24, 22
+  rotate: false
+  xy: 409, 62
+  size: 17, 16
+  orig: 17, 16
   offset: 0, 0
   index: -1
 skin-beach/arm
   rotate: false
-  xy: 371, 310
-  size: 39, 86
-  orig: 39, 86
+  xy: 225, 15
+  size: 18, 47
+  orig: 18, 47
   offset: 0, 0
   index: -1
 skin-beach/bag
-  rotate: true
-  xy: 310, 398
-  size: 120, 158
-  orig: 120, 158
+  rotate: false
+  xy: 332, 189
+  size: 86, 113
+  orig: 86, 113
   offset: 0, 0
   index: -1
 skin-beach/body
-  rotate: true
-  xy: 272, 304
-  size: 77, 97
-  orig: 77, 97
+  rotate: false
+  xy: 147, 58
+  size: 55, 69
+  orig: 55, 69
   offset: 0, 0
   index: -1
 skin-beach/earring1
   rotate: false
-  xy: 437, 89
-  size: 26, 43
-  orig: 26, 43
+  xy: 406, 80
+  size: 19, 31
+  orig: 19, 31
   offset: 0, 0
   index: -1
 skin-beach/earring1b
-  rotate: true
-  xy: 267, 4
-  size: 36, 45
-  orig: 36, 45
+  rotate: false
+  xy: 320, 2
+  size: 26, 32
+  orig: 26, 32
   offset: 0, 0
   index: -1
 skin-beach/earring2
-  rotate: true
-  xy: 220, 2
-  size: 38, 45
-  orig: 38, 45
+  rotate: false
+  xy: 291, 2
+  size: 27, 32
+  orig: 27, 32
   offset: 0, 0
   index: -1
 skin-beach/flower
   rotate: false
-  xy: 411, 210
-  size: 61, 67
-  orig: 61, 67
+  xy: 147, 8
+  size: 44, 48
+  orig: 44, 48
   offset: 0, 0
   index: -1
 skin-beach/forearm
   rotate: false
-  xy: 411, 134
-  size: 42, 74
-  orig: 42, 74
+  xy: 193, 3
+  size: 30, 53
+  orig: 30, 53
   offset: 0, 0
   index: -1
 skin-beach/forearm1
-  rotate: true
-  xy: 419, 3
-  size: 40, 64
-  orig: 40, 64
+  rotate: false
+  xy: 291, 36
+  size: 29, 46
+  orig: 29, 46
   offset: 0, 0
   index: -1
 skin-beach/hair1
   rotate: false
-  xy: 222, 42
-  size: 123, 234
-  orig: 123, 234
+  xy: 242, 135
+  size: 88, 167
+  orig: 88, 167
   offset: 0, 0
   index: -1
 skin-beach/hair2
   rotate: false
-  xy: 2, 276
-  size: 139, 242
-  orig: 139, 242
+  xy: 141, 129
+  size: 99, 173
+  orig: 99, 173
   offset: 0, 0
   index: -1
 skin-beach/hair3
   rotate: false
-  xy: 347, 114
-  size: 62, 162
-  orig: 62, 162
+  xy: 101, 11
+  size: 44, 116
+  orig: 44, 116
   offset: 0, 0
   index: -1
 skin-beach/hair4
-  rotate: true
-  xy: 2, 82
-  size: 192, 218
-  orig: 192, 218
+  rotate: false
+  xy: 2, 146
+  size: 137, 156
+  orig: 137, 156
   offset: 0, 0
   index: -1
 skin-beach/hand
   rotate: false
-  xy: 423, 284
-  size: 29, 29
-  orig: 29, 32
-  offset: 0, 1
+  xy: 406, 43
+  size: 13, 17
+  orig: 13, 17
+  offset: 0, 0
   index: -1
 skin-beach/hand1
-  rotate: true
-  xy: 2, 6
-  size: 74, 76
-  orig: 74, 76
+  rotate: false
+  xy: 288, 84
+  size: 39, 49
+  orig: 39, 49
   offset: 0, 0
   index: -1
 skin-beach/hand1-b
   rotate: false
-  xy: 412, 332
-  size: 62, 64
-  orig: 62, 64
+  xy: 245, 25
+  size: 44, 46
+  orig: 44, 46
   offset: 0, 0
   index: -1
 skin-beach/hand1-c
-  rotate: true
-  xy: 80, 18
-  size: 62, 83
-  orig: 62, 83
+  rotate: false
+  xy: 242, 73
+  size: 44, 60
+  orig: 44, 60
   offset: 0, 0
   index: -1
 skin-beach/head
-  rotate: true
-  xy: 143, 383
-  size: 135, 165
-  orig: 135, 165
+  rotate: false
+  xy: 2, 26
+  size: 97, 118
+  orig: 97, 118
   offset: 0, 0
   index: -1
 skin-beach/leg2
-  rotate: true
-  xy: 347, 62
-  size: 50, 88
-  orig: 50, 88
+  rotate: false
+  xy: 204, 64
+  size: 36, 63
+  orig: 36, 63
   offset: 0, 0
   index: -1
 skin-beach/ribbon1
-  rotate: true
-  xy: 188, 2
-  size: 34, 22
-  orig: 34, 22
+  rotate: false
+  xy: 360, 53
+  size: 24, 16
+  orig: 24, 16
   offset: 0, 0
   index: -1
 skin-beach/ribbon2
-  rotate: true
-  xy: 419, 45
-  size: 15, 65
-  orig: 15, 65
+  rotate: false
+  xy: 348, 3
+  size: 11, 47
+  orig: 11, 47
   offset: 0, 0
   index: -1
 skin-beach/ribbon3
-  rotate: true
-  xy: 347, 45
-  size: 15, 60
-  orig: 15, 60
+  rotate: false
+  xy: 361, 8
+  size: 11, 43
+  orig: 11, 43
   offset: 0, 0
   index: -1
 skin-beach/skirt
   rotate: false
-  xy: 143, 278
-  size: 127, 103
-  orig: 127, 103
+  xy: 332, 113
+  size: 91, 74
+  orig: 91, 74
   offset: 0, 0
   index: -1
