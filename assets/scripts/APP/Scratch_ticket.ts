@@ -47,38 +47,52 @@ export default class Scratch_ticket extends cc.Component {
     let pos = event.getLocation()
     pos = this.camera.getScreenToWorldPoint(pos);
     let point = this.ticketNode.convertToNodeSpaceAR(pos);
-    this.clearMask(point);
+    let isNew = this.clearMask(point);
     this.ham.active = true
-    cc.audioEngine.stop(this.isIdCao)
-    this.isIdCao = cc.audioEngine.play(this.soundCao, false, 2)
-    this.isDelaySound = true;
-    this.scheduleOnce(() => {
-      this.isDelaySound = false
-    }, 0.2)
+    if (this.isIdCao && isNew) {
+      cc.audioEngine.stop(this.isIdCao)
+      this.isIdCao = cc.audioEngine.play(this.soundCao, false, 2)
+      this.isDelaySound = true;
+      this.scheduleOnce(() => {
+        this.isDelaySound = false
+      }, 0.2)
+    }
+
+    let pos2 = event.getLocation()
+    pos2 = this.camera.getScreenToWorldPoint(pos2);
+    let posHam = this.ham.parent.convertToNodeSpaceAR(pos2)
+    this.ham.position = posHam.add(cc.v3(0,-50))
     // this.gamePlay.handSwipe.active = false;
     // this.gamePlay.handSwipe2.active = false;
   }
   isDelaySound = false
   isIdCao = null
   touchMoveEvent(event) {
-    if (!this.isDelaySound) {
-      this.isDelaySound = true;
-      cc.audioEngine.play(this.soundCao, false, 2)
-      this.scheduleOnce(() => {
-        this.isDelaySound = false
-      }, 0.1)
-    }
+
+
     let pos = event.getLocation()
     pos = this.camera.getScreenToWorldPoint(pos);
     let posHam = this.ham.parent.convertToNodeSpaceAR(pos)
     let point = this.ticketNode.convertToNodeSpaceAR(pos);
-    this.ham.position = posHam
-    this.clearMask(point);
+    this.ham.position = posHam.add(cc.v3(0,-50))
+    let isNew = this.clearMask(point);
     this.calcProgress();
-
+    if (isNew) {
+      if (!this.isDelaySound) {
+        this.isDelaySound = true;
+        cc.audioEngine.play(this.soundCao, false, 2)
+        this.scheduleOnce(() => {
+          this.isDelaySound = false
+        }, 0.1)
+      }
+    }
   }
 
   touchEndEvent() {
+    if (this.isIdCao) {
+      cc.audioEngine.stop(this.isIdCao)
+
+    }
     this.tempDrawPoints = [];
     this.calcProgress();
   }
@@ -102,7 +116,7 @@ export default class Scratch_ticket extends cc.Component {
     if (this.progerss > 5) {
       this.tutHam.active = false
     }
-    if (this.progerss >= 30) {
+    if (this.progerss >= 50) {
       this.beforeDestroy();
       this.ham.active = false
       this.scheduleOnce(() => {
@@ -120,6 +134,7 @@ export default class Scratch_ticket extends cc.Component {
     let stencil = mask._graphics;
     const len = this.tempDrawPoints.length;
     this.tempDrawPoints.push(pos);
+    let isNewScratch = false; // 👈 quan trọng
 
     if (len <= 1) {
       // 只有一个点，用圆来清除涂层
@@ -131,7 +146,10 @@ export default class Scratch_ticket extends cc.Component {
         if (item.isHit) return;
         const xFlag = pos.x > item.rect.x && pos.x < item.rect.x + item.rect.width;
         const yFlag = pos.y > item.rect.y && pos.y < item.rect.y + item.rect.height;
-        if (xFlag && yFlag) item.isHit = true;
+        if (xFlag && yFlag) {
+          isNewScratch = true; // ✅ có cạo mới
+          item.isHit = true;
+        }
       });
     } else {
       // 存在多个点，用线段来清除涂层
@@ -148,9 +166,17 @@ export default class Scratch_ticket extends cc.Component {
 
       // 记录线段经过的格子
       this.polygonPointsList.forEach((item) => {
-        item.isHit = item.isHit || cc.Intersection.lineRect(prevPos, curPos, item.rect);
+        // item.isHit = item.isHit || cc.Intersection.lineRect(prevPos, curPos, item.rect);
+        if (item.isHit) return;
+
+        if (cc.Intersection.lineRect(prevPos, curPos, item.rect)) {
+          item.isHit = true;
+          isNewScratch = true; // ✅ có cạo mới
+        }
       });
     }
+    return isNewScratch;
+
   }
 
   polygonPointsList: { rect: cc.Rect; isHit: boolean }[] = [];
@@ -164,10 +190,10 @@ export default class Scratch_ticket extends cc.Component {
     this.ticketNode.getComponent(cc.Graphics).clear();
 
     // 生成小格子，用来辅助统计涂层的刮开比例
-    for (let x = 0; x < this.ticketNode.width; x += CALC_RECT_WIDTH) {
-      for (let y = 0; y < this.ticketNode.height; y += CALC_RECT_WIDTH) {
+    for (let x = 0; x < 250; x += CALC_RECT_WIDTH) {
+      for (let y = 0; y < 270; y += CALC_RECT_WIDTH) {
         this.polygonPointsList.push({
-          rect: cc.rect(x - this.ticketNode.width / 2, y - this.ticketNode.height / 2, CALC_RECT_WIDTH, CALC_RECT_WIDTH),
+          rect: cc.rect(x - 250 / 2, y - 270 / 2, CALC_RECT_WIDTH, CALC_RECT_WIDTH),
           isHit: false
         });
       }

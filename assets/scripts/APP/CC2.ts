@@ -135,7 +135,7 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundTranscreen, false, 1)
         cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(() => {
             this.char1.setAnimation(0, "Happy", false);
-            cc.audioEngine.play(this.soundThank, false, 1)
+            cc.audioEngine.play(this.soundThank, false, 0.7)
             char1Node.scaleX = -1.5;
             this.scheduleOnce(() => {
                 cc.audioEngine.play(this.soundCoin, false, 1)
@@ -143,21 +143,19 @@ export default class NewClass extends cc.Component {
             }, 0.3)
         }).start()
         this.char2.setAnimation(0, "Walk", true);
-        cc.tween(this.char2.node.parent).to(2.7, { position: cc.v3(-407, -925) }).call(() => {
+        this.scheduleOnce(() => {
+            if (this.isunlock) return;
+            this.handScene21.active = true;
+        }, 3)
+        cc.tween(this.char2.node.parent).to(3.8, { position: cc.v3(-407, -925) }).call(() => {
             this.char2.setAnimation(0, "Talk", true);
-            this.char2.node.getChildByName("pop").active = true
-            cc.audioEngine.play(this.soundHi, false, 1)
-            this.scheduleOnce(() => {
-                if (this.isunlock) return;
-                this.handScene21.active = true;
-            }, 2)
+            // this.char2.node.getChildByName("pop").active = true
+            // cc.audioEngine.play(this.soundHi, false, 1)
+
         }).start()
     }
     giveCoin() {
         let posStart = this.char1.node.parent.convertToWorldSpaceAR(this.char1.node.position);
-        // posStart = this.camera.getWorldToScreenPoint(posStart);
-        // posStart = this.uiCamera.getScreenToWorldPoint(posStart);
-        // posStart = this.uiNode.convertToNodeSpaceAR(posStart).add(cc.v3(0, 420));
         posStart = this.uiNode.convertToNodeSpaceAR(posStart).add(cc.v3(0, 420));
         let posEnd = this.barCoin.children[1].position;
         posEnd = this.barCoin.convertToWorldSpaceAR(posEnd);
@@ -190,29 +188,64 @@ export default class NewClass extends cc.Component {
             }).start()
 
         }, 1)
+    }
+    unlockCoin() {
+        let posStart = this.btnUnlock.parent.convertToWorldSpaceAR(this.btnUnlock.position);
+        posStart = this.uiNode.convertToNodeSpaceAR(posStart).add(cc.v3(0, 0));
+        let posEnd = this.barCoin.children[1].position;
+        posEnd = this.barCoin.convertToWorldSpaceAR(posEnd);
+        posEnd = this.uiNode.convertToNodeSpaceAR(posEnd)
 
-
+        let midPos = cc.v2((posEnd.x + 500), (posStart.y + posEnd.y) / 2)
+        for (let i = 0; i < 8; i++) {
+            this.scheduleOnce(() => {
+                let coin = cc.instantiate(this.preCoin);
+                // coin.parent = this.node;
+                coin.parent = this.scene2.parent;
+                // coin.position = cc.v3(0, 0)
+                coin.position = posEnd;
+                coin.zIndex = 5
+                cc.tween(coin).bezierTo(0.6, cc.v2(posEnd.x, posEnd.y), midPos, cc.v2(posStart.x, posStart.y)).start()
+                cc.tween(coin).to(0.6, { scale: 1.3 }).call(() => {
+                    coin.destroy()
+                    globalThis.coin -= 50
+                    this.btnUnlock.getComponent(cc.Animation).play("btn_scale")
+                }).start()
+            }, 0.04 * i)
+        }
 
     }
     isunlock = false
     countStep = 0
-    btn_unlock() {
+    btn_unlock(event) {
         if (this.isunlock) return;
-        cc.audioEngine.play(this.soundUnlock, false, 1)
-        for (let i = 0; i < 35; i++) {
-            this.scheduleOnce(() => {
-                globalThis.coin -= 10
+        cc.audioEngine.play(this.soundCoin, false, 1)
 
-            }, 0.02 * i)
-        }
-        this.handScene21.active = false
+        // for (let i = 0; i < 35; i++) {
+        //     this.scheduleOnce(() => {
+        //         globalThis.coin -= 10
+
+        //     }, 0.02 * i)
+        // }
         this.isunlock = true
-        this.btnUnlock.active = false;
-        this.rem2.opacity = 0
-        this.rem2.active = true
-        cc.tween(this.rem2).to(0.3, { opacity: 255 }).start()
-        this.onEventListener()
-        this.char2Hind.active = true
+        this.handScene21.active = false
+
+        this.unlockCoin()
+        this.scheduleOnce(() => {
+
+            this.btnUnlock.active = false;
+            this.rem2.opacity = 0
+            this.rem2.active = true
+            cc.tween(this.rem2).to(0.3, { opacity: 255 }).start()
+            this.scheduleOnce(() => {
+                this.onEventListener()
+                this.char2Hind.active = true
+                this.char2.node.getChildByName("pop").active = true
+                cc.audioEngine.play(this.soundHi, false, 1)
+            }, 0.4)
+
+        }, 0.85)
+
     }
     onEventListener() {
         this.touchNode.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);

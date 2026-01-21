@@ -69,35 +69,46 @@ var Scratch_ticket = /** @class */ (function (_super) {
         var pos = event.getLocation();
         pos = this.camera.getScreenToWorldPoint(pos);
         var point = this.ticketNode.convertToNodeSpaceAR(pos);
-        this.clearMask(point);
+        var isNew = this.clearMask(point);
         this.ham.active = true;
-        cc.audioEngine.stop(this.isIdCao);
-        this.isIdCao = cc.audioEngine.play(this.soundCao, false, 2);
-        this.isDelaySound = true;
-        this.scheduleOnce(function () {
-            _this.isDelaySound = false;
-        }, 0.2);
+        if (this.isIdCao && isNew) {
+            cc.audioEngine.stop(this.isIdCao);
+            this.isIdCao = cc.audioEngine.play(this.soundCao, false, 2);
+            this.isDelaySound = true;
+            this.scheduleOnce(function () {
+                _this.isDelaySound = false;
+            }, 0.2);
+        }
+        var pos2 = event.getLocation();
+        pos2 = this.camera.getScreenToWorldPoint(pos2);
+        var posHam = this.ham.parent.convertToNodeSpaceAR(pos2);
+        this.ham.position = posHam.add(cc.v3(0, -50));
         // this.gamePlay.handSwipe.active = false;
         // this.gamePlay.handSwipe2.active = false;
     };
     Scratch_ticket.prototype.touchMoveEvent = function (event) {
         var _this = this;
-        if (!this.isDelaySound) {
-            this.isDelaySound = true;
-            cc.audioEngine.play(this.soundCao, false, 2);
-            this.scheduleOnce(function () {
-                _this.isDelaySound = false;
-            }, 0.1);
-        }
         var pos = event.getLocation();
         pos = this.camera.getScreenToWorldPoint(pos);
         var posHam = this.ham.parent.convertToNodeSpaceAR(pos);
         var point = this.ticketNode.convertToNodeSpaceAR(pos);
-        this.ham.position = posHam;
-        this.clearMask(point);
+        this.ham.position = posHam.add(cc.v3(0, -50));
+        var isNew = this.clearMask(point);
         this.calcProgress();
+        if (isNew) {
+            if (!this.isDelaySound) {
+                this.isDelaySound = true;
+                cc.audioEngine.play(this.soundCao, false, 2);
+                this.scheduleOnce(function () {
+                    _this.isDelaySound = false;
+                }, 0.1);
+            }
+        }
     };
     Scratch_ticket.prototype.touchEndEvent = function () {
+        if (this.isIdCao) {
+            cc.audioEngine.stop(this.isIdCao);
+        }
         this.tempDrawPoints = [];
         this.calcProgress();
     };
@@ -120,7 +131,7 @@ var Scratch_ticket = /** @class */ (function (_super) {
         if (this.progerss > 5) {
             this.tutHam.active = false;
         }
-        if (this.progerss >= 30) {
+        if (this.progerss >= 50) {
             this.beforeDestroy();
             this.ham.active = false;
             this.scheduleOnce(function () {
@@ -135,6 +146,7 @@ var Scratch_ticket = /** @class */ (function (_super) {
         var stencil = mask._graphics;
         var len = this.tempDrawPoints.length;
         this.tempDrawPoints.push(pos);
+        var isNewScratch = false; // 👈 quan trọng
         if (len <= 1) {
             // 只有一个点，用圆来清除涂层
             stencil.circle(pos.x, pos.y, CLEAR_LINE_WIDTH * this.lineWidth);
@@ -145,8 +157,10 @@ var Scratch_ticket = /** @class */ (function (_super) {
                     return;
                 var xFlag = pos.x > item.rect.x && pos.x < item.rect.x + item.rect.width;
                 var yFlag = pos.y > item.rect.y && pos.y < item.rect.y + item.rect.height;
-                if (xFlag && yFlag)
+                if (xFlag && yFlag) {
+                    isNewScratch = true; // ✅ có cạo mới
                     item.isHit = true;
+                }
             });
         }
         else {
@@ -162,9 +176,16 @@ var Scratch_ticket = /** @class */ (function (_super) {
             stencil.stroke();
             // 记录线段经过的格子
             this.polygonPointsList.forEach(function (item) {
-                item.isHit = item.isHit || cc.Intersection.lineRect(prevPos_1, curPos_1, item.rect);
+                // item.isHit = item.isHit || cc.Intersection.lineRect(prevPos, curPos, item.rect);
+                if (item.isHit)
+                    return;
+                if (cc.Intersection.lineRect(prevPos_1, curPos_1, item.rect)) {
+                    item.isHit = true;
+                    isNewScratch = true; // ✅ có cạo mới
+                }
             });
         }
+        return isNewScratch;
     };
     Scratch_ticket.prototype.reset = function () {
         var mask = this.maskNode.getComponent(cc.Mask);
@@ -174,10 +195,10 @@ var Scratch_ticket = /** @class */ (function (_super) {
         this.progerss = 0;
         this.ticketNode.getComponent(cc.Graphics).clear();
         // 生成小格子，用来辅助统计涂层的刮开比例
-        for (var x = 0; x < this.ticketNode.width; x += CALC_RECT_WIDTH) {
-            for (var y = 0; y < this.ticketNode.height; y += CALC_RECT_WIDTH) {
+        for (var x = 0; x < 250; x += CALC_RECT_WIDTH) {
+            for (var y = 0; y < 270; y += CALC_RECT_WIDTH) {
                 this.polygonPointsList.push({
-                    rect: cc.rect(x - this.ticketNode.width / 2, y - this.ticketNode.height / 2, CALC_RECT_WIDTH, CALC_RECT_WIDTH),
+                    rect: cc.rect(x - 250 / 2, y - 270 / 2, CALC_RECT_WIDTH, CALC_RECT_WIDTH),
                     isHit: false
                 });
             }

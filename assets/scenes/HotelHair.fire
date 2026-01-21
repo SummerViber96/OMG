@@ -1090,8 +1090,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 400,
-      "height": 400
+      "width": 500,
+      "height": 500
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1168,7 +1168,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        -4.715,
         0,
         0,
         0,
@@ -1230,7 +1230,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        5.501,
         123.728,
         0,
         0,
@@ -3241,8 +3241,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 204.00055,
-      "height": 555.8933
+      "width": 204,
+      "height": 555.89
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3886,6 +3886,9 @@
     "_clips": [
       {
         "__uuid__": "4da6a474-1a59-42e6-b6c7-50b7242134ad"
+      },
+      {
+        "__uuid__": "4294d37a-c511-4590-8ead-fc8ec880af1f"
       }
     ],
     "playOnLoad": false,
@@ -32093,7 +32096,7 @@
       "__uuid__": "fd76bc4f-06ec-4714-b363-ed1e98c7846a"
     },
     "soundHi": {
-      "__uuid__": "00bba63f-cdae-487b-b218-d7f129c2fd73"
+      "__uuid__": "95897bf4-6a0e-4bee-959e-0c9cd39328b0"
     },
     "soundAngry1": {
       "__uuid__": "a1c2522d-39aa-430e-b9d3-9490c6644883"

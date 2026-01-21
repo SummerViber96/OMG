@@ -114,7 +114,7 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundTranscreen, false, 1);
         cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(function () {
             _this.char1.setAnimation(0, "Happy", false);
-            cc.audioEngine.play(_this.soundThank, false, 1);
+            cc.audioEngine.play(_this.soundThank, false, 0.7);
             char1Node.scaleX = -1.5;
             _this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.soundCoin, false, 1);
@@ -122,23 +122,20 @@ var NewClass = /** @class */ (function (_super) {
             }, 0.3);
         }).start();
         this.char2.setAnimation(0, "Walk", true);
-        cc.tween(this.char2.node.parent).to(2.7, { position: cc.v3(-407, -925) }).call(function () {
+        this.scheduleOnce(function () {
+            if (_this.isunlock)
+                return;
+            _this.handScene21.active = true;
+        }, 3);
+        cc.tween(this.char2.node.parent).to(3.8, { position: cc.v3(-407, -925) }).call(function () {
             _this.char2.setAnimation(0, "Talk", true);
-            _this.char2.node.getChildByName("pop").active = true;
-            cc.audioEngine.play(_this.soundHi, false, 1);
-            _this.scheduleOnce(function () {
-                if (_this.isunlock)
-                    return;
-                _this.handScene21.active = true;
-            }, 2);
+            // this.char2.node.getChildByName("pop").active = true
+            // cc.audioEngine.play(this.soundHi, false, 1)
         }).start();
     };
     NewClass.prototype.giveCoin = function () {
         var _this = this;
         var posStart = this.char1.node.parent.convertToWorldSpaceAR(this.char1.node.position);
-        // posStart = this.camera.getWorldToScreenPoint(posStart);
-        // posStart = this.uiCamera.getScreenToWorldPoint(posStart);
-        // posStart = this.uiNode.convertToNodeSpaceAR(posStart).add(cc.v3(0, 420));
         posStart = this.uiNode.convertToNodeSpaceAR(posStart).add(cc.v3(0, 420));
         var posEnd = this.barCoin.children[1].position;
         posEnd = this.barCoin.convertToWorldSpaceAR(posEnd);
@@ -170,23 +167,56 @@ var NewClass = /** @class */ (function (_super) {
             }).start();
         }, 1);
     };
-    NewClass.prototype.btn_unlock = function () {
+    NewClass.prototype.unlockCoin = function () {
+        var _this = this;
+        var posStart = this.btnUnlock.parent.convertToWorldSpaceAR(this.btnUnlock.position);
+        posStart = this.uiNode.convertToNodeSpaceAR(posStart).add(cc.v3(0, 0));
+        var posEnd = this.barCoin.children[1].position;
+        posEnd = this.barCoin.convertToWorldSpaceAR(posEnd);
+        posEnd = this.uiNode.convertToNodeSpaceAR(posEnd);
+        var midPos = cc.v2((posEnd.x + 500), (posStart.y + posEnd.y) / 2);
+        for (var i = 0; i < 8; i++) {
+            this.scheduleOnce(function () {
+                var coin = cc.instantiate(_this.preCoin);
+                // coin.parent = this.node;
+                coin.parent = _this.scene2.parent;
+                // coin.position = cc.v3(0, 0)
+                coin.position = posEnd;
+                coin.zIndex = 5;
+                cc.tween(coin).bezierTo(0.6, cc.v2(posEnd.x, posEnd.y), midPos, cc.v2(posStart.x, posStart.y)).start();
+                cc.tween(coin).to(0.6, { scale: 1.3 }).call(function () {
+                    coin.destroy();
+                    globalThis.coin -= 50;
+                    _this.btnUnlock.getComponent(cc.Animation).play("btn_scale");
+                }).start();
+            }, 0.04 * i);
+        }
+    };
+    NewClass.prototype.btn_unlock = function (event) {
+        var _this = this;
         if (this.isunlock)
             return;
-        cc.audioEngine.play(this.soundUnlock, false, 1);
-        for (var i = 0; i < 35; i++) {
-            this.scheduleOnce(function () {
-                globalThis.coin -= 10;
-            }, 0.02 * i);
-        }
-        this.handScene21.active = false;
+        cc.audioEngine.play(this.soundCoin, false, 1);
+        // for (let i = 0; i < 35; i++) {
+        //     this.scheduleOnce(() => {
+        //         globalThis.coin -= 10
+        //     }, 0.02 * i)
+        // }
         this.isunlock = true;
-        this.btnUnlock.active = false;
-        this.rem2.opacity = 0;
-        this.rem2.active = true;
-        cc.tween(this.rem2).to(0.3, { opacity: 255 }).start();
-        this.onEventListener();
-        this.char2Hind.active = true;
+        this.handScene21.active = false;
+        this.unlockCoin();
+        this.scheduleOnce(function () {
+            _this.btnUnlock.active = false;
+            _this.rem2.opacity = 0;
+            _this.rem2.active = true;
+            cc.tween(_this.rem2).to(0.3, { opacity: 255 }).start();
+            _this.scheduleOnce(function () {
+                _this.onEventListener();
+                _this.char2Hind.active = true;
+                _this.char2.node.getChildByName("pop").active = true;
+                cc.audioEngine.play(_this.soundHi, false, 1);
+            }, 0.4);
+        }, 0.85);
     };
     NewClass.prototype.onEventListener = function () {
         this.touchNode.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
