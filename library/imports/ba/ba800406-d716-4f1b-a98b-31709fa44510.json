@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Straw_Menu",
+    "texture": "707d32c4-a6fd-49ce-8486-ca9e29724738",
+    "atlas": "",
+    "rect": [
+      30,
+      14,
+      307,
+      369
+    ],
+    "offset": [
+      4,
+      -1
+    ],
+    "originalSize": [
+      359,
+      395
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Choco_Menu",
+    "texture": "41393390-c158-49b5-91ce-10b12caca7c9",
+    "atlas": "",
+    "rect": [
+      30,
+      14,
+      307,
+      369
+    ],
+    "offset": [
+      4,
+      -1
+    ],
+    "originalSize": [
+      359,
+      395
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

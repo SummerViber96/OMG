@@ -1,22 +1,22 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "BG_Nui2712",
-    "texture": "78f1334f-e502-4bd8-9a0c-15893e9cb480",
+    "name": "KK_Donut_Resource_00000",
+    "texture": "c1b32f4f-f5e0-4c96-becb-976d76d8d47f",
     "atlas": "",
     "rect": [
       0,
       0,
-      8192,
-      8192
+      2293,
+      807
     ],
     "offset": [
       0,
       0
     ],
     "originalSize": [
-      8192,
-      8192
+      2293,
+      807
     ],
     "capInsets": [
       0,

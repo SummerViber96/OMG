@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "3772252e-b68f-4a83-8e6a-c83b59a7c682",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 359,
+  "height": 395,
+  "platformSettings": {},
+  "subMetas": {
+    "Choco_combo_Menu": {
+      "ver": "1.0.4",
+      "uuid": "0e102db1-ec0b-4da4-aded-1c5ab53ec2ea",
+      "rawTextureUuid": "3772252e-b68f-4a83-8e6a-c83b59a7c682",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 4,
+      "offsetY": 0.5,
+      "trimX": 30,
+      "trimY": 11,
+      "width": 307,
+      "height": 372,
+      "rawWidth": 359,
+      "rawHeight": 395,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
