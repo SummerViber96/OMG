@@ -565,8 +565,8 @@
     "relativePath": "prefab\\tree.prefab"
   },
   "5ac3afaa-e931-4ba4-a643-89d66b4157f7": {
-    "asset": 1769103712528,
-    "meta": 1769104233407,
+    "asset": 1769104282583,
+    "meta": 1769178925407,
     "relativePath": "scenes"
   },
   "e36e27a3-29e3-4284-b879-a39eb6ec879e": {
@@ -4646,7 +4646,7 @@
   },
   "78f1334f-e502-4bd8-9a0c-15893e9cb480": {
     "asset": 1751461228885,
-    "meta": 1768979364479,
+    "meta": 1769178925842,
     "relativePath": "textures\\ICY_5\\BG_Nui2712.png"
   },
   "429bc7eb-c4e5-479f-9dc3-55861c048a4a": {
@@ -4681,7 +4681,7 @@
   },
   "c1246090-a3ab-4821-840a-994ef49ee17c": {
     "asset": 1751461228897,
-    "meta": 1768979364879,
+    "meta": 1769178925778,
     "relativePath": "textures\\ICY_5\\River.png"
   },
   "3292e6cc-b288-4cb7-bdfa-ea4a21793845": {
@@ -6946,7 +6946,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1769104248932,
+    "meta": 1769227147710,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7026,7 +7026,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761763030039,
-    "meta": 1769104248905,
+    "meta": 1769227147708,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7055,8 +7055,8 @@
     "relativePath": "APP\\Slides bar.png"
   },
   "cdf0b8ba-5fcf-477f-a761-6b2937f53023": {
-    "asset": 1769103712548,
-    "meta": 1769104233515,
+    "asset": 1769181540585,
+    "meta": 1769227147704,
     "relativePath": "scripts\\APP"
   },
   "a4536730-e50b-4a6f-b3b5-f23ac231d4bb": {
@@ -7096,7 +7096,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761763009587,
-    "meta": 1769104248904,
+    "meta": 1769227147707,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -7860,8 +7860,8 @@
     "relativePath": "cooking\\spine\\Burger.json"
   },
   "e316d39d-eb3a-4d0e-ac32-9154d1e94a64": {
-    "asset": 1769103712442,
-    "meta": 1769104228577,
+    "asset": 1769187725714,
+    "meta": 1769227147682,
     "relativePath": "cooking\\ietm"
   },
   "eb7ca460-9857-4d9e-ae63-65ddbbca597c": {
@@ -7870,8 +7870,8 @@
     "relativePath": "cooking\\animCook"
   },
   "2ffe5239-a243-42ef-9090-f6b6dc7ceb1d": {
-    "asset": 1762663470243,
-    "meta": 1769104226300,
+    "asset": 1769245582210,
+    "meta": 1769245582220,
     "relativePath": "cooking\\animCook\\pop_show.anim"
   },
   "d7bd56bf-40d5-42a1-9e65-413332584b8e": {
@@ -7886,7 +7886,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1769104249192,
+    "meta": 1769227147716,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
@@ -7913,11 +7913,6 @@
     "asset": 1762707267395,
     "meta": 1769104228862,
     "relativePath": "cooking\\ietm\\preBread.ts"
-  },
-  "d082fcfb-0632-48fe-9fdd-66a87c18c159": {
-    "asset": 1762744979402,
-    "meta": 1769104228819,
-    "relativePath": "cooking\\ietm\\hotdog.ts"
   },
   "ba363478-4429-47cd-bcbf-022846711913": {
     "asset": 1762747601598,
@@ -9249,11 +9244,6 @@
     "meta": 1769104228447,
     "relativePath": "cooking\\HotdogOrder1#3.png"
   },
-  "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1769103712442,
-    "meta": 1769104228798,
-    "relativePath": "cooking\\ietm\\cusMission.ts"
-  },
   "eca07037-04e7-4381-80e1-b7db6260efa5": {
     "asset": 1769103712403,
     "meta": 1769104228738,
@@ -9739,19 +9729,14 @@
     "meta": 1769104229268,
     "relativePath": "cooking\\New Folder"
   },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1769107829944,
-    "meta": 1769107829965,
-    "relativePath": "scenes\\Donut1.fire"
-  },
   "4d20b1cf-c396-4b83-8183-14ac3950a2e3": {
-    "asset": 1769104290043,
-    "meta": 1769104290044,
+    "asset": 1769192967449,
+    "meta": 1769227147695,
     "relativePath": "Donut"
   },
   "bb1269e6-cdd6-4897-8599-97a78920b2bd": {
-    "asset": 1769104294659,
-    "meta": 1769104294660,
+    "asset": 1769189432384,
+    "meta": 1769227147698,
     "relativePath": "Donut\\Sound"
   },
   "4586f387-67b4-46e7-bab4-35e7d839f916": {
@@ -9760,8 +9745,8 @@
     "relativePath": "Donut\\Sound\\Final_feel-good-positive-swing-jazz_by_eitan-epstein-music_preview_01.mp3"
   },
   "ff45fd90-adc9-4700-ba86-42aadc49ee82": {
-    "asset": 1769105866723,
-    "meta": 1769105866729,
+    "asset": 1769193581217,
+    "meta": 1769227147699,
     "relativePath": "Donut\\ui"
   },
   "456ef45c-dc0c-4fd4-b2be-b4eaa7674ea4": {
@@ -9808,5 +9793,280 @@
     "asset": 1769107814077,
     "meta": 1769107814132,
     "relativePath": "Donut\\ui\\Chocolate cream.png"
+  },
+  "d4119082-a937-4020-9aab-2caa16ceeff8": {
+    "asset": 1769180389544,
+    "meta": 1769180389572,
+    "relativePath": "Donut\\ui\\bannh_donut.png"
+  },
+  "0c35edb1-afa6-48e1-8310-36e5a4cf959f": {
+    "asset": 1769181102061,
+    "meta": 1769181102897,
+    "relativePath": "Donut\\Sound\\Swoosh 01 - 02 (mp3cut.net) (2).mp3"
+  },
+  "d1f7d936-10aa-4709-ad76-0461356bcd84": {
+    "asset": 1769181161960,
+    "meta": 1769181162300,
+    "relativePath": "Donut\\Sound\\Girl_hello.mp3"
+  },
+  "bc192ca3-a953-4095-9da6-32ce672a339b": {
+    "asset": 1769181177795,
+    "meta": 1769181178239,
+    "relativePath": "Donut\\Sound\\Open_Popup_01.mp3"
+  },
+  "2631bcf7-65e4-48dc-b844-10108bbc9a78": {
+    "asset": 1769184521014,
+    "meta": 1769184531638,
+    "relativePath": "Donut\\Sound\\Girl_hello (mp3cut.net).mp3"
+  },
+  "6304630e-6031-484a-82de-7187fbcad55b": {
+    "asset": 1769186020268,
+    "meta": 1769227147697,
+    "relativePath": "Donut\\prefab"
+  },
+  "93a653f6-cb50-4f69-9c15-2782fb1e4a44": {
+    "asset": 1769241030116,
+    "meta": 1769241030129,
+    "relativePath": "Donut\\prefab\\preDonut.prefab"
+  },
+  "db655e4c-4feb-4404-8113-952925cc3ccc": {
+    "asset": 1769186519770,
+    "meta": 1769227147702,
+    "relativePath": "Donut\\vfx"
+  },
+  "6aa5967f-cb79-4e7e-90e9-1ee548335e05": {
+    "asset": 1769186530562,
+    "meta": 1769227147703,
+    "relativePath": "Donut\\vfx\\smoke"
+  },
+  "16588a48-f29d-4068-a907-5a3512bf54f8": {
+    "asset": 1769186530520,
+    "meta": 1769186719681,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00030.png"
+  },
+  "45cbeae0-5e0d-491c-938d-0a7afcad4f6c": {
+    "asset": 1769186530520,
+    "meta": 1769186714336,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00029.png"
+  },
+  "5e3210be-26d2-4930-a19d-51544e73727a": {
+    "asset": 1769186530521,
+    "meta": 1769186728563,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00032.png"
+  },
+  "66535aa8-ae6d-407d-a57b-f55ca7a0cbb6": {
+    "asset": 1769186530521,
+    "meta": 1769186704793,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00028.png"
+  },
+  "a759ad21-1e3d-4877-93a8-0634a33ee354": {
+    "asset": 1769186530521,
+    "meta": 1769186742773,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00035.png"
+  },
+  "8b8ff09e-6195-462a-adc6-f8d2feb46dd7": {
+    "asset": 1769186530521,
+    "meta": 1769186733568,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00033.png"
+  },
+  "7a5acedc-22b2-4cc3-a560-8a1820033798": {
+    "asset": 1769186530521,
+    "meta": 1769186724322,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00031.png"
+  },
+  "656bcf91-4482-4d89-84eb-fbe904ea55fc": {
+    "asset": 1769186530521,
+    "meta": 1769186738339,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00034.png"
+  },
+  "6c43d94c-1754-4b5b-bdb7-863680dc5000": {
+    "asset": 1769186530535,
+    "meta": 1769186751330,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00036.png"
+  },
+  "819d369b-3374-47ef-84e6-8fa2f8330979": {
+    "asset": 1769186530535,
+    "meta": 1769186762675,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00038.png"
+  },
+  "d5c70156-47c4-480c-915e-a1225c38d770": {
+    "asset": 1769186530550,
+    "meta": 1769186756811,
+    "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00037.png"
+  },
+  "4af7d7bc-fde7-4c85-a3df-c3b89ac26b30": {
+    "asset": 1769186684111,
+    "meta": 1769186684126,
+    "relativePath": "Donut\\anim\\vfx_smoke.anim"
+  },
+  "f5e231ca-86c2-4c9e-a25c-5a78c2ec8de7": {
+    "asset": 1769241026421,
+    "meta": 1769241026432,
+    "relativePath": "Donut\\anim\\donut_appear.anim"
+  },
+  "33a985c8-ddda-4c31-b160-f2f4a01fa694": {
+    "asset": 1769189432383,
+    "meta": 1769189433498,
+    "relativePath": "Donut\\Sound\\Hollow Pop 06 (mp3cut.net) (1).mp3"
+  },
+  "524d9802-1054-435e-b5c0-14b2272673f4": {
+    "asset": 1769190221160,
+    "meta": 1769190221200,
+    "relativePath": "Donut\\ui\\donutchin.png"
+  },
+  "68f8b0e1-625c-43aa-a13f-7322dc124d19": {
+    "asset": 1769192182761,
+    "meta": 1769227147700,
+    "relativePath": "Donut\\ui\\donut"
+  },
+  "2fe19520-7c7e-47f9-a148-abf831ac20e6": {
+    "asset": 1769191332524,
+    "meta": 1769191332559,
+    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00086.png"
+  },
+  "6f8b7985-33af-4461-8c2f-3bb55e1b2e25": {
+    "asset": 1769191332524,
+    "meta": 1769191332563,
+    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00099.png"
+  },
+  "1a74d2ef-1e30-4845-9cf9-641b149e350f": {
+    "asset": 1769191341087,
+    "meta": 1769191341116,
+    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00058.png"
+  },
+  "aab14fa8-ce26-4d62-9ffc-876a1c58a464": {
+    "asset": 1769192182760,
+    "meta": 1769192182825,
+    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00105.png"
+  },
+  "afc4ea2e-f5bc-4409-9546-3cc617834fa5": {
+    "asset": 1769192911814,
+    "meta": 1769192911863,
+    "relativePath": "Donut\\ui\\Layer 410.png"
+  },
+  "ed7a8158-516e-41df-b072-1ffc98c222b2": {
+    "asset": 1769192911818,
+    "meta": 1769192911872,
+    "relativePath": "Donut\\ui\\Layer 406.png"
+  },
+  "ce74c16f-cceb-4a13-9801-010b5a422a88": {
+    "asset": 1769192967447,
+    "meta": 1769192967475,
+    "relativePath": "Donut\\Capture2.PNG"
+  },
+  "fae8942f-b0ec-46bf-ba23-25c2baf7951a": {
+    "asset": 1769193581216,
+    "meta": 1769193581246,
+    "relativePath": "Donut\\ui\\Capture4.PNG"
+  },
+  "f88d34ab-d908-47e7-b096-7c813b8f75e5": {
+    "asset": 1769187243050,
+    "meta": 1769227147696,
+    "relativePath": "Donut\\anim"
+  },
+  "2744c6b2-ebf4-4c8d-9ad7-cbc8f8409304": {
+    "asset": 1769230834683,
+    "meta": 1769230835199,
+    "relativePath": "Donut\\Sound\\cartoon-jump-6462.mp3"
+  },
+  "1f50176b-7ad0-4c5b-acb4-ec9c56f7a660": {
+    "asset": 1769242626371,
+    "meta": 1769242627181,
+    "relativePath": "Donut\\Sound\\crush men  (mp3cut.net).mp3"
+  },
+  "cbf17ee8-c8b0-42c4-9d29-9c8607e38f1f": {
+    "asset": 1769243363934,
+    "meta": 1769243364354,
+    "relativePath": "Donut\\Sound\\hello there boy.mp3"
+  },
+  "24fbb393-28ba-4809-8ecb-a8e2ffeb60e3": {
+    "asset": 1769243649107,
+    "meta": 1769243649621,
+    "relativePath": "Donut\\Sound\\Clean_Done_01.mp3"
+  },
+  "b3b553e9-8f1a-47e0-b46d-6b00ef4feb09": {
+    "asset": 1769243827546,
+    "meta": 1769243828100,
+    "relativePath": "Donut\\Sound\\happy7_01.mp3"
+  },
+  "cf460881-6118-493d-952c-24b0e6dbc8b7": {
+    "asset": 1769243983268,
+    "meta": 1769243983790,
+    "relativePath": "Donut\\Sound\\happy4_01.mp3"
+  },
+  "aa289833-74ae-4432-a5ed-f11ca7e54d8f": {
+    "asset": 1769244026909,
+    "meta": 1769244027271,
+    "relativePath": "Donut\\Sound\\Man_Yeah_01.mp3"
+  },
+  "d082fcfb-0632-48fe-9fdd-66a87c18c159": {
+    "asset": 1769244480592,
+    "meta": 1769244524125,
+    "relativePath": "cooking\\ietm\\donut.ts"
+  },
+  "a2ec5471-6aa7-4ff0-b763-dcb707614bf2": {
+    "asset": 1769245450118,
+    "meta": 1769245450166,
+    "relativePath": "Donut\\anim\\char3.atlas.txt"
+  },
+  "0d48f71f-28fe-4a3f-aadc-f28b3f0e8868": {
+    "asset": 1769245450119,
+    "meta": 1769245450251,
+    "relativePath": "Donut\\anim\\char3.json"
+  },
+  "4baf022e-56d4-4ace-8714-2357133abe3f": {
+    "asset": 1769245450120,
+    "meta": 1769245450206,
+    "relativePath": "Donut\\anim\\char3.png"
+  },
+  "9885e5cd-fd93-4650-ba35-3b3a21892d7d": {
+    "asset": 1769246041200,
+    "meta": 1769246041223,
+    "relativePath": "Donut\\anim\\char6.atlas.txt"
+  },
+  "7b94c480-2624-4826-888f-d3c91679a639": {
+    "asset": 1769246041201,
+    "meta": 1769246041284,
+    "relativePath": "Donut\\anim\\char6.json"
+  },
+  "88bbcd76-2872-47ab-b4da-d11d8be3ff75": {
+    "asset": 1769246041201,
+    "meta": 1769246041263,
+    "relativePath": "Donut\\anim\\char6.png"
+  },
+  "2147ad02-7b76-4274-8b19-f305f656d77c": {
+    "asset": 1769246253156,
+    "meta": 1769246254589,
+    "relativePath": "cooking\\ietm\\cusMission.ts"
+  },
+  "eba77511-f9ca-49f0-a0c3-d09c7928f18b": {
+    "asset": 1769246390741,
+    "meta": 1769246390786,
+    "relativePath": "Donut\\anim\\char5.atlas.txt"
+  },
+  "499bf4bd-d0f9-4e4f-9854-0e9e38ab2369": {
+    "asset": 1769246390745,
+    "meta": 1769246390921,
+    "relativePath": "Donut\\anim\\char5.json"
+  },
+  "c86305ae-c785-4c7d-ac5e-00d637ae2bcb": {
+    "asset": 1769246390742,
+    "meta": 1769246390869,
+    "relativePath": "Donut\\anim\\char5.png"
+  },
+  "b6516688-bff1-4f4f-99b9-ee2bbddd9529": {
+    "asset": 1769246549128,
+    "meta": 1769246550076,
+    "relativePath": "Donut\\Sound\\Open_Small_Gift_01.mp3"
+  },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1769248374450,
+    "meta": 1769248374469,
+    "relativePath": "scenes\\Donut1.fire"
+  },
+  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
+    "asset": 1769248289343,
+    "meta": 1769248290439,
+    "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

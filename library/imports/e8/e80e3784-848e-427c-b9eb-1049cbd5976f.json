@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "KK_Donut_Resource_00037",
+    "texture": "d5c70156-47c4-480c-915e-a1225c38d770",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2475,
+      1920
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2475,
+      1920
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

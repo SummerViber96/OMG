@@ -4,47 +4,45 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
+    @property(cc.AudioClip)
+    soundHappy: cc.AudioClip = null
     @property(cc.Boolean)
-    bread = true;
+    dau = false
     @property(cc.Boolean)
-    hotDog = true;
-    @property(cc.Boolean)
-    chili = false
-    @property(cc.Boolean)
-    buger = false
-    @property(cc.Boolean)
-    vegettable = false
-    @property(cc.Boolean)
-    meat = false
-    @property(cc.Integer)
-    count = 3
+    socola = false;
+
+    @property([cc.Integer])
+    count = []
     @property(cc.Label)
-    lbCount: cc.Label = null
+    lbCountSc: cc.Label = null
+    @property(cc.Label)
+    lbCountDau: cc.Label = null
     @property(cc.Node)
     pop: cc.Node = null
     @property(sp.Skeleton)
     anim: sp.Skeleton = null
     isEnd = false
+    isSuccess=false
     gamePlay = null
     start() {
-        this.gamePlay = cc.Canvas.instance.node.getComponent("GameApp")
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
 
     }
-    checkBread(bread) {
-        if (this.isEnd) return;
-        let breadComp = bread.getComponent("preBread");
-        if (this.bread == true && this.hotDog == breadComp.isHotDog && this.chili == breadComp.isTuongCa) {
-            this.updateMission()
-        }
-        else {
-            this.scheduleOnce(() => {
-                this.isEnd = true
-                this.end(false)
-                cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
-            }, 0.4)
+    // checkBread(bread) {
+    //     if (this.isEnd) return;
+    //     let breadComp = bread.getComponent("preBread");
+    //     if (this.bread == true && this.hotDog == breadComp.isHotDog && this.chili == breadComp.isTuongCa) {
+    //         this.updateMission()
+    //     }
+    //     else {
+    //         this.scheduleOnce(() => {
+    //             this.isEnd = true
+    //             this.end(false)
+    //             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
+    //         }, 0.4)
 
-        }
-    }
+    //     }
+    // }
     checkBuger(buger) {
         if (this.isEnd) return;
 
@@ -61,32 +59,60 @@ export default class NewClass extends cc.Component {
         }
     }
 
-    updateMission() {
+    updateMission(value) { //1:socola //0:dau
+        cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1)
 
-        this.count--;
+        switch (value) {
+            case 0: //dau
+                this.count[0]--
+                if (this.count[0] == 0) {
+                    this.isEnd = true
+
+                }
+                break;
+            case 1: //socola
+                this.count[1]--
+                if (this.count[1] == 0) {
+                    this.isEnd = true
+                    // this.scheduleOnce(() => {
+
+                    // }, 0.4)
+                }
+                break;
+        }
         this.scheduleOnce(() => {
-            cc.audioEngine.play(this.gamePlay.soundYes, false, 1)
-            cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5)
             this.node.getChildByName("vfx_coin").active = true
             this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play()
-            globalThis.gold += 50
-            this.anim.setAnimation(0, "8.happy", true)
             this.pop.getChildByName("right").active = true
             this.pop.getChildByName("right").getComponent(cc.Animation).play()
+            if (this.count[1] == 0 && this.count[0] == 0) {
+                this.end(true)
 
+            }
         }, 0.4)
-        if (this.count == 0) {
-            this.isEnd = true
 
-            this.end(true)
-        }
+        globalThis.gold += 50
+
+        // this.count--;
+        // this.scheduleOnce(() => {
+        //     cc.audioEngine.play(this.gamePlay.soundYes, false, 1)
+        //     cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5)
+
+        //     this.anim.setAnimation(0, "8.happy", true)
+
+
+        // }, 0.4)
+
     }
     end(value) {
+        if(this.isSuccess)return;
+        this.isSuccess=true
         this.gamePlay.successCus()
         this.scheduleOnce(() => {
             cc.audioEngine.play(this.gamePlay.soundClosePop, false, 1)
 
             cc.tween(this.pop).to(0.3, { scale: 0 }).start()
+            this.anim.setAnimation(0,"walk",true)
             cc.tween(this.node).to(1, { position: cc.v3(-900, 123.591) }).call(() => {
                 this.node.active = false
                 this.gamePlay.nextCus(value)
@@ -94,13 +120,14 @@ export default class NewClass extends cc.Component {
             }).start()
         }, 0.5)
         if (value == true) {
-            this.anim.setAnimation(0, "8.happy", false)
+            cc.audioEngine.play(this.soundHappy,false,1)
+            this.anim.setAnimation(0, "happy", false)
             this.pop.getChildByName("right").active = true
             this.node.getChildByName("happy").active = true
 
         }
         else {
-            this.anim.setAnimation(0, "7.angry_idle", false)
+            this.anim.setAnimation(0, "angry", false)
             this.pop.getChildByName("wrong").active = true
             this.node.getChildByName("angry").active = true
 
@@ -108,15 +135,38 @@ export default class NewClass extends cc.Component {
 
     }
     update(dt) {
-        this.lbCount.string = this.count.toString()
+
+        this.lbCountSc.string = "x" + this.count[1].toString()
+        this.lbCountDau.string = "x" + this.count[0].toString()
 
     }
     happy() {
-        this.anim.setAnimation(0, "happy1.5s", false)
+        this.anim.setAnimation(0, "happy", false)
         this.scheduleOnce(() => {
             this.anim.setAnimation(0, "idle", true)
 
         }, 1)
 
+    }
+    checkSell(donut) {
+        let donutComp = donut.getComponent("donut")
+        let check = false
+        if (this.socola&&this.count[1]>0) {
+            if (donutComp.isSocola) {
+                this.updateMission(1)
+                check = true
+            }
+        }
+        if (this.dau) {
+            if (donutComp.isDau&&this.count[0]>0) {
+                this.updateMission(0)
+                check = true
+            }
+        }
+        if (check == false) {
+            this.isEnd = true
+            this.end(false)
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
+        }
     }
 }
