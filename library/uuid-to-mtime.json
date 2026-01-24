@@ -6946,7 +6946,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1769227147710,
+    "meta": 1769249548727,
     "relativePath": "APP\\skeleton.skel"
   },
   "6f6f26ae-c167-412a-b3db-3a90c805a327": {
@@ -7026,7 +7026,7 @@
   },
   "85524c97-9cab-4844-a0cc-ec07ac420fce": {
     "asset": 1761763030039,
-    "meta": 1769227147708,
+    "meta": 1769249548725,
     "relativePath": "APP\\akm\\akm.skel"
   },
   "1d4b587e-6c5b-4adc-a174-53ef1d24cd07": {
@@ -7096,7 +7096,7 @@
   },
   "4443be91-2fc2-478c-9654-bfdf07643dad": {
     "asset": 1761763009587,
-    "meta": 1769227147707,
+    "meta": 1769249548726,
     "relativePath": "APP\\akm.skel"
   },
   "e1ca13d6-650b-4417-a124-b21c7b68d732": {
@@ -7886,7 +7886,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1769227147716,
+    "meta": 1769249548733,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
@@ -9735,8 +9735,8 @@
     "relativePath": "Donut"
   },
   "bb1269e6-cdd6-4897-8599-97a78920b2bd": {
-    "asset": 1769189432384,
-    "meta": 1769227147698,
+    "asset": 1769248803070,
+    "meta": 1769249548722,
     "relativePath": "Donut\\Sound"
   },
   "4586f387-67b4-46e7-bab4-35e7d839f916": {
@@ -9745,59 +9745,14 @@
     "relativePath": "Donut\\Sound\\Final_feel-good-positive-swing-jazz_by_eitan-epstein-music_preview_01.mp3"
   },
   "ff45fd90-adc9-4700-ba86-42aadc49ee82": {
-    "asset": 1769193581217,
-    "meta": 1769227147699,
+    "asset": 1769249026348,
+    "meta": 1769249548723,
     "relativePath": "Donut\\ui"
-  },
-  "456ef45c-dc0c-4fd4-b2be-b4eaa7674ea4": {
-    "asset": 1769105878082,
-    "meta": 1769105878172,
-    "relativePath": "Donut\\ui\\BG.jpg"
-  },
-  "c1b32f4f-f5e0-4c96-becb-976d76d8d47f": {
-    "asset": 1769105878085,
-    "meta": 1769105878188,
-    "relativePath": "Donut\\ui\\KK_Donut_Resource_00000.png"
   },
   "89ea01b8-def0-4d29-9545-aae3b264d12a": {
     "asset": 1769106017760,
     "meta": 1769106017792,
     "relativePath": "Donut\\ui\\Capture.PNG"
-  },
-  "c4fec35b-9e70-4ea9-927d-c5b6e5499183": {
-    "asset": 1769107530118,
-    "meta": 1769107530228,
-    "relativePath": "Donut\\ui\\Tick.png"
-  },
-  "41393390-c158-49b5-91ce-10b12caca7c9": {
-    "asset": 1769107530118,
-    "meta": 1769107530236,
-    "relativePath": "Donut\\ui\\Choco_Menu.png"
-  },
-  "3772252e-b68f-4a83-8e6a-c83b59a7c682": {
-    "asset": 1769107530118,
-    "meta": 1769107530253,
-    "relativePath": "Donut\\ui\\Choco_combo_Menu.png"
-  },
-  "707d32c4-a6fd-49ce-8486-ca9e29724738": {
-    "asset": 1769107530119,
-    "meta": 1769107530259,
-    "relativePath": "Donut\\ui\\Straw_Menu.png"
-  },
-  "31833706-a0b2-4768-8bea-edcf261aaac2": {
-    "asset": 1769107814078,
-    "meta": 1769107814131,
-    "relativePath": "Donut\\ui\\Strawberry Cream.png"
-  },
-  "467c0733-94d8-4a4c-9103-2996fb12468e": {
-    "asset": 1769107814077,
-    "meta": 1769107814132,
-    "relativePath": "Donut\\ui\\Chocolate cream.png"
-  },
-  "d4119082-a937-4020-9aab-2caa16ceeff8": {
-    "asset": 1769180389544,
-    "meta": 1769180389572,
-    "relativePath": "Donut\\ui\\bannh_donut.png"
   },
   "0c35edb1-afa6-48e1-8310-36e5a4cf959f": {
     "asset": 1769181102061,
@@ -9909,45 +9864,10 @@
     "meta": 1769189433498,
     "relativePath": "Donut\\Sound\\Hollow Pop 06 (mp3cut.net) (1).mp3"
   },
-  "524d9802-1054-435e-b5c0-14b2272673f4": {
-    "asset": 1769190221160,
-    "meta": 1769190221200,
-    "relativePath": "Donut\\ui\\donutchin.png"
-  },
   "68f8b0e1-625c-43aa-a13f-7322dc124d19": {
-    "asset": 1769192182761,
-    "meta": 1769227147700,
+    "asset": 1769248977295,
+    "meta": 1769249548725,
     "relativePath": "Donut\\ui\\donut"
-  },
-  "2fe19520-7c7e-47f9-a148-abf831ac20e6": {
-    "asset": 1769191332524,
-    "meta": 1769191332559,
-    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00086.png"
-  },
-  "6f8b7985-33af-4461-8c2f-3bb55e1b2e25": {
-    "asset": 1769191332524,
-    "meta": 1769191332563,
-    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00099.png"
-  },
-  "1a74d2ef-1e30-4845-9cf9-641b149e350f": {
-    "asset": 1769191341087,
-    "meta": 1769191341116,
-    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00058.png"
-  },
-  "aab14fa8-ce26-4d62-9ffc-876a1c58a464": {
-    "asset": 1769192182760,
-    "meta": 1769192182825,
-    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00105.png"
-  },
-  "afc4ea2e-f5bc-4409-9546-3cc617834fa5": {
-    "asset": 1769192911814,
-    "meta": 1769192911863,
-    "relativePath": "Donut\\ui\\Layer 410.png"
-  },
-  "ed7a8158-516e-41df-b072-1ffc98c222b2": {
-    "asset": 1769192911818,
-    "meta": 1769192911872,
-    "relativePath": "Donut\\ui\\Layer 406.png"
   },
   "ce74c16f-cceb-4a13-9801-010b5a422a88": {
     "asset": 1769192967447,
@@ -9960,8 +9880,8 @@
     "relativePath": "Donut\\ui\\Capture4.PNG"
   },
   "f88d34ab-d908-47e7-b096-7c813b8f75e5": {
-    "asset": 1769187243050,
-    "meta": 1769227147696,
+    "asset": 1769249080968,
+    "meta": 1769249548719,
     "relativePath": "Donut\\anim"
   },
   "2744c6b2-ebf4-4c8d-9ad7-cbc8f8409304": {
@@ -10014,11 +9934,6 @@
     "meta": 1769245450251,
     "relativePath": "Donut\\anim\\char3.json"
   },
-  "4baf022e-56d4-4ace-8714-2357133abe3f": {
-    "asset": 1769245450120,
-    "meta": 1769245450206,
-    "relativePath": "Donut\\anim\\char3.png"
-  },
   "9885e5cd-fd93-4650-ba35-3b3a21892d7d": {
     "asset": 1769246041200,
     "meta": 1769246041223,
@@ -10028,11 +9943,6 @@
     "asset": 1769246041201,
     "meta": 1769246041284,
     "relativePath": "Donut\\anim\\char6.json"
-  },
-  "88bbcd76-2872-47ab-b4da-d11d8be3ff75": {
-    "asset": 1769246041201,
-    "meta": 1769246041263,
-    "relativePath": "Donut\\anim\\char6.png"
   },
   "2147ad02-7b76-4274-8b19-f305f656d77c": {
     "asset": 1769246253156,
@@ -10049,24 +9959,154 @@
     "meta": 1769246390921,
     "relativePath": "Donut\\anim\\char5.json"
   },
-  "c86305ae-c785-4c7d-ac5e-00d637ae2bcb": {
-    "asset": 1769246390742,
-    "meta": 1769246390869,
-    "relativePath": "Donut\\anim\\char5.png"
-  },
   "b6516688-bff1-4f4f-99b9-ee2bbddd9529": {
     "asset": 1769246549128,
     "meta": 1769246550076,
     "relativePath": "Donut\\Sound\\Open_Small_Gift_01.mp3"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1769248374450,
-    "meta": 1769248374469,
+    "asset": 1769249792779,
+    "meta": 1769249792797,
     "relativePath": "scenes\\Donut1.fire"
   },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
     "asset": 1769248289343,
     "meta": 1769248290439,
     "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "187a81a7-3ee8-453b-9df9-823a1241c59e": {
+    "asset": 1769248803069,
+    "meta": 1769248803597,
+    "relativePath": "Donut\\Sound\\Final-feel-good-positive-swing-j.mp3"
+  },
+  "456ef45c-dc0c-4fd4-b2be-b4eaa7674ea4": {
+    "asset": 1769248905762,
+    "meta": 1769248905815,
+    "relativePath": "Donut\\ui\\BG.jpg"
+  },
+  "c86305ae-c785-4c7d-ac5e-00d637ae2bcb": {
+    "asset": 1769223848000,
+    "meta": 1769249083925,
+    "relativePath": "Donut\\anim\\char5.png"
+  },
+  "4baf022e-56d4-4ace-8714-2357133abe3f": {
+    "asset": 1769223848000,
+    "meta": 1769249083928,
+    "relativePath": "Donut\\anim\\char3.png"
+  },
+  "d4119082-a937-4020-9aab-2caa16ceeff8": {
+    "asset": 1769223804000,
+    "meta": 1769249083947,
+    "relativePath": "Donut\\ui\\bannh_donut.png"
+  },
+  "88bbcd76-2872-47ab-b4da-d11d8be3ff75": {
+    "asset": 1769223846000,
+    "meta": 1769249083949,
+    "relativePath": "Donut\\anim\\char6.png"
+  },
+  "3772252e-b68f-4a83-8e6a-c83b59a7c682": {
+    "asset": 1769223804000,
+    "meta": 1769249083970,
+    "relativePath": "Donut\\ui\\Choco_combo_Menu.png"
+  },
+  "41393390-c158-49b5-91ce-10b12caca7c9": {
+    "asset": 1769223804000,
+    "meta": 1769249083971,
+    "relativePath": "Donut\\ui\\Choco_Menu.png"
+  },
+  "467c0733-94d8-4a4c-9103-2996fb12468e": {
+    "asset": 1769223804000,
+    "meta": 1769249083990,
+    "relativePath": "Donut\\ui\\Chocolate cream.png"
+  },
+  "1a74d2ef-1e30-4845-9cf9-641b149e350f": {
+    "asset": 1769223748000,
+    "meta": 1769249083992,
+    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00058.png"
+  },
+  "2fe19520-7c7e-47f9-a148-abf831ac20e6": {
+    "asset": 1769223748000,
+    "meta": 1769249084010,
+    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00086.png"
+  },
+  "6f8b7985-33af-4461-8c2f-3bb55e1b2e25": {
+    "asset": 1769223748000,
+    "meta": 1769249084011,
+    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00099.png"
+  },
+  "aab14fa8-ce26-4d62-9ffc-876a1c58a464": {
+    "asset": 1769223748000,
+    "meta": 1769249084028,
+    "relativePath": "Donut\\ui\\donut\\KK_Donut_Resource_00105.png"
+  },
+  "524d9802-1054-435e-b5c0-14b2272673f4": {
+    "asset": 1769223806000,
+    "meta": 1769249084029,
+    "relativePath": "Donut\\ui\\donutchin.png"
+  },
+  "ed7a8158-516e-41df-b072-1ffc98c222b2": {
+    "asset": 1769223806000,
+    "meta": 1769249084051,
+    "relativePath": "Donut\\ui\\Layer 406.png"
+  },
+  "c1b32f4f-f5e0-4c96-becb-976d76d8d47f": {
+    "asset": 1769223806000,
+    "meta": 1769249084061,
+    "relativePath": "Donut\\ui\\KK_Donut_Resource_00000.png"
+  },
+  "afc4ea2e-f5bc-4409-9546-3cc617834fa5": {
+    "asset": 1769223806000,
+    "meta": 1769249084069,
+    "relativePath": "Donut\\ui\\Layer 410.png"
+  },
+  "707d32c4-a6fd-49ce-8486-ca9e29724738": {
+    "asset": 1769223806000,
+    "meta": 1769249084079,
+    "relativePath": "Donut\\ui\\Straw_Menu.png"
+  },
+  "31833706-a0b2-4768-8bea-edcf261aaac2": {
+    "asset": 1769223806000,
+    "meta": 1769249084088,
+    "relativePath": "Donut\\ui\\Strawberry Cream.png"
+  },
+  "c4fec35b-9e70-4ea9-927d-c5b6e5499183": {
+    "asset": 1769223806000,
+    "meta": 1769249084095,
+    "relativePath": "Donut\\ui\\Tick.png"
+  },
+  "341c515b-6a72-4a4c-9f24-f923d1c6f329": {
+    "asset": 1769249739222,
+    "meta": 1769249739223,
+    "relativePath": "Donut\\vfx\\khoi"
+  },
+  "fc7743ec-bfef-46c0-8927-701c75f5d49c": {
+    "asset": 1769249744770,
+    "meta": 1769249744787,
+    "relativePath": "Donut\\vfx\\khoi\\skeleton.atlas.txt"
+  },
+  "aa450ea7-036e-4b53-aba3-2af7d7293026": {
+    "asset": 1769249744770,
+    "meta": 1769249744906,
+    "relativePath": "Donut\\vfx\\khoi\\skeleton.json"
+  },
+  "03f50c5d-71c0-4ea8-a69e-5d17f95b3ec0": {
+    "asset": 1769249744770,
+    "meta": 1769249744833,
+    "relativePath": "Donut\\vfx\\khoi\\skeleton4.png"
+  },
+  "34fb5787-6d3e-4065-b070-286f2affca26": {
+    "asset": 1769249744770,
+    "meta": 1769249744844,
+    "relativePath": "Donut\\vfx\\khoi\\skeleton.png"
+  },
+  "221333fc-61f2-434f-86dd-2bd62d8caf74": {
+    "asset": 1769249744771,
+    "meta": 1769249744894,
+    "relativePath": "Donut\\vfx\\khoi\\skeleton2.png"
+  },
+  "27cf9bc7-4550-44e4-99f0-3d8a58bae40e": {
+    "asset": 1769249744770,
+    "meta": 1769249744898,
+    "relativePath": "Donut\\vfx\\khoi\\skeleton3.png"
   }
 }
