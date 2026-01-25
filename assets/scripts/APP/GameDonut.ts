@@ -237,7 +237,7 @@ export default class NewClass extends cc.Component {
 
         let slot = this.checkSlotKhay()
         if (slot == null) return;
-        this.isClickDonutChin=true
+        this.isClickDonutChin = true
         this.listhand.children[1].active = false
         cc.audioEngine.play(this.soundDonutJump, false, 0.6)
         let donut = this.arrDonut[value]
@@ -279,7 +279,13 @@ export default class NewClass extends cc.Component {
         donut.getComponent("donut").onSocola()
         let pos = event.currentTarget.position
         this.creatFxColor(pos, 2)
+        this.scheduleOnce(() => {
+            if (this.isClickKhay == false) {
+                this.listhand.children[3].active = true
+            }
+        }, 3)
     }
+    isClickKhay = false
     btn_dau(event) {
         let check = this.checkSlotNhan()
         if (check == null) return;
@@ -296,6 +302,8 @@ export default class NewClass extends cc.Component {
         if (this.isTargetCus == null) return;
         if (this.isTargetPop == null) return;
         // this.listHand.children[4].opacity = 0
+        this.listhand.children[3].active = false
+        this.isClickKhay = true;
         dn.getComponent(cc.Button).enabled = false
         cc.audioEngine.play(this.soundTrans, false, 1)
         let child = this.arrKhay[value];

@@ -82,6 +82,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isClickDonut = false;
         _this.isClickDonutChin = false;
         _this.isClickSocola = false;
+        _this.isClickKhay = false;
         return _this;
     }
     NewClass.prototype.onLoad = function () {
@@ -261,6 +262,7 @@ var NewClass = /** @class */ (function (_super) {
         return null;
     };
     NewClass.prototype.btn_chocalate = function (event) {
+        var _this = this;
         var check = this.checkSlotNhan();
         if (check == null)
             return;
@@ -272,6 +274,11 @@ var NewClass = /** @class */ (function (_super) {
         donut.getComponent("donut").onSocola();
         var pos = event.currentTarget.position;
         this.creatFxColor(pos, 2);
+        this.scheduleOnce(function () {
+            if (_this.isClickKhay == false) {
+                _this.listhand.children[3].active = true;
+            }
+        }, 3);
     };
     NewClass.prototype.btn_dau = function (event) {
         var check = this.checkSlotNhan();
@@ -291,6 +298,8 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isTargetPop == null)
             return;
         // this.listHand.children[4].opacity = 0
+        this.listhand.children[3].active = false;
+        this.isClickKhay = true;
         dn.getComponent(cc.Button).enabled = false;
         cc.audioEngine.play(this.soundTrans, false, 1);
         var child = this.arrKhay[value];
