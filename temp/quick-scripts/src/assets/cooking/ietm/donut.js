@@ -38,6 +38,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.gamePlay = null;
         _this.isReady = false;
         _this.value = 0;
+        _this.isTouching = false;
         return _this;
         // checkSlotKhay(){
         // }
@@ -45,11 +46,45 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.start = function () {
         var _this = this;
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
+        this.gamePlay.node.on(cc.Node.EventType.TOUCH_START, this.onTouch, this);
+        this.gamePlay.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouch, this);
+        this.gamePlay.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
         cc.tween(this.iconChin).to(1.5, { opacity: 255 }).call(function () {
             _this.isReady = true;
-            _this.node.getComponent(cc.Button).enabled = true;
+            // this.node.getComponent(cc.Button).enabled = true
             _this.node.children[0].active = false;
         }).start();
+    };
+    NewClass.prototype.onTouch = function (event) {
+        var worldPos = event.getLocation();
+        var worldPos2 = this.gamePlay.camera.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
+        // if (this.gamePlay.camera.node.active == true) {
+        //     worldPos2 = this..getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
+        // }
+        // this.checkCut(worldPos2);
+        this.tryAction(event);
+    };
+    NewClass.prototype.tryAction = function (event) {
+        if (!this.isReady)
+            return;
+        if (this.isTouching)
+            return;
+        // touch position (WORLD)
+        var touchPos = event.getLocation();
+        // convert WORLD → LOCAL của parent
+        // const localPos = this.node.parent.convertToNodeSpaceAR(touchPos);
+        var worldPos = event.getLocation();
+        var localPos = this.gamePlay.camera.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
+        localPos = this.node.parent.convertToNodeSpaceAR(localPos);
+        // rect của node trong parent space
+        var rect = this.node.getBoundingBox();
+        if (rect.contains(localPos)) {
+            this.isTouching = true;
+            this.btn_click();
+        }
+    };
+    NewClass.prototype.onTouchEnd = function () {
+        this.isTouching = false; // reset để lần sau vuốt lại được
     };
     NewClass.prototype.btn_click = function () {
         if (!this.isReady)
@@ -57,7 +92,7 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isStep == 0) {
             this.gamePlay.clickDonut(this.value, this.node);
             this.node.getComponent(cc.Button).enabled = false;
-            this.isStep = 1;
+            // this.isStep = 1;
         }
         else if (this.isStep == 1) {
         }
@@ -69,29 +104,27 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.checkNhan = function () {
     };
     NewClass.prototype.appear = function () {
-        this.node.getComponent(cc.Button).enabled = true;
+        // this.node.getComponent(cc.Button).enabled = true;
         this.vfxSmoke.active = true;
     };
     NewClass.prototype.onSocola = function () {
-        var _this = this;
         this.isStep = 2;
         this.node.children[1].active = false;
         this.iconSocola.scale = 0;
         this.iconSocola.active = true;
         this.isSocola = true;
         cc.tween(this.iconSocola).to(0.3, { scale: 0.35 }).to(0.05, { scale: 0.3 }).call(function () {
-            _this.node.getComponent(cc.Button).enabled = true;
+            // this.node.getComponent(cc.Button).enabled = true
         }).start();
     };
     NewClass.prototype.onDau = function () {
-        var _this = this;
         this.node.children[1].active = false;
         this.isStep = 2;
         this.iconDau.scale = 0;
         this.iconDau.active = true;
         this.isDau = true;
         cc.tween(this.iconDau).to(0.3, { scale: 0.8 }).to(0.05, { scale: 0.78 }).call(function () {
-            _this.node.getComponent(cc.Button).enabled = true;
+            // this.node.getComponent(cc.Button).enabled = true
         }).start();
     };
     __decorate([

@@ -64,8 +64,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 150,
-      "height": 150
+      "width": 120,
+      "height": 120
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -342,8 +342,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 125,
-      "height": 151
+      "width": 124,
+      "height": 150
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1249,6 +1249,9 @@
     "_clips": [
       {
         "__uuid__": "f5e231ca-86c2-4c9e-a25c-5a78c2ec8de7"
+      },
+      {
+        "__uuid__": "007d4a15-3da7-4ada-94ad-6090719bd4c7"
       }
     ],
     "playOnLoad": true,

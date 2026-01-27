@@ -21,8 +21,12 @@ export default class NewClass extends cc.Component {
     pop: cc.Node = null
     @property(sp.Skeleton)
     anim: sp.Skeleton = null
+    @property(cc.Node)
+    doneNode: cc.Node = null
+    @property(cc.Node)
+    doneNode2: cc.Node = null
     isEnd = false
-    isSuccess=false
+    isSuccess = false
     gamePlay = null
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
@@ -43,21 +47,21 @@ export default class NewClass extends cc.Component {
 
     //     }
     // }
-    checkBuger(buger) {
-        if (this.isEnd) return;
+    // checkBuger(buger) {
+    //     if (this.isEnd) return;
 
-        let breadComp = buger.getComponent("buger");
-        if (this.buger == true && this.meat == breadComp.isMeat && this.vegettable == breadComp.isvegettable) {
-            this.updateMission()
-        }
-        else {
-            this.scheduleOnce(() => {
-                this.isEnd = true
-                this.end(false)
-                cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
-            }, 0.4)
-        }
-    }
+    //     let breadComp = buger.getComponent("buger");
+    //     if (this.buger == true && this.meat == breadComp.isMeat && this.vegettable == breadComp.isvegettable) {
+    //         this.updateMission()
+    //     }
+    //     else {
+    //         this.scheduleOnce(() => {
+    //             this.isEnd = true
+    //             this.end(false)
+    //             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
+    //         }, 0.4)
+    //     }
+    // }
 
     updateMission(value) { //1:socola //0:dau
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1)
@@ -67,13 +71,23 @@ export default class NewClass extends cc.Component {
                 this.count[0]--
                 if (this.count[0] == 0) {
                     this.isEnd = true
+                    this.scheduleOnce(() => {
+                        this.doneNode.active = true
 
+                    }, 0.3)
+                    this.lbCountDau.node.active = false
                 }
                 break;
             case 1: //socola
                 this.count[1]--
                 if (this.count[1] == 0) {
                     this.isEnd = true
+                    this.scheduleOnce(() => {
+                        this.doneNode2.active = true
+
+                    }, 0.3)
+                    this.lbCountSc.node.active = false
+
                     // this.scheduleOnce(() => {
 
                     // }, 0.4)
@@ -85,12 +99,12 @@ export default class NewClass extends cc.Component {
             this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play()
             this.pop.getChildByName("right").active = true
             this.pop.getChildByName("right").getComponent(cc.Animation).play()
-            if (this.count[1] == 0 && this.count[0] == 0) {
-                this.end(true)
 
-            }
         }, 0.4)
+        if (this.count[1] == 0 && this.count[0] == 0) {
+            this.end(true)
 
+        }
         globalThis.gold += 50
 
         // this.count--;
@@ -105,33 +119,40 @@ export default class NewClass extends cc.Component {
 
     }
     end(value) {
-        if(this.isSuccess)return;
-        this.isSuccess=true
+        if (this.isSuccess) return;
+        this.isSuccess = true
         this.gamePlay.successCus()
-        this.scheduleOnce(() => {
-            cc.audioEngine.play(this.gamePlay.soundClosePop, false, 1)
 
-            cc.tween(this.pop).to(0.3, { scale: 0 }).start()
-            this.anim.setAnimation(0,"walk",true)
-            cc.tween(this.node).to(1, { position: cc.v3(-900, 123.591) }).call(() => {
-                this.node.active = false
-                this.gamePlay.nextCus(value)
-
-            }).start()
-        }, 0.5)
         if (value == true) {
-            cc.audioEngine.play(this.soundHappy,false,1)
+            cc.audioEngine.play(this.soundHappy, false, 1)
+            this.doneNode.active = true;
+            this.doneNode2.active = true;
+
+            this.lbCountDau.node.active = false;
+            this.lbCountSc.node.active = false
             this.anim.setAnimation(0, "happy", false)
             this.pop.getChildByName("right").active = true
             this.node.getChildByName("happy").active = true
 
         }
         else {
+            this.unscheduleAllCallbacks()
             this.anim.setAnimation(0, "angry", false)
             this.pop.getChildByName("wrong").active = true
             this.node.getChildByName("angry").active = true
 
         }
+        this.scheduleOnce(() => {
+            cc.audioEngine.play(this.gamePlay.soundClosePop, false, 1)
+
+            cc.tween(this.pop).to(0.3, { scale: 0 }).start()
+            this.anim.setAnimation(0, "walk", true)
+            cc.tween(this.node).to(1, { position: cc.v3(-900, 123.591) }).call(() => {
+                this.node.active = false
+                this.gamePlay.nextCus(value)
+
+            }).start()
+        }, 0.5)
 
     }
     update(dt) {
@@ -151,14 +172,14 @@ export default class NewClass extends cc.Component {
     checkSell(donut) {
         let donutComp = donut.getComponent("donut")
         let check = false
-        if (this.socola&&this.count[1]>0) {
+        if (this.socola && this.count[1] > 0) {
             if (donutComp.isSocola) {
                 this.updateMission(1)
                 check = true
             }
         }
         if (this.dau) {
-            if (donutComp.isDau&&this.count[0]>0) {
+            if (donutComp.isDau && this.count[0] > 0) {
                 this.updateMission(0)
                 check = true
             }

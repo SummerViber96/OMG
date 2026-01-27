@@ -10,6 +10,8 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundClosePop: cc.AudioClip = null
     @property(cc.AudioClip)
+    soundChien: cc.AudioClip = null
+    @property(cc.AudioClip)
     soundBg: cc.AudioClip = null
     @property(cc.AudioClip)
     soundWin: cc.AudioClip = null;
@@ -71,6 +73,8 @@ export default class NewClass extends cc.Component {
     listKhaySub: cc.Node = null
     @property(cc.Node)
     listhand: cc.Node = null
+    // @property(cc.Camera)
+    // camera:cc.Camera=null
 
     maxKhay = 7
 
@@ -97,9 +101,12 @@ export default class NewClass extends cc.Component {
         }
     }
     start() {
-
+        // this.node.on(cc.Node.EventType.TOUCH_START, this.onTouch, this);
+        // this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouch, this);
         this.showCus()
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
+        this.idSound = cc.audioEngine.play(this.soundChien, true, 0.5)
+
         this.scheduleOnce(() => {
             cc.audioEngine.play(this.soundTrans, false, 1)
             for (let i = 0; i < this.btnDonut.childrenCount; i++) {
@@ -118,10 +125,20 @@ export default class NewClass extends cc.Component {
             this.arrKhayPos.push(this.listKhaySub.children[i].position);
         }
     }
+    // onTouch(event: cc.Event.EventTouch) {
+    //     let worldPos = event.getLocation();
+    //     let worldPos2 = this.camera.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
+    //     if (this.cameraNgang.node.active == true) {
+    //         worldPos2 = this.cameraNgang.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
+    //     }
+    //     this.checkCut(worldPos2);
+    // }
     showCus() {
         let child = this.listCus.children[0]
         child.position = cc.v3(700, 123.591)
         cc.tween(child).to(0.8, { position: cc.v3(0, 123.591) }).call(() => {
+            child.getChildByName("pop").scale = 0
+
             child.getChildByName("pop").active = true
             child.children[0].getComponent(sp.Skeleton).setAnimation(0, "idle", true)
             this.isTargetPop = child.getChildByName("pop")
@@ -161,6 +178,7 @@ export default class NewClass extends cc.Component {
             child.position = cc.v3(700, 123.591)
             child.active = true
             cc.tween(child).to(0.8, { position: cc.v3(0, 123.591) }).call(() => {
+                child.getChildByName("pop").scale = 0
                 child.getChildByName("pop").active = true
                 child.children[0].getComponent(sp.Skeleton).setAnimation(0, "idle", true)
 
@@ -208,7 +226,10 @@ export default class NewClass extends cc.Component {
         donut.getComponent("donut").value = check
         donut.scale = 0.95
         this.arrDonut[check] = donut
-
+        this.scheduleOnce(() => {
+            donut.children[0].active = false
+            donut.getComponent(cc.Animation).play("donut_idle")
+        }, 1)
         this.scheduleOnce(() => {
             if (this.isClickDonutChin == false) {
                 this.listhand.children[1].active = true
@@ -236,7 +257,11 @@ export default class NewClass extends cc.Component {
     clickDonut(value, node) {
 
         let slot = this.checkSlotKhay()
-        if (slot == null) return;
+        if (slot == null) {
+            node.getComponent("donut").isTouching = false
+            return;
+        }
+        node.getComponent("donut").isStep = 1
         this.isClickDonutChin = true
         this.listhand.children[1].active = false
         cc.audioEngine.play(this.soundDonutJump, false, 0.6)
@@ -245,13 +270,20 @@ export default class NewClass extends cc.Component {
         donut.parent = this.listKhayPlace
         this.arrKhay[slot] = donut
         this.arrDonut[value] = null
+        donut.zIndex = 100
+
         donut.getComponent("donut").value = slot
-        donut.zIndex = slot
+        donut.getComponent(cc.Animation).stop("donut_idle")
+        donut.children[1].position = cc.v3(0, 0)
         let startpos = cc.v2(donut.x, donut.y);
         let endPos = cc.v2(pos.x, pos.y)
         let midPos = cc.v2(endPos.x, endPos.y + 200)
         cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start()
         cc.tween(donut.children[1]).to(0.3, { angle: -72 }).start()
+        this.scheduleOnce(() => {
+            donut.zIndex = slot
+
+        }, 0.2)
         this.scheduleOnce(() => {
             if (this.isClickSocola == false) {
                 this.listhand.children[2].active = true

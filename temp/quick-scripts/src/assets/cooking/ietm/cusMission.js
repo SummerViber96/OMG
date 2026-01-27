@@ -36,6 +36,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.lbCountDau = null;
         _this.pop = null;
         _this.anim = null;
+        _this.doneNode = null;
+        _this.doneNode2 = null;
         _this.isEnd = false;
         _this.isSuccess = false;
         _this.gamePlay = null;
@@ -58,22 +60,20 @@ var NewClass = /** @class */ (function (_super) {
     //         }, 0.4)
     //     }
     // }
-    NewClass.prototype.checkBuger = function (buger) {
-        var _this = this;
-        if (this.isEnd)
-            return;
-        var breadComp = buger.getComponent("buger");
-        if (this.buger == true && this.meat == breadComp.isMeat && this.vegettable == breadComp.isvegettable) {
-            this.updateMission();
-        }
-        else {
-            this.scheduleOnce(function () {
-                _this.isEnd = true;
-                _this.end(false);
-                cc.audioEngine.play(_this.gamePlay.soundWrong, false, 0.8);
-            }, 0.4);
-        }
-    };
+    // checkBuger(buger) {
+    //     if (this.isEnd) return;
+    //     let breadComp = buger.getComponent("buger");
+    //     if (this.buger == true && this.meat == breadComp.isMeat && this.vegettable == breadComp.isvegettable) {
+    //         this.updateMission()
+    //     }
+    //     else {
+    //         this.scheduleOnce(() => {
+    //             this.isEnd = true
+    //             this.end(false)
+    //             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
+    //         }, 0.4)
+    //     }
+    // }
     NewClass.prototype.updateMission = function (value) {
         var _this = this;
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1);
@@ -82,12 +82,20 @@ var NewClass = /** @class */ (function (_super) {
                 this.count[0]--;
                 if (this.count[0] == 0) {
                     this.isEnd = true;
+                    this.scheduleOnce(function () {
+                        _this.doneNode.active = true;
+                    }, 0.3);
+                    this.lbCountDau.node.active = false;
                 }
                 break;
             case 1: //socola
                 this.count[1]--;
                 if (this.count[1] == 0) {
                     this.isEnd = true;
+                    this.scheduleOnce(function () {
+                        _this.doneNode2.active = true;
+                    }, 0.3);
+                    this.lbCountSc.node.active = false;
                     // this.scheduleOnce(() => {
                     // }, 0.4)
                 }
@@ -98,10 +106,10 @@ var NewClass = /** @class */ (function (_super) {
             _this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play();
             _this.pop.getChildByName("right").active = true;
             _this.pop.getChildByName("right").getComponent(cc.Animation).play();
-            if (_this.count[1] == 0 && _this.count[0] == 0) {
-                _this.end(true);
-            }
         }, 0.4);
+        if (this.count[1] == 0 && this.count[0] == 0) {
+            this.end(true);
+        }
         globalThis.gold += 50;
         // this.count--;
         // this.scheduleOnce(() => {
@@ -116,6 +124,22 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.isSuccess = true;
         this.gamePlay.successCus();
+        if (value == true) {
+            cc.audioEngine.play(this.soundHappy, false, 1);
+            this.doneNode.active = true;
+            this.doneNode2.active = true;
+            this.lbCountDau.node.active = false;
+            this.lbCountSc.node.active = false;
+            this.anim.setAnimation(0, "happy", false);
+            this.pop.getChildByName("right").active = true;
+            this.node.getChildByName("happy").active = true;
+        }
+        else {
+            this.unscheduleAllCallbacks();
+            this.anim.setAnimation(0, "angry", false);
+            this.pop.getChildByName("wrong").active = true;
+            this.node.getChildByName("angry").active = true;
+        }
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.gamePlay.soundClosePop, false, 1);
             cc.tween(_this.pop).to(0.3, { scale: 0 }).start();
@@ -125,17 +149,6 @@ var NewClass = /** @class */ (function (_super) {
                 _this.gamePlay.nextCus(value);
             }).start();
         }, 0.5);
-        if (value == true) {
-            cc.audioEngine.play(this.soundHappy, false, 1);
-            this.anim.setAnimation(0, "happy", false);
-            this.pop.getChildByName("right").active = true;
-            this.node.getChildByName("happy").active = true;
-        }
-        else {
-            this.anim.setAnimation(0, "angry", false);
-            this.pop.getChildByName("wrong").active = true;
-            this.node.getChildByName("angry").active = true;
-        }
     };
     NewClass.prototype.update = function (dt) {
         this.lbCountSc.string = "x" + this.count[1].toString();
@@ -193,6 +206,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(sp.Skeleton)
     ], NewClass.prototype, "anim", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "doneNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "doneNode2", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
