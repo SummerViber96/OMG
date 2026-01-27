@@ -124,10 +124,21 @@ export default class NewClass extends cc.Component {
         // this.scene1.active=false
         this.scene2.scale = 2;
         this.scene2.active = true
-        cc.tween(this.scene2).to(0.3, { scale: 1 }).call(() => {
+        if (this.isIpad == false) {
+            cc.tween(this.scene2).to(0.3, { scale: 1 }).call(() => {
+
+            }).start()
+        }
+        else {
+            cc.tween(this.scene2).to(0.3, { scale: 0.75 }).call(() => {
+
+            }).start()
+        }
+
+        this.scheduleOnce(() => {
             this.scene1.active = false
             this.startScene()
-        }).start()
+        }, 0.3)
     }
     startScene() {
         this.barCoin.active = true
@@ -330,7 +341,15 @@ export default class NewClass extends cc.Component {
 
         }, 1.3)
         this.scheduleOnce(() => {
-            cc.tween(this.scene2).to(0.5, { position: cc.v3(320, 0), scale: 2.1 }).start()
+            if (this.isIpad == false) {
+                cc.tween(this.scene2).to(0.5, { position: cc.v3(320, 0), scale: 2.1 }).start()
+
+            }
+            else {
+                console.log("ipda")
+                cc.tween(this.scene2).to(0.5, { position: cc.v3(320, 0), scale: 1.5 }).start()
+
+            }
 
         }, 0.7)
         this.scheduleOnce(() => {
@@ -494,7 +513,17 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundTranscreen, false, 0.5)
 
         this.char2.node.active = false
-        cc.tween(this.scene2).to(0.5, { scale: 1, position: cc.v3(100, 0) }).call(() => {
+        if (this.isIpad == false) {
+            cc.tween(this.scene2).to(0.5, { scale: 1, position: cc.v3(100, 0) }).call(() => {
+
+            }).start()
+        }
+        else {
+            cc.tween(this.scene2).to(0.5, { scale: 0.75, position: cc.v3(100, 0) }).call(() => {
+
+            }).start()
+        }
+        this.scheduleOnce(() => {
             this.scene3.active = false
             this.char3.node.active = true
             cc.audioEngine.play(this.soundAngry2, false, 0.5)
@@ -503,7 +532,8 @@ export default class NewClass extends cc.Component {
                 this.char3.setAnimation(0, "Angry", true)
                 this.onEndGame()
             }).start()
-        }).start()
+        }, 0.5)
+
 
     }
     onEndGame() {
@@ -534,6 +564,7 @@ export default class NewClass extends cc.Component {
             this.reponsive(false);
         }
     }
+    isIpad = false
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
         // this.camera.zoomRatio = 1.05
@@ -543,6 +574,8 @@ export default class NewClass extends cc.Component {
         canvas.fitWidth = (logic) ? true : false
         this.camera.zoomRatio = (logic) ? 1 : 1.5
         this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 0)
+        this.isIpad = false
+        // this.scene2.scale = 1
         if (logic == true) {
             // this.camera.node.position = cc.v3(0, 100)
 
@@ -564,8 +597,12 @@ export default class NewClass extends cc.Component {
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                // this.camera.zoomRatio = 1.8
+                this.isIpad = true
+                // this.scene2.scale=0.5
 
+                // this.camera.zoomRatio = 0.6
+                console.log("ipad")
+                // this.scene2.scale
             }
         }
         else {

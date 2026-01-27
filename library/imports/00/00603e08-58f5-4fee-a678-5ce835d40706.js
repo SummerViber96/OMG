@@ -86,6 +86,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isunlock = false;
         _this.countStep = 0;
         _this.isClick = false;
+        _this.isIpad = false;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -102,10 +103,18 @@ var NewClass = /** @class */ (function (_super) {
         // this.scene1.active=false
         this.scene2.scale = 2;
         this.scene2.active = true;
-        cc.tween(this.scene2).to(0.3, { scale: 1 }).call(function () {
+        if (this.isIpad == false) {
+            cc.tween(this.scene2).to(0.3, { scale: 1 }).call(function () {
+            }).start();
+        }
+        else {
+            cc.tween(this.scene2).to(0.3, { scale: 0.75 }).call(function () {
+            }).start();
+        }
+        this.scheduleOnce(function () {
             _this.scene1.active = false;
             _this.startScene();
-        }).start();
+        }, 0.3);
     };
     NewClass.prototype.startScene = function () {
         var _this = this;
@@ -290,7 +299,13 @@ var NewClass = /** @class */ (function (_super) {
             _this.scene2.active = false;
         }, 1.3);
         this.scheduleOnce(function () {
-            cc.tween(_this.scene2).to(0.5, { position: cc.v3(320, 0), scale: 2.1 }).start();
+            if (_this.isIpad == false) {
+                cc.tween(_this.scene2).to(0.5, { position: cc.v3(320, 0), scale: 2.1 }).start();
+            }
+            else {
+                console.log("ipda");
+                cc.tween(_this.scene2).to(0.5, { position: cc.v3(320, 0), scale: 1.5 }).start();
+            }
         }, 0.7);
         this.scheduleOnce(function () {
             _this.scene3.opacity = 0;
@@ -437,7 +452,15 @@ var NewClass = /** @class */ (function (_super) {
         this.scene2.active = true;
         cc.audioEngine.play(this.soundTranscreen, false, 0.5);
         this.char2.node.active = false;
-        cc.tween(this.scene2).to(0.5, { scale: 1, position: cc.v3(100, 0) }).call(function () {
+        if (this.isIpad == false) {
+            cc.tween(this.scene2).to(0.5, { scale: 1, position: cc.v3(100, 0) }).call(function () {
+            }).start();
+        }
+        else {
+            cc.tween(this.scene2).to(0.5, { scale: 0.75, position: cc.v3(100, 0) }).call(function () {
+            }).start();
+        }
+        this.scheduleOnce(function () {
             _this.scene3.active = false;
             _this.char3.node.active = true;
             cc.audioEngine.play(_this.soundAngry2, false, 0.5);
@@ -445,7 +468,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.char3.setAnimation(0, "Angry", true);
                 _this.onEndGame();
             }).start();
-        }).start();
+        }, 0.5);
     };
     NewClass.prototype.onEndGame = function () {
         var _this = this;
@@ -481,6 +504,8 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitWidth = (logic) ? true : false;
         this.camera.zoomRatio = (logic) ? 1 : 1.5;
         this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 0);
+        this.isIpad = false;
+        // this.scene2.scale = 1
         if (logic == true) {
             // this.camera.node.position = cc.v3(0, 100)
             var frameSize = cc.view.getFrameSize();
@@ -497,7 +522,11 @@ var NewClass = /** @class */ (function (_super) {
                 // console.log("check iphonex")
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                // this.camera.zoomRatio = 1.8
+                this.isIpad = true;
+                // this.scene2.scale=0.5
+                // this.camera.zoomRatio = 0.6
+                console.log("ipad");
+                // this.scene2.scale
             }
         }
         else {
