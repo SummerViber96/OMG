@@ -2182,7 +2182,7 @@
   "4d2da2b3-d4d1-48b5-bbd5-0e9d8f1b1e59": {
     "asset": 1769525230679,
     "meta": 1769573906157,
-    "relativePath": "cooking\\logo (1) (1).png"
+    "relativePath": "Donut\\Sound\\Other\\logo (1) (1).png"
   },
   "d904979d-b3e3-4f6c-8a83-c611bef592d2": {
     "asset": 1763345369525,
@@ -4330,8 +4330,8 @@
     "relativePath": "scripts"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1769575592380,
-    "meta": 1769575592397,
+    "asset": 1769579546032,
+    "meta": 1769579546048,
     "relativePath": "scenes\\Donut1.fire"
   },
   "470ed163-3949-4cd6-9cdc-895dae391e9e": {
@@ -9988,5 +9988,25 @@
     "asset": 1675224838557,
     "meta": 1769575578373,
     "relativePath": "model\\primitives.fbx"
+  },
+  "2a6395c6-0f02-4682-a2ac-53203725c695": {
+    "asset": 1769576418393,
+    "meta": 1769576351947,
+    "relativePath": "Donut\\Sound\\Other"
+  },
+  "aa10a740-a0f0-4d2d-8148-0cb8a7c41d53": {
+    "asset": 1769576372437,
+    "meta": 1769576373293,
+    "relativePath": "Donut\\Sound\\Other\\Chaos_Ready for the next challenge.mp3"
+  },
+  "e5f9d44c-f16d-45c7-b311-90cc4c1afa9d": {
+    "asset": 1769576372437,
+    "meta": 1769576373294,
+    "relativePath": "Donut\\Sound\\Other\\Crush_Ready for the next challenge.mp3"
+  },
+  "7a8b4aa4-b3de-4507-a007-b8dcc5f291d3": {
+    "asset": 1769576372437,
+    "meta": 1769576373302,
+    "relativePath": "Donut\\Sound\\Other\\KC_Ready for the next challenge.mp3"
   }
 }
