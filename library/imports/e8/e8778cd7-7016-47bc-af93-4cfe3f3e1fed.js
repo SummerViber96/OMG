@@ -63,6 +63,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.listKhayPlace = null;
         _this.listKhaySub = null;
         _this.listhand = null;
+        _this.btnDau = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -164,6 +165,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.nextCus = function (value) {
         var _this = this;
         this.countCus++;
+        this.btnDau.active = true;
         if (this.countCus == 3) {
             this.onEndGame(value);
         }
@@ -208,7 +210,6 @@ var NewClass = /** @class */ (function (_super) {
         if (check == null)
             return;
         this.isClickDonut = true;
-        this.listhand.children[0].active = false;
         var pos = event.currentTarget.position;
         this.creatFxColor(pos, 2);
         cc.audioEngine.play(this.soundClick, false, 1);
@@ -221,6 +222,9 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             donut.children[0].active = false;
             donut.getComponent(cc.Animation).play("donut_idle");
+        }, 1);
+        this.scheduleOnce(function () {
+            _this.listhand.children[0].active = false;
         }, 1);
         this.scheduleOnce(function () {
             if (_this.isClickDonutChin == false) {
@@ -253,6 +257,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         node.getComponent("donut").isStep = 1;
+        this.listhand.children[0].active = false;
         this.isClickDonutChin = true;
         this.listhand.children[1].active = false;
         cc.audioEngine.play(this.soundDonutJump, false, 0.6);
@@ -532,6 +537,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listhand", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnDau", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

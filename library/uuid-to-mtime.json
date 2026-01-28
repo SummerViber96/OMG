@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1769528097786,
+    "meta": 1769558669658,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -1110,8 +1110,8 @@
     "relativePath": "cooking"
   },
   "eb7ca460-9857-4d9e-ae63-65ddbbca597c": {
-    "asset": 1769526844316,
-    "meta": 1769528097770,
+    "asset": 1769536709731,
+    "meta": 1769558669609,
     "relativePath": "cooking\\animCook"
   },
   "37f6a155-328c-4b0a-958a-c1bcedb502e3": {
@@ -2641,7 +2641,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1769528097788,
+    "meta": 1769558669655,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -2790,8 +2790,8 @@
     "relativePath": "cooking\\Tomato#3.png"
   },
   "72ae52ac-85b0-4f9d-afe4-7662cad9240a": {
-    "asset": 1769103712526,
-    "meta": 1769253182452,
+    "asset": 1769537549103,
+    "meta": 1769558669643,
     "relativePath": "cooking\\vfx"
   },
   "5fa0d870-f534-48f1-89a8-7fbb3be41e31": {
@@ -2810,8 +2810,8 @@
     "relativePath": "Donut"
   },
   "f88d34ab-d908-47e7-b096-7c813b8f75e5": {
-    "asset": 1769249080968,
-    "meta": 1769253182465,
+    "asset": 1769528807453,
+    "meta": 1769558669644,
     "relativePath": "Donut\\anim"
   },
   "a2ec5471-6aa7-4ff0-b763-dcb707614bf2": {
@@ -2880,8 +2880,8 @@
     "relativePath": "Donut\\Capture2.PNG"
   },
   "bb1269e6-cdd6-4897-8599-97a78920b2bd": {
-    "asset": 1769248803070,
-    "meta": 1769253182594,
+    "asset": 1769537402255,
+    "meta": 1769558669646,
     "relativePath": "Donut\\Sound"
   },
   "93a653f6-cb50-4f69-9c15-2782fb1e4a44": {
@@ -2930,8 +2930,8 @@
     "relativePath": "Donut\\Sound\\Open_Popup_01.mp3"
   },
   "ff45fd90-adc9-4700-ba86-42aadc49ee82": {
-    "asset": 1769249026348,
-    "meta": 1769253182655,
+    "asset": 1769537191581,
+    "meta": 1769558669648,
     "relativePath": "Donut\\ui"
   },
   "0c35edb1-afa6-48e1-8310-36e5a4cf959f": {
@@ -2985,8 +2985,8 @@
     "relativePath": "Donut\\vfx"
   },
   "341c515b-6a72-4a4c-9f24-f923d1c6f329": {
-    "asset": 1769249744777,
-    "meta": 1769253182806,
+    "asset": 1769535714937,
+    "meta": 1769558669649,
     "relativePath": "Donut\\vfx\\khoi"
   },
   "fc7743ec-bfef-46c0-8927-701c75f5d49c": {
@@ -4335,8 +4335,8 @@
     "relativePath": "scripts"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1769537736940,
-    "meta": 1769537736961,
+    "asset": 1769559851964,
+    "meta": 1769559851998,
     "relativePath": "scenes\\Donut1.fire"
   },
   "470ed163-3949-4cd6-9cdc-895dae391e9e": {
@@ -9859,11 +9859,6 @@
     "meta": 1769535283753,
     "relativePath": "cooking\\ietm\\cusMission.ts"
   },
-  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1769535439400,
-    "meta": 1769535440203,
-    "relativePath": "scripts\\APP\\GameDonut.ts"
-  },
   "3772252e-b68f-4a83-8e6a-c83b59a7c682": {
     "asset": 1769510418000,
     "meta": 1769535660244,
@@ -9988,5 +9983,15 @@
     "asset": 1769537507370,
     "meta": 1769537550643,
     "relativePath": "cooking\\vfx\\coin_vfx.png"
+  },
+  "07ba3403-6086-478a-81b2-99c303dc79bf": {
+    "asset": 1769559311061,
+    "meta": 1769559311075,
+    "relativePath": "anim\\hand\\hand_vuot.anim"
+  },
+  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
+    "asset": 1769559676112,
+    "meta": 1769559677069,
+    "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

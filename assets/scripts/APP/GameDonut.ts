@@ -73,6 +73,8 @@ export default class NewClass extends cc.Component {
     listKhaySub: cc.Node = null
     @property(cc.Node)
     listhand: cc.Node = null
+    @property(cc.Node)
+    btnDau: cc.Node = null;
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -170,6 +172,8 @@ export default class NewClass extends cc.Component {
     }
     nextCus(value) {
         this.countCus++
+        this.btnDau.active = true
+
         if (this.countCus == 3) {
             this.onEndGame(value)
         }
@@ -216,7 +220,6 @@ export default class NewClass extends cc.Component {
         let check = this.checkSlotDonut()
         if (check == null) return;
         this.isClickDonut = true;
-        this.listhand.children[0].active = false;
         let pos = event.currentTarget.position
         this.creatFxColor(pos, 2)
         cc.audioEngine.play(this.soundClick, false, 1)
@@ -230,7 +233,12 @@ export default class NewClass extends cc.Component {
             donut.children[0].active = false
             donut.getComponent(cc.Animation).play("donut_idle")
         }, 1)
+        this.scheduleOnce(()=>{
+            this.listhand.children[0].active = false;
+
+        },1)
         this.scheduleOnce(() => {
+
             if (this.isClickDonutChin == false) {
                 this.listhand.children[1].active = true
             }
@@ -262,6 +270,8 @@ export default class NewClass extends cc.Component {
             return;
         }
         node.getComponent("donut").isStep = 1
+                    this.listhand.children[0].active = false;
+
         this.isClickDonutChin = true
         this.listhand.children[1].active = false
         cc.audioEngine.play(this.soundDonutJump, false, 0.6)

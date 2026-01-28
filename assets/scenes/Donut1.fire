@@ -19378,7 +19378,7 @@
         "__id__": 499
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 501
@@ -20223,7 +20223,7 @@
     ],
     "paused": false,
     "defaultSkin": "default",
-    "defaultAnimation": "one click",
+    "defaultAnimation": "",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -20259,11 +20259,14 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "ec4edd3f-9e74-4b70-9afb-215a085163c5"
+      "__uuid__": "07ba3403-6086-478a-81b2-99c303dc79bf"
     },
     "_clips": [
       {
         "__uuid__": "ec4edd3f-9e74-4b70-9afb-215a085163c5"
+      },
+      {
+        "__uuid__": "07ba3403-6086-478a-81b2-99c303dc79bf"
       }
     ],
     "playOnLoad": true,
@@ -20795,7 +20798,7 @@
     ],
     "paused": false,
     "defaultSkin": "default",
-    "defaultAnimation": "one click",
+    "defaultAnimation": "",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -20831,11 +20834,15 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "ec4edd3f-9e74-4b70-9afb-215a085163c5"
+      "__uuid__": "07ba3403-6086-478a-81b2-99c303dc79bf"
     },
     "_clips": [
       {
         "__uuid__": "ec4edd3f-9e74-4b70-9afb-215a085163c5"
+      },
+      null,
+      {
+        "__uuid__": "07ba3403-6086-478a-81b2-99c303dc79bf"
       }
     ],
     "playOnLoad": true,
@@ -26229,6 +26236,9 @@
     },
     "listhand": {
       "__id__": 503
+    },
+    "btnDau": {
+      "__id__": 498
     },
     "_id": "30soU5wqpHSJOpMZt8D3RI"
   }
