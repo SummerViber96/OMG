@@ -23588,8 +23588,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 945,
-      "height": 563
+      "width": 677,
+      "height": 591
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -23607,8 +23607,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        1.2,
+        1.2,
         1
       ]
     },
@@ -23641,7 +23641,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "167b423f-6138-460c-9f18-c6a2d7eb521d"
+      "__uuid__": "10bf38d9-91a4-438b-95ca-7c5c7770ce51"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -24377,8 +24377,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1323,
-      "height": 788.2
+      "width": 1364.832,
+      "height": 1191.456
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -24390,7 +24390,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        270,
+        290,
         0,
         0,
         0,
@@ -24430,7 +24430,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "167b423f-6138-460c-9f18-c6a2d7eb521d"
+      "__uuid__": "10bf38d9-91a4-438b-95ca-7c5c7770ce51"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -24487,7 +24487,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1416.4,
+      "width": 1276.16,
       "height": 140
     },
     "_anchorPoint": {
@@ -24541,7 +24541,7 @@
     "_dstBlendFactor": 771,
     "_string": "Ready for the next challenge?",
     "_N$string": "Ready for the next challenge?",
-    "_fontSize": 100,
+    "_fontSize": 90,
     "_lineHeight": 100,
     "_enableWrapText": true,
     "_N$file": {
@@ -26164,10 +26164,10 @@
       "__uuid__": "2dbaeb5c-1ea2-4325-96e7-cfdc104e94b9"
     },
     "soundWin": {
-      "__uuid__": "e5f9d44c-f16d-45c7-b311-90cc4c1afa9d"
+      "__uuid__": "7a8b4aa4-b3de-4507-a007-b8dcc5f291d3"
     },
     "soundLose": {
-      "__uuid__": "e5f9d44c-f16d-45c7-b311-90cc4c1afa9d"
+      "__uuid__": "7a8b4aa4-b3de-4507-a007-b8dcc5f291d3"
     },
     "soundHello": {
       "__uuid__": "2631bcf7-65e4-48dc-b844-10108bbc9a78"
