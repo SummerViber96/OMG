@@ -9875,8 +9875,8 @@
     "relativePath": "HotelHair\\anim\\xabong.json"
   },
   "a192fd38-0725-48ea-ab48-d6467214b5c1": {
-    "asset": 1770222714121,
-    "meta": 1770222714141,
+    "asset": 1770224877193,
+    "meta": 1770224877212,
     "relativePath": "scenes\\HotelHair.fire"
   },
   "61b7bb66-a235-4d01-9d19-139e8284d949": {
@@ -10284,11 +10284,6 @@
     "meta": 1770215195327,
     "relativePath": "model\\primitives.fbx"
   },
-  "00603e08-58f5-4fee-a678-5ce835d40706": {
-    "asset": 1770212665774,
-    "meta": 1770215210601,
-    "relativePath": "scripts\\APP\\CC2.ts"
-  },
   "7e433cb8-414a-4a1b-9481-7b34e386029d": {
     "asset": 1762656557989,
     "meta": 1770215203702,
@@ -10305,8 +10300,18 @@
     "relativePath": "scripts\\Hotelhair\\Scene1.ts"
   },
   "ed94b9fc-0f9d-4cb7-9eec-aaa82a2a0bc4": {
-    "asset": 1770222684458,
-    "meta": 1770222686105,
+    "asset": 1770223427611,
+    "meta": 1770223428985,
     "relativePath": "scripts\\common\\AdManager.js"
+  },
+  "d81bf89f-8661-4216-b4b5-447a22154f08": {
+    "asset": 1770224259197,
+    "meta": 1770224259706,
+    "relativePath": "sound\\Girl_hello (mp3cut.net).mp3"
+  },
+  "00603e08-58f5-4fee-a678-5ce835d40706": {
+    "asset": 1770224861927,
+    "meta": 1770224863651,
+    "relativePath": "scripts\\APP\\CC2.ts"
   }
 }

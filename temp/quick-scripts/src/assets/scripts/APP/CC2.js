@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-globalThis.coin = 0;
+globalThis.coin = 350;
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
@@ -79,6 +79,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundCoin = null;
         _this.soundFail = null;
         _this.soundUnlock = null;
+        _this.soundHello = null;
         _this.selectedItem = null;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.arrBtn = [];
@@ -95,6 +96,7 @@ var NewClass = /** @class */ (function (_super) {
         }
         cc.audioEngine.play(this.soundBg, true, 0.3);
         this.arrBtn = [this.itemShambo, this.itemVoiHoaSen, this.itemMaySay];
+        this.startScene();
         // this.startScene()
     };
     NewClass.prototype.completeScene = function () {
@@ -119,25 +121,27 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.startScene = function () {
         var _this = this;
         this.barCoin.active = true;
-        var char1Node = this.char1.node;
-        cc.audioEngine.play(this.soundTranscreen, false, 1);
-        cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(function () {
-            _this.char1.setAnimation(0, "Happy", false);
-            cc.audioEngine.play(_this.soundThank, false, 0.7);
-            char1Node.scaleX = -1.5;
-            _this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundCoin, false, 1);
-                _this.giveCoin();
-            }, 0.3);
-        }).start();
+        // let char1Node = this.char1.node
+        // cc.audioEngine.play(this.soundTranscreen, false, 1)
+        // cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(() => {
+        //     this.char1.setAnimation(0, "Happy", false);
+        //     cc.audioEngine.play(this.soundThank, false, 0.7)
+        //     char1Node.scaleX = -1.5;
+        //     this.scheduleOnce(() => {
+        //         cc.audioEngine.play(this.soundCoin, false, 1)
+        //         this.giveCoin()
+        //     }, 0.3)
+        // }).start()
         this.char2.setAnimation(0, "Walk", true);
         this.scheduleOnce(function () {
             if (_this.isunlock)
                 return;
             _this.handScene21.active = true;
         }, 3);
-        cc.tween(this.char2.node.parent).to(3.8, { position: cc.v3(-407, -925) }).call(function () {
+        cc.tween(this.char2.node.parent).to(1.5, { position: cc.v3(-407, -925) }).call(function () {
             _this.char2.setAnimation(0, "Talk", true);
+            _this.btnUnlock.getComponent(cc.Button).enabled = true;
+            cc.audioEngine.play(_this.soundHello, false, 0.4);
             // this.char2.node.getChildByName("pop").active = true
             // cc.audioEngine.play(this.soundHi, false, 1)
         }).start();
@@ -205,7 +209,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         if (this.isunlock)
             return;
-        cc.audioEngine.play(this.soundCoin, false, 1);
+        cc.audioEngine.play(this.soundCoin, false, 0.7);
         // for (let i = 0; i < 35; i++) {
         //     this.scheduleOnce(() => {
         //         globalThis.coin -= 10
@@ -694,6 +698,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundUnlock", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundHello", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -1,5 +1,5 @@
 
-globalThis.coin = 0;
+globalThis.coin = 350;
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -106,6 +106,8 @@ export default class NewClass extends cc.Component {
     soundFail: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundUnlock: cc.AudioClip = null
+     @property(cc.AudioClip)
+    soundHello: cc.AudioClip = null
     private selectedItem: cc.Node = null;
 
     adChanel = '{{__adv_channels_adapter__}}'
@@ -117,6 +119,8 @@ export default class NewClass extends cc.Component {
         }
         cc.audioEngine.play(this.soundBg, true, 0.3)
         this.arrBtn = [this.itemShambo, this.itemVoiHoaSen, this.itemMaySay]
+                    this.startScene()
+
         // this.startScene()
     }
     completeScene() {
@@ -142,24 +146,26 @@ export default class NewClass extends cc.Component {
     }
     startScene() {
         this.barCoin.active = true
-        let char1Node = this.char1.node
-        cc.audioEngine.play(this.soundTranscreen, false, 1)
-        cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(() => {
-            this.char1.setAnimation(0, "Happy", false);
-            cc.audioEngine.play(this.soundThank, false, 0.7)
-            char1Node.scaleX = -1.5;
-            this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundCoin, false, 1)
-                this.giveCoin()
-            }, 0.3)
-        }).start()
+        // let char1Node = this.char1.node
+        // cc.audioEngine.play(this.soundTranscreen, false, 1)
+        // cc.tween(char1Node).to(0.8, { position: cc.v3(110, -223) }).call(() => {
+        //     this.char1.setAnimation(0, "Happy", false);
+        //     cc.audioEngine.play(this.soundThank, false, 0.7)
+        //     char1Node.scaleX = -1.5;
+        //     this.scheduleOnce(() => {
+        //         cc.audioEngine.play(this.soundCoin, false, 1)
+        //         this.giveCoin()
+        //     }, 0.3)
+        // }).start()
         this.char2.setAnimation(0, "Walk", true);
         this.scheduleOnce(() => {
             if (this.isunlock) return;
             this.handScene21.active = true;
         }, 3)
-        cc.tween(this.char2.node.parent).to(3.8, { position: cc.v3(-407, -925) }).call(() => {
+        cc.tween(this.char2.node.parent).to(1.5, { position: cc.v3(-407, -925) }).call(() => {
             this.char2.setAnimation(0, "Talk", true);
+            this.btnUnlock.getComponent(cc.Button).enabled=true
+            cc.audioEngine.play(this.soundHello,false,0.4)
             // this.char2.node.getChildByName("pop").active = true
             // cc.audioEngine.play(this.soundHi, false, 1)
 
@@ -230,7 +236,7 @@ export default class NewClass extends cc.Component {
     countStep = 0
     btn_unlock(event) {
         if (this.isunlock) return;
-        cc.audioEngine.play(this.soundCoin, false, 1)
+        cc.audioEngine.play(this.soundCoin, false, 0.7)
 
         // for (let i = 0; i < 35; i++) {
         //     this.scheduleOnce(() => {
