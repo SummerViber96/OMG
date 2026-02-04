@@ -19,6 +19,8 @@ export default class Scratch_ticket extends cc.Component {
   tutHam: cc.Node = null
   @property(cc.AudioClip)
   soundCao: cc.AudioClip = null
+  @property(cc.Node)
+  scene1:cc.Node=null
   progerss = 0;
 
   gamePlay = null;
@@ -120,7 +122,7 @@ export default class Scratch_ticket extends cc.Component {
       this.beforeDestroy();
       this.ham.active = false
       this.scheduleOnce(() => {
-        this.gamePlay.completeScene();
+        this.scene1.getComponent("Scene1").endGame()
 
       }, 0.4)
       cc.tween(this.node).to(0.3, { opacity: 0 }).call(() => {

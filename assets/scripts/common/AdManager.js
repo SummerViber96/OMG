@@ -10,7 +10,9 @@ cc.Class({
         },
         defaultLink: {
             default: ''
-        }
+        },
+        endCard:cc.Node ,
+        listCard2:cc.Node
     },
 
     openAdUrl: function(){
@@ -21,6 +23,8 @@ cc.Class({
         window.androidLink = this.androidLink;
         window.iosLink = this.iosLink;
         window.defaultLink = this.defaultLink;
+        this.endCard.active=true
+        this.listCard2.active=false
         let adchanel = '{{__adv_channels_adapter__}}'
         if(window.openAdUrl) {
             console.log(adchanel);

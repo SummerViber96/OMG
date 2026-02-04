@@ -5,10 +5,10 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": -1928,
+      "x": -8,
       "y": -8,
-      "width": 1936,
-      "height": 1056,
+      "width": 2576,
+      "height": 1416,
       "layout": {
         "type": "dock-h",
         "children": [
@@ -105,14 +105,14 @@
       ]
     },
     "worker": {},
-    "window-1769490220740": {}
+    "window-1770222428867": {}
   },
   "panels": {
     "builder": {
-      "x": -1928,
+      "x": -8,
       "y": -8,
-      "width": 1936,
-      "height": 1056
+      "width": 2576,
+      "height": 1416
     },
     "project-settings": {
       "x": 992,

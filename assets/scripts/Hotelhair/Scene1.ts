@@ -10,6 +10,8 @@ export default class NewClass extends cc.Component {
     animCutShirt: sp.Skeleton = null;
     @property(cc.Node)
     listCard: cc.Node = null;
+    @property(cc.Node)
+    listCard2: cc.Node = null;
     @property(cc.AudioClip)
     soundWrong: cc.AudioClip = null;
     @property(cc.Node)
@@ -30,6 +32,10 @@ export default class NewClass extends cc.Component {
     hairCut: cc.AudioClip = null
     @property(cc.AudioClip)
     soundClick: cc.AudioClip = null
+    @property(cc.Node)
+    linkToStore: cc.Node = null
+    // @property(cc.Node)
+    // endCard: cc.Node = null
     start() {
         let self = this
         this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
@@ -74,7 +80,7 @@ export default class NewClass extends cc.Component {
     isClickCard = false
     btn_chooseCard(event, value) {
         this.isClickCard = true
-                    this.listCard.getChildByName("hand").active = false
+        this.listCard.getChildByName("hand").active = false
 
         cc.audioEngine.play(this.soundClick, false, 1)
         switch (value) {
@@ -92,6 +98,18 @@ export default class NewClass extends cc.Component {
                 break;
 
         }
+    }
+    endGame() {
+        cc.audioEngine.play(this.soundPopUp, false, 1)
+
+        this.hand.active = true
+        this.scheduleOnce(() => {
+            this.listCard2.getChildByName("hand").active = true
+
+        }, 1)
+
+        this.listCard2.active = true;
+        this.linkToStore.active = true
     }
     // update (dt) {}
 }

@@ -31,6 +31,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.camera = null;
         _this.animCutShirt = null;
         _this.listCard = null;
+        _this.listCard2 = null;
         _this.soundWrong = null;
         _this.shirt = null;
         _this.hand = null;
@@ -41,11 +42,14 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundPopUp = null;
         _this.hairCut = null;
         _this.soundClick = null;
+        _this.linkToStore = null;
         _this.isTab = false;
         _this.isClickCard = false;
         return _this;
         // update (dt) {}
     }
+    // @property(cc.Node)
+    // endCard: cc.Node = null
     NewClass.prototype.start = function () {
         var _this = this;
         var self = this;
@@ -106,6 +110,16 @@ var NewClass = /** @class */ (function (_super) {
                 break;
         }
     };
+    NewClass.prototype.endGame = function () {
+        var _this = this;
+        cc.audioEngine.play(this.soundPopUp, false, 1);
+        this.hand.active = true;
+        this.scheduleOnce(function () {
+            _this.listCard2.getChildByName("hand").active = true;
+        }, 1);
+        this.listCard2.active = true;
+        this.linkToStore.active = true;
+    };
     __decorate([
         property(cc.Camera)
     ], NewClass.prototype, "camera", void 0);
@@ -115,6 +129,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listCard", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listCard2", void 0);
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundWrong", void 0);
@@ -145,6 +162,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundClick", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "linkToStore", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

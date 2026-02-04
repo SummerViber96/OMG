@@ -38,6 +38,7 @@ var Scratch_ticket = /** @class */ (function (_super) {
         _this.ham = null;
         _this.tutHam = null;
         _this.soundCao = null;
+        _this.scene1 = null;
         _this.progerss = 0;
         _this.gamePlay = null;
         _this.isDelaySound = false;
@@ -135,7 +136,7 @@ var Scratch_ticket = /** @class */ (function (_super) {
             this.beforeDestroy();
             this.ham.active = false;
             this.scheduleOnce(function () {
-                _this.gamePlay.completeScene();
+                _this.scene1.getComponent("Scene1").endGame();
             }, 0.4);
             cc.tween(this.node).to(0.3, { opacity: 0 }).call(function () {
             }).start();
@@ -225,6 +226,9 @@ var Scratch_ticket = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], Scratch_ticket.prototype, "soundCao", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Scratch_ticket.prototype, "scene1", void 0);
     Scratch_ticket = __decorate([
         ccclass
     ], Scratch_ticket);
