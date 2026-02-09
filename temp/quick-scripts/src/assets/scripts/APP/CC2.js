@@ -384,6 +384,7 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.soundAngry1, false, 0.7);
         }, 1);
+        this.linkToStore.active = true;
         this.checkEnd();
         this.unschedule(this.checkHindGame);
         this.scheduleOnce(this.checkHindGame, 4);

@@ -437,6 +437,7 @@ export default class NewClass extends cc.Component {
 
             cc.audioEngine.play(this.soundAngry1, false, 0.7)
         }, 1)
+        this.linkToStore.active=true
         this.checkEnd()
         this.unschedule(this.checkHindGame)
         this.scheduleOnce(this.checkHindGame, 4)

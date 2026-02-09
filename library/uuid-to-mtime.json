@@ -9880,8 +9880,8 @@
     "relativePath": "HotelHair\\anim\\xabong.json"
   },
   "a192fd38-0725-48ea-ab48-d6467214b5c1": {
-    "asset": 1770664035339,
-    "meta": 1770664035357,
+    "asset": 1770664894527,
+    "meta": 1770664894547,
     "relativePath": "scenes\\HotelHair.fire"
   },
   "61b7bb66-a235-4d01-9d19-139e8284d949": {
@@ -10299,14 +10299,14 @@
     "meta": 1770662862295,
     "relativePath": "model\\primitives.fbx"
   },
-  "00603e08-58f5-4fee-a678-5ce835d40706": {
-    "asset": 1770662843124,
-    "meta": 1770662878845,
-    "relativePath": "scripts\\APP\\CC2.ts"
-  },
   "88a99a8d-963b-4dfb-90ad-cc14a31498e9": {
     "asset": 1762656557989,
     "meta": 1770662869237,
     "relativePath": "cooking\\New Folder"
+  },
+  "00603e08-58f5-4fee-a678-5ce835d40706": {
+    "asset": 1770664645472,
+    "meta": 1770664646986,
+    "relativePath": "scripts\\APP\\CC2.ts"
   }
 }
