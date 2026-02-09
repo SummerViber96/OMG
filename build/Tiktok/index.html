@@ -183,17 +183,17 @@ url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAzkAAAGaCAMAAAAb231CAAADAFBMVE
   </div>
   <script id="AdUrl">
     var clickTag = '';
-    var androidLink = '';
-    var iosLink = 'https://play.google.com/store/apps/details?id=com.fme.my.perfect.hotel.games';
-    var defaultLink = '';
+    var androidLink = 'https://play.google.com/store/apps/details?id=com.fme.my.perfect.hotel.games';
+    var iosLink = '';
+    var defaultLink = 'https://play.google.com/store/apps/details?id=com.fme.my.perfect.hotel.games';
     openAdUrl = function (adChanel) {
       if (cc.sys.os == cc.sys.OS_ANDROID) {
-        clickTag = 'https://apps.apple.com/us/app/my-hotel-grand-guest-mania/id6505137952';
+        clickTag = 'https://play.google.com/store/apps/details?id=com.fme.my.perfect.hotel.games';
       }
       else if (cc.sys.os == cc.sys.OS_IOS) {
-        clickTag = 'https://play.google.com/store/apps/details?id=com.fme.my.perfect.hotel.games';
+        clickTag = 'https://apps.apple.com/us/app/my-hotel-grand-guest-mania/id6505137952';
       } else {
-        clickTag = '';
+        clickTag = 'https://play.google.com/store/apps/details?id=com.fme.my.perfect.hotel.games';
       }
       var adNetwork = '{{__adv_channels_adapter__}}';
       switch (adChanel) {
