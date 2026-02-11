@@ -75,6 +75,12 @@ export default class NewClass extends cc.Component {
     listhand: cc.Node = null
     @property(cc.Node)
     btnDau: cc.Node = null;
+
+
+    @property(cc.Node)
+    barTime: cc.Node = null;
+    @property(cc.Node)
+    barCoin: cc.Node = null;
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -233,10 +239,10 @@ export default class NewClass extends cc.Component {
             donut.children[0].active = false
             donut.getComponent(cc.Animation).play("donut_idle")
         }, 1)
-        this.scheduleOnce(()=>{
+        this.scheduleOnce(() => {
             this.listhand.children[0].active = false;
 
-        },1)
+        }, 1)
         this.scheduleOnce(() => {
 
             if (this.isClickDonutChin == false) {
@@ -270,7 +276,7 @@ export default class NewClass extends cc.Component {
             return;
         }
         node.getComponent("donut").isStep = 1
-                    this.listhand.children[0].active = false;
+        this.listhand.children[0].active = false;
 
         this.isClickDonutChin = true
         this.listhand.children[1].active = false
@@ -426,12 +432,15 @@ export default class NewClass extends cc.Component {
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1
+        this.camera.zoomRatio = 1.15
         this.endCard.scale = (logic) ? 1.2 : 0.7
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
-        this.camera.node.position = cc.v3(0, -60)
+        this.camera.node.position = cc.v3(0, -10)
+        this.barTime.scale = (logic) ? 1.7 : 1.1
+        this.barCoin.scale = (logic) ? 1.7 : 1.1
+
         // this.barCoin.scale = (logic) ? 1.6 : 1
         this.listCus.scale = (logic) ? 1.2 : 1
         this.listCus.position = (logic) ? cc.v3(0, -130) : cc.v3(0, -120)
@@ -440,7 +449,7 @@ export default class NewClass extends cc.Component {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
-            this.camera.node.position = cc.v3(0, 200)
+            // this.camera.node.position = cc.v3(0, -70)
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
@@ -449,11 +458,11 @@ export default class NewClass extends cc.Component {
             const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
-            this.camera.zoomRatio = 2
+            this.camera.zoomRatio = 2.6
+            this.camera.node.position = cc.v3(0, -150)
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
-                this.camera.zoomRatio = 2.38
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {

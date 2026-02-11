@@ -64,6 +64,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.listKhaySub = null;
         _this.listhand = null;
         _this.btnDau = null;
+        _this.barTime = null;
+        _this.barCoin = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -399,12 +401,14 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1;
+        this.camera.zoomRatio = 1.15;
         this.endCard.scale = (logic) ? 1.2 : 0.7;
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
-        this.camera.node.position = cc.v3(0, -60);
+        this.camera.node.position = cc.v3(0, -10);
+        this.barTime.scale = (logic) ? 1.7 : 1.1;
+        this.barCoin.scale = (logic) ? 1.7 : 1.1;
         // this.barCoin.scale = (logic) ? 1.6 : 1
         this.listCus.scale = (logic) ? 1.2 : 1;
         this.listCus.position = (logic) ? cc.v3(0, -130) : cc.v3(0, -120);
@@ -412,17 +416,17 @@ var NewClass = /** @class */ (function (_super) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            this.camera.node.position = cc.v3(0, 200);
+            // this.camera.node.position = cc.v3(0, -70)
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
             var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
-            this.camera.zoomRatio = 2;
+            this.camera.zoomRatio = 2.6;
+            this.camera.node.position = cc.v3(0, -150);
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
-                this.camera.zoomRatio = 2.38;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.6;
@@ -540,6 +544,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnDau", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "barTime", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "barCoin", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

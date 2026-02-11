@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cake_Stand",
+    "texture": "be97476c-d293-4454-b6fd-e626f79ada5c",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      536,
+      483
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      536,
+      484
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
