@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Layer 17red",
+    "texture": "0202970f-0137-4750-b3c6-6237ef25113f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      302,
+      623
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      302,
+      623
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
