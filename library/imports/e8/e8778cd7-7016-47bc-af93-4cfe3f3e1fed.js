@@ -32,7 +32,6 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.soundShowPop = null;
         _this.soundClosePop = null;
-        _this.soundChien = null;
         _this.soundBg = null;
         _this.soundWin = null;
         _this.soundLose = null;
@@ -44,6 +43,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundDonutJump = null;
         _this.soundEnd = null;
         _this.soundSellDone = null;
+        _this.soundWrong = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -51,21 +51,15 @@ var NewClass = /** @class */ (function (_super) {
         _this.camera = null;
         _this.logo = null;
         _this.listCus = null;
-        // @property(cc.Node)
-        // listHand: cc.Node = null;
-        _this.soundWrong = null;
-        _this.fxColor = null;
-        //new
-        _this.btnDonut = null;
-        _this.preDonut = null;
-        _this.listDonutPlace = null;
-        _this.listDonutSub = null;
-        _this.listKhayPlace = null;
-        _this.listKhaySub = null;
-        _this.listhand = null;
-        _this.btnDau = null;
+        _this.mainCamera = null;
+        _this.uiCamera = null;
+        _this.uiNode = null;
         _this.barTime = null;
         _this.barCoin = null;
+        _this.listCheckItem = null;
+        _this.clockTime = null;
+        _this.cake = null;
+        _this.creeam = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -80,15 +74,13 @@ var NewClass = /** @class */ (function (_super) {
         // @property(cc.AudioClip)
         // soundBg:cc.AudioClip=null;
         _this.isTargetPop = null;
-        _this.isStep = 0;
+        // isStep = 0
         _this.isTargetCus = null;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.countCus = 0;
         _this.idSound = null;
-        _this.isClickDonut = false;
-        _this.isClickDonutChin = false;
-        _this.isClickSocola = false;
-        _this.isClickKhay = false;
+        _this.isStep = 0;
+        _this.isEndGame = false;
         return _this;
     }
     NewClass.prototype.onLoad = function () {
@@ -97,286 +89,116 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.start = function () {
-        var _this = this;
-        // this.node.on(cc.Node.EventType.TOUCH_START, this.onTouch, this);
-        // this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouch, this);
-        this.showCus();
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
-        this.idSound = cc.audioEngine.play(this.soundChien, true, 0.5);
-        this.scheduleOnce(function () {
-            cc.audioEngine.play(_this.soundTrans, false, 1);
-            var _loop_1 = function (i) {
-                var child = _this.btnDonut.children[i];
-                var localPos = child.position;
-                _this.scheduleOnce(function () {
-                    child.position = localPos.add(cc.v3(0, 80));
-                    cc.tween(child).to(0.17, { position: localPos, opacity: 255 }).start();
-                }, i * 0.05);
-            };
-            for (var i = 0; i < _this.btnDonut.childrenCount; i++) {
-                _loop_1(i);
-            }
-        }, 0.3);
-        for (var i = 0; i < this.listDonutSub.childrenCount; i++) {
-            this.arrDonutpos.push(this.listDonutSub.children[i].position);
+    };
+    NewClass.prototype.btn_cake = function () {
+        var cake = null;
+        if (this.isStep == 0) {
+            cake = this.cake.children[0];
         }
-        for (var i = 0; i < this.listKhaySub.childrenCount; i++) {
-            this.arrKhayPos.push(this.listKhaySub.children[i].position);
-        }
-    };
-    // onTouch(event: cc.Event.EventTouch) {
-    //     let worldPos = event.getLocation();
-    //     let worldPos2 = this.camera.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
-    //     if (this.cameraNgang.node.active == true) {
-    //         worldPos2 = this.cameraNgang.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
-    //     }
-    //     this.checkCut(worldPos2);
-    // }
-    NewClass.prototype.showCus = function () {
-        var _this = this;
-        var child = this.listCus.children[0];
-        child.position = cc.v3(700, 123.591);
-        cc.tween(child).to(0.8, { position: cc.v3(0, 123.591) }).call(function () {
-            child.getChildByName("pop").scale = 0;
-            child.getChildByName("pop").active = true;
-            child.children[0].getComponent(sp.Skeleton).setAnimation(0, "idle", true);
-            _this.isTargetPop = child.getChildByName("pop");
-            _this.isTargetCus = child;
-            cc.audioEngine.play(_this.soundHello, false, 1);
-            _this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundShowPop, false, 1);
-            }, 0.1);
-            _this.btnDonut.getComponent(cc.Button).enabled = true;
-            _this.scheduleOnce(function () {
-                if (_this.isClickDonut == false) {
-                    _this.listhand.children[0].active = true;
-                }
-            }, 2);
-        }).start();
-    };
-    NewClass.prototype.successCus = function () {
-        this.isTargetCus = null;
-        this.isTargetPop = null;
-    };
-    NewClass.prototype.creatFxColor = function (pos, scale) {
-        var pre = cc.instantiate(this.fxColor);
-        pre.parent = this.node;
-        pre.position = pos;
-        pre.scale = scale;
-    };
-    NewClass.prototype.nextCus = function (value) {
-        var _this = this;
-        this.countCus++;
-        this.btnDau.active = true;
-        if (this.countCus == 3) {
-            this.onEndGame(value);
+        else if (this.isStep == 3) {
+            cake = this.cake.children[3];
         }
         else {
-            var child_1 = this.listCus.children[this.countCus];
-            child_1.position = cc.v3(700, 123.591);
-            child_1.active = true;
-            cc.tween(child_1).to(0.8, { position: cc.v3(0, 123.591) }).call(function () {
-                child_1.getChildByName("pop").scale = 0;
-                child_1.getChildByName("pop").active = true;
-                child_1.children[0].getComponent(sp.Skeleton).setAnimation(0, "idle", true);
-                _this.isTargetPop = child_1.getChildByName("pop");
-                _this.isTargetCus = child_1;
-                _this.scheduleOnce(function () {
-                    cc.audioEngine.play(_this.soundShowPop, false, 1);
-                    if (_this.countCus == 1) {
-                        cc.audioEngine.play(_this.soundHelloCus2, false, 2);
-                    }
-                    else if (_this.countCus == 2) {
-                        cc.audioEngine.play(_this.soundHelloCus3, false, 2);
-                    }
-                }, 0.1);
-                // if (this.countCus == 3) {
-                //     this.isStep = 1
-                //     this.onBtn(this.btnMeatNode)
-                //     if (globalThis.gold < 100) {
-                //         globalThis.gold = 100
-                //     }
-                //     this.listHand.children[5].active = true
-                // }
-                // else if (this.countCus == 4 && this.isLockVegettable == true) {
-                //     if (globalThis.gold < 150) {
-                //         globalThis.gold = 150
-                //     }
-                // }
-            }).start();
+            cc.audioEngine.play(this.soundWrong, false, 1);
+            return;
         }
+        cake.scale = 0.6;
+        var localPos = cake.position;
+        cake.position = localPos.add(cc.v3(0, 120));
+        cake.active = true;
+        this.isStep++;
+        cc.tween(cake).to(0.2, { position: localPos }).to(0.3, { scale: 0.8 }).to(0.1, { scale: 0.7 }).start();
     };
-    NewClass.prototype.btn_donut = function (event) {
+    NewClass.prototype.btn_Dau = function (event) {
+        if (this.isStep == 2) {
+            var listFruit = this.cake.children[2];
+            this.isStep++;
+            listFruit.active = true;
+            var _loop_1 = function (i) {
+                var fruit = listFruit.children[i];
+                fruit.active = false;
+                var localPos = fruit.position;
+                fruit.position = localPos.add(cc.v3(0, 120));
+                var time = (i % 2 == 0) ? 0 : 0.3;
+                this_1.scheduleOnce(function () {
+                    fruit.active = true;
+                    cc.tween(fruit).to(0.3, { position: localPos }).start();
+                }, time);
+            };
+            var this_1 = this;
+            for (var i = 0; i < listFruit.childrenCount; i++) {
+                _loop_1(i);
+            }
+        }
+        // let btn = event.currentTarget
+        // btn.getComponent(cc.Animation).play();
+        // cc.audioEngine.play(this.soundWrong, false, 1)
+    };
+    NewClass.prototype.btn_Kiwi = function (event) {
+        var btn = event.currentTarget;
+        btn.getComponent(cc.Animation).play();
+        cc.audioEngine.play(this.soundWrong, false, 1);
+    };
+    NewClass.prototype.btn_Hoa = function (event) {
+        var btn = event.currentTarget;
+        btn.getComponent(cc.Animation).play();
+        cc.audioEngine.play(this.soundWrong, false, 1);
+    };
+    NewClass.prototype.btn_cream = function () {
         var _this = this;
-        var check = this.checkSlotDonut();
-        if (check == null)
-            return;
-        this.isClickDonut = true;
-        var pos = event.currentTarget.position;
-        this.creatFxColor(pos, 2);
-        cc.audioEngine.play(this.soundClick, false, 1);
-        var donut = cc.instantiate(this.preDonut);
-        donut.parent = this.listDonutPlace;
-        donut.position = this.arrDonutpos[check];
-        donut.getComponent("donut").value = check;
-        donut.scale = 0.95;
-        this.arrDonut[check] = donut;
-        this.scheduleOnce(function () {
-            donut.children[0].active = false;
-            donut.getComponent(cc.Animation).play("donut_idle");
-        }, 1);
-        this.scheduleOnce(function () {
-            _this.listhand.children[0].active = false;
-        }, 1);
-        this.scheduleOnce(function () {
-            if (_this.isClickDonutChin == false) {
-                _this.listhand.children[1].active = true;
-            }
-        }, 3);
-        // let pos = event.currentTarget.position
-    };
-    NewClass.prototype.checkSlotDonut = function () {
-        for (var i = 0; i < this.arrDonut.length; i++) {
-            if (this.arrDonut[i] == null)
-                return i;
+        if (this.isStep == 1) {
+            this.creeam.getComponent(cc.Animation).play("cream1");
+            var cream = this.cake.children[1];
+            this.isStep++;
+            cream.scale = 0;
+            cream.active = true;
+            cc.tween(cream).delay(0.4).to(0.4, { scale: 0.7 }).start();
+            this.scheduleOnce(function () {
+                cc.tween(_this.creeam.children[0]).to(0.4, { position: cc.v3(0, 0), angle: 0 }).start();
+            }, 1.2);
         }
-        return null;
-    };
-    NewClass.prototype.checkSlotKhay = function () {
-        for (var i = 0; i < this.arrKhay.length; i++) {
-            var chld = this.arrKhay[i];
-            if (chld == null) {
-                return i;
-            }
+        else if (this.isStep == 4) {
+            this.creeam.getComponent(cc.Animation).play("cream1");
+            var cream = this.cake.children[4];
+            this.isStep++;
+            cream.scale = 0;
+            cream.active = true;
+            cc.tween(cream).delay(0.4).to(0.4, { scale: 0.7 }).start();
         }
-        return null;
     };
-    NewClass.prototype.clickDonut = function (value, node) {
-        var _this = this;
-        var slot = this.checkSlotKhay();
-        if (slot == null) {
-            node.getComponent("donut").isTouching = false;
-            return;
-        }
-        node.getComponent("donut").isStep = 1;
-        this.listhand.children[0].active = false;
-        this.isClickDonutChin = true;
-        this.listhand.children[1].active = false;
-        cc.audioEngine.play(this.soundDonutJump, false, 0.6);
-        var donut = this.arrDonut[value];
-        var pos = this.arrKhayPos[slot];
-        donut.parent = this.listKhayPlace;
-        this.arrKhay[slot] = donut;
-        this.arrDonut[value] = null;
-        donut.zIndex = 100;
-        donut.getComponent("donut").value = slot;
-        donut.getComponent(cc.Animation).stop("donut_idle");
-        donut.children[1].position = cc.v3(0, 0);
-        var startpos = cc.v2(donut.x, donut.y);
-        var endPos = cc.v2(pos.x, pos.y);
-        var midPos = cc.v2(endPos.x, endPos.y + 200);
-        cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start();
-        cc.tween(donut.children[1]).to(0.3, { angle: -72 }).start();
-        this.scheduleOnce(function () {
-            donut.zIndex = slot;
-        }, 0.2);
-        this.scheduleOnce(function () {
-            if (_this.isClickSocola == false) {
-                _this.listhand.children[2].active = true;
-            }
-        }, 3);
-        // this.creatFxColor(pos, 1.5)
-    };
-    NewClass.prototype.checkSlotNhan = function () {
-        for (var i = 0; i < this.arrKhay.length; i++) {
-            var donut = this.arrKhay[i];
-            if (donut != null && donut.getComponent("donut").isStep == 1) {
-                return i;
-            }
-        }
-        return null;
-    };
-    NewClass.prototype.btn_chocalate = function (event) {
-        var _this = this;
-        var check = this.checkSlotNhan();
-        if (check == null)
-            return;
-        this.listhand.children[2].active = false;
-        this.isClickSocola = true;
-        cc.audioEngine.play(this.soundTrans, false, 1);
-        var donut = this.arrKhay[check];
-        // this.arrKhay[check] = null;
-        donut.getComponent("donut").onSocola();
-        var pos = event.currentTarget.position;
-        this.creatFxColor(pos, 2);
-        this.scheduleOnce(function () {
-            if (_this.isClickKhay == false) {
-                _this.listhand.children[3].active = true;
-            }
-        }, 3);
-    };
-    NewClass.prototype.btn_dau = function (event) {
-        var check = this.checkSlotNhan();
-        if (check == null)
-            return;
-        cc.audioEngine.play(this.soundTrans, false, 1);
-        var donut = this.arrKhay[check];
-        // this.arrKhay[check] = null;
-        donut.getComponent("donut").onDau();
-        var pos = event.currentTarget.position;
-        this.creatFxColor(pos, 2);
-    };
-    NewClass.prototype.sellDonut = function (value, dn) {
-        // console.log(value)
-        if (this.isTargetCus == null)
-            return;
-        if (this.isTargetPop == null)
-            return;
-        // this.listHand.children[4].opacity = 0
-        this.listhand.children[3].active = false;
-        this.isClickKhay = true;
-        dn.getComponent(cc.Button).enabled = false;
-        cc.audioEngine.play(this.soundTrans, false, 1);
-        var child = this.arrKhay[value];
-        this.arrKhay[value] = null;
-        var posEnd = this.isTargetPop.position;
-        posEnd = this.isTargetPop.parent.convertToWorldSpaceAR(posEnd);
-        posEnd = child.parent.convertToNodeSpaceAR(posEnd);
-        var pos = child.parent.convertToWorldSpaceAR(child.position);
-        pos = this.node.convertToNodeSpaceAR(pos);
-        cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(0, 0)), scale: 0.7 }).call(function () {
-            child.opacity = 0;
-        }).start();
-        if (this.isTargetCus) {
-            this.isTargetCus.getComponent("cusMission").checkSell(child);
-        }
-        this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5);
-    };
-    // checkSlotHotDog() {
-    //     for (let i = 0; i < this.arrHotDog.length; i++) {
-    //         if (this.arrHotDog[i] == null) return i
-    //     }
-    //     return null
-    // }
-    // checkSlotBread() {
-    //     for (let i = 0; i < this.arrBreak.length; i++) {
-    //         if (this.arrBreak[i] == null) return i
-    //     }
-    //     return null
-    // }
-    // checkSlotBuger() {
-    //     for (let i = 0; i < this.arrBuger.length; i++) {
-    //         if (this.arrBuger[i] == null) return i
-    //     }
-    //     return null
-    // }
     NewClass.prototype.setGray = function (node) {
         node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-gray-sprite', node.getComponent(cc.Sprite)));
     };
     NewClass.prototype.offGray = function (node) {
         node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-sprite', node.getComponent(cc.Sprite)));
     };
+    NewClass.prototype.moveClocktoUI = function (node1) {
+        this.moveItemToUI(node1, this.barTime.children[1]);
+    };
+    NewClass.prototype.moveItemToUI = function (node1, node2) {
+        // cc.audioEngine.play(this.soundWoodin, false, 1)
+        var pos = node2.parent.convertToWorldSpaceAR(node2.position);
+        pos = this.uiNode.convertToNodeSpaceAR(pos);
+        // pos = pos.add(cc.v3(0, 0))
+        var pos2 = node1.parent.convertToWorldSpaceAR(node1.position);
+        pos2 = this.mainCamera.getWorldToScreenPoint(pos2);
+        pos2 = this.uiCamera.getScreenToWorldPoint(pos2);
+        pos2 = this.uiNode.convertToNodeSpaceAR(pos2).add(cc.v3(0, 0));
+        node1.parent = this.uiNode;
+        node1.scale = this.mainCamera.zoomRatio / this.uiCamera.zoomRatio * 0.7;
+        node1.position = pos2;
+        cc.tween(node1).to(0.4, { position: pos, scale: 0.4 }).call(function () {
+            node1.active = false;
+            // this.missionBar.getComponent("updateBar").updateBar();
+            // wood.getComponent(cc.Animation).play("exp")
+            // // cc.audioEngine.play(this.soundWoodOut, false, 1)
+        }).start();
+    };
     NewClass.prototype.onEndGame = function (value) {
+        if (this.isEndGame)
+            return;
+        this.isEndGame = true;
         cc.audioEngine.play(this.soundEnd, false, 1);
         if (value == true) {
             cc.audioEngine.play(this.soundWin, false, 1);
@@ -407,8 +229,9 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, -10);
-        this.barTime.scale = (logic) ? 1.7 : 1.1;
-        this.barCoin.scale = (logic) ? 1.7 : 1.1;
+        this.barTime.scale = (logic) ? 2 : 1.1;
+        this.barCoin.scale = (logic) ? 2 : 1.1;
+        this.clockTime.scale = (logic) ? 1.7 : 1;
         // this.barCoin.scale = (logic) ? 1.6 : 1
         this.listCus.scale = (logic) ? 1.2 : 1;
         this.listCus.position = (logic) ? cc.v3(0, -130) : cc.v3(0, -120);
@@ -459,9 +282,6 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "soundClosePop", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundChien", void 0);
-    __decorate([
-        property(cc.AudioClip)
     ], NewClass.prototype, "soundBg", void 0);
     __decorate([
         property(cc.AudioClip)
@@ -494,6 +314,9 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundSellDone", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundWrong", void 0);
+    __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);
     __decorate([
@@ -515,41 +338,32 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.Node)
     ], NewClass.prototype, "listCus", void 0);
     __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundWrong", void 0);
+        property(cc.Camera)
+    ], NewClass.prototype, "mainCamera", void 0);
     __decorate([
-        property(cc.Prefab)
-    ], NewClass.prototype, "fxColor", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "btnDonut", void 0);
-    __decorate([
-        property(cc.Prefab)
-    ], NewClass.prototype, "preDonut", void 0);
+        property(cc.Camera)
+    ], NewClass.prototype, "uiCamera", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "listDonutPlace", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listDonutSub", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listKhayPlace", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listKhaySub", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listhand", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "btnDau", void 0);
+    ], NewClass.prototype, "uiNode", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "barTime", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "barCoin", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listCheckItem", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "clockTime", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "cake", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "creeam", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

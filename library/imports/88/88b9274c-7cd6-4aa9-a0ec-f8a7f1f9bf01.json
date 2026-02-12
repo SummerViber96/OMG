@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "clockZoom",
+    "texture": "9a103bea-2ac4-44c5-89ca-80f138602c05",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      580,
+      589
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      580,
+      589
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

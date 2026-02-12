@@ -1,4 +1,6 @@
 
+require('./assets/CakeAssembly/script/barTime');
+require('./assets/CakeAssembly/script/timeClock');
 require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');
 require('./assets/HF/touch');

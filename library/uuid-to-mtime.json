@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1770739835136,
+    "meta": 1770812865671,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1770739835378,
+    "meta": 1770812865670,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -9985,128 +9985,308 @@
     "relativePath": "cooking\\New Folder"
   },
   "9ff28ca9-98c0-4a22-9896-e819afb5ab54": {
-    "asset": 1770739891490,
-    "meta": 1770739891491,
+    "asset": 1770746869013,
+    "meta": 1770812865644,
     "relativePath": "CakeAssembly"
   },
   "6fd6b169-b444-47f6-8fe6-2b8b22c63ccf": {
     "asset": 1770740172779,
     "meta": 1770740172832,
-    "relativePath": "CakeAssembly\\Berries.png"
+    "relativePath": "CakeAssembly\\textures\\Berries.png"
   },
   "be97476c-d293-4454-b6fd-e626f79ada5c": {
     "asset": 1770740172779,
     "meta": 1770740172836,
-    "relativePath": "CakeAssembly\\Cake_Stand.png"
+    "relativePath": "CakeAssembly\\textures\\Cake_Stand.png"
   },
   "3a2ebc7c-b6b9-42c3-9744-b26b8755f590": {
     "asset": 1770740172779,
     "meta": 1770740172842,
-    "relativePath": "CakeAssembly\\Cream_Bowl.png"
+    "relativePath": "CakeAssembly\\textures\\Cream_Bowl.png"
   },
   "6ba3aa5c-4e30-4e0e-a4be-659b45151e57": {
     "asset": 1770740172779,
     "meta": 1770740172846,
-    "relativePath": "CakeAssembly\\Choco.png"
+    "relativePath": "CakeAssembly\\textures\\Choco.png"
   },
   "a37af339-932f-4b8f-a022-533fe10a3b84": {
     "asset": 1770740172779,
     "meta": 1770740172865,
-    "relativePath": "CakeAssembly\\Cream_Layer_02.png"
+    "relativePath": "CakeAssembly\\textures\\Cream_Layer_02.png"
   },
   "f6708210-0fc1-4d4b-9827-9928bedae0ae": {
     "asset": 1770740172779,
     "meta": 1770740172893,
-    "relativePath": "CakeAssembly\\Layer 16.png"
-  },
-  "f5cee4be-6211-4a7c-a63e-502e1134a210": {
-    "asset": 1770740172779,
-    "meta": 1770740172906,
-    "relativePath": "CakeAssembly\\donet.png"
+    "relativePath": "CakeAssembly\\textures\\Layer 16.png"
   },
   "1218ba5b-62ac-4ad0-ab8e-6bab4d2957d2": {
     "asset": 1770740172779,
     "meta": 1770740172920,
-    "relativePath": "CakeAssembly\\Cream_Layer_01.png"
+    "relativePath": "CakeAssembly\\textures\\Cream_Layer_01.png"
   },
   "51591d74-d585-42f4-9e01-f0681ea0f8f1": {
     "asset": 1770740172779,
     "meta": 1770740172921,
-    "relativePath": "CakeAssembly\\Layer 14.png"
+    "relativePath": "CakeAssembly\\textures\\Layer 14.png"
   },
   "60c87956-8513-4b00-9c9c-e211876c49fd": {
     "asset": 1770740172779,
     "meta": 1770740172932,
-    "relativePath": "CakeAssembly\\Spatula.png"
+    "relativePath": "CakeAssembly\\textures\\Spatula.png"
   },
   "48bcf1b9-4f4a-486e-a62d-89b9ab89b4aa": {
     "asset": 1770740172779,
     "meta": 1770740172933,
-    "relativePath": "CakeAssembly\\Layer 15.png"
+    "relativePath": "CakeAssembly\\textures\\Layer 15.png"
   },
   "46f8d128-66af-4e71-ab11-afc9e8b3384a": {
     "asset": 1770740172779,
     "meta": 1770740172943,
-    "relativePath": "CakeAssembly\\UI.png"
+    "relativePath": "CakeAssembly\\textures\\UI.png"
   },
   "75d379e8-d4f9-4ee3-b98f-60aab32e3236": {
     "asset": 1770740172779,
     "meta": 1770740172946,
-    "relativePath": "CakeAssembly\\Layer 17.png"
+    "relativePath": "CakeAssembly\\textures\\Layer 17.png"
   },
   "c754f580-6292-48f4-b0c2-2e1b8b89f1c7": {
     "asset": 1770740172779,
     "meta": 1770740172958,
-    "relativePath": "CakeAssembly\\Cake_Base_01.png"
+    "relativePath": "CakeAssembly\\textures\\Cake_Base_01.png"
   },
   "486699cf-0aa3-4384-b276-3745065bdd86": {
     "asset": 1770740172779,
     "meta": 1770740172960,
-    "relativePath": "CakeAssembly\\Black Plate.png"
+    "relativePath": "CakeAssembly\\textures\\Black Plate.png"
   },
   "212f29da-1c13-4612-bea3-b98c79eaebca": {
     "asset": 1770740172779,
     "meta": 1770740172972,
-    "relativePath": "CakeAssembly\\Cake_Bse_02.png"
+    "relativePath": "CakeAssembly\\textures\\Cake_Bse_02.png"
   },
   "5607a412-707c-4967-8d7b-759af8007b31": {
     "asset": 1770740172779,
     "meta": 1770740172973,
-    "relativePath": "CakeAssembly\\Layer 12.png"
+    "relativePath": "CakeAssembly\\textures\\Layer 12.png"
   },
   "eb62d2ad-4be1-4139-abb8-85cc60f34cfa": {
     "asset": 1770740172783,
     "meta": 1770740173023,
-    "relativePath": "CakeAssembly\\Reciept.png"
+    "relativePath": "CakeAssembly\\textures\\Reciept.png"
   },
   "71c99ccf-c1bf-4e1d-adb6-794f6505bff2": {
     "asset": 1770740172794,
     "meta": 1770740173074,
-    "relativePath": "CakeAssembly\\Demo.png"
-  },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1770746967292,
-    "meta": 1770746967311,
-    "relativePath": "scenes\\Donut1.fire"
+    "relativePath": "CakeAssembly\\textures\\Demo.png"
   },
   "2ab7a018-9d0d-432c-8b2a-7048f001d339": {
     "asset": 1770744715237,
     "meta": 1770744715331,
-    "relativePath": "CakeAssembly\\Reciept2.png"
+    "relativePath": "CakeAssembly\\textures\\Reciept2.png"
   },
   "ca5b7826-1292-4315-a971-02e4882d655f": {
     "asset": 1770745013728,
     "meta": 1770745013797,
-    "relativePath": "CakeAssembly\\BG.jpg"
-  },
-  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1770746252359,
-    "meta": 1770746255021,
-    "relativePath": "scripts\\APP\\GameDonut.ts"
+    "relativePath": "CakeAssembly\\textures\\BG.jpg"
   },
   "997667bf-bfae-4958-9a30-bd731d4514c3": {
     "asset": 1770746869012,
     "meta": 1770746869052,
-    "relativePath": "CakeAssembly\\iconBanh.png"
+    "relativePath": "CakeAssembly\\textures\\iconBanh.png"
+  },
+  "f5cee4be-6211-4a7c-a63e-502e1134a210": {
+    "asset": 1770814929234,
+    "meta": 1770814929278,
+    "relativePath": "CakeAssembly\\textures\\donet.png"
+  },
+  "504588d9-f010-4642-95e8-d15227f12739": {
+    "asset": 1770814933275,
+    "meta": 1770814933327,
+    "relativePath": "CakeAssembly\\textures\\x.png"
+  },
+  "7230fc95-eb4e-4be2-82b8-0def625317ba": {
+    "asset": 1770815030235,
+    "meta": 1770815030248,
+    "relativePath": "CakeAssembly\\anim\\vfx_done.anim"
+  },
+  "9a103bea-2ac4-44c5-89ca-80f138602c05": {
+    "asset": 1770816697499,
+    "meta": 1770816700104,
+    "relativePath": "CakeAssembly\\textures\\clockZoom.png"
+  },
+  "f88a8bc4-b64a-445f-86fd-b96e740049a3": {
+    "asset": 1770817103768,
+    "meta": 1770817103815,
+    "relativePath": "CakeAssembly\\textures\\bgBlur.png"
+  },
+  "d4976a83-00ad-4c8b-8797-cd90895623b5": {
+    "asset": 1770817307371,
+    "meta": 1770817307386,
+    "relativePath": "CakeAssembly\\anim\\time_scale.anim"
+  },
+  "93a57a66-e814-4516-9308-ab26e810a1ba": {
+    "asset": 1770818220677,
+    "meta": 1770818220690,
+    "relativePath": "CakeAssembly\\anim\\time_clock.anim"
+  },
+  "dd3a7b86-bcbf-47e9-8edd-d4f47c089b39": {
+    "asset": 1770817820079,
+    "meta": 1770817820081,
+    "relativePath": "scripts\\New Folder"
+  },
+  "0846318c-da6a-4f67-aca3-9afb569c875f": {
+    "asset": 1770817828020,
+    "meta": 1770817828021,
+    "relativePath": "CakeAssembly\\anim"
+  },
+  "3717f010-12ea-418f-9b05-6c7c7a9b3215": {
+    "asset": 1770817837453,
+    "meta": 1770817837454,
+    "relativePath": "CakeAssembly\\script"
+  },
+  "e634d400-cf9e-48b8-b192-08f6c66241c2": {
+    "asset": 1770817849638,
+    "meta": 1770817849639,
+    "relativePath": "CakeAssembly\\textures"
+  },
+  "12d9a21c-6621-4e20-a730-29141c5463c5": {
+    "asset": 1770825629915,
+    "meta": 1770825671001,
+    "relativePath": "CakeAssembly\\script\\barTime.ts"
+  },
+  "980c1a8c-d5d0-4eca-bac5-0a883c980fa9": {
+    "asset": 1770825804940,
+    "meta": 1770825805684,
+    "relativePath": "CakeAssembly\\script\\timeClock.ts"
+  },
+  "400349d0-5a1e-4916-b1dc-28da52a9bf78": {
+    "asset": 1770828494415,
+    "meta": 1770828503422,
+    "relativePath": "CakeAssembly\\textures\\Layer 16Red.png"
+  },
+  "a64c7b7b-0f77-4c2b-be81-d4edd62e94d3": {
+    "asset": 1770828616152,
+    "meta": 1770828616167,
+    "relativePath": "CakeAssembly\\anim\\btn_wrong.anim"
+  },
+  "b564683c-a700-4861-9abc-c818e01fb0b1": {
+    "asset": 1770829887106,
+    "meta": 1770829887137,
+    "relativePath": "CakeAssembly\\textures\\Berries2.png"
+  },
+  "85226136-b1f3-447c-8a22-d8c34a18d8e2": {
+    "asset": 1770829889795,
+    "meta": 1770829889796,
+    "relativePath": "CakeAssembly\\textures\\item"
+  },
+  "59c272d0-b99c-44d2-bef6-016ff0e5998a": {
+    "asset": 1770829905178,
+    "meta": 1770829905210,
+    "relativePath": "CakeAssembly\\textures\\item\\Blueberry.png"
+  },
+  "0f45291c-5945-409b-b271-65d21e6ad95b": {
+    "asset": 1770829905178,
+    "meta": 1770829905212,
+    "relativePath": "CakeAssembly\\textures\\item\\Raspberry.png"
+  },
+  "1fd80fbf-7f69-43a6-a181-2b312ea999f7": {
+    "asset": 1770829905179,
+    "meta": 1770829905228,
+    "relativePath": "CakeAssembly\\textures\\item\\Half.png"
+  },
+  "a4863c68-d683-472f-8456-284b93e59d71": {
+    "asset": 1770829905178,
+    "meta": 1770829905229,
+    "relativePath": "CakeAssembly\\textures\\item\\Strawberry.png"
+  },
+  "42555e1a-fbb4-40cd-a7d7-bc605035ca9b": {
+    "asset": 1770830569449,
+    "meta": 1770830569450,
+    "relativePath": "CakeAssembly\\textures\\cream"
+  },
+  "5da4ac8c-74fd-408a-b339-d0cdf3def531": {
+    "asset": 1770830577754,
+    "meta": 1770830623981,
+    "relativePath": "CakeAssembly\\textures\\cream\\6.png"
+  },
+  "963babfc-07f3-479c-a3c2-4f0a8014267d": {
+    "asset": 1770830577754,
+    "meta": 1770830604199,
+    "relativePath": "CakeAssembly\\textures\\cream\\2.png"
+  },
+  "f69dad18-1963-40c7-b90d-05593b51d1bd": {
+    "asset": 1770830577754,
+    "meta": 1770830598617,
+    "relativePath": "CakeAssembly\\textures\\cream\\1.png"
+  },
+  "d444f89a-fbd2-4421-9858-a3622b4c3941": {
+    "asset": 1770830577755,
+    "meta": 1770830616263,
+    "relativePath": "CakeAssembly\\textures\\cream\\4.png"
+  },
+  "cc4bf240-3b8e-4b5b-8c46-5b838363d299": {
+    "asset": 1770830577755,
+    "meta": 1770830634936,
+    "relativePath": "CakeAssembly\\textures\\cream\\9.png"
+  },
+  "64bcc1fb-55a8-4df8-ba80-c3fb87cd4941": {
+    "asset": 1770830577755,
+    "meta": 1770830627715,
+    "relativePath": "CakeAssembly\\textures\\cream\\7.png"
+  },
+  "4b6b3519-a923-4411-be2d-6da6ebafa2a6": {
+    "asset": 1770830577755,
+    "meta": 1770830619811,
+    "relativePath": "CakeAssembly\\textures\\cream\\5.png"
+  },
+  "f17cb8c2-9a48-46ed-bd2c-7cbcc1e1d360": {
+    "asset": 1770830577755,
+    "meta": 1770830631163,
+    "relativePath": "CakeAssembly\\textures\\cream\\8.png"
+  },
+  "52f297c6-0466-4675-8ae8-7ed712dbcf30": {
+    "asset": 1770830577755,
+    "meta": 1770830642123,
+    "relativePath": "CakeAssembly\\textures\\cream\\11.png"
+  },
+  "c316a5ab-36fc-4119-9eec-e87b7610ab85": {
+    "asset": 1770830577755,
+    "meta": 1770830647962,
+    "relativePath": "CakeAssembly\\textures\\cream\\12.png"
+  },
+  "e10c1b46-115d-428a-b792-12811d1b31c2": {
+    "asset": 1770830577755,
+    "meta": 1770830638381,
+    "relativePath": "CakeAssembly\\textures\\cream\\10.png"
+  },
+  "41febd69-4126-4e62-9890-5be34059b397": {
+    "asset": 1770830577755,
+    "meta": 1770830612780,
+    "relativePath": "CakeAssembly\\textures\\cream\\3.png"
+  },
+  "e3f17f3d-5a54-4bb5-ba04-ed6c6e77355f": {
+    "asset": 1770830577778,
+    "meta": 1770830652603,
+    "relativePath": "CakeAssembly\\textures\\cream\\13.png"
+  },
+  "7b89e727-94f9-491d-a09b-a880797fee01": {
+    "asset": 1770857264705,
+    "meta": 1770857264721,
+    "relativePath": "CakeAssembly\\anim\\cream1.anim"
+  },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1770858200655,
+    "meta": 1770858200671,
+    "relativePath": "scenes\\Donut1.fire"
+  },
+  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
+    "asset": 1770858658070,
+    "meta": 1770858658846,
+    "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "e8fdd9f0-8afa-45e7-ad1a-3f49dc5ce8c0": {
+    "asset": 1770858866689,
+    "meta": 1770858866707,
+    "relativePath": "CakeAssembly\\anim\\cream2.anim"
   }
 }

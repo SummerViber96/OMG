@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "b564683c-a700-4861-9abc-c818e01fb0b1",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 442,
+  "height": 169,
+  "platformSettings": {},
+  "subMetas": {
+    "Berries2": {
+      "ver": "1.0.4",
+      "uuid": "6add93a1-2517-4742-97e0-5dd1153c1275",
+      "rawTextureUuid": "b564683c-a700-4861-9abc-c818e01fb0b1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0.5,
+      "trimX": 2,
+      "trimY": 3,
+      "width": 437,
+      "height": 162,
+      "rawWidth": 442,
+      "rawHeight": 169,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
