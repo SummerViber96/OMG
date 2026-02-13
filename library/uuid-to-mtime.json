@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1770987650994,
+    "meta": 1770992413643,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1770987650999,
+    "meta": 1770992413644,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -9480,8 +9480,8 @@
     "relativePath": "anim\\hand\\hand_vuot.anim"
   },
   "9ff28ca9-98c0-4a22-9896-e819afb5ab54": {
-    "asset": 1770817859469,
-    "meta": 1770899444961,
+    "asset": 1770988712796,
+    "meta": 1770992413618,
     "relativePath": "CakeAssembly"
   },
   "75d379e8-d4f9-4ee3-b98f-60aab32e3236": {
@@ -9510,8 +9510,8 @@
     "relativePath": "CakeAssembly\\anim\\time_clock.anim"
   },
   "0846318c-da6a-4f67-aca3-9afb569c875f": {
-    "asset": 1770899709825,
-    "meta": 1770987650966,
+    "asset": 1770988869453,
+    "meta": 1770992413620,
     "relativePath": "CakeAssembly\\anim"
   },
   "3717f010-12ea-418f-9b05-6c7c7a9b3215": {
@@ -9850,8 +9850,8 @@
     "relativePath": "CakeAssembly\\script\\timeClock.ts"
   },
   "5157d022-4f18-42d1-b2a2-d70b3f4acada": {
-    "asset": 1770987903240,
-    "meta": 1770987903241,
+    "asset": 1770987964423,
+    "meta": 1770992413622,
     "relativePath": "CakeAssembly\\sound"
   },
   "6ef8067e-7c86-4d9c-832e-122601e023b0": {
@@ -10374,19 +10374,39 @@
     "meta": 1770988917904,
     "relativePath": "CakeAssembly\\anim\\warning.anim"
   },
-  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1770989005273,
-    "meta": 1770989006773,
-    "relativePath": "scripts\\APP\\GameDonut.ts"
+  "ab177ad2-bc15-43d2-a653-9e75d93df36b": {
+    "asset": 1770992422707,
+    "meta": 1770992423247,
+    "relativePath": "CakeAssembly\\sound\\Excited-for-more-levels.mp3"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1770989244924,
-    "meta": 1770989244944,
+    "asset": 1770993716654,
+    "meta": 1770993716672,
     "relativePath": "scenes\\Donut1.fire"
   },
+  "9f600644-2412-4b80-b4ee-71ea6c92ebf1": {
+    "asset": 1770992840753,
+    "meta": 1770992873454,
+    "relativePath": "CakeAssembly\\script\\barCoin.ts"
+  },
+  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
+    "asset": 1770993380484,
+    "meta": 1770993382624,
+    "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "70313844-1e9e-40dc-afbc-41bb945f3791": {
+    "asset": 1770993443397,
+    "meta": 1770993443402,
+    "relativePath": "anim\\textguild.anim"
+  },
+  "d5a53cbf-cc06-4cc6-8bd0-7cad1a5d3f50": {
+    "asset": 1770993587036,
+    "meta": 1770993587887,
+    "relativePath": "scripts\\APP\\guildText.ts"
+  },
   "12d9a21c-6621-4e20-a730-29141c5463c5": {
-    "asset": 1770989239919,
-    "meta": 1770989243624,
+    "asset": 1770993646902,
+    "meta": 1770993647665,
     "relativePath": "CakeAssembly\\script\\barTime.ts"
   }
 }

@@ -1,4 +1,5 @@
 
+require('./assets/CakeAssembly/script/barCoin');
 require('./assets/CakeAssembly/script/barTime');
 require('./assets/CakeAssembly/script/timeClock');
 require('./assets/HF/GamePLay');
@@ -14,6 +15,7 @@ require('./assets/cooking/ietm/preBread');
 require('./assets/scripts/APP/CC2');
 require('./assets/scripts/APP/GameApp');
 require('./assets/scripts/APP/GameDonut');
+require('./assets/scripts/APP/guildText');
 require('./assets/scripts/APP/lock');
 require('./assets/scripts/APP/mainGun');
 require('./assets/scripts/APP/mainMusic');

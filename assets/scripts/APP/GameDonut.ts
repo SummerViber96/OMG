@@ -1,7 +1,7 @@
 
 
 const { ccclass, property } = cc._decorator;
-globalThis.gold = 0
+globalThis.coin = 100
 globalThis.scGame = false
 @ccclass
 export default class NewClass extends cc.Component {
@@ -42,6 +42,8 @@ export default class NewClass extends cc.Component {
     soundWrong: cc.AudioClip = null
     @property(cc.AudioClip)
     soundCreamMini: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundThinkWin: cc.AudioClip = null
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -82,7 +84,10 @@ export default class NewClass extends cc.Component {
     phaoHoa: cc.Node = null;
     @property(cc.Node)
     listHand: cc.Node = null;
-
+    @property(cc.Node)
+    warning: cc.Node = null
+    @property(cc.Node)
+    guild:cc.Node=null
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -227,7 +232,7 @@ export default class NewClass extends cc.Component {
             this.scheduleOnce(() => {
                 this.phaoHoa.active = true
                 cc.audioEngine.play(this.soundWin, false, 1)
-
+                globalThis.coin += 100
             }, 0.5)
             this.scheduleOnce(() => {
                 this.onEndGame(true)
@@ -382,9 +387,11 @@ export default class NewClass extends cc.Component {
     onEndGame(value) {
         if (this.isEndGame) return;
         this.isEndGame = true
+        this.warning.active=false;
+        this.barTime.getComponent("barTime").endGame()
         if (value == true) {
             // cc.audioEngine.play(this.soundEnd, false, 1)
-
+            cc.audioEngine.play(this.soundThinkWin, false, 1)
             // cc.audioEngine.play(this.soundWin, false, 1)
             // this.endCard.getChildByName("title").active = false
             this.endCardWin.active = true;
@@ -425,7 +432,7 @@ export default class NewClass extends cc.Component {
         this.barCoin.scale = (logic) ? 2 : 1.1
         this.clockTime.scale = (logic) ? 1.7 : 1
         this.phaoHoa.scale = (logic) ? 9 : 5
-
+this.guild.scale=(logic)?2:1.4
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
@@ -447,8 +454,8 @@ export default class NewClass extends cc.Component {
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.6
-                this.camera.node.position = cc.v3(0, 150)
+                this.camera.zoomRatio = 2.1
+                this.camera.node.position = cc.v3(0, -120)
 
             }
         }
@@ -469,8 +476,8 @@ export default class NewClass extends cc.Component {
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.9
-                this.camera.node.position = cc.v3(0, -20)
+                this.camera.zoomRatio = 1
+                this.camera.node.position = cc.v3(0, -60)
 
             }
         }

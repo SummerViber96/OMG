@@ -33,6 +33,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.clockSound = null;
         _this.warning = null;
         _this.isTime = 30;
+        _this.idClick = null;
         return _this;
         // update (dt) {}
     }
@@ -43,10 +44,10 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         this.schedule(function () {
             _this.isTime--;
-            _this.lbTime.string = "00:" + _this.isTime;
-            if (_this.isTime <= 10) {
+            _this.lbTime.string = _this.isTime.toString();
+            if (_this.isTime == 10) {
                 if (_this.gamePlay.isEndGame == false) {
-                    cc.audioEngine.play(_this.clockSound, false, 1);
+                    _this.idClick = cc.audioEngine.play(_this.clockSound, false, 1);
                     _this.warning.active = true;
                 }
             }
@@ -56,6 +57,12 @@ var NewClass = /** @class */ (function (_super) {
                 _this.gamePlay.onEndGame(false);
             }
         }, 1, 29);
+    };
+    NewClass.prototype.endGame = function () {
+        if (this.idClick) {
+            cc.audioEngine.stop(this.idClick);
+        }
+        this.unscheduleAllCallbacks();
     };
     __decorate([
         property(cc.Label)
