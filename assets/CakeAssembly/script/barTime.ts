@@ -24,7 +24,7 @@ export default class NewClass extends cc.Component {
             this.lbTime.string = this.isTime.toString();
             if (this.isTime == 10) {
                 if (this.gamePlay.isEndGame == false) {
-                    this.idClick = cc.audioEngine.play(this.clockSound, false, 1)
+                    this.idClick = cc.audioEngine.play(this.clockSound, true, 1)
                     this.warning.active = true
                 }
 

@@ -47,7 +47,7 @@ var NewClass = /** @class */ (function (_super) {
             _this.lbTime.string = _this.isTime.toString();
             if (_this.isTime == 10) {
                 if (_this.gamePlay.isEndGame == false) {
-                    _this.idClick = cc.audioEngine.play(_this.clockSound, false, 1);
+                    _this.idClick = cc.audioEngine.play(_this.clockSound, true, 1);
                     _this.warning.active = true;
                 }
             }

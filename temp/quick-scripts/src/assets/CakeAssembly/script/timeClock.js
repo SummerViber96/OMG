@@ -38,27 +38,29 @@ var NewClass = /** @class */ (function (_super) {
         _this.lbCountTime = null;
         _this.clock = null;
         _this.timeBar = null;
+        _this.guild = null;
         _this.isTime = 30;
         _this.gamePlay = null;
         return _this;
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
-        var _this = this;
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         cc.tween(this.lbCountTime.node).to(0.3, { scale: 0.9 }).to(0.1, { scale: 1 }).start();
-        this.scheduleOnce(function () {
-            _this.clock.getComponent(cc.Animation).stop();
-            _this.clock.angle = 0;
-            cc.tween(_this.lbCountTime.node).to(0.3, { opacity: 0 }).start();
-            _this.gamePlay.moveClocktoUI(_this.clock);
-            cc.tween(_this.node.children[0]).to(0.4, { opacity: 0 }).call(function () {
-                _this.node.active = false;
-                _this.timeBar.getComponent("barTime").countDown();
-                _this.order.active = true;
-                _this.gamePlay.startGame();
-            }).start();
-        }, 1.5);
+    };
+    NewClass.prototype.click = function () {
+        var _this = this;
+        this.clock.getComponent(cc.Animation).stop();
+        this.clock.angle = 0;
+        cc.tween(this.lbCountTime.node).to(0.3, { opacity: 0 }).start();
+        this.gamePlay.moveClocktoUI(this.clock);
+        cc.tween(this.node.children[0]).to(0.4, { opacity: 0 }).call(function () {
+            _this.node.active = false;
+            _this.timeBar.getComponent("barTime").countDown();
+            _this.order.active = true;
+            _this.gamePlay.startGame();
+            _this.guild.active = true;
+        }).start();
     };
     __decorate([
         property(cc.Node)
@@ -72,6 +74,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "timeBar", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "guild", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

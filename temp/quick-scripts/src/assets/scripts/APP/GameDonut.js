@@ -118,6 +118,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         var cake = null;
         if (this.isStep == 0) {
+            this.guild.active = false;
             this.listHand.children[0].active = false;
             cake = this.cake.children[0];
             this.listCheckItem.children[0].active = true;
@@ -363,8 +364,8 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.isEndGame = true;
         this.warning.active = false;
-        this.barTime.getComponent("barTime").endGame();
         if (value == true) {
+            this.barTime.getComponent("barTime").endGame();
             // cc.audioEngine.play(this.soundEnd, false, 1)
             cc.audioEngine.play(this.soundThinkWin, false, 1);
             // cc.audioEngine.play(this.soundWin, false, 1)
@@ -372,6 +373,7 @@ var NewClass = /** @class */ (function (_super) {
             this.endCardWin.active = true;
         }
         else {
+            this.barTime.getComponent("barTime").endGame();
             cc.audioEngine.stop(this.idSound);
             cc.audioEngine.play(this.soundThinking, false, 1);
             cc.audioEngine.play(this.soundLose, false, 1);
@@ -404,6 +406,7 @@ var NewClass = /** @class */ (function (_super) {
         this.clockTime.scale = (logic) ? 1.7 : 1;
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.4;
+        this.guild.position = (logic) ? cc.v3(0, -550) : cc.v3(0, -360);
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
