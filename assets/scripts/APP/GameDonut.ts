@@ -40,12 +40,16 @@ export default class NewClass extends cc.Component {
     soundCherry: cc.AudioClip = null
     @property(cc.AudioClip)
     soundWrong: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundCreamMini: cc.AudioClip = null
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
     hand: cc.Node = null
     @property(cc.Node)
     endCard: cc.Node = null;
+    @property(cc.Node)
+    endCardWin: cc.Node = null;
     @property(cc.Node)
     linkToStore: cc.Node = null;
     @property(cc.Camera)
@@ -75,7 +79,10 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     creeam: cc.Node = null
     @property(cc.Node)
-    phaoHoa: cc.Node = null
+    phaoHoa: cc.Node = null;
+    @property(cc.Node)
+    listHand: cc.Node = null;
+
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -109,21 +116,46 @@ export default class NewClass extends cc.Component {
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
 
     }
+    startGame() {
+        this.scheduleOnce(() => {
+            if (this.isStep == 0) {
+                this.listHand.children[0].active = true
+            }
+        }, 2)
+    }
+    btn_plate(event) {
+        let btn = event.currentTarget
+        btn.getComponent(cc.Animation).play();
+        cc.audioEngine.play(this.soundWrong, false, 1)
+    }
     btn_cake(event) {
         let cake = null
         if (this.isStep == 0) {
+            this.listHand.children[0].active = false
             cake = this.cake.children[0]
             this.listCheckItem.children[0].active = true
+            this.scheduleOnce(() => {
+                if (this.isStep == 1) {
+                    this.listHand.children[1].active = true
+                }
+            }, 2.5)
         }
         else if (this.isStep == 3) {
+            this.listHand.children[0].active = false
+
             cake = this.cake.children[3]
             // this.listCheckItem.children[0].active = true
             this.listCheckItem.children[0].active = true
-
+            this.scheduleOnce(() => {
+                if (this.isStep == 4) {
+                    this.listHand.children[1].active = true
+                }
+            }, 2.5)
         }
         else {
-            // cc.audioEngine.play(this.soundWrong, false, 1)
-            // this.creeam.getComponent(cc.Animation).play("btn_wrong")
+            let btn = event.currentTarget
+            btn.getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 1)
             return;
         }
         cc.audioEngine.play(this.soundShowPop, false, 1)
@@ -139,6 +171,7 @@ export default class NewClass extends cc.Component {
     btn_Dau(event) {
         if (this.isStep == 2) {
             cc.audioEngine.play(this.soundCherry, false, 1)
+            this.listHand.children[2].active = false
 
 
             let listFruit = this.cake.children[2]
@@ -149,7 +182,7 @@ export default class NewClass extends cc.Component {
                 fruit.active = false
                 let localPos = fruit.position;
                 fruit.position = localPos.add(cc.v3(0, 120))
-                let time = (i % 2 == 0) ? 0 : 0.3
+                let time = (i % 2 == 0) ? 0 : 0.2
                 this.scheduleOnce(() => {
                     fruit.active = true
                     this.listCheckItem.children[2].active = true
@@ -163,8 +196,15 @@ export default class NewClass extends cc.Component {
                     }).start()
                 }, time)
             }
+            this.scheduleOnce(() => {
+                if (this.isStep == 3) {
+                    this.listHand.children[0].active = true
+                }
+            }, 2.5)
         }
         else if (this.isStep == 5) {
+            this.listHand.children[2].active = false
+
             cc.audioEngine.play(this.soundCherry, false, 1)
             this.listCheckItem.children[2].active = true
             this.listCheckItem.children[3].active = true
@@ -186,6 +226,8 @@ export default class NewClass extends cc.Component {
             }
             this.scheduleOnce(() => {
                 this.phaoHoa.active = true
+                cc.audioEngine.play(this.soundWin, false, 1)
+
             }, 0.5)
             this.scheduleOnce(() => {
                 this.onEndGame(true)
@@ -212,7 +254,11 @@ export default class NewClass extends cc.Component {
     }
     btn_cream() {
         if (this.isStep == 1) {
-            cc.audioEngine.play(this.soundCream, false, 1)
+            this.listHand.children[1].active = false
+            this.scheduleOnce(() => {
+                cc.audioEngine.play(this.soundCream, false, 1)
+
+            }, 0.3)
             this.listCheckItem.children[1].active = true
 
             this.creeam.getComponent(cc.Animation).play("cream1")
@@ -224,14 +270,20 @@ export default class NewClass extends cc.Component {
             this.scheduleOnce(() => {
                 cc.tween(this.creeam.children[1]).to(0.4, { position: cc.v3(0, 0), angle: 0 }).start()
             }, 1.2)
+            this.scheduleOnce(() => {
+                if (this.isStep == 2) {
+                    this.listHand.children[2].active = true
+                }
+            }, 2.5)
         }
         else if (this.isStep == 4) {
             this.listCheckItem.children[1].active = true
+            this.listHand.children[1].active = false
 
             this.scheduleOnce(() => {
                 cc.audioEngine.play(this.soundCream, false, 1)
 
-            }, 0.3)
+            }, 0.5)
             this.creeam.getComponent(cc.Animation).play("cream2")
             let creamItem = this.creeam.children[1]
             let cream = this.cake.children[4]
@@ -242,21 +294,26 @@ export default class NewClass extends cc.Component {
             let listCream = this.cake.children[5]
             let listCream2 = this.cake.children[7]
             // cc.audioEngine.play(this.soundCream, false, 1)
-
+            let arrrPos = [cc.v3(-507, 222), cc.v3(-551, 197), cc.v3(-590, 161), cc.v3(-621, 111), cc.v3(-634, 50, 69), cc.v3(-631.5, 21), cc.v3(-612.6, -4), cc.v3(-568, -5.4), cc.v3(-528, 19.5),
+            cc.v3(-490, 61), cc.v3(-464, 108), cc.v3(-456, 170), cc.v3(-473, 204)
+            ]
             this.scheduleOnce(() => {
                 listCream.active = true
+
                 for (let i = 0; i < listCream.childrenCount; i++) {
                     listCream.children[i].active = false
-                    this.scheduleOnce(() => {
 
-                        let pos = listCream.children[i].position.add(cc.v3(0, 150))
-                        pos = listCream.convertToWorldSpaceAR(pos);
-                        pos = this.creeam.convertToNodeSpaceAR(pos)
+                    this.scheduleOnce(() => {
                         // creamItem.position = pos
                         // console.log()
-                        cc.tween(creamItem).to(0.1, { position: pos }).start()
+                        // if (i % 2 == 0) {
+                        //     cc.audioEngine.play(this.soundCreamMini, false, 1)
+
+                        // }
+                        cc.tween(creamItem).to(0.1, { position: arrrPos[i] }).start()
+
                         listCream.children[i].active = true
-                    }, 0.2 * i)
+                    }, 0.15 * i)
 
 
                 }
@@ -267,21 +324,23 @@ export default class NewClass extends cc.Component {
                 for (let i = 0; i < listCream2.childrenCount; i++) {
                     listCream2.children[i].active = false
                     this.scheduleOnce(() => {
-                        // cc.audioEngine.play(this.soundCream, false, 1)
 
-                        let pos = listCream2.children[i].position.add(cc.v3(0, 150))
-                        pos = listCream2.convertToWorldSpaceAR(pos);
-                        pos = this.creeam.convertToNodeSpaceAR(pos)
-                        creamItem.position = pos
+                        cc.tween(creamItem).to(0.1, { position: arrrPos[i + 6] }).start()
+
                         listCream2.children[i].active = true
-                    }, 0.2 * i)
+                    }, 0.15 * i)
 
 
                 }
-            }, 1.3 + 0.2 * 7)
+            }, 1.3 + 0.15 * 6)
             this.scheduleOnce(() => {
                 cc.tween(this.creeam.children[1]).to(0.4, { position: cc.v3(0, 0), angle: 0 }).start()
-            }, 4)
+                this.scheduleOnce(() => {
+                    if (this.isStep == 5) {
+                        this.listHand.children[2].active = true
+                    }
+                }, 2.5)
+            }, 3.8)
         }
         else {
             cc.audioEngine.play(this.soundWrong, false, 1)
@@ -323,20 +382,21 @@ export default class NewClass extends cc.Component {
     onEndGame(value) {
         if (this.isEndGame) return;
         this.isEndGame = true
-        cc.audioEngine.play(this.soundEnd, false, 1)
         if (value == true) {
-            cc.audioEngine.play(this.soundThinking, false, 1)
+            // cc.audioEngine.play(this.soundEnd, false, 1)
 
-            cc.audioEngine.play(this.soundWin, false, 1)
+            // cc.audioEngine.play(this.soundWin, false, 1)
+            // this.endCard.getChildByName("title").active = false
+            this.endCardWin.active = true;
 
         }
         else {
             cc.audioEngine.stop(this.idSound)
             cc.audioEngine.play(this.soundThinking, false, 1)
             cc.audioEngine.play(this.soundLose, false, 1)
+            this.endCard.active = true;
 
         }
-        this.endCard.active = true;
         this.linkToStore.active = true
     }
     // btn_choose(event, value) {
@@ -355,6 +415,8 @@ export default class NewClass extends cc.Component {
         let canvas = this.node.getComponent(cc.Canvas);
         this.camera.zoomRatio = 1.15
         this.endCard.scale = (logic) ? 1.2 : 0.7
+        this.endCardWin.scale = (logic) ? 1.2 : 0.7
+
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false

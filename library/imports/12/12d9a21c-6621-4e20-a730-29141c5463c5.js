@@ -30,6 +30,8 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.lbTime = null;
         _this.gamePlay = null;
+        _this.clockSound = null;
+        _this.warning = null;
         _this.isTime = 30;
         return _this;
         // update (dt) {}
@@ -42,15 +44,28 @@ var NewClass = /** @class */ (function (_super) {
         this.schedule(function () {
             _this.isTime--;
             _this.lbTime.string = "00:" + _this.isTime;
+            if (_this.isTime <= 10) {
+                if (_this.gamePlay.isEndGame == false) {
+                    cc.audioEngine.play(_this.clockSound, false, 1);
+                    _this.warning.active = true;
+                }
+            }
             _this.lbTime.getComponent(cc.Animation).play();
             if (_this.isTime == 0) {
+                _this.warning.active = false;
                 _this.gamePlay.onEndGame(false);
             }
-        }, 1, 30);
+        }, 1, 29);
     };
     __decorate([
         property(cc.Label)
     ], NewClass.prototype, "lbTime", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "clockSound", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "warning", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

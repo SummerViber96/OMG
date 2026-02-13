@@ -47,9 +47,11 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundCream = null;
         _this.soundCherry = null;
         _this.soundWrong = null;
+        _this.soundCreamMini = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
+        _this.endCardWin = null;
         _this.linkToStore = null;
         _this.camera = null;
         _this.logo = null;
@@ -64,6 +66,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.cake = null;
         _this.creeam = null;
         _this.phaoHoa = null;
+        _this.listHand = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -95,20 +98,47 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.start = function () {
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
     };
+    NewClass.prototype.startGame = function () {
+        var _this = this;
+        this.scheduleOnce(function () {
+            if (_this.isStep == 0) {
+                _this.listHand.children[0].active = true;
+            }
+        }, 2);
+    };
+    NewClass.prototype.btn_plate = function (event) {
+        var btn = event.currentTarget;
+        btn.getComponent(cc.Animation).play();
+        cc.audioEngine.play(this.soundWrong, false, 1);
+    };
     NewClass.prototype.btn_cake = function (event) {
+        var _this = this;
         var cake = null;
         if (this.isStep == 0) {
+            this.listHand.children[0].active = false;
             cake = this.cake.children[0];
             this.listCheckItem.children[0].active = true;
+            this.scheduleOnce(function () {
+                if (_this.isStep == 1) {
+                    _this.listHand.children[1].active = true;
+                }
+            }, 2.5);
         }
         else if (this.isStep == 3) {
+            this.listHand.children[0].active = false;
             cake = this.cake.children[3];
             // this.listCheckItem.children[0].active = true
             this.listCheckItem.children[0].active = true;
+            this.scheduleOnce(function () {
+                if (_this.isStep == 4) {
+                    _this.listHand.children[1].active = true;
+                }
+            }, 2.5);
         }
         else {
-            // cc.audioEngine.play(this.soundWrong, false, 1)
-            // this.creeam.getComponent(cc.Animation).play("btn_wrong")
+            var btn = event.currentTarget;
+            btn.getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 1);
             return;
         }
         cc.audioEngine.play(this.soundShowPop, false, 1);
@@ -123,6 +153,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         if (this.isStep == 2) {
             cc.audioEngine.play(this.soundCherry, false, 1);
+            this.listHand.children[2].active = false;
             var listFruit = this.cake.children[2];
             this.isStep++;
             listFruit.active = true;
@@ -131,7 +162,7 @@ var NewClass = /** @class */ (function (_super) {
                 fruit.active = false;
                 var localPos = fruit.position;
                 fruit.position = localPos.add(cc.v3(0, 120));
-                var time = (i % 2 == 0) ? 0 : 0.3;
+                var time = (i % 2 == 0) ? 0 : 0.2;
                 this_1.scheduleOnce(function () {
                     fruit.active = true;
                     _this.listCheckItem.children[2].active = true;
@@ -150,8 +181,14 @@ var NewClass = /** @class */ (function (_super) {
             for (var i = 0; i < listFruit.childrenCount; i++) {
                 _loop_1(i);
             }
+            this.scheduleOnce(function () {
+                if (_this.isStep == 3) {
+                    _this.listHand.children[0].active = true;
+                }
+            }, 2.5);
         }
         else if (this.isStep == 5) {
+            this.listHand.children[2].active = false;
             cc.audioEngine.play(this.soundCherry, false, 1);
             this.listCheckItem.children[2].active = true;
             this.listCheckItem.children[3].active = true;
@@ -177,6 +214,7 @@ var NewClass = /** @class */ (function (_super) {
             }
             this.scheduleOnce(function () {
                 _this.phaoHoa.active = true;
+                cc.audioEngine.play(_this.soundWin, false, 1);
             }, 0.5);
             this.scheduleOnce(function () {
                 _this.onEndGame(true);
@@ -204,7 +242,10 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_cream = function () {
         var _this = this;
         if (this.isStep == 1) {
-            cc.audioEngine.play(this.soundCream, false, 1);
+            this.listHand.children[1].active = false;
+            this.scheduleOnce(function () {
+                cc.audioEngine.play(_this.soundCream, false, 1);
+            }, 0.3);
             this.listCheckItem.children[1].active = true;
             this.creeam.getComponent(cc.Animation).play("cream1");
             var cream = this.cake.children[1];
@@ -215,12 +256,18 @@ var NewClass = /** @class */ (function (_super) {
             this.scheduleOnce(function () {
                 cc.tween(_this.creeam.children[1]).to(0.4, { position: cc.v3(0, 0), angle: 0 }).start();
             }, 1.2);
+            this.scheduleOnce(function () {
+                if (_this.isStep == 2) {
+                    _this.listHand.children[2].active = true;
+                }
+            }, 2.5);
         }
         else if (this.isStep == 4) {
             this.listCheckItem.children[1].active = true;
+            this.listHand.children[1].active = false;
             this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.soundCream, false, 1);
-            }, 0.3);
+            }, 0.5);
             this.creeam.getComponent(cc.Animation).play("cream2");
             var creamItem_1 = this.creeam.children[1];
             var cream = this.cake.children[4];
@@ -231,19 +278,22 @@ var NewClass = /** @class */ (function (_super) {
             var listCream_1 = this.cake.children[5];
             var listCream2_1 = this.cake.children[7];
             // cc.audioEngine.play(this.soundCream, false, 1)
+            var arrrPos_1 = [cc.v3(-507, 222), cc.v3(-551, 197), cc.v3(-590, 161), cc.v3(-621, 111), cc.v3(-634, 50, 69), cc.v3(-631.5, 21), cc.v3(-612.6, -4), cc.v3(-568, -5.4), cc.v3(-528, 19.5),
+                cc.v3(-490, 61), cc.v3(-464, 108), cc.v3(-456, 170), cc.v3(-473, 204)
+            ];
             this.scheduleOnce(function () {
                 listCream_1.active = true;
                 var _loop_3 = function (i) {
                     listCream_1.children[i].active = false;
                     _this.scheduleOnce(function () {
-                        var pos = listCream_1.children[i].position.add(cc.v3(0, 150));
-                        pos = listCream_1.convertToWorldSpaceAR(pos);
-                        pos = _this.creeam.convertToNodeSpaceAR(pos);
                         // creamItem.position = pos
                         // console.log()
-                        cc.tween(creamItem_1).to(0.1, { position: pos }).start();
+                        // if (i % 2 == 0) {
+                        //     cc.audioEngine.play(this.soundCreamMini, false, 1)
+                        // }
+                        cc.tween(creamItem_1).to(0.1, { position: arrrPos_1[i] }).start();
                         listCream_1.children[i].active = true;
-                    }, 0.2 * i);
+                    }, 0.15 * i);
                 };
                 for (var i = 0; i < listCream_1.childrenCount; i++) {
                     _loop_3(i);
@@ -254,21 +304,22 @@ var NewClass = /** @class */ (function (_super) {
                 var _loop_4 = function (i) {
                     listCream2_1.children[i].active = false;
                     _this.scheduleOnce(function () {
-                        // cc.audioEngine.play(this.soundCream, false, 1)
-                        var pos = listCream2_1.children[i].position.add(cc.v3(0, 150));
-                        pos = listCream2_1.convertToWorldSpaceAR(pos);
-                        pos = _this.creeam.convertToNodeSpaceAR(pos);
-                        creamItem_1.position = pos;
+                        cc.tween(creamItem_1).to(0.1, { position: arrrPos_1[i + 6] }).start();
                         listCream2_1.children[i].active = true;
-                    }, 0.2 * i);
+                    }, 0.15 * i);
                 };
                 for (var i = 0; i < listCream2_1.childrenCount; i++) {
                     _loop_4(i);
                 }
-            }, 1.3 + 0.2 * 7);
+            }, 1.3 + 0.15 * 6);
             this.scheduleOnce(function () {
                 cc.tween(_this.creeam.children[1]).to(0.4, { position: cc.v3(0, 0), angle: 0 }).start();
-            }, 4);
+                _this.scheduleOnce(function () {
+                    if (_this.isStep == 5) {
+                        _this.listHand.children[2].active = true;
+                    }
+                }, 2.5);
+            }, 3.8);
         }
         else {
             cc.audioEngine.play(this.soundWrong, false, 1);
@@ -307,17 +358,18 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isEndGame)
             return;
         this.isEndGame = true;
-        cc.audioEngine.play(this.soundEnd, false, 1);
         if (value == true) {
-            cc.audioEngine.play(this.soundThinking, false, 1);
-            cc.audioEngine.play(this.soundWin, false, 1);
+            // cc.audioEngine.play(this.soundEnd, false, 1)
+            // cc.audioEngine.play(this.soundWin, false, 1)
+            // this.endCard.getChildByName("title").active = false
+            this.endCardWin.active = true;
         }
         else {
             cc.audioEngine.stop(this.idSound);
             cc.audioEngine.play(this.soundThinking, false, 1);
             cc.audioEngine.play(this.soundLose, false, 1);
+            this.endCard.active = true;
         }
-        this.endCard.active = true;
         this.linkToStore.active = true;
     };
     // btn_choose(event, value) {
@@ -335,6 +387,7 @@ var NewClass = /** @class */ (function (_super) {
         var canvas = this.node.getComponent(cc.Canvas);
         this.camera.zoomRatio = 1.15;
         this.endCard.scale = (logic) ? 1.2 : 0.7;
+        this.endCardWin.scale = (logic) ? 1.2 : 0.7;
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
@@ -434,6 +487,9 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundWrong", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundCreamMini", void 0);
+    __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);
     __decorate([
@@ -442,6 +498,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "endCard", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "endCardWin", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "linkToStore", void 0);
@@ -484,6 +543,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "phaoHoa", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listHand", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

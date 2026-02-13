@@ -34,6 +34,7 @@ var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.order = null;
         _this.lbCountTime = null;
         _this.clock = null;
         _this.timeBar = null;
@@ -54,9 +55,14 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(_this.node.children[0]).to(0.4, { opacity: 0 }).call(function () {
                 _this.node.active = false;
                 _this.timeBar.getComponent("barTime").countDown();
+                _this.order.active = true;
+                _this.gamePlay.startGame();
             }).start();
         }, 1.5);
     };
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "order", void 0);
     __decorate([
         property(cc.Label)
     ], NewClass.prototype, "lbCountTime", void 0);
