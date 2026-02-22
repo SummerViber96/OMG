@@ -87,13 +87,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 413
+        "__id__": 410
       },
       {
-        "__id__": 414
+        "__id__": 411
       },
       {
-        "__id__": 415
+        "__id__": 412
       }
     ],
     "_prefab": null,
@@ -11689,7 +11689,7 @@
         "__id__": 381
       },
       {
-        "__id__": 408
+        "__id__": 405
       },
       {
         "__id__": 262
@@ -11701,7 +11701,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 412
+        "__id__": 409
       }
     ],
     "_prefab": null,
@@ -16771,10 +16771,10 @@
         "__id__": 393
       },
       {
-        "__id__": 405
+        "__id__": 402
       },
       {
-        "__id__": 406
+        "__id__": 403
       }
     ],
     "_prefab": null,
@@ -17313,12 +17313,6 @@
     "_components": [
       {
         "__id__": 401
-      },
-      {
-        "__id__": 403
-      },
-      {
-        "__id__": 404
       }
     ],
     "_prefab": null,
@@ -17604,88 +17598,6 @@
     "_id": "eb1Xq3QxJF1btRo24MIIje"
   },
   {
-    "__type__": "cc.Button",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 394
-    },
-    "_enabled": true,
-    "_normalMaterial": null,
-    "_grayMaterial": null,
-    "duration": 0.1,
-    "zoomScale": 1.2,
-    "clickEvents": [
-      {
-        "__id__": 402
-      }
-    ],
-    "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
-    "_N$transition": 0,
-    "transition": 0,
-    "_N$normalColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_N$pressedColor": {
-      "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
-      "a": 255
-    },
-    "pressedColor": {
-      "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
-      "a": 255
-    },
-    "_N$hoverColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "hoverColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_N$disabledColor": {
-      "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
-      "a": 255
-    },
-    "_N$normalSprite": null,
-    "_N$pressedSprite": null,
-    "pressedSprite": null,
-    "_N$hoverSprite": null,
-    "hoverSprite": null,
-    "_N$disabledSprite": null,
-    "_N$target": null,
-    "_id": "dfx6+GmqhPsZvrdIi6E2li"
-  },
-  {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 394
-    },
-    "component": "",
-    "_componentId": "d5a53y/zAZMxovQfK0aXT9Q",
-    "handler": "clickG",
-    "customEventData": ""
-  },
-  {
     "__type__": "d5a53y/zAZMxovQfK0aXT9Q",
     "_name": "",
     "_objFlags": 0,
@@ -17697,16 +17609,6 @@
       "__id__": 381
     },
     "_id": "ddXfxnLrlC0qIMNmOG+u1x"
-  },
-  {
-    "__type__": "cc.BlockInputEvents",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 394
-    },
-    "_enabled": true,
-    "_id": "fcx0QzrUBOfb61WUFRcONf"
   },
   {
     "__type__": "cc.BlockInputEvents",
@@ -17732,7 +17634,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 407
+        "__id__": 404
       }
     ],
     "_N$interactable": true,
@@ -17809,13 +17711,13 @@
     },
     "_children": [
       {
-        "__id__": 409
+        "__id__": 406
       }
     ],
     "_active": false,
     "_components": [
       {
-        "__id__": 411
+        "__id__": 408
       }
     ],
     "_prefab": null,
@@ -17871,13 +17773,13 @@
     "_name": "icon",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 408
+      "__id__": 405
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 410
+        "__id__": 407
       }
     ],
     "_prefab": null,
@@ -17933,7 +17835,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 409
+      "__id__": 406
     },
     "_enabled": true,
     "_materials": [
@@ -17967,7 +17869,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 408
+      "__id__": 405
     },
     "_enabled": true,
     "_defaultClip": {
@@ -18163,7 +18065,7 @@
       "__id__": 218
     },
     "phaoHoa": {
-      "__id__": 408
+      "__id__": 405
     },
     "listHand": {
       "__id__": 226

@@ -122,11 +122,12 @@ export default class NewClass extends cc.Component {
 
     }
     startGame() {
-        this.scheduleOnce(() => {
-            if (this.isStep == 0) {
-                this.listHand.children[0].active = true
-            }
-        }, 2)
+                        this.listHand.children[0].active = true
+
+        // this.scheduleOnce(() => {
+        //     if (this.isStep == 0) {
+        //     }
+        // }, 2)
     }
     btn_plate(event) {
         let btn = event.currentTarget
@@ -136,6 +137,7 @@ export default class NewClass extends cc.Component {
     btn_cake(event) {
         let cake = null
         if (this.isStep == 0) {
+            this.barTime.getComponent("barTime").countDown()
             this.guild.active=false;
             this.listHand.children[0].active = false
             cake = this.cake.children[0]

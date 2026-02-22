@@ -47,6 +47,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         cc.tween(this.lbCountTime.node).to(0.3, { scale: 0.9 }).to(0.1, { scale: 1 }).start();
+        // this.click()
     };
     NewClass.prototype.click = function () {
         var _this = this;
@@ -56,7 +57,7 @@ var NewClass = /** @class */ (function (_super) {
         this.gamePlay.moveClocktoUI(this.clock);
         cc.tween(this.node.children[0]).to(0.4, { opacity: 0 }).call(function () {
             _this.node.active = false;
-            _this.timeBar.getComponent("barTime").countDown();
+            // this.timeBar.getComponent("barTime").countDown();
             _this.order.active = true;
             _this.gamePlay.startGame();
             _this.guild.active = true;

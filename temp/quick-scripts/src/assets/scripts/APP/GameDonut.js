@@ -102,12 +102,11 @@ var NewClass = /** @class */ (function (_super) {
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
     };
     NewClass.prototype.startGame = function () {
-        var _this = this;
-        this.scheduleOnce(function () {
-            if (_this.isStep == 0) {
-                _this.listHand.children[0].active = true;
-            }
-        }, 2);
+        this.listHand.children[0].active = true;
+        // this.scheduleOnce(() => {
+        //     if (this.isStep == 0) {
+        //     }
+        // }, 2)
     };
     NewClass.prototype.btn_plate = function (event) {
         var btn = event.currentTarget;
@@ -118,6 +117,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         var cake = null;
         if (this.isStep == 0) {
+            this.barTime.getComponent("barTime").countDown();
             this.guild.active = false;
             this.listHand.children[0].active = false;
             cake = this.cake.children[0];
