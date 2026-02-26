@@ -9975,8 +9975,8 @@
     "relativePath": "CakeAssembly\\script\\timeClock.ts"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1772129152161,
-    "meta": 1772129152181,
+    "asset": 1772129432435,
+    "meta": 1772129432480,
     "relativePath": "scenes\\Donut1.fire"
   },
   "9836134e-b892-4283-b6b2-78b5acf3ed45": {
@@ -10408,5 +10408,30 @@
     "asset": 1772129150345,
     "meta": 1772129150517,
     "relativePath": "CakeAssembly\\textures\\itemlist.png"
+  },
+  "0432c44f-261a-4fa4-9e61-45ed4e891a20": {
+    "asset": 1772129256069,
+    "meta": 1772129256070,
+    "relativePath": "logo"
+  },
+  "9ffc84e0-94bc-4953-a887-4cf6c2f8dc59": {
+    "asset": 1772129264924,
+    "meta": 1772129264955,
+    "relativePath": "logo\\kitchenCraze.png"
+  },
+  "7359277e-c6ef-4bd3-8b87-78ee831755b7": {
+    "asset": 1772129264925,
+    "meta": 1772129264956,
+    "relativePath": "logo\\Cooking_Crunch_Logo.png"
+  },
+  "cece907d-da0a-44e7-adbb-cd8a39d939a0": {
+    "asset": 1772129264925,
+    "meta": 1772129264972,
+    "relativePath": "logo\\CookingChaosLogo.png"
+  },
+  "4021f1a4-f9f6-4677-9f10-53ec64b0be0a": {
+    "asset": 1772129264925,
+    "meta": 1772129264973,
+    "relativePath": "logo\\CookingCrush_Logo (2) (1).png"
   }
 }
