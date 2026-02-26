@@ -45,9 +45,13 @@ var NewClass = /** @class */ (function (_super) {
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
+        var _this = this;
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
-        cc.tween(this.lbCountTime.node).to(0.3, { scale: 0.9 }).to(0.1, { scale: 1 }).start();
-        // this.click()
+        cc.tween(this.lbCountTime.node).to(0.3, { scale: 0.9 }).to(0.1, { scale: 1 }).call(function () {
+            _this.scheduleOnce(function () {
+                _this.click();
+            }, 0.2);
+        }).start();
     };
     NewClass.prototype.click = function () {
         var _this = this;

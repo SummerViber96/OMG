@@ -23,11 +23,15 @@ export default class NewClass extends cc.Component {
     gamePlay = null;
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
-        cc.tween(this.lbCountTime.node).to(0.3, { scale: 0.9 }).to(0.1, { scale: 1 }).start()
-        // this.click()
+        cc.tween(this.lbCountTime.node).to(0.3, { scale: 0.9 }).to(0.1, { scale: 1 }).call(() => {
+            this.scheduleOnce(()=>{
+            this.click()
+
+            },0.2)
+
+        }).start()
     }
     click() {
-
         this.clock.getComponent(cc.Animation).stop()
         this.clock.angle = 0
         cc.tween(this.lbCountTime.node).to(0.3, { opacity: 0 }).start();

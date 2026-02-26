@@ -17628,7 +17628,7 @@
     "node": {
       "__id__": 381
     },
-    "_enabled": true,
+    "_enabled": false,
     "_normalMaterial": null,
     "_grayMaterial": null,
     "duration": 0.1,
