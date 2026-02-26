@@ -10365,8 +10365,8 @@
     "relativePath": "CakeAssembly\\sound\\Excited-for-more-levels.mp3"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1772125429094,
-    "meta": 1772125429106,
+    "asset": 1772127107924,
+    "meta": 1772127107942,
     "relativePath": "scenes\\Donut1.fire"
   },
   "9f600644-2412-4b80-b4ee-71ea6c92ebf1": {
@@ -10408,5 +10408,30 @@
     "asset": 1771735113752,
     "meta": 1771735115724,
     "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "3108e856-d43f-4f9c-9710-508b0cfbfbbc": {
+    "asset": 1772126552347,
+    "meta": 1772126552348,
+    "relativePath": "logo"
+  },
+  "7f8502c8-9736-4bd1-9bc8-e538412981fe": {
+    "asset": 1772126561471,
+    "meta": 1772126561508,
+    "relativePath": "logo\\CookingChaosLogo.png"
+  },
+  "5bb9e8ac-3fea-4b2f-9a6e-01def9b72fd3": {
+    "asset": 1772126561471,
+    "meta": 1772126561521,
+    "relativePath": "logo\\kitchenCraze.png"
+  },
+  "5cb56bfd-52d0-4353-bb61-d0486b5ba7be": {
+    "asset": 1772126561471,
+    "meta": 1772126561540,
+    "relativePath": "logo\\Cooking_Crunch_Logo.png"
+  },
+  "b457e923-b6df-4aa3-b52c-0b673bb5230b": {
+    "asset": 1772126625507,
+    "meta": 1772126625531,
+    "relativePath": "logo\\CookingCrush_Logo (2) (1).png"
   }
 }

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "7f8502c8-9736-4bd1-9bc8-e538412981fe",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 720,
+  "height": 608,
+  "platformSettings": {},
+  "subMetas": {
+    "CookingChaosLogo": {
+      "ver": "1.0.4",
+      "uuid": "9dd75d7d-f9c9-4697-9c18-ad32a020446c",
+      "rawTextureUuid": "7f8502c8-9736-4bd1-9bc8-e538412981fe",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 717,
+      "height": 608,
+      "rawWidth": 720,
+      "rawHeight": 608,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

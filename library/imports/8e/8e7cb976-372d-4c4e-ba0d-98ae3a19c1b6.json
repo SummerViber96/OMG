@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "kitchenCraze",
+    "texture": "5bb9e8ac-3fea-4b2f-9a6e-01def9b72fd3",
+    "atlas": "",
+    "rect": [
+      108,
+      127,
+      677,
+      591
+    ],
+    "offset": [
+      44,
+      -20
+    ],
+    "originalSize": [
+      805,
+      805
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
