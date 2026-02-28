@@ -90,6 +90,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.countCus = 0;
         _this.idSound = null;
         _this.isStep = 0;
+        _this.isLast = false;
         _this.isEndGame = false;
         return _this;
     }
@@ -191,7 +192,7 @@ var NewClass = /** @class */ (function (_super) {
                 }
             }, 2.5);
         }
-        else if (this.isStep == 5) {
+        else if (this.isStep == 5 && this.isLast == true) {
             this.listHand.children[2].active = false;
             cc.audioEngine.play(this.soundCherry, false, 1);
             this.listCheckItem.children[2].active = true;
@@ -286,6 +287,9 @@ var NewClass = /** @class */ (function (_super) {
             var arrrPos_1 = [cc.v3(-507, 222), cc.v3(-551, 197), cc.v3(-590, 161), cc.v3(-621, 111), cc.v3(-634, 50, 69), cc.v3(-631.5, 21), cc.v3(-612.6, -4), cc.v3(-568, -5.4), cc.v3(-528, 19.5),
                 cc.v3(-490, 61), cc.v3(-464, 108), cc.v3(-456, 170), cc.v3(-473, 204)
             ];
+            this.scheduleOnce(function () {
+                _this.isLast = true;
+            }, 2);
             this.scheduleOnce(function () {
                 listCream_1.active = true;
                 var _loop_3 = function (i) {

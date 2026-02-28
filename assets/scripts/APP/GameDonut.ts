@@ -87,7 +87,7 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     warning: cc.Node = null
     @property(cc.Node)
-    guild:cc.Node=null
+    guild: cc.Node = null
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -122,7 +122,7 @@ export default class NewClass extends cc.Component {
 
     }
     startGame() {
-                        this.listHand.children[0].active = true
+        this.listHand.children[0].active = true
 
         // this.scheduleOnce(() => {
         //     if (this.isStep == 0) {
@@ -138,7 +138,7 @@ export default class NewClass extends cc.Component {
         let cake = null
         if (this.isStep == 0) {
             this.barTime.getComponent("barTime").countDown()
-            this.guild.active=false;
+            this.guild.active = false;
             this.listHand.children[0].active = false
             cake = this.cake.children[0]
             this.listCheckItem.children[0].active = true
@@ -210,7 +210,7 @@ export default class NewClass extends cc.Component {
                 }
             }, 2.5)
         }
-        else if (this.isStep == 5) {
+        else if (this.isStep == 5 && this.isLast == true) {
             this.listHand.children[2].active = false
 
             cc.audioEngine.play(this.soundCherry, false, 1)
@@ -260,6 +260,7 @@ export default class NewClass extends cc.Component {
         btn.getComponent(cc.Animation).play();
         cc.audioEngine.play(this.soundWrong, false, 1)
     }
+    isLast = false
     btn_cream() {
         if (this.isStep == 1) {
             this.listHand.children[1].active = false
@@ -305,6 +306,10 @@ export default class NewClass extends cc.Component {
             let arrrPos = [cc.v3(-507, 222), cc.v3(-551, 197), cc.v3(-590, 161), cc.v3(-621, 111), cc.v3(-634, 50, 69), cc.v3(-631.5, 21), cc.v3(-612.6, -4), cc.v3(-568, -5.4), cc.v3(-528, 19.5),
             cc.v3(-490, 61), cc.v3(-464, 108), cc.v3(-456, 170), cc.v3(-473, 204)
             ]
+            this.scheduleOnce(() => {
+                this.isLast = true
+
+            }, 2)
             this.scheduleOnce(() => {
                 listCream.active = true
 
@@ -390,9 +395,9 @@ export default class NewClass extends cc.Component {
     onEndGame(value) {
         if (this.isEndGame) return;
         this.isEndGame = true
-        this.warning.active=false;
+        this.warning.active = false;
         if (value == true) {
-                    this.barTime.getComponent("barTime").endGame()
+            this.barTime.getComponent("barTime").endGame()
 
             // cc.audioEngine.play(this.soundEnd, false, 1)
             cc.audioEngine.play(this.soundThinkWin, false, 1)
@@ -402,7 +407,7 @@ export default class NewClass extends cc.Component {
 
         }
         else {
-                    this.barTime.getComponent("barTime").endGame()
+            this.barTime.getComponent("barTime").endGame()
 
             cc.audioEngine.stop(this.idSound)
             cc.audioEngine.play(this.soundThinking, false, 1)
@@ -438,8 +443,8 @@ export default class NewClass extends cc.Component {
         this.barCoin.scale = (logic) ? 2 : 1.1
         this.clockTime.scale = (logic) ? 1.7 : 1
         this.phaoHoa.scale = (logic) ? 9 : 5
-this.guild.scale=(logic)?2:1.4
-this.guild.position=(logic)?cc.v3(0,-550):cc.v3(0,-360)
+        this.guild.scale = (logic) ? 2 : 1.4
+        this.guild.position = (logic) ? cc.v3(0, -550) : cc.v3(0, -360)
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
