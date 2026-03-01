@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1772289635422,
+    "meta": 1772338989340,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -1110,8 +1110,8 @@
     "relativePath": "cooking"
   },
   "eb7ca460-9857-4d9e-ae63-65ddbbca597c": {
-    "asset": 1772128971214,
-    "meta": 1772129007168,
+    "asset": 1772338770166,
+    "meta": 1772338989149,
     "relativePath": "cooking\\animCook"
   },
   "37f6a155-328c-4b0a-958a-c1bcedb502e3": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1772289635419,
+    "meta": 1772338989343,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -4315,8 +4315,8 @@
     "relativePath": "prefab\\vfx\\vfx_smoke.prefab"
   },
   "5ac3afaa-e931-4ba4-a643-89d66b4157f7": {
-    "asset": 1772128971312,
-    "meta": 1772129014651,
+    "asset": 1772338970012,
+    "meta": 1772338989156,
     "relativePath": "scenes"
   },
   "e36e27a3-29e3-4284-b879-a39eb6ec879e": {
@@ -4340,8 +4340,8 @@
     "relativePath": "scripts\\animal.ts"
   },
   "cdf0b8ba-5fcf-477f-a761-6b2937f53023": {
-    "asset": 1772128971315,
-    "meta": 1772129014725,
+    "asset": 1772338970013,
+    "meta": 1772338989164,
     "relativePath": "scripts\\APP"
   },
   "00603e08-58f5-4fee-a678-5ce835d40706": {
@@ -9480,8 +9480,8 @@
     "relativePath": "anim\\hand\\hand_vuot.anim"
   },
   "9ff28ca9-98c0-4a22-9896-e819afb5ab54": {
-    "asset": 1772128971096,
-    "meta": 1772129006350,
+    "asset": 1772338970000,
+    "meta": 1772338988734,
     "relativePath": "CakeAssembly"
   },
   "75d379e8-d4f9-4ee3-b98f-60aab32e3236": {
@@ -9521,7 +9521,7 @@
   },
   "e634d400-cf9e-48b8-b192-08f6c66241c2": {
     "asset": 1772129150335,
-    "meta": 1772289635379,
+    "meta": 1772338989149,
     "relativePath": "CakeAssembly\\textures"
   },
   "400349d0-5a1e-4916-b1dc-28da52a9bf78": {
@@ -9805,8 +9805,8 @@
     "relativePath": "sound\\snd_OrderShow.mp3"
   },
   "5157d022-4f18-42d1-b2a2-d70b3f4acada": {
-    "asset": 1772128971031,
-    "meta": 1772129006497,
+    "asset": 1772338970010,
+    "meta": 1772338988736,
     "relativePath": "CakeAssembly\\sound"
   },
   "6ef8067e-7c86-4d9c-832e-122601e023b0": {
@@ -10401,7 +10401,7 @@
   },
   "0432c44f-261a-4fa4-9e61-45ed4e891a20": {
     "asset": 1772129264930,
-    "meta": 1772289635409,
+    "meta": 1772338989155,
     "relativePath": "logo"
   },
   "9ffc84e0-94bc-4953-a887-4cf6c2f8dc59": {
@@ -10425,28 +10425,33 @@
     "relativePath": "logo\\CookingCrush_Logo (2) (1).png"
   },
   "b4255250-5ad4-4181-ac1c-6ab86ebb03d4": {
-    "asset": 1772290190370,
-    "meta": 1772290191123,
+    "asset": 1772338970010,
+    "meta": 1772338989338,
     "relativePath": "CakeAssembly\\sound\\Excited_Kitchen_Craze_Play-Now.mp3"
   },
   "a63bba0f-406e-4d75-b47d-4434c6ab4050": {
-    "asset": 1772290190370,
-    "meta": 1772290191126,
+    "asset": 1772338770175,
+    "meta": 1772338989147,
     "relativePath": "CakeAssembly\\sound\\Excited_Chaos_Play-Now.mp3"
   },
   "bec37d6c-5a85-4bc7-865f-0b6927653a34": {
-    "asset": 1772290190370,
-    "meta": 1772290191145,
+    "asset": 1772338970009,
+    "meta": 1772338989148,
     "relativePath": "CakeAssembly\\sound\\Excited_Crush_Play-Now.mp3"
   },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1772290629842,
-    "meta": 1772290631587,
+    "asset": 1772338970013,
+    "meta": 1772338989333,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1772290632334,
-    "meta": 1772290632352,
+    "asset": 1772339029389,
+    "meta": 1772339029402,
     "relativePath": "scenes\\Donut1.fire"
+  },
+  "117cd662-fe4f-4e54-bb30-7268167f39a7": {
+    "asset": 1772339022447,
+    "meta": 1772339022924,
+    "relativePath": "CakeAssembly\\Think You can do better _KitchenCraze_CTA (1).mp3"
   }
 }
