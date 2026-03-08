@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Conveyor Belt Ad",
+    "texture": "e4feaa5a-4eff-43cb-9a66-db492005cc2e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1766,
+      1200
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1766,
+      1200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

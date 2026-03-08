@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Belt_Body",
+    "texture": "ef21de29-65b2-4309-bf7a-87b643c7000a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      3249,
+      164
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      3249,
+      164
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
