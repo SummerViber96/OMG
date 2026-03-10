@@ -32,7 +32,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.gamePlay = null;
         _this.clockSound = null;
         _this.warning = null;
-        _this.isTime = 30;
+        _this.isTime = 60;
         _this.idClick = null;
         return _this;
         // update (dt) {}
@@ -56,7 +56,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.warning.active = false;
                 _this.gamePlay.onEndGame(false);
             }
-        }, 1, 29);
+        }, 1, 59);
     };
     NewClass.prototype.endGame = function () {
         if (this.idClick) {

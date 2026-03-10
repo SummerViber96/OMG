@@ -1,8 +1,14 @@
 "use strict";
-cc._RF.push(module, '12d9aIcZiFOIKcwKRQcVGPF', 'barTime');
-// CakeAssembly/script/barTime.ts
+cc._RF.push(module, '5b794Rk0MZKwJ0nof/GU6Wo', 'Ray');
+// New Folder/Scripts/Ray.ts
 
 "use strict";
+// Learn TypeScript:
+//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
+// Learn Attribute:
+//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
+// Learn life-cycle callbacks:
+//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -28,51 +34,34 @@ var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.lbTime = null;
-        _this.gamePlay = null;
-        _this.clockSound = null;
-        _this.warning = null;
-        _this.isTime = 60;
-        _this.idClick = null;
+        _this.speed = 500;
+        _this.nguoc = false;
+        _this.rayWidth = 3249;
         return _this;
-        // update (dt) {}
     }
-    NewClass.prototype.start = function () {
-        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
-    };
-    NewClass.prototype.countDown = function () {
-        var _this = this;
-        this.schedule(function () {
-            _this.isTime--;
-            _this.lbTime.string = _this.isTime.toString();
-            if (_this.isTime == 10) {
-                if (_this.gamePlay.isEndGame == false) {
-                    _this.idClick = cc.audioEngine.play(_this.clockSound, true, 1);
-                    _this.warning.active = true;
+    NewClass.prototype.update = function (dt) {
+        for (var _i = 0, _a = this.node.children; _i < _a.length; _i++) {
+            var ray = _a[_i];
+            if (this.nguoc == false) {
+                ray.x -= this.speed * dt;
+                if (ray.x <= -this.rayWidth) {
+                    ray.x += this.rayWidth * this.node.childrenCount;
                 }
             }
-            _this.lbTime.getComponent(cc.Animation).play();
-            if (_this.isTime == 0) {
-                _this.warning.active = false;
-                _this.gamePlay.onEndGame(false);
+            else {
+                ray.x += this.speed * dt * 0.5;
+                if (ray.x >= this.rayWidth) {
+                    ray.x -= this.rayWidth * this.node.childrenCount;
+                }
             }
-        }, 1, 59);
-    };
-    NewClass.prototype.endGame = function () {
-        if (this.idClick) {
-            cc.audioEngine.stop(this.idClick);
         }
-        this.unscheduleAllCallbacks();
     };
     __decorate([
-        property(cc.Label)
-    ], NewClass.prototype, "lbTime", void 0);
+        property
+    ], NewClass.prototype, "speed", void 0);
     __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "clockSound", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "warning", void 0);
+        property(cc.Boolean)
+    ], NewClass.prototype, "nguoc", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

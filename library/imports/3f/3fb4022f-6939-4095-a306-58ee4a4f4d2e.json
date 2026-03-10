@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Patience_Bar_filled",
+    "texture": "0a275b31-c1ac-48fb-b033-0ce9510776a0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      40,
+      241
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      40,
+      241
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

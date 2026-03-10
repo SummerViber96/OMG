@@ -16,6 +16,7 @@ require('./assets/CakeAssembly/script/timeClock');
 require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');
 require('./assets/HF/touch');
+require('./assets/New Folder/Scripts/Ray');
 require('./assets/cooking/ietm/buger');
 require('./assets/cooking/ietm/cake');
 require('./assets/cooking/ietm/cake2');

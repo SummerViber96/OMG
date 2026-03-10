@@ -398,13 +398,13 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1.15;
+        this.camera.zoomRatio = 1;
         this.endCard.scale = (logic) ? 1.2 : 0.7;
         this.endCardWin.scale = (logic) ? 1.2 : 0.7;
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
-        this.camera.node.position = cc.v3(0, -10);
+        // this.camera.node.position = cc.v3(0, 0)
         this.barTime.scale = (logic) ? 2 : 1.1;
         this.barCoin.scale = (logic) ? 2 : 1.1;
         this.clockTime.scale = (logic) ? 1.7 : 1;
@@ -423,13 +423,13 @@ var NewClass = /** @class */ (function (_super) {
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             this.camera.zoomRatio = 2.6;
-            this.camera.node.position = cc.v3(0, -150);
+            // this.camera.node.position = cc.v3(0, -150)
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 2.1;
-                this.camera.node.position = cc.v3(0, -120);
+                // this.camera.node.position = cc.v3(0, -120)
             }
         }
         else {
@@ -446,7 +446,7 @@ var NewClass = /** @class */ (function (_super) {
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1;
-                this.camera.node.position = cc.v3(0, -60);
+                // this.camera.node.position = cc.v3(0, -60)
             }
         }
     };
