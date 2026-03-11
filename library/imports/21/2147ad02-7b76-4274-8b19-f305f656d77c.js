@@ -159,9 +159,9 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.happy = function () {
         var _this = this;
-        this.anim.setAnimation(0, "happy", false);
+        this.anim.setAnimation(0, "8.happy", false);
         this.scheduleOnce(function () {
-            _this.anim.setAnimation(0, "idle", true);
+            _this.anim.setAnimation(0, "3.buy_idle", true);
         }, 1);
     };
     NewClass.prototype.checkSell = function (donut) {

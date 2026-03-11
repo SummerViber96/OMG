@@ -165,9 +165,9 @@ export default class NewClass extends cc.Component {
 
     }
     happy() {
-        this.anim.setAnimation(0, "happy", false)
+        this.anim.setAnimation(0, "8.happy", false)
         this.scheduleOnce(() => {
-            this.anim.setAnimation(0, "idle", true)
+            this.anim.setAnimation(0, "3.buy_idle", true)
 
         }, 1)
 

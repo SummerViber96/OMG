@@ -2996,7 +2996,9 @@
     "lbCountSc": null,
     "lbCountDau": null,
     "pop": null,
-    "anim": null,
+    "anim": {
+      "__id__": 53
+    },
     "doneNode": null,
     "doneNode2": null,
     "fillBar": {
@@ -3625,7 +3627,9 @@
     "lbCountSc": null,
     "lbCountDau": null,
     "pop": null,
-    "anim": null,
+    "anim": {
+      "__id__": 66
+    },
     "doneNode": null,
     "doneNode2": null,
     "fillBar": {
@@ -4883,7 +4887,9 @@
     "lbCountSc": null,
     "lbCountDau": null,
     "pop": null,
-    "anim": null,
+    "anim": {
+      "__id__": 92
+    },
     "doneNode": null,
     "doneNode2": null,
     "fillBar": {
@@ -5512,7 +5518,9 @@
     "lbCountSc": null,
     "lbCountDau": null,
     "pop": null,
-    "anim": null,
+    "anim": {
+      "__id__": 105
+    },
     "doneNode": null,
     "doneNode2": null,
     "fillBar": {
@@ -6141,7 +6149,9 @@
     "lbCountSc": null,
     "lbCountDau": null,
     "pop": null,
-    "anim": null,
+    "anim": {
+      "__id__": 118
+    },
     "doneNode": null,
     "doneNode2": null,
     "fillBar": {
@@ -6770,7 +6780,9 @@
     "lbCountSc": null,
     "lbCountDau": null,
     "pop": null,
-    "anim": null,
+    "anim": {
+      "__id__": 131
+    },
     "doneNode": null,
     "doneNode2": null,
     "fillBar": {

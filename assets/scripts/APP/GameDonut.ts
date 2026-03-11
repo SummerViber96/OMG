@@ -318,7 +318,7 @@ export default class NewClass extends cc.Component {
         let mission = this.arrTargetMission[i];
         let check = true
         let cus = this.arrCus[i]
-
+        console.log(i, j)
         for (let m = 0; m < mission.length; m++) {
             if (mission[m] != 100) {
                 check = false
@@ -326,10 +326,10 @@ export default class NewClass extends cc.Component {
         }
         if (check == true) {
             this.isCountDone++
-            console.log(this.isCountDone, "done")
             this.scheduleOnce(() => {
                 cus.getChildByName("vfx_coin").active = true
                 cus.getChildByName("vfx_coin").getComponent(cc.Animation).play()
+                cus.getComponent("cusMission").happy()
                 globalThis.coin += 50
                 if (mission.length == 3) {
                     globalThis.coin += 20
@@ -350,10 +350,10 @@ export default class NewClass extends cc.Component {
                 this.checkSuccessItem()
             }
             if (this.isCountDone == 7) {
-                this.scheduleOnce(()=>{
-                this.onEndGame(true)
+                this.scheduleOnce(() => {
+                    this.onEndGame(true)
 
-                },0.5)
+                }, 0.5)
             }
 
         }
@@ -386,8 +386,12 @@ export default class NewClass extends cc.Component {
         for (let i = 0; i < this.arrCus.length; i++) {
             let child = this.arrCus[i];
             cc.tween(child).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
+
             }).start()
         }
+        this.scheduleOnce(() => {
+            this.arrCus.shift()
+        }, 0.5)
         this.spawNextKhay()
 
     }

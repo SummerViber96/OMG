@@ -311,6 +311,7 @@ var NewClass = /** @class */ (function (_super) {
         var mission = this.arrTargetMission[i];
         var check = true;
         var cus = this.arrCus[i];
+        console.log(i, j);
         for (var m = 0; m < mission.length; m++) {
             if (mission[m] != 100) {
                 check = false;
@@ -318,10 +319,10 @@ var NewClass = /** @class */ (function (_super) {
         }
         if (check == true) {
             this.isCountDone++;
-            console.log(this.isCountDone, "done");
             this.scheduleOnce(function () {
                 cus.getChildByName("vfx_coin").active = true;
                 cus.getChildByName("vfx_coin").getComponent(cc.Animation).play();
+                cus.getComponent("cusMission").happy();
                 globalThis.coin += 50;
                 if (mission.length == 3) {
                     globalThis.coin += 20;
@@ -363,6 +364,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.moveCus = function () {
+        var _this = this;
         if (this.isCountCus < 7) {
             this.listCus.children[this.isCountCus].active = true;
             this.arrCus.push(this.listCus.children[this.isCountCus]);
@@ -373,6 +375,9 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(child).by(0.8, { position: cc.v3(-600, 0) }).call(function () {
             }).start();
         }
+        this.scheduleOnce(function () {
+            _this.arrCus.shift();
+        }, 0.5);
         this.spawNextKhay();
     };
     NewClass.prototype.shuffleItem = function () {
