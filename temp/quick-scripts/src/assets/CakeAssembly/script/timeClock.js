@@ -62,8 +62,8 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.node.children[0]).to(0.4, { opacity: 0 }).call(function () {
             _this.node.active = false;
             // this.timeBar.getComponent("barTime").countDown();
-            _this.order.active = true;
-            _this.gamePlay.startGame();
+            // this.order.active = true
+            // this.gamePlay.startGame()
             _this.guild.active = true;
         }).start();
     };

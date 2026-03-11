@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Layer 658 copy 21",
+    "texture": "d2c2fe6d-0aa5-4078-88b3-65a0b582837b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      738,
+      552
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      738,
+      552
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

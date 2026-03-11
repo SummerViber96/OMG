@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Milkshake",
+    "texture": "14f2e4f8-3d67-40dc-9178-2e729c07caf0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      644,
+      1118
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      644,
+      1118
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

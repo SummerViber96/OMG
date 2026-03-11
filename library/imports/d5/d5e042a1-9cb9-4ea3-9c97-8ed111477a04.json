@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MilkshakeRed",
+    "texture": "9d90c8db-9a74-45f1-82fb-7f55c16cc1d7",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      714,
+      1190
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      714,
+      1190
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

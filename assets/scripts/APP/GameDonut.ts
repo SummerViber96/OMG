@@ -87,7 +87,23 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     warning: cc.Node = null
     @property(cc.Node)
-    guild: cc.Node = null
+    guild: cc.Node = null;
+    @property([cc.Prefab])
+    listItem: cc.Prefab[] = []
+    @property(cc.Node)
+    listRay: cc.Node[] = [];
+    @property(cc.Node)
+    listKhay: cc.Node = null;
+    @property(cc.Prefab)
+    preKhay: cc.Prefab = null;
+    @property(cc.Node)
+    btnDownload: cc.Node = null
+    @property(cc.Node)
+    listRayNode: cc.Node = null
+    @property(cc.Node)
+    timeup: cc.Node = null
+    @property(cc.Node)
+    amazing: cc.Node = null
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -95,8 +111,8 @@ export default class NewClass extends cc.Component {
 
     arrDonutpos = []
     arrDonut = [null, null, null, null, null, null, null]
-    arrKhay = [null, null, null, null, null, null, null]
-    arrKhayPos = []
+    // arrKhay = [null, null, null, null, null, null, null]
+    // arrKhayPos = []
     isTutChili = false
     isTutMeat = false
     isTutVegetTable = false
@@ -111,24 +127,380 @@ export default class NewClass extends cc.Component {
     countCus = 0
     idSound = null
     isStep = 0
+    //item: 0:buger, 1: kem 2:donut 3:khoaitay 4:pho 5: pudding 6: tra  7:banhmi 8:coconut
+    rayY: number[] = [120, 0, -120];   // vị trí Y của 3 ray
+    spawnX: number = 700;              // vị trí spawn bên phải
+    arrItem = [[], []]
+    arrKhay = []
+    arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 2], [7, 8], [3, 1, 2], [1, 2, 6], [8, 3, 2], [0, 6]]
+    arrTargetMission = []
+    arrCus = []
+    isStartgame = false
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
+        // this.schedule(() => {
+        //     this.spawnItem();
+        // }, 1); // mỗi 1s spawn 1 item
+        // this.spawnItem()
+        this.spawFirstItem()
+        this.spawFistkhay()
+        for (let i = 0; i < this.listCus.childrenCount; i++) {
+            this.arrCus.push(this.listCus.children[i])
+        }
+    }
+    isHand = null
+    spawFirstItem() {
+        let arr = [3, 0, 5, 4, 6, 7, 8, 1, 2]
+        let arr2 = [7, 1, 2, 8, 3, 0, 3, 6, 2,]
+
+        for (let i = 0; i < arr.length; i++) {
+            let rd = arr[i]
+            let item = cc.instantiate(this.listItem[rd]);
+            item.parent = this.listRay[0];
+
+            this.arrItem[0].push(item);
+
+            item.position = cc.v3((i - 4) * 250, -40);
+            if (i == 4) {
+                item.getChildByName("hand").active = true
+                this.isHand = item.getChildByName("hand")
+            }
+        }
+        for (let i = 0; i < arr.length; i++) {
+            let rd = arr2[i]
+            let item = cc.instantiate(this.listItem[rd]);
+            item.parent = this.listRay[1];
+
+            this.arrItem[1].push(item);
+
+            item.position = cc.v3((i - 4) * 250, -40);
+        }
+    }
+    startGame() {
+        if (this.isStartgame == false) {
+            this.barTime.getComponent("barTime").countDown()
+            for (let i = 0; i < 3; i++) {
+                let child = this.arrCus[i]
+                child.getComponent("cusMission").loadTime()
+            }
+            this.isStartgame = true;
+            this.isHand.active = false;
+            this.guild.active = false
+            for (let i = 0; i < this.arrItem[0].length; i++) {
+                let item = this.arrItem[0][i]
+                let posNext = item.position.x - 2000
+                cc.tween(item)
+                    .to(16, { x: posNext })
+                    .call(() => {
+                        item.destroy();
+                    })
+                    .start();
+                // this.moveItem(item,item.position.add(cc.v3(-2000,0)))
+            }
+            for (let i = 0; i < this.arrItem[1].length; i++) {
+                let item = this.arrItem[1][i]
+                let posNext = item.position.x + 2000
+                cc.tween(item)
+                    .to(16, { x: posNext })
+                    .call(() => {
+                        item.destroy();
+                    })
+                    .start();
+                // this.moveItem(item,item.position.add(cc.v3(-2000,0)))
+            }
+            this.scheduleOnce(() => {
+                this.spawnItem()
+            }, 1.7)
+        }
+        // this.spawnItem()
+
+
+    }
+    spawFistkhay() {
+        // this.arrTargetMission = this.arrMission
+        let arr = [cc.v3(-600, 0), cc.v3(0, 0), cc.v3(600, 0)]
+        for (let i = 0; i < 3; i++) {
+            let preKhay = cc.instantiate(this.preKhay)
+            preKhay.parent = this.listKhay;
+            preKhay.position = arr[i]
+            this.arrKhay.push(preKhay)
+            this.loadDataKhay(this.arrMission[i], preKhay)
+            this.arrTargetMission.push(this.arrMission[i])
+        }
+
+    }
+    countMiss = 3
+    spawNextKhay() {
+        // this.arrTargetMission.shift();
+        if (this.isCountCus <= 7 && this.countMiss < 7) {
+            let pos = cc.v3(1200, 0);
+            let preKhay = cc.instantiate(this.preKhay)
+            preKhay.parent = this.listKhay;
+            preKhay.position = pos
+            this.arrKhay.push(preKhay)
+            this.loadDataKhay(this.arrMission[this.countMiss], preKhay)
+            this.arrTargetMission.push(this.arrMission[this.countMiss])
+            this.countMiss++
+        }
+
+        for (let i = 0; i < this.arrKhay.length; i++) {
+            let khay = this.arrKhay[i]
+            cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).start()
+        }
+        this.scheduleOnce(() => {
+            this.arrKhay.shift();
+            this.arrTargetMission.shift()
+        }, 0.2)
+    }
+    loadDataKhay(data, khay) {
+        if (data) {
+            let arr = [cc.v3(-170, -20), cc.v3(260, -20)]
+            if (data.length == 3) {
+                arr = [cc.v3(-256, -20), cc.v3(112.838, -20), cc.v3(427, -20)]
+            }
+
+            for (let i = 0; i < data.length; i++) {
+                let item = cc.instantiate(this.listItem[data[i]])
+                item.parent = khay
+                item.position = arr[i]
+                item.scale = 2.2
+                item.getComponent("Item").loadGray()
+            }
+        }
+
+    }
+    checkMission(id, node) {
+        // console.log(this.arrTargetMission)
+        this.startGame()
+
+        if (this.isDoc == false) {
+            for (let i = 0; i < this.arrTargetMission.length; i++) {
+                let mission = this.arrTargetMission[i];
+                for (let j = 0; j < mission.length; j++) {
+                    if (id == mission[j]) {
+                        this.arrTargetMission[i][j] = 100;
+                        this.checkSuccess(i, j)
+                        return this.arrKhay[i].children[j];
+                    }
+                }
+            }
+        }
+        else {
+            for (let i = 0; i < 2; i++) {
+                let mission = this.arrTargetMission[i];
+                for (let j = 0; j < mission.length; j++) {
+                    if (id == mission[j]) {
+                        this.arrTargetMission[i][j] = 100;
+                        this.checkSuccess(i, j)
+                        return this.arrKhay[i].children[j];
+                    }
+                }
+            }
+        }
+        node.getComponent(cc.Animation).play()
+        cc.audioEngine.play(this.soundWrong, false, 1)
+
+        return null;
+    }
+    isCountCus = 3
+    isCountDone = 0
+    checkSuccess(i, j) {
+        this.scheduleOnce(() => {
+            if (j != null) {
+                let targetKhay = this.arrKhay[i].children[j];
+                targetKhay.getComponent("Item").offGray(targetKhay.children[1])
+                cc.tween(targetKhay).to(0.2, { scale: 2.5 }).to(0.1, { scale: 2.2 }).start()
+            }
+
+        }, 0.6)
+        let mission = this.arrTargetMission[i];
+        let check = true
+        let cus = this.arrCus[i]
+
+        for (let m = 0; m < mission.length; m++) {
+            if (mission[m] != 100) {
+                check = false
+            }
+        }
+        if (check == true) {
+            this.isCountDone++
+            console.log(this.isCountDone, "done")
+            this.scheduleOnce(() => {
+                cus.getChildByName("vfx_coin").active = true
+                cus.getChildByName("vfx_coin").getComponent(cc.Animation).play()
+                globalThis.coin += 50
+                if (mission.length == 3) {
+                    globalThis.coin += 20
+
+                }
+                cc.audioEngine.play(this.soundSellDone, false, 1)
+            }, 0.6)
+
+            //bonus tien
+            if (i == 0) {
+                this.scheduleOnce(() => {
+
+                    this.moveCus();
+
+                }, 0.8)
+            }
+            else {
+                this.checkSuccessItem()
+            }
+            if (this.isCountDone == 7) {
+                this.scheduleOnce(()=>{
+                this.onEndGame(true)
+
+                },0.5)
+            }
+
+        }
+        else {
+            this.checkSuccessItem()
+
+        }
+    }
+    checkSuccessItem() {
+        for (let i = 0; i < 1; i++) {
+            let mission = this.arrTargetMission[i];
+            let check = true
+            for (let j = 0; j < mission.length; j++) {
+                if (mission[j] != 100) {
+                    check = false
+                }
+            }
+            if (check) {
+                this.checkSuccess(i, null)
+                return;
+            }
+        }
+    }
+    moveCus() {
+        if (this.isCountCus < 7) {
+            this.listCus.children[this.isCountCus].active = true
+            this.arrCus.push(this.listCus.children[this.isCountCus])
+            this.isCountCus++
+        }
+        for (let i = 0; i < this.arrCus.length; i++) {
+            let child = this.arrCus[i];
+            cc.tween(child).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
+            }).start()
+        }
+        this.spawNextKhay()
+
+    }
+    // spawnItem() {
+
+
+    //     for (let i = 0; i < this.listRay.length; i++) {
+    //         let mag = (i == 0) ? 1000 : -1000
+    //            let rd = Math.floor(Math.random() * this.listItem.length)
+    //             let item = cc.instantiate(this.listItem[rd]);
+    //             item.parent = this.listRay[i];
+    //             this.arrItem[i].push(item);
+    //             item.position = cc.v3(mag, -40)
+    //             this.moveItem(item, mag);
+    //         this.schedule(() => {
+    //             let rd = Math.floor(Math.random() * this.listItem.length)
+    //             let item = cc.instantiate(this.listItem[rd]);
+    //             item.parent = this.listRay[i];
+    //             this.arrItem[i].push(item);
+    //             item.position = cc.v3(mag, -40)
+    //             this.moveItem(item, mag);
+    //         }, 2)
+    //     }
+    // }
+    itemQueue: number[] = [];
+
+    shuffleItem() {
+        this.itemQueue = [];
+
+        for (let i = 0; i < this.listItem.length; i++) {
+            this.itemQueue.push(i);
+        }
+
+        // shuffle Fisher-Yates
+        for (let i = this.itemQueue.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [this.itemQueue[i], this.itemQueue[j]] = [this.itemQueue[j], this.itemQueue[i]];
+        }
+    }
+
+    getNextItemIndex() {
+
+        if (this.itemQueue.length == 0) {
+            this.shuffleItem(); // tạo lượt mới
+        }
+
+        return this.itemQueue.shift();
+    }
+
+    lastItemIndex: number[] = [];
+
+    spawnItem() {
+        for (let i = 0; i < this.listRay.length; i++) {
+
+            this.lastItemIndex[i] = -1; // chưa có item trước
+
+            this.spawnItemOnRay(i);
+        }
+    }
+
+    spawnItemOnRay(index: number) {
+
+        let mag = (index == 0) ? 1000 : -1000;
+
+        this.createItem(index, mag);
+
+        this.schedule(() => {
+            this.createItem(index, mag);
+        }, 2);
+    }
+
+    createItem(index: number, mag: number) {
+
+        // let rd = Math.floor(Math.random() * this.listItem.length);
+
+        // // tránh trùng item trước
+        // while (rd === this.lastItemIndex[index]) {
+        //     rd = Math.floor(Math.random() * this.listItem.length);
+        // }
+        let rd = this.getNextItemIndex();
+        this.lastItemIndex[index] = rd;
+
+        let item = cc.instantiate(this.listItem[rd]);
+        item.parent = this.listRay[index];
+
+        this.arrItem[index].push(item);
+
+        item.position = cc.v3(mag, -40);
+
+        this.moveItem(item, mag);
+    }
+    moveItem(item: cc.Node, mag) {
+        let targetX = -mag;
+        cc.tween(item)
+            .to(16, { x: targetX })
+            .call(() => {
+                item.destroy();
+            })
+            .start();
     }
     start() {
 
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
 
     }
-    startGame() {
-        this.listHand.children[0].active = true
+    // startGame() {
+    //     this.listHand.children[0].active = true
 
-        // this.scheduleOnce(() => {
-        //     if (this.isStep == 0) {
-        //     }
-        // }, 2)
-    }
+    //     // this.scheduleOnce(() => {
+    //     //     if (this.isStep == 0) {
+    //     //     }
+    //     // }, 2)
+    // }
     btn_plate(event) {
         let btn = event.currentTarget
         btn.getComponent(cc.Animation).play();
@@ -398,27 +770,37 @@ export default class NewClass extends cc.Component {
         this.warning.active = false;
         if (value == true) {
             this.barTime.getComponent("barTime").endGame()
+            this.amazing.active = true;
 
             // cc.audioEngine.play(this.soundEnd, false, 1)
-            cc.audioEngine.play(this.soundThinkWin, false, 1)
-            // cc.audioEngine.play(this.soundWin, false, 1)
-            // this.endCard.getChildByName("title").active = false
-            this.endCardWin.active = true;
+            this.scheduleOnce(() => {
+                cc.audioEngine.play(this.soundThinkWin, false, 1)
+                // cc.audioEngine.play(this.soundWin, false, 1)
+                // this.endCard.getChildByName("title").active = false
+                this.endCardWin.active = true;
+            }, 0.5)
+
 
         }
         else {
             this.barTime.getComponent("barTime").endGame()
-
+            for (let child of this.arrCus) {
+                child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true)
+            }
             cc.audioEngine.stop(this.idSound)
-            cc.audioEngine.play(this.soundThinking, false, 1)
-            cc.audioEngine.play(this.soundLose, false, 1)
-            this.endCard.active = true;
+            this.timeup.active = true;
+            this.scheduleOnce(() => {
+                cc.audioEngine.play(this.soundThinking, false, 1)
+                cc.audioEngine.play(this.soundLose, false, 1)
+                this.endCard.active = true;
+            }, 0.5)
+
 
         }
         this.linkToStore.active = true
     }
     // btn_choose(event, value) {
-
+    isDoc = false
     update(dt) {
         // this.lbCoin.string = globalThis.gold.toString()
         let deviceResolution = cc.view.getFrameSize();
@@ -438,18 +820,30 @@ export default class NewClass extends cc.Component {
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
-        // this.camera.node.position = cc.v3(0, 0)
+        this.camera.node.position = cc.v3(0, 0)
         this.barTime.scale = (logic) ? 2 : 1.1
         this.barCoin.scale = (logic) ? 2 : 1.1
         this.clockTime.scale = (logic) ? 1.7 : 1
         this.phaoHoa.scale = (logic) ? 9 : 5
-        this.guild.scale = (logic) ? 2 : 1.4
-        this.guild.position = (logic) ? cc.v3(0, -550) : cc.v3(0, -360)
+        this.guild.scale = (logic) ? 2 : 1.2
+        this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
+        this.listCus.position = (logic) ? cc.v3(230, 56) : cc.v3(0, 56)
+        this.listCus.scale = (logic) ? 0.7 : 1
+        this.listKhay.position = (logic) ? cc.v3(220, 14.6) : cc.v3(0, 14.6)
+        this.listKhay.scale = (logic) ? 0.7 : 1
+        this.listRayNode.scale = (logic) ? 0.8 : 1
+        this.listRayNode.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0)
+        this.timeup.scale = (logic) ? 1 : 1.4
+        this.amazing.scale = (logic) ? 1 : 1.4
+
+        this.btnDownload.active = (logic) ? true : false
         if (logic == true) {
+            this.isDoc = true
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
             // this.camera.node.position = cc.v3(0, -70)
+            this.btnDownload.getComponent(cc.Widget).bottom = 197
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
@@ -463,15 +857,18 @@ export default class NewClass extends cc.Component {
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
+                this.btnDownload.getComponent(cc.Widget).bottom = 400
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 2.1
+                this.camera.zoomRatio = 2
                 // this.camera.node.position = cc.v3(0, -120)
-
+                this.btnDownload.active = false
             }
         }
         else {
+            this.isDoc = false
+
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
@@ -488,8 +885,9 @@ export default class NewClass extends cc.Component {
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1
-                // this.camera.node.position = cc.v3(0, -60)
+                this.camera.zoomRatio = 0.85
+                this.camera.node.position = cc.v3(0, -50)
+                // this.btnDownload.active = true
 
             }
         }

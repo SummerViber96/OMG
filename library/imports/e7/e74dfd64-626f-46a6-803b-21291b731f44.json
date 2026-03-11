@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "PhoRed",
+    "texture": "a7a1e4d5-d9ce-4af7-bf94-a0b36811ae9e",
+    "atlas": "",
+    "rect": [
+      77,
+      215,
+      839,
+      727
+    ],
+    "offset": [
+      -15.5,
+      -66.5
+    ],
+    "originalSize": [
+      1024,
+      1024
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

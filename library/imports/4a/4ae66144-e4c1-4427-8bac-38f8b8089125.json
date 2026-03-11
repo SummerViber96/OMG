@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "PuddingRed",
+    "texture": "1e09b98f-fdc1-4794-8dbb-61491d0c8672",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      980,
+      893
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      980,
+      893
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -25,12 +25,15 @@ export default class NewClass extends cc.Component {
     doneNode: cc.Node = null
     @property(cc.Node)
     doneNode2: cc.Node = null
+    @property(cc.Sprite)
+    fillBar: cc.Sprite = null
     isEnd = false
     isSuccess = false
     gamePlay = null
+    timeFill = 60
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
-
+        // this.loadTime()
     }
     // checkBread(bread) {
     //     if (this.isEnd) return;
@@ -157,8 +160,8 @@ export default class NewClass extends cc.Component {
     }
     update(dt) {
 
-        this.lbCountSc.string = "x" + this.count[1].toString()
-        this.lbCountDau.string = "x" + this.count[0].toString()
+        // this.lbCountSc.string = "x" + this.count[1].toString()
+        // this.lbCountDau.string = "x" + this.count[0].toString()
 
     }
     happy() {
@@ -189,5 +192,8 @@ export default class NewClass extends cc.Component {
             this.end(false)
             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
         }
+    }
+    loadTime() {
+        cc.tween(this.fillBar).to(this.timeFill, { fillRange: 0 }).call(() => { }).start()
     }
 }

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Donut pink- LAYERSred",
+    "texture": "7278a85c-ce87-4ade-9e84-5901738a77af",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      247,
+      200
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      247,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

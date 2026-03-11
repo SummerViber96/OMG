@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "CupRed",
+    "texture": "31e32bfe-6283-421e-8949-cbe1979646f1",
+    "atlas": "",
+    "rect": [
+      37,
+      65,
+      962,
+      875
+    ],
+    "offset": [
+      6,
+      9.5
+    ],
+    "originalSize": [
+      1024,
+      1024
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -16,10 +16,14 @@ export default class NewClass extends cc.Component {
     nguoc = false
 
     rayWidth: number = 3249;
+    gameplay = null
+    protected start(): void {
+        this.gameplay = cc.Canvas.instance.node.getComponent("GameDonut")
 
+    }
     update(dt: number) {
-
-        for (let ray of this.node.children) {
+        if (this.gameplay.isStartgame) {
+      for (let ray of this.node.children) {
             if (this.nguoc == false) {
                 ray.x -= this.speed * dt;
 
@@ -28,7 +32,7 @@ export default class NewClass extends cc.Component {
                 }
             }
             else {
-                ray.x += this.speed * dt*0.5;
+                ray.x += this.speed * dt;
 
                 if (ray.x >= this.rayWidth) {
                     ray.x -= this.rayWidth * this.node.childrenCount;
@@ -37,5 +41,7 @@ export default class NewClass extends cc.Component {
 
 
         }
+        }
+  
     }
 }

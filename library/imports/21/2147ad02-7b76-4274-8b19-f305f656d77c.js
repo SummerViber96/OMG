@@ -38,13 +38,16 @@ var NewClass = /** @class */ (function (_super) {
         _this.anim = null;
         _this.doneNode = null;
         _this.doneNode2 = null;
+        _this.fillBar = null;
         _this.isEnd = false;
         _this.isSuccess = false;
         _this.gamePlay = null;
+        _this.timeFill = 60;
         return _this;
     }
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
+        // this.loadTime()
     };
     // checkBread(bread) {
     //     if (this.isEnd) return;
@@ -151,8 +154,8 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.5);
     };
     NewClass.prototype.update = function (dt) {
-        this.lbCountSc.string = "x" + this.count[1].toString();
-        this.lbCountDau.string = "x" + this.count[0].toString();
+        // this.lbCountSc.string = "x" + this.count[1].toString()
+        // this.lbCountDau.string = "x" + this.count[0].toString()
     };
     NewClass.prototype.happy = function () {
         var _this = this;
@@ -181,6 +184,9 @@ var NewClass = /** @class */ (function (_super) {
             this.end(false);
             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8);
         }
+    };
+    NewClass.prototype.loadTime = function () {
+        cc.tween(this.fillBar).to(this.timeFill, { fillRange: 0 }).call(function () { }).start();
     };
     __decorate([
         property(cc.AudioClip)
@@ -212,6 +218,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "doneNode2", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], NewClass.prototype, "fillBar", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

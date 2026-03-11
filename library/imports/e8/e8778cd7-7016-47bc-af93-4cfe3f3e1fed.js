@@ -70,13 +70,21 @@ var NewClass = /** @class */ (function (_super) {
         _this.listHand = null;
         _this.warning = null;
         _this.guild = null;
+        _this.listItem = [];
+        _this.listRay = [];
+        _this.listKhay = null;
+        _this.preKhay = null;
+        _this.btnDownload = null;
+        _this.listRayNode = null;
+        _this.timeup = null;
+        _this.amazing = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
         _this.arrDonut = [null, null, null, null, null, null, null];
-        _this.arrKhay = [null, null, null, null, null, null, null];
-        _this.arrKhayPos = [];
+        // arrKhay = [null, null, null, null, null, null, null]
+        // arrKhayPos = []
         _this.isTutChili = false;
         _this.isTutMeat = false;
         _this.isTutVegetTable = false;
@@ -90,25 +98,348 @@ var NewClass = /** @class */ (function (_super) {
         _this.countCus = 0;
         _this.idSound = null;
         _this.isStep = 0;
+        //item: 0:buger, 1: kem 2:donut 3:khoaitay 4:pho 5: pudding 6: tra  7:banhmi 8:coconut
+        _this.rayY = [120, 0, -120]; // vị trí Y của 3 ray
+        _this.spawnX = 700; // vị trí spawn bên phải
+        _this.arrItem = [[], []];
+        _this.arrKhay = [];
+        _this.arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 2], [7, 8], [3, 1, 2], [1, 2, 6], [8, 3, 2], [0, 6]];
+        _this.arrTargetMission = [];
+        _this.arrCus = [];
+        _this.isStartgame = false;
+        _this.isHand = null;
+        _this.countMiss = 3;
+        _this.isCountCus = 3;
+        _this.isCountDone = 0;
+        // spawnItem() {
+        //     for (let i = 0; i < this.listRay.length; i++) {
+        //         let mag = (i == 0) ? 1000 : -1000
+        //            let rd = Math.floor(Math.random() * this.listItem.length)
+        //             let item = cc.instantiate(this.listItem[rd]);
+        //             item.parent = this.listRay[i];
+        //             this.arrItem[i].push(item);
+        //             item.position = cc.v3(mag, -40)
+        //             this.moveItem(item, mag);
+        //         this.schedule(() => {
+        //             let rd = Math.floor(Math.random() * this.listItem.length)
+        //             let item = cc.instantiate(this.listItem[rd]);
+        //             item.parent = this.listRay[i];
+        //             this.arrItem[i].push(item);
+        //             item.position = cc.v3(mag, -40)
+        //             this.moveItem(item, mag);
+        //         }, 2)
+        //     }
+        // }
+        _this.itemQueue = [];
+        _this.lastItemIndex = [];
         _this.isLast = false;
         _this.isEndGame = false;
+        // btn_choose(event, value) {
+        _this.isDoc = false;
         return _this;
     }
     NewClass.prototype.onLoad = function () {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
+        // this.schedule(() => {
+        //     this.spawnItem();
+        // }, 1); // mỗi 1s spawn 1 item
+        // this.spawnItem()
+        this.spawFirstItem();
+        this.spawFistkhay();
+        for (var i = 0; i < this.listCus.childrenCount; i++) {
+            this.arrCus.push(this.listCus.children[i]);
+        }
+    };
+    NewClass.prototype.spawFirstItem = function () {
+        var arr = [3, 0, 5, 4, 6, 7, 8, 1, 2];
+        var arr2 = [7, 1, 2, 8, 3, 0, 3, 6, 2,];
+        for (var i = 0; i < arr.length; i++) {
+            var rd = arr[i];
+            var item = cc.instantiate(this.listItem[rd]);
+            item.parent = this.listRay[0];
+            this.arrItem[0].push(item);
+            item.position = cc.v3((i - 4) * 250, -40);
+            if (i == 4) {
+                item.getChildByName("hand").active = true;
+                this.isHand = item.getChildByName("hand");
+            }
+        }
+        for (var i = 0; i < arr.length; i++) {
+            var rd = arr2[i];
+            var item = cc.instantiate(this.listItem[rd]);
+            item.parent = this.listRay[1];
+            this.arrItem[1].push(item);
+            item.position = cc.v3((i - 4) * 250, -40);
+        }
+    };
+    NewClass.prototype.startGame = function () {
+        var _this = this;
+        if (this.isStartgame == false) {
+            this.barTime.getComponent("barTime").countDown();
+            for (var i = 0; i < 3; i++) {
+                var child = this.arrCus[i];
+                child.getComponent("cusMission").loadTime();
+            }
+            this.isStartgame = true;
+            this.isHand.active = false;
+            this.guild.active = false;
+            var _loop_1 = function (i) {
+                var item = this_1.arrItem[0][i];
+                var posNext = item.position.x - 2000;
+                cc.tween(item)
+                    .to(16, { x: posNext })
+                    .call(function () {
+                    item.destroy();
+                })
+                    .start();
+            };
+            var this_1 = this;
+            for (var i = 0; i < this.arrItem[0].length; i++) {
+                _loop_1(i);
+            }
+            var _loop_2 = function (i) {
+                var item = this_2.arrItem[1][i];
+                var posNext = item.position.x + 2000;
+                cc.tween(item)
+                    .to(16, { x: posNext })
+                    .call(function () {
+                    item.destroy();
+                })
+                    .start();
+            };
+            var this_2 = this;
+            for (var i = 0; i < this.arrItem[1].length; i++) {
+                _loop_2(i);
+            }
+            this.scheduleOnce(function () {
+                _this.spawnItem();
+            }, 1.7);
+        }
+        // this.spawnItem()
+    };
+    NewClass.prototype.spawFistkhay = function () {
+        // this.arrTargetMission = this.arrMission
+        var arr = [cc.v3(-600, 0), cc.v3(0, 0), cc.v3(600, 0)];
+        for (var i = 0; i < 3; i++) {
+            var preKhay = cc.instantiate(this.preKhay);
+            preKhay.parent = this.listKhay;
+            preKhay.position = arr[i];
+            this.arrKhay.push(preKhay);
+            this.loadDataKhay(this.arrMission[i], preKhay);
+            this.arrTargetMission.push(this.arrMission[i]);
+        }
+    };
+    NewClass.prototype.spawNextKhay = function () {
+        var _this = this;
+        // this.arrTargetMission.shift();
+        if (this.isCountCus <= 7 && this.countMiss < 7) {
+            var pos = cc.v3(1200, 0);
+            var preKhay = cc.instantiate(this.preKhay);
+            preKhay.parent = this.listKhay;
+            preKhay.position = pos;
+            this.arrKhay.push(preKhay);
+            this.loadDataKhay(this.arrMission[this.countMiss], preKhay);
+            this.arrTargetMission.push(this.arrMission[this.countMiss]);
+            this.countMiss++;
+        }
+        for (var i = 0; i < this.arrKhay.length; i++) {
+            var khay = this.arrKhay[i];
+            cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).start();
+        }
+        this.scheduleOnce(function () {
+            _this.arrKhay.shift();
+            _this.arrTargetMission.shift();
+        }, 0.2);
+    };
+    NewClass.prototype.loadDataKhay = function (data, khay) {
+        if (data) {
+            var arr = [cc.v3(-170, -20), cc.v3(260, -20)];
+            if (data.length == 3) {
+                arr = [cc.v3(-256, -20), cc.v3(112.838, -20), cc.v3(427, -20)];
+            }
+            for (var i = 0; i < data.length; i++) {
+                var item = cc.instantiate(this.listItem[data[i]]);
+                item.parent = khay;
+                item.position = arr[i];
+                item.scale = 2.2;
+                item.getComponent("Item").loadGray();
+            }
+        }
+    };
+    NewClass.prototype.checkMission = function (id, node) {
+        // console.log(this.arrTargetMission)
+        this.startGame();
+        if (this.isDoc == false) {
+            for (var i = 0; i < this.arrTargetMission.length; i++) {
+                var mission = this.arrTargetMission[i];
+                for (var j = 0; j < mission.length; j++) {
+                    if (id == mission[j]) {
+                        this.arrTargetMission[i][j] = 100;
+                        this.checkSuccess(i, j);
+                        return this.arrKhay[i].children[j];
+                    }
+                }
+            }
+        }
+        else {
+            for (var i = 0; i < 2; i++) {
+                var mission = this.arrTargetMission[i];
+                for (var j = 0; j < mission.length; j++) {
+                    if (id == mission[j]) {
+                        this.arrTargetMission[i][j] = 100;
+                        this.checkSuccess(i, j);
+                        return this.arrKhay[i].children[j];
+                    }
+                }
+            }
+        }
+        node.getComponent(cc.Animation).play();
+        cc.audioEngine.play(this.soundWrong, false, 1);
+        return null;
+    };
+    NewClass.prototype.checkSuccess = function (i, j) {
+        var _this = this;
+        this.scheduleOnce(function () {
+            if (j != null) {
+                var targetKhay = _this.arrKhay[i].children[j];
+                targetKhay.getComponent("Item").offGray(targetKhay.children[1]);
+                cc.tween(targetKhay).to(0.2, { scale: 2.5 }).to(0.1, { scale: 2.2 }).start();
+            }
+        }, 0.6);
+        var mission = this.arrTargetMission[i];
+        var check = true;
+        var cus = this.arrCus[i];
+        for (var m = 0; m < mission.length; m++) {
+            if (mission[m] != 100) {
+                check = false;
+            }
+        }
+        if (check == true) {
+            this.isCountDone++;
+            console.log(this.isCountDone, "done");
+            this.scheduleOnce(function () {
+                cus.getChildByName("vfx_coin").active = true;
+                cus.getChildByName("vfx_coin").getComponent(cc.Animation).play();
+                globalThis.coin += 50;
+                if (mission.length == 3) {
+                    globalThis.coin += 20;
+                }
+                cc.audioEngine.play(_this.soundSellDone, false, 1);
+            }, 0.6);
+            //bonus tien
+            if (i == 0) {
+                this.scheduleOnce(function () {
+                    _this.moveCus();
+                }, 0.8);
+            }
+            else {
+                this.checkSuccessItem();
+            }
+            if (this.isCountDone == 7) {
+                this.scheduleOnce(function () {
+                    _this.onEndGame(true);
+                }, 0.5);
+            }
+        }
+        else {
+            this.checkSuccessItem();
+        }
+    };
+    NewClass.prototype.checkSuccessItem = function () {
+        for (var i = 0; i < 1; i++) {
+            var mission = this.arrTargetMission[i];
+            var check = true;
+            for (var j = 0; j < mission.length; j++) {
+                if (mission[j] != 100) {
+                    check = false;
+                }
+            }
+            if (check) {
+                this.checkSuccess(i, null);
+                return;
+            }
+        }
+    };
+    NewClass.prototype.moveCus = function () {
+        if (this.isCountCus < 7) {
+            this.listCus.children[this.isCountCus].active = true;
+            this.arrCus.push(this.listCus.children[this.isCountCus]);
+            this.isCountCus++;
+        }
+        for (var i = 0; i < this.arrCus.length; i++) {
+            var child = this.arrCus[i];
+            cc.tween(child).by(0.8, { position: cc.v3(-600, 0) }).call(function () {
+            }).start();
+        }
+        this.spawNextKhay();
+    };
+    NewClass.prototype.shuffleItem = function () {
+        var _a;
+        this.itemQueue = [];
+        for (var i = 0; i < this.listItem.length; i++) {
+            this.itemQueue.push(i);
+        }
+        // shuffle Fisher-Yates
+        for (var i = this.itemQueue.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            _a = [this.itemQueue[j], this.itemQueue[i]], this.itemQueue[i] = _a[0], this.itemQueue[j] = _a[1];
+        }
+    };
+    NewClass.prototype.getNextItemIndex = function () {
+        if (this.itemQueue.length == 0) {
+            this.shuffleItem(); // tạo lượt mới
+        }
+        return this.itemQueue.shift();
+    };
+    NewClass.prototype.spawnItem = function () {
+        for (var i = 0; i < this.listRay.length; i++) {
+            this.lastItemIndex[i] = -1; // chưa có item trước
+            this.spawnItemOnRay(i);
+        }
+    };
+    NewClass.prototype.spawnItemOnRay = function (index) {
+        var _this = this;
+        var mag = (index == 0) ? 1000 : -1000;
+        this.createItem(index, mag);
+        this.schedule(function () {
+            _this.createItem(index, mag);
+        }, 2);
+    };
+    NewClass.prototype.createItem = function (index, mag) {
+        // let rd = Math.floor(Math.random() * this.listItem.length);
+        // // tránh trùng item trước
+        // while (rd === this.lastItemIndex[index]) {
+        //     rd = Math.floor(Math.random() * this.listItem.length);
+        // }
+        var rd = this.getNextItemIndex();
+        this.lastItemIndex[index] = rd;
+        var item = cc.instantiate(this.listItem[rd]);
+        item.parent = this.listRay[index];
+        this.arrItem[index].push(item);
+        item.position = cc.v3(mag, -40);
+        this.moveItem(item, mag);
+    };
+    NewClass.prototype.moveItem = function (item, mag) {
+        var targetX = -mag;
+        cc.tween(item)
+            .to(16, { x: targetX })
+            .call(function () {
+            item.destroy();
+        })
+            .start();
     };
     NewClass.prototype.start = function () {
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
     };
-    NewClass.prototype.startGame = function () {
-        this.listHand.children[0].active = true;
-        // this.scheduleOnce(() => {
-        //     if (this.isStep == 0) {
-        //     }
-        // }, 2)
-    };
+    // startGame() {
+    //     this.listHand.children[0].active = true
+    //     // this.scheduleOnce(() => {
+    //     //     if (this.isStep == 0) {
+    //     //     }
+    //     // }, 2)
+    // }
     NewClass.prototype.btn_plate = function (event) {
         var btn = event.currentTarget;
         btn.getComponent(cc.Animation).play();
@@ -162,13 +493,13 @@ var NewClass = /** @class */ (function (_super) {
             var listFruit = this.cake.children[2];
             this.isStep++;
             listFruit.active = true;
-            var _loop_1 = function (i) {
+            var _loop_3 = function (i) {
                 var fruit = listFruit.children[i];
                 fruit.active = false;
                 var localPos = fruit.position;
                 fruit.position = localPos.add(cc.v3(0, 120));
                 var time = (i % 2 == 0) ? 0 : 0.2;
-                this_1.scheduleOnce(function () {
+                this_3.scheduleOnce(function () {
                     fruit.active = true;
                     _this.listCheckItem.children[2].active = true;
                     _this.listCheckItem.children[3].active = true;
@@ -182,9 +513,9 @@ var NewClass = /** @class */ (function (_super) {
                     }).start();
                 }, time);
             };
-            var this_1 = this;
+            var this_3 = this;
             for (var i = 0; i < listFruit.childrenCount; i++) {
-                _loop_1(i);
+                _loop_3(i);
             }
             this.scheduleOnce(function () {
                 if (_this.isStep == 3) {
@@ -202,20 +533,20 @@ var NewClass = /** @class */ (function (_super) {
             var listFruit = this.cake.children[6];
             this.isStep++;
             listFruit.active = true;
-            var _loop_2 = function (i) {
+            var _loop_4 = function (i) {
                 var fruit = listFruit.children[i];
                 fruit.active = false;
                 var localPos = fruit.position;
                 fruit.position = localPos.add(cc.v3(0, 120));
                 var time = (i % 2 == 0) ? 0 : 0.3;
-                this_2.scheduleOnce(function () {
+                this_4.scheduleOnce(function () {
                     fruit.active = true;
                     cc.tween(fruit).to(0.3, { position: localPos }).start();
                 }, time);
             };
-            var this_2 = this;
+            var this_4 = this;
             for (var i = 0; i < listFruit.childrenCount; i++) {
-                _loop_2(i);
+                _loop_4(i);
             }
             this.scheduleOnce(function () {
                 _this.phaoHoa.active = true;
@@ -292,7 +623,7 @@ var NewClass = /** @class */ (function (_super) {
             }, 2);
             this.scheduleOnce(function () {
                 listCream_1.active = true;
-                var _loop_3 = function (i) {
+                var _loop_5 = function (i) {
                     listCream_1.children[i].active = false;
                     _this.scheduleOnce(function () {
                         // creamItem.position = pos
@@ -305,12 +636,12 @@ var NewClass = /** @class */ (function (_super) {
                     }, 0.15 * i);
                 };
                 for (var i = 0; i < listCream_1.childrenCount; i++) {
-                    _loop_3(i);
+                    _loop_5(i);
                 }
             }, 1.3);
             this.scheduleOnce(function () {
                 listCream2_1.active = true;
-                var _loop_4 = function (i) {
+                var _loop_6 = function (i) {
                     listCream2_1.children[i].active = false;
                     _this.scheduleOnce(function () {
                         cc.tween(creamItem_1).to(0.1, { position: arrrPos_1[i + 6] }).start();
@@ -318,7 +649,7 @@ var NewClass = /** @class */ (function (_super) {
                     }, 0.15 * i);
                 };
                 for (var i = 0; i < listCream2_1.childrenCount; i++) {
-                    _loop_4(i);
+                    _loop_6(i);
                 }
             }, 1.3 + 0.15 * 6);
             this.scheduleOnce(function () {
@@ -364,28 +695,38 @@ var NewClass = /** @class */ (function (_super) {
         }).start();
     };
     NewClass.prototype.onEndGame = function (value) {
+        var _this = this;
         if (this.isEndGame)
             return;
         this.isEndGame = true;
         this.warning.active = false;
         if (value == true) {
             this.barTime.getComponent("barTime").endGame();
+            this.amazing.active = true;
             // cc.audioEngine.play(this.soundEnd, false, 1)
-            cc.audioEngine.play(this.soundThinkWin, false, 1);
-            // cc.audioEngine.play(this.soundWin, false, 1)
-            // this.endCard.getChildByName("title").active = false
-            this.endCardWin.active = true;
+            this.scheduleOnce(function () {
+                cc.audioEngine.play(_this.soundThinkWin, false, 1);
+                // cc.audioEngine.play(this.soundWin, false, 1)
+                // this.endCard.getChildByName("title").active = false
+                _this.endCardWin.active = true;
+            }, 0.5);
         }
         else {
             this.barTime.getComponent("barTime").endGame();
+            for (var _i = 0, _a = this.arrCus; _i < _a.length; _i++) {
+                var child = _a[_i];
+                child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true);
+            }
             cc.audioEngine.stop(this.idSound);
-            cc.audioEngine.play(this.soundThinking, false, 1);
-            cc.audioEngine.play(this.soundLose, false, 1);
-            this.endCard.active = true;
+            this.timeup.active = true;
+            this.scheduleOnce(function () {
+                cc.audioEngine.play(_this.soundThinking, false, 1);
+                cc.audioEngine.play(_this.soundLose, false, 1);
+                _this.endCard.active = true;
+            }, 0.5);
         }
         this.linkToStore.active = true;
     };
-    // btn_choose(event, value) {
     NewClass.prototype.update = function (dt) {
         // this.lbCoin.string = globalThis.gold.toString()
         var deviceResolution = cc.view.getFrameSize();
@@ -404,18 +745,29 @@ var NewClass = /** @class */ (function (_super) {
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
-        // this.camera.node.position = cc.v3(0, 0)
+        this.camera.node.position = cc.v3(0, 0);
         this.barTime.scale = (logic) ? 2 : 1.1;
         this.barCoin.scale = (logic) ? 2 : 1.1;
         this.clockTime.scale = (logic) ? 1.7 : 1;
         this.phaoHoa.scale = (logic) ? 9 : 5;
-        this.guild.scale = (logic) ? 2 : 1.4;
-        this.guild.position = (logic) ? cc.v3(0, -550) : cc.v3(0, -360);
+        this.guild.scale = (logic) ? 2 : 1.2;
+        this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
+        this.listCus.position = (logic) ? cc.v3(230, 56) : cc.v3(0, 56);
+        this.listCus.scale = (logic) ? 0.7 : 1;
+        this.listKhay.position = (logic) ? cc.v3(220, 14.6) : cc.v3(0, 14.6);
+        this.listKhay.scale = (logic) ? 0.7 : 1;
+        this.listRayNode.scale = (logic) ? 0.8 : 1;
+        this.listRayNode.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0);
+        this.timeup.scale = (logic) ? 1 : 1.4;
+        this.amazing.scale = (logic) ? 1 : 1.4;
+        this.btnDownload.active = (logic) ? true : false;
         if (logic == true) {
+            this.isDoc = true;
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
             // this.camera.node.position = cc.v3(0, -70)
+            this.btnDownload.getComponent(cc.Widget).bottom = 197;
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
@@ -426,13 +778,16 @@ var NewClass = /** @class */ (function (_super) {
             // this.camera.node.position = cc.v3(0, -150)
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
+                this.btnDownload.getComponent(cc.Widget).bottom = 400;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 2.1;
+                this.camera.zoomRatio = 2;
                 // this.camera.node.position = cc.v3(0, -120)
+                this.btnDownload.active = false;
             }
         }
         else {
+            this.isDoc = false;
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
@@ -445,8 +800,9 @@ var NewClass = /** @class */ (function (_super) {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1;
-                // this.camera.node.position = cc.v3(0, -60)
+                this.camera.zoomRatio = 0.85;
+                this.camera.node.position = cc.v3(0, -50);
+                // this.btnDownload.active = true
             }
         }
     };
@@ -570,6 +926,30 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "guild", void 0);
+    __decorate([
+        property([cc.Prefab])
+    ], NewClass.prototype, "listItem", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listRay", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listKhay", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "preKhay", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnDownload", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listRayNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "timeup", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "amazing", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

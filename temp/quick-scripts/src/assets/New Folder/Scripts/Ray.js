@@ -37,21 +37,27 @@ var NewClass = /** @class */ (function (_super) {
         _this.speed = 500;
         _this.nguoc = false;
         _this.rayWidth = 3249;
+        _this.gameplay = null;
         return _this;
     }
+    NewClass.prototype.start = function () {
+        this.gameplay = cc.Canvas.instance.node.getComponent("GameDonut");
+    };
     NewClass.prototype.update = function (dt) {
-        for (var _i = 0, _a = this.node.children; _i < _a.length; _i++) {
-            var ray = _a[_i];
-            if (this.nguoc == false) {
-                ray.x -= this.speed * dt;
-                if (ray.x <= -this.rayWidth) {
-                    ray.x += this.rayWidth * this.node.childrenCount;
+        if (this.gameplay.isStartgame) {
+            for (var _i = 0, _a = this.node.children; _i < _a.length; _i++) {
+                var ray = _a[_i];
+                if (this.nguoc == false) {
+                    ray.x -= this.speed * dt;
+                    if (ray.x <= -this.rayWidth) {
+                        ray.x += this.rayWidth * this.node.childrenCount;
+                    }
                 }
-            }
-            else {
-                ray.x += this.speed * dt * 0.5;
-                if (ray.x >= this.rayWidth) {
-                    ray.x -= this.rayWidth * this.node.childrenCount;
+                else {
+                    ray.x += this.speed * dt;
+                    if (ray.x >= this.rayWidth) {
+                        ray.x -= this.rayWidth * this.node.childrenCount;
+                    }
                 }
             }
         }

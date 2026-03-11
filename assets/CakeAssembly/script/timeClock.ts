@@ -24,10 +24,10 @@ export default class NewClass extends cc.Component {
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         cc.tween(this.lbCountTime.node).to(0.3, { scale: 0.9 }).to(0.1, { scale: 1 }).call(() => {
-            this.scheduleOnce(()=>{
-            this.click()
+            this.scheduleOnce(() => {
+                this.click()
 
-            },0.2)
+            }, 0.2)
 
         }).start()
     }
@@ -39,8 +39,8 @@ export default class NewClass extends cc.Component {
         cc.tween(this.node.children[0]).to(0.4, { opacity: 0 }).call(() => {
             this.node.active = false;
             // this.timeBar.getComponent("barTime").countDown();
-            this.order.active = true
-            this.gamePlay.startGame()
+            // this.order.active = true
+            // this.gamePlay.startGame()
             this.guild.active = true
         }).start()
 
