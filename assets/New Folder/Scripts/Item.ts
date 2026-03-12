@@ -11,6 +11,7 @@ export default class NewClass extends cc.Component {
         this.gameplay = cc.Canvas.instance.node.getComponent("GameDonut")
     }
     click() {
+        if(this.gameplay.isMoving)return
         let check = this.gameplay.checkMission(this.tag,this.node)
         cc.audioEngine.play(this.gameplay.soundTrans,false,0.5)
         if (check) {

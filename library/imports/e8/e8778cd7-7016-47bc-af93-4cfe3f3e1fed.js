@@ -24,7 +24,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-globalThis.coin = 100;
+globalThis.coin = 0;
 globalThis.scGame = false;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
@@ -78,6 +78,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.listRayNode = null;
         _this.timeup = null;
         _this.amazing = null;
+        _this.notiCoin = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -103,7 +104,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.spawnX = 700; // vị trí spawn bên phải
         _this.arrItem = [[], []];
         _this.arrKhay = [];
-        _this.arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 2], [7, 8], [3, 1, 2], [1, 2, 6], [8, 3, 2], [0, 6]];
+        _this.arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 8], [7, 5], [3, 1, 2], [1, 2, 6], [8, 3, 2], [0, 6]];
         _this.arrTargetMission = [];
         _this.arrCus = [];
         _this.isStartgame = false;
@@ -111,28 +112,31 @@ var NewClass = /** @class */ (function (_super) {
         _this.countMiss = 3;
         _this.isCountCus = 3;
         _this.isCountDone = 0;
-        // spawnItem() {
-        //     for (let i = 0; i < this.listRay.length; i++) {
-        //         let mag = (i == 0) ? 1000 : -1000
-        //            let rd = Math.floor(Math.random() * this.listItem.length)
-        //             let item = cc.instantiate(this.listItem[rd]);
-        //             item.parent = this.listRay[i];
-        //             this.arrItem[i].push(item);
-        //             item.position = cc.v3(mag, -40)
-        //             this.moveItem(item, mag);
-        //         this.schedule(() => {
-        //             let rd = Math.floor(Math.random() * this.listItem.length)
-        //             let item = cc.instantiate(this.listItem[rd]);
-        //             item.parent = this.listRay[i];
-        //             this.arrItem[i].push(item);
-        //             item.position = cc.v3(mag, -40)
-        //             this.moveItem(item, mag);
-        //         }, 2)
+        _this.isMoving = false;
+        // isTargetCus=null
+        // moveCus() {
+        //     if (this.isCountCus < 7) {
+        //         this.listCus.children[this.isCountCus].active = true
+        //         this.isTargetCus = this.listCus.children[this.isCountCus]
+        //         this.arrCus.push(this.listCus.children[this.isCountCus])
+        //         this.isCountCus++
         //     }
+        //     for (let i = 0; i < this.arrCus.length; i++) {
+        //         let child = this.arrCus[i];
+        //         cc.tween(child).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
+        //             if (this.isTargetCus) {
+        //                 this.isTargetCus.getComponent("cusMission").loadTime()
+        //             }
+        //         }).start()
+        //     }
+        //     this.scheduleOnce(() => {
+        //         this.arrCus.shift()
+        //         this.isMoving = false
+        //     }, 0.5)
+        //     this.spawNextKhay()
         // }
         _this.itemQueue = [];
         _this.lastItemIndex = [];
-        _this.isLast = false;
         _this.isEndGame = false;
         // btn_choose(event, value) {
         _this.isDoc = false;
@@ -142,10 +146,6 @@ var NewClass = /** @class */ (function (_super) {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        // this.schedule(() => {
-        //     this.spawnItem();
-        // }, 1); // mỗi 1s spawn 1 item
-        // this.spawnItem()
         this.spawFirstItem();
         this.spawFistkhay();
         for (var i = 0; i < this.listCus.childrenCount; i++) {
@@ -154,7 +154,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.spawFirstItem = function () {
         var arr = [3, 0, 5, 4, 6, 7, 8, 1, 2];
-        var arr2 = [7, 1, 2, 8, 3, 0, 3, 6, 2,];
+        var arr2 = [7, 1, 2, 8, 3, 0, 5, 6, 2,];
         for (var i = 0; i < arr.length; i++) {
             var rd = arr[i];
             var item = cc.instantiate(this.listItem[rd]);
@@ -189,7 +189,7 @@ var NewClass = /** @class */ (function (_super) {
                 var item = this_1.arrItem[0][i];
                 var posNext = item.position.x - 2000;
                 cc.tween(item)
-                    .to(16, { x: posNext })
+                    .to(17, { x: posNext })
                     .call(function () {
                     item.destroy();
                 })
@@ -231,9 +231,12 @@ var NewClass = /** @class */ (function (_super) {
             this.arrTargetMission.push(this.arrMission[i]);
         }
     };
-    NewClass.prototype.spawNextKhay = function () {
+    NewClass.prototype.spawNextKhay = function (place) {
         var _this = this;
         // this.arrTargetMission.shift();
+        console.log(this.countMiss, this.arrTargetMission);
+        this.arrTargetMission.splice(place, 1);
+        this.arrTargetMission.push(this.arrMission[this.countMiss]);
         if (this.isCountCus <= 7 && this.countMiss < 7) {
             var pos = cc.v3(1200, 0);
             var preKhay = cc.instantiate(this.preKhay);
@@ -241,16 +244,23 @@ var NewClass = /** @class */ (function (_super) {
             preKhay.position = pos;
             this.arrKhay.push(preKhay);
             this.loadDataKhay(this.arrMission[this.countMiss], preKhay);
-            this.arrTargetMission.push(this.arrMission[this.countMiss]);
             this.countMiss++;
         }
-        for (var i = 0; i < this.arrKhay.length; i++) {
-            var khay = this.arrKhay[i];
-            cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).start();
+        var targetKhay = this.arrKhay[place];
+        cc.tween(targetKhay).to(0.3, { scale: 0 }).start();
+        var _loop_3 = function (i) {
+            var khay = this_3.arrKhay[i];
+            cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).call(function () {
+                _this.arrKhay[i - 1] = khay;
+            }).start();
+        };
+        var this_3 = this;
+        for (var i = place + 1; i < this.arrKhay.length; i++) {
+            _loop_3(i);
         }
         this.scheduleOnce(function () {
-            _this.arrKhay.shift();
-            _this.arrTargetMission.shift();
+            _this.arrKhay.splice(place, 1);
+            // this.arrTargetMission.shift()
         }, 0.2);
     };
     NewClass.prototype.loadDataKhay = function (data, khay) {
@@ -311,33 +321,37 @@ var NewClass = /** @class */ (function (_super) {
         var mission = this.arrTargetMission[i];
         var check = true;
         var cus = this.arrCus[i];
-        console.log(i, j);
         for (var m = 0; m < mission.length; m++) {
             if (mission[m] != 100) {
                 check = false;
             }
         }
         if (check == true) {
+            this.isMoving = true;
             this.isCountDone++;
             this.scheduleOnce(function () {
                 cus.getChildByName("vfx_coin").active = true;
                 cus.getChildByName("vfx_coin").getComponent(cc.Animation).play();
                 cus.getComponent("cusMission").happy();
+                _this.notiCoin.play();
                 globalThis.coin += 50;
                 if (mission.length == 3) {
                     globalThis.coin += 20;
                 }
                 cc.audioEngine.play(_this.soundSellDone, false, 1);
             }, 0.6);
+            this.scheduleOnce(function () {
+                _this.moveCusOut(i);
+            }, 0.8);
             //bonus tien
-            if (i == 0) {
-                this.scheduleOnce(function () {
-                    _this.moveCus();
-                }, 0.8);
-            }
-            else {
-                this.checkSuccessItem();
-            }
+            // if (i == 0) {
+            //     this.scheduleOnce(() => {
+            //         this.moveCus();
+            //     }, 0.8)
+            // }
+            // else {
+            //     this.checkSuccessItem()
+            // }
             if (this.isCountDone == 7) {
                 this.scheduleOnce(function () {
                     _this.onEndGame(true);
@@ -345,8 +359,38 @@ var NewClass = /** @class */ (function (_super) {
             }
         }
         else {
-            this.checkSuccessItem();
+            // this.checkSuccessItem()
         }
+    };
+    NewClass.prototype.moveCusOut = function (place) {
+        var _this = this;
+        var firstCus = this.arrCus[place];
+        if (this.isCountCus < 7) {
+            var nextCus = this.listCus.children[this.isCountCus];
+            nextCus.active = true;
+            this.isTargetCus = nextCus;
+            // this.arrCus[2] = nextCus
+            this.isCountCus++;
+        }
+        firstCus.zIndex = -1;
+        cc.tween(firstCus).delay(0.3).by(0.8 * (place + 1), { position: cc.v3(-600 * (place + 1)) }).start();
+        cc.tween(firstCus).delay(0.3).to(0.5, { opacity: 0 }).start();
+        for (var i = place; i < this.arrCus.length; i++) {
+            var child = this.arrCus[i];
+            cc.tween(child).delay(0.3).by(0.8, { position: cc.v3(-600, 0) }).call(function () {
+                if (_this.isTargetCus) {
+                    _this.isTargetCus.getComponent("cusMission").loadTime();
+                    // this.arrCus[i - 1] = child
+                }
+            }).start();
+        }
+        this.scheduleOnce(function () {
+            _this.arrCus.splice(place, 1);
+            _this.isMoving = false;
+        }, 1.1);
+        this.scheduleOnce(function () {
+            _this.spawNextKhay(place);
+        }, 0.3);
     };
     NewClass.prototype.checkSuccessItem = function () {
         for (var i = 0; i < 1; i++) {
@@ -362,23 +406,6 @@ var NewClass = /** @class */ (function (_super) {
                 return;
             }
         }
-    };
-    NewClass.prototype.moveCus = function () {
-        var _this = this;
-        if (this.isCountCus < 7) {
-            this.listCus.children[this.isCountCus].active = true;
-            this.arrCus.push(this.listCus.children[this.isCountCus]);
-            this.isCountCus++;
-        }
-        for (var i = 0; i < this.arrCus.length; i++) {
-            var child = this.arrCus[i];
-            cc.tween(child).by(0.8, { position: cc.v3(-600, 0) }).call(function () {
-            }).start();
-        }
-        this.scheduleOnce(function () {
-            _this.arrCus.shift();
-        }, 0.5);
-        this.spawNextKhay();
     };
     NewClass.prototype.shuffleItem = function () {
         var _a;
@@ -429,7 +456,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveItem = function (item, mag) {
         var targetX = -mag;
         cc.tween(item)
-            .to(16, { x: targetX })
+            .to(17, { x: targetX })
             .call(function () {
             item.destroy();
         })
@@ -437,239 +464,6 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.start = function () {
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
-    };
-    // startGame() {
-    //     this.listHand.children[0].active = true
-    //     // this.scheduleOnce(() => {
-    //     //     if (this.isStep == 0) {
-    //     //     }
-    //     // }, 2)
-    // }
-    NewClass.prototype.btn_plate = function (event) {
-        var btn = event.currentTarget;
-        btn.getComponent(cc.Animation).play();
-        cc.audioEngine.play(this.soundWrong, false, 1);
-    };
-    NewClass.prototype.btn_cake = function (event) {
-        var _this = this;
-        var cake = null;
-        if (this.isStep == 0) {
-            this.barTime.getComponent("barTime").countDown();
-            this.guild.active = false;
-            this.listHand.children[0].active = false;
-            cake = this.cake.children[0];
-            this.listCheckItem.children[0].active = true;
-            this.scheduleOnce(function () {
-                if (_this.isStep == 1) {
-                    _this.listHand.children[1].active = true;
-                }
-            }, 2.5);
-        }
-        else if (this.isStep == 3) {
-            this.listHand.children[0].active = false;
-            cake = this.cake.children[3];
-            // this.listCheckItem.children[0].active = true
-            this.listCheckItem.children[0].active = true;
-            this.scheduleOnce(function () {
-                if (_this.isStep == 4) {
-                    _this.listHand.children[1].active = true;
-                }
-            }, 2.5);
-        }
-        else {
-            var btn = event.currentTarget;
-            btn.getComponent(cc.Animation).play();
-            cc.audioEngine.play(this.soundWrong, false, 1);
-            return;
-        }
-        cc.audioEngine.play(this.soundShowPop, false, 1);
-        cake.scale = 0.6;
-        var localPos = cake.position;
-        cake.position = localPos.add(cc.v3(0, 120));
-        cake.active = true;
-        this.isStep++;
-        cc.tween(cake).to(0.2, { position: localPos }).to(0.2, { scale: 0.75 }).to(0.07, { scale: 0.7 }).start();
-    };
-    NewClass.prototype.btn_Dau = function (event) {
-        var _this = this;
-        if (this.isStep == 2) {
-            cc.audioEngine.play(this.soundCherry, false, 1);
-            this.listHand.children[2].active = false;
-            var listFruit = this.cake.children[2];
-            this.isStep++;
-            listFruit.active = true;
-            var _loop_3 = function (i) {
-                var fruit = listFruit.children[i];
-                fruit.active = false;
-                var localPos = fruit.position;
-                fruit.position = localPos.add(cc.v3(0, 120));
-                var time = (i % 2 == 0) ? 0 : 0.2;
-                this_3.scheduleOnce(function () {
-                    fruit.active = true;
-                    _this.listCheckItem.children[2].active = true;
-                    _this.listCheckItem.children[3].active = true;
-                    _this.listCheckItem.children[4].active = true;
-                    _this.listCheckItem.children[5].active = true;
-                    cc.tween(fruit).to(0.3, { position: localPos }).call(function () {
-                        for (var _i = 0, _a = _this.listCheckItem.children; _i < _a.length; _i++) {
-                            var child = _a[_i];
-                            child.active = false;
-                        }
-                    }).start();
-                }, time);
-            };
-            var this_3 = this;
-            for (var i = 0; i < listFruit.childrenCount; i++) {
-                _loop_3(i);
-            }
-            this.scheduleOnce(function () {
-                if (_this.isStep == 3) {
-                    _this.listHand.children[0].active = true;
-                }
-            }, 2.5);
-        }
-        else if (this.isStep == 5 && this.isLast == true) {
-            this.listHand.children[2].active = false;
-            cc.audioEngine.play(this.soundCherry, false, 1);
-            this.listCheckItem.children[2].active = true;
-            this.listCheckItem.children[3].active = true;
-            this.listCheckItem.children[4].active = true;
-            this.listCheckItem.children[5].active = true;
-            var listFruit = this.cake.children[6];
-            this.isStep++;
-            listFruit.active = true;
-            var _loop_4 = function (i) {
-                var fruit = listFruit.children[i];
-                fruit.active = false;
-                var localPos = fruit.position;
-                fruit.position = localPos.add(cc.v3(0, 120));
-                var time = (i % 2 == 0) ? 0 : 0.3;
-                this_4.scheduleOnce(function () {
-                    fruit.active = true;
-                    cc.tween(fruit).to(0.3, { position: localPos }).start();
-                }, time);
-            };
-            var this_4 = this;
-            for (var i = 0; i < listFruit.childrenCount; i++) {
-                _loop_4(i);
-            }
-            this.scheduleOnce(function () {
-                _this.phaoHoa.active = true;
-                cc.audioEngine.play(_this.soundWin, false, 1);
-                globalThis.coin += 100;
-            }, 0.5);
-            this.scheduleOnce(function () {
-                _this.onEndGame(true);
-            }, 1.5);
-        }
-        else {
-            var btn = event.currentTarget;
-            btn.getComponent(cc.Animation).play();
-            cc.audioEngine.play(this.soundWrong, false, 1);
-        }
-        // let btn = event.currentTarget
-        // btn.getComponent(cc.Animation).play();
-        // cc.audioEngine.play(this.soundWrong, false, 1)
-    };
-    NewClass.prototype.btn_Kiwi = function (event) {
-        var btn = event.currentTarget;
-        btn.getComponent(cc.Animation).play();
-        cc.audioEngine.play(this.soundWrong, false, 1);
-    };
-    NewClass.prototype.btn_Hoa = function (event) {
-        var btn = event.currentTarget;
-        btn.getComponent(cc.Animation).play();
-        cc.audioEngine.play(this.soundWrong, false, 1);
-    };
-    NewClass.prototype.btn_cream = function () {
-        var _this = this;
-        if (this.isStep == 1) {
-            this.listHand.children[1].active = false;
-            this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundCream, false, 1);
-            }, 0.3);
-            this.listCheckItem.children[1].active = true;
-            this.creeam.getComponent(cc.Animation).play("cream1");
-            var cream = this.cake.children[1];
-            this.isStep++;
-            cream.scale = 0;
-            cream.active = true;
-            cc.tween(cream).delay(0.4).to(0.4, { scale: 0.7 }).start();
-            this.scheduleOnce(function () {
-                cc.tween(_this.creeam.children[1]).to(0.4, { position: cc.v3(0, 0), angle: 0 }).start();
-            }, 1.2);
-            this.scheduleOnce(function () {
-                if (_this.isStep == 2) {
-                    _this.listHand.children[2].active = true;
-                }
-            }, 2.5);
-        }
-        else if (this.isStep == 4) {
-            this.listCheckItem.children[1].active = true;
-            this.listHand.children[1].active = false;
-            this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundCream, false, 1);
-            }, 0.5);
-            this.creeam.getComponent(cc.Animation).play("cream2");
-            var creamItem_1 = this.creeam.children[1];
-            var cream = this.cake.children[4];
-            this.isStep++;
-            cream.scale = 0;
-            cream.active = true;
-            cc.tween(cream).delay(0.6).to(0.4, { scale: 0.7 }).start();
-            var listCream_1 = this.cake.children[5];
-            var listCream2_1 = this.cake.children[7];
-            // cc.audioEngine.play(this.soundCream, false, 1)
-            var arrrPos_1 = [cc.v3(-507, 222), cc.v3(-551, 197), cc.v3(-590, 161), cc.v3(-621, 111), cc.v3(-634, 50, 69), cc.v3(-631.5, 21), cc.v3(-612.6, -4), cc.v3(-568, -5.4), cc.v3(-528, 19.5),
-                cc.v3(-490, 61), cc.v3(-464, 108), cc.v3(-456, 170), cc.v3(-473, 204)
-            ];
-            this.scheduleOnce(function () {
-                _this.isLast = true;
-            }, 2);
-            this.scheduleOnce(function () {
-                listCream_1.active = true;
-                var _loop_5 = function (i) {
-                    listCream_1.children[i].active = false;
-                    _this.scheduleOnce(function () {
-                        // creamItem.position = pos
-                        // console.log()
-                        // if (i % 2 == 0) {
-                        //     cc.audioEngine.play(this.soundCreamMini, false, 1)
-                        // }
-                        cc.tween(creamItem_1).to(0.1, { position: arrrPos_1[i] }).start();
-                        listCream_1.children[i].active = true;
-                    }, 0.15 * i);
-                };
-                for (var i = 0; i < listCream_1.childrenCount; i++) {
-                    _loop_5(i);
-                }
-            }, 1.3);
-            this.scheduleOnce(function () {
-                listCream2_1.active = true;
-                var _loop_6 = function (i) {
-                    listCream2_1.children[i].active = false;
-                    _this.scheduleOnce(function () {
-                        cc.tween(creamItem_1).to(0.1, { position: arrrPos_1[i + 6] }).start();
-                        listCream2_1.children[i].active = true;
-                    }, 0.15 * i);
-                };
-                for (var i = 0; i < listCream2_1.childrenCount; i++) {
-                    _loop_6(i);
-                }
-            }, 1.3 + 0.15 * 6);
-            this.scheduleOnce(function () {
-                cc.tween(_this.creeam.children[1]).to(0.4, { position: cc.v3(0, 0), angle: 0 }).start();
-                _this.scheduleOnce(function () {
-                    if (_this.isStep == 5) {
-                        _this.listHand.children[2].active = true;
-                    }
-                }, 2.5);
-            }, 3.8);
-        }
-        else {
-            cc.audioEngine.play(this.soundWrong, false, 1);
-            this.creeam.getComponent(cc.Animation).play("btn_wrong");
-        }
     };
     NewClass.prototype.setGray = function (node) {
         node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-gray-sprite', node.getComponent(cc.Sprite)));
@@ -955,6 +749,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "amazing", void 0);
+    __decorate([
+        property(cc.Animation)
+    ], NewClass.prototype, "notiCoin", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

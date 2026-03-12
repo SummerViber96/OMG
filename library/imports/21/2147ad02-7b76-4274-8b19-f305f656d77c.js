@@ -39,6 +39,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.doneNode = null;
         _this.doneNode2 = null;
         _this.fillBar = null;
+        _this.fillYellow = null;
+        _this.fillRed = null;
+        _this.timeWaiting = 30;
         _this.isEnd = false;
         _this.isSuccess = false;
         _this.gamePlay = null;
@@ -49,34 +52,6 @@ var NewClass = /** @class */ (function (_super) {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         // this.loadTime()
     };
-    // checkBread(bread) {
-    //     if (this.isEnd) return;
-    //     let breadComp = bread.getComponent("preBread");
-    //     if (this.bread == true && this.hotDog == breadComp.isHotDog && this.chili == breadComp.isTuongCa) {
-    //         this.updateMission()
-    //     }
-    //     else {
-    //         this.scheduleOnce(() => {
-    //             this.isEnd = true
-    //             this.end(false)
-    //             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
-    //         }, 0.4)
-    //     }
-    // }
-    // checkBuger(buger) {
-    //     if (this.isEnd) return;
-    //     let breadComp = buger.getComponent("buger");
-    //     if (this.buger == true && this.meat == breadComp.isMeat && this.vegettable == breadComp.isvegettable) {
-    //         this.updateMission()
-    //     }
-    //     else {
-    //         this.scheduleOnce(() => {
-    //             this.isEnd = true
-    //             this.end(false)
-    //             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
-    //         }, 0.4)
-    //     }
-    // }
     NewClass.prototype.updateMission = function (value) {
         var _this = this;
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1);
@@ -114,12 +89,9 @@ var NewClass = /** @class */ (function (_super) {
             this.end(true);
         }
         globalThis.gold += 50;
-        // this.count--;
-        // this.scheduleOnce(() => {
-        //     cc.audioEngine.play(this.gamePlay.soundYes, false, 1)
-        //     cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5)
-        //     this.anim.setAnimation(0, "8.happy", true)
-        // }, 0.4)
+    };
+    NewClass.prototype.move = function () {
+        this.anim.setAnimation(0, "happy", false);
     };
     NewClass.prototype.end = function (value) {
         var _this = this;
@@ -159,10 +131,15 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.happy = function () {
         var _this = this;
+        var fill = this.fillBar.node.parent;
+        cc.tween(fill).to(0.3, { scale: 0 }).start();
         this.anim.setAnimation(0, "8.happy", false);
         this.scheduleOnce(function () {
             _this.anim.setAnimation(0, "3.buy_idle", true);
         }, 1);
+    };
+    NewClass.prototype.angry = function () {
+        this.anim.setAnimation(0, "7.angry_idle", true);
     };
     NewClass.prototype.checkSell = function (donut) {
         var donutComp = donut.getComponent("donut");
@@ -186,7 +163,30 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.loadTime = function () {
-        cc.tween(this.fillBar).to(this.timeFill, { fillRange: 0 }).call(function () { }).start();
+        var _this = this;
+        cc.tween(this.fillBar).to(this.timeWaiting, { fillRange: 0 }).call(function () { }).start();
+        this.fillBar.fillRange = 1;
+        var changedYellow = false;
+        var changedRed = false;
+        cc.tween(this.fillBar)
+            .to(this.timeWaiting, { fillRange: 0 }, {
+            progress: function (start, end, current, ratio) {
+                var value = start + (end - start) * ratio;
+                _this.fillBar.fillRange = value;
+                if (value <= 0.5 && !changedYellow) {
+                    changedYellow = true;
+                    _this.fillBar.spriteFrame = _this.fillYellow;
+                    _this.anim.setAnimation(0, "6.angry", true);
+                }
+                if (value <= 0.25 && !changedRed) {
+                    changedRed = true;
+                    _this.fillBar.spriteFrame = _this.fillRed;
+                    _this.anim.setAnimation(0, "7.angry_idle", true);
+                }
+                return value;
+            }
+        })
+            .start();
     };
     __decorate([
         property(cc.AudioClip)
@@ -221,6 +221,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Sprite)
     ], NewClass.prototype, "fillBar", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], NewClass.prototype, "fillYellow", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], NewClass.prototype, "fillRed", void 0);
+    __decorate([
+        property(cc.Integer)
+    ], NewClass.prototype, "timeWaiting", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

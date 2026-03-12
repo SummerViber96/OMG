@@ -27,6 +27,12 @@ export default class NewClass extends cc.Component {
     doneNode2: cc.Node = null
     @property(cc.Sprite)
     fillBar: cc.Sprite = null
+    @property(cc.SpriteFrame)
+    fillYellow: cc.SpriteFrame = null;
+    @property(cc.SpriteFrame)
+    fillRed: cc.SpriteFrame = null;
+    @property(cc.Integer)
+    timeWaiting = 30
     isEnd = false
     isSuccess = false
     gamePlay = null
@@ -35,36 +41,7 @@ export default class NewClass extends cc.Component {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
         // this.loadTime()
     }
-    // checkBread(bread) {
-    //     if (this.isEnd) return;
-    //     let breadComp = bread.getComponent("preBread");
-    //     if (this.bread == true && this.hotDog == breadComp.isHotDog && this.chili == breadComp.isTuongCa) {
-    //         this.updateMission()
-    //     }
-    //     else {
-    //         this.scheduleOnce(() => {
-    //             this.isEnd = true
-    //             this.end(false)
-    //             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
-    //         }, 0.4)
 
-    //     }
-    // }
-    // checkBuger(buger) {
-    //     if (this.isEnd) return;
-
-    //     let breadComp = buger.getComponent("buger");
-    //     if (this.buger == true && this.meat == breadComp.isMeat && this.vegettable == breadComp.isvegettable) {
-    //         this.updateMission()
-    //     }
-    //     else {
-    //         this.scheduleOnce(() => {
-    //             this.isEnd = true
-    //             this.end(false)
-    //             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
-    //         }, 0.4)
-    //     }
-    // }
 
     updateMission(value) { //1:socola //0:dau
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1)
@@ -110,15 +87,10 @@ export default class NewClass extends cc.Component {
         }
         globalThis.gold += 50
 
-        // this.count--;
-        // this.scheduleOnce(() => {
-        //     cc.audioEngine.play(this.gamePlay.soundYes, false, 1)
-        //     cc.audioEngine.play(this.gamePlay.soundNice, false, 0.5)
 
-        //     this.anim.setAnimation(0, "8.happy", true)
-
-
-        // }, 0.4)
+    }
+    move() {
+        this.anim.setAnimation(0, "happy", false)
 
     }
     end(value) {
@@ -165,11 +137,16 @@ export default class NewClass extends cc.Component {
 
     }
     happy() {
+        let fill = this.fillBar.node.parent
+        cc.tween(fill).to(0.3, { scale: 0 }).start()
         this.anim.setAnimation(0, "8.happy", false)
         this.scheduleOnce(() => {
             this.anim.setAnimation(0, "3.buy_idle", true)
-
         }, 1)
+
+    }
+    angry() {
+        this.anim.setAnimation(0, "7.angry_idle", true)
 
     }
     checkSell(donut) {
@@ -194,6 +171,34 @@ export default class NewClass extends cc.Component {
         }
     }
     loadTime() {
-        cc.tween(this.fillBar).to(this.timeFill, { fillRange: 0 }).call(() => { }).start()
+        cc.tween(this.fillBar).to(this.timeWaiting, { fillRange: 0 }).call(() => { }).start()
+        this.fillBar.fillRange = 1;
+        let changedYellow = false;
+        let changedRed = false;
+        cc.tween(this.fillBar)
+            .to(this.timeWaiting, { fillRange: 0 }, {
+                progress: (start, end, current, ratio) => {
+
+                    let value = start + (end - start) * ratio;
+                    this.fillBar.fillRange = value;
+
+                    if (value <= 0.5 && !changedYellow) {
+                        changedYellow = true;
+                        this.fillBar.spriteFrame = this.fillYellow;
+                        this.anim.setAnimation(0, "6.angry", true);
+
+                    }
+
+                    if (value <= 0.25 && !changedRed) {
+                        changedRed = true;
+                        this.fillBar.spriteFrame = this.fillRed;
+                        this.anim.setAnimation(0, "7.angry_idle", true);
+
+                    }
+
+                    return value;
+                }
+            })
+            .start();
     }
 }

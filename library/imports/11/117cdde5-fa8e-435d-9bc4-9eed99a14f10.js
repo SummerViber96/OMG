@@ -38,6 +38,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.click = function () {
         var _this = this;
+        if (this.gameplay.isMoving)
+            return;
         var check = this.gameplay.checkMission(this.tag, this.node);
         cc.audioEngine.play(this.gameplay.soundTrans, false, 0.5);
         if (check) {

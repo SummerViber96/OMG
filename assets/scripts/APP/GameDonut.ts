@@ -1,7 +1,6 @@
 
-
 const { ccclass, property } = cc._decorator;
-globalThis.coin = 100
+globalThis.coin = 0
 globalThis.scGame = false
 @ccclass
 export default class NewClass extends cc.Component {
@@ -104,6 +103,8 @@ export default class NewClass extends cc.Component {
     timeup: cc.Node = null
     @property(cc.Node)
     amazing: cc.Node = null
+    @property(cc.Animation)
+    notiCoin:cc.Animation=null
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -132,7 +133,7 @@ export default class NewClass extends cc.Component {
     spawnX: number = 700;              // vị trí spawn bên phải
     arrItem = [[], []]
     arrKhay = []
-    arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 2], [7, 8], [3, 1, 2], [1, 2, 6], [8, 3, 2], [0, 6]]
+    arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 8], [7, 5], [3, 1, 2], [1, 2, 6], [8, 3, 2], [0, 6]]
     arrTargetMission = []
     arrCus = []
     isStartgame = false
@@ -140,10 +141,7 @@ export default class NewClass extends cc.Component {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        // this.schedule(() => {
-        //     this.spawnItem();
-        // }, 1); // mỗi 1s spawn 1 item
-        // this.spawnItem()
+
         this.spawFirstItem()
         this.spawFistkhay()
         for (let i = 0; i < this.listCus.childrenCount; i++) {
@@ -153,7 +151,7 @@ export default class NewClass extends cc.Component {
     isHand = null
     spawFirstItem() {
         let arr = [3, 0, 5, 4, 6, 7, 8, 1, 2]
-        let arr2 = [7, 1, 2, 8, 3, 0, 3, 6, 2,]
+        let arr2 = [7, 1, 2, 8, 3, 0, 5, 6, 2,]
 
         for (let i = 0; i < arr.length; i++) {
             let rd = arr[i]
@@ -192,7 +190,7 @@ export default class NewClass extends cc.Component {
                 let item = this.arrItem[0][i]
                 let posNext = item.position.x - 2000
                 cc.tween(item)
-                    .to(16, { x: posNext })
+                    .to(17, { x: posNext })
                     .call(() => {
                         item.destroy();
                     })
@@ -232,8 +230,12 @@ export default class NewClass extends cc.Component {
 
     }
     countMiss = 3
-    spawNextKhay() {
+    spawNextKhay(place) {
         // this.arrTargetMission.shift();
+        console.log(this.countMiss, this.arrTargetMission)
+        this.arrTargetMission.splice(place, 1)
+        this.arrTargetMission.push(this.arrMission[this.countMiss])
+
         if (this.isCountCus <= 7 && this.countMiss < 7) {
             let pos = cc.v3(1200, 0);
             let preKhay = cc.instantiate(this.preKhay)
@@ -241,17 +243,21 @@ export default class NewClass extends cc.Component {
             preKhay.position = pos
             this.arrKhay.push(preKhay)
             this.loadDataKhay(this.arrMission[this.countMiss], preKhay)
-            this.arrTargetMission.push(this.arrMission[this.countMiss])
+
             this.countMiss++
         }
-
-        for (let i = 0; i < this.arrKhay.length; i++) {
+        let targetKhay = this.arrKhay[place]
+        cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
+        for (let i = place + 1; i < this.arrKhay.length; i++) {
             let khay = this.arrKhay[i]
-            cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).start()
+            cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
+                this.arrKhay[i - 1] = khay
+
+            }).start()
         }
         this.scheduleOnce(() => {
-            this.arrKhay.shift();
-            this.arrTargetMission.shift()
+            this.arrKhay.splice(place, 1);
+            // this.arrTargetMission.shift()
         }, 0.2)
     }
     loadDataKhay(data, khay) {
@@ -306,7 +312,8 @@ export default class NewClass extends cc.Component {
     }
     isCountCus = 3
     isCountDone = 0
-    checkSuccess(i, j) {
+    isMoving = false
+    checkSuccess(i, j) {//check cus hoan thanh don hang chua
         this.scheduleOnce(() => {
             if (j != null) {
                 let targetKhay = this.arrKhay[i].children[j];
@@ -318,18 +325,19 @@ export default class NewClass extends cc.Component {
         let mission = this.arrTargetMission[i];
         let check = true
         let cus = this.arrCus[i]
-        console.log(i, j)
         for (let m = 0; m < mission.length; m++) {
             if (mission[m] != 100) {
                 check = false
             }
         }
         if (check == true) {
+            this.isMoving = true
             this.isCountDone++
             this.scheduleOnce(() => {
                 cus.getChildByName("vfx_coin").active = true
                 cus.getChildByName("vfx_coin").getComponent(cc.Animation).play()
                 cus.getComponent("cusMission").happy()
+                this.notiCoin.play()
                 globalThis.coin += 50
                 if (mission.length == 3) {
                     globalThis.coin += 20
@@ -337,18 +345,20 @@ export default class NewClass extends cc.Component {
                 }
                 cc.audioEngine.play(this.soundSellDone, false, 1)
             }, 0.6)
-
+            this.scheduleOnce(() => {
+                this.moveCusOut(i)
+            }, 0.8)
             //bonus tien
-            if (i == 0) {
-                this.scheduleOnce(() => {
+            // if (i == 0) {
+            //     this.scheduleOnce(() => {
 
-                    this.moveCus();
+            //         this.moveCus();
 
-                }, 0.8)
-            }
-            else {
-                this.checkSuccessItem()
-            }
+            //     }, 0.8)
+            // }
+            // else {
+            //     this.checkSuccessItem()
+            // }
             if (this.isCountDone == 7) {
                 this.scheduleOnce(() => {
                     this.onEndGame(true)
@@ -358,9 +368,42 @@ export default class NewClass extends cc.Component {
 
         }
         else {
-            this.checkSuccessItem()
+            // this.checkSuccessItem()
 
         }
+    }
+    moveCusOut(place) {
+
+        let firstCus = this.arrCus[place];
+        if (this.isCountCus < 7) {
+            let nextCus = this.listCus.children[this.isCountCus]
+            nextCus.active = true
+            this.isTargetCus = nextCus
+            // this.arrCus[2] = nextCus
+            this.isCountCus++
+        }
+        firstCus.zIndex = -1
+        cc.tween(firstCus).delay(0.3).by(0.8 * (place + 1), { position: cc.v3(-600 * (place + 1)) }).start();
+        cc.tween(firstCus).delay(0.3).to(0.5, { opacity: 0 }).start()
+        for (let i = place; i < this.arrCus.length; i++) {
+            let child = this.arrCus[i];
+            cc.tween(child).delay(0.3).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
+                if (this.isTargetCus) {
+                    this.isTargetCus.getComponent("cusMission").loadTime()
+                    // this.arrCus[i - 1] = child
+                }
+            }).start()
+        }
+        this.scheduleOnce(() => {
+            this.arrCus.splice(place, 1)
+            this.isMoving = false
+        }, 1.1)
+        this.scheduleOnce(() => {
+            this.spawNextKhay(place)
+
+        }, 0.3)
+
+
     }
     checkSuccessItem() {
         for (let i = 0; i < 1; i++) {
@@ -377,45 +420,31 @@ export default class NewClass extends cc.Component {
             }
         }
     }
-    moveCus() {
-        if (this.isCountCus < 7) {
-            this.listCus.children[this.isCountCus].active = true
-            this.arrCus.push(this.listCus.children[this.isCountCus])
-            this.isCountCus++
-        }
-        for (let i = 0; i < this.arrCus.length; i++) {
-            let child = this.arrCus[i];
-            cc.tween(child).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
-
-            }).start()
-        }
-        this.scheduleOnce(() => {
-            this.arrCus.shift()
-        }, 0.5)
-        this.spawNextKhay()
-
-    }
-    // spawnItem() {
-
-
-    //     for (let i = 0; i < this.listRay.length; i++) {
-    //         let mag = (i == 0) ? 1000 : -1000
-    //            let rd = Math.floor(Math.random() * this.listItem.length)
-    //             let item = cc.instantiate(this.listItem[rd]);
-    //             item.parent = this.listRay[i];
-    //             this.arrItem[i].push(item);
-    //             item.position = cc.v3(mag, -40)
-    //             this.moveItem(item, mag);
-    //         this.schedule(() => {
-    //             let rd = Math.floor(Math.random() * this.listItem.length)
-    //             let item = cc.instantiate(this.listItem[rd]);
-    //             item.parent = this.listRay[i];
-    //             this.arrItem[i].push(item);
-    //             item.position = cc.v3(mag, -40)
-    //             this.moveItem(item, mag);
-    //         }, 2)
+    // isTargetCus=null
+    // moveCus() {
+    //     if (this.isCountCus < 7) {
+    //         this.listCus.children[this.isCountCus].active = true
+    //         this.isTargetCus = this.listCus.children[this.isCountCus]
+    //         this.arrCus.push(this.listCus.children[this.isCountCus])
+    //         this.isCountCus++
     //     }
+    //     for (let i = 0; i < this.arrCus.length; i++) {
+    //         let child = this.arrCus[i];
+    //         cc.tween(child).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
+    //             if (this.isTargetCus) {
+    //                 this.isTargetCus.getComponent("cusMission").loadTime()
+
+    //             }
+    //         }).start()
+    //     }
+    //     this.scheduleOnce(() => {
+    //         this.arrCus.shift()
+    //         this.isMoving = false
+    //     }, 0.5)
+    //     this.spawNextKhay()
+
     // }
+
     itemQueue: number[] = [];
 
     shuffleItem() {
@@ -486,7 +515,7 @@ export default class NewClass extends cc.Component {
     moveItem(item: cc.Node, mag) {
         let targetX = -mag;
         cc.tween(item)
-            .to(16, { x: targetX })
+            .to(17, { x: targetX })
             .call(() => {
                 item.destroy();
             })
@@ -497,246 +526,7 @@ export default class NewClass extends cc.Component {
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
 
     }
-    // startGame() {
-    //     this.listHand.children[0].active = true
 
-    //     // this.scheduleOnce(() => {
-    //     //     if (this.isStep == 0) {
-    //     //     }
-    //     // }, 2)
-    // }
-    btn_plate(event) {
-        let btn = event.currentTarget
-        btn.getComponent(cc.Animation).play();
-        cc.audioEngine.play(this.soundWrong, false, 1)
-    }
-    btn_cake(event) {
-        let cake = null
-        if (this.isStep == 0) {
-            this.barTime.getComponent("barTime").countDown()
-            this.guild.active = false;
-            this.listHand.children[0].active = false
-            cake = this.cake.children[0]
-            this.listCheckItem.children[0].active = true
-            this.scheduleOnce(() => {
-                if (this.isStep == 1) {
-                    this.listHand.children[1].active = true
-                }
-            }, 2.5)
-        }
-        else if (this.isStep == 3) {
-            this.listHand.children[0].active = false
-
-            cake = this.cake.children[3]
-            // this.listCheckItem.children[0].active = true
-            this.listCheckItem.children[0].active = true
-            this.scheduleOnce(() => {
-                if (this.isStep == 4) {
-                    this.listHand.children[1].active = true
-                }
-            }, 2.5)
-        }
-        else {
-            let btn = event.currentTarget
-            btn.getComponent(cc.Animation).play();
-            cc.audioEngine.play(this.soundWrong, false, 1)
-            return;
-        }
-        cc.audioEngine.play(this.soundShowPop, false, 1)
-        cake.scale = 0.6;
-        let localPos = cake.position;
-        cake.position = localPos.add(cc.v3(0, 120))
-
-        cake.active = true
-
-        this.isStep++
-        cc.tween(cake).to(0.2, { position: localPos }).to(0.2, { scale: 0.75 }).to(0.07, { scale: 0.7 }).start()
-    }
-    btn_Dau(event) {
-        if (this.isStep == 2) {
-            cc.audioEngine.play(this.soundCherry, false, 1)
-            this.listHand.children[2].active = false
-
-
-            let listFruit = this.cake.children[2]
-            this.isStep++
-            listFruit.active = true;
-            for (let i = 0; i < listFruit.childrenCount; i++) {
-                let fruit = listFruit.children[i];
-                fruit.active = false
-                let localPos = fruit.position;
-                fruit.position = localPos.add(cc.v3(0, 120))
-                let time = (i % 2 == 0) ? 0 : 0.2
-                this.scheduleOnce(() => {
-                    fruit.active = true
-                    this.listCheckItem.children[2].active = true
-                    this.listCheckItem.children[3].active = true
-                    this.listCheckItem.children[4].active = true
-                    this.listCheckItem.children[5].active = true
-                    cc.tween(fruit).to(0.3, { position: localPos }).call(() => {
-                        for (let child of this.listCheckItem.children) {
-                            child.active = false
-                        }
-                    }).start()
-                }, time)
-            }
-            this.scheduleOnce(() => {
-                if (this.isStep == 3) {
-                    this.listHand.children[0].active = true
-                }
-            }, 2.5)
-        }
-        else if (this.isStep == 5 && this.isLast == true) {
-            this.listHand.children[2].active = false
-
-            cc.audioEngine.play(this.soundCherry, false, 1)
-            this.listCheckItem.children[2].active = true
-            this.listCheckItem.children[3].active = true
-            this.listCheckItem.children[4].active = true
-            this.listCheckItem.children[5].active = true
-            let listFruit = this.cake.children[6]
-            this.isStep++
-            listFruit.active = true;
-            for (let i = 0; i < listFruit.childrenCount; i++) {
-                let fruit = listFruit.children[i];
-                fruit.active = false
-                let localPos = fruit.position;
-                fruit.position = localPos.add(cc.v3(0, 120))
-                let time = (i % 2 == 0) ? 0 : 0.3
-                this.scheduleOnce(() => {
-                    fruit.active = true
-                    cc.tween(fruit).to(0.3, { position: localPos }).start()
-                }, time)
-            }
-            this.scheduleOnce(() => {
-                this.phaoHoa.active = true
-                cc.audioEngine.play(this.soundWin, false, 1)
-                globalThis.coin += 100
-            }, 0.5)
-            this.scheduleOnce(() => {
-                this.onEndGame(true)
-            }, 1.5)
-        }
-        else {
-            let btn = event.currentTarget
-            btn.getComponent(cc.Animation).play();
-            cc.audioEngine.play(this.soundWrong, false, 1)
-        }
-        // let btn = event.currentTarget
-        // btn.getComponent(cc.Animation).play();
-        // cc.audioEngine.play(this.soundWrong, false, 1)
-    }
-    btn_Kiwi(event) {
-        let btn = event.currentTarget
-        btn.getComponent(cc.Animation).play();
-        cc.audioEngine.play(this.soundWrong, false, 1)
-    }
-    btn_Hoa(event) {
-        let btn = event.currentTarget
-        btn.getComponent(cc.Animation).play();
-        cc.audioEngine.play(this.soundWrong, false, 1)
-    }
-    isLast = false
-    btn_cream() {
-        if (this.isStep == 1) {
-            this.listHand.children[1].active = false
-            this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundCream, false, 1)
-
-            }, 0.3)
-            this.listCheckItem.children[1].active = true
-
-            this.creeam.getComponent(cc.Animation).play("cream1")
-            let cream = this.cake.children[1]
-            this.isStep++
-            cream.scale = 0;
-            cream.active = true
-            cc.tween(cream).delay(0.4).to(0.4, { scale: 0.7 }).start()
-            this.scheduleOnce(() => {
-                cc.tween(this.creeam.children[1]).to(0.4, { position: cc.v3(0, 0), angle: 0 }).start()
-            }, 1.2)
-            this.scheduleOnce(() => {
-                if (this.isStep == 2) {
-                    this.listHand.children[2].active = true
-                }
-            }, 2.5)
-        }
-        else if (this.isStep == 4) {
-            this.listCheckItem.children[1].active = true
-            this.listHand.children[1].active = false
-
-            this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundCream, false, 1)
-
-            }, 0.5)
-            this.creeam.getComponent(cc.Animation).play("cream2")
-            let creamItem = this.creeam.children[1]
-            let cream = this.cake.children[4]
-            this.isStep++
-            cream.scale = 0;
-            cream.active = true
-            cc.tween(cream).delay(0.6).to(0.4, { scale: 0.7 }).start()
-            let listCream = this.cake.children[5]
-            let listCream2 = this.cake.children[7]
-            // cc.audioEngine.play(this.soundCream, false, 1)
-            let arrrPos = [cc.v3(-507, 222), cc.v3(-551, 197), cc.v3(-590, 161), cc.v3(-621, 111), cc.v3(-634, 50, 69), cc.v3(-631.5, 21), cc.v3(-612.6, -4), cc.v3(-568, -5.4), cc.v3(-528, 19.5),
-            cc.v3(-490, 61), cc.v3(-464, 108), cc.v3(-456, 170), cc.v3(-473, 204)
-            ]
-            this.scheduleOnce(() => {
-                this.isLast = true
-
-            }, 2)
-            this.scheduleOnce(() => {
-                listCream.active = true
-
-                for (let i = 0; i < listCream.childrenCount; i++) {
-                    listCream.children[i].active = false
-
-                    this.scheduleOnce(() => {
-                        // creamItem.position = pos
-                        // console.log()
-                        // if (i % 2 == 0) {
-                        //     cc.audioEngine.play(this.soundCreamMini, false, 1)
-
-                        // }
-                        cc.tween(creamItem).to(0.1, { position: arrrPos[i] }).start()
-
-                        listCream.children[i].active = true
-                    }, 0.15 * i)
-
-
-                }
-            }, 1.3)
-            this.scheduleOnce(() => {
-                listCream2.active = true
-
-                for (let i = 0; i < listCream2.childrenCount; i++) {
-                    listCream2.children[i].active = false
-                    this.scheduleOnce(() => {
-
-                        cc.tween(creamItem).to(0.1, { position: arrrPos[i + 6] }).start()
-
-                        listCream2.children[i].active = true
-                    }, 0.15 * i)
-
-
-                }
-            }, 1.3 + 0.15 * 6)
-            this.scheduleOnce(() => {
-                cc.tween(this.creeam.children[1]).to(0.4, { position: cc.v3(0, 0), angle: 0 }).start()
-                this.scheduleOnce(() => {
-                    if (this.isStep == 5) {
-                        this.listHand.children[2].active = true
-                    }
-                }, 2.5)
-            }, 3.8)
-        }
-        else {
-            cc.audioEngine.play(this.soundWrong, false, 1)
-            this.creeam.getComponent(cc.Animation).play("btn_wrong")
-        }
-
-    }
 
     setGray(node) {
         node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-gray-sprite', node.getComponent(cc.Sprite)));
