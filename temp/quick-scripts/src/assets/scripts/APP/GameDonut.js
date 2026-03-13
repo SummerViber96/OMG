@@ -79,6 +79,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.timeup = null;
         _this.amazing = null;
         _this.notiCoin = null;
+        _this.notiMission = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -143,6 +144,7 @@ var NewClass = /** @class */ (function (_super) {
         return _this;
     }
     NewClass.prototype.onLoad = function () {
+        var _this = this;
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
@@ -151,20 +153,33 @@ var NewClass = /** @class */ (function (_super) {
         for (var i = 0; i < this.listCus.childrenCount; i++) {
             this.arrCus.push(this.listCus.children[i]);
         }
+        this.scheduleOnce(function () {
+            cc.tween(_this.notiMission).to(0.5, { opacity: 0 }).call(function () {
+                _this.notiMission.active = false;
+                _this.clockTime.active = true;
+            }).start();
+        }, 1);
     };
     NewClass.prototype.spawFirstItem = function () {
+        var _this = this;
         var arr = [3, 0, 5, 4, 6, 7, 8, 1, 2];
         var arr2 = [7, 1, 2, 8, 3, 0, 5, 6, 2,];
-        for (var i = 0; i < arr.length; i++) {
+        var _loop_1 = function (i) {
             var rd = arr[i];
-            var item = cc.instantiate(this.listItem[rd]);
-            item.parent = this.listRay[0];
-            this.arrItem[0].push(item);
+            var item = cc.instantiate(this_1.listItem[rd]);
+            item.parent = this_1.listRay[0];
+            this_1.arrItem[0].push(item);
             item.position = cc.v3((i - 4) * 250, -40);
             if (i == 4) {
-                item.getChildByName("hand").active = true;
-                this.isHand = item.getChildByName("hand");
+                this_1.scheduleOnce(function () {
+                    item.getChildByName("hand").active = true;
+                    _this.isHand = item.getChildByName("hand");
+                }, 1);
             }
+        };
+        var this_1 = this;
+        for (var i = 0; i < arr.length; i++) {
+            _loop_1(i);
         }
         for (var i = 0; i < arr.length; i++) {
             var rd = arr2[i];
@@ -185,8 +200,8 @@ var NewClass = /** @class */ (function (_super) {
             this.isStartgame = true;
             this.isHand.active = false;
             this.guild.active = false;
-            var _loop_1 = function (i) {
-                var item = this_1.arrItem[0][i];
+            var _loop_2 = function (i) {
+                var item = this_2.arrItem[0][i];
                 var posNext = item.position.x - 2000;
                 cc.tween(item)
                     .to(17, { x: posNext })
@@ -195,12 +210,12 @@ var NewClass = /** @class */ (function (_super) {
                 })
                     .start();
             };
-            var this_1 = this;
+            var this_2 = this;
             for (var i = 0; i < this.arrItem[0].length; i++) {
-                _loop_1(i);
+                _loop_2(i);
             }
-            var _loop_2 = function (i) {
-                var item = this_2.arrItem[1][i];
+            var _loop_3 = function (i) {
+                var item = this_3.arrItem[1][i];
                 var posNext = item.position.x + 2000;
                 cc.tween(item)
                     .to(16, { x: posNext })
@@ -209,9 +224,9 @@ var NewClass = /** @class */ (function (_super) {
                 })
                     .start();
             };
-            var this_2 = this;
+            var this_3 = this;
             for (var i = 0; i < this.arrItem[1].length; i++) {
-                _loop_2(i);
+                _loop_3(i);
             }
             this.scheduleOnce(function () {
                 _this.spawnItem();
@@ -248,15 +263,15 @@ var NewClass = /** @class */ (function (_super) {
         }
         var targetKhay = this.arrKhay[place];
         cc.tween(targetKhay).to(0.3, { scale: 0 }).start();
-        var _loop_3 = function (i) {
-            var khay = this_3.arrKhay[i];
+        var _loop_4 = function (i) {
+            var khay = this_4.arrKhay[i];
             cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).call(function () {
                 _this.arrKhay[i - 1] = khay;
             }).start();
         };
-        var this_3 = this;
+        var this_4 = this;
         for (var i = place + 1; i < this.arrKhay.length; i++) {
-            _loop_3(i);
+            _loop_4(i);
         }
         this.scheduleOnce(function () {
             _this.arrKhay.splice(place, 1);
@@ -559,6 +574,7 @@ var NewClass = /** @class */ (function (_super) {
         this.listRayNode.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0);
         this.timeup.scale = (logic) ? 1 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
+        this.notiMission.scale = (logic) ? 1.5 : 1;
         this.btnDownload.active = (logic) ? true : false;
         if (logic == true) {
             this.isDoc = true;
@@ -752,6 +768,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Animation)
     ], NewClass.prototype, "notiCoin", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "notiMission", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -130,6 +130,11 @@ export default class NewClass extends cc.Component {
         }, 0.5)
 
     }
+    laugh(){
+        if(this.soundHappy){
+            cc.audioEngine.play(this.soundHappy,false,0.8)
+        }
+    }
     update(dt) {
 
         // this.lbCountSc.string = "x" + this.count[1].toString()
@@ -143,6 +148,9 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.anim.setAnimation(0, "3.buy_idle", true)
         }, 1)
+         if(this.soundHappy){
+            cc.audioEngine.play(this.soundHappy,false,0.8)
+        }
 
     }
     angry() {

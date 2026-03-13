@@ -125,6 +125,11 @@ var NewClass = /** @class */ (function (_super) {
             }).start();
         }, 0.5);
     };
+    NewClass.prototype.laugh = function () {
+        if (this.soundHappy) {
+            cc.audioEngine.play(this.soundHappy, false, 0.8);
+        }
+    };
     NewClass.prototype.update = function (dt) {
         // this.lbCountSc.string = "x" + this.count[1].toString()
         // this.lbCountDau.string = "x" + this.count[0].toString()
@@ -137,6 +142,9 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.anim.setAnimation(0, "3.buy_idle", true);
         }, 1);
+        if (this.soundHappy) {
+            cc.audioEngine.play(this.soundHappy, false, 0.8);
+        }
     };
     NewClass.prototype.angry = function () {
         this.anim.setAnimation(0, "7.angry_idle", true);

@@ -104,7 +104,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     amazing: cc.Node = null
     @property(cc.Animation)
-    notiCoin:cc.Animation=null
+    notiCoin: cc.Animation = null
+    @property(cc.Node)
+    notiMission: cc.Node = null
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -147,6 +149,12 @@ export default class NewClass extends cc.Component {
         for (let i = 0; i < this.listCus.childrenCount; i++) {
             this.arrCus.push(this.listCus.children[i])
         }
+        this.scheduleOnce(() => {
+            cc.tween(this.notiMission).to(0.5, { opacity: 0 }).call(() => {
+                this.notiMission.active = false;
+                this.clockTime.active = true
+            }).start()
+        }, 1)
     }
     isHand = null
     spawFirstItem() {
@@ -162,8 +170,11 @@ export default class NewClass extends cc.Component {
 
             item.position = cc.v3((i - 4) * 250, -40);
             if (i == 4) {
-                item.getChildByName("hand").active = true
-                this.isHand = item.getChildByName("hand")
+                this.scheduleOnce(() => {
+ item.getChildByName("hand").active = true
+                this.isHand = item.getChildByName("hand"  )
+                }, 1)
+             
             }
         }
         for (let i = 0; i < arr.length; i++) {
@@ -629,7 +640,7 @@ export default class NewClass extends cc.Component {
         this.listRayNode.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0)
         this.timeup.scale = (logic) ? 1 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
-
+        this.notiMission.scale = (logic) ? 1.5 : 1
         this.btnDownload.active = (logic) ? true : false
         if (logic == true) {
             this.isDoc = true
