@@ -156,9 +156,10 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             cc.tween(_this.notiMission).to(0.5, { opacity: 0 }).call(function () {
                 _this.notiMission.active = false;
-                _this.clockTime.active = true;
+                // this.clockTime.active = true
+                _this.clockTime.getComponent("timeClock").click();
             }).start();
-        }, 1);
+        }, 1.5);
     };
     NewClass.prototype.spawFirstItem = function () {
         var _this = this;
@@ -174,7 +175,7 @@ var NewClass = /** @class */ (function (_super) {
                 this_1.scheduleOnce(function () {
                     item.getChildByName("hand").active = true;
                     _this.isHand = item.getChildByName("hand");
-                }, 1);
+                }, 1.5);
             }
         };
         var this_1 = this;
@@ -249,7 +250,6 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.spawNextKhay = function (place) {
         var _this = this;
         // this.arrTargetMission.shift();
-        console.log(this.countMiss, this.arrTargetMission);
         this.arrTargetMission.splice(place, 1);
         this.arrTargetMission.push(this.arrMission[this.countMiss]);
         if (this.isCountCus <= 7 && this.countMiss < 7) {

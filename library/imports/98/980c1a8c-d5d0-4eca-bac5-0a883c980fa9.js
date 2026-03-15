@@ -58,7 +58,7 @@ var NewClass = /** @class */ (function (_super) {
         this.clock.getComponent(cc.Animation).stop();
         this.clock.angle = 0;
         cc.tween(this.lbCountTime.node).to(0.3, { opacity: 0 }).start();
-        this.gamePlay.moveClocktoUI(this.clock);
+        // this.gamePlay.moveClocktoUI(this.clock)
         cc.tween(this.node.children[0]).to(0.4, { opacity: 0 }).call(function () {
             _this.node.active = false;
             // this.timeBar.getComponent("barTime").countDown();

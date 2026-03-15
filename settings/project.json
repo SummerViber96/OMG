@@ -14,7 +14,6 @@
   ],
   "excluded-modules": [
     "Collider",
-    "Dynamic Atlas",
     "DragonBones",
     "EditBox",
     "Graphics",
@@ -30,7 +29,6 @@
     "PageViewIndicator",
     "ParticleSystem",
     "RichText",
-    "Renderer Texture",
     "Slider",
     "ScrollBar",
     "ScrollView",

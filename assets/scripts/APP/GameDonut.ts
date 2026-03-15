@@ -152,9 +152,10 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             cc.tween(this.notiMission).to(0.5, { opacity: 0 }).call(() => {
                 this.notiMission.active = false;
-                this.clockTime.active = true
+                // this.clockTime.active = true
+                this.clockTime.getComponent("timeClock").click()
             }).start()
-        }, 1)
+        }, 1.5)
     }
     isHand = null
     spawFirstItem() {
@@ -173,7 +174,7 @@ export default class NewClass extends cc.Component {
                 this.scheduleOnce(() => {
  item.getChildByName("hand").active = true
                 this.isHand = item.getChildByName("hand"  )
-                }, 1)
+                }, 1.5)
              
             }
         }
@@ -243,7 +244,6 @@ export default class NewClass extends cc.Component {
     countMiss = 3
     spawNextKhay(place) {
         // this.arrTargetMission.shift();
-        console.log(this.countMiss, this.arrTargetMission)
         this.arrTargetMission.splice(place, 1)
         this.arrTargetMission.push(this.arrMission[this.countMiss])
 

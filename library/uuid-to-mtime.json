@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1773393370068,
+    "meta": 1773597725747,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1773393370305,
+    "meta": 1773597725750,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -9920,8 +9920,8 @@
     "relativePath": "CakeAssembly\\Think You can do better _KitchenCraze_CTA (1).mp3"
   },
   "14d26e6d-83d5-416d-85fe-6cf2c4f7e5ad": {
-    "asset": 1773148069770,
-    "meta": 1773393358204,
+    "asset": 1773393871692,
+    "meta": 1773597725740,
     "relativePath": "New Folder"
   },
   "e19b6d76-55f0-41d3-82c1-6e2ec1a43bf6": {
@@ -10109,11 +10109,6 @@
     "meta": 1773393351684,
     "relativePath": "CakeAssembly\\Fail (1) (1) (1).png"
   },
-  "980c1a8c-d5d0-4eca-bac5-0a883c980fa9": {
-    "asset": 1773186875615,
-    "meta": 1773393351672,
-    "relativePath": "CakeAssembly\\script\\timeClock.ts"
-  },
   "3b8d3893-455a-4431-b997-6e0fa137c29c": {
     "asset": 1773187475553,
     "meta": 1773393350501,
@@ -10195,8 +10190,8 @@
     "relativePath": "New Folder\\Scripts\\Item.ts"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1773394787751,
-    "meta": 1773394787770,
+    "asset": 1773601952818,
+    "meta": 1773601952836,
     "relativePath": "scenes\\Donut1.fire"
   },
   "4271f0ae-65ac-417f-a71d-7365fb1c1221": {
@@ -10739,9 +10734,19 @@
     "meta": 1773394311952,
     "relativePath": "cooking\\ietm\\cusMission.ts"
   },
+  "4c180069-f99f-4ee9-926c-ef64ee24b649": {
+    "asset": 1773598062192,
+    "meta": 1773598062250,
+    "relativePath": "New Folder\\Goal_BG.png"
+  },
+  "980c1a8c-d5d0-4eca-bac5-0a883c980fa9": {
+    "asset": 1773598371841,
+    "meta": 1773598372565,
+    "relativePath": "CakeAssembly\\script\\timeClock.ts"
+  },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1773394727159,
-    "meta": 1773394728856,
+    "asset": 1773598746544,
+    "meta": 1773598749250,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }
