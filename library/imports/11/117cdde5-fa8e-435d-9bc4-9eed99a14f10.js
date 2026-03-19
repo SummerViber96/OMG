@@ -30,11 +30,15 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.tag = 0;
         _this.gameplay = null;
+        _this.width = 0;
+        _this.height = 0;
         return _this;
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
         this.gameplay = cc.Canvas.instance.node.getComponent("GameDonut");
+        this.height = this.node.children[1].height;
+        this.width = this.node.children[1].width;
     };
     NewClass.prototype.click = function () {
         var _this = this;
@@ -61,13 +65,20 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.loadGray = function () {
-        this.setGray(this.node.children[1]);
+        var _this = this;
+        this.scheduleOnce(function () {
+            _this.setGray(_this.node.children[1]);
+        }, 0.2);
     };
     NewClass.prototype.setGray = function (node) {
         node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-gray-sprite', node.getComponent(cc.Sprite)));
+        this.node.children[1].height = this.height;
+        this.node.children[1].width = this.width;
     };
     NewClass.prototype.offGray = function (node) {
         node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-sprite', node.getComponent(cc.Sprite)));
+        this.node.children[1].height = this.height;
+        this.node.children[1].width = this.width;
     };
     __decorate([
         property(cc.Integer)

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Goal_BG",
+    "texture": "bdf46a66-9aa6-450c-919b-805f7b5549c4",
+    "atlas": "",
+    "rect": [
+      0,
+      72,
+      2311,
+      307
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      2311,
+      450
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

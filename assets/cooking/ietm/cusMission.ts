@@ -6,6 +6,10 @@ const { ccclass, property } = cc._decorator;
 export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundHappy: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundAngry: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundAngry2: cc.AudioClip = null
     @property(cc.Boolean)
     dau = false
     @property(cc.Boolean)
@@ -130,9 +134,9 @@ export default class NewClass extends cc.Component {
         }, 0.5)
 
     }
-    laugh(){
-        if(this.soundHappy){
-            cc.audioEngine.play(this.soundHappy,false,0.8)
+    laugh() {
+        if (this.soundHappy) {
+            cc.audioEngine.play(this.soundHappy, false, 0.8)
         }
     }
     update(dt) {
@@ -148,8 +152,8 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.anim.setAnimation(0, "3.buy_idle", true)
         }, 1)
-         if(this.soundHappy){
-            cc.audioEngine.play(this.soundHappy,false,0.8)
+        if (this.soundHappy) {
+            cc.audioEngine.play(this.soundHappy, false, 0.8)
         }
 
     }
@@ -194,7 +198,10 @@ export default class NewClass extends cc.Component {
                         changedYellow = true;
                         this.fillBar.spriteFrame = this.fillYellow;
                         this.anim.setAnimation(0, "6.angry", true);
+                        if (this.soundAngry) {
+                            cc.audioEngine.play(this.soundAngry, false, 1)
 
+                        }
                     }
 
                     if (value <= 0.25 && !changedRed) {
@@ -202,10 +209,19 @@ export default class NewClass extends cc.Component {
                         this.fillBar.spriteFrame = this.fillRed;
                         this.anim.setAnimation(0, "7.angry_idle", true);
 
+                        if (this.soundAngry2) {
+                            cc.audioEngine.play(this.soundAngry2, false, 1)
+
+                        }
                     }
 
                     return value;
                 }
+            }).call(()=>{
+            //  this.gamePlay.onEndGame(false)   
+            let id=this.gamePlay.getPlace(this.node)
+            this.gamePlay.enqueueMove(this.node);
+
             })
             .start();
     }

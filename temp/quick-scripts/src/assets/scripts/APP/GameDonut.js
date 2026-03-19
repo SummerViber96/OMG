@@ -80,6 +80,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.amazing = null;
         _this.notiCoin = null;
         _this.notiMission = null;
+        _this.listPreCus = [];
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -105,7 +106,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.spawnX = 700; // vị trí spawn bên phải
         _this.arrItem = [[], []];
         _this.arrKhay = [];
-        _this.arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 8], [7, 5], [3, 1, 2], [1, 2, 6], [8, 3, 2], [0, 6]];
+        _this.arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 8], [7, 5, 6], [3, 1, 2], [1, 2, 6], [8, 3, 2], [1, 0, 6], [2, 5], [4, 6, 0], [7, 1], [3, 1, 2], [5, 8, 6], [3.4], [0, 2], [7, 1]];
         _this.arrTargetMission = [];
         _this.arrCus = [];
         _this.isStartgame = false;
@@ -114,6 +115,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.isCountCus = 3;
         _this.isCountDone = 0;
         _this.isMoving = false;
+        _this.isDem = 0;
+        _this.moveQueue = [];
+        _this.isProcessing = false;
         // isTargetCus=null
         // moveCus() {
         //     if (this.isCountCus < 7) {
@@ -201,6 +205,7 @@ var NewClass = /** @class */ (function (_super) {
             this.isStartgame = true;
             this.isHand.active = false;
             this.guild.active = false;
+            this.guild.opacity = 0;
             var _loop_2 = function (i) {
                 var item = this_2.arrItem[0][i];
                 var posNext = item.position.x - 2000;
@@ -252,15 +257,15 @@ var NewClass = /** @class */ (function (_super) {
         // this.arrTargetMission.shift();
         this.arrTargetMission.splice(place, 1);
         this.arrTargetMission.push(this.arrMission[this.countMiss]);
-        if (this.isCountCus <= 7 && this.countMiss < 7) {
-            var pos = cc.v3(1200, 0);
-            var preKhay = cc.instantiate(this.preKhay);
-            preKhay.parent = this.listKhay;
-            preKhay.position = pos;
-            this.arrKhay.push(preKhay);
-            this.loadDataKhay(this.arrMission[this.countMiss], preKhay);
-            this.countMiss++;
-        }
+        // if ( this.countMiss < 9) {
+        var pos = cc.v3(1200, 0);
+        var preKhay = cc.instantiate(this.preKhay);
+        preKhay.parent = this.listKhay;
+        preKhay.position = pos;
+        this.arrKhay.push(preKhay);
+        this.loadDataKhay(this.arrMission[this.countMiss], preKhay);
+        this.countMiss++;
+        // }
         var targetKhay = this.arrKhay[place];
         cc.tween(targetKhay).to(0.3, { scale: 0 }).start();
         var _loop_4 = function (i) {
@@ -280,15 +285,18 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.loadDataKhay = function (data, khay) {
         if (data) {
-            var arr = [cc.v3(-170, -20), cc.v3(260, -20)];
+            // let arr = [cc.v3(-170, -20), cc.v3(260, -20)]
+            var arr = [cc.v3(-60, -10), cc.v3(80, -10)];
             if (data.length == 3) {
-                arr = [cc.v3(-256, -20), cc.v3(112.838, -20), cc.v3(427, -20)];
+                // arr = [cc.v3(-256, -20), cc.v3(112.838, -20), cc.v3(427, -20)]
+                arr = [cc.v3(-75, -10), cc.v3(30, -10), cc.v3(120, -10)];
             }
             for (var i = 0; i < data.length; i++) {
                 var item = cc.instantiate(this.listItem[data[i]]);
                 item.parent = khay;
                 item.position = arr[i];
-                item.scale = 2.2;
+                item.scale = 0.65;
+                item.getComponent(cc.Button).enabled = false;
                 item.getComponent("Item").loadGray();
             }
         }
@@ -330,7 +338,8 @@ var NewClass = /** @class */ (function (_super) {
             if (j != null) {
                 var targetKhay = _this.arrKhay[i].children[j];
                 targetKhay.getComponent("Item").offGray(targetKhay.children[1]);
-                cc.tween(targetKhay).to(0.2, { scale: 2.5 }).to(0.1, { scale: 2.2 }).start();
+                // cc.tween(targetKhay).to(0.2, { scale: 2.5 }).to(0.1, { scale: 2.2 }).start()
+                cc.tween(targetKhay).to(0.2, { scale: 0.9 }).to(0.1, { scale: 0.65 }).start();
             }
         }, 0.6);
         var mission = this.arrTargetMission[i];
@@ -351,61 +360,103 @@ var NewClass = /** @class */ (function (_super) {
                 _this.notiCoin.play();
                 globalThis.coin += 50;
                 if (mission.length == 3) {
-                    globalThis.coin += 20;
+                    globalThis.coin += 100;
+                }
+                if (globalThis.coin >= 1000) {
+                    _this.onEndGame(true);
                 }
                 cc.audioEngine.play(_this.soundSellDone, false, 1);
             }, 0.6);
             this.scheduleOnce(function () {
-                _this.moveCusOut(i);
+                // this.moveCusOut(i)
+                _this.enqueueMove(_this.arrCus[i]);
             }, 0.8);
-            //bonus tien
-            // if (i == 0) {
-            //     this.scheduleOnce(() => {
-            //         this.moveCus();
-            //     }, 0.8)
-            // }
-            // else {
-            //     this.checkSuccessItem()
-            // }
-            if (this.isCountDone == 7) {
-                this.scheduleOnce(function () {
-                    _this.onEndGame(true);
-                }, 0.5);
-            }
-        }
-        else {
-            // this.checkSuccessItem()
         }
     };
-    NewClass.prototype.moveCusOut = function (place) {
+    NewClass.prototype.getPlace = function (cus) {
+        return this.arrCus.indexOf(cus); // gọn hơn
+    };
+    NewClass.prototype.enqueueMove = function (cusNode) {
+        this.moveQueue.push(cusNode);
+        this.processQueue();
+    };
+    NewClass.prototype.processQueue = function () {
+        if (this.isProcessing)
+            return;
+        if (this.moveQueue.length === 0)
+            return;
+        this.isProcessing = true;
+        var cusNode = this.moveQueue.shift();
+        this._moveCusOut(cusNode);
+    };
+    NewClass.prototype._moveCusOut = function (cusNode) {
         var _this = this;
-        var firstCus = this.arrCus[place];
-        if (this.isCountCus < 7) {
-            var nextCus = this.listCus.children[this.isCountCus];
+        // if (place < 0 || place >= this.arrCus.length) return;
+        var place = this.arrCus.indexOf(cusNode);
+        // if (place < 0 || place >= this.arrCus.length) {
+        //     this.finishMove();
+        //     return;
+        // }
+        if (place === -1) {
+            this.finishMove();
+            return;
+        }
+        this.isMoving = true;
+        // let firstCus = this.arrCus[place];
+        var firstCus = cusNode;
+        // ===== Spawn customer tiếp theo =====
+        var nextCus = this.listCus.children[this.isCountCus];
+        if (nextCus) {
             nextCus.active = true;
             this.isTargetCus = nextCus;
-            // this.arrCus[2] = nextCus
             this.isCountCus++;
         }
+        // ===== Tạo customer mới ở cuối =====
+        var newCus = cc.instantiate(this.listPreCus[this.isDem]);
+        newCus.parent = this.listCus;
+        var lastCus = this.arrCus[this.arrCus.length - 1];
+        newCus.position = lastCus.position.add(cc.v3(600, 0));
+        this.isDem = (this.isDem + 1) % this.listPreCus.length;
+        "";
+        this.arrCus.push(newCus);
+        // ===== Move thằng bị out =====
         firstCus.zIndex = -1;
-        cc.tween(firstCus).delay(0.3).by(0.8 * (place + 1), { position: cc.v3(-600 * (place + 1)) }).start();
-        cc.tween(firstCus).delay(0.3).to(0.5, { opacity: 0 }).start();
-        for (var i = place; i < this.arrCus.length; i++) {
+        cc.tween(firstCus)
+            .delay(0.3)
+            .by(0.8 * (place + 1), { position: cc.v3(-600 * (place + 1), 0) })
+            .start();
+        cc.tween(firstCus)
+            .delay(0.3)
+            .to(0.5, { opacity: 0 })
+            .start();
+        // ===== Move các thằng phía sau =====
+        for (var i = place + 1; i < this.arrCus.length; i++) {
             var child = this.arrCus[i];
-            cc.tween(child).delay(0.3).by(0.8, { position: cc.v3(-600, 0) }).call(function () {
-                if (_this.isTargetCus) {
-                    _this.isTargetCus.getComponent("cusMission").loadTime();
-                    // this.arrCus[i - 1] = child
-                }
-            }).start();
+            cc.tween(child)
+                .delay(0.3)
+                .by(0.8, { position: cc.v3(-600, 0) })
+                .start();
         }
+        // ===== Gọi loadTime đúng 1 lần =====
+        if (this.isTargetCus) {
+            this.scheduleOnce(function () {
+                _this.isTargetCus.getComponent("cusMission").loadTime();
+            }, 0.4);
+        }
+        // ===== Remove khỏi mảng =====
         this.scheduleOnce(function () {
             _this.arrCus.splice(place, 1);
             _this.isMoving = false;
+            _this.finishMove();
         }, 1.1);
+        // ===== Spawn khay =====
         this.scheduleOnce(function () {
             _this.spawNextKhay(place);
         }, 0.3);
+    };
+    NewClass.prototype.finishMove = function () {
+        this.isProcessing = false;
+        this.processQueue(); // chạy tiếp thằng kế tiếp
     };
     NewClass.prototype.checkSuccessItem = function () {
         for (var i = 0; i < 1; i++) {
@@ -771,6 +822,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "notiMission", void 0);
+    __decorate([
+        property([cc.Prefab])
+    ], NewClass.prototype, "listPreCus", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
