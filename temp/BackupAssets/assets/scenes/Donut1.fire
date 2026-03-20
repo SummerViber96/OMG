@@ -11432,9 +11432,9 @@
       "__id__": 267
     },
     "_enabled": true,
-    "androidLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
-    "iosLink": "https://apps.apple.com/us/app/cooking-crunch-cooking-games/id6754305934",
-    "defaultLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
+    "iosLink": "https://apps.apple.com/us/app/kitchen-craze-cooking-games/id1155324155",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.KitchenCraze",
     "_id": "dflW3HNjBHWKSc4Ugar800"
   },
   {
@@ -12410,8 +12410,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 949,
-      "height": 599
+      "width": 1083.2,
+      "height": 945.6
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -12463,10 +12463,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "65830545-cea6-4a32-9edd-391b2597162e"
+      "__uuid__": "4f1ca596-f38e-4359-93b0-3df9b4fdea38"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -13455,8 +13455,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 949,
-      "height": 599
+      "width": 1083.2,
+      "height": 945.6
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -13508,10 +13508,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "65830545-cea6-4a32-9edd-391b2597162e"
+      "__uuid__": "4f1ca596-f38e-4359-93b0-3df9b4fdea38"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -18052,7 +18052,7 @@
       "__uuid__": "24fbb393-28ba-4809-8ecb-a8e2ffeb60e3"
     },
     "soundThinking": {
-      "__uuid__": "37862389-8556-4fd6-846f-333d8e7491d8"
+      "__uuid__": "117cd662-fe4f-4e54-bb30-7268167f39a7"
     },
     "soundCream": {
       "__uuid__": "a6d17731-f471-4f04-808e-54979f6fadd0"
@@ -18067,7 +18067,7 @@
       "__uuid__": "92810da8-9b43-4bbd-acfb-32ff9bc3aea3"
     },
     "soundThinkWin": {
-      "__uuid__": "ab177ad2-bc15-43d2-a653-9e75d93df36b"
+      "__uuid__": "b4255250-5ad4-4181-ac1c-6ab86ebb03d4"
     },
     "tut": null,
     "hand": null,
