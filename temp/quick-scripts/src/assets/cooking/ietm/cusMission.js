@@ -183,7 +183,7 @@ var NewClass = /** @class */ (function (_super) {
             progress: function (start, end, current, ratio) {
                 var value = start + (end - start) * ratio;
                 _this.fillBar.fillRange = value;
-                if (value <= 0.5 && !changedYellow) {
+                if (value <= 0.5 && !changedYellow && _this.isSuccess == false) {
                     changedYellow = true;
                     _this.fillBar.spriteFrame = _this.fillYellow;
                     _this.anim.setAnimation(0, "6.angry", true);
@@ -195,7 +195,7 @@ var NewClass = /** @class */ (function (_super) {
                     changedRed = true;
                     _this.fillBar.spriteFrame = _this.fillRed;
                     _this.anim.setAnimation(0, "7.angry_idle", true);
-                    if (_this.soundAngry2) {
+                    if (_this.soundAngry2 && _this.isSuccess == false) {
                         cc.audioEngine.play(_this.soundAngry2, false, 1);
                     }
                 }

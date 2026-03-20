@@ -421,6 +421,7 @@ var NewClass = /** @class */ (function (_super) {
         this.arrCus.push(newCus);
         // ===== Move thằng bị out =====
         firstCus.zIndex = -1;
+        firstCus.getComponent("cusMission").isSuccess = true;
         cc.tween(firstCus)
             .delay(0.3)
             .by(0.8 * (place + 1), { position: cc.v3(-600 * (place + 1), 0) })

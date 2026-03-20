@@ -194,7 +194,7 @@ export default class NewClass extends cc.Component {
                     let value = start + (end - start) * ratio;
                     this.fillBar.fillRange = value;
 
-                    if (value <= 0.5 && !changedYellow) {
+                    if (value <= 0.5 && !changedYellow&&this.isSuccess==false) {
                         changedYellow = true;
                         this.fillBar.spriteFrame = this.fillYellow;
                         this.anim.setAnimation(0, "6.angry", true);
@@ -209,7 +209,7 @@ export default class NewClass extends cc.Component {
                         this.fillBar.spriteFrame = this.fillRed;
                         this.anim.setAnimation(0, "7.angry_idle", true);
 
-                        if (this.soundAngry2) {
+                        if (this.soundAngry2&&this.isSuccess==false) {
                             cc.audioEngine.play(this.soundAngry2, false, 1)
 
                         }
