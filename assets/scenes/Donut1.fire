@@ -11432,9 +11432,9 @@
       "__id__": 267
     },
     "_enabled": true,
-    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games",
-    "iosLink": "https://apps.apple.com/us/app/cooking-crush-cooking-games/id1468882189",
-    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.cooking.crush.food.games",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
+    "iosLink": "https://apps.apple.com/us/app/cooking-crunch-cooking-games/id6754305934",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.kitchen.kraze.cooking.games",
     "_id": "dflW3HNjBHWKSc4Ugar800"
   },
   {
@@ -12410,8 +12410,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 945,
-      "height": 563
+      "width": 949,
+      "height": 599
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -12463,7 +12463,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "d1d28231-4d59-45c7-b3c4-46dfcb8d6fcf"
+      "__uuid__": "65830545-cea6-4a32-9edd-391b2597162e"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -13455,8 +13455,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 945,
-      "height": 563
+      "width": 949,
+      "height": 599
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -13508,7 +13508,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "d1d28231-4d59-45c7-b3c4-46dfcb8d6fcf"
+      "__uuid__": "65830545-cea6-4a32-9edd-391b2597162e"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -18052,7 +18052,7 @@
       "__uuid__": "24fbb393-28ba-4809-8ecb-a8e2ffeb60e3"
     },
     "soundThinking": {
-      "__uuid__": "9842598c-845d-4f7a-ba9c-eaa8b9345125"
+      "__uuid__": "37862389-8556-4fd6-846f-333d8e7491d8"
     },
     "soundCream": {
       "__uuid__": "a6d17731-f471-4f04-808e-54979f6fadd0"
@@ -18067,7 +18067,7 @@
       "__uuid__": "92810da8-9b43-4bbd-acfb-32ff9bc3aea3"
     },
     "soundThinkWin": {
-      "__uuid__": "bec37d6c-5a85-4bc7-865f-0b6927653a34"
+      "__uuid__": "ab177ad2-bc15-43d2-a653-9e75d93df36b"
     },
     "tut": null,
     "hand": null,
