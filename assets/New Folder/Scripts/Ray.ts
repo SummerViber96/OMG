@@ -19,6 +19,7 @@ export default class NewClass extends cc.Component {
     gameplay = null
     protected start(): void {
         this.rayWidth = this.node.children[0].width;
+        console.log(this.node.children[0].width)
         this.gameplay = cc.Canvas.instance.node.getComponent("GameDonut")
 
     }

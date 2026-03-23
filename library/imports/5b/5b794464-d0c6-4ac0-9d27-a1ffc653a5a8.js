@@ -42,6 +42,7 @@ var NewClass = /** @class */ (function (_super) {
     }
     NewClass.prototype.start = function () {
         this.rayWidth = this.node.children[0].width;
+        console.log(this.node.children[0].width);
         this.gameplay = cc.Canvas.instance.node.getComponent("GameDonut");
     };
     NewClass.prototype.update = function (dt) {

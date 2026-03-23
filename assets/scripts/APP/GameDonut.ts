@@ -435,7 +435,7 @@ export default class NewClass extends cc.Component {
 
         // ===== Move thằng bị out =====
         firstCus.zIndex = -1;
-firstCus.getComponent("cusMission").isSuccess=true
+        firstCus.getComponent("cusMission").isSuccess = true
         cc.tween(firstCus)
             .delay(0.3)
             .by(0.8 * (place + 1), { position: cc.v3(-600 * (place + 1), 0) })
@@ -689,7 +689,7 @@ firstCus.getComponent("cusMission").isSuccess=true
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
-        this.camera.node.position = cc.v3(0, 0)
+        this.camera.node.position = (logic) ? cc.v3(0, -70) : cc.v3(0, 0)
         this.barTime.scale = (logic) ? 2 : 1.1
         this.barCoin.scale = (logic) ? 2 : 1.1
         this.clockTime.scale = (logic) ? 1.7 : 1
@@ -700,13 +700,16 @@ firstCus.getComponent("cusMission").isSuccess=true
         this.listCus.scale = (logic) ? 0.7 : 1
         this.listKhay.position = (logic) ? cc.v3(220, 14.6) : cc.v3(0, 14.6)
         this.listKhay.scale = (logic) ? 0.7 : 1
-        this.listRayNode.scale = (logic) ? 0.8 : 1
-        this.listRayNode.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0)
+        this.listRayNode.parent.scale = (logic) ? 0.8 : 1
+        this.listRayNode.parent.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0)
+        // this.listRay[0].parent.scale = (logic) ? 0.8 : 1
+        // this.listRay[0].parent.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0)
         this.timeup.scale = (logic) ? 1 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
         this.notiMission.scale = (logic) ? 1.5 : 1
         this.btnDownload.active = (logic) ? true : false
         if (logic == true) {
+            // this.camera.zoomRatio
             this.isDoc = true
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
