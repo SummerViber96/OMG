@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Tap and Serve_Playable",
+    "texture": "bb22ebf9-1bd3-46a3-9512-4d3071a80f95",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2438,
+      1275
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2438,
+      1275
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

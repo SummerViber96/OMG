@@ -34,6 +34,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.dau = false;
         _this.socola = false;
         _this.count = [];
+        _this.order = [];
         _this.lbCountSc = null;
         _this.lbCountDau = null;
         _this.pop = null;
@@ -53,6 +54,9 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         // this.loadTime()
+    };
+    NewClass.prototype.showMission = function () {
+        this.pop.getComponent(cc.Animation).play();
     };
     NewClass.prototype.updateMission = function (value) {
         var _this = this;
@@ -226,6 +230,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property([cc.Integer])
     ], NewClass.prototype, "count", void 0);
+    __decorate([
+        property([cc.Integer])
+    ], NewClass.prototype, "order", void 0);
     __decorate([
         property(cc.Label)
     ], NewClass.prototype, "lbCountSc", void 0);

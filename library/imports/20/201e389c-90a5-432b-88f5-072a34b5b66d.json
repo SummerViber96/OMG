@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Группа 11",
+    "texture": "9ffe9238-f180-4188-bd1f-509e8dd836f7",
+    "atlas": "",
+    "rect": [
+      89,
+      101,
+      239,
+      163
+    ],
+    "offset": [
+      0.5,
+      -12
+    ],
+    "originalSize": [
+      416,
+      341
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "7093f2b2-72bb-458c-8cab-bdba9055e687",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2438,
+  "height": 1275,
+  "platformSettings": {},
+  "subMetas": {
+    "Design the Floor and incomplete walls in empty area": {
+      "ver": "1.0.4",
+      "uuid": "dffdd0b8-f90e-4f26-9f15-f95329334579",
+      "rawTextureUuid": "7093f2b2-72bb-458c-8cab-bdba9055e687",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 2438,
+      "height": 1275,
+      "rawWidth": 2438,
+      "rawHeight": 1275,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

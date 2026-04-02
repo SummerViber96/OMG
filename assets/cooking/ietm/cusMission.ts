@@ -14,9 +14,10 @@ export default class NewClass extends cc.Component {
     dau = false
     @property(cc.Boolean)
     socola = false;
-
     @property([cc.Integer])
     count = []
+    @property([cc.Integer])
+    order = []
     @property(cc.Label)
     lbCountSc: cc.Label = null
     @property(cc.Label)
@@ -35,6 +36,7 @@ export default class NewClass extends cc.Component {
     fillYellow: cc.SpriteFrame = null;
     @property(cc.SpriteFrame)
     fillRed: cc.SpriteFrame = null;
+
     @property(cc.Integer)
     timeWaiting = 30
     isEnd = false
@@ -45,7 +47,9 @@ export default class NewClass extends cc.Component {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
         // this.loadTime()
     }
-
+    showMission() {
+        this.pop.getComponent(cc.Animation).play()
+    }
 
     updateMission(value) { //1:socola //0:dau
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1)
@@ -194,7 +198,7 @@ export default class NewClass extends cc.Component {
                     let value = start + (end - start) * ratio;
                     this.fillBar.fillRange = value;
 
-                    if (value <= 0.5 && !changedYellow&&this.isSuccess==false) {
+                    if (value <= 0.5 && !changedYellow && this.isSuccess == false) {
                         changedYellow = true;
                         this.fillBar.spriteFrame = this.fillYellow;
                         this.anim.setAnimation(0, "6.angry", true);
@@ -209,7 +213,7 @@ export default class NewClass extends cc.Component {
                         this.fillBar.spriteFrame = this.fillRed;
                         this.anim.setAnimation(0, "7.angry_idle", true);
 
-                        if (this.soundAngry2&&this.isSuccess==false) {
+                        if (this.soundAngry2 && this.isSuccess == false) {
                             cc.audioEngine.play(this.soundAngry2, false, 1)
 
                         }
@@ -217,10 +221,10 @@ export default class NewClass extends cc.Component {
 
                     return value;
                 }
-            }).call(()=>{
-            //  this.gamePlay.onEndGame(false)   
-            let id=this.gamePlay.getPlace(this.node)
-            this.gamePlay.enqueueMove(this.node);
+            }).call(() => {
+                //  this.gamePlay.onEndGame(false)   
+                let id = this.gamePlay.getPlace(this.node)
+                this.gamePlay.enqueueMove(this.node);
 
             })
             .start();

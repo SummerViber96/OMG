@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Coke#2Red",
+    "texture": "1fc1a52b-bd13-4599-8416-0bd44a1d67ff",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      127,
+      189
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      127,
+      189
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

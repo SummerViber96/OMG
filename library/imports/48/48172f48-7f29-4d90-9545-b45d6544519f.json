@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Группа 11Red",
+    "texture": "f28c973c-1a8e-456e-bb03-7ab5952d6ffc",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      262,
+      188
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      262,
+      188
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

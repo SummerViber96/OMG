@@ -1,5 +1,5 @@
 "use strict";
-cc._RF.push(module, 'e8778zXcBZHvK+TTP4/Ph/t', 'GameDonut');
+cc._RF.push(module, '6f707kejClBjKTl44QvevBE', 'GameDonut');
 // scripts/APP/GameDonut.ts
 
 "use strict";
@@ -81,8 +81,12 @@ var NewClass = /** @class */ (function (_super) {
         _this.notiCoin = null;
         _this.notiMission = null;
         _this.listPreCus = [];
-        // @property(cc.Camera)
-        // camera:cc.Camera=null
+        _this.bg = null;
+        _this.table = null;
+        _this.listMenu = null;
+        _this.handtut = null;
+        _this.shadow = null;
+        _this.btnPizza = null;
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
         _this.arrDonut = [null, null, null, null, null, null, null];
@@ -106,12 +110,11 @@ var NewClass = /** @class */ (function (_super) {
         _this.spawnX = 700; // vị trí spawn bên phải
         _this.arrItem = [[], []];
         _this.arrKhay = [];
-        _this.arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 8], [7, 5, 6], [3, 1, 2], [1, 2, 6], [8, 3, 2], [1, 0, 6], [2, 5], [4, 6, 0], [7, 1], [3, 1, 2], [5, 8, 6], [3.4], [0, 2], [7, 1]];
+        // arrMission = [[6, 7], [3, 2], [0, 4, 1], [0, 8], [7, 5, 6], [3, 1, 2], [1, 2, 6], [8, 3, 2], [1, 0, 6], [2, 5], [4, 6, 0], [7, 1], [3, 1, 2], [5, 8, 6], [3.4], [0, 2], [7, 1]]
         _this.arrTargetMission = [];
         _this.arrCus = [];
         _this.isStartgame = false;
         _this.isHand = null;
-        _this.countMiss = 3;
         _this.isCountCus = 3;
         _this.isCountDone = 0;
         _this.isMoving = false;
@@ -152,158 +155,190 @@ var NewClass = /** @class */ (function (_super) {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        this.spawFirstItem();
-        this.spawFistkhay();
+        // this.spawFirstItem()
+        // this.spawFistkhay()
         for (var i = 0; i < this.listCus.childrenCount; i++) {
             this.arrCus.push(this.listCus.children[i]);
         }
+        // this.scheduleOnce(() => {
+        //     cc.tween(this.notiMission).to(0.5, { opacity: 0 }).call(() => {
+        //         this.notiMission.active = false;
+        //         // this.clockTime.active = true
+        //         this.clockTime.getComponent("timeClock").click()
+        //     }).start()
+        // }, 1.5)
         this.scheduleOnce(function () {
-            cc.tween(_this.notiMission).to(0.5, { opacity: 0 }).call(function () {
-                _this.notiMission.active = false;
-                // this.clockTime.active = true
-                _this.clockTime.getComponent("timeClock").click();
-            }).start();
-        }, 1.5);
+            _this.startGame();
+        }, 0.5);
     };
-    NewClass.prototype.spawFirstItem = function () {
-        var _this = this;
-        var arr = [3, 0, 5, 4, 6, 7, 8, 1, 2];
-        var arr2 = [7, 1, 2, 8, 3, 0, 5, 6, 2,];
-        var _loop_1 = function (i) {
-            var rd = arr[i];
-            var item = cc.instantiate(this_1.listItem[rd]);
-            item.parent = this_1.listRay[0];
-            this_1.arrItem[0].push(item);
-            item.position = cc.v3((i - 4) * 250, -40);
-            if (i == 4) {
-                this_1.scheduleOnce(function () {
-                    item.getChildByName("hand").active = true;
-                    _this.isHand = item.getChildByName("hand");
-                }, 1.5);
-            }
-        };
-        var this_1 = this;
-        for (var i = 0; i < arr.length; i++) {
-            _loop_1(i);
-        }
-        for (var i = 0; i < arr.length; i++) {
-            var rd = arr2[i];
-            var item = cc.instantiate(this.listItem[rd]);
-            item.parent = this.listRay[1];
-            this.arrItem[1].push(item);
-            item.position = cc.v3((i - 4) * 250, -40);
-        }
-    };
+    // spawFirstItem() {
+    //     let arr = [3, 0, 5, 4, 6, 7, 8, 1, 2]
+    //     let arr2 = [7, 1, 2, 8, 3, 0, 5, 6, 2,]
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let rd = arr[i]
+    //         let item = cc.instantiate(this.listItem[rd]);
+    //         item.parent = this.listRay[0];
+    //         this.arrItem[0].push(item);
+    //         item.position = cc.v3((i - 4) * 250, -40);
+    //         if (i == 4) {
+    //             this.scheduleOnce(() => {
+    //                 item.getChildByName("hand").active = true
+    //                 this.isHand = item.getChildByName("hand")
+    //             }, 1.5)
+    //         }
+    //     }
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let rd = arr2[i]
+    //         let item = cc.instantiate(this.listItem[rd]);
+    //         item.parent = this.listRay[1];
+    //         this.arrItem[1].push(item);
+    //         item.position = cc.v3((i - 4) * 250, -40);
+    //     }
+    // }
     NewClass.prototype.startGame = function () {
         var _this = this;
-        if (this.isStartgame == false) {
-            this.barTime.getComponent("barTime").countDown();
-            for (var i = 0; i < 3; i++) {
-                var child = this.arrCus[i];
-                child.getComponent("cusMission").loadTime();
-            }
-            this.isStartgame = true;
-            this.isHand.active = false;
-            this.guild.active = false;
-            this.guild.opacity = 0;
-            var _loop_2 = function (i) {
-                var item = this_2.arrItem[0][i];
-                var posNext = item.position.x - 2000;
-                cc.tween(item)
-                    .to(17, { x: posNext })
-                    .call(function () {
-                    item.destroy();
-                })
-                    .start();
-            };
-            var this_2 = this;
-            for (var i = 0; i < this.arrItem[0].length; i++) {
-                _loop_2(i);
-            }
-            var _loop_3 = function (i) {
-                var item = this_3.arrItem[1][i];
-                var posNext = item.position.x + 2000;
-                cc.tween(item)
-                    .to(16, { x: posNext })
-                    .call(function () {
-                    item.destroy();
-                })
-                    .start();
-            };
-            var this_3 = this;
-            for (var i = 0; i < this.arrItem[1].length; i++) {
-                _loop_3(i);
-            }
-            this.scheduleOnce(function () {
-                _this.spawnItem();
-            }, 1.7);
-        }
-        // this.spawnItem()
-    };
-    NewClass.prototype.spawFistkhay = function () {
-        // this.arrTargetMission = this.arrMission
-        var arr = [cc.v3(-600, 0), cc.v3(0, 0), cc.v3(600, 0)];
-        for (var i = 0; i < 3; i++) {
-            var preKhay = cc.instantiate(this.preKhay);
-            preKhay.parent = this.listKhay;
-            preKhay.position = arr[i];
-            this.arrKhay.push(preKhay);
-            this.loadDataKhay(this.arrMission[i], preKhay);
-            this.arrTargetMission.push(this.arrMission[i]);
-        }
-    };
-    NewClass.prototype.spawNextKhay = function (place) {
-        var _this = this;
-        // this.arrTargetMission.shift();
-        this.arrTargetMission.splice(place, 1);
-        this.arrTargetMission.push(this.arrMission[this.countMiss]);
-        // if ( this.countMiss < 9) {
-        var pos = cc.v3(1200, 0);
-        var preKhay = cc.instantiate(this.preKhay);
-        preKhay.parent = this.listKhay;
-        preKhay.position = pos;
-        this.arrKhay.push(preKhay);
-        this.loadDataKhay(this.arrMission[this.countMiss], preKhay);
-        this.countMiss++;
-        // }
-        var targetKhay = this.arrKhay[place];
-        cc.tween(targetKhay).to(0.3, { scale: 0 }).start();
-        var _loop_4 = function (i) {
-            var khay = this_4.arrKhay[i];
-            cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).call(function () {
-                _this.arrKhay[i - 1] = khay;
-            }).start();
-        };
-        var this_4 = this;
-        for (var i = place + 1; i < this.arrKhay.length; i++) {
-            _loop_4(i);
+        for (var i = 0; i < this.arrCus.length; i++) {
+            var cus = this.arrCus[i];
+            cc.tween(cus).by(0.5, { position: cc.v3(-400, 0) }).start();
         }
         this.scheduleOnce(function () {
-            _this.arrKhay.splice(place, 1);
-            // this.arrTargetMission.shift()
-        }, 0.2);
+            var firstCus = _this.arrCus[0];
+            firstCus.getComponent("cusMission").showMission();
+            var mission = firstCus.getComponent("cusMission").order;
+            _this.spawKhay(mission);
+        }, 0.5);
+        this.scheduleOnce(function () {
+            cc.tween(_this.shadow).to(0.3, { opacity: 150 }).start();
+            _this.handtut.active = true;
+            _this.btnPizza.getComponent(cc.Animation).play("btnHindG");
+            _this.guild.active = true;
+        }, 1);
+        // this.spawFistkhay()
+        // if (this.isStartgame == false) {
+        //     this.barTime.getComponent("barTime").countDown()
+        //     for (let i = 0; i < 3; i++) {
+        //         let child = this.arrCus[i]
+        //         child.getComponent("cusMission").loadTime()
+        //     }
+        //     this.isStartgame = true;
+        //     this.isHand.active = false;
+        //     this.guild.active = false
+        //     this.guild.opacity = 0
+        //     for (let i = 0; i < this.arrItem[0].length; i++) {
+        //         let item = this.arrItem[0][i]
+        //         let posNext = item.position.x - 2000
+        //         cc.tween(item)
+        //             .to(17, { x: posNext })
+        //             .call(() => {
+        //                 item.destroy();
+        //             })
+        //             .start();
+        //         // this.moveItem(item,item.position.add(cc.v3(-2000,0)))
+        //     }
+        //     for (let i = 0; i < this.arrItem[1].length; i++) {
+        //         let item = this.arrItem[1][i]
+        //         let posNext = item.position.x + 2000
+        //         cc.tween(item)
+        //             .to(16, { x: posNext })
+        //             .call(() => {
+        //                 item.destroy();
+        //             })
+        //             .start();
+        //         // this.moveItem(item,item.position.add(cc.v3(-2000,0)))
+        //     }
+        //     this.scheduleOnce(() => {
+        //         this.spawnItem()
+        //     }, 1.7)
+        // }
+        // this.spawnItem()
     };
+    NewClass.prototype.spawKhay = function (mission) {
+        var arr = [cc.v3(-60, -10), cc.v3(80, -10)];
+        if (mission.length == 3) {
+            arr = [cc.v3(-75, -10), cc.v3(30, -10), cc.v3(120, -10)];
+        }
+        var khay = cc.instantiate(this.preKhay);
+        khay.parent = this.listKhay;
+        khay.position = cc.v3(-100, 50);
+        this.arrKhay.push(khay);
+        this.loadDataKhay(mission, khay);
+        this.arrTargetMission.push(mission);
+    };
+    // spawFistkhay() {
+    //     // this.arrTargetMission = this.arrMission
+    //     let arr = [cc.v3(-600, 0), cc.v3(0, 0), cc.v3(600, 0)]
+    //     for (let i = 0; i < 3; i++) {
+    //         let preKhay = cc.instantiate(this.preKhay)
+    //         preKhay.parent = this.listKhay;
+    //         preKhay.position = arr[i]
+    //         this.arrKhay.push(preKhay)
+    //         this.loadDataKhay(this.arrMission[i], preKhay)
+    //         this.arrTargetMission.push(this.arrMission[i])
+    //     }
+    // }
+    // countMiss = 3
+    // spawNextKhay(place) {
+    //     // this.arrTargetMission.shift();
+    //     this.arrTargetMission.splice(place, 1)
+    //     this.arrTargetMission.push(this.arrMission[this.countMiss])
+    //     // if ( this.countMiss < 9) {
+    //     let pos = cc.v3(1200, 0);
+    //     let preKhay = cc.instantiate(this.preKhay)
+    //     preKhay.parent = this.listKhay;
+    //     preKhay.position = pos
+    //     this.arrKhay.push(preKhay)
+    //     this.loadDataKhay(this.arrMission[this.countMiss], preKhay)
+    //     this.countMiss++
+    //     // }
+    //     let targetKhay = this.arrKhay[place]
+    //     cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
+    //     for (let i = place + 1; i < this.arrKhay.length; i++) {
+    //         let khay = this.arrKhay[i]
+    //         cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
+    //             this.arrKhay[i - 1] = khay
+    //         }).start()
+    //     }
+    //     this.scheduleOnce(() => {
+    //         this.arrKhay.splice(place, 1);
+    //         // this.arrTargetMission.shift()
+    //     }, 0.2)
+    // }
     NewClass.prototype.loadDataKhay = function (data, khay) {
         if (data) {
-            // let arr = [cc.v3(-170, -20), cc.v3(260, -20)]
-            var arr = [cc.v3(-60, -10), cc.v3(80, -10)];
+            var arr = [cc.v3(-60, -30), cc.v3(80, -30)];
             if (data.length == 3) {
-                // arr = [cc.v3(-256, -20), cc.v3(112.838, -20), cc.v3(427, -20)]
-                arr = [cc.v3(-75, -10), cc.v3(30, -10), cc.v3(120, -10)];
+                arr = [cc.v3(-75, -30), cc.v3(30, -30), cc.v3(120, -30)];
             }
             for (var i = 0; i < data.length; i++) {
-                var item = cc.instantiate(this.listItem[data[i]]);
+                var item = cc.instantiate(this.listItem[data[i] - 1]);
                 item.parent = khay;
                 item.position = arr[i];
-                item.scale = 0.65;
+                item.scale = 0.68;
                 item.getComponent(cc.Button).enabled = false;
                 item.getComponent("Item").loadGray();
             }
         }
     };
+    NewClass.prototype.btn_clickBtn = function (event, value) {
+        var id = parseInt(value);
+        var node = event.currentTarget;
+        var check = this.checkMission(id, node);
+    };
+    NewClass.prototype.checkItem = function (id) {
+        for (var i = 0; i < this.arrTargetMission.length; i++) {
+            var mission = this.arrTargetMission[i];
+            for (var j = 0; j < mission.length; j++) {
+                if (mission[i] == id) {
+                    var arrItem = [i, j];
+                    return arrItem;
+                }
+            }
+        }
+        return null;
+    };
     NewClass.prototype.checkMission = function (id, node) {
         // console.log(this.arrTargetMission)
-        this.startGame();
+        // this.startGame()
         if (this.isDoc == false) {
             for (var i = 0; i < this.arrTargetMission.length; i++) {
                 var mission = this.arrTargetMission[i];
@@ -611,23 +646,25 @@ var NewClass = /** @class */ (function (_super) {
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
-        this.camera.node.position = (logic) ? cc.v3(0, -70) : cc.v3(0, 0);
+        this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100);
         this.barTime.scale = (logic) ? 2 : 1.1;
         this.barCoin.scale = (logic) ? 2 : 1.1;
         this.clockTime.scale = (logic) ? 1.7 : 1;
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
-        this.listCus.position = (logic) ? cc.v3(230, 56) : cc.v3(0, 56);
-        this.listCus.scale = (logic) ? 0.7 : 1;
-        this.listKhay.position = (logic) ? cc.v3(220, 14.6) : cc.v3(0, 14.6);
-        this.listKhay.scale = (logic) ? 0.7 : 1;
-        this.listRayNode.parent.scale = (logic) ? 0.8 : 1;
-        this.listRayNode.parent.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0);
+        this.table.height = (logic) ? 1300 : 955;
+        this.listMenu.y = (logic) ? -80 : 0;
+        // this.listCus.position = (logic) ? cc.v3(230, 56) : cc.v3(0, 56)
+        this.listCus.scale = (logic) ? 1.1 : 1;
+        // this.listKhay.position = (logic) ? cc.v3(220, 14.6) : cc.v3(0, 14.6)
+        this.listKhay.scale = (logic) ? 1.1 : 1;
+        // this.listRayNode.parent.scale = (logic) ? 0.8 : 1
+        // this.listRayNode.parent.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0)
         this.timeup.scale = (logic) ? 1 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
         this.notiMission.scale = (logic) ? 1.5 : 1;
-        this.btnDownload.active = (logic) ? true : false;
+        this.bg.scale = (logic) ? 2 : 1.4;
         if (logic == true) {
             this.isDoc = true;
             var frameSize = cc.view.getFrameSize();
@@ -641,7 +678,7 @@ var NewClass = /** @class */ (function (_super) {
             var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
-            this.camera.zoomRatio = 2.6;
+            this.camera.zoomRatio = 1.7;
             // this.camera.node.position = cc.v3(0, -150)
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
@@ -826,6 +863,24 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property([cc.Prefab])
     ], NewClass.prototype, "listPreCus", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "bg", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "table", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listMenu", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "handtut", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "shadow", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnPizza", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
