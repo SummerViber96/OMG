@@ -10969,19 +10969,14 @@
     "meta": 1775143266284,
     "relativePath": "anim\\taptokitchen\\buble_Show.anim"
   },
-  "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1775147660875,
-    "meta": 1775147667317,
-    "relativePath": "cooking\\ietm\\cusMission.ts"
-  },
   "d03ad05a-fd46-4308-a588-73346bf6d9e3": {
     "asset": 1775148146063,
     "meta": 1775148146068,
     "relativePath": "TapToKitchen\\Prefab\\khay.prefab"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1775151593675,
-    "meta": 1775151593693,
+    "asset": 1775159959943,
+    "meta": 1775159959961,
     "relativePath": "scenes\\Donut1.fire"
   },
   "e4ccd229-754c-4383-82df-576fb56f1fcf": {
@@ -11049,14 +11044,24 @@
     "meta": 1775154106442,
     "relativePath": "anim\\taptokitchen"
   },
-  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1775153917420,
-    "meta": 1775154106685,
-    "relativePath": "scripts\\APP\\GameDonut.ts"
-  },
   "7c3f411c-d961-4528-adee-caff9185c2cd": {
     "asset": 1775151374761,
     "meta": 1775154106686,
     "relativePath": "TapToKitchen\\anim"
+  },
+  "0263ec2b-3701-4ab7-9e2f-5f1dbf1f2df1": {
+    "asset": 1775155868783,
+    "meta": 1775155868792,
+    "relativePath": "TapToKitchen\\anim\\done.anim"
+  },
+  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
+    "asset": 1775159489838,
+    "meta": 1775159490692,
+    "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "2147ad02-7b76-4274-8b19-f305f656d77c": {
+    "asset": 1775159814586,
+    "meta": 1775159815700,
+    "relativePath": "cooking\\ietm\\cusMission.ts"
   }
 }

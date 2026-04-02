@@ -73,16 +73,16 @@ export default class NewClass extends cc.Component {
     barCoin: cc.Node = null;
     @property(cc.Node)
     listCheckItem: cc.Node = null;
-    @property(cc.Node)
-    clockTime: cc.Node = null
-    @property(cc.Node)
-    cake: cc.Node = null;
-    @property(cc.Node)
-    creeam: cc.Node = null
+    // @property(cc.Node)
+    // clockTime: cc.Node = null
+    // @property(cc.Node)
+    // cake: cc.Node = null;
+    // @property(cc.Node)
+    // creeam: cc.Node = null
     @property(cc.Node)
     phaoHoa: cc.Node = null;
-    @property(cc.Node)
-    listHand: cc.Node = null;
+    // @property(cc.Node)
+    // listHand: cc.Node = null;
     @property(cc.Node)
     warning: cc.Node = null
     @property(cc.Node)
@@ -95,8 +95,8 @@ export default class NewClass extends cc.Component {
     listKhay: cc.Node = null;
     @property(cc.Prefab)
     preKhay: cc.Prefab = null;
-    @property(cc.Node)
-    btnDownload: cc.Node = null
+    // @property(cc.Node)
+    // btnDownload: cc.Node = null
     @property(cc.Node)
     listRayNode: cc.Node = null
     @property(cc.Node)
@@ -289,36 +289,44 @@ export default class NewClass extends cc.Component {
     //     }
 
     // }
+    isTargetItemPlace = []
     // countMiss = 3
-    // spawNextKhay(place) {
-    //     // this.arrTargetMission.shift();
-    //     this.arrTargetMission.splice(place, 1)
-    //     this.arrTargetMission.push(this.arrMission[this.countMiss])
+    spawNextKhay(place) {
+        let firstCus = this.arrCus[1];
+        firstCus.getComponent("cusMission").showMission();
+        let mission = firstCus.getComponent("cusMission").order;
 
-    //     // if ( this.countMiss < 9) {
-    //     let pos = cc.v3(1200, 0);
-    //     let preKhay = cc.instantiate(this.preKhay)
-    //     preKhay.parent = this.listKhay;
-    //     preKhay.position = pos
-    //     this.arrKhay.push(preKhay)
-    //     this.loadDataKhay(this.arrMission[this.countMiss], preKhay)
+        // this.arrTargetMission.shift();
+        this.arrTargetMission.splice(place, 1)
+        this.arrTargetMission.push(mission)
 
-    //     this.countMiss++
-    //     // }
-    //     let targetKhay = this.arrKhay[place]
-    //     cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
-    //     for (let i = place + 1; i < this.arrKhay.length; i++) {
-    //         let khay = this.arrKhay[i]
-    //         cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
-    //             this.arrKhay[i - 1] = khay
+        // if ( this.countMiss < 9) {
+        let pos = cc.v3(1200, 0);
+        let preKhay = cc.instantiate(this.preKhay)
+        preKhay.parent = this.listKhay;
+        preKhay.position = pos
+        this.arrKhay.push(preKhay)
+        this.loadDataKhay(mission, preKhay)
+        preKhay.position = cc.v3(-100 + 400, 50)
+        // let cus = this.arrCus[place]
+        // }
+        let targetKhay = this.arrKhay[place]
+        cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
+        for (let i = place + 1; i < this.arrKhay.length; i++) {
+            let khay = this.arrKhay[i]
+            cc.tween(khay).by(0.8, { position: cc.v3(-400, 0) }).call(() => {
+                this.arrKhay[i - 1] = khay
 
-    //         }).start()
-    //     }
-    //     this.scheduleOnce(() => {
-    //         this.arrKhay.splice(place, 1);
-    //         // this.arrTargetMission.shift()
-    //     }, 0.2)
-    // }
+            }).start()
+        }
+        cc.tween(this.listRay[0]).by(0.8, { position: cc.v3(-400, 0) }).start()
+        this.scheduleOnce(() => {
+            this.arrKhay.splice(place, 1);
+            // console.log(cus.getComponent("cusMission").doneNode.children[this.isTargetItemPlace])
+            // cus.getComponent("cusMission").doneNode.children[this.isTargetItemPlace].active = true
+            // this.arrTargetMission.shift()
+        }, 0.2)
+    }
     loadDataKhay(data, khay) {
         if (data) {
             let arr = [cc.v3(-60, -30), cc.v3(80, -30)]
@@ -338,10 +346,38 @@ export default class NewClass extends cc.Component {
             }
         }
     }
+    firstClick = false
     btn_clickBtn(event, value) {
         let id = parseInt(value);
         let node = event.currentTarget;
-        let check = this.checkMission(id, node)
+        let check = this.checkMission(id, node);
+        if (check) {
+            if (!this.firstClick) {
+                this.firstClick = true;
+                this.guild.active = false;
+                this.handtut.active = false;
+                this.shadow.active = false;
+                this.btnPizza.children[1].active = false;
+            }
+            let pos = check.parent.convertToWorldSpaceAR(check.position);
+            pos = node.parent.convertToNodeSpaceAR(pos);
+
+            let mag = (pos.x > node.x) ? -50 : 50;
+            let startPos = cc.v2(node.x, node.y);
+            let endPos = cc.v2(pos.x, pos.y);
+            let midPos = cc.v2(endPos.x + mag, endPos.y + 200);
+
+            let item = cc.instantiate(this.listItem[id - 1]);
+            item.parent = node.parent;
+            item.position = cc.v3(startPos.x, startPos.y);
+
+            cc.tween(item).to(0.2, { scale: 1.2 }).start();
+            cc.tween(item).bezierTo(0.4, startPos, midPos, endPos).call(() => {
+                console.log(this.isTargetItemPlace)
+                this.arrCus[this.isTargetItemPlace[0]].getComponent("cusMission").doneNode.children[this.isTargetItemPlace[1]].active = true
+                item.destroy()
+            }).start()
+        }
 
     }
     checkItem(id) {
@@ -368,6 +404,7 @@ export default class NewClass extends cc.Component {
                 for (let j = 0; j < mission.length; j++) {
                     if (id == mission[j]) {
                         this.arrTargetMission[i][j] = 100;
+                        this.isTargetItemPlace = [i, j]
                         this.checkSuccess(i, j)
                         return this.arrKhay[i].children[j];
                     }
@@ -380,13 +417,15 @@ export default class NewClass extends cc.Component {
                 for (let j = 0; j < mission.length; j++) {
                     if (id == mission[j]) {
                         this.arrTargetMission[i][j] = 100;
+                        this.isTargetItemPlace = [i, j]
+
                         this.checkSuccess(i, j)
                         return this.arrKhay[i].children[j];
                     }
                 }
             }
         }
-        node.getComponent(cc.Animation).play()
+        node.getComponent(cc.Animation).play("btnWrong")
         cc.audioEngine.play(this.soundWrong, false, 1)
 
         return null;
@@ -404,7 +443,7 @@ export default class NewClass extends cc.Component {
 
             }
 
-        }, 0.6)
+        }, 0.4)
         let mission = this.arrTargetMission[i];
         let check = true
         let cus = this.arrCus[i]
@@ -486,21 +525,21 @@ export default class NewClass extends cc.Component {
         }
 
         // ===== Tạo customer mới ở cuối =====
-        let newCus = cc.instantiate(this.listPreCus[this.isDem]);
-        newCus.parent = this.listCus;
+        // let newCus = cc.instantiate(this.listPreCus[this.isDem]);
+        // newCus.parent = this.listCus;
 
-        let lastCus = this.arrCus[this.arrCus.length - 1];
-        newCus.position = lastCus.position.add(cc.v3(600, 0));
+        // let lastCus = this.arrCus[this.arrCus.length - 1];
+        // newCus.position = lastCus.position.add(cc.v3(600, 0));
 
-        this.isDem = (this.isDem + 1) % this.listPreCus.length; ``
-        this.arrCus.push(newCus);
+        // this.isDem = (this.isDem + 1) % this.listPreCus.length; ``
+        // this.arrCus.push(newCus);
 
         // ===== Move thằng bị out =====
         firstCus.zIndex = -1;
         firstCus.getComponent("cusMission").isSuccess = true
         cc.tween(firstCus)
             .delay(0.3)
-            .by(0.8 * (place + 1), { position: cc.v3(-600 * (place + 1), 0) })
+            .by(0.8 * (place + 1), { position: cc.v3(-400 * (place + 1), 0) })
             .start();
 
         cc.tween(firstCus)
@@ -514,7 +553,7 @@ export default class NewClass extends cc.Component {
 
             cc.tween(child)
                 .delay(0.3)
-                .by(0.8, { position: cc.v3(-600, 0) })
+                .by(0.8, { position: cc.v3(-400, 0) })
                 .start();
         }
 
@@ -752,9 +791,9 @@ export default class NewClass extends cc.Component {
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100)
-        this.barTime.scale = (logic) ? 2 : 1.1
+        // this.barTime.scale = (logic) ? 2 : 1.1
         this.barCoin.scale = (logic) ? 2 : 1.1
-        this.clockTime.scale = (logic) ? 1.7 : 1
+        // this.clockTime.scale = (logic) ? 1.7 : 1
         this.phaoHoa.scale = (logic) ? 9 : 5
         this.guild.scale = (logic) ? 2 : 1.2
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
@@ -768,7 +807,7 @@ export default class NewClass extends cc.Component {
         // this.listRayNode.parent.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0)
         this.timeup.scale = (logic) ? 1 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
-        this.notiMission.scale = (logic) ? 1.5 : 1
+        // this.notiMission.scale = (logic) ? 1.5 : 1
         this.bg.scale = (logic) ? 2 : 1.4
         if (logic == true) {
             this.isDoc = true
@@ -776,7 +815,7 @@ export default class NewClass extends cc.Component {
             const width = frameSize.width;
             const height = frameSize.height;
             // this.camera.node.position = cc.v3(0, -70)
-            this.btnDownload.getComponent(cc.Widget).bottom = 197
+            // this.btnDownload.getComponent(cc.Widget).bottom = 197
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
@@ -790,13 +829,13 @@ export default class NewClass extends cc.Component {
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
-                this.btnDownload.getComponent(cc.Widget).bottom = 400
+                // this.btnDownload.getComponent(cc.Widget).bottom = 400
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 2
                 // this.camera.node.position = cc.v3(0, -120)
-                this.btnDownload.active = false
+                // this.btnDownload.active = false
             }
         }
         else {

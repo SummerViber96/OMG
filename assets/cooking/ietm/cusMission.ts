@@ -28,8 +28,7 @@ export default class NewClass extends cc.Component {
     anim: sp.Skeleton = null
     @property(cc.Node)
     doneNode: cc.Node = null
-    @property(cc.Node)
-    doneNode2: cc.Node = null
+
     @property(cc.Sprite)
     fillBar: cc.Sprite = null
     @property(cc.SpriteFrame)
@@ -49,6 +48,10 @@ export default class NewClass extends cc.Component {
     }
     showMission() {
         this.pop.getComponent(cc.Animation).play()
+        this.loadTime()
+    }
+    updateItem(id) {
+        this.doneNode.children[id].active = true
     }
 
     updateMission(value) { //1:socola //0:dau
@@ -127,7 +130,6 @@ export default class NewClass extends cc.Component {
         }
         this.scheduleOnce(() => {
             cc.audioEngine.play(this.gamePlay.soundClosePop, false, 1)
-
             cc.tween(this.pop).to(0.3, { scale: 0 }).start()
             this.anim.setAnimation(0, "walk", true)
             cc.tween(this.node).to(1, { position: cc.v3(-900, 123.591) }).call(() => {
@@ -150,8 +152,8 @@ export default class NewClass extends cc.Component {
 
     }
     happy() {
-        let fill = this.fillBar.node.parent
-        cc.tween(fill).to(0.3, { scale: 0 }).start()
+        // let fill = this.fillBar.node.parent
+        cc.tween(this.pop).to(0.2, { scale: 0 }).start()
         this.anim.setAnimation(0, "8.happy", false)
         this.scheduleOnce(() => {
             this.anim.setAnimation(0, "3.buy_idle", true)

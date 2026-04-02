@@ -40,7 +40,6 @@ var NewClass = /** @class */ (function (_super) {
         _this.pop = null;
         _this.anim = null;
         _this.doneNode = null;
-        _this.doneNode2 = null;
         _this.fillBar = null;
         _this.fillYellow = null;
         _this.fillRed = null;
@@ -57,6 +56,10 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.showMission = function () {
         this.pop.getComponent(cc.Animation).play();
+        this.loadTime();
+    };
+    NewClass.prototype.updateItem = function (id) {
+        this.doneNode.children[id].active = true;
     };
     NewClass.prototype.updateMission = function (value) {
         var _this = this;
@@ -142,8 +145,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.happy = function () {
         var _this = this;
-        var fill = this.fillBar.node.parent;
-        cc.tween(fill).to(0.3, { scale: 0 }).start();
+        // let fill = this.fillBar.node.parent
+        cc.tween(this.pop).to(0.2, { scale: 0 }).start();
         this.anim.setAnimation(0, "8.happy", false);
         this.scheduleOnce(function () {
             _this.anim.setAnimation(0, "3.buy_idle", true);
@@ -248,9 +251,6 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "doneNode", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "doneNode2", void 0);
     __decorate([
         property(cc.Sprite)
     ], NewClass.prototype, "fillBar", void 0);

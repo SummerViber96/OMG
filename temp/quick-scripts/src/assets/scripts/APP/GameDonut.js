@@ -63,18 +63,23 @@ var NewClass = /** @class */ (function (_super) {
         _this.barTime = null;
         _this.barCoin = null;
         _this.listCheckItem = null;
-        _this.clockTime = null;
-        _this.cake = null;
-        _this.creeam = null;
+        // @property(cc.Node)
+        // clockTime: cc.Node = null
+        // @property(cc.Node)
+        // cake: cc.Node = null;
+        // @property(cc.Node)
+        // creeam: cc.Node = null
         _this.phaoHoa = null;
-        _this.listHand = null;
+        // @property(cc.Node)
+        // listHand: cc.Node = null;
         _this.warning = null;
         _this.guild = null;
         _this.listItem = [];
         _this.listRay = [];
         _this.listKhay = null;
         _this.preKhay = null;
-        _this.btnDownload = null;
+        // @property(cc.Node)
+        // btnDownload: cc.Node = null
         _this.listRayNode = null;
         _this.timeup = null;
         _this.amazing = null;
@@ -115,6 +120,20 @@ var NewClass = /** @class */ (function (_super) {
         _this.arrCus = [];
         _this.isStartgame = false;
         _this.isHand = null;
+        // spawFistkhay() {
+        //     // this.arrTargetMission = this.arrMission
+        //     let arr = [cc.v3(-600, 0), cc.v3(0, 0), cc.v3(600, 0)]
+        //     for (let i = 0; i < 3; i++) {
+        //         let preKhay = cc.instantiate(this.preKhay)
+        //         preKhay.parent = this.listKhay;
+        //         preKhay.position = arr[i]
+        //         this.arrKhay.push(preKhay)
+        //         this.loadDataKhay(this.arrMission[i], preKhay)
+        //         this.arrTargetMission.push(this.arrMission[i])
+        //     }
+        // }
+        _this.isTargetItemPlace = [];
+        _this.firstClick = false;
         _this.isCountCus = 3;
         _this.isCountDone = 0;
         _this.isMoving = false;
@@ -264,45 +283,45 @@ var NewClass = /** @class */ (function (_super) {
         this.loadDataKhay(mission, khay);
         this.arrTargetMission.push(mission);
     };
-    // spawFistkhay() {
-    //     // this.arrTargetMission = this.arrMission
-    //     let arr = [cc.v3(-600, 0), cc.v3(0, 0), cc.v3(600, 0)]
-    //     for (let i = 0; i < 3; i++) {
-    //         let preKhay = cc.instantiate(this.preKhay)
-    //         preKhay.parent = this.listKhay;
-    //         preKhay.position = arr[i]
-    //         this.arrKhay.push(preKhay)
-    //         this.loadDataKhay(this.arrMission[i], preKhay)
-    //         this.arrTargetMission.push(this.arrMission[i])
-    //     }
-    // }
     // countMiss = 3
-    // spawNextKhay(place) {
-    //     // this.arrTargetMission.shift();
-    //     this.arrTargetMission.splice(place, 1)
-    //     this.arrTargetMission.push(this.arrMission[this.countMiss])
-    //     // if ( this.countMiss < 9) {
-    //     let pos = cc.v3(1200, 0);
-    //     let preKhay = cc.instantiate(this.preKhay)
-    //     preKhay.parent = this.listKhay;
-    //     preKhay.position = pos
-    //     this.arrKhay.push(preKhay)
-    //     this.loadDataKhay(this.arrMission[this.countMiss], preKhay)
-    //     this.countMiss++
-    //     // }
-    //     let targetKhay = this.arrKhay[place]
-    //     cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
-    //     for (let i = place + 1; i < this.arrKhay.length; i++) {
-    //         let khay = this.arrKhay[i]
-    //         cc.tween(khay).by(0.8, { position: cc.v3(-600, 0) }).call(() => {
-    //             this.arrKhay[i - 1] = khay
-    //         }).start()
-    //     }
-    //     this.scheduleOnce(() => {
-    //         this.arrKhay.splice(place, 1);
-    //         // this.arrTargetMission.shift()
-    //     }, 0.2)
-    // }
+    NewClass.prototype.spawNextKhay = function (place) {
+        var _this = this;
+        var firstCus = this.arrCus[1];
+        firstCus.getComponent("cusMission").showMission();
+        var mission = firstCus.getComponent("cusMission").order;
+        // this.arrTargetMission.shift();
+        this.arrTargetMission.splice(place, 1);
+        this.arrTargetMission.push(mission);
+        // if ( this.countMiss < 9) {
+        var pos = cc.v3(1200, 0);
+        var preKhay = cc.instantiate(this.preKhay);
+        preKhay.parent = this.listKhay;
+        preKhay.position = pos;
+        this.arrKhay.push(preKhay);
+        this.loadDataKhay(mission, preKhay);
+        preKhay.position = cc.v3(-100 + 400, 50);
+        // let cus = this.arrCus[place]
+        // }
+        var targetKhay = this.arrKhay[place];
+        cc.tween(targetKhay).to(0.3, { scale: 0 }).start();
+        var _loop_1 = function (i) {
+            var khay = this_1.arrKhay[i];
+            cc.tween(khay).by(0.8, { position: cc.v3(-400, 0) }).call(function () {
+                _this.arrKhay[i - 1] = khay;
+            }).start();
+        };
+        var this_1 = this;
+        for (var i = place + 1; i < this.arrKhay.length; i++) {
+            _loop_1(i);
+        }
+        cc.tween(this.listRay[0]).by(0.8, { position: cc.v3(-400, 0) }).start();
+        this.scheduleOnce(function () {
+            _this.arrKhay.splice(place, 1);
+            // console.log(cus.getComponent("cusMission").doneNode.children[this.isTargetItemPlace])
+            // cus.getComponent("cusMission").doneNode.children[this.isTargetItemPlace].active = true
+            // this.arrTargetMission.shift()
+        }, 0.2);
+    };
     NewClass.prototype.loadDataKhay = function (data, khay) {
         if (data) {
             var arr = [cc.v3(-60, -30), cc.v3(80, -30)];
@@ -320,9 +339,34 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.btn_clickBtn = function (event, value) {
+        var _this = this;
         var id = parseInt(value);
         var node = event.currentTarget;
         var check = this.checkMission(id, node);
+        if (check) {
+            if (!this.firstClick) {
+                this.firstClick = true;
+                this.guild.active = false;
+                this.handtut.active = false;
+                this.shadow.active = false;
+                this.btnPizza.children[1].active = false;
+            }
+            var pos = check.parent.convertToWorldSpaceAR(check.position);
+            pos = node.parent.convertToNodeSpaceAR(pos);
+            var mag = (pos.x > node.x) ? -50 : 50;
+            var startPos = cc.v2(node.x, node.y);
+            var endPos = cc.v2(pos.x, pos.y);
+            var midPos = cc.v2(endPos.x + mag, endPos.y + 200);
+            var item_1 = cc.instantiate(this.listItem[id - 1]);
+            item_1.parent = node.parent;
+            item_1.position = cc.v3(startPos.x, startPos.y);
+            cc.tween(item_1).to(0.2, { scale: 1.2 }).start();
+            cc.tween(item_1).bezierTo(0.4, startPos, midPos, endPos).call(function () {
+                console.log(_this.isTargetItemPlace);
+                _this.arrCus[_this.isTargetItemPlace[0]].getComponent("cusMission").doneNode.children[_this.isTargetItemPlace[1]].active = true;
+                item_1.destroy();
+            }).start();
+        }
     };
     NewClass.prototype.checkItem = function (id) {
         for (var i = 0; i < this.arrTargetMission.length; i++) {
@@ -345,6 +389,7 @@ var NewClass = /** @class */ (function (_super) {
                 for (var j = 0; j < mission.length; j++) {
                     if (id == mission[j]) {
                         this.arrTargetMission[i][j] = 100;
+                        this.isTargetItemPlace = [i, j];
                         this.checkSuccess(i, j);
                         return this.arrKhay[i].children[j];
                     }
@@ -357,13 +402,14 @@ var NewClass = /** @class */ (function (_super) {
                 for (var j = 0; j < mission.length; j++) {
                     if (id == mission[j]) {
                         this.arrTargetMission[i][j] = 100;
+                        this.isTargetItemPlace = [i, j];
                         this.checkSuccess(i, j);
                         return this.arrKhay[i].children[j];
                     }
                 }
             }
         }
-        node.getComponent(cc.Animation).play();
+        node.getComponent(cc.Animation).play("btnWrong");
         cc.audioEngine.play(this.soundWrong, false, 1);
         return null;
     };
@@ -376,7 +422,7 @@ var NewClass = /** @class */ (function (_super) {
                 // cc.tween(targetKhay).to(0.2, { scale: 2.5 }).to(0.1, { scale: 2.2 }).start()
                 cc.tween(targetKhay).to(0.2, { scale: 0.9 }).to(0.1, { scale: 0.65 }).start();
             }
-        }, 0.6);
+        }, 0.4);
         var mission = this.arrTargetMission[i];
         var check = true;
         var cus = this.arrCus[i];
@@ -447,19 +493,18 @@ var NewClass = /** @class */ (function (_super) {
             this.isCountCus++;
         }
         // ===== Tạo customer mới ở cuối =====
-        var newCus = cc.instantiate(this.listPreCus[this.isDem]);
-        newCus.parent = this.listCus;
-        var lastCus = this.arrCus[this.arrCus.length - 1];
-        newCus.position = lastCus.position.add(cc.v3(600, 0));
-        this.isDem = (this.isDem + 1) % this.listPreCus.length;
-        "";
-        this.arrCus.push(newCus);
+        // let newCus = cc.instantiate(this.listPreCus[this.isDem]);
+        // newCus.parent = this.listCus;
+        // let lastCus = this.arrCus[this.arrCus.length - 1];
+        // newCus.position = lastCus.position.add(cc.v3(600, 0));
+        // this.isDem = (this.isDem + 1) % this.listPreCus.length; ``
+        // this.arrCus.push(newCus);
         // ===== Move thằng bị out =====
         firstCus.zIndex = -1;
         firstCus.getComponent("cusMission").isSuccess = true;
         cc.tween(firstCus)
             .delay(0.3)
-            .by(0.8 * (place + 1), { position: cc.v3(-600 * (place + 1), 0) })
+            .by(0.8 * (place + 1), { position: cc.v3(-400 * (place + 1), 0) })
             .start();
         cc.tween(firstCus)
             .delay(0.3)
@@ -470,7 +515,7 @@ var NewClass = /** @class */ (function (_super) {
             var child = this.arrCus[i];
             cc.tween(child)
                 .delay(0.3)
-                .by(0.8, { position: cc.v3(-600, 0) })
+                .by(0.8, { position: cc.v3(-400, 0) })
                 .start();
         }
         // ===== Gọi loadTime đúng 1 lần =====
@@ -647,9 +692,9 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100);
-        this.barTime.scale = (logic) ? 2 : 1.1;
+        // this.barTime.scale = (logic) ? 2 : 1.1
         this.barCoin.scale = (logic) ? 2 : 1.1;
-        this.clockTime.scale = (logic) ? 1.7 : 1;
+        // this.clockTime.scale = (logic) ? 1.7 : 1
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
@@ -663,7 +708,7 @@ var NewClass = /** @class */ (function (_super) {
         // this.listRayNode.parent.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0)
         this.timeup.scale = (logic) ? 1 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
-        this.notiMission.scale = (logic) ? 1.5 : 1;
+        // this.notiMission.scale = (logic) ? 1.5 : 1
         this.bg.scale = (logic) ? 2 : 1.4;
         if (logic == true) {
             this.isDoc = true;
@@ -671,7 +716,7 @@ var NewClass = /** @class */ (function (_super) {
             var width = frameSize.width;
             var height = frameSize.height;
             // this.camera.node.position = cc.v3(0, -70)
-            this.btnDownload.getComponent(cc.Widget).bottom = 197;
+            // this.btnDownload.getComponent(cc.Widget).bottom = 197
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
@@ -682,12 +727,12 @@ var NewClass = /** @class */ (function (_super) {
             // this.camera.node.position = cc.v3(0, -150)
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
-                this.btnDownload.getComponent(cc.Widget).bottom = 400;
+                // this.btnDownload.getComponent(cc.Widget).bottom = 400
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 2;
                 // this.camera.node.position = cc.v3(0, -120)
-                this.btnDownload.active = false;
+                // this.btnDownload.active = false
             }
         }
         else {
@@ -811,19 +856,7 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "listCheckItem", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "clockTime", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "cake", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "creeam", void 0);
-    __decorate([
-        property(cc.Node)
     ], NewClass.prototype, "phaoHoa", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listHand", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "warning", void 0);
@@ -842,9 +875,6 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "preKhay", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "btnDownload", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listRayNode", void 0);
