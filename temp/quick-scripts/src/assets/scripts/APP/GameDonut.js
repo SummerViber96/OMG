@@ -25,7 +25,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 globalThis.coin = 0;
-globalThis.scGame = false;
+globalThis.Game = false;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
@@ -35,12 +35,17 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundBg = null;
         _this.soundWin = null;
         _this.soundLose = null;
-        _this.soundHello = null;
-        _this.soundHelloCus2 = null;
-        _this.soundHelloCus3 = null;
+        _this.soundOk = null;
+        // @property(cc.AudioClip)
+        // soundHello: cc.AudioClip = null;
+        // @property(cc.AudioClip)
+        // soundHelloCus2: cc.AudioClip = null;
+        // @property(cc.AudioClip)
+        // soundHelloCus3: cc.AudioClip = null;
         _this.soundTrans = null;
         _this.soundClick = null;
-        _this.soundDonutJump = null;
+        // @property(cc.AudioClip)
+        // soundDonutJump: cc.AudioClip = null;
         _this.soundEnd = null;
         _this.soundSellDone = null;
         _this.soundThinking = null;
@@ -363,6 +368,7 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(item_1).to(0.2, { scale: 1.2 }).start();
             cc.tween(item_1).bezierTo(0.4, startPos, midPos, endPos).call(function () {
                 console.log(_this.isTargetItemPlace);
+                cc.audioEngine.play(_this.soundOk, false, 1);
                 _this.arrCus[_this.isTargetItemPlace[0]].getComponent("cusMission").doneNode.children[_this.isTargetItemPlace[1]].active = true;
                 item_1.destroy();
             }).start();
@@ -693,7 +699,8 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100);
         // this.barTime.scale = (logic) ? 2 : 1.1
-        this.barCoin.scale = (logic) ? 2 : 1.1;
+        this.barCoin.scale = (logic) ? 2.5 : 1.4;
+        this.barCoin.getComponent(cc.Widget).top = (logic) ? 130 : 80;
         // this.clockTime.scale = (logic) ? 1.7 : 1
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
@@ -772,22 +779,13 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "soundLose", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundHello", void 0);
-    __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundHelloCus2", void 0);
-    __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundHelloCus3", void 0);
+    ], NewClass.prototype, "soundOk", void 0);
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundTrans", void 0);
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundClick", void 0);
-    __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundDonutJump", void 0);
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundEnd", void 0);

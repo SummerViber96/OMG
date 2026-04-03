@@ -1,14 +1,13 @@
 
 const { ccclass, property } = cc._decorator;
 globalThis.coin = 0
-globalThis.scGame = false
+globalThis.Game = false
 @ccclass
 export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundShowPop: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundClosePop: cc.AudioClip = null
-
     @property(cc.AudioClip)
     soundBg: cc.AudioClip = null
     @property(cc.AudioClip)
@@ -16,17 +15,19 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundLose: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundHello: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    soundHelloCus2: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    soundHelloCus3: cc.AudioClip = null;
+    soundOk: cc.AudioClip = null;
+    // @property(cc.AudioClip)
+    // soundHello: cc.AudioClip = null;
+    // @property(cc.AudioClip)
+    // soundHelloCus2: cc.AudioClip = null;
+    // @property(cc.AudioClip)
+    // soundHelloCus3: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundTrans: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundClick: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    soundDonutJump: cc.AudioClip = null;
+    // @property(cc.AudioClip)
+    // soundDonutJump: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundEnd: cc.AudioClip = null;
     @property(cc.AudioClip)
@@ -374,6 +375,7 @@ export default class NewClass extends cc.Component {
             cc.tween(item).to(0.2, { scale: 1.2 }).start();
             cc.tween(item).bezierTo(0.4, startPos, midPos, endPos).call(() => {
                 console.log(this.isTargetItemPlace)
+                cc.audioEngine.play(this.soundOk, false, 1)
                 this.arrCus[this.isTargetItemPlace[0]].getComponent("cusMission").doneNode.children[this.isTargetItemPlace[1]].active = true
                 item.destroy()
             }).start()
@@ -792,7 +794,8 @@ export default class NewClass extends cc.Component {
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100)
         // this.barTime.scale = (logic) ? 2 : 1.1
-        this.barCoin.scale = (logic) ? 2 : 1.1
+        this.barCoin.scale = (logic) ? 2.5 : 1.4
+        this.barCoin.getComponent(cc.Widget).top = (logic) ? 130 : 80
         // this.clockTime.scale = (logic) ? 1.7 : 1
         this.phaoHoa.scale = (logic) ? 9 : 5
         this.guild.scale = (logic) ? 2 : 1.2

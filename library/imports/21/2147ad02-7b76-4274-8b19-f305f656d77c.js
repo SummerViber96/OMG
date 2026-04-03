@@ -59,6 +59,8 @@ var NewClass = /** @class */ (function (_super) {
         this.loadTime();
     };
     NewClass.prototype.updateItem = function (id) {
+        console.log("update item " + id);
+        cc.audioEngine.play(this.gamePlay.soundOk, false, 1);
         this.doneNode.children[id].active = true;
     };
     NewClass.prototype.updateMission = function (value) {

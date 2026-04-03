@@ -51,6 +51,8 @@ export default class NewClass extends cc.Component {
         this.loadTime()
     }
     updateItem(id) {
+        console.log("update item " + id)
+        cc.audioEngine.play(this.gamePlay.soundOk, false, 1)
         this.doneNode.children[id].active = true
     }
 
