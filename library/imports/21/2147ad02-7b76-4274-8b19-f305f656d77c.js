@@ -49,6 +49,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.gamePlay = null;
         _this.timeFill = 60;
         _this.isAngry = false;
+        _this.isDelaySound = false;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -166,7 +167,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.angry = function () {
-        this.anim.setAnimation(0, "7.angry_idle", true);
+        this.anim.setAnimation(0, "7.angry_idle", false);
         cc.audioEngine.play(this.soundAngry2, false, 1);
     };
     NewClass.prototype.checkSell = function (donut) {
@@ -215,7 +216,7 @@ var NewClass = /** @class */ (function (_super) {
                     _this.fillBar.spriteFrame = _this.fillRed;
                     _this.anim.setAnimation(0, "7.angry_idle", true);
                     if (_this.soundAngry2 && _this.isSuccess == false) {
-                        cc.audioEngine.play(_this.soundAngry2, true, 1);
+                        cc.audioEngine.play(_this.soundAngry2, false, 1);
                     }
                 }
                 return value;

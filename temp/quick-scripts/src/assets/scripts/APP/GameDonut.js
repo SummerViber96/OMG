@@ -95,9 +95,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.table = null;
         _this.listMenu = null;
         _this.handtut = null;
-        _this.shadow = null;
         _this.btnPizza = null;
         _this.preCoin = null;
+        _this.endCardDoc = null;
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
         _this.arrDonut = [null, null, null, null, null, null, null];
@@ -175,6 +175,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.isEndGame = false;
         // btn_choose(event, value) {
         _this.isDoc = false;
+        _this.arrPosMenuNgang = [cc.v3(-391, -102), cc.v3(375, -112), cc.v3(114, -120), cc.v3(-409, -284), cc.v3(-158, -296), cc.v3(118, -280), cc.v3(390, -296), cc.v3(-137, -116)];
+        _this.arrPosDoc = [cc.v3(26, -337), cc.v3(336, -112), cc.v3(15.5, -121), cc.v3(-170, -525.7), cc.v3(-300, -352), cc.v3(186.96, -512), cc.v3(355, -335), cc.v3(-292, -116)];
         return _this;
     }
     NewClass.prototype.onLoad = function () {
@@ -182,18 +184,13 @@ var NewClass = /** @class */ (function (_super) {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        // this.spawFirstItem()
-        // this.spawFistkhay()
         for (var i = 0; i < this.listCus.childrenCount; i++) {
             this.arrCus.push(this.listCus.children[i]);
         }
-        // this.scheduleOnce(() => {
-        //     cc.tween(this.notiMission).to(0.5, { opacity: 0 }).call(() => {
-        //         this.notiMission.active = false;
-        //         // this.clockTime.active = true
-        //         this.clockTime.getComponent("timeClock").click()
-        //     }).start()
-        // }, 1.5)
+        this.updateResponsive();
+        cc.view.setResizeCallback(function () {
+            _this.updateResponsive();
+        });
         this.scheduleOnce(function () {
             _this.startGame();
         }, 0.5);
@@ -341,13 +338,13 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_clickBtn = function (event, value) {
         var _this = this;
         this.arrCus[0].getComponent("cusMission").loadTime();
+        this.checkMission;
         this.handtut.active = false;
         this.btnPizza.children[1].active = false;
         if (!this.firstClick) {
             this.firstClick = true;
             this.guild.active = false;
             this.handtut.active = false;
-            this.shadow.active = false;
         }
         var id = parseInt(value);
         var node = event.currentTarget;
@@ -387,32 +384,32 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.checkMission = function (id, node) {
         // console.log(this.arrTargetMission)
         // this.startGame()
-        if (this.isDoc == false) {
-            for (var i = 0; i < this.arrTargetMission.length; i++) {
-                var mission = this.arrTargetMission[i];
-                for (var j = 0; j < mission.length; j++) {
-                    if (id == mission[j]) {
-                        this.arrTargetMission[i][j] = 100;
-                        this.isTargetItemPlace = [i, j];
-                        this.checkSuccess(i, j);
-                        return this.arrKhay[i].children[j];
-                    }
+        // if (this.isDoc == false) {
+        for (var i = 0; i < this.arrTargetMission.length; i++) {
+            var mission = this.arrTargetMission[i];
+            for (var j = 0; j < mission.length; j++) {
+                if (id == mission[j]) {
+                    this.arrTargetMission[i][j] = 100;
+                    this.isTargetItemPlace = [i, j];
+                    this.checkSuccess(i, j);
+                    return this.arrKhay[i].children[j];
                 }
             }
         }
-        else {
-            for (var i = 0; i < 2; i++) {
-                var mission = this.arrTargetMission[i];
-                for (var j = 0; j < mission.length; j++) {
-                    if (id == mission[j]) {
-                        this.arrTargetMission[i][j] = 100;
-                        this.isTargetItemPlace = [i, j];
-                        this.checkSuccess(i, j);
-                        return this.arrKhay[i].children[j];
-                    }
-                }
-            }
-        }
+        // }
+        // else {
+        //     for (let i = 0; i < 2; i++) {
+        //         let mission = this.arrTargetMission[i];
+        //         for (let j = 0; j < mission.length; j++) {
+        //             if (id == mission[j]) {
+        //                 this.arrTargetMission[i][j] = 100;
+        //                 this.isTargetItemPlace = [i, j]
+        //                 this.checkSuccess(i, j)
+        //                 return this.arrKhay[i].children[j];
+        //             }
+        //         }
+        //     }
+        // }
         node.getComponent(cc.Animation).play("btnWrong");
         cc.audioEngine.play(this.soundWrong, false, 1);
         if (this.arrCus[0]) {
@@ -746,7 +743,7 @@ var NewClass = /** @class */ (function (_super) {
                 // cc.audioEngine.play(this.soundThinkWin, false, 1)
                 // cc.audioEngine.play(this.soundWin, false, 1)
                 // this.endCard.getChildByName("title").active = false
-                _this.endCardWin.active = true;
+                // this.endCardWin.active = true;
             }, 0.5);
         }
         else {
@@ -765,8 +762,17 @@ var NewClass = /** @class */ (function (_super) {
         }
         this.linkToStore.active = true;
     };
-    NewClass.prototype.update = function (dt) {
-        // this.lbCoin.string = globalThis.gold.toString()
+    // update(dt) {
+    //     // this.lbCoin.string = globalThis.gold.toString()
+    //     let deviceResolution = cc.view.getFrameSize();
+    //     if (deviceResolution.width < deviceResolution.height) {
+    //         this.reponsive(true);
+    //     }
+    //     else {
+    //         this.reponsive(false);
+    //     }
+    // }
+    NewClass.prototype.updateResponsive = function () {
         var deviceResolution = cc.view.getFrameSize();
         if (deviceResolution.width < deviceResolution.height) {
             this.reponsive(true);
@@ -784,32 +790,30 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100);
-        // this.barTime.scale = (logic) ? 2 : 1.1
         this.barCoin.scale = (logic) ? 2.5 : 1.4;
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 130 : 80;
-        // this.clockTime.scale = (logic) ? 1.7 : 1
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
         this.table.height = (logic) ? 1300 : 955;
         this.listMenu.y = (logic) ? -80 : 0;
-        // this.listCus.position = (logic) ? cc.v3(230, 56) : cc.v3(0, 56)
         this.listCus.scale = (logic) ? 1.1 : 1;
-        // this.listKhay.position = (logic) ? cc.v3(220, 14.6) : cc.v3(0, 14.6)
         this.listKhay.scale = (logic) ? 1.1 : 1;
-        // this.listRayNode.parent.scale = (logic) ? 0.8 : 1
-        // this.listRayNode.parent.position = (logic) ? cc.v3(0, -50) : cc.v3(0, 0)
         this.timeup.scale = (logic) ? 1 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
-        // this.notiMission.scale = (logic) ? 1.5 : 1
         this.bg.scale = (logic) ? 2 : 1.4;
+        this.listMenu.scale = (logic) ? 1.1 : 1;
+        this.endCardDoc.scale = 1.5;
+        if (this.isEndGame) {
+            this.endCardDoc.active = (logic) ? true : false;
+            this.endCardWin.active = (logic) ? false : true;
+        }
         if (logic == true) {
             this.isDoc = true;
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            // this.camera.node.position = cc.v3(0, -70)
-            // this.btnDownload.getComponent(cc.Widget).bottom = 197
+            this.table.height = 2000;
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
@@ -817,19 +821,40 @@ var NewClass = /** @class */ (function (_super) {
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             this.camera.zoomRatio = 1.7;
-            // this.camera.node.position = cc.v3(0, -150)
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                // console.log("check iphonex")
-                // this.btnDownload.getComponent(cc.Widget).bottom = 400
+                this.barCoin.getComponent(cc.Widget).top = 200;
+                this.table.height = 2400;
+                for (var i = 0; i < this.listMenu.childrenCount; i++) {
+                    if (this.arrPosDoc[i]) {
+                        this.listMenu.children[i].position = this.arrPosDoc[i];
+                    }
+                }
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 2;
-                // this.camera.node.position = cc.v3(0, -120)
-                // this.btnDownload.active = false
+                this.camera.zoomRatio = 1.5;
+                this.table.height = 1400;
+                this.endCardDoc.scale = 1.2;
+                for (var i = 0; i < this.listMenu.childrenCount; i++) {
+                    if (this.arrPosMenuNgang[i]) {
+                        this.listMenu.children[i].position = this.arrPosMenuNgang[i];
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < this.listMenu.childrenCount; i++) {
+                    if (this.arrPosDoc[i]) {
+                        this.listMenu.children[i].position = this.arrPosDoc[i];
+                    }
+                }
             }
         }
         else {
             this.isDoc = false;
+            for (var i = 0; i < this.listMenu.childrenCount; i++) {
+                if (this.arrPosMenuNgang[i]) {
+                    this.listMenu.children[i].position = this.arrPosMenuNgang[i];
+                }
+            }
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
@@ -843,8 +868,6 @@ var NewClass = /** @class */ (function (_super) {
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 0.85;
-                this.camera.node.position = cc.v3(0, -50);
-                // this.btnDownload.active = true
             }
         }
     };
@@ -991,13 +1014,13 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "handtut", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "shadow", void 0);
-    __decorate([
-        property(cc.Node)
     ], NewClass.prototype, "btnPizza", void 0);
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "preCoin", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "endCardDoc", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

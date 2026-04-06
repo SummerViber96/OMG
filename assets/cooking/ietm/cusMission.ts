@@ -175,7 +175,7 @@ export default class NewClass extends cc.Component {
 
     }
     angry() {
-        this.anim.setAnimation(0, "7.angry_idle", true);
+        this.anim.setAnimation(0, "7.angry_idle", false);
 
         cc.audioEngine.play(this.soundAngry2, false, 1)
 
@@ -201,6 +201,7 @@ export default class NewClass extends cc.Component {
             cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
         }
     }
+    isDelaySound = false
     loadTime() {
         cc.tween(this.fillBar).to(this.timeWaiting, { fillRange: 0 }).call(() => { }).start()
         this.fillBar.fillRange = 1;
@@ -231,7 +232,9 @@ export default class NewClass extends cc.Component {
                         this.anim.setAnimation(0, "7.angry_idle", true);
 
                         if (this.soundAngry2 && this.isSuccess == false) {
-                            cc.audioEngine.play(this.soundAngry2, true, 1)
+                            cc.audioEngine.play(this.soundAngry2, false, 1)
+
+                          
 
                         }
                     }

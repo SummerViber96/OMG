@@ -10440,8 +10440,8 @@
     "relativePath": "TapToKitchen\\anim\\done.anim"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1775477873479,
-    "meta": 1775477873516,
+    "asset": 1775497007907,
+    "meta": 1775497007924,
     "relativePath": "scenes\\Donut1.fire"
   },
   "9836134e-b892-4283-b6b2-78b5acf3ed45": {
@@ -10969,16 +10969,6 @@
     "meta": 1775240002349,
     "relativePath": "cooking\\preFab\\preCoin.prefab"
   },
-  "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1775476268240,
-    "meta": 1775476269036,
-    "relativePath": "cooking\\ietm\\cusMission.ts"
-  },
-  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1775476990884,
-    "meta": 1775476993034,
-    "relativePath": "scripts\\APP\\GameDonut.ts"
-  },
   "8d6c30fa-ebd6-48ac-a9c2-027374433707": {
     "asset": 1775451958000,
     "meta": 1775477180779,
@@ -11083,5 +11073,15 @@
     "asset": 1775477432203,
     "meta": 1775477432243,
     "relativePath": "TapToKitchen\\Chaos-icon.webp"
+  },
+  "2147ad02-7b76-4274-8b19-f305f656d77c": {
+    "asset": 1775490527874,
+    "meta": 1775490529922,
+    "relativePath": "cooking\\ietm\\cusMission.ts"
+  },
+  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
+    "asset": 1775496991305,
+    "meta": 1775496993097,
+    "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }
