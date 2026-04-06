@@ -48,20 +48,32 @@ var NewClass = /** @class */ (function (_super) {
         _this.isSuccess = false;
         _this.gamePlay = null;
         _this.timeFill = 60;
+        _this.isAngry = false;
         return _this;
     }
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         // this.loadTime()
+        this.addEndEventSpine();
     };
     NewClass.prototype.showMission = function () {
         this.pop.getComponent(cc.Animation).play();
-        this.loadTime();
+        // this.loadTime()
     };
     NewClass.prototype.updateItem = function (id) {
         console.log("update item " + id);
         cc.audioEngine.play(this.gamePlay.soundOk, false, 1);
         this.doneNode.children[id].active = true;
+    };
+    NewClass.prototype.addEndEventSpine = function () {
+        var _this = this;
+        this.anim.setCompleteListener(function (track) {
+            if (track.animation.name == "7.angry_idle") {
+                if (!_this.isAngry) {
+                    _this.anim.setAnimation(0, "3.buy_idle", true);
+                }
+            }
+        });
     };
     NewClass.prototype.updateMission = function (value) {
         var _this = this;
@@ -81,9 +93,6 @@ var NewClass = /** @class */ (function (_super) {
                 this.count[1]--;
                 if (this.count[1] == 0) {
                     this.isEnd = true;
-                    this.scheduleOnce(function () {
-                        _this.doneNode2.active = true;
-                    }, 0.3);
                     this.lbCountSc.node.active = false;
                     // this.scheduleOnce(() => {
                     // }, 0.4)
@@ -113,7 +122,6 @@ var NewClass = /** @class */ (function (_super) {
         if (value == true) {
             cc.audioEngine.play(this.soundHappy, false, 1);
             this.doneNode.active = true;
-            this.doneNode2.active = true;
             this.lbCountDau.node.active = false;
             this.lbCountSc.node.active = false;
             this.anim.setAnimation(0, "happy", false);
@@ -159,6 +167,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.angry = function () {
         this.anim.setAnimation(0, "7.angry_idle", true);
+        cc.audioEngine.play(this.soundAngry2, false, 1);
     };
     NewClass.prototype.checkSell = function (donut) {
         var donutComp = donut.getComponent("donut");
@@ -202,18 +211,20 @@ var NewClass = /** @class */ (function (_super) {
                 }
                 if (value <= 0.25 && !changedRed) {
                     changedRed = true;
+                    _this.isAngry = true;
                     _this.fillBar.spriteFrame = _this.fillRed;
                     _this.anim.setAnimation(0, "7.angry_idle", true);
                     if (_this.soundAngry2 && _this.isSuccess == false) {
-                        cc.audioEngine.play(_this.soundAngry2, false, 1);
+                        cc.audioEngine.play(_this.soundAngry2, true, 1);
                     }
                 }
                 return value;
             }
         }).call(function () {
             //  this.gamePlay.onEndGame(false)   
-            var id = _this.gamePlay.getPlace(_this.node);
-            _this.gamePlay.enqueueMove(_this.node);
+            // let id = this.gamePlay.getPlace(this.node)
+            // this.gamePlay.isCountDone++
+            // this.gamePlay.enqueueMove(this.node);
         })
             .start();
     };

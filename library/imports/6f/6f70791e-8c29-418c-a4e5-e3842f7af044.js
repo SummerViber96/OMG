@@ -97,6 +97,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.handtut = null;
         _this.shadow = null;
         _this.btnPizza = null;
+        _this.preCoin = null;
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
         _this.arrDonut = [null, null, null, null, null, null, null];
@@ -124,6 +125,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.arrTargetMission = [];
         _this.arrCus = [];
         _this.isStartgame = false;
+        _this.isFirstClick = false;
         _this.isHand = null;
         // spawFistkhay() {
         //     // this.arrTargetMission = this.arrMission
@@ -142,6 +144,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isCountCus = 3;
         _this.isCountDone = 0;
         _this.isMoving = false;
+        _this.coinArr = [];
         _this.isDem = 0;
         _this.moveQueue = [];
         _this.isProcessing = false;
@@ -195,30 +198,6 @@ var NewClass = /** @class */ (function (_super) {
             _this.startGame();
         }, 0.5);
     };
-    // spawFirstItem() {
-    //     let arr = [3, 0, 5, 4, 6, 7, 8, 1, 2]
-    //     let arr2 = [7, 1, 2, 8, 3, 0, 5, 6, 2,]
-    //     for (let i = 0; i < arr.length; i++) {
-    //         let rd = arr[i]
-    //         let item = cc.instantiate(this.listItem[rd]);
-    //         item.parent = this.listRay[0];
-    //         this.arrItem[0].push(item);
-    //         item.position = cc.v3((i - 4) * 250, -40);
-    //         if (i == 4) {
-    //             this.scheduleOnce(() => {
-    //                 item.getChildByName("hand").active = true
-    //                 this.isHand = item.getChildByName("hand")
-    //             }, 1.5)
-    //         }
-    //     }
-    //     for (let i = 0; i < arr.length; i++) {
-    //         let rd = arr2[i]
-    //         let item = cc.instantiate(this.listItem[rd]);
-    //         item.parent = this.listRay[1];
-    //         this.arrItem[1].push(item);
-    //         item.position = cc.v3((i - 4) * 250, -40);
-    //     }
-    // }
     NewClass.prototype.startGame = function () {
         var _this = this;
         for (var i = 0; i < this.arrCus.length; i++) {
@@ -232,11 +211,18 @@ var NewClass = /** @class */ (function (_super) {
             _this.spawKhay(mission);
         }, 0.5);
         this.scheduleOnce(function () {
-            cc.tween(_this.shadow).to(0.3, { opacity: 150 }).start();
-            _this.handtut.active = true;
-            _this.btnPizza.getComponent(cc.Animation).play("btnHindG");
-            _this.guild.active = true;
-        }, 1);
+            if (!_this.isFirstClick) {
+                _this.isFirstClick = true;
+                _this.handtut.active = true;
+                _this.btnPizza.getComponent(cc.Animation).play("btnHindG");
+            }
+        }, 3);
+        // this.scheduleOnce(() => {
+        //     cc.tween(this.shadow).to(0.3, { opacity: 150 }).start();
+        //     this.handtut.active = true;
+        //     this.btnPizza.getComponent(cc.Animation).play("btnHindG");
+        //     this.guild.active = true
+        // }, 1)
         // this.spawFistkhay()
         // if (this.isStartgame == false) {
         //     this.barTime.getComponent("barTime").countDown()
@@ -293,11 +279,10 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         var firstCus = this.arrCus[1];
         firstCus.getComponent("cusMission").showMission();
+        firstCus.getComponent("cusMission").loadTime();
         var mission = firstCus.getComponent("cusMission").order;
-        // this.arrTargetMission.shift();
         this.arrTargetMission.splice(place, 1);
         this.arrTargetMission.push(mission);
-        // if ( this.countMiss < 9) {
         var pos = cc.v3(1200, 0);
         var preKhay = cc.instantiate(this.preKhay);
         preKhay.parent = this.listKhay;
@@ -305,8 +290,6 @@ var NewClass = /** @class */ (function (_super) {
         this.arrKhay.push(preKhay);
         this.loadDataKhay(mission, preKhay);
         preKhay.position = cc.v3(-100 + 400, 50);
-        // let cus = this.arrCus[place]
-        // }
         var targetKhay = this.arrKhay[place];
         cc.tween(targetKhay).to(0.3, { scale: 0 }).start();
         var _loop_1 = function (i) {
@@ -316,15 +299,27 @@ var NewClass = /** @class */ (function (_super) {
             }).start();
         };
         var this_1 = this;
+        // if (this.isCountDone == 3) {
+        //     console.log("khay new")
+        //     let firstCus2 = this.arrCus[2];
+        //     firstCus2.getComponent("cusMission").showMission();
+        //     let mission2 = firstCus2.getComponent("cusMission").order;
+        //     this.arrTargetMission.push(mission2)
+        //     let pos2 = cc.v3(0, 0);
+        //     let preKhay2 = cc.instantiate(this.preKhay)
+        //     preKhay2.parent = this.listKhay;
+        //     preKhay2.position = pos2
+        //     this.arrKhay.push(preKhay2)
+        //     this.loadDataKhay(mission2, preKhay2)
+        //     preKhay2.position = cc.v3(-100 + 400 + 400, 50)
+        //     // cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
+        // }
         for (var i = place + 1; i < this.arrKhay.length; i++) {
             _loop_1(i);
         }
         cc.tween(this.listRay[0]).by(0.8, { position: cc.v3(-400, 0) }).start();
         this.scheduleOnce(function () {
             _this.arrKhay.splice(place, 1);
-            // console.log(cus.getComponent("cusMission").doneNode.children[this.isTargetItemPlace])
-            // cus.getComponent("cusMission").doneNode.children[this.isTargetItemPlace].active = true
-            // this.arrTargetMission.shift()
         }, 0.2);
     };
     NewClass.prototype.loadDataKhay = function (data, khay) {
@@ -345,17 +340,20 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_clickBtn = function (event, value) {
         var _this = this;
+        this.arrCus[0].getComponent("cusMission").loadTime();
+        this.handtut.active = false;
+        this.btnPizza.children[1].active = false;
+        if (!this.firstClick) {
+            this.firstClick = true;
+            this.guild.active = false;
+            this.handtut.active = false;
+            this.shadow.active = false;
+        }
         var id = parseInt(value);
         var node = event.currentTarget;
         var check = this.checkMission(id, node);
         if (check) {
-            if (!this.firstClick) {
-                this.firstClick = true;
-                this.guild.active = false;
-                this.handtut.active = false;
-                this.shadow.active = false;
-                this.btnPizza.children[1].active = false;
-            }
+            cc.audioEngine.play(this.soundClick, false, 1);
             var pos = check.parent.convertToWorldSpaceAR(check.position);
             pos = node.parent.convertToNodeSpaceAR(pos);
             var mag = (pos.x > node.x) ? -50 : 50;
@@ -417,6 +415,9 @@ var NewClass = /** @class */ (function (_super) {
         }
         node.getComponent(cc.Animation).play("btnWrong");
         cc.audioEngine.play(this.soundWrong, false, 1);
+        if (this.arrCus[0]) {
+            this.arrCus[0].getComponent("cusMission").angry();
+        }
         return null;
     };
     NewClass.prototype.checkSuccess = function (i, j) {
@@ -441,8 +442,17 @@ var NewClass = /** @class */ (function (_super) {
             this.isMoving = true;
             this.isCountDone++;
             this.scheduleOnce(function () {
-                cus.getChildByName("vfx_coin").active = true;
-                cus.getChildByName("vfx_coin").getComponent(cc.Animation).play();
+                // cus.getChildByName("vfx_coin").active = true
+                // cus.getChildByName("vfx_coin").getComponent(cc.Animation).play()
+                var pos = _this.listCus.convertToWorldSpaceAR(cus.position);
+                pos = _this.camera.getWorldToScreenPoint(pos);
+                pos = _this.uiCamera.getScreenToWorldPoint(pos);
+                pos = _this.barCoin.convertToNodeSpaceAR(pos).add(cc.v3(0, 0));
+                // pos = this.node.convertToNodeSpaceAR(pos)
+                _this.spawnCoinsFromCustomer(pos, function () {
+                    // sau khi tỏa ra xong thì move về thanh gold
+                    _this.moveCoinsToGoldBar(_this.coinArr, _this.barCoin);
+                });
                 cus.getComponent("cusMission").happy();
                 _this.notiCoin.play();
                 globalThis.coin += 50;
@@ -459,6 +469,76 @@ var NewClass = /** @class */ (function (_super) {
                 _this.enqueueMove(_this.arrCus[i]);
             }, 0.8);
         }
+    };
+    // rewardGold(customerNode: cc.Node) {
+    //     const startPos = customerNode.position;
+    //     const coins: cc.Node[] = [];
+    //     const coinCount = 6;
+    //     const radius = 120;
+    //     for (let i = 0; i < coinCount; i++) {
+    //         const coin = cc.instantiate(this.preCoin);
+    //         coin.parent = this.node;
+    //         coin.setPosition(startPos);
+    //         coins.push(coin);
+    //         const angle = (Math.PI * 2 / coinCount) * i;
+    //         const targetPos = startPos.add(cc.v3(
+    //             Math.cos(angle) * radius,
+    //             Math.sin(angle) * radius,
+    //             0
+    //         ));
+    //         cc.tween(coin)
+    //             .to(0.25, { position: targetPos }, { easing: "quadOut" })
+    //             .delay(0.1)
+    //             .call(() => {
+    //                 if (i === coinCount - 1) {
+    //                     this.moveCoinsToGoldBar(coins, this.barCoin);
+    //                 }
+    //             })
+    //             .start();
+    //     }
+    // }
+    NewClass.prototype.spawnCoinsFromCustomer = function (startPos, onFinish) {
+        this.coinArr = [];
+        var coinCount = 6;
+        var radius = 70; // độ tỏa ra
+        var finished = 0;
+        for (var i = 0; i < coinCount; i++) {
+            var coin = cc.instantiate(this.preCoin);
+            coin.parent = this.barCoin;
+            coin.setPosition(startPos);
+            coin.scale = 0.8;
+            this.coinArr.push(coin);
+            // random hướng tỏa
+            var angle = (Math.PI * 2 / coinCount) * i;
+            var randomRadius = radius + Math.random() * 40;
+            var targetPos = startPos.add(cc.v3(Math.cos(angle) * randomRadius, Math.sin(angle) * randomRadius, 0));
+            // tỏa ra
+            cc.tween(coin)
+                .to(0.25, { position: targetPos }, { easing: "quadOut" })
+                .delay(0.05)
+                .call(function () {
+                finished++;
+                if (finished === coinCount && onFinish) {
+                    onFinish();
+                }
+            })
+                .start();
+        }
+    };
+    NewClass.prototype.moveCoinsToGoldBar = function (coins, goldTarget) {
+        // const worldPos = goldTarget.parent.convertToWorldSpaceAR(goldTarget.position);
+        var local = cc.v3(0, 0);
+        coins.forEach(function (coin, index) {
+            // const local = coin.parent.convertToNodeSpaceAR(worldPos);
+            cc.tween(coin)
+                .delay(index * 0.05)
+                .to(0.4, { position: local, scale: 0.5 }, { easing: "quadIn" })
+                .call(function () {
+                coin.destroy();
+                // this.addGold(1);
+            })
+                .start();
+        });
     };
     NewClass.prototype.getPlace = function (cus) {
         return this.arrCus.indexOf(cus); // gọn hơn
@@ -484,6 +564,7 @@ var NewClass = /** @class */ (function (_super) {
         //     this.finishMove();
         //     return;
         // }
+        // console.log(this.isCountDone)
         if (place === -1) {
             this.finishMove();
             return;
@@ -525,11 +606,11 @@ var NewClass = /** @class */ (function (_super) {
                 .start();
         }
         // ===== Gọi loadTime đúng 1 lần =====
-        if (this.isTargetCus) {
-            this.scheduleOnce(function () {
-                _this.isTargetCus.getComponent("cusMission").loadTime();
-            }, 0.4);
-        }
+        // if (this.isTargetCus) {
+        //     this.scheduleOnce(() => {
+        //         // this.isTargetCus.getComponent("cusMission").loadTime();
+        //     }, 0.4);
+        // }
         // ===== Remove khỏi mảng =====
         this.scheduleOnce(function () {
             _this.arrCus.splice(place, 1);
@@ -538,8 +619,13 @@ var NewClass = /** @class */ (function (_super) {
         }, 1.1);
         // ===== Spawn khay =====
         this.scheduleOnce(function () {
-            _this.spawNextKhay(place);
+            if (_this.isCountDone < 5) {
+                _this.spawNextKhay(place);
+            }
         }, 0.3);
+        if (this.isCountDone == 5) {
+            this.onEndGame(true);
+        }
     };
     NewClass.prototype.finishMove = function () {
         this.isProcessing = false;
@@ -657,7 +743,7 @@ var NewClass = /** @class */ (function (_super) {
             this.amazing.active = true;
             // cc.audioEngine.play(this.soundEnd, false, 1)
             this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundThinkWin, false, 1);
+                // cc.audioEngine.play(this.soundThinkWin, false, 1)
                 // cc.audioEngine.play(this.soundWin, false, 1)
                 // this.endCard.getChildByName("title").active = false
                 _this.endCardWin.active = true;
@@ -909,6 +995,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnPizza", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "preCoin", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

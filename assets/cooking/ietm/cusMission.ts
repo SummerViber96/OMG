@@ -42,20 +42,33 @@ export default class NewClass extends cc.Component {
     isSuccess = false
     gamePlay = null
     timeFill = 60
+    isAngry = false
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
         // this.loadTime()
+        this.addEndEventSpine();
+
     }
     showMission() {
         this.pop.getComponent(cc.Animation).play()
-        this.loadTime()
+        // this.loadTime()
     }
     updateItem(id) {
         console.log("update item " + id)
         cc.audioEngine.play(this.gamePlay.soundOk, false, 1)
         this.doneNode.children[id].active = true
     }
+    addEndEventSpine() {
+        this.anim.setCompleteListener(track => {
+            if (track.animation.name == "7.angry_idle") {
+                if (!this.isAngry) {
+                    this.anim.setAnimation(0, "3.buy_idle", true);
 
+                }
+
+            }
+        })
+    }
     updateMission(value) { //1:socola //0:dau
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1)
 
@@ -75,10 +88,7 @@ export default class NewClass extends cc.Component {
                 this.count[1]--
                 if (this.count[1] == 0) {
                     this.isEnd = true
-                    this.scheduleOnce(() => {
-                        this.doneNode2.active = true
 
-                    }, 0.3)
                     this.lbCountSc.node.active = false
 
                     // this.scheduleOnce(() => {
@@ -114,7 +124,6 @@ export default class NewClass extends cc.Component {
         if (value == true) {
             cc.audioEngine.play(this.soundHappy, false, 1)
             this.doneNode.active = true;
-            this.doneNode2.active = true;
 
             this.lbCountDau.node.active = false;
             this.lbCountSc.node.active = false
@@ -166,7 +175,9 @@ export default class NewClass extends cc.Component {
 
     }
     angry() {
-        this.anim.setAnimation(0, "7.angry_idle", true)
+        this.anim.setAnimation(0, "7.angry_idle", true);
+
+        cc.audioEngine.play(this.soundAngry2, false, 1)
 
     }
     checkSell(donut) {
@@ -214,11 +225,13 @@ export default class NewClass extends cc.Component {
 
                     if (value <= 0.25 && !changedRed) {
                         changedRed = true;
+                        this.isAngry = true
+
                         this.fillBar.spriteFrame = this.fillRed;
                         this.anim.setAnimation(0, "7.angry_idle", true);
 
                         if (this.soundAngry2 && this.isSuccess == false) {
-                            cc.audioEngine.play(this.soundAngry2, false, 1)
+                            cc.audioEngine.play(this.soundAngry2, true, 1)
 
                         }
                     }
@@ -227,8 +240,10 @@ export default class NewClass extends cc.Component {
                 }
             }).call(() => {
                 //  this.gamePlay.onEndGame(false)   
-                let id = this.gamePlay.getPlace(this.node)
-                this.gamePlay.enqueueMove(this.node);
+                // let id = this.gamePlay.getPlace(this.node)
+                // this.gamePlay.isCountDone++
+                // this.gamePlay.enqueueMove(this.node);
+
 
             })
             .start();

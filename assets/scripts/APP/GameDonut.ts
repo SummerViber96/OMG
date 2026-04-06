@@ -122,6 +122,8 @@ export default class NewClass extends cc.Component {
     shadow: cc.Node = null;
     @property(cc.Node)
     btnPizza: cc.Node = null
+    @property(cc.Prefab)
+    preCoin: cc.Prefab = null
 
     maxKhay = 7
 
@@ -152,6 +154,7 @@ export default class NewClass extends cc.Component {
     arrTargetMission = []
     arrCus = []
     isStartgame = false
+    isFirstClick = false
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
@@ -174,36 +177,7 @@ export default class NewClass extends cc.Component {
         }, 0.5)
     }
     isHand = null
-    // spawFirstItem() {
-    //     let arr = [3, 0, 5, 4, 6, 7, 8, 1, 2]
-    //     let arr2 = [7, 1, 2, 8, 3, 0, 5, 6, 2,]
 
-    //     for (let i = 0; i < arr.length; i++) {
-    //         let rd = arr[i]
-    //         let item = cc.instantiate(this.listItem[rd]);
-    //         item.parent = this.listRay[0];
-
-    //         this.arrItem[0].push(item);
-
-    //         item.position = cc.v3((i - 4) * 250, -40);
-    //         if (i == 4) {
-    //             this.scheduleOnce(() => {
-    //                 item.getChildByName("hand").active = true
-    //                 this.isHand = item.getChildByName("hand")
-    //             }, 1.5)
-
-    //         }
-    //     }
-    //     for (let i = 0; i < arr.length; i++) {
-    //         let rd = arr2[i]
-    //         let item = cc.instantiate(this.listItem[rd]);
-    //         item.parent = this.listRay[1];
-
-    //         this.arrItem[1].push(item);
-
-    //         item.position = cc.v3((i - 4) * 250, -40);
-    //     }
-    // }
     startGame() {
         for (let i = 0; i < this.arrCus.length; i++) {
             let cus = this.arrCus[i];
@@ -217,11 +191,19 @@ export default class NewClass extends cc.Component {
 
         }, 0.5)
         this.scheduleOnce(() => {
-            cc.tween(this.shadow).to(0.3, { opacity: 150 }).start();
-            this.handtut.active = true;
-            this.btnPizza.getComponent(cc.Animation).play("btnHindG");
-            this.guild.active = true
-        }, 1)
+            if (!this.isFirstClick) {
+                this.isFirstClick = true;
+                this.handtut.active = true
+                this.btnPizza.getComponent(cc.Animation).play("btnHindG");
+
+            }
+        }, 3)
+        // this.scheduleOnce(() => {
+        //     cc.tween(this.shadow).to(0.3, { opacity: 150 }).start();
+        //     this.handtut.active = true;
+        //     this.btnPizza.getComponent(cc.Animation).play("btnHindG");
+        //     this.guild.active = true
+        // }, 1)
 
         // this.spawFistkhay()
 
@@ -295,13 +277,11 @@ export default class NewClass extends cc.Component {
     spawNextKhay(place) {
         let firstCus = this.arrCus[1];
         firstCus.getComponent("cusMission").showMission();
-        let mission = firstCus.getComponent("cusMission").order;
+        firstCus.getComponent("cusMission").loadTime();
 
-        // this.arrTargetMission.shift();
+        let mission = firstCus.getComponent("cusMission").order;
         this.arrTargetMission.splice(place, 1)
         this.arrTargetMission.push(mission)
-
-        // if ( this.countMiss < 9) {
         let pos = cc.v3(1200, 0);
         let preKhay = cc.instantiate(this.preKhay)
         preKhay.parent = this.listKhay;
@@ -309,10 +289,29 @@ export default class NewClass extends cc.Component {
         this.arrKhay.push(preKhay)
         this.loadDataKhay(mission, preKhay)
         preKhay.position = cc.v3(-100 + 400, 50)
-        // let cus = this.arrCus[place]
-        // }
         let targetKhay = this.arrKhay[place]
         cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
+
+        // if (this.isCountDone == 3) {
+        //     console.log("khay new")
+        //     let firstCus2 = this.arrCus[2];
+        //     firstCus2.getComponent("cusMission").showMission();
+
+        //     let mission2 = firstCus2.getComponent("cusMission").order;
+        //     this.arrTargetMission.push(mission2)
+        //     let pos2 = cc.v3(0, 0);
+        //     let preKhay2 = cc.instantiate(this.preKhay)
+        //     preKhay2.parent = this.listKhay;
+        //     preKhay2.position = pos2
+        //     this.arrKhay.push(preKhay2)
+        //     this.loadDataKhay(mission2, preKhay2)
+        //     preKhay2.position = cc.v3(-100 + 400 + 400, 50)
+        //     // cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
+        // }
+
+
+
+
         for (let i = place + 1; i < this.arrKhay.length; i++) {
             let khay = this.arrKhay[i]
             cc.tween(khay).by(0.8, { position: cc.v3(-400, 0) }).call(() => {
@@ -323,9 +322,7 @@ export default class NewClass extends cc.Component {
         cc.tween(this.listRay[0]).by(0.8, { position: cc.v3(-400, 0) }).start()
         this.scheduleOnce(() => {
             this.arrKhay.splice(place, 1);
-            // console.log(cus.getComponent("cusMission").doneNode.children[this.isTargetItemPlace])
-            // cus.getComponent("cusMission").doneNode.children[this.isTargetItemPlace].active = true
-            // this.arrTargetMission.shift()
+
         }, 0.2)
     }
     loadDataKhay(data, khay) {
@@ -349,17 +346,22 @@ export default class NewClass extends cc.Component {
     }
     firstClick = false
     btn_clickBtn(event, value) {
+        this.arrCus[0].getComponent("cusMission").loadTime()
+        this.handtut.active = false;
+        this.btnPizza.children[1].active = false;
+        if (!this.firstClick) {
+            this.firstClick = true;
+            this.guild.active = false;
+            this.handtut.active = false;
+            this.shadow.active = false;
+
+        }
         let id = parseInt(value);
         let node = event.currentTarget;
         let check = this.checkMission(id, node);
         if (check) {
-            if (!this.firstClick) {
-                this.firstClick = true;
-                this.guild.active = false;
-                this.handtut.active = false;
-                this.shadow.active = false;
-                this.btnPizza.children[1].active = false;
-            }
+
+            cc.audioEngine.play(this.soundClick, false, 1)
             let pos = check.parent.convertToWorldSpaceAR(check.position);
             pos = node.parent.convertToNodeSpaceAR(pos);
 
@@ -429,12 +431,15 @@ export default class NewClass extends cc.Component {
         }
         node.getComponent(cc.Animation).play("btnWrong")
         cc.audioEngine.play(this.soundWrong, false, 1)
-
+        if (this.arrCus[0]) {
+            this.arrCus[0].getComponent("cusMission").angry()
+        }
         return null;
     }
     isCountCus = 3
     isCountDone = 0
     isMoving = false
+    coinArr = []
     checkSuccess(i, j) {//check cus hoan thanh don hang chua
         this.scheduleOnce(() => {
             if (j != null) {
@@ -458,9 +463,18 @@ export default class NewClass extends cc.Component {
             this.isMoving = true
             this.isCountDone++
             this.scheduleOnce(() => {
-                cus.getChildByName("vfx_coin").active = true
-                cus.getChildByName("vfx_coin").getComponent(cc.Animation).play()
-                cus.getComponent("cusMission").happy()
+                // cus.getChildByName("vfx_coin").active = true
+                // cus.getChildByName("vfx_coin").getComponent(cc.Animation).play()
+                let pos = this.listCus.convertToWorldSpaceAR(cus.position)
+                pos = this.camera.getWorldToScreenPoint(pos);
+                pos = this.uiCamera.getScreenToWorldPoint(pos);
+                pos = this.barCoin.convertToNodeSpaceAR(pos).add(cc.v3(0, 0))
+
+                // pos = this.node.convertToNodeSpaceAR(pos)
+                this.spawnCoinsFromCustomer(pos, () => {
+                    // sau khi tỏa ra xong thì move về thanh gold
+                    this.moveCoinsToGoldBar(this.coinArr, this.barCoin);
+                }); cus.getComponent("cusMission").happy()
                 this.notiCoin.play()
                 globalThis.coin += 50
                 if (mission.length == 3) {
@@ -479,6 +493,89 @@ export default class NewClass extends cc.Component {
 
         }
 
+    }
+    // rewardGold(customerNode: cc.Node) {
+    //     const startPos = customerNode.position;
+    //     const coins: cc.Node[] = [];
+
+    //     const coinCount = 6;
+    //     const radius = 120;
+
+    //     for (let i = 0; i < coinCount; i++) {
+    //         const coin = cc.instantiate(this.preCoin);
+    //         coin.parent = this.node;
+    //         coin.setPosition(startPos);
+    //         coins.push(coin);
+
+    //         const angle = (Math.PI * 2 / coinCount) * i;
+    //         const targetPos = startPos.add(cc.v3(
+    //             Math.cos(angle) * radius,
+    //             Math.sin(angle) * radius,
+    //             0
+    //         ));
+
+    //         cc.tween(coin)
+    //             .to(0.25, { position: targetPos }, { easing: "quadOut" })
+    //             .delay(0.1)
+    //             .call(() => {
+    //                 if (i === coinCount - 1) {
+    //                     this.moveCoinsToGoldBar(coins, this.barCoin);
+    //                 }
+    //             })
+    //             .start();
+    //     }
+    // }
+    spawnCoinsFromCustomer(startPos: cc.Vec3, onFinish?: () => void) {
+        this.coinArr = []
+        const coinCount = 6;
+        const radius = 70; // độ tỏa ra
+
+        let finished = 0;
+
+        for (let i = 0; i < coinCount; i++) {
+            const coin = cc.instantiate(this.preCoin);
+            coin.parent = this.barCoin;
+            coin.setPosition(startPos);
+            coin.scale = 0.8
+            this.coinArr.push(coin)
+            // random hướng tỏa
+            const angle = (Math.PI * 2 / coinCount) * i;
+            const randomRadius = radius + Math.random() * 40;
+
+            const targetPos = startPos.add(cc.v3(
+                Math.cos(angle) * randomRadius,
+                Math.sin(angle) * randomRadius,
+                0
+            ));
+
+            // tỏa ra
+            cc.tween(coin)
+                .to(0.25, { position: targetPos }, { easing: "quadOut" })
+                .delay(0.05)
+                .call(() => {
+                    finished++;
+                    if (finished === coinCount && onFinish) {
+                        onFinish();
+                    }
+                })
+                .start();
+        }
+    }
+    moveCoinsToGoldBar(coins: cc.Node[], goldTarget: cc.Node) {
+        // const worldPos = goldTarget.parent.convertToWorldSpaceAR(goldTarget.position);
+        let local = cc.v3(0, 0)
+        coins.forEach((coin, index) => {
+            // const local = coin.parent.convertToNodeSpaceAR(worldPos);
+
+            cc.tween(coin)
+                .delay(index * 0.05)
+                .to(0.4, { position: local, scale: 0.5 }, { easing: "quadIn" })
+                .call(() => {
+                    coin.destroy();
+                    // this.addGold(1);
+                })
+                .start();
+        });
     }
     isDem = 0
     getPlace(cus) {
@@ -509,6 +606,7 @@ export default class NewClass extends cc.Component {
         //     this.finishMove();
         //     return;
         // }
+        // console.log(this.isCountDone)
         if (place === -1) {
             this.finishMove();
             return;
@@ -560,11 +658,11 @@ export default class NewClass extends cc.Component {
         }
 
         // ===== Gọi loadTime đúng 1 lần =====
-        if (this.isTargetCus) {
-            this.scheduleOnce(() => {
-                this.isTargetCus.getComponent("cusMission").loadTime();
-            }, 0.4);
-        }
+        // if (this.isTargetCus) {
+        //     this.scheduleOnce(() => {
+        //         // this.isTargetCus.getComponent("cusMission").loadTime();
+        //     }, 0.4);
+        // }
 
         // ===== Remove khỏi mảng =====
         this.scheduleOnce(() => {
@@ -576,8 +674,14 @@ export default class NewClass extends cc.Component {
 
         // ===== Spawn khay =====
         this.scheduleOnce(() => {
-            this.spawNextKhay(place);
+            if (this.isCountDone < 5) {
+                this.spawNextKhay(place);
+
+            }
         }, 0.3);
+        if (this.isCountDone == 5) {
+            this.onEndGame(true)
+        }
     }
     finishMove() {
         this.isProcessing = false;
@@ -746,7 +850,7 @@ export default class NewClass extends cc.Component {
 
             // cc.audioEngine.play(this.soundEnd, false, 1)
             this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundThinkWin, false, 1)
+                // cc.audioEngine.play(this.soundThinkWin, false, 1)
                 // cc.audioEngine.play(this.soundWin, false, 1)
                 // this.endCard.getChildByName("title").active = false
                 this.endCardWin.active = true;
