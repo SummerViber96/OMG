@@ -371,7 +371,6 @@ export default class NewClass extends cc.Component {
 
             cc.tween(item).to(0.2, { scale: 1.2 }).start();
             cc.tween(item).bezierTo(0.4, startPos, midPos, endPos).call(() => {
-                console.log(this.isTargetItemPlace)
                 cc.audioEngine.play(this.soundOk, false, 1)
                 this.arrCus[this.isTargetItemPlace[0]].getComponent("cusMission").doneNode.children[this.isTargetItemPlace[1]].active = true
                 item.destroy()
@@ -839,6 +838,10 @@ export default class NewClass extends cc.Component {
         if (this.isEndGame) return;
         this.isEndGame = true
         this.warning.active = false;
+        this.scheduleOnce(() => {
+            this.updateResponsive()
+
+        }, 0.5)
         if (value == true) {
             this.barTime.getComponent("barTime").endGame()
             this.amazing.active = true;
@@ -902,7 +905,7 @@ export default class NewClass extends cc.Component {
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100)
         this.barCoin.scale = (logic) ? 2.5 : 1.4
-        this.barCoin.getComponent(cc.Widget).top = (logic) ? 130 : 80
+        this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80
         this.phaoHoa.scale = (logic) ? 9 : 5
         this.guild.scale = (logic) ? 2 : 1.2
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
@@ -937,7 +940,7 @@ export default class NewClass extends cc.Component {
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 this.barCoin.getComponent(cc.Widget).top = 200
-                                this.table.height = 2400
+                this.table.height = 2400
 
                 for (let i = 0; i < this.listMenu.childrenCount; i++) {
                     if (this.arrPosDoc[i]) {
@@ -945,11 +948,11 @@ export default class NewClass extends cc.Component {
 
                     }
                 }
-
+                console.log("iphoneX")
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                                this.camera.zoomRatio = 1.5
+                this.camera.zoomRatio = 1.5
 
                 this.table.height = 1400
                 this.endCardDoc.scale = 1.2

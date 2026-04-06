@@ -10439,11 +10439,6 @@
     "meta": 1775234118657,
     "relativePath": "TapToKitchen\\anim\\done.anim"
   },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1775497007907,
-    "meta": 1775497007924,
-    "relativePath": "scenes\\Donut1.fire"
-  },
   "9836134e-b892-4283-b6b2-78b5acf3ed45": {
     "asset": 1677588865766,
     "meta": 1775234084832,
@@ -11080,8 +11075,13 @@
     "relativePath": "cooking\\ietm\\cusMission.ts"
   },
   "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1775496991305,
-    "meta": 1775496993097,
+    "asset": 1775498571997,
+    "meta": 1775498573698,
     "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1775498593160,
+    "meta": 1775498593189,
+    "relativePath": "scenes\\Donut1.fire"
   }
 }

@@ -362,7 +362,6 @@ var NewClass = /** @class */ (function (_super) {
             item_1.position = cc.v3(startPos.x, startPos.y);
             cc.tween(item_1).to(0.2, { scale: 1.2 }).start();
             cc.tween(item_1).bezierTo(0.4, startPos, midPos, endPos).call(function () {
-                console.log(_this.isTargetItemPlace);
                 cc.audioEngine.play(_this.soundOk, false, 1);
                 _this.arrCus[_this.isTargetItemPlace[0]].getComponent("cusMission").doneNode.children[_this.isTargetItemPlace[1]].active = true;
                 item_1.destroy();
@@ -735,6 +734,9 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.isEndGame = true;
         this.warning.active = false;
+        this.scheduleOnce(function () {
+            _this.updateResponsive();
+        }, 0.5);
         if (value == true) {
             this.barTime.getComponent("barTime").endGame();
             this.amazing.active = true;
@@ -791,7 +793,7 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100);
         this.barCoin.scale = (logic) ? 2.5 : 1.4;
-        this.barCoin.getComponent(cc.Widget).top = (logic) ? 130 : 80;
+        this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80;
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
@@ -829,6 +831,7 @@ var NewClass = /** @class */ (function (_super) {
                         this.listMenu.children[i].position = this.arrPosDoc[i];
                     }
                 }
+                console.log("iphoneX");
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.5;
