@@ -1,7 +1,7 @@
 {
   "2c57eeae-95a7-4ca9-87d9-802977e12c2d": {
-    "asset": 1775143228894,
-    "meta": 1775234105914,
+    "asset": 1775523833447,
+    "meta": 1775523867295,
     "relativePath": "anim"
   },
   "8cb730ee-e6cf-48a7-9fca-7c696815ad76": {
@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1775469468562,
+    "meta": 1775523867602,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1775469468561,
+    "meta": 1775523867603,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -4315,8 +4315,8 @@
     "relativePath": "prefab\\vfx\\vfx_smoke.prefab"
   },
   "5ac3afaa-e931-4ba4-a643-89d66b4157f7": {
-    "asset": 1775234050942,
-    "meta": 1775234115698,
+    "asset": 1775523833473,
+    "meta": 1775523867319,
     "relativePath": "scenes"
   },
   "e36e27a3-29e3-4284-b879-a39eb6ec879e": {
@@ -4325,8 +4325,8 @@
     "relativePath": "prefab\\Wood-part.prefab"
   },
   "1973ede5-c389-44a0-8934-fa1ab32451d1": {
-    "asset": 1775234098481,
-    "meta": 1775234115701,
+    "asset": 1775523833448,
+    "meta": 1775523867321,
     "relativePath": "scripts"
   },
   "470ed163-3949-4cd6-9cdc-895dae391e9e": {
@@ -4340,8 +4340,8 @@
     "relativePath": "scripts\\animal.ts"
   },
   "cdf0b8ba-5fcf-477f-a761-6b2937f53023": {
-    "asset": 1775234050949,
-    "meta": 1775234115758,
+    "asset": 1775523833474,
+    "meta": 1775523867322,
     "relativePath": "scripts\\APP"
   },
   "00603e08-58f5-4fee-a678-5ce835d40706": {
@@ -9920,8 +9920,8 @@
     "relativePath": "CakeAssembly\\Think You can do better _KitchenCraze_CTA (1).mp3"
   },
   "14d26e6d-83d5-416d-85fe-6cf2c4f7e5ad": {
-    "asset": 1774280936909,
-    "meta": 1775234114901,
+    "asset": 1775523833447,
+    "meta": 1775523867318,
     "relativePath": "New Folder"
   },
   "02d1cca5-4701-43d5-929f-18ab76b43c87": {
@@ -10290,8 +10290,8 @@
     "relativePath": "New Folder\\BG (1).jpg"
   },
   "49900a26-4b9c-4bec-9f25-995c845e8a6b": {
-    "asset": 1775234050932,
-    "meta": 1775234118604,
+    "asset": 1775477432205,
+    "meta": 1775523867589,
     "relativePath": "TapToKitchen"
   },
   "eda2fc6e-f99d-4f4e-8c5b-39d22c1d318a": {
@@ -11074,14 +11074,14 @@
     "meta": 1775490529922,
     "relativePath": "cooking\\ietm\\cusMission.ts"
   },
-  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1775498571997,
-    "meta": 1775498573698,
-    "relativePath": "scripts\\APP\\GameDonut.ts"
-  },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1775498593160,
-    "meta": 1775498593189,
+    "asset": 1775524315545,
+    "meta": 1775524315574,
     "relativePath": "scenes\\Donut1.fire"
+  },
+  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
+    "asset": 1775524170932,
+    "meta": 1775524172563,
+    "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

@@ -337,11 +337,11 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_clickBtn = function (event, value) {
         var _this = this;
-        this.arrCus[0].getComponent("cusMission").loadTime();
         this.checkMission;
         this.handtut.active = false;
         this.btnPizza.children[1].active = false;
         if (!this.firstClick) {
+            this.arrCus[0].getComponent("cusMission").loadTime();
             this.firstClick = true;
             this.guild.active = false;
             this.handtut.active = false;
@@ -450,14 +450,6 @@ var NewClass = /** @class */ (function (_super) {
                     _this.moveCoinsToGoldBar(_this.coinArr, _this.barCoin);
                 });
                 cus.getComponent("cusMission").happy();
-                _this.notiCoin.play();
-                globalThis.coin += 50;
-                if (mission.length == 3) {
-                    globalThis.coin += 100;
-                }
-                if (globalThis.coin >= 1000) {
-                    _this.onEndGame(true);
-                }
                 cc.audioEngine.play(_this.soundSellDone, false, 1);
             }, 0.6);
             this.scheduleOnce(function () {
@@ -522,6 +514,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.moveCoinsToGoldBar = function (coins, goldTarget) {
+        var _this = this;
         // const worldPos = goldTarget.parent.convertToWorldSpaceAR(goldTarget.position);
         var local = cc.v3(0, 0);
         coins.forEach(function (coin, index) {
@@ -531,6 +524,8 @@ var NewClass = /** @class */ (function (_super) {
                 .to(0.4, { position: local, scale: 0.5 }, { easing: "quadIn" })
                 .call(function () {
                 coin.destroy();
+                _this.notiCoin.play();
+                globalThis.coin += 10;
                 // this.addGold(1);
             })
                 .start();

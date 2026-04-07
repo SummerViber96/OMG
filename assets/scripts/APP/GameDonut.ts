@@ -342,10 +342,12 @@ export default class NewClass extends cc.Component {
     }
     firstClick = false
     btn_clickBtn(event, value) {
-        this.arrCus[0].getComponent("cusMission").loadTime()this.checkMission
+        this.checkMission
         this.handtut.active = false;
         this.btnPizza.children[1].active = false;
         if (!this.firstClick) {
+            this.arrCus[0].getComponent("cusMission").loadTime()
+
             this.firstClick = true;
             this.guild.active = false;
             this.handtut.active = false;
@@ -469,15 +471,7 @@ export default class NewClass extends cc.Component {
                     // sau khi tỏa ra xong thì move về thanh gold
                     this.moveCoinsToGoldBar(this.coinArr, this.barCoin);
                 }); cus.getComponent("cusMission").happy()
-                this.notiCoin.play()
-                globalThis.coin += 50
-                if (mission.length == 3) {
-                    globalThis.coin += 100
 
-                }
-                if (globalThis.coin >= 1000) {
-                    this.onEndGame(true)
-                }
                 cc.audioEngine.play(this.soundSellDone, false, 1)
             }, 0.6)
             this.scheduleOnce(() => {
@@ -566,6 +560,9 @@ export default class NewClass extends cc.Component {
                 .to(0.4, { position: local, scale: 0.5 }, { easing: "quadIn" })
                 .call(() => {
                     coin.destroy();
+                    this.notiCoin.play()
+                    globalThis.coin += 10
+
                     // this.addGold(1);
                 })
                 .start();
