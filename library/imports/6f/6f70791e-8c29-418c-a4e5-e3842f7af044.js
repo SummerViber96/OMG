@@ -54,6 +54,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundWrong = null;
         _this.soundCreamMini = null;
         _this.soundThinkWin = null;
+        _this.soundBanh = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -140,6 +141,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.isHand = null;
         _this.isFirstClickbanh = false;
         _this.isFrist = false;
+        _this.isFirstStep = false;
+        _this.isFlying = false;
         _this.isTargetItemPlace = [];
         _this.firstClick = false;
         _this.isCountCus = 3;
@@ -248,7 +251,10 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_bep = function (tag) {
         cc.audioEngine.play(this.soundClick, false, 1);
         this.handtut2.active = false;
-        this.handtut3.active = true;
+        if (!this.isFirstStep) {
+            this.handtut3.active = true;
+            this.isFirstStep = true;
+        }
         var check = this.getSlotDia();
         if (check != null) {
             this.arrDia[check] = true;
@@ -301,12 +307,9 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_sell = function (item, tag) {
         var _this = this;
+        // if(this.isMoving)return;
         var check = this.checkMission(tag, item);
-        // if (check) {
         cc.audioEngine.play(this.soundClick, false, 1);
-        // let pos = check.parent.convertToWorldSpaceAR(check.position);
-        // pos = item.parent.convertToNodeSpaceAR(pos);
-        console.log(tag);
         var mag = 50;
         var startPos = cc.v2(item.x, item.y);
         var endPos = this.arrCus[0].getChildByName("bubbles").position.add(cc.v3(-30, 120));
@@ -964,6 +967,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundThinkWin", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundBanh", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);

@@ -34,6 +34,7 @@ export default class NewClass extends cc.Component {
         }
     }
     btn_click() {
+        if(this.gamePlay.isMoving)return;
         if (this.isBanh == false) return;
         this.anim.node.active = false
         this.gamePlay.btn_sell(this.node, this.status, this.node.position)

@@ -27,7 +27,7 @@ export default class NewClass extends cc.Component {
         this.anim.setAnimation(0, "lv1-song", false)
         this.isbanh = true
         this.clock.active = true
-        cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(()=>{
+        cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(() => {
             this.clock.active = false
         }).start();
     }
@@ -47,6 +47,7 @@ export default class NewClass extends cc.Component {
         this.isChin = true
         this.anim.setAnimation(0, "lv1-chin", true)
         this.node.getComponent(cc.Button).enabled = true
+        cc.audioEngine.play(this.gamePlay.soundBanh, false, 0.7)
     }
     btn_click() {
         // if (this.isChin == true) {

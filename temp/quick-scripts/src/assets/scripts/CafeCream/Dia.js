@@ -57,6 +57,8 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.btn_click = function () {
+        if (this.gamePlay.isMoving)
+            return;
         if (this.isBanh == false)
             return;
         this.anim.node.active = false;

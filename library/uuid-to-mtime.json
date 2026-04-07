@@ -11154,21 +11154,6 @@
     "meta": 1775535871494,
     "relativePath": "cooking\\ietm\\cusMission.ts"
   },
-  "6e65f119-8841-49a8-82c7-99193382dd2b": {
-    "asset": 1775541720324,
-    "meta": 1775541808693,
-    "relativePath": "scripts\\CafeCream\\Banh.ts"
-  },
-  "1cb0531f-2436-4cd8-b5c7-c715d4ecb823": {
-    "asset": 1775541807304,
-    "meta": 1775541808711,
-    "relativePath": "scripts\\CafeCream\\Dia.ts"
-  },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1775545032848,
-    "meta": 1775545032866,
-    "relativePath": "scenes\\Donut1.fire"
-  },
   "4372cc4c-e552-4ce1-8fa2-cfa38ed59498": {
     "asset": 1775519630000,
     "meta": 1775544852487,
@@ -11339,9 +11324,29 @@
     "meta": 1775544852936,
     "relativePath": "CreamCafe\\Shape 3 - Smart Object Group.png"
   },
+  "1cb0531f-2436-4cd8-b5c7-c715d4ecb823": {
+    "asset": 1775545612495,
+    "meta": 1775545670040,
+    "relativePath": "scripts\\CafeCream\\Dia.ts"
+  },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1775546161023,
+    "meta": 1775546161056,
+    "relativePath": "scenes\\Donut1.fire"
+  },
+  "84631f45-8822-4c8e-9dd3-1f99363b8249": {
+    "asset": 1775545687369,
+    "meta": 1775545688168,
+    "relativePath": "sound\\snd_fv_OvenEnd.mp3"
+  },
+  "6e65f119-8841-49a8-82c7-99193382dd2b": {
+    "asset": 1775545797379,
+    "meta": 1775545798524,
+    "relativePath": "scripts\\CafeCream\\Banh.ts"
+  },
   "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1775545030326,
-    "meta": 1775545031508,
+    "asset": 1775546158414,
+    "meta": 1775546160128,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

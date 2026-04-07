@@ -66,6 +66,7 @@ var NewClass = /** @class */ (function (_super) {
         this.isChin = true;
         this.anim.setAnimation(0, "lv1-chin", true);
         this.node.getComponent(cc.Button).enabled = true;
+        cc.audioEngine.play(this.gamePlay.soundBanh, false, 0.7);
     };
     NewClass.prototype.btn_click = function () {
         // if (this.isChin == true) {

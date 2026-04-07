@@ -22153,7 +22153,7 @@
         "__id__": 760
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 787
@@ -31705,6 +31705,9 @@
     },
     "soundCreamMini": null,
     "soundThinkWin": null,
+    "soundBanh": {
+      "__uuid__": "84631f45-8822-4c8e-9dd3-1f99363b8249"
+    },
     "tut": null,
     "hand": null,
     "endCard": {

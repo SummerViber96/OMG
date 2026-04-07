@@ -44,6 +44,8 @@ export default class NewClass extends cc.Component {
     soundCreamMini: cc.AudioClip = null
     @property(cc.AudioClip)
     soundThinkWin: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundBanh: cc.AudioClip = null
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -246,10 +248,14 @@ export default class NewClass extends cc.Component {
             this.listBep.children[check].getComponent("Banh").setOn()
         }
     }
+    isFirstStep = false
     btn_bep(tag) {
         cc.audioEngine.play(this.soundClick, false, 1)
         this.handtut2.active = false
-        this.handtut3.active = true
+        if (!this.isFirstStep) {
+            this.handtut3.active = true
+            this.isFirstStep = true
+        }
         let check = this.getSlotDia();
         if (check != null) {
             this.arrDia[check] = true
@@ -307,16 +313,11 @@ export default class NewClass extends cc.Component {
 
 
     }
+    isFlying = false
     btn_sell(item, tag) {
-
-
+        // if(this.isMoving)return;
         let check = this.checkMission(tag, item);
-        // if (check) {
-
         cc.audioEngine.play(this.soundClick, false, 1)
-        // let pos = check.parent.convertToWorldSpaceAR(check.position);
-        // pos = item.parent.convertToNodeSpaceAR(pos);
-        console.log(tag)
         let mag = 50
         let startPos = cc.v2(item.x, item.y);
         let endPos = this.arrCus[0].getChildByName("bubbles").position.add(cc.v3(-30, 120))
@@ -331,9 +332,7 @@ export default class NewClass extends cc.Component {
         cc.tween(banh).bezierTo(0.4, startPos, midPos, endPos).call(() => {
             if (check) {
                 cc.audioEngine.play(this.soundOk, false, 1)
-
                 this.arrCus[this.isTargetItemPlace[0]].getComponent("cusMission").doneNode.children[this.isTargetItemPlace[1]].active = true
-
             }
             else {
                 cc.audioEngine.play(this.soundWrong, false, 1)
