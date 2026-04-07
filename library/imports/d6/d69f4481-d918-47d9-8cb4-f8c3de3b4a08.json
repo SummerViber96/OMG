@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Creme_cafe_table (1)",
+    "texture": "df81aaa4-05a0-4c41-945f-5e94e8c3711a",
+    "atlas": "",
+    "rect": [
+      0,
+      341,
+      960,
+      619
+    ],
+    "offset": [
+      0,
+      -170.5
+    ],
+    "originalSize": [
+      960,
+      960
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -31,6 +31,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundHappy = null;
         _this.soundAngry = null;
         _this.soundAngry2 = null;
+        _this.soundHello = null;
         _this.dau = false;
         _this.socola = false;
         _this.count = [];
@@ -59,6 +60,9 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.showMission = function () {
         this.pop.getComponent(cc.Animation).play();
+        if (this.soundHello) {
+            cc.audioEngine.play(this.soundHello, false, 1);
+        }
         // this.loadTime()
     };
     NewClass.prototype.updateItem = function (id) {
@@ -246,6 +250,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundAngry2", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundHello", void 0);
     __decorate([
         property(cc.Boolean)
     ], NewClass.prototype, "dau", void 0);

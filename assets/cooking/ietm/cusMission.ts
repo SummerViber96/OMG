@@ -10,6 +10,8 @@ export default class NewClass extends cc.Component {
     soundAngry: cc.AudioClip = null
     @property(cc.AudioClip)
     soundAngry2: cc.AudioClip = null
+     @property(cc.AudioClip)
+    soundHello: cc.AudioClip = null
     @property(cc.Boolean)
     dau = false
     @property(cc.Boolean)
@@ -51,6 +53,9 @@ export default class NewClass extends cc.Component {
     }
     showMission() {
         this.pop.getComponent(cc.Animation).play()
+        if(this.soundHello){
+            cc.audioEngine.play(this.soundHello,false,1)
+        }
         // this.loadTime()
     }
     updateItem(id) {
