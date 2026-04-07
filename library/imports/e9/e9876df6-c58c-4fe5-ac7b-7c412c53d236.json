@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv2_t4",
+    "texture": "8e65738f-c36f-4852-8894-0d09408b9162",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      367,
+      302
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      369,
+      304
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -125,10 +125,19 @@ export default class NewClass extends cc.Component {
     preCoin: cc.Prefab = null
     @property(cc.Node)
     endCardDoc: cc.Node = null;
+    //new
+    @property(cc.Node)
+    listBep: cc.Node = null;
+    @property(cc.Node)
+    listDia: cc.Node = null;
+    arrBep = [false, false, false, false]
+    arrDia = [false, false, false, false]
+
+
     maxKhay = 7
 
     arrDonutpos = []
-    arrDonut = [null, null, null, null, null, null, null]
+    // arrDonut = [null, null, null, null, null, null, null]
     // arrKhay = [null, null, null, null, null, null, null]
     // arrKhayPos = []
     isTutChili = false
@@ -155,6 +164,7 @@ export default class NewClass extends cc.Component {
     arrCus = []
     isStartgame = false
     isFirstClick = false
+    //0:banh thuong 1:chocolate 2: strawberry 
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
@@ -169,8 +179,14 @@ export default class NewClass extends cc.Component {
             this.updateResponsive();
         });
         this.scheduleOnce(() => {
-            this.startGame()
-        }, 0.5)
+            cc.tween(this.notiMission).by(0.4, { opacity: -255, position: cc.v3(0, 200) }).call(() => {
+                this.notiMission.active = false
+                this.startGame()
+            }).start()
+        }, 1)
+        // this.scheduleOnce(() => {
+        //     this.startGame()
+        // }, 0.5)
     }
     isHand = null
 
@@ -194,53 +210,62 @@ export default class NewClass extends cc.Component {
 
             }
         }, 3)
-        // this.scheduleOnce(() => {
-        //     cc.tween(this.shadow).to(0.3, { opacity: 150 }).start();
-        //     this.handtut.active = true;
-        //     this.btnPizza.getComponent(cc.Animation).play("btnHindG");
-        //     this.guild.active = true
-        // }, 1)
 
-        // this.spawFistkhay()
+    }
+    btn_banh() {
+        let check = this.getSlotBep();
+        if (check != null) {
+            this.arrBep[check] = true;;
+            this.listBep.children[check].getComponent("Banh").setOn()
+        }
+    }
+    btn_bep(tag) {
+        let check = this.getSlotDia();
+        if (check != null) {
+            this.arrDia[check] = true
+            this.listDia.children[check].getComponent("Dia").getBanh()
+        }
+    }
 
-        // if (this.isStartgame == false) {
-        //     this.barTime.getComponent("barTime").countDown()
-        //     for (let i = 0; i < 3; i++) {
-        //         let child = this.arrCus[i]
-        //         child.getComponent("cusMission").loadTime()
-        //     }
-        //     this.isStartgame = true;
-        //     this.isHand.active = false;
-        //     this.guild.active = false
-        //     this.guild.opacity = 0
-        //     for (let i = 0; i < this.arrItem[0].length; i++) {
-        //         let item = this.arrItem[0][i]
-        //         let posNext = item.position.x - 2000
-        //         cc.tween(item)
-        //             .to(17, { x: posNext })
-        //             .call(() => {
-        //                 item.destroy();
-        //             })
-        //             .start();
-        //         // this.moveItem(item,item.position.add(cc.v3(-2000,0)))
-        //     }
-        //     for (let i = 0; i < this.arrItem[1].length; i++) {
-        //         let item = this.arrItem[1][i]
-        //         let posNext = item.position.x + 2000
-        //         cc.tween(item)
-        //             .to(16, { x: posNext })
-        //             .call(() => {
-        //                 item.destroy();
-        //             })
-        //             .start();
-        //         // this.moveItem(item,item.position.add(cc.v3(-2000,0)))
-        //     }
-        //     this.scheduleOnce(() => {
-        //         this.spawnItem()
-        //     }, 1.7)
-        // }
-        // this.spawnItem()
-
+    getSlotBep() {
+        for (let i = 0; i < this.arrBep.length; i++) {
+            let child = this.arrBep[i]
+            if (child == false) {
+                return i
+            }
+        }
+        return null
+    }
+    getSlotDia() {
+        for (let i = 0; i < this.arrDia.length; i++) {
+            let child = this.arrDia[i]
+            if (child == false) {
+                return i
+            }
+        }
+        return null
+    }
+    btn_strawBerry() {
+        for (let i = 0; i < this.arrDia.length; i++) {
+            let check = this.arrDia[i];
+            let banh = this.listDia.children[i];
+            if (check && banh.getComponent("Dia").status == 0) {
+                banh.getComponent("Dia").setStatus(2)
+                break;
+            }
+        }
+    }
+    btn_chocolate() {
+        for (let i = 0; i < this.arrDia.length; i++) {
+            let check = this.arrDia[i];
+            let banh = this.listDia.children[i];
+            if (check && banh.getComponent("Dia").status == 0) {
+                banh.getComponent("Dia").setStatus(1)
+                break;
+            }
+        }
+    }
+    btn_cream() {
 
     }
     spawKhay(mission) {
@@ -903,21 +928,22 @@ export default class NewClass extends cc.Component {
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
-        this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100)
+        this.camera.node.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50)
         this.barCoin.scale = (logic) ? 2.5 : 1.4
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80
         this.phaoHoa.scale = (logic) ? 9 : 5
         this.guild.scale = (logic) ? 2 : 1.2
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
-        this.table.height = (logic) ? 1300 : 955
         this.listMenu.y = (logic) ? -80 : 0
-        this.listCus.scale = (logic) ? 1.1 : 1
+        this.listCus.scale = (logic) ? 1 : 1
         this.listKhay.scale = (logic) ? 1.1 : 1
         this.timeup.scale = (logic) ? 1 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
-        this.bg.scale = (logic) ? 2 : 1.4
+        this.bg.scale = (logic) ? 1.77 : 1
+        this.bg.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50)
         this.listMenu.scale = (logic) ? 1.1 : 1
         this.endCardDoc.scale = 1.5
+        this.notiMission.scale = (logic) ? 1.6 : 1
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false
             this.endCardWin.active = (logic) ? false : true
@@ -928,7 +954,6 @@ export default class NewClass extends cc.Component {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
-            this.table.height = 2000
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
 
@@ -940,46 +965,44 @@ export default class NewClass extends cc.Component {
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 this.barCoin.getComponent(cc.Widget).top = 200
-                this.table.height = 2400
 
-                for (let i = 0; i < this.listMenu.childrenCount; i++) {
-                    if (this.arrPosDoc[i]) {
-                        this.listMenu.children[i].position = this.arrPosDoc[i]
+                // for (let i = 0; i < this.listMenu.childrenCount; i++) {
+                //     if (this.arrPosDoc[i]) {
+                //         this.listMenu.children[i].position = this.arrPosDoc[i]
 
-                    }
-                }
-                console.log("iphoneX")
+                //     }
+                // }
+                // console.log("iphoneX")
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.5
 
-                this.table.height = 1400
                 this.endCardDoc.scale = 1.2
-                for (let i = 0; i < this.listMenu.childrenCount; i++) {
-                    if (this.arrPosMenuNgang[i]) {
-                        this.listMenu.children[i].position = this.arrPosMenuNgang[i]
+                // for (let i = 0; i < this.listMenu.childrenCount; i++) {
+                //     if (this.arrPosMenuNgang[i]) {
+                //         this.listMenu.children[i].position = this.arrPosMenuNgang[i]
 
-                    }
-                }
+                //     }
+                // }
             }
             else {
-                for (let i = 0; i < this.listMenu.childrenCount; i++) {
-                    if (this.arrPosDoc[i]) {
-                        this.listMenu.children[i].position = this.arrPosDoc[i]
+                // for (let i = 0; i < this.listMenu.childrenCount; i++) {
+                //     if (this.arrPosDoc[i]) {
+                //         this.listMenu.children[i].position = this.arrPosDoc[i]
 
-                    }
-                }
+                //     }
+                // }
             }
         }
         else {
             this.isDoc = false
-            for (let i = 0; i < this.listMenu.childrenCount; i++) {
-                if (this.arrPosMenuNgang[i]) {
-                    this.listMenu.children[i].position = this.arrPosMenuNgang[i]
+            // for (let i = 0; i < this.listMenu.childrenCount; i++) {
+            //     if (this.arrPosMenuNgang[i]) {
+            //         this.listMenu.children[i].position = this.arrPosMenuNgang[i]
 
-                }
-            }
+            //     }
+            // }
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;

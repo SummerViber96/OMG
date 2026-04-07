@@ -11074,14 +11074,224 @@
     "meta": 1775490529922,
     "relativePath": "cooking\\ietm\\cusMission.ts"
   },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1775522940336,
+    "meta": 1775522940356,
+    "relativePath": "scenes\\Donut1.fire"
+  },
+  "b9e511d6-faa1-4404-a5de-77104d031665": {
+    "asset": 1775513090238,
+    "meta": 1775513090258,
+    "relativePath": "scenes\\Donut1 - 001.fire"
+  },
+  "2a77205e-a218-482f-b779-bb3505290043": {
+    "asset": 1775513731629,
+    "meta": 1775513731646,
+    "relativePath": "New Folder\\Cake.atlas.txt"
+  },
+  "32f6a6b7-0d1f-47b8-9b67-83cae02e3381": {
+    "asset": 1775513731630,
+    "meta": 1775513731679,
+    "relativePath": "New Folder\\Cake.json"
+  },
+  "eed00627-dcc0-4fbe-89bc-6a13cd95025a": {
+    "asset": 1775513731629,
+    "meta": 1775513731675,
+    "relativePath": "New Folder\\Cake.png"
+  },
+  "975324c3-a99b-469c-b243-54df37557679": {
+    "asset": 1775513779793,
+    "meta": 1775513779794,
+    "relativePath": "CreamCafe"
+  },
+  "87004c8a-7430-44a7-962d-eba4c042cfa3": {
+    "asset": 1775513980864,
+    "meta": 1775513980941,
+    "relativePath": "CreamCafe\\Table.png"
+  },
+  "369e5c3b-b0f2-42f0-a8f3-21447551c101": {
+    "asset": 1775513980864,
+    "meta": 1775513980945,
+    "relativePath": "CreamCafe\\Layer 1.png"
+  },
+  "98da814d-4b98-4603-9c2f-a3350fc9e9bd": {
+    "asset": 1775514040849,
+    "meta": 1775514040958,
+    "relativePath": "CreamCafe\\Frech_Fix2.png"
+  },
+  "faef4d8a-f14c-497d-8752-87537984972f": {
+    "asset": 1775514320892,
+    "meta": 1775514320901,
+    "relativePath": "anim\\banner_appear.anim"
+  },
+  "aec4ae54-5035-4c74-81bc-96ba43083235": {
+    "asset": 1775514221833,
+    "meta": 1775514221855,
+    "relativePath": "CreamCafe\\client.png"
+  },
+  "1997b5c1-b9b7-4f68-ae06-c14312aeb590": {
+    "asset": 1775515548500,
+    "meta": 1775515548604,
+    "relativePath": "CreamCafe\\Stationcooking.json"
+  },
+  "62019e70-51de-49ee-82fe-088e2eef3adb": {
+    "asset": 1775515548500,
+    "meta": 1775515548524,
+    "relativePath": "CreamCafe\\Stationcooking.atlas.txt"
+  },
+  "c082f247-a3d7-44b2-b186-85d69e2ed22b": {
+    "asset": 1775515548501,
+    "meta": 1775515548599,
+    "relativePath": "CreamCafe\\Stationcooking.png"
+  },
+  "42a2d9a9-17ab-46cd-93e2-6da1c747b1fc": {
+    "asset": 1775515588139,
+    "meta": 1775515588195,
+    "relativePath": "CreamCafe\\Cake.json"
+  },
+  "8ee2ba90-16b6-44c7-86a2-899374945c94": {
+    "asset": 1775515588139,
+    "meta": 1775515588168,
+    "relativePath": "CreamCafe\\Cake.atlas.txt"
+  },
+  "0bcbd888-a89d-4180-b59e-60ae09cbbb6d": {
+    "asset": 1775515588140,
+    "meta": 1775515588190,
+    "relativePath": "CreamCafe\\Cake.png"
+  },
+  "3fc76d0e-3a21-4b0d-bf21-cad85a7059b5": {
+    "asset": 1775515634617,
+    "meta": 1775515634644,
+    "relativePath": "CreamCafe\\may2.png"
+  },
+  "6d2d508b-c55e-4db1-a469-5333bbcce655": {
+    "asset": 1775516019828,
+    "meta": 1775516019849,
+    "relativePath": "CreamCafe\\Đĩa_ver1.png"
+  },
+  "a3e9cf7e-407c-4aea-b90f-57c8f4c77d5e": {
+    "asset": 1775516485244,
+    "meta": 1775516485260,
+    "relativePath": "CreamCafe\\Drink.atlas.txt"
+  },
+  "43dee23c-4725-45b4-9a9b-2538239dd5dc": {
+    "asset": 1775516485245,
+    "meta": 1775516485294,
+    "relativePath": "CreamCafe\\Drink.json"
+  },
+  "67d686bf-0530-4cbd-a37f-da9e6c9c8228": {
+    "asset": 1775516485245,
+    "meta": 1775516485286,
+    "relativePath": "CreamCafe\\Drink.png"
+  },
+  "d0d24b4d-3e08-4282-bbff-827ed8acf262": {
+    "asset": 1775516722257,
+    "meta": 1775516722328,
+    "relativePath": "CreamCafe\\Coffee.png"
+  },
+  "f96b7d7f-b97d-4ca4-9c98-74d64bcf14a1": {
+    "asset": 1775516862282,
+    "meta": 1775516862317,
+    "relativePath": "CreamCafe\\kem2.png"
+  },
+  "a477ef27-3ef0-4ba9-a8c5-ed23bb934590": {
+    "asset": 1775516862282,
+    "meta": 1775516862319,
+    "relativePath": "CreamCafe\\soco2.png"
+  },
+  "e4ee7f51-a6e2-4598-b7ad-12797601b4ab": {
+    "asset": 1775516862282,
+    "meta": 1775516862336,
+    "relativePath": "CreamCafe\\dau2.png"
+  },
+  "9d57b2cf-f8c5-4a52-a8bd-dfa0ac52c602": {
+    "asset": 1775516862283,
+    "meta": 1775516862338,
+    "relativePath": "CreamCafe\\base2.png"
+  },
+  "26bfd019-fbd5-4760-afa3-668cc92267f9": {
+    "asset": 1775516862290,
+    "meta": 1775516862352,
+    "relativePath": "CreamCafe\\hoa2.png"
+  },
+  "dac81233-fbf1-42f7-9cd2-8775360c0ddf": {
+    "asset": 1775517181562,
+    "meta": 1775517181599,
+    "relativePath": "CreamCafe\\vplv2.png"
+  },
+  "648e5e9e-4adb-471b-baae-a14fb6790295": {
+    "asset": 1775517519647,
+    "meta": 1775517519647,
+    "relativePath": "CreamCafe\\item"
+  },
+  "154dc8f4-6937-435f-911a-40a0a1ee7242": {
+    "asset": 1775517531213,
+    "meta": 1775517531267,
+    "relativePath": "CreamCafe\\item\\lv1_t4.png"
+  },
+  "f573bbdb-4471-4ae8-a320-1e0d4da7eee6": {
+    "asset": 1775517531214,
+    "meta": 1775517531268,
+    "relativePath": "CreamCafe\\item\\lv1_t2.png"
+  },
+  "35108193-a0c6-41fe-91b8-cc601218e416": {
+    "asset": 1775517531214,
+    "meta": 1775517531280,
+    "relativePath": "CreamCafe\\item\\lv2.png"
+  },
+  "39f8acff-52b2-4152-98e9-bf9c27dfa7bb": {
+    "asset": 1775517531214,
+    "meta": 1775517531281,
+    "relativePath": "CreamCafe\\item\\lv1_t3_t4.png"
+  },
+  "8e65738f-c36f-4852-8894-0d09408b9162": {
+    "asset": 1775517531214,
+    "meta": 1775517531294,
+    "relativePath": "CreamCafe\\item\\lv2_t4.png"
+  },
+  "273db9b1-24fa-4308-9f3a-3384d9c2b60a": {
+    "asset": 1775517531214,
+    "meta": 1775517531295,
+    "relativePath": "CreamCafe\\item\\lv2_t2.png"
+  },
+  "33efea8a-48a9-447c-b0be-e6fad0580def": {
+    "asset": 1775517531214,
+    "meta": 1775517531307,
+    "relativePath": "CreamCafe\\item\\lv1.png"
+  },
+  "6407f9de-11a3-4665-88bf-948b969b02ff": {
+    "asset": 1775517531214,
+    "meta": 1775517531309,
+    "relativePath": "CreamCafe\\item\\lv1_t1_t2.png"
+  },
+  "7fbdbe0b-c9d4-4111-a2d9-7992c6a05f0e": {
+    "asset": 1775517531214,
+    "meta": 1775517531323,
+    "relativePath": "CreamCafe\\item\\lv2_t3_t4.png"
+  },
+  "cf277288-756e-41e3-b970-090e07195dbc": {
+    "asset": 1775517531214,
+    "meta": 1775517531323,
+    "relativePath": "CreamCafe\\item\\lv2_t1_t2.png"
+  },
+  "be50d685-aa7e-4c1b-997f-a1d3dbd8397b": {
+    "asset": 1775520656551,
+    "meta": 1775520656552,
+    "relativePath": "scripts\\CafeCream"
+  },
+  "1cb0531f-2436-4cd8-b5c7-c715d4ecb823": {
+    "asset": 1775522984831,
+    "meta": 1775522987507,
+    "relativePath": "scripts\\CafeCream\\Dia.ts"
+  },
   "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1775498571997,
-    "meta": 1775498573698,
+    "asset": 1775523426359,
+    "meta": 1775523428321,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1775498593160,
-    "meta": 1775498593189,
-    "relativePath": "scenes\\Donut1.fire"
+  "6e65f119-8841-49a8-82c7-99193382dd2b": {
+    "asset": 1775523752827,
+    "meta": 1775523754506,
+    "relativePath": "scripts\\CafeCream\\Banh.ts"
   }
 }

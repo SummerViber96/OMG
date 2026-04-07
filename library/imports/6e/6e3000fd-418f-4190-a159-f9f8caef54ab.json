@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "soco2",
+    "texture": "a477ef27-3ef0-4ba9-a8c5-ed23bb934590",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      233,
+      215
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      235,
+      217
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

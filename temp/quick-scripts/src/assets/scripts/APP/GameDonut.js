@@ -98,9 +98,14 @@ var NewClass = /** @class */ (function (_super) {
         _this.btnPizza = null;
         _this.preCoin = null;
         _this.endCardDoc = null;
+        //new
+        _this.listBep = null;
+        _this.listDia = null;
+        _this.arrBep = [false, false, false, false];
+        _this.arrDia = [false, false, false, false];
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
-        _this.arrDonut = [null, null, null, null, null, null, null];
+        // arrDonut = [null, null, null, null, null, null, null]
         // arrKhay = [null, null, null, null, null, null, null]
         // arrKhayPos = []
         _this.isTutChili = false;
@@ -179,6 +184,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.arrPosDoc = [cc.v3(26, -337), cc.v3(336, -112), cc.v3(15.5, -121), cc.v3(-170, -525.7), cc.v3(-300, -352), cc.v3(186.96, -512), cc.v3(355, -335), cc.v3(-292, -116)];
         return _this;
     }
+    //0:banh thuong 1:chocolate 2: strawberry 
     NewClass.prototype.onLoad = function () {
         var _this = this;
         if (this.adChanel == 'Mintegral') {
@@ -192,8 +198,14 @@ var NewClass = /** @class */ (function (_super) {
             _this.updateResponsive();
         });
         this.scheduleOnce(function () {
-            _this.startGame();
-        }, 0.5);
+            cc.tween(_this.notiMission).by(0.4, { opacity: -255, position: cc.v3(0, 200) }).call(function () {
+                _this.notiMission.active = false;
+                _this.startGame();
+            }).start();
+        }, 1);
+        // this.scheduleOnce(() => {
+        //     this.startGame()
+        // }, 0.5)
     };
     NewClass.prototype.startGame = function () {
         var _this = this;
@@ -214,50 +226,61 @@ var NewClass = /** @class */ (function (_super) {
                 _this.btnPizza.getComponent(cc.Animation).play("btnHindG");
             }
         }, 3);
-        // this.scheduleOnce(() => {
-        //     cc.tween(this.shadow).to(0.3, { opacity: 150 }).start();
-        //     this.handtut.active = true;
-        //     this.btnPizza.getComponent(cc.Animation).play("btnHindG");
-        //     this.guild.active = true
-        // }, 1)
-        // this.spawFistkhay()
-        // if (this.isStartgame == false) {
-        //     this.barTime.getComponent("barTime").countDown()
-        //     for (let i = 0; i < 3; i++) {
-        //         let child = this.arrCus[i]
-        //         child.getComponent("cusMission").loadTime()
-        //     }
-        //     this.isStartgame = true;
-        //     this.isHand.active = false;
-        //     this.guild.active = false
-        //     this.guild.opacity = 0
-        //     for (let i = 0; i < this.arrItem[0].length; i++) {
-        //         let item = this.arrItem[0][i]
-        //         let posNext = item.position.x - 2000
-        //         cc.tween(item)
-        //             .to(17, { x: posNext })
-        //             .call(() => {
-        //                 item.destroy();
-        //             })
-        //             .start();
-        //         // this.moveItem(item,item.position.add(cc.v3(-2000,0)))
-        //     }
-        //     for (let i = 0; i < this.arrItem[1].length; i++) {
-        //         let item = this.arrItem[1][i]
-        //         let posNext = item.position.x + 2000
-        //         cc.tween(item)
-        //             .to(16, { x: posNext })
-        //             .call(() => {
-        //                 item.destroy();
-        //             })
-        //             .start();
-        //         // this.moveItem(item,item.position.add(cc.v3(-2000,0)))
-        //     }
-        //     this.scheduleOnce(() => {
-        //         this.spawnItem()
-        //     }, 1.7)
-        // }
-        // this.spawnItem()
+    };
+    NewClass.prototype.btn_banh = function () {
+        var check = this.getSlotBep();
+        if (check != null) {
+            this.arrBep[check] = true;
+            ;
+            this.listBep.children[check].getComponent("Banh").setOn();
+        }
+    };
+    NewClass.prototype.btn_bep = function (tag) {
+        var check = this.getSlotDia();
+        if (check != null) {
+            this.arrDia[check] = true;
+            this.listDia.children[check].getComponent("Dia").getBanh();
+        }
+    };
+    NewClass.prototype.getSlotBep = function () {
+        for (var i = 0; i < this.arrBep.length; i++) {
+            var child = this.arrBep[i];
+            if (child == false) {
+                return i;
+            }
+        }
+        return null;
+    };
+    NewClass.prototype.getSlotDia = function () {
+        for (var i = 0; i < this.arrDia.length; i++) {
+            var child = this.arrDia[i];
+            if (child == false) {
+                return i;
+            }
+        }
+        return null;
+    };
+    NewClass.prototype.btn_strawBerry = function () {
+        for (var i = 0; i < this.arrDia.length; i++) {
+            var check = this.arrDia[i];
+            var banh = this.listDia.children[i];
+            if (check && banh.getComponent("Dia").status == 0) {
+                banh.getComponent("Dia").setStatus(2);
+                break;
+            }
+        }
+    };
+    NewClass.prototype.btn_chocolate = function () {
+        for (var i = 0; i < this.arrDia.length; i++) {
+            var check = this.arrDia[i];
+            var banh = this.listDia.children[i];
+            if (check && banh.getComponent("Dia").status == 0) {
+                banh.getComponent("Dia").setStatus(1);
+                break;
+            }
+        }
+    };
+    NewClass.prototype.btn_cream = function () {
     };
     NewClass.prototype.spawKhay = function (mission) {
         var arr = [cc.v3(-60, -10), cc.v3(80, -10)];
@@ -791,21 +814,22 @@ var NewClass = /** @class */ (function (_super) {
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
-        this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 100);
+        this.camera.node.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50);
         this.barCoin.scale = (logic) ? 2.5 : 1.4;
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80;
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
-        this.table.height = (logic) ? 1300 : 955;
         this.listMenu.y = (logic) ? -80 : 0;
-        this.listCus.scale = (logic) ? 1.1 : 1;
+        this.listCus.scale = (logic) ? 1 : 1;
         this.listKhay.scale = (logic) ? 1.1 : 1;
         this.timeup.scale = (logic) ? 1 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
-        this.bg.scale = (logic) ? 2 : 1.4;
+        this.bg.scale = (logic) ? 1.77 : 1;
+        this.bg.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50);
         this.listMenu.scale = (logic) ? 1.1 : 1;
         this.endCardDoc.scale = 1.5;
+        this.notiMission.scale = (logic) ? 1.6 : 1;
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false;
             this.endCardWin.active = (logic) ? false : true;
@@ -815,7 +839,6 @@ var NewClass = /** @class */ (function (_super) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            this.table.height = 2000;
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
@@ -825,39 +848,37 @@ var NewClass = /** @class */ (function (_super) {
             this.camera.zoomRatio = 1.7;
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 this.barCoin.getComponent(cc.Widget).top = 200;
-                this.table.height = 2400;
-                for (var i = 0; i < this.listMenu.childrenCount; i++) {
-                    if (this.arrPosDoc[i]) {
-                        this.listMenu.children[i].position = this.arrPosDoc[i];
-                    }
-                }
-                console.log("iphoneX");
+                // for (let i = 0; i < this.listMenu.childrenCount; i++) {
+                //     if (this.arrPosDoc[i]) {
+                //         this.listMenu.children[i].position = this.arrPosDoc[i]
+                //     }
+                // }
+                // console.log("iphoneX")
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.5;
-                this.table.height = 1400;
                 this.endCardDoc.scale = 1.2;
-                for (var i = 0; i < this.listMenu.childrenCount; i++) {
-                    if (this.arrPosMenuNgang[i]) {
-                        this.listMenu.children[i].position = this.arrPosMenuNgang[i];
-                    }
-                }
+                // for (let i = 0; i < this.listMenu.childrenCount; i++) {
+                //     if (this.arrPosMenuNgang[i]) {
+                //         this.listMenu.children[i].position = this.arrPosMenuNgang[i]
+                //     }
+                // }
             }
             else {
-                for (var i = 0; i < this.listMenu.childrenCount; i++) {
-                    if (this.arrPosDoc[i]) {
-                        this.listMenu.children[i].position = this.arrPosDoc[i];
-                    }
-                }
+                // for (let i = 0; i < this.listMenu.childrenCount; i++) {
+                //     if (this.arrPosDoc[i]) {
+                //         this.listMenu.children[i].position = this.arrPosDoc[i]
+                //     }
+                // }
             }
         }
         else {
             this.isDoc = false;
-            for (var i = 0; i < this.listMenu.childrenCount; i++) {
-                if (this.arrPosMenuNgang[i]) {
-                    this.listMenu.children[i].position = this.arrPosMenuNgang[i];
-                }
-            }
+            // for (let i = 0; i < this.listMenu.childrenCount; i++) {
+            //     if (this.arrPosMenuNgang[i]) {
+            //         this.listMenu.children[i].position = this.arrPosMenuNgang[i]
+            //     }
+            // }
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
@@ -1024,6 +1045,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "endCardDoc", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listBep", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listDia", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

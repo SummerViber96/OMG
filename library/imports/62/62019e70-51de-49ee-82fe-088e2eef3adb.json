@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Stationcooking.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\nStationcooking.png\nsize: 1024,256\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nSong\n  rotate: false\n  xy: 486, 118\n  size: 201, 125\n  orig: 201, 125\n  offset: 0, 0\n  index: -1\nchay\n  rotate: false\n  xy: 279, 2\n  size: 197, 116\n  orig: 197, 116\n  offset: 0, 0\n  index: -1\nchin\n  rotate: false\n  xy: 689, 127\n  size: 197, 116\n  orig: 197, 116\n  offset: 0, 0\n  index: -1\nkhoi\n  rotate: false\n  xy: 2, 37\n  size: 275, 206\n  orig: 275, 206\n  offset: 0, 0\n  index: -1\nlock\n  rotate: false\n  xy: 478, 12\n  size: 191, 104\n  orig: 191, 104\n  offset: 0, 0\n  index: -1\nstation\n  rotate: false\n  xy: 279, 120\n  size: 205, 123\n  orig: 205, 123\n  offset: 0, 0\n  index: -1\n"
+}

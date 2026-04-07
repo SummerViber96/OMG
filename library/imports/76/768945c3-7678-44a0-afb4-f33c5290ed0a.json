@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Stationcooking",
+    "texture": "c082f247-a3d7-44b2-b186-85d69e2ed22b",
+    "atlas": "",
+    "rect": [
+      3,
+      3,
+      882,
+      239
+    ],
+    "offset": [
+      -68,
+      5.5
+    ],
+    "originalSize": [
+      1024,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

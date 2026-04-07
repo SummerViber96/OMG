@@ -1,0 +1,118 @@
+
+Cake.png
+size: 512,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Dia
+  rotate: false
+  xy: 2, 837
+  size: 259, 185
+  orig: 259, 185
+  offset: 0, 0
+  index: -1
+Group 1 copy 13
+  rotate: true
+  xy: 407, 310
+  size: 148, 103
+  orig: 148, 103
+  offset: 0, 0
+  index: -1
+Layer 1
+  rotate: true
+  xy: 2, 203
+  size: 224, 142
+  orig: 224, 142
+  offset: 0, 0
+  index: -1
+dau2b
+  rotate: false
+  xy: 263, 866
+  size: 231, 156
+  orig: 231, 156
+  offset: 0, 0
+  index: -1
+lv1_dau
+  rotate: true
+  xy: 397, 111
+  size: 137, 110
+  orig: 137, 110
+  offset: 0, 0
+  index: -1
+lv1_hoa
+  rotate: false
+  xy: 268, 581
+  size: 206, 130
+  orig: 206, 130
+  offset: 0, 0
+  index: -1
+lv1_kem
+  rotate: false
+  xy: 268, 460
+  size: 206, 119
+  orig: 206, 119
+  offset: 0, 0
+  index: -1
+lv1_soco1
+  rotate: true
+  xy: 2, 7
+  size: 194, 144
+  orig: 194, 144
+  offset: 0, 0
+  index: -1
+lv1_soco2
+  rotate: false
+  xy: 2, 667
+  size: 229, 168
+  orig: 229, 168
+  offset: 0, 0
+  index: -1
+lv1a
+  rotate: true
+  xy: 144, 442
+  size: 223, 122
+  orig: 223, 122
+  offset: 0, 0
+  index: -1
+lv1b
+  rotate: false
+  xy: 263, 713
+  size: 214, 151
+  orig: 214, 151
+  offset: 0, 0
+  index: -1
+lv2_banh1
+  rotate: true
+  xy: 264, 34
+  size: 186, 131
+  orig: 186, 131
+  offset: 0, 0
+  index: -1
+lv2_banh2
+  rotate: true
+  xy: 286, 250
+  size: 208, 119
+  orig: 208, 119
+  offset: 0, 0
+  index: -1
+lv2_hoa
+  rotate: true
+  xy: 2, 429
+  size: 236, 140
+  orig: 236, 140
+  offset: 0, 0
+  index: -1
+lv2_kemb
+  rotate: true
+  xy: 146, 222
+  size: 218, 138
+  orig: 218, 138
+  offset: 0, 0
+  index: -1
+lv2_soco
+  rotate: true
+  xy: 148, 2
+  size: 218, 114
+  orig: 218, 114
+  offset: 0, 0
+  index: -1
