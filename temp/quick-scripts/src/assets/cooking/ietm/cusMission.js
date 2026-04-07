@@ -169,7 +169,15 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.angry = function () {
         this.anim.setAnimation(0, "7.angry_idle", false);
         cc.audioEngine.play(this.soundAngry2, false, 1);
+        var wrongtick = this.pop.getChildByName('x');
+        wrongtick.active = true;
+        wrongtick.getComponent(cc.Animation).play();
+        this.scheduleOnce(function () {
+            wrongtick.active = false;
+        }, 0.5);
     };
+    // wrong(){
+    // }
     NewClass.prototype.checkSell = function (donut) {
         var donutComp = donut.getComponent("donut");
         var check = false;

@@ -9,9 +9,14 @@ export default class NewClass extends cc.Component {
     anim: sp.Skeleton = null
     @property(cc.Integer)
     tag = 0
+    @property(cc.Sprite)
+    fillTime: cc.Sprite = null
+    @property(cc.Node)
+    clock: cc.Node = null
     isChin = false
     gamePlay = null
     isbanh = false
+    time = 2
     start() {
         this.addEndEventSpine();
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
@@ -19,9 +24,12 @@ export default class NewClass extends cc.Component {
     }
     setOn() {
         this.anim.node.active = true
-
         this.anim.setAnimation(0, "lv1-song", false)
         this.isbanh = true
+        this.clock.active = true
+        cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(()=>{
+            this.clock.active = false
+        }).start();
     }
     addEndEventSpine() {
         let self = this
@@ -38,20 +46,19 @@ export default class NewClass extends cc.Component {
     setChin() {
         this.isChin = true
         this.anim.setAnimation(0, "lv1-chin", true)
-        // this.node.getComponent(cc.Button).enabled = true
+        this.node.getComponent(cc.Button).enabled = true
     }
     btn_click() {
-        console.log(this.isChin)
         // if (this.isChin == true) {
-        // if (!this.isChin) return;
+        if (!this.isChin) return;
         if (!this.isbanh) return;
         this.isbanh = false
         this.gamePlay.arrBep[this.tag] = false
         this.gamePlay.btn_bep(this.tag)
         this.anim.node.active = false
         this.node.getComponent(cc.Button).enabled = false
-
-
+        this.clock.active = false
+        this.fillTime.fillRange = 0
         // }
     }
 

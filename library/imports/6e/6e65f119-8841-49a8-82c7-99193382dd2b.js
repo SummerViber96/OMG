@@ -30,9 +30,12 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.anim = null;
         _this.tag = 0;
+        _this.fillTime = null;
+        _this.clock = null;
         _this.isChin = false;
         _this.gamePlay = null;
         _this.isbanh = false;
+        _this.time = 2;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -40,9 +43,14 @@ var NewClass = /** @class */ (function (_super) {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
     };
     NewClass.prototype.setOn = function () {
+        var _this = this;
         this.anim.node.active = true;
         this.anim.setAnimation(0, "lv1-song", false);
         this.isbanh = true;
+        this.clock.active = true;
+        cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(function () {
+            _this.clock.active = false;
+        }).start();
     };
     NewClass.prototype.addEndEventSpine = function () {
         var self = this;
@@ -57,12 +65,12 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.setChin = function () {
         this.isChin = true;
         this.anim.setAnimation(0, "lv1-chin", true);
-        // this.node.getComponent(cc.Button).enabled = true
+        this.node.getComponent(cc.Button).enabled = true;
     };
     NewClass.prototype.btn_click = function () {
-        console.log(this.isChin);
         // if (this.isChin == true) {
-        // if (!this.isChin) return;
+        if (!this.isChin)
+            return;
         if (!this.isbanh)
             return;
         this.isbanh = false;
@@ -70,6 +78,8 @@ var NewClass = /** @class */ (function (_super) {
         this.gamePlay.btn_bep(this.tag);
         this.anim.node.active = false;
         this.node.getComponent(cc.Button).enabled = false;
+        this.clock.active = false;
+        this.fillTime.fillRange = 0;
         // }
     };
     __decorate([
@@ -78,6 +88,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "tag", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], NewClass.prototype, "fillTime", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "clock", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

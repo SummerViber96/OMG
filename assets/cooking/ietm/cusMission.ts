@@ -178,8 +178,16 @@ export default class NewClass extends cc.Component {
         this.anim.setAnimation(0, "7.angry_idle", false);
 
         cc.audioEngine.play(this.soundAngry2, false, 1)
-
+        let wrongtick = this.pop.getChildByName('x')
+        wrongtick.active=true
+        wrongtick.getComponent(cc.Animation).play()
+        this.scheduleOnce(() => {
+            wrongtick.active = false
+        }, 0.5)
     }
+    // wrong(){
+
+    // }
     checkSell(donut) {
         let donutComp = donut.getComponent("donut")
         let check = false
@@ -234,7 +242,7 @@ export default class NewClass extends cc.Component {
                         if (this.soundAngry2 && this.isSuccess == false) {
                             cc.audioEngine.play(this.soundAngry2, false, 1)
 
-                          
+
 
                         }
                     }

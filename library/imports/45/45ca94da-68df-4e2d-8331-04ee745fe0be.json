@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bgClock1",
+    "texture": "318a8c94-a357-41b4-aeef-c45b71658289",
+    "atlas": "",
+    "rect": [
+      5,
+      8,
+      142,
+      142
+    ],
+    "offset": [
+      0,
+      -3
+    ],
+    "originalSize": [
+      152,
+      152
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

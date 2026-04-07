@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Shape 3 - Smart Object Group",
+    "texture": "8f020d48-f9b7-4242-8c9a-dc6b500cfdf1",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      111,
+      113
+    ],
+    "offset": [
+      -1,
+      0
+    ],
+    "originalSize": [
+      113,
+      113
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

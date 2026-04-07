@@ -118,9 +118,12 @@ export default class NewClass extends cc.Component {
     listMenu: cc.Node = null;
     @property(cc.Node)
     handtut: cc.Node = null;
-
     @property(cc.Node)
-    btnPizza: cc.Node = null
+    handtut2: cc.Node = null;
+    @property(cc.Node)
+    handtut3: cc.Node = null;
+    // @property(cc.Node)
+    // btnPizza: cc.Node = null
     @property(cc.Prefab)
     preCoin: cc.Prefab = null
     @property(cc.Node)
@@ -130,6 +133,12 @@ export default class NewClass extends cc.Component {
     listBep: cc.Node = null;
     @property(cc.Node)
     listDia: cc.Node = null;
+    @property(cc.Node)
+    btnChocolate: cc.Node = null;
+    @property(cc.Node)
+    btnStrawberry: cc.Node = null;
+    @property(cc.Prefab)
+    preBanh: cc.Prefab = null;
     arrBep = [false, false, false, false]
     arrDia = [false, false, false, false]
 
@@ -183,7 +192,7 @@ export default class NewClass extends cc.Component {
                 this.notiMission.active = false
                 this.startGame()
             }).start()
-        }, 1)
+        }, 1.5)
         // this.scheduleOnce(() => {
         //     this.startGame()
         // }, 0.5)
@@ -206,13 +215,31 @@ export default class NewClass extends cc.Component {
             if (!this.isFirstClick) {
                 this.isFirstClick = true;
                 this.handtut.active = true
-                this.btnPizza.getComponent(cc.Animation).play("btnHindG");
+                // this.btnPizza.getComponent(cc.Animation).play("btnHindG");
 
             }
         }, 3)
 
     }
+    isFirstClickbanh = false
+    isFrist = false
     btn_banh() {
+        if (!this.isFrist) {
+            this.isFrist = true
+            this.arrCus[0].getComponent("cusMission").loadTime()
+
+        }
+        cc.audioEngine.play(this.soundClick, false, 1)
+        this.isFirstClick = true
+        this.handtut.active = false
+        this.scheduleOnce(() => {
+            if (!this.isFirstClickbanh) {
+                this.isFirstClickbanh = true
+                this.handtut2.active = true
+
+            }
+
+        }, 2)
         let check = this.getSlotBep();
         if (check != null) {
             this.arrBep[check] = true;;
@@ -220,6 +247,9 @@ export default class NewClass extends cc.Component {
         }
     }
     btn_bep(tag) {
+        cc.audioEngine.play(this.soundClick, false, 1)
+        this.handtut2.active = false
+        this.handtut3.active = true
         let check = this.getSlotDia();
         if (check != null) {
             this.arrDia[check] = true
@@ -238,28 +268,36 @@ export default class NewClass extends cc.Component {
     }
     getSlotDia() {
         for (let i = 0; i < this.arrDia.length; i++) {
-            let child = this.arrDia[i]
-            if (child == false) {
+            let child = this.listDia.children[i]
+            if (child.getComponent("Dia").isBanh == false) {
                 return i
             }
         }
         return null
     }
     btn_strawBerry() {
+        cc.audioEngine.play(this.soundClick, false, 1)
+
         for (let i = 0; i < this.arrDia.length; i++) {
-            let check = this.arrDia[i];
+            // let check = this.arrDia[i];
             let banh = this.listDia.children[i];
-            if (check && banh.getComponent("Dia").status == 0) {
+            if (banh.getComponent("Dia").status == 0 && banh.getComponent("Dia").isBanh == true) {
+                this.handtut3.active = false
+
                 banh.getComponent("Dia").setStatus(2)
                 break;
             }
         }
     }
     btn_chocolate() {
+        cc.audioEngine.play(this.soundClick, false, 1)
+
         for (let i = 0; i < this.arrDia.length; i++) {
-            let check = this.arrDia[i];
+            // let check = this.arrDia[i];
             let banh = this.listDia.children[i];
-            if (check && banh.getComponent("Dia").status == 0) {
+            if (banh.getComponent("Dia").status == 0 && banh.getComponent("Dia").isBanh == true) {
+                this.handtut3.active = false
+
                 banh.getComponent("Dia").setStatus(1)
                 break;
             }
@@ -267,7 +305,54 @@ export default class NewClass extends cc.Component {
     }
     btn_cream() {
 
+
     }
+    btn_sell(item, tag) {
+
+
+        let check = this.checkMission(tag, item);
+        // if (check) {
+
+        cc.audioEngine.play(this.soundClick, false, 1)
+        // let pos = check.parent.convertToWorldSpaceAR(check.position);
+        // pos = item.parent.convertToNodeSpaceAR(pos);
+        console.log(tag)
+        let mag = 50
+        let startPos = cc.v2(item.x, item.y);
+        let endPos = this.arrCus[0].getChildByName("bubbles").position.add(cc.v3(-30, 120))
+        let midPos = cc.v2(endPos.x + mag, endPos.y + 200);
+
+        let banh = cc.instantiate(this.preBanh);
+        banh.parent = item.parent;
+        banh.position = cc.v3(startPos.x, startPos.y);
+        banh.getComponent("Item").loadItem(tag)
+
+        cc.tween(banh).to(0.2, { scale: 1.2 }).start();
+        cc.tween(banh).bezierTo(0.4, startPos, midPos, endPos).call(() => {
+            if (check) {
+                cc.audioEngine.play(this.soundOk, false, 1)
+
+                this.arrCus[this.isTargetItemPlace[0]].getComponent("cusMission").doneNode.children[this.isTargetItemPlace[1]].active = true
+
+            }
+            else {
+                cc.audioEngine.play(this.soundWrong, false, 1)
+                this.arrCus[0].getComponent("cusMission").angry()
+
+            }
+            banh.destroy()
+        }).start()
+        // }
+
+    }
+    // checkMission(tag) {
+    //     let mission = this.arrCus[0].getComponent("cusMission").order
+    //     for (let i = 0; i < mission.length; i++) {
+    //         if (mission[i] == tag) {
+    //             this.arrCus[0].getComponent("cusMission").doneNode.children[i].active = true
+    //         }
+    //     }
+    // }
     spawKhay(mission) {
         let arr = [cc.v3(-60, -10), cc.v3(80, -10)]
         if (mission.length == 3) {
@@ -280,19 +365,7 @@ export default class NewClass extends cc.Component {
         this.loadDataKhay(mission, khay)
         this.arrTargetMission.push(mission)
     }
-    // spawFistkhay() {
-    //     // this.arrTargetMission = this.arrMission
-    //     let arr = [cc.v3(-600, 0), cc.v3(0, 0), cc.v3(600, 0)]
-    //     for (let i = 0; i < 3; i++) {
-    //         let preKhay = cc.instantiate(this.preKhay)
-    //         preKhay.parent = this.listKhay;
-    //         preKhay.position = arr[i]
-    //         this.arrKhay.push(preKhay)
-    //         this.loadDataKhay(this.arrMission[i], preKhay)
-    //         this.arrTargetMission.push(this.arrMission[i])
-    //     }
 
-    // }
     isTargetItemPlace = []
     // countMiss = 3
     spawNextKhay(place) {
@@ -312,25 +385,6 @@ export default class NewClass extends cc.Component {
         preKhay.position = cc.v3(-100 + 400, 50)
         let targetKhay = this.arrKhay[place]
         cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
-
-        // if (this.isCountDone == 3) {
-        //     console.log("khay new")
-        //     let firstCus2 = this.arrCus[2];
-        //     firstCus2.getComponent("cusMission").showMission();
-
-        //     let mission2 = firstCus2.getComponent("cusMission").order;
-        //     this.arrTargetMission.push(mission2)
-        //     let pos2 = cc.v3(0, 0);
-        //     let preKhay2 = cc.instantiate(this.preKhay)
-        //     preKhay2.parent = this.listKhay;
-        //     preKhay2.position = pos2
-        //     this.arrKhay.push(preKhay2)
-        //     this.loadDataKhay(mission2, preKhay2)
-        //     preKhay2.position = cc.v3(-100 + 400 + 400, 50)
-        //     // cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
-        // }
-
-
 
 
         for (let i = place + 1; i < this.arrKhay.length; i++) {
@@ -367,7 +421,8 @@ export default class NewClass extends cc.Component {
     }
     firstClick = false
     btn_clickBtn(event, value) {
-        this.arrCus[0].getComponent("cusMission").loadTime()this.checkMission
+        this.arrCus[0].getComponent("cusMission").loadTime()
+
         this.handtut.active = false;
         this.btnPizza.children[1].active = false;
         if (!this.firstClick) {
@@ -419,9 +474,7 @@ export default class NewClass extends cc.Component {
 
 
     checkMission(id, node) {
-        // console.log(this.arrTargetMission)
-        // this.startGame()
-        // if (this.isDoc == false) {
+
         for (let i = 0; i < this.arrTargetMission.length; i++) {
             let mission = this.arrTargetMission[i];
             for (let j = 0; j < mission.length; j++) {
@@ -433,26 +486,11 @@ export default class NewClass extends cc.Component {
                 }
             }
         }
-        // }
-        // else {
-        //     for (let i = 0; i < 2; i++) {
-        //         let mission = this.arrTargetMission[i];
-        //         for (let j = 0; j < mission.length; j++) {
-        //             if (id == mission[j]) {
-        //                 this.arrTargetMission[i][j] = 100;
-        //                 this.isTargetItemPlace = [i, j]
 
-        //                 this.checkSuccess(i, j)
-        //                 return this.arrKhay[i].children[j];
-        //             }
-        //         }
-        //     }
+        // node.getComponent(cc.Animation).play("btnWrong")
+        // if (this.arrCus[0]) {
+        //     this.arrCus[0].getComponent("cusMission").angry()
         // }
-        node.getComponent(cc.Animation).play("btnWrong")
-        cc.audioEngine.play(this.soundWrong, false, 1)
-        if (this.arrCus[0]) {
-            this.arrCus[0].getComponent("cusMission").angry()
-        }
         return null;
     }
     isCountCus = 3
@@ -928,18 +966,18 @@ export default class NewClass extends cc.Component {
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
-        this.camera.node.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50)
+        this.camera.node.position = (logic) ? cc.v3(-200, 140) : cc.v3(0, 50)
         this.barCoin.scale = (logic) ? 2.5 : 1.4
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80
         this.phaoHoa.scale = (logic) ? 9 : 5
         this.guild.scale = (logic) ? 2 : 1.2
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
         this.listMenu.y = (logic) ? -80 : 0
-        this.listCus.scale = (logic) ? 1 : 1
+        this.listCus.scale = (logic) ? 1.2 : 1
         this.listKhay.scale = (logic) ? 1.1 : 1
         this.timeup.scale = (logic) ? 1 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
-        this.bg.scale = (logic) ? 1.77 : 1
+        this.bg.scale = (logic) ? 2.1 : 1
         this.bg.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50)
         this.listMenu.scale = (logic) ? 1.1 : 1
         this.endCardDoc.scale = 1.5

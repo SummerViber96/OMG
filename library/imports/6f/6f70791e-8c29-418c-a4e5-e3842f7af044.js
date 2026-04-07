@@ -95,12 +95,18 @@ var NewClass = /** @class */ (function (_super) {
         _this.table = null;
         _this.listMenu = null;
         _this.handtut = null;
-        _this.btnPizza = null;
+        _this.handtut2 = null;
+        _this.handtut3 = null;
+        // @property(cc.Node)
+        // btnPizza: cc.Node = null
         _this.preCoin = null;
         _this.endCardDoc = null;
         //new
         _this.listBep = null;
         _this.listDia = null;
+        _this.btnChocolate = null;
+        _this.btnStrawberry = null;
+        _this.preBanh = null;
         _this.arrBep = [false, false, false, false];
         _this.arrDia = [false, false, false, false];
         _this.maxKhay = 7;
@@ -132,18 +138,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.isStartgame = false;
         _this.isFirstClick = false;
         _this.isHand = null;
-        // spawFistkhay() {
-        //     // this.arrTargetMission = this.arrMission
-        //     let arr = [cc.v3(-600, 0), cc.v3(0, 0), cc.v3(600, 0)]
-        //     for (let i = 0; i < 3; i++) {
-        //         let preKhay = cc.instantiate(this.preKhay)
-        //         preKhay.parent = this.listKhay;
-        //         preKhay.position = arr[i]
-        //         this.arrKhay.push(preKhay)
-        //         this.loadDataKhay(this.arrMission[i], preKhay)
-        //         this.arrTargetMission.push(this.arrMission[i])
-        //     }
-        // }
+        _this.isFirstClickbanh = false;
+        _this.isFrist = false;
         _this.isTargetItemPlace = [];
         _this.firstClick = false;
         _this.isCountCus = 3;
@@ -202,7 +198,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.notiMission.active = false;
                 _this.startGame();
             }).start();
-        }, 1);
+        }, 1.5);
         // this.scheduleOnce(() => {
         //     this.startGame()
         // }, 0.5)
@@ -223,11 +219,25 @@ var NewClass = /** @class */ (function (_super) {
             if (!_this.isFirstClick) {
                 _this.isFirstClick = true;
                 _this.handtut.active = true;
-                _this.btnPizza.getComponent(cc.Animation).play("btnHindG");
+                // this.btnPizza.getComponent(cc.Animation).play("btnHindG");
             }
         }, 3);
     };
     NewClass.prototype.btn_banh = function () {
+        var _this = this;
+        if (!this.isFrist) {
+            this.isFrist = true;
+            this.arrCus[0].getComponent("cusMission").loadTime();
+        }
+        cc.audioEngine.play(this.soundClick, false, 1);
+        this.isFirstClick = true;
+        this.handtut.active = false;
+        this.scheduleOnce(function () {
+            if (!_this.isFirstClickbanh) {
+                _this.isFirstClickbanh = true;
+                _this.handtut2.active = true;
+            }
+        }, 2);
         var check = this.getSlotBep();
         if (check != null) {
             this.arrBep[check] = true;
@@ -236,6 +246,9 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.btn_bep = function (tag) {
+        cc.audioEngine.play(this.soundClick, false, 1);
+        this.handtut2.active = false;
+        this.handtut3.active = true;
         var check = this.getSlotDia();
         if (check != null) {
             this.arrDia[check] = true;
@@ -253,28 +266,32 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.getSlotDia = function () {
         for (var i = 0; i < this.arrDia.length; i++) {
-            var child = this.arrDia[i];
-            if (child == false) {
+            var child = this.listDia.children[i];
+            if (child.getComponent("Dia").isBanh == false) {
                 return i;
             }
         }
         return null;
     };
     NewClass.prototype.btn_strawBerry = function () {
+        cc.audioEngine.play(this.soundClick, false, 1);
         for (var i = 0; i < this.arrDia.length; i++) {
-            var check = this.arrDia[i];
+            // let check = this.arrDia[i];
             var banh = this.listDia.children[i];
-            if (check && banh.getComponent("Dia").status == 0) {
+            if (banh.getComponent("Dia").status == 0 && banh.getComponent("Dia").isBanh == true) {
+                this.handtut3.active = false;
                 banh.getComponent("Dia").setStatus(2);
                 break;
             }
         }
     };
     NewClass.prototype.btn_chocolate = function () {
+        cc.audioEngine.play(this.soundClick, false, 1);
         for (var i = 0; i < this.arrDia.length; i++) {
-            var check = this.arrDia[i];
+            // let check = this.arrDia[i];
             var banh = this.listDia.children[i];
-            if (check && banh.getComponent("Dia").status == 0) {
+            if (banh.getComponent("Dia").status == 0 && banh.getComponent("Dia").isBanh == true) {
+                this.handtut3.active = false;
                 banh.getComponent("Dia").setStatus(1);
                 break;
             }
@@ -282,6 +299,44 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_cream = function () {
     };
+    NewClass.prototype.btn_sell = function (item, tag) {
+        var _this = this;
+        var check = this.checkMission(tag, item);
+        // if (check) {
+        cc.audioEngine.play(this.soundClick, false, 1);
+        // let pos = check.parent.convertToWorldSpaceAR(check.position);
+        // pos = item.parent.convertToNodeSpaceAR(pos);
+        console.log(tag);
+        var mag = 50;
+        var startPos = cc.v2(item.x, item.y);
+        var endPos = this.arrCus[0].getChildByName("bubbles").position.add(cc.v3(-30, 120));
+        var midPos = cc.v2(endPos.x + mag, endPos.y + 200);
+        var banh = cc.instantiate(this.preBanh);
+        banh.parent = item.parent;
+        banh.position = cc.v3(startPos.x, startPos.y);
+        banh.getComponent("Item").loadItem(tag);
+        cc.tween(banh).to(0.2, { scale: 1.2 }).start();
+        cc.tween(banh).bezierTo(0.4, startPos, midPos, endPos).call(function () {
+            if (check) {
+                cc.audioEngine.play(_this.soundOk, false, 1);
+                _this.arrCus[_this.isTargetItemPlace[0]].getComponent("cusMission").doneNode.children[_this.isTargetItemPlace[1]].active = true;
+            }
+            else {
+                cc.audioEngine.play(_this.soundWrong, false, 1);
+                _this.arrCus[0].getComponent("cusMission").angry();
+            }
+            banh.destroy();
+        }).start();
+        // }
+    };
+    // checkMission(tag) {
+    //     let mission = this.arrCus[0].getComponent("cusMission").order
+    //     for (let i = 0; i < mission.length; i++) {
+    //         if (mission[i] == tag) {
+    //             this.arrCus[0].getComponent("cusMission").doneNode.children[i].active = true
+    //         }
+    //     }
+    // }
     NewClass.prototype.spawKhay = function (mission) {
         var arr = [cc.v3(-60, -10), cc.v3(80, -10)];
         if (mission.length == 3) {
@@ -319,21 +374,6 @@ var NewClass = /** @class */ (function (_super) {
             }).start();
         };
         var this_1 = this;
-        // if (this.isCountDone == 3) {
-        //     console.log("khay new")
-        //     let firstCus2 = this.arrCus[2];
-        //     firstCus2.getComponent("cusMission").showMission();
-        //     let mission2 = firstCus2.getComponent("cusMission").order;
-        //     this.arrTargetMission.push(mission2)
-        //     let pos2 = cc.v3(0, 0);
-        //     let preKhay2 = cc.instantiate(this.preKhay)
-        //     preKhay2.parent = this.listKhay;
-        //     preKhay2.position = pos2
-        //     this.arrKhay.push(preKhay2)
-        //     this.loadDataKhay(mission2, preKhay2)
-        //     preKhay2.position = cc.v3(-100 + 400 + 400, 50)
-        //     // cc.tween(targetKhay).to(0.3, { scale: 0 }).start()
-        // }
         for (var i = place + 1; i < this.arrKhay.length; i++) {
             _loop_1(i);
         }
@@ -361,7 +401,6 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_clickBtn = function (event, value) {
         var _this = this;
         this.arrCus[0].getComponent("cusMission").loadTime();
-        this.checkMission;
         this.handtut.active = false;
         this.btnPizza.children[1].active = false;
         if (!this.firstClick) {
@@ -404,9 +443,6 @@ var NewClass = /** @class */ (function (_super) {
         return null;
     };
     NewClass.prototype.checkMission = function (id, node) {
-        // console.log(this.arrTargetMission)
-        // this.startGame()
-        // if (this.isDoc == false) {
         for (var i = 0; i < this.arrTargetMission.length; i++) {
             var mission = this.arrTargetMission[i];
             for (var j = 0; j < mission.length; j++) {
@@ -418,25 +454,10 @@ var NewClass = /** @class */ (function (_super) {
                 }
             }
         }
+        // node.getComponent(cc.Animation).play("btnWrong")
+        // if (this.arrCus[0]) {
+        //     this.arrCus[0].getComponent("cusMission").angry()
         // }
-        // else {
-        //     for (let i = 0; i < 2; i++) {
-        //         let mission = this.arrTargetMission[i];
-        //         for (let j = 0; j < mission.length; j++) {
-        //             if (id == mission[j]) {
-        //                 this.arrTargetMission[i][j] = 100;
-        //                 this.isTargetItemPlace = [i, j]
-        //                 this.checkSuccess(i, j)
-        //                 return this.arrKhay[i].children[j];
-        //             }
-        //         }
-        //     }
-        // }
-        node.getComponent(cc.Animation).play("btnWrong");
-        cc.audioEngine.play(this.soundWrong, false, 1);
-        if (this.arrCus[0]) {
-            this.arrCus[0].getComponent("cusMission").angry();
-        }
         return null;
     };
     NewClass.prototype.checkSuccess = function (i, j) {
@@ -814,18 +835,18 @@ var NewClass = /** @class */ (function (_super) {
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
-        this.camera.node.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50);
+        this.camera.node.position = (logic) ? cc.v3(-200, 140) : cc.v3(0, 50);
         this.barCoin.scale = (logic) ? 2.5 : 1.4;
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80;
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
         this.listMenu.y = (logic) ? -80 : 0;
-        this.listCus.scale = (logic) ? 1 : 1;
+        this.listCus.scale = (logic) ? 1.2 : 1;
         this.listKhay.scale = (logic) ? 1.1 : 1;
         this.timeup.scale = (logic) ? 1 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
-        this.bg.scale = (logic) ? 1.77 : 1;
+        this.bg.scale = (logic) ? 2.1 : 1;
         this.bg.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50);
         this.listMenu.scale = (logic) ? 1.1 : 1;
         this.endCardDoc.scale = 1.5;
@@ -1038,7 +1059,10 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "handtut", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "btnPizza", void 0);
+    ], NewClass.prototype, "handtut2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "handtut3", void 0);
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "preCoin", void 0);
@@ -1051,6 +1075,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listDia", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnChocolate", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnStrawberry", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "preBanh", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -29,14 +29,21 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.anim = null;
+        _this.tag = 0;
         _this.status = 0;
+        _this.gamePlay = null;
+        _this.isBanh = false;
         return _this;
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
     };
     NewClass.prototype.getBanh = function () {
+        console.log(this.tag, "getBanh");
+        this.anim.node.active = true;
         this.anim.setAnimation(0, "lv2_Base");
+        this.isBanh = true;
     };
     NewClass.prototype.setStatus = function (value) {
         this.status = value;
@@ -49,9 +56,20 @@ var NewClass = /** @class */ (function (_super) {
                 break;
         }
     };
+    NewClass.prototype.btn_click = function () {
+        if (this.isBanh == false)
+            return;
+        this.anim.node.active = false;
+        this.gamePlay.btn_sell(this.node, this.status, this.node.position);
+        this.status = 0;
+        this.isBanh = false;
+    };
     __decorate([
         property(sp.Skeleton)
     ], NewClass.prototype, "anim", void 0);
+    __decorate([
+        property(cc.Integer)
+    ], NewClass.prototype, "tag", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

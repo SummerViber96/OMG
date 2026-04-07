@@ -6,14 +6,33 @@ const { ccclass, property } = cc._decorator;
 export default class NewClass extends cc.Component {
     @property(cc.Integer)
     tag = 0
+    @property(sp.Skeleton)
+    anim: sp.Skeleton = null
     gameplay = null;
     width = 0;
     height = 0
     start() {
         this.gameplay = cc.Canvas.instance.node.getComponent("GameDonut")
-        this.height = this.node.children[1].height;
-        this.width = this.node.children[1].width;
+        // this.height = this.node.children[1].height;
+        // this.width = this.node.children[1].width;
     }
+    loadItem(tag) {
+        this.tag = tag;
+        switch (tag) {
+            case 0:
+                this.anim.setAnimation(0, "lv2_Base")
+                break;
+            case 1:
+                this.anim.setAnimation(0, "lv2_Base_t2")
+                break;
+            case 2:
+                this.anim.setAnimation(0, "lv2_Base_t1")
+                break;
+        }
+    }
+    // btn_sell(){
+    //     this.gameplay.btn_sell(this.node, this.tag)
+    // }
     click() {
         if (this.gameplay.isMoving) return
         let check = this.gameplay.checkMission(this.tag, this.node)

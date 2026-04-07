@@ -29,6 +29,7 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.tag = 0;
+        _this.anim = null;
         _this.gameplay = null;
         _this.width = 0;
         _this.height = 0;
@@ -37,9 +38,26 @@ var NewClass = /** @class */ (function (_super) {
     }
     NewClass.prototype.start = function () {
         this.gameplay = cc.Canvas.instance.node.getComponent("GameDonut");
-        this.height = this.node.children[1].height;
-        this.width = this.node.children[1].width;
+        // this.height = this.node.children[1].height;
+        // this.width = this.node.children[1].width;
     };
+    NewClass.prototype.loadItem = function (tag) {
+        this.tag = tag;
+        switch (tag) {
+            case 0:
+                this.anim.setAnimation(0, "lv2_Base");
+                break;
+            case 1:
+                this.anim.setAnimation(0, "lv2_Base_t2");
+                break;
+            case 2:
+                this.anim.setAnimation(0, "lv2_Base_t1");
+                break;
+        }
+    };
+    // btn_sell(){
+    //     this.gameplay.btn_sell(this.node, this.tag)
+    // }
     NewClass.prototype.click = function () {
         var _this = this;
         if (this.gameplay.isMoving)
@@ -83,6 +101,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "tag", void 0);
+    __decorate([
+        property(sp.Skeleton)
+    ], NewClass.prototype, "anim", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
