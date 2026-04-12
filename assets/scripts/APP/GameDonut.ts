@@ -46,6 +46,8 @@ export default class NewClass extends cc.Component {
     soundThinkWin: cc.AudioClip = null
     @property(cc.AudioClip)
     soundBanh: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundNuongBanh: cc.AudioClip = null
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -82,8 +84,8 @@ export default class NewClass extends cc.Component {
     // cake: cc.Node = null;
     // @property(cc.Node)
     // creeam: cc.Node = null
-    @property(cc.Node)
-    phaoHoa: cc.Node = null;
+    // @property(cc.Node)
+    // phaoHoa: cc.Node = null;
     // @property(cc.Node)
     // listHand: cc.Node = null;
     @property(cc.Node)
@@ -229,6 +231,7 @@ export default class NewClass extends cc.Component {
         if (!this.isFrist) {
             this.isFrist = true
             this.arrCus[0].getComponent("cusMission").loadTime()
+            this.barTime.getComponent("barTime").countDown()
 
         }
         cc.audioEngine.play(this.soundClick, false, 1)
@@ -896,6 +899,7 @@ export default class NewClass extends cc.Component {
         }).start()
     }
     isEndGame = false
+    isWin = false
     onEndGame(value) {
         if (this.isEndGame) return;
         this.isEndGame = true
@@ -905,10 +909,11 @@ export default class NewClass extends cc.Component {
 
         }, 0.5)
         if (value == true) {
+            this.isWin = true
             this.barTime.getComponent("barTime").endGame()
             this.amazing.active = true;
 
-            // cc.audioEngine.play(this.soundEnd, false, 1)
+            cc.audioEngine.play(this.soundEnd, false, 1)
             this.scheduleOnce(() => {
                 // cc.audioEngine.play(this.soundThinkWin, false, 1)
                 // cc.audioEngine.play(this.soundWin, false, 1)
@@ -968,7 +973,10 @@ export default class NewClass extends cc.Component {
         this.camera.node.position = (logic) ? cc.v3(-200, 140) : cc.v3(0, 50)
         this.barCoin.scale = (logic) ? 2.5 : 1.4
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80
-        this.phaoHoa.scale = (logic) ? 9 : 5
+        this.barTime.scale = (logic) ? 1.5 : 1
+        this.barTime.getComponent(cc.Widget).top = (logic) ? 155 : 57
+
+        // this.phaoHoa.scale = (logic) ? 9 : 5
         this.guild.scale = (logic) ? 2 : 1.2
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
         this.listMenu.y = (logic) ? -80 : 0
@@ -981,7 +989,7 @@ export default class NewClass extends cc.Component {
         this.listMenu.scale = (logic) ? 1.1 : 1
         this.endCardDoc.scale = 1.5
         this.notiMission.scale = (logic) ? 1.6 : 1
-        if (this.isEndGame) {
+        if (this.isEndGame && this.isWin == true) {
             this.endCardDoc.active = (logic) ? true : false
             this.endCardWin.active = (logic) ? false : true
         }

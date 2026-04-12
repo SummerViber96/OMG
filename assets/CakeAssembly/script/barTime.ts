@@ -12,13 +12,16 @@ export default class NewClass extends cc.Component {
     clockSound: cc.AudioClip = null
     @property(cc.Node)
     warning: cc.Node = null
-    isTime = 60;
+    @property(cc.Integer)
+    isTime = 40;
     idClick = null
     start() {
-        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
 
     }
     countDown() {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
+
         this.schedule(() => {
             this.isTime--;
             this.lbTime.string = this.isTime.toString();
@@ -33,6 +36,7 @@ export default class NewClass extends cc.Component {
             if (this.isTime == 0) {
                 this.warning.active = false
                 this.gamePlay.onEndGame(false)
+                this.lbTime.string = "0"
             }
         }, 1, 59)
     }

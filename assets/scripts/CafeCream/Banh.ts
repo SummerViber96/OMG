@@ -17,12 +17,15 @@ export default class NewClass extends cc.Component {
     gamePlay = null
     isbanh = false
     time = 2
+    idSound = null
     start() {
         this.addEndEventSpine();
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
 
     }
     setOn() {
+
+        this.idSound = cc.audioEngine.play(this.gamePlay.soundNuongBanh, false, 1)
         this.anim.node.active = true
         this.anim.setAnimation(0, "lv1-song", false)
         this.isbanh = true
@@ -44,7 +47,9 @@ export default class NewClass extends cc.Component {
 
     }
     setChin() {
+        cc.audioEngine.stop(this.idSound)
         this.isChin = true
+        this.anim.timeScale = 1
         this.anim.setAnimation(0, "lv1-chin", true)
         this.node.getComponent(cc.Button).enabled = true
         cc.audioEngine.play(this.gamePlay.soundBanh, false, 0.7)

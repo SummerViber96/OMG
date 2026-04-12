@@ -36,6 +36,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.gamePlay = null;
         _this.isbanh = false;
         _this.time = 2;
+        _this.idSound = null;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -44,6 +45,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.setOn = function () {
         var _this = this;
+        this.idSound = cc.audioEngine.play(this.gamePlay.soundNuongBanh, false, 1);
         this.anim.node.active = true;
         this.anim.setAnimation(0, "lv1-song", false);
         this.isbanh = true;
@@ -63,7 +65,9 @@ var NewClass = /** @class */ (function (_super) {
         });
     };
     NewClass.prototype.setChin = function () {
+        cc.audioEngine.stop(this.idSound);
         this.isChin = true;
+        this.anim.timeScale = 1;
         this.anim.setAnimation(0, "lv1-chin", true);
         this.node.getComponent(cc.Button).enabled = true;
         cc.audioEngine.play(this.gamePlay.soundBanh, false, 0.7);

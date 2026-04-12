@@ -233,7 +233,7 @@ var NewClass = /** @class */ (function (_super) {
             //  this.gamePlay.onEndGame(false)   
             // let id = this.gamePlay.getPlace(this.node)
             // this.gamePlay.isCountDone++
-            // this.gamePlay.enqueueMove(this.node);
+            _this.gamePlay.enqueueMove(_this.node);
         })
             .start();
     };

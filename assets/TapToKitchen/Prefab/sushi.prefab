@@ -165,9 +165,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "90a4ccb1-f87d-4c33-9e74-ecea5009fa01"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -272,9 +270,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "201e389c-90a5-432b-88f5-072a34b5b66d"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -309,6 +305,7 @@
     },
     "_enabled": true,
     "tag": 8,
+    "anim": null,
     "_id": ""
   },
   {

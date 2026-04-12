@@ -253,7 +253,7 @@ export default class NewClass extends cc.Component {
                 //  this.gamePlay.onEndGame(false)   
                 // let id = this.gamePlay.getPlace(this.node)
                 // this.gamePlay.isCountDone++
-                // this.gamePlay.enqueueMove(this.node);
+                this.gamePlay.enqueueMove(this.node);
 
 
             })

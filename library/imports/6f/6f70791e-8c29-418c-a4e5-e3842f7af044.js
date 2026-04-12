@@ -55,6 +55,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundCreamMini = null;
         _this.soundThinkWin = null;
         _this.soundBanh = null;
+        _this.soundNuongBanh = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -75,7 +76,8 @@ var NewClass = /** @class */ (function (_super) {
         // cake: cc.Node = null;
         // @property(cc.Node)
         // creeam: cc.Node = null
-        _this.phaoHoa = null;
+        // @property(cc.Node)
+        // phaoHoa: cc.Node = null;
         // @property(cc.Node)
         // listHand: cc.Node = null;
         _this.warning = null;
@@ -177,6 +179,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.itemQueue = [];
         _this.lastItemIndex = [];
         _this.isEndGame = false;
+        _this.isWin = false;
         // btn_choose(event, value) {
         _this.isDoc = false;
         _this.arrPosMenuNgang = [cc.v3(-391, -102), cc.v3(375, -112), cc.v3(114, -120), cc.v3(-409, -284), cc.v3(-158, -296), cc.v3(118, -280), cc.v3(390, -296), cc.v3(-137, -116)];
@@ -231,6 +234,7 @@ var NewClass = /** @class */ (function (_super) {
         if (!this.isFrist) {
             this.isFrist = true;
             this.arrCus[0].getComponent("cusMission").loadTime();
+            this.barTime.getComponent("barTime").countDown();
         }
         cc.audioEngine.play(this.soundClick, false, 1);
         this.isFirstClick = true;
@@ -785,9 +789,10 @@ var NewClass = /** @class */ (function (_super) {
             _this.updateResponsive();
         }, 0.5);
         if (value == true) {
+            this.isWin = true;
             this.barTime.getComponent("barTime").endGame();
             this.amazing.active = true;
-            // cc.audioEngine.play(this.soundEnd, false, 1)
+            cc.audioEngine.play(this.soundEnd, false, 1);
             this.scheduleOnce(function () {
                 // cc.audioEngine.play(this.soundThinkWin, false, 1)
                 // cc.audioEngine.play(this.soundWin, false, 1)
@@ -841,7 +846,9 @@ var NewClass = /** @class */ (function (_super) {
         this.camera.node.position = (logic) ? cc.v3(-200, 140) : cc.v3(0, 50);
         this.barCoin.scale = (logic) ? 2.5 : 1.4;
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80;
-        this.phaoHoa.scale = (logic) ? 9 : 5;
+        this.barTime.scale = (logic) ? 1.5 : 1;
+        this.barTime.getComponent(cc.Widget).top = (logic) ? 155 : 57;
+        // this.phaoHoa.scale = (logic) ? 9 : 5
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
         this.listMenu.y = (logic) ? -80 : 0;
@@ -854,7 +861,7 @@ var NewClass = /** @class */ (function (_super) {
         this.listMenu.scale = (logic) ? 1.1 : 1;
         this.endCardDoc.scale = 1.5;
         this.notiMission.scale = (logic) ? 1.6 : 1;
-        if (this.isEndGame) {
+        if (this.isEndGame && this.isWin == true) {
             this.endCardDoc.active = (logic) ? true : false;
             this.endCardWin.active = (logic) ? false : true;
         }
@@ -971,6 +978,9 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundBanh", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundNuongBanh", void 0);
+    __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);
     __decorate([
@@ -1012,9 +1022,6 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listCheckItem", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "phaoHoa", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "warning", void 0);

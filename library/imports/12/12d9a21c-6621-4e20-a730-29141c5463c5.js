@@ -32,7 +32,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.gamePlay = null;
         _this.clockSound = null;
         _this.warning = null;
-        _this.isTime = 60;
+        _this.isTime = 40;
         _this.idClick = null;
         return _this;
         // update (dt) {}
@@ -42,6 +42,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.countDown = function () {
         var _this = this;
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         this.schedule(function () {
             _this.isTime--;
             _this.lbTime.string = _this.isTime.toString();
@@ -55,6 +56,7 @@ var NewClass = /** @class */ (function (_super) {
             if (_this.isTime == 0) {
                 _this.warning.active = false;
                 _this.gamePlay.onEndGame(false);
+                _this.lbTime.string = "0";
             }
         }, 1, 59);
     };
@@ -73,6 +75,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "warning", void 0);
+    __decorate([
+        property(cc.Integer)
+    ], NewClass.prototype, "isTime", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
