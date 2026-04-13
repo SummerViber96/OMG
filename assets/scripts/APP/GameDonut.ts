@@ -864,7 +864,7 @@ export default class NewClass extends cc.Component {
     }
     start() {
 
-        this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
+        this.idSound = cc.audioEngine.play(this.soundBg, true, 0.4)
 
     }
 

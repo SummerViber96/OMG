@@ -17919,13 +17919,13 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "lv1-song",
+    "_animationName": "lv1-chin",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "1997b5c1-b9b7-4f68-ae06-c14312aeb590"
+      "__uuid__": "b4beeee8-3fec-44bd-bf3d-0875018b2731"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -18438,7 +18438,7 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "default",
+    "defaultSkin": "",
     "defaultAnimation": "",
     "_preCacheMode": 0,
     "_cacheMode": 0,
@@ -18456,7 +18456,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "1997b5c1-b9b7-4f68-ae06-c14312aeb590"
+      "__uuid__": "b4beeee8-3fec-44bd-bf3d-0875018b2731"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -18969,7 +18969,7 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "default",
+    "defaultSkin": "",
     "defaultAnimation": "",
     "_preCacheMode": 0,
     "_cacheMode": 0,
@@ -18987,7 +18987,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "1997b5c1-b9b7-4f68-ae06-c14312aeb590"
+      "__uuid__": "b4beeee8-3fec-44bd-bf3d-0875018b2731"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -19500,7 +19500,7 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "default",
+    "defaultSkin": "",
     "defaultAnimation": "",
     "_preCacheMode": 0,
     "_cacheMode": 0,
@@ -19518,7 +19518,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "1997b5c1-b9b7-4f68-ae06-c14312aeb590"
+      "__uuid__": "b4beeee8-3fec-44bd-bf3d-0875018b2731"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -32997,7 +32997,7 @@
       "__uuid__": "84631f45-8822-4c8e-9dd3-1f99363b8249"
     },
     "soundNuongBanh": {
-      "__uuid__": "1d3ef933-d58b-455b-bc8f-2f71184cd01c"
+      "__uuid__": "5487ee77-74fd-40aa-8045-83643c12e893"
     },
     "tut": null,
     "hand": null,

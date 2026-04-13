@@ -749,7 +749,7 @@ var NewClass = /** @class */ (function (_super) {
             .start();
     };
     NewClass.prototype.start = function () {
-        this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
+        this.idSound = cc.audioEngine.play(this.soundBg, true, 0.4);
     };
     NewClass.prototype.setGray = function (node) {
         node.getComponent(cc.Sprite).setMaterial(0, cc.MaterialVariant.createWithBuiltin('2d-gray-sprite', node.getComponent(cc.Sprite)));
