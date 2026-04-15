@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "SpeedBoxingLv2",
+    "texture": "de82775c-1b2f-442b-a176-0e1511148d05",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      127,
+      200
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      128,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

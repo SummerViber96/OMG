@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Decor2",
+    "texture": "37ce0d4b-00e4-4e72-afda-e39d6431caca",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      302,
+      227
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      304,
+      228
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

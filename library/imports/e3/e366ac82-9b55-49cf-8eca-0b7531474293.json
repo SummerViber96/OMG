@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "deco4",
+    "texture": "3c4aabf5-37ad-47e3-9523-d3e2e43b78e2",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      109,
+      200
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      112,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

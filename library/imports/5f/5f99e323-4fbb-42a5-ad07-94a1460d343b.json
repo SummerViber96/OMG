@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Nutri-purple",
+    "texture": "2b9ca26d-40b8-4554-b1d6-a70048a924c0",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      39,
+      65
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      40,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "mapdecor6",
+    "texture": "d18dafb7-44ad-4a92-89a9-a606e17f7a99",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      182,
+      166
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      184,
+      168
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

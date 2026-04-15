@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "DungcuLv4",
+    "texture": "53548ffa-4b39-47bd-ac38-357fe62e4da3",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      109,
+      200
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      112,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

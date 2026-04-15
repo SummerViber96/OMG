@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "caydua2",
+    "texture": "98253b76-783d-4533-9496-3d9fac32cc78",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      239,
+      371
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      240,
+      372
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

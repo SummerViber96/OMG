@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "AbCrunchLv4",
+    "texture": "0c205434-da27-455c-841e-4275339fe537",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      211,
+      219
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      212,
+      220
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

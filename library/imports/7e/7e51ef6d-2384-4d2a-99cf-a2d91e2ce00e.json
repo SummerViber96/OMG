@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GymnasticsLv1",
+    "texture": "c7829080-0135-4212-9937-5059925ea6aa",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      230,
+      395
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      232,
+      396
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

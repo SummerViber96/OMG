@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Chainuoc",
+    "texture": "59c5c124-0df0-43ad-abf2-272097f0fac9",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      22,
+      58
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      24,
+      60
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

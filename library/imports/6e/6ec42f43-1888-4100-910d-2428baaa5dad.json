@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bench_busy",
+    "texture": "56778341-79ff-4c94-90fa-6cbb1fc51fb7",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      171,
+      147
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      172,
+      148
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

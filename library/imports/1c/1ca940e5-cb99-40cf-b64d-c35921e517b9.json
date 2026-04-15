@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "PTicon2",
+    "texture": "cc2ff36b-0dc5-4cda-ba7d-9bf5b9528b86",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      39,
+      77
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      40,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

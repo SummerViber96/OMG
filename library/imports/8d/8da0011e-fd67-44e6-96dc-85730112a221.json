@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Nutrition3-2",
+    "texture": "0e315663-fd4c-4944-ac09-29addec1bbdd",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      266,
+      248
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      268,
+      248
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ghe",
+    "texture": "b963a15a-6b7d-4c1c-bbb5-5131541d611e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      120,
+      99
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      120,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

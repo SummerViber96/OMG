@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "backgym",
+    "texture": "9f24a323-ad29-49eb-93bb-73e8c7aa2026",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2340,
+      1440
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2340,
+      1440
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

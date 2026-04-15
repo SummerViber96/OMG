@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bench_lock",
+    "texture": "461d66c5-ef57-4187-8abb-38d05f12890f",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      179,
+      146
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      180,
+      148
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

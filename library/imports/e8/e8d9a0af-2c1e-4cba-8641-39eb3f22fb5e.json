@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "trash2",
+    "texture": "657aa86b-6e82-4e2e-8996-bbcb2318f437",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      110,
+      76
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      112,
+      76
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

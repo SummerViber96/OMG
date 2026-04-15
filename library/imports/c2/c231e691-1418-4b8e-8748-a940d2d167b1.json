@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hangrao1",
+    "texture": "1fef1185-58bb-42a6-8dc7-d129e6204a10",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      268,
+      284
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      268,
+      284
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

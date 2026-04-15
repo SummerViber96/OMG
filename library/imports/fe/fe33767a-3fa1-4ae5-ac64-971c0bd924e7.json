@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "autoclean1",
+    "texture": "b08efa9e-42c5-4945-bfa4-f0ac40bd14bf",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      38,
+      38
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      40,
+      40
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

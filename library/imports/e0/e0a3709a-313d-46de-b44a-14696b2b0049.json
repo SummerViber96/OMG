@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Tunuoclv2",
+    "texture": "d4e5b591-bad6-4b82-a172-79b8cf947cee",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      147,
+      217
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      148,
+      220
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

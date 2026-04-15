@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BoxingLv3",
+    "texture": "a87d5981-75a8-41ee-a0ff-88d0169a0969",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      121,
+      200
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      124,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
