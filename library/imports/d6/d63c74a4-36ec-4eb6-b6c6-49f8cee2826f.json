@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "WorkingTime2",
+    "texture": "fb7b566e-ad91-4a2a-b957-4e41142f74ff",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      41,
+      49
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      44,
+      52
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

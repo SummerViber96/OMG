@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "c787f66e-0e25-4500-a2c3-26d90acfc207",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 632,
+  "height": 144,
+  "platformSettings": {},
+  "subMetas": {
+    "Bartender": {
+      "ver": "1.0.4",
+      "uuid": "2006e7e0-a587-4afb-89ae-8c025d1270ba",
+      "rawTextureUuid": "c787f66e-0e25-4500-a2c3-26d90acfc207",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 2,
+      "trimY": 2,
+      "width": 628,
+      "height": 140,
+      "rawWidth": 632,
+      "rawHeight": 144,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "PTdoor2",
+    "texture": "d00b2f6d-ed03-4275-a5f8-b382632faf3e",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      128,
+      229
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      128,
+      232
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

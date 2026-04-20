@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dayleo",
+    "texture": "96b3bdb3-5e2c-4a79-b44e-1896d3393fe5",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      66,
+      51
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      68,
+      52
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
