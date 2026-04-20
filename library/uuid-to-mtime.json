@@ -10900,8 +10900,8 @@
     "relativePath": "scenes\\New Folder"
   },
   "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1776643971235,
-    "meta": 1776643971246,
+    "asset": 1776644474316,
+    "meta": 1776644474327,
     "relativePath": "scenes\\Gym.fire"
   },
   "c03eff2d-ccd7-4f60-8e4a-8f5476efbe56": {
@@ -13033,5 +13033,10 @@
     "asset": 1776643941227,
     "meta": 1776643942490,
     "relativePath": "Gym\\Script\\Gym.ts"
+  },
+  "60d3cfc7-9447-42c5-882a-f8d161628bc2": {
+    "asset": 1776644783463,
+    "meta": 1776644783475,
+    "relativePath": "Gym\\anim\\pop_close.anim"
   }
 }
