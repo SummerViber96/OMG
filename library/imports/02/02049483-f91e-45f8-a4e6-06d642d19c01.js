@@ -29,6 +29,7 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.pop = null;
+        _this.anim = null;
         return _this;
         // update (dt) {}
     }
@@ -37,9 +38,14 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.showMision = function () {
         this.pop.getComponent(cc.Animation).play();
     };
+    NewClass.prototype.move = function () {
+    };
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "pop", void 0);
+    __decorate([
+        property(sp.Skeleton)
+    ], NewClass.prototype, "anim", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

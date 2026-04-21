@@ -30,6 +30,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.npc = null;
         _this.listCusNode = null;
+        _this.arrCus = [];
         return _this;
         // update (dt) {}
     }
@@ -38,6 +39,11 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             cc.tween(_this.npc).by(0.3, { opacity: -255, position: cc.v3(0, -80) }).start();
         }, 3);
+        for (var i = 0; i < this.listCusNode.childrenCount; i++) {
+            this.arrCus.push(this.listCusNode.children[i]);
+        }
+    };
+    NewClass.prototype.spawFistCustomer = function () {
     };
     __decorate([
         property(cc.Node)
