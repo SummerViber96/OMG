@@ -38,7 +38,19 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.showMision = function () {
         this.pop.getComponent(cc.Animation).play();
     };
-    NewClass.prototype.move = function () {
+    NewClass.prototype.move = function (pos, time) {
+        var _this = this;
+        this.anim.setAnimation(0, "WalkInL", true);
+        cc.tween(this.node).to(time, { position: pos }).call(function () {
+            _this.anim.setAnimation(0, "IdleBL", true);
+        }).start();
+    };
+    NewClass.prototype.sit = function () {
+        this.node.scaleX = 1;
+        this.anim.setAnimation(0, "Sit_Waiting", true);
+        this.pop.getComponent(cc.Animation).play();
+    };
+    NewClass.prototype.clickPop = function (event, value) {
     };
     __decorate([
         property(cc.Node)
