@@ -30,10 +30,13 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.pop = null;
         _this.anim = null;
+        _this.tag = 0;
+        _this.gamePlay = null;
         return _this;
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("Gym");
     };
     NewClass.prototype.showMision = function () {
         this.pop.getComponent(cc.Animation).play();
@@ -48,9 +51,29 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.sit = function () {
         this.node.scaleX = 1;
         this.anim.setAnimation(0, "Sit_Waiting", true);
+    };
+    NewClass.prototype.showPop = function () {
+        this.pop.active = true;
         this.pop.getComponent(cc.Animation).play();
+        this.pop.getChildByName("hand").active = true;
     };
     NewClass.prototype.clickPop = function (event, value) {
+        console.log("clcik pop");
+        event.currentTarget.getComponent(cc.Button).enabled = false;
+        // console.log("click pop")
+        var btn = event.currentTarget;
+        btn.getComponent(cc.Button).enabled = false;
+        cc.tween(this.pop).to(0.2, { scale: 0 }).start();
+        this.gamePlay.doCus(this.tag);
+    };
+    NewClass.prototype.gapBung = function () {
+        this.anim.setAnimation(0, "Abdominal", true);
+    };
+    NewClass.prototype.tucGian = function () {
+        this.anim.setAnimation(0, "Waiting3", true);
+    };
+    NewClass.prototype.happy = function () {
+        this.anim.setAnimation(0, "HappyOut", true);
     };
     __decorate([
         property(cc.Node)
@@ -58,6 +81,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(sp.Skeleton)
     ], NewClass.prototype, "anim", void 0);
+    __decorate([
+        property(cc.Integer)
+    ], NewClass.prototype, "tag", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

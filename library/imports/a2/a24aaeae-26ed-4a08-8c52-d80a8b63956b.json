@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "buble-green copy 32",
+    "texture": "06dc54f9-4929-44de-9a3b-f65e5105cd1a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      279,
+      289
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      279,
+      289
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

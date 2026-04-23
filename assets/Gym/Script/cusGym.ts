@@ -8,8 +8,11 @@ export default class NewClass extends cc.Component {
     pop: cc.Node = null
     @property(sp.Skeleton)
     anim: sp.Skeleton = null
+    @property(cc.Integer)
+    tag = 0
+    gamePlay = null
     start() {
-
+        this.gamePlay = cc.Canvas.instance.node.getComponent("Gym")
     }
     showMision() {
         this.pop.getComponent(cc.Animation).play()
@@ -24,9 +27,32 @@ export default class NewClass extends cc.Component {
     sit() {
         this.node.scaleX = 1
         this.anim.setAnimation(0, "Sit_Waiting", true);
-        this.pop.getComponent(cc.Animation).play()
     }
-    clickPop(event,value){
+    showPop() {
+        this.pop.active = true
+        this.pop.getComponent(cc.Animation).play()
+        this.pop.getChildByName("hand").active = true
+    }
+    clickPop(event, value) {
+        console.log("clcik pop")
+        event.currentTarget.getComponent(cc.Button).enabled = false
+        // console.log("click pop")
+        let btn = event.currentTarget
+        btn.getComponent(cc.Button).enabled = false;
+        cc.tween(this.pop).to(0.2, { scale: 0 }).start();
+        this.gamePlay.doCus(this.tag)
+
+    }
+    gapBung() {
+        this.anim.setAnimation(0, "Abdominal", true)
+    }
+    tucGian() {
+        this.anim.setAnimation(0, "Waiting3", true)
+
+    }
+    happy() {
+        this.anim.setAnimation(0, "HappyOut", true);
+        
 
     }
     // update (dt) {}

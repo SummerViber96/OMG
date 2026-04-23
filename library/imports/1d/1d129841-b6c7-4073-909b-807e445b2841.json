@@ -1,0 +1,35 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "phaohoa-1.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0019 shot (Copy)": {
+      "__uuid__": "8beebe71-e6fa-43c5-8f5a-530469d8247c"
+    },
+    "0021 shot (Copy)": {
+      "__uuid__": "a6952e78-691e-4a4d-ba5c-3ba891f561ac"
+    },
+    "0023 shot (Copy)": {
+      "__uuid__": "14895cbf-62fb-4b00-9b4d-8015f99f5c9a"
+    },
+    "0025 shot (Copy)": {
+      "__uuid__": "3abb341d-8b42-4781-af33-dcf4ea4902ac"
+    },
+    "0027 shot (Copy)": {
+      "__uuid__": "883ae974-5db1-4360-b0d5-e86d1a616eb2"
+    },
+    "0029 shot (Copy)": {
+      "__uuid__": "42de83a8-5661-4a77-a797-6710cde993cb"
+    },
+    "0031 shot (Copy)": {
+      "__uuid__": "9b08cd6f-79cc-48fe-b708-86e333451b82"
+    },
+    "0033 shot (Copy)": {
+      "__uuid__": "ce9a3835-555a-458b-9b1c-e3254f884057"
+    },
+    "0035 shot (Copy)": {
+      "__uuid__": "0d8e48bc-fe06-4a67-8b6a-072d9af6ed40"
+    }
+  }
+}

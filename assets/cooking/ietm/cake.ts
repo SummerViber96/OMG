@@ -7,7 +7,8 @@ export default class NewClass extends cc.Component {
     itemPrefab: cc.Prefab = null
     @property(cc.Node)
     main: cc.Node = null
-    private selectedItem: cc.Node = null;
+    @property(cc.Node)
+    selectedItem: cc.Node = null;
     @property(cc.Node)
     palet: cc.Node = null;
     @property(sp.Skeleton)
@@ -100,8 +101,8 @@ export default class NewClass extends cc.Component {
         }
     }
     tutOnPlate() {
-        if(this.selectedItem){
-        this.selectedItem.destroy()
+        if (this.selectedItem) {
+            this.selectedItem.destroy()
 
         }
         this.selectedItem = cc.instantiate(this.itemPrefab);

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Layer 59 copy 3",
+    "texture": "f909279e-e766-4cae-b0b7-03fddb1c34f3",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      369,
+      14
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      369,
+      14
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

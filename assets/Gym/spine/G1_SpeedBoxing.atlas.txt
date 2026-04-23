@@ -1,0 +1,48 @@
+
+G1_SpeedBoxing.png
+size: 576, 152
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+B3_05sb
+  rotate: false
+  xy: 510, 83
+  size: 26, 64
+  orig: 26, 64
+  offset: 0, 0
+  index: -1
+Base2_05sb
+  rotate: true
+  xy: 232, 2
+  size: 145, 227
+  orig: 145, 227
+  offset: 0, 0
+  index: -1
+Base_05sb
+  rotate: true
+  xy: 2, 2
+  size: 145, 228
+  orig: 145, 228
+  offset: 0, 0
+  index: -1
+D1_05sb
+  rotate: true
+  xy: 461, 7
+  size: 50, 71
+  orig: 50, 71
+  offset: 0, 0
+  index: -1
+D2_05sb
+  rotate: true
+  xy: 534, 26
+  size: 55, 37
+  orig: 55, 37
+  offset: 0, 0
+  index: -1
+Icon_Speedbag_05sb
+  rotate: false
+  xy: 461, 59
+  size: 47, 88
+  orig: 47, 88
+  offset: 0, 0
+  index: -1

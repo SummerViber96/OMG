@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "IconBluePT",
+    "texture": "a451c96b-2e57-4033-97a9-aefa50399b5f",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      61,
+      72
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      64,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

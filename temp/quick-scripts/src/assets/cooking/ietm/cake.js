@@ -150,6 +150,9 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "main", void 0);
     __decorate([
         property(cc.Node)
+    ], NewClass.prototype, "selectedItem", void 0);
+    __decorate([
+        property(cc.Node)
     ], NewClass.prototype, "palet", void 0);
     __decorate([
         property(sp.Skeleton)
