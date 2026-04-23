@@ -35,15 +35,25 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.video1 = null;
+        _this.logo = null;
         return _this;
     }
     NewClass.prototype.start = function () {
+        var _this = this;
+        // this.playVideo();
+        this.video1.play();
+        this.node.on(cc.Node.EventType.TOUCH_END, function () {
+            _this.video1.playVideo();
+        });
+    };
+    NewClass.prototype.playVideo = function () {
         this.video1.play();
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
-        canvas.fitHeight = (logic) ? false : true;
-        canvas.fitWidth = (logic) ? true : false;
+        this.logo.scale = (logic) ? 1 : 1.5;
+        // canvas.fitHeight = (logic) ? false : true
+        // canvas.fitWidth = (logic) ? true : false
         // this.barCoin.y=(logic)?400:470
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
@@ -57,7 +67,6 @@ var NewClass = /** @class */ (function (_super) {
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                console.log("check iphonex");
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
             }
@@ -79,11 +88,20 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.update = function (dt) {
-        this.reponsive();
+        var deviceResolution = cc.view.getFrameSize();
+        if (deviceResolution.width < deviceResolution.height) {
+            this.reponsive(true);
+        }
+        else {
+            this.reponsive(false);
+        }
     };
     __decorate([
         property(cc.VideoPlayer)
     ], NewClass.prototype, "video1", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "logo", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

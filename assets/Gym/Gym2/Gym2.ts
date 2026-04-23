@@ -12,15 +12,27 @@ export default class NewClass extends cc.Component {
 
     @property(cc.VideoPlayer)
     video1: cc.VideoPlayer = null
+    @property(cc.Node)
+    logo: cc.Node = null;
 
     start() {
-        this.video1.play()
+        // this.playVideo();
+        this.video1.play();
+
+        this.node.on(cc.Node.EventType.TOUCH_END, () => {
+            this.video1.playVideo();
+        });
+    }
+    playVideo() {
+        this.video1.play();
+
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
+        this.logo.scale = (logic) ? 1 : 1.5
 
-        canvas.fitHeight = (logic) ? false : true
-        canvas.fitWidth = (logic) ? true : false
+        // canvas.fitHeight = (logic) ? false : true
+        // canvas.fitWidth = (logic) ? true : false
 
         // this.barCoin.y=(logic)?400:470
         if (logic == true) {
@@ -40,7 +52,6 @@ export default class NewClass extends cc.Component {
 
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                console.log("check iphonex")
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
@@ -69,7 +80,13 @@ export default class NewClass extends cc.Component {
 
 
     }
-    update (dt) {
-        this.reponsive()
+    update(dt) {
+        let deviceResolution = cc.view.getFrameSize();
+        if (deviceResolution.width < deviceResolution.height) {
+            this.reponsive(true);
+        }
+        else {
+            this.reponsive(false);
+        }
     }
 }
