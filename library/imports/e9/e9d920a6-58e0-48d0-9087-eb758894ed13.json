@@ -1,0 +1,549 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "G1_AbCrunch",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "Wof5x4+bZzg",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2.43",
+      "x": -37.63,
+      "y": -43.26,
+      "width": 129.49,
+      "height": 194.48
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "AbC",
+        "parent": "root"
+      },
+      {
+        "name": "HandR",
+        "parent": "AbC",
+        "length": 85.44,
+        "rotation": -150.6,
+        "x": -40.42,
+        "y": 151.31
+      },
+      {
+        "name": "HandL",
+        "parent": "AbC",
+        "length": 85.44,
+        "rotation": -150.6,
+        "x": 63.92,
+        "y": 96.73
+      },
+      {
+        "name": "HandR1_05ac",
+        "parent": "HandR",
+        "x": 41.69,
+        "y": -0.8
+      },
+      {
+        "name": "HandL1_05ac",
+        "parent": "HandL",
+        "x": 57.23,
+        "y": -4.46
+      }
+    ],
+    "slots": [
+      {
+        "name": "HandR1_05ac",
+        "bone": "HandR1_05ac"
+      },
+      {
+        "name": "B2_05ac",
+        "bone": "AbC",
+        "attachment": "B2_05ac"
+      },
+      {
+        "name": "B3_05ac",
+        "bone": "AbC",
+        "attachment": "B3_05ac"
+      },
+      {
+        "name": "B1_05ac",
+        "bone": "AbC",
+        "attachment": "B1_05ac"
+      },
+      {
+        "name": "D10_05ac3",
+        "bone": "AbC",
+        "attachment": "D10_05ac"
+      },
+      {
+        "name": "D10_05ac4",
+        "bone": "AbC",
+        "attachment": "D10_05ac"
+      },
+      {
+        "name": "D3_05ac",
+        "bone": "AbC",
+        "attachment": "D3"
+      },
+      {
+        "name": "D9_05ac",
+        "bone": "AbC",
+        "attachment": "D9"
+      },
+      {
+        "name": "D4_05ac",
+        "bone": "AbC",
+        "attachment": "D4"
+      },
+      {
+        "name": "HandL1_05ac",
+        "bone": "HandL1_05ac",
+        "attachment": "HandR"
+      },
+      {
+        "name": "BarL_05ac",
+        "bone": "AbC",
+        "attachment": "BarL"
+      },
+      {
+        "name": "D1_05ac",
+        "bone": "AbC",
+        "attachment": "D1"
+      },
+      {
+        "name": "D10_05ac",
+        "bone": "AbC",
+        "attachment": "D10_05ac"
+      },
+      {
+        "name": "D10_05ac2",
+        "bone": "AbC",
+        "attachment": "D10_05ac"
+      }
+    ],
+    "skins": [
+      {
+        "name": "AbC_Lv0",
+        "attachments": {
+          "B1_05ac": {
+            "B1_05ac": {
+              "x": 27.91,
+              "y": 73.69,
+              "width": 58,
+              "height": 44
+            }
+          },
+          "B2_05ac": {
+            "B2_05ac": {
+              "x": -58.64,
+              "y": 60.18,
+              "width": 63,
+              "height": 69
+            }
+          },
+          "B3_05ac": {
+            "B3_05ac": {
+              "x": 35.95,
+              "y": 50.32,
+              "width": 117,
+              "height": 95
+            }
+          },
+          "BarL_05ac": {
+            "BarL": {
+              "name": "BarL_05ac",
+              "x": 54.35,
+              "y": 34.24,
+              "width": 75,
+              "height": 155
+            }
+          }
+        }
+      },
+      {
+        "name": "AbC_Lv1",
+        "attachments": {
+          "BarL_05ac": {
+            "BarL": {
+              "name": "BarL_05ac",
+              "x": 54.35,
+              "y": 34.24,
+              "width": 75,
+              "height": 155
+            }
+          },
+          "D1_05ac": {
+            "D1": {
+              "name": "D1_05ac",
+              "x": 68.65,
+              "y": 7.56,
+              "width": 21,
+              "height": 34
+            }
+          },
+          "HandL1_05ac": {
+            "HandR": {
+              "name": "HandL1_05ac",
+              "rotation": 150.6,
+              "width": 99,
+              "height": 64
+            }
+          }
+        }
+      },
+      {
+        "name": "AbC_Lv2",
+        "attachments": {
+          "BarL_05ac": {
+            "BarL": {
+              "name": "BarL_05ac",
+              "x": 54.35,
+              "y": 34.24,
+              "width": 75,
+              "height": 155
+            }
+          },
+          "D1_05ac": {
+            "D1": {
+              "name": "D2_05ac",
+              "x": 67.58,
+              "y": 12.39,
+              "width": 15,
+              "height": 48
+            }
+          },
+          "HandL1_05ac": {
+            "HandR": {
+              "name": "HandL2_05ac",
+              "rotation": 150.6,
+              "width": 99,
+              "height": 64
+            }
+          }
+        }
+      },
+      {
+        "name": "AbC_Lv3",
+        "attachments": {
+          "BarL_05ac": {
+            "BarL": {
+              "name": "BarL_05ac",
+              "x": 54.35,
+              "y": 34.24,
+              "width": 75,
+              "height": 155
+            }
+          },
+          "D1_05ac": {
+            "D1": {
+              "name": "D5_05ac",
+              "x": 67.97,
+              "y": 29.39,
+              "width": 20,
+              "height": 85
+            }
+          },
+          "D3_05ac": {
+            "D3": {
+              "name": "D3_05ac",
+              "x": -22.4,
+              "y": 108.53,
+              "width": 13,
+              "height": 31
+            }
+          },
+          "D4_05ac": {
+            "D4": {
+              "name": "D4_05ac",
+              "x": 17.63,
+              "y": 121.72,
+              "width": 97,
+              "height": 59
+            }
+          },
+          "HandL1_05ac": {
+            "HandR": {
+              "name": "HandL3_05ac",
+              "rotation": 150.6,
+              "width": 99,
+              "height": 64
+            }
+          }
+        }
+      },
+      {
+        "name": "AbC_Lv4",
+        "attachments": {
+          "BarL_05ac": {
+            "BarL": {
+              "name": "BarL_05ac",
+              "x": 54.35,
+              "y": 34.24,
+              "width": 75,
+              "height": 155
+            }
+          },
+          "D1_05ac": {
+            "D1": {
+              "name": "D8_05ac",
+              "x": 76.54,
+              "y": 30.98,
+              "width": 38,
+              "height": 90
+            }
+          },
+          "D3_05ac": {
+            "D3": {
+              "name": "D6_05ac",
+              "x": -21.13,
+              "y": 110.26,
+              "width": 17,
+              "height": 38
+            }
+          },
+          "D4_05ac": {
+            "D4": {
+              "name": "D7_05ac",
+              "x": 17.67,
+              "y": 120.95,
+              "width": 97,
+              "height": 59
+            }
+          },
+          "HandL1_05ac": {
+            "HandR": {
+              "name": "HandL3_05ac",
+              "rotation": 150.6,
+              "width": 99,
+              "height": 64
+            }
+          }
+        }
+      },
+      {
+        "name": "AbC_Lv5",
+        "attachments": {
+          "BarL_05ac": {
+            "BarL": {
+              "name": "BarL_05ac",
+              "x": 54.35,
+              "y": 34.24,
+              "width": 75,
+              "height": 155
+            }
+          },
+          "D1_05ac": {
+            "D1": {
+              "name": "D8_05ac",
+              "x": 76.54,
+              "y": 30.98,
+              "width": 38,
+              "height": 90
+            }
+          },
+          "D3_05ac": {
+            "D3": {
+              "name": "D6_05ac",
+              "x": -21.13,
+              "y": 110.26,
+              "width": 17,
+              "height": 38
+            }
+          },
+          "D4_05ac": {
+            "D4": {
+              "name": "D7_05ac",
+              "x": 17.67,
+              "y": 120.95,
+              "width": 97,
+              "height": 59
+            }
+          },
+          "D9_05ac": {
+            "D9": {
+              "name": "D9_05ac",
+              "x": 24.01,
+              "y": 90.18,
+              "width": 98,
+              "height": 59
+            }
+          },
+          "D10_05ac": {
+            "D10_05ac": {
+              "x": 58.25,
+              "y": 43.86,
+              "width": 9,
+              "height": 18
+            }
+          },
+          "D10_05ac2": {
+            "D10_05ac": {
+              "x": 56.58,
+              "y": 30.68,
+              "width": 9,
+              "height": 18
+            }
+          },
+          "D10_05ac3": {
+            "D10_05ac": {
+              "x": -35.95,
+              "y": 95.58,
+              "width": 9,
+              "height": 18
+            }
+          },
+          "D10_05ac4": {
+            "D10_05ac": {
+              "x": -37.93,
+              "y": 82.37,
+              "width": 9,
+              "height": 18
+            }
+          },
+          "HandL1_05ac": {
+            "HandR": {
+              "name": "HandL3_05ac",
+              "rotation": 150.6,
+              "width": 99,
+              "height": 64
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "Action": {
+        "bones": {
+          "HandR": {
+            "rotate": [
+              {
+                "angle": 25.14
+              },
+              {
+                "time": 0.9333,
+                "angle": 2.29,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.0667,
+                "angle": 2.29
+              },
+              {
+                "time": 2,
+                "angle": 25.14
+              }
+            ],
+            "scale": [
+              {
+                "x": 0.956
+              },
+              {
+                "time": 0.9333,
+                "x": 0.87,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.0667,
+                "x": 0.87
+              },
+              {
+                "time": 2,
+                "x": 0.956
+              }
+            ],
+            "shear": [
+              {
+                "x": -3.71,
+                "y": -21.07
+              },
+              {
+                "time": 0.9333,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.0667
+              },
+              {
+                "time": 2,
+                "x": -3.71,
+                "y": -21.07
+              }
+            ]
+          },
+          "HandL": {
+            "rotate": [
+              {
+                "angle": 20.4
+              },
+              {
+                "time": 0.9333,
+                "angle": -0.98,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.0667,
+                "angle": -0.98
+              },
+              {
+                "time": 2,
+                "angle": 20.4
+              }
+            ],
+            "scale": [
+              {
+                "x": 0.961
+              },
+              {
+                "time": 0.9333,
+                "x": 0.904,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.0667,
+                "x": 0.904
+              },
+              {
+                "time": 2,
+                "x": 0.961
+              }
+            ],
+            "shear": [
+              {
+                "x": -3.71,
+                "y": -21.07
+              },
+              {
+                "time": 0.9333,
+                "curve": "stepped"
+              },
+              {
+                "time": 1.0667
+              },
+              {
+                "time": 2,
+                "x": -3.71,
+                "y": -21.07,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.3333,
+                "x": -3.71,
+                "y": -21.07
+              }
+            ]
+          }
+        }
+      },
+      "Idle": {}
+    }
+  },
+  "_atlasText": "\nG1_AbCrunch.png\nsize: 205, 410\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nB1_05ac\n  rotate: true\n  xy: 159, 350\n  size: 58, 44\n  orig: 58, 44\n  offset: 0, 0\n  index: -1\nB2_05ac\n  rotate: true\n  xy: 121, 193\n  size: 63, 69\n  orig: 63, 69\n  offset: 0, 0\n  index: -1\nB3_05ac\n  rotate: false\n  xy: 2, 236\n  size: 117, 95\n  orig: 117, 95\n  offset: 0, 0\n  index: -1\nBarL_05ac\n  rotate: true\n  xy: 2, 333\n  size: 75, 155\n  orig: 75, 155\n  offset: 0, 0\n  index: -1\nD10_05ac\n  rotate: false\n  xy: 192, 238\n  size: 9, 18\n  orig: 9, 18\n  offset: 0, 0\n  index: -1\nD1_05ac\n  rotate: true\n  xy: 121, 310\n  size: 21, 34\n  orig: 21, 34\n  offset: 0, 0\n  index: -1\nD2_05ac\n  rotate: true\n  xy: 2, 4\n  size: 15, 48\n  orig: 15, 48\n  offset: 0, 0\n  index: -1\nD3_05ac\n  rotate: true\n  xy: 121, 295\n  size: 13, 31\n  orig: 13, 31\n  offset: 0, 0\n  index: -1\nD4_05ac\n  rotate: false\n  xy: 2, 43\n  size: 97, 59\n  orig: 97, 59\n  offset: 0, 0\n  index: -1\nD5_05ac\n  rotate: true\n  xy: 2, 21\n  size: 20, 85\n  orig: 20, 85\n  offset: 0, 0\n  index: -1\nD6_05ac\n  rotate: true\n  xy: 52, 2\n  size: 17, 38\n  orig: 17, 38\n  offset: 0, 0\n  index: -1\nD7_05ac\n  rotate: false\n  xy: 101, 5\n  size: 97, 59\n  orig: 97, 59\n  offset: 0, 0\n  index: -1\nD8_05ac\n  rotate: false\n  xy: 159, 258\n  size: 38, 90\n  orig: 38, 90\n  offset: 0, 0\n  index: -1\nD9_05ac\n  rotate: false\n  xy: 103, 66\n  size: 98, 59\n  orig: 98, 59\n  offset: 0, 0\n  index: -1\nHandL1_05ac\n  rotate: false\n  xy: 2, 170\n  size: 99, 64\n  orig: 99, 64\n  offset: 0, 0\n  index: -1\nHandL2_05ac\n  rotate: false\n  xy: 103, 127\n  size: 99, 64\n  orig: 99, 64\n  offset: 0, 0\n  index: -1\nHandL3_05ac\n  rotate: false\n  xy: 2, 104\n  size: 99, 64\n  orig: 99, 64\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "c2ac6e76-b81d-4c0d-8483-044dece27c20"
+    }
+  ],
+  "textureNames": [
+    "G1_AbCrunch.png"
+  ],
+  "scale": 1
+}

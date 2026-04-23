@@ -8,6 +8,8 @@ export default class NewClass extends cc.Component {
     pop: cc.Node = null
     @property(sp.Skeleton)
     anim: sp.Skeleton = null
+    @property(cc.AudioClip)
+    soundHappy:cc.AudioClip=null
     @property(cc.Integer)
     tag = 0
     gamePlay = null
@@ -46,11 +48,18 @@ export default class NewClass extends cc.Component {
     gapBung() {
         this.anim.setAnimation(0, "Abdominal", true)
     }
+    dayTa(){
+                this.anim.setAnimation(0, "AbCrunch", true)
+
+    }
     tucGian() {
         this.anim.setAnimation(0, "Waiting3", true)
 
     }
     happy() {
+        if(this.soundHappy){
+            cc.audioEngine.play(this.soundHappy,false,1)
+        }
         this.anim.setAnimation(0, "HappyOut", true);
         
 

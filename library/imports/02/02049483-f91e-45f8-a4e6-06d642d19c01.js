@@ -30,6 +30,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.pop = null;
         _this.anim = null;
+        _this.soundHappy = null;
         _this.tag = 0;
         _this.gamePlay = null;
         return _this;
@@ -69,10 +70,16 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.gapBung = function () {
         this.anim.setAnimation(0, "Abdominal", true);
     };
+    NewClass.prototype.dayTa = function () {
+        this.anim.setAnimation(0, "AbCrunch", true);
+    };
     NewClass.prototype.tucGian = function () {
         this.anim.setAnimation(0, "Waiting3", true);
     };
     NewClass.prototype.happy = function () {
+        if (this.soundHappy) {
+            cc.audioEngine.play(this.soundHappy, false, 1);
+        }
         this.anim.setAnimation(0, "HappyOut", true);
     };
     __decorate([
@@ -81,6 +88,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(sp.Skeleton)
     ], NewClass.prototype, "anim", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundHappy", void 0);
     __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "tag", void 0);

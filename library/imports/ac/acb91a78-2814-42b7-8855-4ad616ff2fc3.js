@@ -39,12 +39,18 @@ var NewClass = /** @class */ (function (_super) {
         _this.boxing2 = null;
         _this.soundBG = null;
         _this.soundShowPop = null;
+        _this.soundClick = null;
+        _this.soundCoin = null;
+        _this.soundConfirm = null;
         _this.game = null;
         _this.guildUpgrade = null;
+        _this.guildUpgrade2 = null;
         _this.phaohoa = null;
         _this.linkToStore = null;
         _this.listE = null;
         _this.lbCoin = null;
+        _this.dayTa1 = null;
+        _this.fillBar = null;
         _this.arrPosCus = [];
         _this.arrCus = [];
         _this.arrCrunch = [];
@@ -52,6 +58,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.isCountAction = 0;
         _this.isCus = 0;
         _this.isCountStep = 0;
+        _this.dem1 = 0;
+        _this.dem2 = 0;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -119,6 +127,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.doCus = function (tag) {
         var _this = this;
+        cc.audioEngine.play(this.soundClick, false, 1);
         cc.tween(this.npc2).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(function () {
             _this.npc.active = false;
         }).start();
@@ -126,21 +135,25 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.moveCus = function (value) {
         var _this = this;
+        cc.audioEngine.play(this.soundCoin, false, 1);
         if (value == 1) {
-            this.arrCrunch[0].getChildByName("char").active = true;
+            this.dayTa1.getChildByName("char").active = true;
             this.arrCus[0].active = false;
-            this.arrCrunch[0].getChildByName("char").getChildByName("notiBonusCoin").active = true;
+            this.dayTa1.getChildByName("char").getChildByName("notiBonusCoin").active = true;
             globalThis.gold += 2;
             this.scheduleOnce(function () {
-                _this.arrCrunch[0].getChildByName("char").getComponent("cusGym").gapBung();
-                _this.arrCrunch[0].children[0].active = false;
-                _this.arrCrunch[0].children[1].active = true;
-                var fill = _this.arrCrunch[0].getChildByName("ProgressBar").getComponent(cc.Sprite);
-                cc.tween(fill).to(2, { fillRange: 1 }).start();
-                _this.schedule(function () {
-                    fill.fillRange = 0;
-                    cc.tween(fill).to(2, { fillRange: 1 }).start();
-                }, 2);
+                _this.dayTa1.getChildByName("char").getComponent("cusGym").dayTa();
+                // this.dayTa1.getChildByName("char").position = cc.v3(1, -16)
+                _this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                _this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                // this.dayTa1.children[0].active = false
+                // this.arrCrunch[0].children[1].active = true
+                // let fill = this.arrCrunch[0].getChildByName("ProgressBar").getComponent(cc.Sprite);
+                // cc.tween(fill).to(2, { fillRange: 1 }).start()
+                // this.schedule(() => {
+                //     fill.fillRange = 0
+                //     cc.tween(fill).to(2, { fillRange: 1 }).start()
+                // }, 2)
             }, 0.5);
             this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.soundShowPop, false, 1);
@@ -156,20 +169,16 @@ var NewClass = /** @class */ (function (_super) {
             }, 2);
         }
         else if (value == 2) {
-            this.arrCrunch[1].getChildByName("char").getChildByName("notiBonusCoin").active = true;
+            this.arrCrunch[6].getChildByName("char").getChildByName("notiBonusCoin").active = true;
             globalThis.gold += 2;
-            this.arrCrunch[1].getChildByName("char").active = true;
+            this.arrCrunch[6].getChildByName("char").active = true;
             this.arrCus[1].active = false;
             this.scheduleOnce(function () {
-                _this.arrCrunch[1].getChildByName("char").getComponent("cusGym").gapBung();
-                _this.arrCrunch[1].children[0].active = false;
-                _this.arrCrunch[1].children[1].active = true;
+                _this.arrCrunch[6].getChildByName("char").getComponent("cusGym").gapBung();
+                _this.arrCrunch[6].getChildByName("char").position = cc.v3(1, -16);
+                _this.arrCrunch[6].children[0].active = false;
+                _this.arrCrunch[6].children[1].active = true;
                 var fill = _this.arrCrunch[1].getChildByName("ProgressBar").getComponent(cc.Sprite);
-                cc.tween(fill).to(2, { fillRange: 1 }).start();
-                _this.schedule(function () {
-                    fill.fillRange = 0;
-                    cc.tween(fill).to(2, { fillRange: 1 }).start();
-                }, 2);
             }, 0.5);
         }
         else if (value == 3) {
@@ -195,9 +204,9 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.moveCame1 = function () {
         var _this = this;
-        cc.tween(this.game).to(0.5, { scale: 2.7 }).start();
+        cc.tween(this.game).to(0.5, { scale: 2.3 }).start();
         // cc.tween(this.camera).to(0.3, { zoomRatio: 2.5 }).start();
-        cc.tween(this.game).to(0.5, { position: cc.v3(223, -600) }).start();
+        cc.tween(this.game).to(0.5, { position: cc.v3(200, -550) }).start();
         this.scheduleOnce(function () {
             _this.guildUpgrade.active = true;
         }, 0.5);
@@ -213,13 +222,18 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.btn_upgrade = function () {
+        cc.audioEngine.play(this.soundConfirm, false, 1);
         this.isCountStep++;
         if (this.isCountStep < 5) {
-            this.listE.children[this.isCountStep - 1].active = true;
+            this.fillBar.fillRange = this.isCountStep * 0.25;
+            // this.listE.children[this.isCountStep - 1].active = true
         }
         if (this.isCus == 0) {
+            var char_1 = this.dayTa1.getChildByName("char");
+            char_1.getChildByName("vfx").getComponent(cc.Animation).play();
+            char_1.getComponent(cc.Animation).play();
             if (this.isCountStep == 5) {
-                var char_1 = this.arrCrunch[0].getChildByName("char");
+                cc.audioEngine.play(this.soundCoin, false, 1);
                 char_1.getChildByName("notiBonusCoin2").active = true;
                 char_1.getComponent("cusGym").happy();
                 char_1.position = cc.v3(-67, -50);
@@ -233,9 +247,11 @@ var NewClass = /** @class */ (function (_super) {
             }
         }
         else if (this.isCus == 1) {
+            var char_2 = this.boxing1.children[0];
+            char_2.getChildByName("vfx").getComponent(cc.Animation).play();
             if (this.isCountStep == 5) {
+                cc.audioEngine.play(this.soundCoin, false, 1);
                 globalThis.gold += 200;
-                var char_2 = this.boxing1.children[0];
                 char_2.getChildByName("notiBonusCoin2").active = true;
                 char_2.getComponent("cusGym").happy();
                 this.guildUpgrade.active = false;
@@ -247,6 +263,8 @@ var NewClass = /** @class */ (function (_super) {
             }
         }
         else if (this.isCus == 2) {
+            var char = this.boxing2.children[0];
+            char.getChildByName("vfx").getComponent(cc.Animation).play();
             if (this.isCountStep == 2) {
                 this.linkToStore.active = true;
             }
@@ -260,10 +278,7 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(_this.game).to(0.5, { position: cc.v3(0, 0) }).start();
             _this.isCus = 1;
             _this.isCountStep = 0;
-            for (var _i = 0, _a = _this.listE.children; _i < _a.length; _i++) {
-                var child = _a[_i];
-                child.active = false;
-            }
+            _this.fillBar.fillRange = 0;
         }, 1);
         this.scheduleOnce(function () {
             _this.move3();
@@ -273,7 +288,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         cc.tween(this.game).to(0.5, { scale: 2.7 }).start();
         // cc.tween(this.camera).to(0.3, { zoomRatio: 2.5 }).start();
-        cc.tween(this.game).to(0.5, { position: cc.v3(-1973, -100) }).start();
+        cc.tween(this.game).to(0.5, { position: cc.v3(-1973, -120) }).start();
         this.scheduleOnce(function () {
             _this.guildUpgrade.active = true;
         }, 0.5);
@@ -286,10 +301,7 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(_this.game).to(0.5, { position: cc.v3(0, 0) }).start();
             _this.isCus = 2;
             _this.isCountStep = 0;
-            for (var _i = 0, _a = _this.listE.children; _i < _a.length; _i++) {
-                var child = _a[_i];
-                child.active = false;
-            }
+            _this.fillBar.fillRange = 0;
         }, 1);
         this.scheduleOnce(function () {
             _this.move5();
@@ -297,22 +309,49 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.move5 = function () {
         var _this = this;
-        cc.tween(this.game).to(1, { scale: 2.7 }).start();
+        cc.tween(this.game).to(1, { scale: 1.7 }).start();
         // cc.tween(this.camera).to(0.3, { zoomRatio: 2.5 }).start();
-        cc.tween(this.game).to(1, { position: cc.v3(1453, 316) }).start();
-        var text = this.guildUpgrade.getChildByName("New Label");
-        text.getComponent(cc.Label).string = "Last one! Finish strong!";
+        cc.tween(this.game).to(1, { position: cc.v3(1100, 100) }).start();
+        // let text = this.guildUpgrade.getChildByName("New Label")
+        // text.getComponent(cc.Label).string = "Last one! Finish strong!"
         this.scheduleOnce(function () {
-            _this.guildUpgrade.active = true;
+            _this.guildUpgrade2.active = true;
         }, 0.5);
+    };
+    NewClass.prototype.btn_upgrade2 = function (event, value) {
+        if (value == "1") {
+            var fill = this.guildUpgrade2.getChildByName("bgTrain2").children[1];
+            var char = this.arrCrunch[6].getChildByName("char");
+            char.getComponent(cc.Animation).play();
+            char.getChildByName("vfx").getComponent(cc.Animation).play();
+            this.dem1++;
+            fill.getComponent(cc.Sprite).fillRange = this.dem1 * 0.2;
+        }
+        else {
+            var fill = this.guildUpgrade2.getChildByName("bgTrain").children[1];
+            var char = this.boxing2.children[0];
+            char.getComponent(cc.Animation).play();
+            char.getChildByName("vfx").getComponent(cc.Animation).play();
+            this.dem2++;
+            fill.getComponent(cc.Sprite).fillRange = this.dem2 * 0.2;
+        }
+        if (this.dem1 == 4 || this.dem2 == 4) {
+            this.linkToStore.active = true;
+        }
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
         this.camera.zoomRatio = 1;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
-        // this.camera.node.position = cc.v3(0, -100)
+        this.guildUpgrade.scale = (logic) ? 2.4 : 1;
+        this.guildUpgrade2.scale = (logic) ? 2.4 : 1;
+        this.camera.node.position = cc.v3(0, 0);
         this.lbCoin.string = globalThis.gold.toString();
+        this.npc.scale = (logic) ? 1.5 : 1;
+        this.npc2.scale = (logic) ? 1.5 : 1;
+        this.npc.getComponent(cc.Widget).bot = (logic) ? 300 : -1960.0;
+        this.npc2.getComponent(cc.Widget).bot = (logic) ? 300 : -1960.0;
         // this.barCoin.y=(logic)?400:470
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
@@ -325,7 +364,8 @@ var NewClass = /** @class */ (function (_super) {
             var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
-            this.camera.zoomRatio = 1.3;
+            this.camera.zoomRatio = 1.7;
+            this.camera.node.position = cc.v3(300, 0);
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 console.log("check iphonex");
             }
@@ -381,11 +421,23 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundShowPop", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundClick", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundCoin", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundConfirm", void 0);
+    __decorate([
         property(cc.Node)
     ], NewClass.prototype, "game", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "guildUpgrade", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "guildUpgrade2", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "phaohoa", void 0);
@@ -398,6 +450,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Label)
     ], NewClass.prototype, "lbCoin", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "dayTa1", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], NewClass.prototype, "fillBar", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -2,7 +2,9 @@
   "title": "Code",
   "packageName": "org.cocos2d.demo",
   "startScene": "439372e7-359a-45a6-8656-39ffe827aa9a",
-  "excludeScenes": [],
+  "excludeScenes": [
+    "45831789-b410-4fb5-bb8b-0d46193020a0"
+  ],
   "orientation": {
     "landscapeRight": true,
     "landscapeLeft": true,

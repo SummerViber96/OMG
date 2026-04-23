@@ -1,0 +1,153 @@
+
+G1_AbCrunch.png
+size: 711, 205
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+B1_05ac
+  rotate: true
+  xy: 658, 13
+  size: 58, 44
+  orig: 58, 44
+  offset: 0, 0
+  index: -1
+B2_05ac
+  rotate: true
+  xy: 587, 8
+  size: 63, 69
+  orig: 63, 69
+  offset: 0, 0
+  index: -1
+B3_05ac
+  rotate: false
+  xy: 297, 108
+  size: 117, 95
+  orig: 117, 95
+  offset: 0, 0
+  index: -1
+BarL_05ac
+  rotate: false
+  xy: 220, 48
+  size: 75, 155
+  orig: 75, 155
+  offset: 0, 0
+  index: -1
+Base_05ac
+  rotate: true
+  xy: 2, 25
+  size: 178, 216
+  orig: 187, 219
+  offset: 4, 3
+  index: -1
+D10_05ac
+  rotate: false
+  xy: 398, 88
+  size: 9, 18
+  orig: 9, 18
+  offset: 0, 0
+  index: -1
+D1_05ac
+  rotate: true
+  xy: 362, 19
+  size: 21, 34
+  orig: 21, 34
+  offset: 0, 0
+  index: -1
+D2_05ac
+  rotate: true
+  xy: 220, 31
+  size: 15, 48
+  orig: 15, 48
+  offset: 0, 0
+  index: -1
+D3_05ac
+  rotate: true
+  xy: 362, 4
+  size: 13, 31
+  orig: 13, 31
+  offset: 0, 0
+  index: -1
+D4_05ac
+  rotate: false
+  xy: 516, 78
+  size: 97, 59
+  orig: 97, 59
+  offset: 0, 0
+  index: -1
+D5_05ac
+  rotate: true
+  xy: 2, 3
+  size: 20, 85
+  orig: 20, 85
+  offset: 0, 0
+  index: -1
+D6_05ac
+  rotate: true
+  xy: 89, 6
+  size: 17, 38
+  orig: 17, 38
+  offset: 0, 0
+  index: -1
+D7_05ac
+  rotate: false
+  xy: 398, 17
+  size: 97, 59
+  orig: 97, 59
+  offset: 0, 0
+  index: -1
+D8_05ac
+  rotate: true
+  xy: 270, 2
+  size: 38, 90
+  orig: 38, 90
+  offset: 0, 0
+  index: -1
+D9_05ac
+  rotate: false
+  xy: 416, 78
+  size: 98, 59
+  orig: 98, 59
+  offset: 0, 0
+  index: -1
+HandL1_05ac
+  rotate: false
+  xy: 416, 139
+  size: 99, 64
+  orig: 99, 64
+  offset: 0, 0
+  index: -1
+HandL2_05ac
+  rotate: false
+  xy: 517, 139
+  size: 99, 64
+  orig: 99, 64
+  offset: 0, 0
+  index: -1
+HandL3_05ac
+  rotate: false
+  xy: 297, 42
+  size: 99, 64
+  orig: 99, 64
+  offset: 0, 0
+  index: -1
+HandR1_05ac
+  rotate: false
+  xy: 497, 12
+  size: 88, 64
+  orig: 88, 64
+  offset: 0, 0
+  index: -1
+HandR2_05ac
+  rotate: false
+  xy: 618, 139
+  size: 91, 64
+  orig: 91, 64
+  offset: 0, 0
+  index: -1
+HandR3_05ac
+  rotate: false
+  xy: 615, 73
+  size: 91, 64
+  orig: 91, 64
+  offset: 0, 0
+  index: -1
