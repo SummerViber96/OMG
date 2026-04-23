@@ -332,7 +332,7 @@
       "Idle": {}
     }
   },
-  "_atlasText": "\r\nG1_SpeedBoxing.png\r\nsize: 576, 152\r\nformat: RGBA8888\r\nfilter: Linear, Linear\r\nrepeat: none\r\nB3_05sb\r\n  rotate: false\r\n  xy: 510, 83\r\n  size: 26, 64\r\n  orig: 26, 64\r\n  offset: 0, 0\r\n  index: -1\r\nBase2_05sb\r\n  rotate: true\r\n  xy: 232, 2\r\n  size: 145, 227\r\n  orig: 145, 227\r\n  offset: 0, 0\r\n  index: -1\r\nBase_05sb\r\n  rotate: true\r\n  xy: 2, 2\r\n  size: 145, 228\r\n  orig: 145, 228\r\n  offset: 0, 0\r\n  index: -1\r\nD1_05sb\r\n  rotate: true\r\n  xy: 461, 7\r\n  size: 50, 71\r\n  orig: 50, 71\r\n  offset: 0, 0\r\n  index: -1\r\nD2_05sb\r\n  rotate: true\r\n  xy: 534, 26\r\n  size: 55, 37\r\n  orig: 55, 37\r\n  offset: 0, 0\r\n  index: -1\r\nIcon_Speedbag_05sb\r\n  rotate: false\r\n  xy: 461, 59\r\n  size: 47, 88\r\n  orig: 47, 88\r\n  offset: 0, 0\r\n  index: -1\r\n",
+  "_atlasText": "\nG1_SpeedBoxing.png\nsize: 576, 152\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nB3_05sb\n  rotate: false\n  xy: 510, 83\n  size: 26, 64\n  orig: 26, 64\n  offset: 0, 0\n  index: -1\nBase2_05sb\n  rotate: true\n  xy: 232, 2\n  size: 145, 227\n  orig: 145, 227\n  offset: 0, 0\n  index: -1\nBase_05sb\n  rotate: true\n  xy: 2, 2\n  size: 145, 228\n  orig: 145, 228\n  offset: 0, 0\n  index: -1\nD1_05sb\n  rotate: true\n  xy: 461, 7\n  size: 50, 71\n  orig: 50, 71\n  offset: 0, 0\n  index: -1\nD2_05sb\n  rotate: true\n  xy: 534, 26\n  size: 55, 37\n  orig: 55, 37\n  offset: 0, 0\n  index: -1\nIcon_Speedbag_05sb\n  rotate: false\n  xy: 461, 59\n  size: 47, 88\n  orig: 47, 88\n  offset: 0, 0\n  index: -1\n",
   "textures": [
     {
       "__uuid__": "c6067c68-43d6-4f88-914f-ffdf6800ddf3"

@@ -74,6 +74,7 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(0, "AbCrunch", true);
     };
     NewClass.prototype.tucGian = function () {
+        console.log("tuc gian");
         this.anim.setAnimation(0, "Waiting3", true);
     };
     NewClass.prototype.happy = function () {

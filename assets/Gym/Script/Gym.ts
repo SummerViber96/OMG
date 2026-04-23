@@ -29,6 +29,8 @@ export default class NewClass extends cc.Component {
     soundCoin: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundConfirm: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundWin: cc.AudioClip = null;
     @property(cc.Node)
     game: cc.Node = null
     @property(cc.Node)
@@ -47,14 +49,26 @@ export default class NewClass extends cc.Component {
     dayTa1: cc.Node = null
     @property(cc.Sprite)
     fillBar: cc.Sprite = null
+    @property(cc.Node)
+    endCard: cc.Node = null
+    @property(cc.Node)
+    coinBar: cc.Node
+    @property(cc.Node)
+    logo: cc.Node = null
     arrPosCus = []
     arrCus = []
     arrCrunch = []
+    isHind = false
+    adChanel = '{{__adv_channels_adapter__}}'
+
     start() {
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
         cc.audioEngine.play(this.soundBG, true, 0.5)
         this.scheduleOnce(() => {
             this.npc.active = true
-        }, 2)
+        }, 1)
         this.scheduleOnce(() => {
             cc.tween(this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
                 this.npc.active = false
@@ -75,7 +89,7 @@ export default class NewClass extends cc.Component {
         let arr = [cc.v3(438, -159), cc.v3(577, -256)];
         for (let i = 0; i < this.arrCus.length; i++) {
             let cus = this.arrCus[i]
-            cus.getComponent("cusGym").move(this.arrPosCus[i], 3)
+            cus.getComponent("cusGym").move(this.arrPosCus[i], 2.5)
         }
         this.scheduleOnce(() => {
             for (let j = 0; j < 2; j++) {
@@ -96,10 +110,10 @@ export default class NewClass extends cc.Component {
 
             }
 
-        }, 3)
+        }, 2.5)
         this.scheduleOnce(() => {
             this.npc2.active = true
-        }, 4.5)
+        }, 4)
     }
     isCloseTut = false
     btn_closeTut() {
@@ -122,26 +136,17 @@ export default class NewClass extends cc.Component {
     moveCus(value) {
         cc.audioEngine.play(this.soundCoin, false, 1)
         if (value == 1) {
-            this.dayTa1.getChildByName("char").active = true;
+            let char = this.arrCrunch[0].getChildByName("char")
+            char.active = true;
             this.arrCus[0].active = false
-            this.dayTa1.getChildByName("char").getChildByName("notiBonusCoin").active = true
+            char.getChildByName("notiBonusCoin").active = true
             globalThis.gold += 2
             this.scheduleOnce(() => {
-                this.dayTa1.getChildByName("char").getComponent("cusGym").dayTa()
-                // this.dayTa1.getChildByName("char").position = cc.v3(1, -16)
-                this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true)
-                this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true)
+                char.getComponent("cusGym").gapBung()
+                char.position = cc.v3(1, -16)
+                this.arrCrunch[0].children[0].active = false
+                this.arrCrunch[0].children[1].active = true
 
-                // this.dayTa1.children[0].active = false
-                // this.arrCrunch[0].children[1].active = true
-                // let fill = this.arrCrunch[0].getChildByName("ProgressBar").getComponent(cc.Sprite);
-                // cc.tween(fill).to(2, { fillRange: 1 }).start()
-
-                // this.schedule(() => {
-                //     fill.fillRange = 0
-                //     cc.tween(fill).to(2, { fillRange: 1 }).start()
-
-                // }, 2)
             }, 0.5)
             this.scheduleOnce(() => {
                 cc.audioEngine.play(this.soundShowPop, false, 1)
@@ -155,23 +160,35 @@ export default class NewClass extends cc.Component {
                         this.arrCus[0].getComponent("cusGym").tucGian()
                     }
                 }
-            }, 2)
+                this.scheduleOnce(() => {
+                    this.onHind()
+                }, 3)
+            }, 1.4)
 
         }
         else if (value == 2) {
-            this.arrCrunch[6].getChildByName("char").getChildByName("notiBonusCoin").active = true
-            globalThis.gold += 2
-            this.arrCrunch[6].getChildByName("char").active = true;
             this.arrCus[1].active = false
+            this.dayTa1.getChildByName("char").active = true;
+            let char = this.arrCrunch[0].getChildByName("char")
+            char.active = true;
+            this.arrCus[0].active = false
+            this.dayTa1.getChildByName("char").getChildByName("notiBonusCoin").active = true
+            char.getChildByName("notiBonusCoin").active = true
+            globalThis.gold += 2
             this.scheduleOnce(() => {
-                this.arrCrunch[6].getChildByName("char").getComponent("cusGym").gapBung()
-                this.arrCrunch[6].getChildByName("char").position = cc.v3(1, -16)
+                this.dayTa1.getChildByName("char").getComponent("cusGym").dayTa()
+                // this.dayTa1.getChildByName("char").position = cc.v3(1, -16)
+                this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true)
+                this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true)
 
-                this.arrCrunch[6].children[0].active = false
-                this.arrCrunch[6].children[1].active = true
-                let fill = this.arrCrunch[1].getChildByName("ProgressBar").getComponent(cc.Sprite);
+
+                char.getComponent("cusGym").gapBung()
+                char.position = cc.v3(1, -16)
+                this.arrCrunch[0].children[0].active = false
+                this.arrCrunch[0].children[1].active = true
 
             }, 0.5)
+
 
         }
         else if (value == 3) {
@@ -197,7 +214,31 @@ export default class NewClass extends cc.Component {
 
             }, 1)
         }
+        if (value != 1) {
+            this.isHind = true
+        }
+    }
+    onHind() {
+        let index = 1;
 
+        this.schedule(() => {
+            // tắt tất cả trước
+            for (let i = 1; i < this.arrCus.length; i++) {
+                let pop = this.arrCus[i].getChildByName("pop");
+                let hand = pop.getChildByName("hand");
+                hand.active = false;
+            }
+
+            // bật cái hiện tại
+            let pop = this.arrCus[index].getChildByName("pop");
+            let hand = pop.getChildByName("hand");
+            hand.active = true;
+
+            index++;
+            if (index >= this.arrCus.length) {
+                index = 1; // quay lại từ đầu
+            }
+        }, 0.5);
     }
     isCus = 0
     moveCame1() {
@@ -227,10 +268,14 @@ export default class NewClass extends cc.Component {
             // this.listE.children[this.isCountStep - 1].active = true
 
         }
+        let btn = this.guildUpgrade.children[2].getChildByName("Button")
+        btn.active = true;
+        btn.position = cc.v3(60 * this.isCountStep, -17.93)
         if (this.isCus == 0) {
-            let char = this.dayTa1.getChildByName("char")
+            let char = this.listCrunch.children[0].getChildByName("char")
             char.getChildByName("vfx").getComponent(cc.Animation).play()
             char.getComponent(cc.Animation).play()
+
             if (this.isCountStep == 5) {
                 cc.audioEngine.play(this.soundCoin, false, 1)
 
@@ -238,7 +283,7 @@ export default class NewClass extends cc.Component {
                 char.getComponent("cusGym").happy()
                 char.position = cc.v3(-67, -50)
                 this.guildUpgrade.active = false;
-                this.move2()
+                this.move4()
                 globalThis.gold += 200
                 this.phaohoa.getComponent(cc.Animation).play()
                 this.scheduleOnce(() => {
@@ -261,22 +306,30 @@ export default class NewClass extends cc.Component {
 
                 char.getComponent("cusGym").happy()
                 this.guildUpgrade.active = false;
-                this.move4()
+                // this.move4()
                 this.phaohoa.getComponent(cc.Animation).play()
                 this.scheduleOnce(() => {
                     cc.tween(char).to(0.3, { opacity: 0 }).start()
-
                 }, 1)
+
+            }
+            if (this.isCountStep == 4) {
+                this.linkToStore.active = true
             }
         }
         else if (this.isCus == 2) {
             let char = this.boxing2.children[0]
             char.getChildByName("vfx").getComponent(cc.Animation).play()
 
-            if (this.isCountStep == 2) {
-                this.linkToStore.active = true
-            }
+            // if (this.isCountStep == 2) {
+            //     this.linkToStore.active = true
+            // }
         }
+    }
+    onEndgame() {
+        cc.audioEngine.play(this.soundWin, false, 1)
+        this.endCard.active = true;
+        this.linkToStore.active = true
     }
     move2() {
         this.scheduleOnce(() => {
@@ -326,26 +379,69 @@ export default class NewClass extends cc.Component {
     dem1 = 0;
     dem2 = 0
     btn_upgrade2(event, value) {
+        cc.audioEngine.play(this.soundConfirm, false, 1)
         if (value == "1") {
             let fill = this.guildUpgrade2.getChildByName("bgTrain2").children[1]
-            let char = this.arrCrunch[6].getChildByName("char")
+            let btn = this.guildUpgrade2.getChildByName("bgTrain2").getChildByName("Button")
+            let char = this.dayTa1.children[0]
             char.getComponent(cc.Animation).play();
             char.getChildByName("vfx").getComponent(cc.Animation).play();
             this.dem1++
             fill.getComponent(cc.Sprite).fillRange = this.dem1 * 0.2
+            btn.active = true;
+            btn.position = cc.v3(50 * this.dem1, -17.93)
+            if (this.dem1 == 5) {
+                event.currentTarget.active = false
+                cc.audioEngine.play(this.soundCoin, false, 1)
+
+                char.getChildByName("notiBonusCoin2").active = true
+                char.getComponent("cusGym").happy()
+                char.position = cc.v3(-81, -45)
+                globalThis.gold += 200
+                this.phaohoa.getComponent(cc.Animation).play()
+                this.scheduleOnce(() => {
+                    cc.tween(char).to(0.3, { opacity: 0 }).start()
+
+                }, 1)
+
+            }
         }
         else {
             let fill = this.guildUpgrade2.getChildByName("bgTrain").children[1]
             let char = this.boxing2.children[0]
+            let btn = this.guildUpgrade2.getChildByName("bgTrain").getChildByName("Button")
+
             char.getComponent(cc.Animation).play();
             char.getChildByName("vfx").getComponent(cc.Animation).play();
             this.dem2++
+            btn.active = true;
+            btn.position = cc.v3(50 * this.dem2, -17.93)
             fill.getComponent(cc.Sprite).fillRange = this.dem2 * 0.2
-        }
-        if (this.dem1 == 4 || this.dem2 == 4) {
-            this.linkToStore.active = true
+            if (this.dem2 == 5) {
+                event.currentTarget.active = false
+
+                cc.audioEngine.play(this.soundCoin, false, 1)
+
+                char.getChildByName("notiBonusCoin2").active = true
+                char.getComponent("cusGym").happy()
+                globalThis.gold += 200
+                this.phaohoa.getComponent(cc.Animation).play()
+                this.scheduleOnce(() => {
+                    cc.tween(char).to(0.3, { opacity: 0 }).start()
+
+                }, 1)
+
+            }
         }
 
+        if (this.dem1 == 5 && this.dem2 == 5) {
+            cc.tween(this.guildUpgrade2).to(0.26, { opacity: 0 }).call(() => {
+                this.guildUpgrade2.active = false
+            }).start()
+            this.scheduleOnce(() => {
+                this.move2()
+            }, 0.8)
+        }
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
@@ -354,15 +450,19 @@ export default class NewClass extends cc.Component {
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.guildUpgrade.scale = (logic) ? 2.4 : 1
-        this.guildUpgrade2.scale = (logic) ? 2.4 : 1
+        this.guildUpgrade2.scale = (logic) ? 1.6 : 1
 
         this.camera.node.position = cc.v3(0, 0)
         this.lbCoin.string = globalThis.gold.toString()
-        this.npc.scale = (logic) ? 1.5 : 1
-        this.npc2.scale = (logic) ? 1.5 : 1
-        this.npc.getComponent(cc.Widget).bot = (logic) ? 300 : -1960.0
-        this.npc2.getComponent(cc.Widget).bot = (logic) ? 300 : -1960.0
-
+        this.npc.scale = (logic) ? 1.7 : 1
+        this.npc2.scale = (logic) ? 1.7 : 1
+        this.npc.y = (logic) ? -700 : 0
+        this.npc2.y = (logic) ? -700 : 0
+        this.endCard.scale = (logic) ? 1.5 : 0.7
+        this.logo.scale = (logic) ? 1.5 : 1
+        this.coinBar.scale = (logic) ? 1.5 : 1;
+        this.coinBar.getComponent(cc.Widget).top = 77;
+        this.logo.getComponent(cc.Widget).top = 48
         // this.barCoin.y=(logic)?400:470
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
@@ -379,14 +479,16 @@ export default class NewClass extends cc.Component {
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
             this.camera.zoomRatio = 1.7
-            this.camera.node.position = cc.v3(300, 0)
-
+            this.camera.node.position = cc.v3(150, 0)
+            this.phaohoa.scale = (logic) ? 7 : 3
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                console.log("check iphonex")
-
+                // console.log("check iphonex")
+                this.coinBar.getComponent(cc.Widget).top = 77 + 30;
+                this.logo.getComponent(cc.Widget).top = 48 + 30
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1
+                this.camera.zoomRatio = 1.4
+                this.guildUpgrade.scale = 1.8
 
             }
         }

@@ -53,6 +53,7 @@ export default class NewClass extends cc.Component {
 
     }
     tucGian() {
+        console.log("tuc gian")
         this.anim.setAnimation(0, "Waiting3", true)
 
     }
