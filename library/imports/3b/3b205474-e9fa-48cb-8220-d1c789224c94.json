@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Fail Popup",
+    "texture": "31b7c88e-5897-4063-ad18-cd1b196eda30",
+    "atlas": "",
+    "rect": [
+      196,
+      107,
+      860,
+      1032
+    ],
+    "offset": [
+      -1,
+      4
+    ],
+    "originalSize": [
+      1254,
+      1254
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

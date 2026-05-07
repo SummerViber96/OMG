@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Blue_Bar_Filled",
+    "texture": "59443b22-ebb6-4045-9ff2-75df7073a2df",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      325,
+      35
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      325,
+      35
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

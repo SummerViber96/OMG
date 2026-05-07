@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Blue_Bar_Filled copy",
+    "texture": "2e9a10d8-266e-494d-b297-c177eaf1f24c",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      338,
+      35
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      338,
+      35
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

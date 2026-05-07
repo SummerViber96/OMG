@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Try_Again_button",
+    "texture": "77100712-0385-4ca2-8219-b224ce225404",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      556,
+      279
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      556,
+      279
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

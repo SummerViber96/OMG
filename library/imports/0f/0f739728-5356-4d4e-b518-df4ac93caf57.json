@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Win and Fail Popup",
+    "texture": "9e01a26a-fffb-428e-b5f2-9c42b616a84a",
+    "atlas": "",
+    "rect": [
+      192,
+      41,
+      868,
+      1079
+    ],
+    "offset": [
+      -1,
+      46.5
+    ],
+    "originalSize": [
+      1254,
+      1254
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

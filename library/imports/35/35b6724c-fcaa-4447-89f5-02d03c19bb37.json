@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "White_Boy_00007",
+    "texture": "b0bc30ca-19e1-4380-b4cb-3325de5f8238",
+    "atlas": "",
+    "rect": [
+      74,
+      197,
+      456,
+      392
+    ],
+    "offset": [
+      -6,
+      -53.5
+    ],
+    "originalSize": [
+      616,
+      679
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Black_Boy_00003",
+    "texture": "247a4d94-c52d-4d47-9d88-f114a1a4ff11",
+    "atlas": "",
+    "rect": [
+      46,
+      26,
+      316,
+      306
+    ],
+    "offset": [
+      -0.5,
+      1
+    ],
+    "originalSize": [
+      409,
+      360
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Push-Up-challenge (1)",
+    "texture": "6b8c57bd-3287-4d6c-96ec-67f3170773c8",
+    "atlas": "",
+    "rect": [
+      8,
+      10,
+      734,
+      170
+    ],
+    "offset": [
+      2,
+      -0.5
+    ],
+    "originalSize": [
+      746,
+      189
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
