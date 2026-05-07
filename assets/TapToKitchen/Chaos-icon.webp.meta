@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "c98d72e5-f39b-45d6-8c9a-bb53e46c3c3c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Chaos-icon": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "471fcc38-6487-40b4-bd5d-901e338a559e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "c98d72e5-f39b-45d6-8c9a-bb53e46c3c3c",
       "trimType": "auto",
       "trimThreshold": 1,

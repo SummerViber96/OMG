@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "097b6e60-87a5-4667-9f8d-c628af19c419",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "MapGym1 (1)": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "cbeac605-c698-4e28-a45f-c144f706d1cd",
+      "importer": "sprite-frame",
       "rawTextureUuid": "097b6e60-87a5-4667-9f8d-c628af19c419",
       "trimType": "auto",
       "trimThreshold": 1,

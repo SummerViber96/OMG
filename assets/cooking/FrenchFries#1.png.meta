@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "972bee37-4dc4-4f3f-8a2f-2d6883ab2c51",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "FrenchFries#1": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "7bdbf722-8dba-4533-a15b-180a4ebbbc99",
+      "importer": "sprite-frame",
       "rawTextureUuid": "972bee37-4dc4-4f3f-8a2f-2d6883ab2c51",
       "trimType": "auto",
       "trimThreshold": 1,

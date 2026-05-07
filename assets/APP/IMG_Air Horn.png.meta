@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "99bd8bcb-96ef-4045-b65d-62a6a9aedea5",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "IMG_Air Horn": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "73dcb71a-4e67-4aec-8672-695ad81acfe5",
+      "importer": "sprite-frame",
       "rawTextureUuid": "99bd8bcb-96ef-4045-b65d-62a6a9aedea5",
       "trimType": "auto",
       "trimThreshold": 1,

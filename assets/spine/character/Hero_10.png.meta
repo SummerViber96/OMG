@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "32b9950b-b8c6-4fac-bb3c-f91089257e6a",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Hero_10": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "83d92959-b0fa-4d8c-ac72-846d35f1aa18",
+      "importer": "sprite-frame",
       "rawTextureUuid": "32b9950b-b8c6-4fac-bb3c-f91089257e6a",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "cece907d-da0a-44e7-adbb-cd8a39d939a0",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "CookingChaosLogo": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "67a569f5-88d7-433d-a9fd-780c95c08a72",
+      "importer": "sprite-frame",
       "rawTextureUuid": "cece907d-da0a-44e7-adbb-cd8a39d939a0",
       "trimType": "auto",
       "trimThreshold": 1,

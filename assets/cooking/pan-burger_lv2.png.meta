@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "439b8fa2-0d2a-4626-813d-81af48aa72ad",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "pan-burger_lv2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "53073bda-7950-4c69-9722-9ac2d5ac8f88",
+      "importer": "sprite-frame",
       "rawTextureUuid": "439b8fa2-0d2a-4626-813d-81af48aa72ad",
       "trimType": "auto",
       "trimThreshold": 1,

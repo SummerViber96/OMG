@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "b4397a16-ba6f-4472-a535-2735c320a389",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "btn- ko chọn": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "fa866c0f-a01c-4946-8d67-98390a103bba",
+      "importer": "sprite-frame",
       "rawTextureUuid": "b4397a16-ba6f-4472-a535-2735c320a389",
       "trimType": "auto",
       "trimThreshold": 1,

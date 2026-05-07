@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "14f2e4f8-3d67-40dc-9178-2e729c07caf0",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Milkshake": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "046210dc-db54-499e-a118-a0aafd29fd9f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "14f2e4f8-3d67-40dc-9178-2e729c07caf0",
       "trimType": "auto",
       "trimThreshold": 1,

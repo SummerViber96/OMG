@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "443290b0-c1cb-4d18-9f3d-ccc0adad285b",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "FrenchFriesTray": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "78602ecc-0576-4e5e-bf1c-8635472fd735",
+      "importer": "sprite-frame",
       "rawTextureUuid": "443290b0-c1cb-4d18-9f3d-ccc0adad285b",
       "trimType": "auto",
       "trimThreshold": 1,

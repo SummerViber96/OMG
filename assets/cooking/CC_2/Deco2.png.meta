@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "02737772-1809-4860-b5cb-b3f76cdc89d4",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Deco2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "ce929bf7-600c-4ac5-89bf-649a4c301a62",
+      "importer": "sprite-frame",
       "rawTextureUuid": "02737772-1809-4860-b5cb-b3f76cdc89d4",
       "trimType": "auto",
       "trimThreshold": 1,

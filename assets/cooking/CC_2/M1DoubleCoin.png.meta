@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "bdc0003e-1e6d-419d-96bb-0ae96dfd6196",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "M1DoubleCoin": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "ad443390-4635-4b77-b2d7-c82f093280a2",
+      "importer": "sprite-frame",
       "rawTextureUuid": "bdc0003e-1e6d-419d-96bb-0ae96dfd6196",
       "trimType": "auto",
       "trimThreshold": 1,

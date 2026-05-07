@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "35ef213f-c582-42f5-ae4f-743a31ba9f4f",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Canteen": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "03a2955f-42d1-48a1-b8ac-6a45b4ff6457",
+      "importer": "sprite-frame",
       "rawTextureUuid": "35ef213f-c582-42f5-ae4f-743a31ba9f4f",
       "trimType": "auto",
       "trimThreshold": 1,

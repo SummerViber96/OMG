@@ -1,6 +1,7 @@
 {
-  "ver": "2.0.1",
+  "ver": "2.0.3",
   "uuid": "d1f7d936-10aa-4709-ad76-0461356bcd84",
+  "importer": "audio-clip",
   "downloadMode": 0,
   "duration": 2.795102,
   "subMetas": {}

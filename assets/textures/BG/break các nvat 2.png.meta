@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "b337482a-b7bc-4841-ba29-e6063200ab0b",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "break các nvat 2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "accdbf3e-80a7-497e-aaac-06817e7770a5",
+      "importer": "sprite-frame",
       "rawTextureUuid": "b337482a-b7bc-4841-ba29-e6063200ab0b",
       "trimType": "auto",
       "trimThreshold": 1,

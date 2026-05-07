@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "6ebd0c20-5401-4470-9ddb-2d59d8b9e39d",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Windmill2_spine": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "b8ed6172-82c9-45c8-a851-39257d27c92e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "6ebd0c20-5401-4470-9ddb-2d59d8b9e39d",
       "trimType": "auto",
       "trimThreshold": 1,

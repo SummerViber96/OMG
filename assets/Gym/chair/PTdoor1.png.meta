@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "448a29bc-62b8-406d-b229-6ff0bddcad4e",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "PTdoor1": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "31723aeb-b753-495a-9151-e822cfac6372",
+      "importer": "sprite-frame",
       "rawTextureUuid": "448a29bc-62b8-406d-b229-6ff0bddcad4e",
       "trimType": "auto",
       "trimThreshold": 1,

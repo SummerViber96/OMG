@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "fcb20584-d46b-4ad9-b1d2-432986a82b5f",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "IMG Activer": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "69084d63-3e60-45bb-a1ee-61a4f5e241f9",
+      "importer": "sprite-frame",
       "rawTextureUuid": "fcb20584-d46b-4ad9-b1d2-432986a82b5f",
       "trimType": "auto",
       "trimThreshold": 1,

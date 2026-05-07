@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "b048d164-fce5-4687-a29e-e1b83a49cdb0",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "HotdogOrder2#3": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "7f435e49-b1a6-43d4-9626-6567d322bfa6",
+      "importer": "sprite-frame",
       "rawTextureUuid": "b048d164-fce5-4687-a29e-e1b83a49cdb0",
       "trimType": "auto",
       "trimThreshold": 1,

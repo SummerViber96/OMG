@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "c9c7d7b3-e724-4e7c-a8f9-4a0ace22fbc1",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Tomato#1": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "86e39fc8-380a-463e-b7b8-56e58aa6e45b",
+      "importer": "sprite-frame",
       "rawTextureUuid": "c9c7d7b3-e724-4e7c-a8f9-4a0ace22fbc1",
       "trimType": "auto",
       "trimThreshold": 1,

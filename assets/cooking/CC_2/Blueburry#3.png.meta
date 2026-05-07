@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "84a2a7c1-8117-453a-95f5-7231f6143c4b",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Blueburry#3": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "12215680-0a6f-45b9-8158-3ad2cd58f209",
+      "importer": "sprite-frame",
       "rawTextureUuid": "84a2a7c1-8117-453a-95f5-7231f6143c4b",
       "trimType": "auto",
       "trimThreshold": 1,

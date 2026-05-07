@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "ef21de29-65b2-4309-bf7a-87b643c7000a",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Belt_Body": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "71de2c40-9d0f-46af-9b60-a8ece587ade7",
+      "importer": "sprite-frame",
       "rawTextureUuid": "ef21de29-65b2-4309-bf7a-87b643c7000a",
       "trimType": "auto",
       "trimThreshold": 1,

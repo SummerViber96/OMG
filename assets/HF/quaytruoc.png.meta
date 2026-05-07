@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "6a100f02-e38d-4bfc-aa3e-fae3bfe4e1ac",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "quaytruoc": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "ace7a0e6-4673-42b1-8881-ed78038fcd0c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "6a100f02-e38d-4bfc-aa3e-fae3bfe4e1ac",
       "trimType": "auto",
       "trimThreshold": 1,

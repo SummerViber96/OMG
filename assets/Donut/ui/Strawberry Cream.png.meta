@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "31833706-a0b2-4768-8bea-edcf261aaac2",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Strawberry Cream": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "e0e2942f-054f-4012-b750-f4255b82d9f8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "31833706-a0b2-4768-8bea-edcf261aaac2",
       "trimType": "auto",
       "trimThreshold": 1,

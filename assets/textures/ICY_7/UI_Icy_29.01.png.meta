@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "a758c6f1-ee99-4f46-8271-759676825716",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "UI_Icy_29.01": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "5bcce8c4-480c-4b24-b725-ef5eaaec1098",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a758c6f1-ee99-4f46-8271-759676825716",
       "trimType": "auto",
       "trimThreshold": 1,

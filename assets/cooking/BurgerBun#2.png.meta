@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "66786abd-4b28-45ea-917b-06bb259b72de",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "BurgerBun#2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "aabd7de7-9944-4509-9b46-3634b7039e77",
+      "importer": "sprite-frame",
       "rawTextureUuid": "66786abd-4b28-45ea-917b-06bb259b72de",
       "trimType": "auto",
       "trimThreshold": 1,

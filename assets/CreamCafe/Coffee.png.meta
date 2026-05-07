@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "d0d24b4d-3e08-4282-bbff-827ed8acf262",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Coffee": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "b2d21bab-0182-432b-8783-583a1e584749",
+      "importer": "sprite-frame",
       "rawTextureUuid": "d0d24b4d-3e08-4282-bbff-827ed8acf262",
       "trimType": "auto",
       "trimThreshold": 1,

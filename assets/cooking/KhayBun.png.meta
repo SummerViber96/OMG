@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "281847cb-7709-42da-9603-13fe33273e2d",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "KhayBun": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "3d54f62a-1e06-4559-bdb5-11dfd008ee97",
+      "importer": "sprite-frame",
       "rawTextureUuid": "281847cb-7709-42da-9603-13fe33273e2d",
       "trimType": "auto",
       "trimThreshold": 1,

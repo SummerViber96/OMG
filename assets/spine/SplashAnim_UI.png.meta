@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "5be70a89-800b-4760-8892-827b79cbfc54",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "SplashAnim_UI": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "c7b76777-a142-40bd-9b60-0862a7178afb",
+      "importer": "sprite-frame",
       "rawTextureUuid": "5be70a89-800b-4760-8892-827b79cbfc54",
       "trimType": "auto",
       "trimThreshold": 1,

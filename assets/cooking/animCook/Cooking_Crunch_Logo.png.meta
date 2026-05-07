@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "fab32f90-2c92-473b-a585-35d4e1f43689",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Cooking_Crunch_Logo": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "f7471019-4b51-454d-b62f-39077ab8b35c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "fab32f90-2c92-473b-a585-35d4e1f43689",
       "trimType": "auto",
       "trimThreshold": 1,

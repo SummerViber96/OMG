@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "ba88e3db-212a-404a-a167-6a96aca4c1e7",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "CanhbaoLua3": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "bab9c160-5292-4921-a9df-bea7fb5879ad",
+      "importer": "sprite-frame",
       "rawTextureUuid": "ba88e3db-212a-404a-a167-6a96aca4c1e7",
       "trimType": "auto",
       "trimThreshold": 1,

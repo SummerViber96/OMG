@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "7b56c72d-c043-4475-b621-11f4911bd1a1",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "nuoctangluc": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "cc14f0b6-88de-45f8-a4bd-afd20f8ddccc",
+      "importer": "sprite-frame",
       "rawTextureUuid": "7b56c72d-c043-4475-b621-11f4911bd1a1",
       "trimType": "auto",
       "trimThreshold": 1,

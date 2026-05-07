@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "c787f66e-0e25-4500-a2c3-26d90acfc207",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Bartender": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "2006e7e0-a587-4afb-89ae-8c025d1270ba",
+      "importer": "sprite-frame",
       "rawTextureUuid": "c787f66e-0e25-4500-a2c3-26d90acfc207",
       "trimType": "auto",
       "trimThreshold": 1,

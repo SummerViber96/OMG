@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "9d406cb0-2534-4de7-896c-5192c2e2b2d3",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "MC1-1.skel": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "66db34f0-9bca-4e17-a0c6-2f16ed4ba49f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "9d406cb0-2534-4de7-896c-5192c2e2b2d3",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "e2a5cb8e-81f0-40c4-befc-15b5bf7f7072",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "SaladTray": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "7186db60-216c-46e1-8e36-d4cc8e16888e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "e2a5cb8e-81f0-40c4-befc-15b5bf7f7072",
       "trimType": "auto",
       "trimThreshold": 1,

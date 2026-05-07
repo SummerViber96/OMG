@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "7577d9c1-2737-457a-8bc9-6c946738aea1",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "BenchIcon": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "4b080f87-29bd-41d6-9f75-54eb3c96e0bb",
+      "importer": "sprite-frame",
       "rawTextureUuid": "7577d9c1-2737-457a-8bc9-6c946738aea1",
       "trimType": "auto",
       "trimThreshold": 1,

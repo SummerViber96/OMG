@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "a374939f-a4c9-4b86-bfd7-dfd2e96c038b",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "GymnasticsLv5": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "3883056e-0b8f-4ba1-8495-7051592a0c44",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a374939f-a4c9-4b86-bfd7-dfd2e96c038b",
       "trimType": "auto",
       "trimThreshold": 1,

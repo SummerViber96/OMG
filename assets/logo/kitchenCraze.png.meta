@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "9ffc84e0-94bc-4953-a887-4cf6c2f8dc59",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "kitchenCraze": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "4f1ca596-f38e-4359-93b0-3df9b4fdea38",
+      "importer": "sprite-frame",
       "rawTextureUuid": "9ffc84e0-94bc-4953-a887-4cf6c2f8dc59",
       "trimType": "auto",
       "trimThreshold": 1,

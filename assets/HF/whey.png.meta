@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "91535b4e-e7d9-4caf-b2ce-ff1d30a8b496",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "whey": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "c568686e-73a2-4755-80e5-6087fe0e57ff",
+      "importer": "sprite-frame",
       "rawTextureUuid": "91535b4e-e7d9-4caf-b2ce-ff1d30a8b496",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "ac4c12c3-4fe1-473d-8cff-4b2e366012c7",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Rao1": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "abb62ac3-5418-4d9f-a1a3-6957fe3cdfc2",
+      "importer": "sprite-frame",
       "rawTextureUuid": "ac4c12c3-4fe1-473d-8cff-4b2e366012c7",
       "trimType": "auto",
       "trimThreshold": 1,

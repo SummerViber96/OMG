@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "e510f77b-d897-4a6b-a2ec-3dccbff361a7",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Cook": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "068d7ce6-03fb-4f59-938b-fa4dc4836fc7",
+      "importer": "sprite-frame",
       "rawTextureUuid": "e510f77b-d897-4a6b-a2ec-3dccbff361a7",
       "trimType": "auto",
       "trimThreshold": 1,

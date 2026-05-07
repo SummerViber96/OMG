@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "f909279e-e766-4cae-b0b7-03fddb1c34f3",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Layer 59 copy 3": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "3e2d4ae2-350a-4439-a224-72f6c9392c36",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f909279e-e766-4cae-b0b7-03fddb1c34f3",
       "trimType": "auto",
       "trimThreshold": 1,

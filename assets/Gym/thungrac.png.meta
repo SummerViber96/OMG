@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "4de4ce95-71f8-466c-81c7-4d2a9beb7260",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "thungrac": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "94fdad1f-7c88-4a52-ace2-3e15981faf57",
+      "importer": "sprite-frame",
       "rawTextureUuid": "4de4ce95-71f8-466c-81c7-4d2a9beb7260",
       "trimType": "auto",
       "trimThreshold": 1,

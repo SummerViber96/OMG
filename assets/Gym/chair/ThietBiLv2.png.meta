@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "505989db-449b-4229-a420-273aa1c9f4a5",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "ThietBiLv2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "97d52a96-2079-4bb8-b1f3-d0a7ed7edae6",
+      "importer": "sprite-frame",
       "rawTextureUuid": "505989db-449b-4229-a420-273aa1c9f4a5",
       "trimType": "auto",
       "trimThreshold": 1,

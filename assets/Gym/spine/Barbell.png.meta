@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "605adda5-6870-4a19-ab67-cb10e8dcf912",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Barbell": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "8dc969e2-ccda-4f1a-83fa-ef66e3ec2e3e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "605adda5-6870-4a19-ab67-cb10e8dcf912",
       "trimType": "auto",
       "trimThreshold": 1,

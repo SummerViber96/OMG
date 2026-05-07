@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "8641d9ee-4af1-4976-91eb-a3e39e886281",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "PTRoom2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "70865cc0-a718-48fb-aff5-e34123125f87",
+      "importer": "sprite-frame",
       "rawTextureUuid": "8641d9ee-4af1-4976-91eb-a3e39e886281",
       "trimType": "auto",
       "trimThreshold": 1,

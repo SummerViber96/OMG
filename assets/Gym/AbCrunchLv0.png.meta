@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "da351374-a5da-43a3-94f9-fd08a276d2b8",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "AbCrunchLv0": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "7cdc7c50-8ddc-4fb2-b902-cb82d3579129",
+      "importer": "sprite-frame",
       "rawTextureUuid": "da351374-a5da-43a3-94f9-fd08a276d2b8",
       "trimType": "auto",
       "trimThreshold": 1,

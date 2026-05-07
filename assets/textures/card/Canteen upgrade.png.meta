@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "d15819e2-c491-4a59-afe8-8f4fdab19237",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Canteen upgrade": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "ad159a0d-f075-4e39-9688-cff65a549b32",
+      "importer": "sprite-frame",
       "rawTextureUuid": "d15819e2-c491-4a59-afe8-8f4fdab19237",
       "trimType": "auto",
       "trimThreshold": 1,

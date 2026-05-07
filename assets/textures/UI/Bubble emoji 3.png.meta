@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "e59e7187-d2fb-48a5-8d90-3789cb42be6e",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Bubble emoji 3": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "6e0e84bc-0f4b-4978-8b6b-5d7f177c71b5",
+      "importer": "sprite-frame",
       "rawTextureUuid": "e59e7187-d2fb-48a5-8d90-3789cb42be6e",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "4cd2e77b-4cfa-4f11-84e0-bc00bbf0d479",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Slides bar mask": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "a482181a-5aae-4ff7-b5a9-9a0873061ecd",
+      "importer": "sprite-frame",
       "rawTextureUuid": "4cd2e77b-4cfa-4f11-84e0-bc00bbf0d479",
       "trimType": "auto",
       "trimThreshold": 1,

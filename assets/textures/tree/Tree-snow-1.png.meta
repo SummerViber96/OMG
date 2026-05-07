@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "9aaad35e-38df-4041-8cb7-f698380506eb",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Tree-snow-1": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "182363c9-b74f-4b6b-b3a0-7696df6431d2",
+      "importer": "sprite-frame",
       "rawTextureUuid": "9aaad35e-38df-4041-8cb7-f698380506eb",
       "trimType": "auto",
       "trimThreshold": 1,

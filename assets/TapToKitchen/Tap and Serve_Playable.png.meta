@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "bb22ebf9-1bd3-46a3-9512-4d3071a80f95",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Tap and Serve_Playable": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "d723469d-afc8-4bf8-ac3b-3e2ca13cd029",
+      "importer": "sprite-frame",
       "rawTextureUuid": "bb22ebf9-1bd3-46a3-9512-4d3071a80f95",
       "trimType": "auto",
       "trimThreshold": 1,

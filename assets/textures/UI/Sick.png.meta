@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "96efd1dd-cff8-4560-9c0d-94723305d58c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Sick": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "d07a4aba-3cc8-4c08-9105-c8416ab7857d",
+      "importer": "sprite-frame",
       "rawTextureUuid": "96efd1dd-cff8-4560-9c0d-94723305d58c",
       "trimType": "auto",
       "trimThreshold": 1,

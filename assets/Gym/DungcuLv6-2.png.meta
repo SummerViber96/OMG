@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "ba4d67dc-569d-43ad-ac40-965942c28cf5",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "DungcuLv6-2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "a779d50e-d4fb-4ec7-ae58-599eee05aa77",
+      "importer": "sprite-frame",
       "rawTextureUuid": "ba4d67dc-569d-43ad-ac40-965942c28cf5",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "6afe9e01-a324-4798-ac71-f8a4ac9f0103",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Dorothy": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "d808ac02-c6ae-487f-9b97-c35d6e5b5cb8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "6afe9e01-a324-4798-ac71-f8a4ac9f0103",
       "trimType": "auto",
       "trimThreshold": 1,

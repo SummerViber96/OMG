@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "a215642a-302e-4ad3-9271-f22b71ef8d9c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Clinic upgrade": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "0f241a1f-627e-45de-b79b-b90857d3e928",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a215642a-302e-4ad3-9271-f22b71ef8d9c",
       "trimType": "auto",
       "trimThreshold": 1,

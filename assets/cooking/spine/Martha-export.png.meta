@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "e300e84f-cdb1-4557-8fed-3da6bf99bd83",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Martha-export": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "c65cc176-8e58-4585-b565-53e26ab52859",
+      "importer": "sprite-frame",
       "rawTextureUuid": "e300e84f-cdb1-4557-8fed-3da6bf99bd83",
       "trimType": "auto",
       "trimThreshold": 1,

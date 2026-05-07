@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "7e3bb5c8-01c2-49d8-849b-28f0c4d5f4f1",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Icy_nhiet_ke2_T": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "919623f3-aa37-4097-ae23-6f4a13b35255",
+      "importer": "sprite-frame",
       "rawTextureUuid": "7e3bb5c8-01c2-49d8-849b-28f0c4d5f4f1",
       "trimType": "auto",
       "trimThreshold": 1,

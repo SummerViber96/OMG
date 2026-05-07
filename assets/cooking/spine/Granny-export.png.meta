@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "ca595f7e-9009-4a66-9255-4d71a624afc3",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Granny-export": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "8fc67a76-b36a-4d9b-b2d9-3f3abb0dcd06",
+      "importer": "sprite-frame",
       "rawTextureUuid": "ca595f7e-9009-4a66-9255-4d71a624afc3",
       "trimType": "auto",
       "trimThreshold": 1,

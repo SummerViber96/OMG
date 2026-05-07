@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "140fdbdb-6fd2-4255-a8e6-c4227fe5f4cc",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "CocaMachine#2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "b33a7002-7855-48b0-a452-aa58e5e6ce7e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "140fdbdb-6fd2-4255-a8e6-c4227fe5f4cc",
       "trimType": "auto",
       "trimThreshold": 1,

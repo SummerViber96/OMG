@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "aa899203-1c86-41cd-908d-a721439ca1dc",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "tải xuống (2)": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "cc91a091-712f-40eb-9d83-84fbb5edc4b2",
+      "importer": "sprite-frame",
       "rawTextureUuid": "aa899203-1c86-41cd-908d-a721439ca1dc",
       "trimType": "auto",
       "trimThreshold": 1,

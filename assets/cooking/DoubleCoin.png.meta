@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "120d1e49-b526-4d42-8545-64460e2cfead",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "DoubleCoin": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "ba22de4e-a139-456f-9164-b53c3deac2f1",
+      "importer": "sprite-frame",
       "rawTextureUuid": "120d1e49-b526-4d42-8545-64460e2cfead",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "47868f50-00cd-44d8-9a2b-25af001cb146",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Rounded Rectangle 2 copy": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "ac797613-2546-40ba-9ecc-0f3ac69c4932",
+      "importer": "sprite-frame",
       "rawTextureUuid": "47868f50-00cd-44d8-9a2b-25af001cb146",
       "trimType": "auto",
       "trimThreshold": 1,

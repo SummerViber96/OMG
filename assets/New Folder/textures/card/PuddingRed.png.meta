@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "1e09b98f-fdc1-4794-8dbb-61491d0c8672",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "PuddingRed": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "4ae66144-e4c1-4427-8bac-38f8b8089125",
+      "importer": "sprite-frame",
       "rawTextureUuid": "1e09b98f-fdc1-4794-8dbb-61491d0c8672",
       "trimType": "auto",
       "trimThreshold": 1,

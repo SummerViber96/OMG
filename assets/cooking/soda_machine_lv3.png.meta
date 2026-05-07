@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "7b01de99-4c62-4b56-bbaf-f1db8477bac0",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "soda_machine_lv3": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "6552f522-f13b-4398-b636-ab11d28a1351",
+      "importer": "sprite-frame",
       "rawTextureUuid": "7b01de99-4c62-4b56-bbaf-f1db8477bac0",
       "trimType": "auto",
       "trimThreshold": 1,

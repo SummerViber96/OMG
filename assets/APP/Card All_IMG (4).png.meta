@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "e8eb9b77-e0eb-4ea3-98a4-4a37726455c2",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Card All_IMG (4)": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "10f1e3a4-0105-485c-9d50-a59c7a6e3b69",
+      "importer": "sprite-frame",
       "rawTextureUuid": "e8eb9b77-e0eb-4ea3-98a4-4a37726455c2",
       "trimType": "auto",
       "trimThreshold": 1,

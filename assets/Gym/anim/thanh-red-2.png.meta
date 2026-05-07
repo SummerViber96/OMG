@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "53de4038-ec91-4a59-8301-0f267923ee07",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "thanh-red-2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "47a8baa5-2604-43a6-a1f2-482469b007d5",
+      "importer": "sprite-frame",
       "rawTextureUuid": "53de4038-ec91-4a59-8301-0f267923ee07",
       "trimType": "auto",
       "trimThreshold": 1,

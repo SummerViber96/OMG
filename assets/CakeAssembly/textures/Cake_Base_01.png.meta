@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "c754f580-6292-48f4-b0c2-2e1b8b89f1c7",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Cake_Base_01": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "d9c067d7-ed4a-46da-af6e-c928d4d3c915",
+      "importer": "sprite-frame",
       "rawTextureUuid": "c754f580-6292-48f4-b0c2-2e1b8b89f1c7",
       "trimType": "auto",
       "trimThreshold": 1,

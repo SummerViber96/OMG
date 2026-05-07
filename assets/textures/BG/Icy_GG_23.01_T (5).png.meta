@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "684f3eef-9c43-4a55-9f81-d3cfa9253c9b",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Icy_GG_23.01_T (5)": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "3241534e-6a05-4d4f-af46-ea8960511ffa",
+      "importer": "sprite-frame",
       "rawTextureUuid": "684f3eef-9c43-4a55-9f81-d3cfa9253c9b",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "ba35260a-3ad5-4a31-86c9-e32fa95e014e",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Happy_emoji": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "e188bc96-38ad-416a-9ff1-49daaa088032",
+      "importer": "sprite-frame",
       "rawTextureUuid": "ba35260a-3ad5-4a31-86c9-e32fa95e014e",
       "trimType": "auto",
       "trimThreshold": 1,

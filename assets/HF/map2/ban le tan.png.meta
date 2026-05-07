@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "801e7c96-72de-4222-935b-e450e145a7e0",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "ban le tan": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "487eae66-f108-4803-ab61-ef59364260ea",
+      "importer": "sprite-frame",
       "rawTextureUuid": "801e7c96-72de-4222-935b-e450e145a7e0",
       "trimType": "auto",
       "trimThreshold": 1,

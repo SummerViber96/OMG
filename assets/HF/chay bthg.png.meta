@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "30cff126-f046-43b1-aac5-17f8ba419154",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "chay bthg": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "82182fab-e20e-4eae-8bcd-80c99f7db136",
+      "importer": "sprite-frame",
       "rawTextureUuid": "30cff126-f046-43b1-aac5-17f8ba419154",
       "trimType": "auto",
       "trimThreshold": 1,

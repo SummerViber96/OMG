@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "a6538b6c-7ce2-47ca-9d89-7d249cf4fcc4",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "DumbBellblue": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "f68c2190-c05a-4ecb-9cdb-2def61b9259f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a6538b6c-7ce2-47ca-9d89-7d249cf4fcc4",
       "trimType": "auto",
       "trimThreshold": 1,

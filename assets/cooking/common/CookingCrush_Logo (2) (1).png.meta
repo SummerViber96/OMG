@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "536c5d4b-d53d-4a38-8243-af51100bbf56",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "CookingCrush_Logo (2) (1)": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "167b423f-6138-460c-9f18-c6a2d7eb521d",
+      "importer": "sprite-frame",
       "rawTextureUuid": "536c5d4b-d53d-4a38-8243-af51100bbf56",
       "trimType": "auto",
       "trimThreshold": 1,

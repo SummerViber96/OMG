@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "8d6c30fa-ebd6-48ac-a9c2-027374433707",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "BurgerRed": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "07a5bcc6-c4f3-455b-a349-0923c495e03e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "8d6c30fa-ebd6-48ac-a9c2-027374433707",
       "trimType": "auto",
       "trimThreshold": 1,

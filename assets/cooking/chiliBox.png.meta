@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "d1bb3f34-0b01-47f5-ad36-592dba5397d1",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "chiliBox": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "4d6b40f4-ffa7-4ddb-9885-cd18e4738930",
+      "importer": "sprite-frame",
       "rawTextureUuid": "d1bb3f34-0b01-47f5-ad36-592dba5397d1",
       "trimType": "auto",
       "trimThreshold": 1,

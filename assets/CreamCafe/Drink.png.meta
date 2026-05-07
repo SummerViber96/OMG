@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "67d686bf-0530-4cbd-a37f-da9e6c9c8228",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Drink": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "c0dc742e-f7c4-42ac-8dfd-a58aa9759a16",
+      "importer": "sprite-frame",
       "rawTextureUuid": "67d686bf-0530-4cbd-a37f-da9e6c9c8228",
       "trimType": "auto",
       "trimThreshold": 1,

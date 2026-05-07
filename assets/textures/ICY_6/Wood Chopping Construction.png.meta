@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "f5a90310-7777-44ac-bf29-2491f2618609",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Wood Chopping Construction": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "d80b0250-a614-4274-a7cf-4ef5aba2853b",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f5a90310-7777-44ac-bf29-2491f2618609",
       "trimType": "auto",
       "trimThreshold": 1,

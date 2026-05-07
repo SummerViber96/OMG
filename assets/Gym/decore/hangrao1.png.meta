@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "321b559c-72a2-4375-abc1-9bb0b2029d40",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "hangrao1": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "1d01cd02-5fab-46b3-a06f-a46fad038d9a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "321b559c-72a2-4375-abc1-9bb0b2029d40",
       "trimType": "auto",
       "trimThreshold": 1,

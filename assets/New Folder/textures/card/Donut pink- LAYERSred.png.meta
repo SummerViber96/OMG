@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "7278a85c-ce87-4ade-9e84-5901738a77af",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Donut pink- LAYERSred": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "9bfdd460-70e2-4178-b372-5f4073fed79f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "7278a85c-ce87-4ade-9e84-5901738a77af",
       "trimType": "auto",
       "trimThreshold": 1,

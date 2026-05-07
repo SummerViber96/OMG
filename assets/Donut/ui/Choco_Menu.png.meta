@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "41393390-c158-49b5-91ce-10b12caca7c9",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Choco_Menu": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "905bc3b4-e978-46c2-80a6-ed293bb5f349",
+      "importer": "sprite-frame",
       "rawTextureUuid": "41393390-c158-49b5-91ce-10b12caca7c9",
       "trimType": "auto",
       "trimThreshold": 1,

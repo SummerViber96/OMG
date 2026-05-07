@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "f28c973c-1a8e-456e-bb03-7ab5952d6ffc",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Группа 11Red": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "48172f48-7f29-4d90-9545-b45d6544519f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f28c973c-1a8e-456e-bb03-7ab5952d6ffc",
       "trimType": "auto",
       "trimThreshold": 1,

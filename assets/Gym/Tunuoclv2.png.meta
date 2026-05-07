@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "d4e5b591-bad6-4b82-a172-79b8cf947cee",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Tunuoclv2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "e0a3709a-313d-46de-b44a-14696b2b0049",
+      "importer": "sprite-frame",
       "rawTextureUuid": "d4e5b591-bad6-4b82-a172-79b8cf947cee",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "508494f3-4a8b-49c3-8678-627f09ff7724",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "cotden": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "0f2812ea-0994-46a6-878e-b256404098d8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "508494f3-4a8b-49c3-8678-627f09ff7724",
       "trimType": "auto",
       "trimThreshold": 1,

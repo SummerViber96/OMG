@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "8773ef15-c357-454e-b8a1-f62130d6967c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "ChatGPT Image 17_15_13 16 thg 12, 2025 (3)": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "ead7d3af-b5dc-4a6a-9b70-c103f75b0dba",
+      "importer": "sprite-frame",
       "rawTextureUuid": "8773ef15-c357-454e-b8a1-f62130d6967c",
       "trimType": "auto",
       "trimThreshold": 1,

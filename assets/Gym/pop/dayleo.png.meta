@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "96b3bdb3-5e2c-4a79-b44e-1896d3393fe5",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "dayleo": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "5e8d0a1c-e6e5-4904-9396-170da7aa2160",
+      "importer": "sprite-frame",
       "rawTextureUuid": "96b3bdb3-5e2c-4a79-b44e-1896d3393fe5",
       "trimType": "auto",
       "trimThreshold": 1,

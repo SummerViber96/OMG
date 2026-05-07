@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "77449400-d46e-4908-9f9f-ff9cf994e368",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Hero_20": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "0d8a20cf-a400-4675-80d6-1154f2c95d41",
+      "importer": "sprite-frame",
       "rawTextureUuid": "77449400-d46e-4908-9f9f-ff9cf994e368",
       "trimType": "auto",
       "trimThreshold": 1,

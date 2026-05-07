@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "a45d472e-40c9-424d-966d-fbe5e87c6a68",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Ui_gamelose_icon_x": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "b9e4b449-934c-46f4-8c84-dc05080eaead",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a45d472e-40c9-424d-966d-fbe5e87c6a68",
       "trimType": "auto",
       "trimThreshold": 1,

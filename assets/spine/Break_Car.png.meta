@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "498e52bf-207f-49c7-a6d8-fc6bb0674040",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Break_Car": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "edbfd076-c545-4698-b884-81a547b29050",
+      "importer": "sprite-frame",
       "rawTextureUuid": "498e52bf-207f-49c7-a6d8-fc6bb0674040",
       "trimType": "auto",
       "trimThreshold": 1,

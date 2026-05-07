@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "dac69e35-1d4d-4410-8663-52318b7a068c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "PTlight": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "675bc0c8-fcf2-41cc-a846-2232986c5397",
+      "importer": "sprite-frame",
       "rawTextureUuid": "dac69e35-1d4d-4410-8663-52318b7a068c",
       "trimType": "auto",
       "trimThreshold": 1,

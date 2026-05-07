@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "1098c7f1-1709-4ed5-88bf-9aa828ab41fc",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "IconBluePT": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "019857a4-8de7-44d2-ae57-e22133821789",
+      "importer": "sprite-frame",
       "rawTextureUuid": "1098c7f1-1709-4ed5-88bf-9aa828ab41fc",
       "trimType": "auto",
       "trimThreshold": 1,

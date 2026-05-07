@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "8d0d9cd5-f8b3-4ae3-ad65-dbac50ee8ff4",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Creme_cafe_table (1) (1)": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "52a7d837-a95a-4b0f-96c7-e187000f45fd",
+      "importer": "sprite-frame",
       "rawTextureUuid": "8d0d9cd5-f8b3-4ae3-ad65-dbac50ee8ff4",
       "trimType": "auto",
       "trimThreshold": 1,

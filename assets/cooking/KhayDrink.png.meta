@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "f387ba54-52b7-4c9d-b794-4e08cb754e8f",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "KhayDrink": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "7057d2e2-5dd7-4a54-9b39-28c1ccf8c713",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f387ba54-52b7-4c9d-b794-4e08cb754e8f",
       "trimType": "auto",
       "trimThreshold": 1,

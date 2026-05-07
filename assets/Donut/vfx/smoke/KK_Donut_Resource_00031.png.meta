@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "7a5acedc-22b2-4cc3-a560-8a1820033798",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "KK_Donut_Resource_00031": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "d88ae837-748f-4221-89e5-edca50b5fa54",
+      "importer": "sprite-frame",
       "rawTextureUuid": "7a5acedc-22b2-4cc3-a560-8a1820033798",
       "trimType": "none",
       "trimThreshold": 1,

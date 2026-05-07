@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "e0b76940-0abf-4887-ae90-ae26dcc940da",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Cardio-Lock": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "0c531cd2-3d40-4157-8384-2751fcdf236c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "e0b76940-0abf-4887-ae90-ae26dcc940da",
       "trimType": "auto",
       "trimThreshold": 1,

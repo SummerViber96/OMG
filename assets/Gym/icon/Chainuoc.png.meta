@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "59c5c124-0df0-43ad-abf2-272097f0fac9",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Chainuoc": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "2c9dd127-0bb5-4fd4-84eb-2401da4017aa",
+      "importer": "sprite-frame",
       "rawTextureUuid": "59c5c124-0df0-43ad-abf2-272097f0fac9",
       "trimType": "auto",
       "trimThreshold": 1,

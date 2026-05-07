@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "4e1964c9-5492-43b2-90c1-b3f4961417cb",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Waiter_Christmas": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "56e3d454-81b1-4205-97e9-970ecb3b3404",
+      "importer": "sprite-frame",
       "rawTextureUuid": "4e1964c9-5492-43b2-90c1-b3f4961417cb",
       "trimType": "auto",
       "trimThreshold": 1,

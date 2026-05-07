@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "6f03a272-d098-4223-902c-d29f9b6449f7",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Nutri-purple": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "0e19ae26-7851-4b91-829c-cac7cccf46ad",
+      "importer": "sprite-frame",
       "rawTextureUuid": "6f03a272-d098-4223-902c-d29f9b6449f7",
       "trimType": "auto",
       "trimThreshold": 1,

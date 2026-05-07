@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "d258f651-6daa-4411-b273-6e79f6a09c7c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "MC-GP": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "936923e6-809f-4825-a452-2a14418e7352",
+      "importer": "sprite-frame",
       "rawTextureUuid": "d258f651-6daa-4411-b273-6e79f6a09c7c",
       "trimType": "auto",
       "trimThreshold": 1,

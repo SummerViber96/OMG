@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "3a2ebc7c-b6b9-42c3-9744-b26b8755f590",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Cream_Bowl": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "a209340c-a673-41be-b8b5-7c2318ad7eaa",
+      "importer": "sprite-frame",
       "rawTextureUuid": "3a2ebc7c-b6b9-42c3-9744-b26b8755f590",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "8e487070-ff90-4a7a-a22d-d3debf3dc107",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "burger-platte_lv1": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "c2ba29b1-3610-4942-9de4-b9ed311c7858",
+      "importer": "sprite-frame",
       "rawTextureUuid": "8e487070-ff90-4a7a-a22d-d3debf3dc107",
       "trimType": "auto",
       "trimThreshold": 1,

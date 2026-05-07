@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "39344875-57b3-4a6f-ad55-0035d6e0bf6e",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Icon Icy santa 13 (1)": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "a31dacc1-be51-44c7-a1dd-47dd876a6160",
+      "importer": "sprite-frame",
       "rawTextureUuid": "39344875-57b3-4a6f-ad55-0035d6e0bf6e",
       "trimType": "auto",
       "trimThreshold": 1,

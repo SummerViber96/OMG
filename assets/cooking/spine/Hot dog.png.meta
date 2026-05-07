@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "16ee75ef-debc-4970-9c87-b166c7def455",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Hot dog": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "cef0c2fb-78b8-4515-baec-f7d202ee9dda",
+      "importer": "sprite-frame",
       "rawTextureUuid": "16ee75ef-debc-4970-9c87-b166c7def455",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "4723daa6-86bc-4cb8-b412-9b64dd99bd31",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Party_Parlor_2340x1180_DS_FINAL": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "d561ace2-aba9-45fc-ab28-fd8a9f924c75",
+      "importer": "sprite-frame",
       "rawTextureUuid": "4723daa6-86bc-4cb8-b412-9b64dd99bd31",
       "trimType": "auto",
       "trimThreshold": 1,
