@@ -33,7 +33,7 @@ export default class NewClass extends cc.Component {
             globalThis.youRep = this.rep
         }
         this.label.string = this.rep.toString()
-        this.fill.fillRange = (100 - this.rep) / 100
+        // this.fill.fillRange = (100 - this.rep) / 100
         if (this.rep == 100) {
             if (this.isMonster) {
                 this.gamePLay.onEndGame(false)
@@ -50,18 +50,18 @@ export default class NewClass extends cc.Component {
 
     }
     loadFill() {
-        cc.tween(this.fill).to(30, { fillRange: 0 }).call(() => {
+        cc.tween(this.fill).to(80, { fillRange: 0 }).call(() => {
             this.gamePLay.onEndGame(false)
 
         }).start()
     }
     upgradeMonster() {
-        if (this.isMonster) {
-            cc.tween(this.fill).to(10, { fillRange: 0 }).call(() => {
-                this.gamePLay.onEndGame(false)
+        // if (this.isMonster) {
+        cc.tween(this.fill).to(30, { fillRange: 0 }).call(() => {
+            this.gamePLay.onEndGame(false)
 
-            }).start()
-        }
+        }).start()
+        // }
     }
     // update (dt) {}
 }

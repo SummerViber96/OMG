@@ -51,10 +51,10 @@ export default class NewClass extends cc.Component {
                 this.countDownNode.active = false;
 
                 // Hiện nút Beat
-                this.btnBeat.active = true;
+                // this.btnBeat.active = true;
 
                 // Hiệu ứng nút Beat
-                this.btnBeat.scale = 0;
+                // this.btnBeat.scale = 0;
 
                 this.gamePlay.startMonster()
             }

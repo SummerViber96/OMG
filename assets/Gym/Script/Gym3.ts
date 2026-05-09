@@ -50,6 +50,8 @@ export default class NewClass extends cc.Component {
     texTnoti: cc.Label = null
     @property(cc.Node)
     pop: cc.Node = null
+    @property(cc.Node)
+    textHalf: cc.Node = null
     arrPosCus = []
     arrCus = []
     arrCrunch = []
@@ -64,10 +66,22 @@ export default class NewClass extends cc.Component {
 
 
     }
+    isFirst = false
+    isDelay = false
+    delayTime = 0.3
     btn_YouHit() {
+        if (this.isDelay) return;
+        this.isDelay = true
+        this.scheduleOnce(() => {
+            this.isDelay = false
+
+        }, this.delayTime)
         this.pop.active = false
         this.you.getComponent(cc.Animation).play()
-
+        if (this.isFirst == false) {
+            this.texTnoti.node.parent.active = true
+            this.isFirst = true
+        }
 
     }
     monsterHit() {
@@ -80,26 +94,37 @@ export default class NewClass extends cc.Component {
 
         this.schedule(this.monsterHit, 0.7, 1)
         this.warning.active = true
-        this.pop.active = true
 
         this.scheduleOnce(() => {
             this.warning.active = false
             // this.npc.active = true
-        }, 2.5)
-        cc.tween(this.btnBeat).delay(5).call(() => {
-            // this.npc.active = false
-        })
-            .to(0.25, { scale: 1.1 }, { easing: "backOut" })
-            .to(0.1, { scale: 1 })
-            .call(() => {
+            this.pop.active = true
+            this.btnBeat.active = true
+            this.btnBeat.scale = 0
+            this.scheduleOnce(() => {
                 this.startGame()
+
+            }, 0.4)
+            cc.tween(this.btnBeat).delay(5).call(() => {
+                // this.npc.active = false
+
             })
-            .start();
+                .to(0.25, { scale: 1.1 }, { easing: "backOut" })
+                .to(0.1, { scale: 1 })
+                .call(() => {
+
+
+                })
+                .start();
+        }, 2.5)
+
     }
     arr50rep = 0
     to50rep() {
         this.arr50rep++
         if (this.arr50rep == 2) {
+            this.textHalf.active = true
+
             this.speedUp()
         }
     }
@@ -108,15 +133,19 @@ export default class NewClass extends cc.Component {
         // console.log("speedUp")
         this.isSpeedUp = true
         this.warning.active = true
+        this.btnBeat.children[1].active = true
         this.unschedule(this.monsterHit);
         this.schedule(this.monsterHit, 0.4);
         this.avtMonster.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
         this.avtYou.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow
         this.avtMonster.getComponent("rep").upgradeMonster()
+        this.avtYou.getComponent("rep").upgradeMonster()
+        this.delayTime = 0.18
     }
     startGame() {
-        this.schedule(this.monsterHit, 0.7)
-        this.texTnoti.node.parent.active = true
+        console.log("startGame")
+        this.monsterHit()
+        this.schedule(this.monsterHit, 0.6)
     }
     onEndGame(value) {
         if (this.isEndgame) return;
@@ -124,15 +153,15 @@ export default class NewClass extends cc.Component {
         this.isEndgame = true
         if (value) {
             this.winNode.active = true
+            this.phaohoa.active = true
         }
         else {
-            this.loseNode.active = false
+            this.loseNode.active = true
         }
         this.linkToStore.active = true
     }
     protected update(dt: number): void {
         if (this.isSpeedUp == false) {
-            console.log(globalThis.youRep, globalThis.monsterRep)
             if (globalThis.youRep > globalThis.monsterRep) {
                 this.texTnoti.string = "You're leading!"
 
@@ -142,10 +171,10 @@ export default class NewClass extends cc.Component {
 
             }
         }
-        else {
-            this.texTnoti.string = "HALFWAY — TAP FASTER!"
+        // else {
+        //     this.texTnoti.string = "HALFWAY — TAP FASTER!"
 
-        }
+        // }
 
     }
     reponsive(logic) {

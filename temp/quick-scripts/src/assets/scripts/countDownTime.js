@@ -66,9 +66,9 @@ var NewClass = /** @class */ (function (_super) {
                 _this.unscheduleAllCallbacks();
                 _this.countDownNode.active = false;
                 // Hiện nút Beat
-                _this.btnBeat.active = true;
+                // this.btnBeat.active = true;
                 // Hiệu ứng nút Beat
-                _this.btnBeat.scale = 0;
+                // this.btnBeat.scale = 0;
                 _this.gamePlay.startMonster();
             }
         }, 1);

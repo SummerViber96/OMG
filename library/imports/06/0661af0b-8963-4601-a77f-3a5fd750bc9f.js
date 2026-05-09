@@ -51,12 +51,16 @@ var NewClass = /** @class */ (function (_super) {
         _this.fillYellow = null;
         _this.texTnoti = null;
         _this.pop = null;
+        _this.textHalf = null;
         _this.arrPosCus = [];
         _this.arrCus = [];
         _this.arrCrunch = [];
         _this.isHind = false;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.isEndgame = false;
+        _this.isFirst = false;
+        _this.isDelay = false;
+        _this.delayTime = 0.3;
         _this.arr50rep = 0;
         _this.isSpeedUp = false;
         return _this;
@@ -68,8 +72,19 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundBG, true, 0.5);
     };
     NewClass.prototype.btn_YouHit = function () {
+        var _this = this;
+        if (this.isDelay)
+            return;
+        this.isDelay = true;
+        this.scheduleOnce(function () {
+            _this.isDelay = false;
+        }, this.delayTime);
         this.pop.active = false;
         this.you.getComponent(cc.Animation).play();
+        if (this.isFirst == false) {
+            this.texTnoti.node.parent.active = true;
+            this.isFirst = true;
+        }
     };
     NewClass.prototype.monsterHit = function () {
         this.monster.getComponent(cc.Animation).play();
@@ -80,24 +95,29 @@ var NewClass = /** @class */ (function (_super) {
         this.monster.getComponent(cc.Animation).play();
         this.schedule(this.monsterHit, 0.7, 1);
         this.warning.active = true;
-        this.pop.active = true;
         this.scheduleOnce(function () {
             _this.warning.active = false;
             // this.npc.active = true
+            _this.pop.active = true;
+            _this.btnBeat.active = true;
+            _this.btnBeat.scale = 0;
+            _this.scheduleOnce(function () {
+                _this.startGame();
+            }, 0.4);
+            cc.tween(_this.btnBeat).delay(5).call(function () {
+                // this.npc.active = false
+            })
+                .to(0.25, { scale: 1.1 }, { easing: "backOut" })
+                .to(0.1, { scale: 1 })
+                .call(function () {
+            })
+                .start();
         }, 2.5);
-        cc.tween(this.btnBeat).delay(5).call(function () {
-            // this.npc.active = false
-        })
-            .to(0.25, { scale: 1.1 }, { easing: "backOut" })
-            .to(0.1, { scale: 1 })
-            .call(function () {
-            _this.startGame();
-        })
-            .start();
     };
     NewClass.prototype.to50rep = function () {
         this.arr50rep++;
         if (this.arr50rep == 2) {
+            this.textHalf.active = true;
             this.speedUp();
         }
     };
@@ -105,15 +125,19 @@ var NewClass = /** @class */ (function (_super) {
         // console.log("speedUp")
         this.isSpeedUp = true;
         this.warning.active = true;
+        this.btnBeat.children[1].active = true;
         this.unschedule(this.monsterHit);
         this.schedule(this.monsterHit, 0.4);
         this.avtMonster.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
         this.avtYou.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
         this.avtMonster.getComponent("rep").upgradeMonster();
+        this.avtYou.getComponent("rep").upgradeMonster();
+        this.delayTime = 0.18;
     };
     NewClass.prototype.startGame = function () {
-        this.schedule(this.monsterHit, 0.7);
-        this.texTnoti.node.parent.active = true;
+        console.log("startGame");
+        this.monsterHit();
+        this.schedule(this.monsterHit, 0.6);
     };
     NewClass.prototype.onEndGame = function (value) {
         if (this.isEndgame)
@@ -122,15 +146,15 @@ var NewClass = /** @class */ (function (_super) {
         this.isEndgame = true;
         if (value) {
             this.winNode.active = true;
+            this.phaohoa.active = true;
         }
         else {
-            this.loseNode.active = false;
+            this.loseNode.active = true;
         }
         this.linkToStore.active = true;
     };
     NewClass.prototype.update = function (dt) {
         if (this.isSpeedUp == false) {
-            console.log(globalThis.youRep, globalThis.monsterRep);
             if (globalThis.youRep > globalThis.monsterRep) {
                 this.texTnoti.string = "You're leading!";
             }
@@ -138,9 +162,9 @@ var NewClass = /** @class */ (function (_super) {
                 this.texTnoti.string = "The Beast is pulling ahead!";
             }
         }
-        else {
-            this.texTnoti.string = "HALFWAY — TAP FASTER!";
-        }
+        // else {
+        //     this.texTnoti.string = "HALFWAY — TAP FASTER!"
+        // }
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
@@ -262,6 +286,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "pop", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "textHalf", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

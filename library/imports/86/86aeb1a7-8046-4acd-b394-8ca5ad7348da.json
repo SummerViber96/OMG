@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Beat-2red",
+    "texture": "257bacaf-faf5-4a9e-939a-d3cb4b5f047d",
+    "atlas": "",
+    "rect": [
+      4,
+      4,
+      598,
+      142
+    ],
+    "offset": [
+      0.5,
+      -2
+    ],
+    "originalSize": [
+      605,
+      146
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

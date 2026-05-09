@@ -56,7 +56,7 @@ var NewClass = /** @class */ (function (_super) {
             globalThis.youRep = this.rep;
         }
         this.label.string = this.rep.toString();
-        this.fill.fillRange = (100 - this.rep) / 100;
+        // this.fill.fillRange = (100 - this.rep) / 100
         if (this.rep == 100) {
             if (this.isMonster) {
                 this.gamePLay.onEndGame(false);
@@ -72,17 +72,17 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.loadFill = function () {
         var _this = this;
-        cc.tween(this.fill).to(30, { fillRange: 0 }).call(function () {
+        cc.tween(this.fill).to(80, { fillRange: 0 }).call(function () {
             _this.gamePLay.onEndGame(false);
         }).start();
     };
     NewClass.prototype.upgradeMonster = function () {
         var _this = this;
-        if (this.isMonster) {
-            cc.tween(this.fill).to(10, { fillRange: 0 }).call(function () {
-                _this.gamePLay.onEndGame(false);
-            }).start();
-        }
+        // if (this.isMonster) {
+        cc.tween(this.fill).to(30, { fillRange: 0 }).call(function () {
+            _this.gamePLay.onEndGame(false);
+        }).start();
+        // }
     };
     __decorate([
         property(cc.Label)

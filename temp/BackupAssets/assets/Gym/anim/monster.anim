@@ -187,5 +187,11 @@
       }
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 0.45,
+      "func": "hit",
+      "params": []
+    }
+  ]
 }
