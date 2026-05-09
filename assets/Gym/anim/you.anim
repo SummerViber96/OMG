@@ -129,7 +129,7 @@
   },
   "events": [
     {
-      "frame": 0.2833333333333333,
+      "frame": 0,
       "func": "hit",
       "params": []
     }

@@ -1,9 +1,5 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+globalThis.monsterRep = 0
+globalThis.youRep = 0
 
 const { ccclass, property } = cc._decorator;
 
@@ -21,16 +17,24 @@ export default class NewClass extends cc.Component {
 
     // onLoad () {}
     gamePLay = null
+    isFirst = false
     start() {
         this.gamePLay = cc.Canvas.instance.node.getComponent("Gym3")
     }
     hit() {
-        console.log("hit")
         this.rep++;
+        if (this.rep == 50) {
+            this.gamePLay.to50rep()
+        }
+        if (this.isMonster) {
+            globalThis.monsterRep = this.rep
+        }
+        else {
+            globalThis.youRep = this.rep
+        }
         this.label.string = this.rep.toString()
-        this.fill.fillRange = this.rep / 100
-        if (this.fill.fillRange >= 1) {
-            this.fill.fillRange = 1;
+        this.fill.fillRange = (100 - this.rep) / 100
+        if (this.rep == 100) {
             if (this.isMonster) {
                 this.gamePLay.onEndGame(false)
             }
@@ -38,6 +42,25 @@ export default class NewClass extends cc.Component {
                 this.gamePLay.onEndGame(true)
 
             }
+        }
+        if (!this.isFirst) {
+            this.loadFill()
+            this.isFirst = true
+        }
+
+    }
+    loadFill() {
+        cc.tween(this.fill).to(30, { fillRange: 0 }).call(() => {
+            this.gamePLay.onEndGame(false)
+
+        }).start()
+    }
+    upgradeMonster() {
+        if (this.isMonster) {
+            cc.tween(this.fill).to(10, { fillRange: 0 }).call(() => {
+                this.gamePLay.onEndGame(false)
+
+            }).start()
         }
     }
     // update (dt) {}

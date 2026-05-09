@@ -44,6 +44,12 @@ export default class NewClass extends cc.Component {
     winNode: cc.Node = null;
     @property(cc.Node)
     loseNode: cc.Node = null
+    @property(cc.SpriteFrame)
+    fillYellow: cc.SpriteFrame = null
+    @property(cc.Label)
+    texTnoti: cc.Label = null
+    @property(cc.Node)
+    pop: cc.Node = null
     arrPosCus = []
     arrCus = []
     arrCrunch = []
@@ -58,20 +64,30 @@ export default class NewClass extends cc.Component {
 
 
     }
+    btn_YouHit() {
+        this.pop.active = false
+        this.you.getComponent(cc.Animation).play()
+
+
+    }
+    monsterHit() {
+        this.monster.getComponent(cc.Animation).play()
+
+    }
     startMonster() {
         cc.audioEngine.play(this.soundWarning, false, 1)
         this.monster.getComponent(cc.Animation).play()
 
-        this.schedule(() => {
-            this.monster.getComponent(cc.Animation).play()
-        }, 0.7, 1)
+        this.schedule(this.monsterHit, 0.7, 1)
         this.warning.active = true
+        this.pop.active = true
+
         this.scheduleOnce(() => {
             this.warning.active = false
-            this.npc.active = true
+            // this.npc.active = true
         }, 2.5)
         cc.tween(this.btnBeat).delay(5).call(() => {
-            this.npc.active = false
+            // this.npc.active = false
         })
             .to(0.25, { scale: 1.1 }, { easing: "backOut" })
             .to(0.1, { scale: 1 })
@@ -80,14 +96,32 @@ export default class NewClass extends cc.Component {
             })
             .start();
     }
+    arr50rep = 0
+    to50rep() {
+        this.arr50rep++
+        if (this.arr50rep == 2) {
+            this.speedUp()
+        }
+    }
+    isSpeedUp = false
+    speedUp() {
+        // console.log("speedUp")
+        this.isSpeedUp = true
+        this.warning.active = true
+        this.unschedule(this.monsterHit);
+        this.schedule(this.monsterHit, 0.4);
+        this.avtMonster.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
+        this.avtYou.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow
+        this.avtMonster.getComponent("rep").upgradeMonster()
+    }
     startGame() {
-        this.schedule(() => {
-            this.monster.getComponent(cc.Animation).play()
-        }, 0.7)
+        this.schedule(this.monsterHit, 0.7)
+        this.texTnoti.node.parent.active = true
     }
     onEndGame(value) {
-        if(this.isEndgame)return;
-        this.isEndgame=true
+        if (this.isEndgame) return;
+        this.btnBeat.getComponent(cc.Button).enabled = false
+        this.isEndgame = true
         if (value) {
             this.winNode.active = true
         }
@@ -95,6 +129,24 @@ export default class NewClass extends cc.Component {
             this.loseNode.active = false
         }
         this.linkToStore.active = true
+    }
+    protected update(dt: number): void {
+        if (this.isSpeedUp == false) {
+            console.log(globalThis.youRep, globalThis.monsterRep)
+            if (globalThis.youRep > globalThis.monsterRep) {
+                this.texTnoti.string = "You're leading!"
+
+            }
+            else {
+                this.texTnoti.string = "The Beast is pulling ahead!"
+
+            }
+        }
+        else {
+            this.texTnoti.string = "HALFWAY — TAP FASTER!"
+
+        }
+
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
@@ -105,8 +157,8 @@ export default class NewClass extends cc.Component {
 
 
         this.camera.node.position = cc.v3(0, 0)
-        this.npc.scale = (logic) ? 1.7 : 1
-        this.npc.y = (logic) ? -700 : 0
+        // this.npc.scale = (logic) ? 1.7 : 1
+        // this.npc.y = (logic) ? -700 : 0
         this.endCard.scale = (logic) ? 1.5 : 0.7
         this.logo.scale = (logic) ? 1.5 : 1
 

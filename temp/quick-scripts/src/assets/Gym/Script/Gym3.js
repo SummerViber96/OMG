@@ -48,12 +48,17 @@ var NewClass = /** @class */ (function (_super) {
         _this.warning = null;
         _this.winNode = null;
         _this.loseNode = null;
+        _this.fillYellow = null;
+        _this.texTnoti = null;
+        _this.pop = null;
         _this.arrPosCus = [];
         _this.arrCus = [];
         _this.arrCrunch = [];
         _this.isHind = false;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.isEndgame = false;
+        _this.arr50rep = 0;
+        _this.isSpeedUp = false;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -62,20 +67,26 @@ var NewClass = /** @class */ (function (_super) {
         }
         cc.audioEngine.play(this.soundBG, true, 0.5);
     };
+    NewClass.prototype.btn_YouHit = function () {
+        this.pop.active = false;
+        this.you.getComponent(cc.Animation).play();
+    };
+    NewClass.prototype.monsterHit = function () {
+        this.monster.getComponent(cc.Animation).play();
+    };
     NewClass.prototype.startMonster = function () {
         var _this = this;
         cc.audioEngine.play(this.soundWarning, false, 1);
         this.monster.getComponent(cc.Animation).play();
-        this.schedule(function () {
-            _this.monster.getComponent(cc.Animation).play();
-        }, 0.7, 1);
+        this.schedule(this.monsterHit, 0.7, 1);
         this.warning.active = true;
+        this.pop.active = true;
         this.scheduleOnce(function () {
             _this.warning.active = false;
-            _this.npc.active = true;
+            // this.npc.active = true
         }, 2.5);
         cc.tween(this.btnBeat).delay(5).call(function () {
-            _this.npc.active = false;
+            // this.npc.active = false
         })
             .to(0.25, { scale: 1.1 }, { easing: "backOut" })
             .to(0.1, { scale: 1 })
@@ -84,15 +95,30 @@ var NewClass = /** @class */ (function (_super) {
         })
             .start();
     };
+    NewClass.prototype.to50rep = function () {
+        this.arr50rep++;
+        if (this.arr50rep == 2) {
+            this.speedUp();
+        }
+    };
+    NewClass.prototype.speedUp = function () {
+        // console.log("speedUp")
+        this.isSpeedUp = true;
+        this.warning.active = true;
+        this.unschedule(this.monsterHit);
+        this.schedule(this.monsterHit, 0.4);
+        this.avtMonster.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
+        this.avtYou.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
+        this.avtMonster.getComponent("rep").upgradeMonster();
+    };
     NewClass.prototype.startGame = function () {
-        var _this = this;
-        this.schedule(function () {
-            _this.monster.getComponent(cc.Animation).play();
-        }, 0.7);
+        this.schedule(this.monsterHit, 0.7);
+        this.texTnoti.node.parent.active = true;
     };
     NewClass.prototype.onEndGame = function (value) {
         if (this.isEndgame)
             return;
+        this.btnBeat.getComponent(cc.Button).enabled = false;
         this.isEndgame = true;
         if (value) {
             this.winNode.active = true;
@@ -102,14 +128,28 @@ var NewClass = /** @class */ (function (_super) {
         }
         this.linkToStore.active = true;
     };
+    NewClass.prototype.update = function (dt) {
+        if (this.isSpeedUp == false) {
+            console.log(globalThis.youRep, globalThis.monsterRep);
+            if (globalThis.youRep > globalThis.monsterRep) {
+                this.texTnoti.string = "You're leading!";
+            }
+            else {
+                this.texTnoti.string = "The Beast is pulling ahead!";
+            }
+        }
+        else {
+            this.texTnoti.string = "HALFWAY — TAP FASTER!";
+        }
+    };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
         this.camera.zoomRatio = 1;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, 0);
-        this.npc.scale = (logic) ? 1.7 : 1;
-        this.npc.y = (logic) ? -700 : 0;
+        // this.npc.scale = (logic) ? 1.7 : 1
+        // this.npc.y = (logic) ? -700 : 0
         this.endCard.scale = (logic) ? 1.5 : 0.7;
         this.logo.scale = (logic) ? 1.5 : 1;
         this.logo.getComponent(cc.Widget).top = 48;
@@ -213,6 +253,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "loseNode", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], NewClass.prototype, "fillYellow", void 0);
+    __decorate([
+        property(cc.Label)
+    ], NewClass.prototype, "texTnoti", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "pop", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

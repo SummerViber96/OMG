@@ -3,12 +3,6 @@ cc._RF.push(module, '0e6bbZcOyZLypMOKq5szwS2', 'rep');
 // Gym/Script/rep.ts
 
 "use strict";
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -29,6 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+globalThis.monsterRep = 0;
+globalThis.youRep = 0;
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
@@ -41,6 +37,7 @@ var NewClass = /** @class */ (function (_super) {
         // LIFE-CYCLE CALLBACKS:
         // onLoad () {}
         _this.gamePLay = null;
+        _this.isFirst = false;
         return _this;
         // update (dt) {}
     }
@@ -48,18 +45,43 @@ var NewClass = /** @class */ (function (_super) {
         this.gamePLay = cc.Canvas.instance.node.getComponent("Gym3");
     };
     NewClass.prototype.hit = function () {
-        console.log("hit");
         this.rep++;
+        if (this.rep == 50) {
+            this.gamePLay.to50rep();
+        }
+        if (this.isMonster) {
+            globalThis.monsterRep = this.rep;
+        }
+        else {
+            globalThis.youRep = this.rep;
+        }
         this.label.string = this.rep.toString();
-        this.fill.fillRange = this.rep / 100;
-        if (this.fill.fillRange >= 1) {
-            this.fill.fillRange = 1;
+        this.fill.fillRange = (100 - this.rep) / 100;
+        if (this.rep == 100) {
             if (this.isMonster) {
                 this.gamePLay.onEndGame(false);
             }
             else {
                 this.gamePLay.onEndGame(true);
             }
+        }
+        if (!this.isFirst) {
+            this.loadFill();
+            this.isFirst = true;
+        }
+    };
+    NewClass.prototype.loadFill = function () {
+        var _this = this;
+        cc.tween(this.fill).to(30, { fillRange: 0 }).call(function () {
+            _this.gamePLay.onEndGame(false);
+        }).start();
+    };
+    NewClass.prototype.upgradeMonster = function () {
+        var _this = this;
+        if (this.isMonster) {
+            cc.tween(this.fill).to(10, { fillRange: 0 }).call(function () {
+                _this.gamePLay.onEndGame(false);
+            }).start();
         }
     };
     __decorate([

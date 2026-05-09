@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Yellow_Bar_Filled",
+    "texture": "eecc1108-bcdd-4d0b-b4d4-0dc1934564a3",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      325,
+      35
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      325,
+      35
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
