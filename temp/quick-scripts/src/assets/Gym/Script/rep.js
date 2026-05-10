@@ -108,7 +108,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.upgradeMonster = function () {
         var _this = this;
-        cc.tween(this.fill)
+        this.fillTween = cc.tween(this.fill)
             .to(30, { fillRange: 0 }, {
             progress: function (start, end, current, ratio) {
                 var value = start + (end - start) * ratio;
@@ -121,8 +121,8 @@ var NewClass = /** @class */ (function (_super) {
             _this.fill.fillRange = 0;
             _this.updatePercent();
             _this.gamePLay.onEndGame(false);
-        })
-            .start();
+        });
+        this.fillTween.start();
     };
     __decorate([
         property(cc.Label)

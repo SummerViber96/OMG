@@ -23,7 +23,7 @@ export default class NewClass extends cc.Component {
 
     gamePLay = null
     isFirst = false
-    private fillTween=null;
+    private fillTween = null;
 
     start() {
         this.gamePLay = cc.Canvas.instance.node.getComponent("Gym3")
@@ -101,12 +101,12 @@ export default class NewClass extends cc.Component {
                 this.updatePercent();
                 this.gamePLay.onEndGame(false);
             })
-            this.fillTween.start()
+        this.fillTween.start()
         // .start();
     }
 
     upgradeMonster() {
-        cc.tween(this.fill)
+        this.fillTween = cc.tween(this.fill)
             .to(
                 30,
                 { fillRange: 0 },
@@ -126,6 +126,6 @@ export default class NewClass extends cc.Component {
                 this.updatePercent();
                 this.gamePLay.onEndGame(false);
             })
-            .start();
+        this.fillTween.start();
     }
 }
