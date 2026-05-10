@@ -37,7 +37,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundCoin = null;
         _this.soundConfirm = null;
         _this.soundWin = null;
-        _this.soundWarning = null;
+        _this.soundOver = null;
+        _this.soundPut = null;
         _this.phaohoa = null;
         _this.linkToStore = null;
         _this.logo = null;
@@ -49,18 +50,24 @@ var NewClass = /** @class */ (function (_super) {
         _this.winNode = null;
         _this.loseNode = null;
         _this.fillYellow = null;
-        _this.texTnoti = null;
+        // @property(cc.Label)
+        // texTnoti: cc.Label = null
         _this.pop = null;
         _this.textHalf = null;
+        _this.crowHero = null;
+        _this.crowMonster = null;
         _this.arrPosCus = [];
         _this.arrCus = [];
         _this.arrCrunch = [];
         _this.isHind = false;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.isEndgame = false;
+        _this.isHeroLead = false;
+        _this.heroAnim = null;
+        _this.monsterAnim = null;
         _this.isFirst = false;
         _this.isDelay = false;
-        _this.delayTime = 0.3;
+        _this.delayTime = 0.15;
         _this.arr50rep = 0;
         _this.isSpeedUp = false;
         return _this;
@@ -70,6 +77,8 @@ var NewClass = /** @class */ (function (_super) {
             window.gameReady && window.gameReady();
         }
         cc.audioEngine.play(this.soundBG, true, 0.5);
+        this.heroAnim = this.crowHero.getComponent(cc.Animation);
+        this.monsterAnim = this.crowMonster.getComponent(cc.Animation);
     };
     NewClass.prototype.btn_YouHit = function () {
         var _this = this;
@@ -79,10 +88,11 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.isDelay = false;
         }, this.delayTime);
+        cc.audioEngine.play(this.soundPut, false, 1);
         this.pop.active = false;
         this.you.getComponent(cc.Animation).play();
         if (this.isFirst == false) {
-            this.texTnoti.node.parent.active = true;
+            // this.texTnoti.node.parent.active = true
             this.isFirst = true;
         }
     };
@@ -91,8 +101,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.startMonster = function () {
         var _this = this;
-        cc.audioEngine.play(this.soundWarning, false, 1);
         this.monster.getComponent(cc.Animation).play();
+        this.crowMonster.active = true;
         this.schedule(this.monsterHit, 0.7, 1);
         this.warning.active = true;
         this.scheduleOnce(function () {
@@ -132,7 +142,7 @@ var NewClass = /** @class */ (function (_super) {
         this.avtYou.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
         this.avtMonster.getComponent("rep").upgradeMonster();
         this.avtYou.getComponent("rep").upgradeMonster();
-        this.delayTime = 0.18;
+        this.delayTime = 0.1;
     };
     NewClass.prototype.startGame = function () {
         console.log("startGame");
@@ -142,29 +152,42 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.onEndGame = function (value) {
         if (this.isEndgame)
             return;
+        this.unscheduleAllCallbacks();
+        this.monster.getComponent(cc.Animation).stop();
         this.btnBeat.getComponent(cc.Button).enabled = false;
+        this.you.getComponent("rep").stopFill();
+        this.monster.getComponent("rep").stopFill();
         this.isEndgame = true;
         if (value) {
             this.winNode.active = true;
-            this.phaohoa.active = true;
+            this.phaohoa.active =
+                cc.audioEngine.play(this.soundWin, false, 1);
         }
         else {
             this.loseNode.active = true;
+            cc.audioEngine.play(this.soundOver, false, 1);
         }
         this.linkToStore.active = true;
     };
     NewClass.prototype.update = function (dt) {
-        if (this.isSpeedUp == false) {
-            if (globalThis.youRep > globalThis.monsterRep) {
-                this.texTnoti.string = "You're leading!";
-            }
-            else {
-                this.texTnoti.string = "The Beast is pulling ahead!";
-            }
+        // if (this.isSpeedUp) return;
+        var isHeroWinning = globalThis.youRep > globalThis.monsterRep;
+        // không đổi trạng thái thì bỏ qua
+        if (this.isHeroLead == isHeroWinning)
+            return;
+        this.isHeroLead = isHeroWinning;
+        if (isHeroWinning) {
+            this.crowHero.active = true;
+            this.crowMonster.active = false;
+            this.heroAnim.play();
+            console.log("crow Hero");
         }
-        // else {
-        //     this.texTnoti.string = "HALFWAY — TAP FASTER!"
-        // }
+        else {
+            this.crowHero.active = false;
+            this.crowMonster.active = true;
+            this.monsterAnim.play();
+            console.log("crow Monster");
+        }
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
@@ -243,7 +266,10 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "soundWin", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundWarning", void 0);
+    ], NewClass.prototype, "soundOver", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundPut", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "phaohoa", void 0);
@@ -281,14 +307,17 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.SpriteFrame)
     ], NewClass.prototype, "fillYellow", void 0);
     __decorate([
-        property(cc.Label)
-    ], NewClass.prototype, "texTnoti", void 0);
-    __decorate([
         property(cc.Node)
     ], NewClass.prototype, "pop", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "textHalf", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "crowHero", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "crowMonster", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

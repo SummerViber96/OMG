@@ -1,9 +1,4 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+
 
 const { ccclass, property } = cc._decorator;
 
@@ -18,58 +13,85 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Node)
     btnBeat: cc.Node = null;
+    @property(cc.Sprite)
+    fillSprite: cc.Sprite = null;
+
+    @property(cc.Node)
+    fillNode: cc.Node = null;
+    @property(cc.AudioClip)
+    soundCownDown: cc.AudioClip = null
     gamePlay = null;
+
+    private currentNumber = 3;
+
     start() {
-        this.gamePlay = cc.Canvas.instance.node.getComponent("Gym3")
+
+        this.gamePlay = cc.Canvas.instance.node.getComponent("Gym3");
+        cc.audioEngine.play(this.soundCownDown, false, 1)
         this.showCountDown();
     }
 
     showCountDown() {
-        // Ẩn nút Beat lúc đầu
+
         this.btnBeat.active = false;
 
-        // Hiện countdown
         this.countDownNode.active = true;
 
-        let time = 3;
-        this.lbCountDown.string = time.toString();
+        this.currentNumber = 3;
 
-        // Scale pop effect
-        this.playCountAnim();
-
-        this.schedule(() => {
-            time--;
-
-            if (time > 0) {
-                this.lbCountDown.string = time.toString();
-                this.playCountAnim();
-            }
-            else {
-                // Kết thúc countdown
-                this.unscheduleAllCallbacks();
-
-                this.countDownNode.active = false;
-
-                // Hiện nút Beat
-                // this.btnBeat.active = true;
-
-                // Hiệu ứng nút Beat
-                // this.btnBeat.scale = 0;
-
-                this.gamePlay.startMonster()
-            }
-
-        }, 1);
+        this.playStep();
     }
 
-    playCountAnim() {
-        this.countDownNode.scale = 0;
+    playStep() {
 
-        cc.tween(this.countDownNode)
-            .to(0.2, { scale: 1.3 }, { easing: "backOut" })
-            .to(0.1, { scale: 1 })
+        // update số
+        this.lbCountDown.string = this.currentNumber.toString();
+        if (this.currentNumber == 0) {
+        this.lbCountDown.string = "GO"
+        this.lbCountDown.fontSize=200
+
+        }
+        // reset fill
+        this.fillSprite.fillRange = 1;
+
+        // pop số
+        this.playCountAnim();
+
+        // tween fill trong 1 giây
+        cc.tween(this.fillSprite)
+            .to(1, {
+                fillRange: 0
+            })
+            .call(() => {
+
+                this.currentNumber--;
+
+                // hết countdown
+                if (this.currentNumber < 0) {
+
+                    this.countDownNode.active = false;
+
+                    this.gamePlay.startMonster();
+
+                    return;
+                }
+
+                // chạy tiếp số tiếp theo
+                this.playStep();
+
+            })
             .start();
     }
 
-    // update (dt) {}
+    playCountAnim() {
+
+        this.lbCountDown.node.scale = 0;
+
+        cc.tween(this.lbCountDown.node)
+            .to(0.2, { scale: 1.1 }, {
+                easing: "backOut"
+            })
+            .to(0.1, { scale: 1 })
+            .start();
+    }
 }

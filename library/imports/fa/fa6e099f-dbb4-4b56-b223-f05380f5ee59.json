@@ -905,7 +905,7 @@
       }
     }
   },
-  "_atlasText": "\r\nClick-hand.png\r\nsize: 388, 244\r\nformat: RGBA8888\r\nfilter: Linear, Linear\r\nrepeat: none\r\nhand\r\n  rotate: true\r\n  xy: 242, 92\r\n  size: 148, 144\r\n  orig: 148, 144\r\n  offset: 0, 0\r\n  index: -1\r\ntutorialCircle\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 238, 238\r\n  orig: 244, 244\r\n  offset: 3, 3\r\n  index: -1\r\n",
+  "_atlasText": "\nClick-hand.png\nsize: 388, 244\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nhand\n  rotate: true\n  xy: 242, 92\n  size: 148, 144\n  orig: 148, 144\n  offset: 0, 0\n  index: -1\ntutorialCircle\n  rotate: false\n  xy: 2, 2\n  size: 238, 238\n  orig: 244, 244\n  offset: 3, 3\n  index: -1\n",
   "textures": [
     {
       "__uuid__": "2efb64a9-e9eb-4742-8532-0bdb4aaa81af"

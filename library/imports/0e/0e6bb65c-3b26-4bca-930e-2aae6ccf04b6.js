@@ -31,20 +31,24 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.label = null;
+        // label hiển thị %
+        _this.percentLabel = null;
         _this.fill = null;
         _this.rep = 0;
         _this.isMonster = false;
-        // LIFE-CYCLE CALLBACKS:
-        // onLoad () {}
         _this.gamePLay = null;
         _this.isFirst = false;
+        _this.fillTween = null;
         return _this;
-        // update (dt) {}
     }
     NewClass.prototype.start = function () {
         this.gamePLay = cc.Canvas.instance.node.getComponent("Gym3");
+        // update % lúc start
+        this.updatePercent();
     };
     NewClass.prototype.hit = function () {
+        if (this.gamePLay.isEndgame)
+            return;
         this.rep++;
         if (this.rep == 50) {
             this.gamePLay.to50rep();
@@ -56,7 +60,10 @@ var NewClass = /** @class */ (function (_super) {
             globalThis.youRep = this.rep;
         }
         this.label.string = this.rep.toString();
+        // update fill theo rep
         // this.fill.fillRange = (100 - this.rep) / 100
+        // update label %
+        this.updatePercent();
         if (this.rep == 100) {
             if (this.isMonster) {
                 this.gamePLay.onEndGame(false);
@@ -70,23 +77,59 @@ var NewClass = /** @class */ (function (_super) {
             this.isFirst = true;
         }
     };
+    NewClass.prototype.updatePercent = function () {
+        var percent = Math.floor(this.fill.fillRange * 100);
+        this.percentLabel.string = percent + "%";
+    };
+    NewClass.prototype.stopFill = function () {
+        if (this.fillTween) {
+            this.fillTween.stop();
+            this.fillTween = null;
+        }
+    };
     NewClass.prototype.loadFill = function () {
         var _this = this;
-        cc.tween(this.fill).to(80, { fillRange: 0 }).call(function () {
+        this.fillTween = cc.tween(this.fill)
+            .to(80, { fillRange: 0 }, {
+            progress: function (start, end, current, ratio) {
+                var value = start + (end - start) * ratio;
+                _this.fill.fillRange = value;
+                _this.updatePercent();
+                return value;
+            }
+        })
+            .call(function () {
+            _this.fill.fillRange = 0;
+            _this.updatePercent();
             _this.gamePLay.onEndGame(false);
-        }).start();
+        });
+        this.fillTween.start();
+        // .start();
     };
     NewClass.prototype.upgradeMonster = function () {
         var _this = this;
-        // if (this.isMonster) {
-        cc.tween(this.fill).to(30, { fillRange: 0 }).call(function () {
+        cc.tween(this.fill)
+            .to(30, { fillRange: 0 }, {
+            progress: function (start, end, current, ratio) {
+                var value = start + (end - start) * ratio;
+                _this.fill.fillRange = value;
+                _this.updatePercent();
+                return value;
+            }
+        })
+            .call(function () {
+            _this.fill.fillRange = 0;
+            _this.updatePercent();
             _this.gamePLay.onEndGame(false);
-        }).start();
-        // }
+        })
+            .start();
     };
     __decorate([
         property(cc.Label)
     ], NewClass.prototype, "label", void 0);
+    __decorate([
+        property(cc.Label)
+    ], NewClass.prototype, "percentLabel", void 0);
     __decorate([
         property(cc.Sprite)
     ], NewClass.prototype, "fill", void 0);

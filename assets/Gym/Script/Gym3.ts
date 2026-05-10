@@ -21,7 +21,9 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundWin: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundWarning: cc.AudioClip = null
+    soundOver: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundPut: cc.AudioClip = null
     @property(cc.Node)
     phaohoa: cc.Node = null;
     @property(cc.Node)
@@ -46,29 +48,38 @@ export default class NewClass extends cc.Component {
     loseNode: cc.Node = null
     @property(cc.SpriteFrame)
     fillYellow: cc.SpriteFrame = null
-    @property(cc.Label)
-    texTnoti: cc.Label = null
+    // @property(cc.Label)
+    // texTnoti: cc.Label = null
     @property(cc.Node)
     pop: cc.Node = null
     @property(cc.Node)
     textHalf: cc.Node = null
+    @property(cc.Node)
+    crowHero: cc.Node = null;
+    @property(cc.Node)
+    crowMonster: cc.Node = null
     arrPosCus = []
     arrCus = []
     arrCrunch = []
     isHind = false
     adChanel = '{{__adv_channels_adapter__}}'
     isEndgame = false
+    private isHeroLead: boolean = false;
+
+    private heroAnim = null;
+    private monsterAnim = null;
     start() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
         cc.audioEngine.play(this.soundBG, true, 0.5)
-
+        this.heroAnim = this.crowHero.getComponent(cc.Animation);
+        this.monsterAnim = this.crowMonster.getComponent(cc.Animation);
 
     }
     isFirst = false
     isDelay = false
-    delayTime = 0.3
+    delayTime = 0.15
     btn_YouHit() {
         if (this.isDelay) return;
         this.isDelay = true
@@ -76,10 +87,11 @@ export default class NewClass extends cc.Component {
             this.isDelay = false
 
         }, this.delayTime)
+        cc.audioEngine.play(this.soundPut, false, 1)
         this.pop.active = false
         this.you.getComponent(cc.Animation).play()
         if (this.isFirst == false) {
-            this.texTnoti.node.parent.active = true
+            // this.texTnoti.node.parent.active = true
             this.isFirst = true
         }
 
@@ -89,9 +101,8 @@ export default class NewClass extends cc.Component {
 
     }
     startMonster() {
-        cc.audioEngine.play(this.soundWarning, false, 1)
         this.monster.getComponent(cc.Animation).play()
-
+        this.crowMonster.active = true
         this.schedule(this.monsterHit, 0.7, 1)
         this.warning.active = true
 
@@ -140,7 +151,7 @@ export default class NewClass extends cc.Component {
         this.avtYou.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow
         this.avtMonster.getComponent("rep").upgradeMonster()
         this.avtYou.getComponent("rep").upgradeMonster()
-        this.delayTime = 0.18
+        this.delayTime = 0.1
     }
     startGame() {
         console.log("startGame")
@@ -149,32 +160,52 @@ export default class NewClass extends cc.Component {
     }
     onEndGame(value) {
         if (this.isEndgame) return;
+        this.unscheduleAllCallbacks()
+        this.monster.getComponent(cc.Animation).stop()
         this.btnBeat.getComponent(cc.Button).enabled = false
+        this.you.getComponent("rep").stopFill()
+        this.monster.getComponent("rep").stopFill()
+
         this.isEndgame = true
         if (value) {
             this.winNode.active = true
-            this.phaohoa.active = true
+            this.phaohoa.active =
+                cc.audioEngine.play(this.soundWin, false, 1)
         }
         else {
             this.loseNode.active = true
+            cc.audioEngine.play(this.soundOver, false, 1)
+
         }
         this.linkToStore.active = true
     }
+
     protected update(dt: number): void {
-        if (this.isSpeedUp == false) {
-            if (globalThis.youRep > globalThis.monsterRep) {
-                this.texTnoti.string = "You're leading!"
+        // if (this.isSpeedUp) return;
 
-            }
-            else {
-                this.texTnoti.string = "The Beast is pulling ahead!"
+        let isHeroWinning = globalThis.youRep > globalThis.monsterRep;
+        // không đổi trạng thái thì bỏ qua
+        if (this.isHeroLead == isHeroWinning) return;
 
-            }
+        this.isHeroLead = isHeroWinning;
+
+        if (isHeroWinning) {
+
+            this.crowHero.active = true;
+            this.crowMonster.active = false;
+
+            this.heroAnim.play();
+            console.log("crow Hero")
+
+        } else {
+
+            this.crowHero.active = false;
+            this.crowMonster.active = true;
+
+            this.monsterAnim.play();
+            console.log("crow Monster")
+
         }
-        // else {
-        //     this.texTnoti.string = "HALFWAY — TAP FASTER!"
-
-        // }
 
     }
     reponsive(logic) {

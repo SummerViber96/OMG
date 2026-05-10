@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Tap_Fast",
+    "texture": "4d9019c5-5a24-4156-8a53-7c67e61e0a3e",
+    "atlas": "",
+    "rect": [
+      26,
+      21,
+      877,
+      314
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      928,
+      356
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

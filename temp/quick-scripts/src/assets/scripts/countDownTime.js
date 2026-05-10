@@ -3,12 +3,6 @@ cc._RF.push(module, '503f30rkQVF87lkO+hKx7mV', 'countDownTime');
 // scripts/countDownTime.ts
 
 "use strict";
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -37,46 +31,60 @@ var NewClass = /** @class */ (function (_super) {
         _this.countDownNode = null; // node chứa label countdown
         _this.lbCountDown = null;
         _this.btnBeat = null;
+        _this.fillSprite = null;
+        _this.fillNode = null;
+        _this.soundCownDown = null;
         _this.gamePlay = null;
+        _this.currentNumber = 3;
         return _this;
-        // update (dt) {}
     }
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym3");
+        cc.audioEngine.play(this.soundCownDown, false, 1);
         this.showCountDown();
     };
     NewClass.prototype.showCountDown = function () {
-        var _this = this;
-        // Ẩn nút Beat lúc đầu
         this.btnBeat.active = false;
-        // Hiện countdown
         this.countDownNode.active = true;
-        var time = 3;
-        this.lbCountDown.string = time.toString();
-        // Scale pop effect
+        this.currentNumber = 3;
+        this.playStep();
+    };
+    NewClass.prototype.playStep = function () {
+        var _this = this;
+        // update số
+        this.lbCountDown.string = this.currentNumber.toString();
+        if (this.currentNumber == 0) {
+            this.lbCountDown.string = "GO";
+            this.lbCountDown.fontSize = 200;
+        }
+        // reset fill
+        this.fillSprite.fillRange = 1;
+        // pop số
         this.playCountAnim();
-        this.schedule(function () {
-            time--;
-            if (time > 0) {
-                _this.lbCountDown.string = time.toString();
-                _this.playCountAnim();
-            }
-            else {
-                // Kết thúc countdown
-                _this.unscheduleAllCallbacks();
+        // tween fill trong 1 giây
+        cc.tween(this.fillSprite)
+            .to(1, {
+            fillRange: 0
+        })
+            .call(function () {
+            _this.currentNumber--;
+            // hết countdown
+            if (_this.currentNumber < 0) {
                 _this.countDownNode.active = false;
-                // Hiện nút Beat
-                // this.btnBeat.active = true;
-                // Hiệu ứng nút Beat
-                // this.btnBeat.scale = 0;
                 _this.gamePlay.startMonster();
+                return;
             }
-        }, 1);
+            // chạy tiếp số tiếp theo
+            _this.playStep();
+        })
+            .start();
     };
     NewClass.prototype.playCountAnim = function () {
-        this.countDownNode.scale = 0;
-        cc.tween(this.countDownNode)
-            .to(0.2, { scale: 1.3 }, { easing: "backOut" })
+        this.lbCountDown.node.scale = 0;
+        cc.tween(this.lbCountDown.node)
+            .to(0.2, { scale: 1.1 }, {
+            easing: "backOut"
+        })
             .to(0.1, { scale: 1 })
             .start();
     };
@@ -89,6 +97,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnBeat", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], NewClass.prototype, "fillSprite", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "fillNode", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundCownDown", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
