@@ -2448,7 +2448,7 @@
       }
     }
   },
-  "_atlasText": "\r\nSmoke.png\r\nsize: 512,256\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nkhoi\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 275, 206\r\n  orig: 275, 206\r\n  offset: 0, 0\r\n  index: -1\r\n",
+  "_atlasText": "\nSmoke.png\nsize: 512,256\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nkhoi\n  rotate: false\n  xy: 2, 2\n  size: 275, 206\n  orig: 275, 206\n  offset: 0, 0\n  index: -1\n",
   "textures": [
     {
       "__uuid__": "ecbaad28-7bc1-4fa9-8066-53f415185a7f"

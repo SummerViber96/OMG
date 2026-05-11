@@ -7,6 +7,8 @@ export default class NewClass extends cc.Component {
     camera: cc.Camera = null;
     @property(cc.Node)
     npc: cc.Node = null
+    @property(cc.Node)
+    bg:cc.Node=null
 
     @property(cc.AudioClip)
     soundBG: cc.AudioClip = null;
@@ -64,6 +66,8 @@ export default class NewClass extends cc.Component {
     listSoundMonster: cc.AudioClip[] = []
     @property(cc.Node)
     endCard: cc.Node = null
+    @property(cc.Node)
+    countDown:cc.Node=null
     arrPosCus = []
     arrCus = []
     arrCrunch = []
@@ -193,7 +197,7 @@ export default class NewClass extends cc.Component {
         this.isEndgame = true
         if (value) {
             this.winNode.active = true
-            this.phaohoa.active =
+            this.phaohoa.active =true
                 cc.audioEngine.play(this.soundWin, false, 1)
         }
         else {
@@ -206,7 +210,14 @@ export default class NewClass extends cc.Component {
 
     protected update(dt: number): void {
         // if (this.isSpeedUp) return;
-
+        let deviceResolution = cc.view.getFrameSize();
+        if (deviceResolution.width < deviceResolution.height) {
+            this.reponsive(true);
+            
+        }
+        else {
+            this.reponsive(false);
+        }
         let isHeroWinning = globalThis.youRep > globalThis.monsterRep;
         // không đổi trạng thái thì bỏ qua
         if (this.isHeroLead == isHeroWinning) return;
@@ -217,20 +228,15 @@ export default class NewClass extends cc.Component {
 
             this.crowHero.active = true;
             this.crowMonster.active = false;
-
             this.heroAnim.play();
-            console.log("crow Hero")
-
         } else {
 
             this.crowHero.active = false;
             this.crowMonster.active = true;
-
             this.monsterAnim.play();
-            console.log("crow Monster")
 
         }
-
+     
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
@@ -241,13 +247,24 @@ export default class NewClass extends cc.Component {
 
 
         this.camera.node.position = cc.v3(0, 0)
-        // this.npc.scale = (logic) ? 1.7 : 1
-        // this.npc.y = (logic) ? -700 : 0
-        this.endCard.scale = (logic) ? 1.5 : 0.7
+     
+        // this.endCard.scale = (logic) ? 1.5 : 0.7
         this.logo.scale = (logic) ? 1.5 : 1
-
-        this.logo.getComponent(cc.Widget).top = 48
-        // this.barCoin.y=(logic)?400:470
+        this.bg.position=(logic)?cc.v3(0,-200):cc.v3(0,0)
+this.bg.scale=(logic)?1.3:1
+this.phaohoa.scale = (logic) ? 7 : 3;
+this.btnBeat.scale=(logic)?1.6:1
+this.btnBeat.getComponent(cc.Widget).bottom=(logic)?350:47;
+this.loseNode.scale=(logic)?1.4:0.7;
+this.winNode.scale=(logic)?1.4:0.7;
+this.countDown.scale=(logic)?1.4:1;
+this.you.x= (logic)?-280:-350;
+this.monster.x=(logic)?280:350;
+this.avtYou.x=(logic)?-280:-470;
+this.avtMonster.x=(logic)?280:470;
+this.avtMonster.y=(logic)?350:280;
+this.avtYou.y=(logic)?350:280
+this.btnBeat.y=(logic)?-1200:-422
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
@@ -262,9 +279,9 @@ export default class NewClass extends cc.Component {
             const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
-            this.camera.zoomRatio = 1.7
-            this.camera.node.position = cc.v3(150, 0)
-            this.phaohoa.scale = (logic) ? 7 : 3
+            this.camera.zoomRatio = 1.8
+            this.camera.node.position = cc.v3(0, 0)
+           
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
                 this.logo.getComponent(cc.Widget).top = 48 + 30

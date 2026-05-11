@@ -31,6 +31,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.camera = null;
         _this.npc = null;
+        _this.bg = null;
         _this.soundBG = null;
         _this.soundShowPop = null;
         _this.soundClick = null;
@@ -59,6 +60,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.listSoundHero = [];
         _this.listSoundMonster = [];
         _this.endCard = null;
+        _this.countDown = null;
         _this.arrPosCus = [];
         _this.arrCus = [];
         _this.arrCrunch = [];
@@ -179,8 +181,8 @@ var NewClass = /** @class */ (function (_super) {
         this.isEndgame = true;
         if (value) {
             this.winNode.active = true;
-            this.phaohoa.active =
-                cc.audioEngine.play(this.soundWin, false, 1);
+            this.phaohoa.active = true;
+            cc.audioEngine.play(this.soundWin, false, 1);
         }
         else {
             this.loseNode.active = true;
@@ -190,6 +192,13 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.update = function (dt) {
         // if (this.isSpeedUp) return;
+        var deviceResolution = cc.view.getFrameSize();
+        if (deviceResolution.width < deviceResolution.height) {
+            this.reponsive(true);
+        }
+        else {
+            this.reponsive(false);
+        }
         var isHeroWinning = globalThis.youRep > globalThis.monsterRep;
         // không đổi trạng thái thì bỏ qua
         if (this.isHeroLead == isHeroWinning)
@@ -199,13 +208,11 @@ var NewClass = /** @class */ (function (_super) {
             this.crowHero.active = true;
             this.crowMonster.active = false;
             this.heroAnim.play();
-            console.log("crow Hero");
         }
         else {
             this.crowHero.active = false;
             this.crowMonster.active = true;
             this.monsterAnim.play();
-            console.log("crow Monster");
         }
     };
     NewClass.prototype.reponsive = function (logic) {
@@ -214,12 +221,23 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, 0);
-        // this.npc.scale = (logic) ? 1.7 : 1
-        // this.npc.y = (logic) ? -700 : 0
-        this.endCard.scale = (logic) ? 1.5 : 0.7;
+        // this.endCard.scale = (logic) ? 1.5 : 0.7
         this.logo.scale = (logic) ? 1.5 : 1;
-        this.logo.getComponent(cc.Widget).top = 48;
-        // this.barCoin.y=(logic)?400:470
+        this.bg.position = (logic) ? cc.v3(0, -200) : cc.v3(0, 0);
+        this.bg.scale = (logic) ? 1.3 : 1;
+        this.phaohoa.scale = (logic) ? 7 : 3;
+        this.btnBeat.scale = (logic) ? 1.6 : 1;
+        this.btnBeat.getComponent(cc.Widget).bottom = (logic) ? 350 : 47;
+        this.loseNode.scale = (logic) ? 1.4 : 0.7;
+        this.winNode.scale = (logic) ? 1.4 : 0.7;
+        this.countDown.scale = (logic) ? 1.4 : 1;
+        this.you.x = (logic) ? -280 : -350;
+        this.monster.x = (logic) ? 280 : 350;
+        this.avtYou.x = (logic) ? -280 : -470;
+        this.avtMonster.x = (logic) ? 280 : 470;
+        this.avtMonster.y = (logic) ? 350 : 280;
+        this.avtYou.y = (logic) ? 350 : 280;
+        this.btnBeat.y = (logic) ? -1200 : -422;
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
@@ -231,9 +249,8 @@ var NewClass = /** @class */ (function (_super) {
             var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
-            this.camera.zoomRatio = 1.7;
-            this.camera.node.position = cc.v3(150, 0);
-            this.phaohoa.scale = (logic) ? 7 : 3;
+            this.camera.zoomRatio = 1.8;
+            this.camera.node.position = cc.v3(0, 0);
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
                 this.logo.getComponent(cc.Widget).top = 48 + 30;
@@ -265,6 +282,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "npc", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "bg", void 0);
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundBG", void 0);
@@ -346,6 +366,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "endCard", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "countDown", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
