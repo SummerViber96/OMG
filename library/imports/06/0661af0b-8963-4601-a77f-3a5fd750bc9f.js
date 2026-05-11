@@ -233,8 +233,8 @@ var NewClass = /** @class */ (function (_super) {
         this.countDown.scale = (logic) ? 1.4 : 1;
         this.you.x = (logic) ? -280 : -350;
         this.monster.x = (logic) ? 280 : 350;
-        this.avtYou.x = (logic) ? -280 : -470;
-        this.avtMonster.x = (logic) ? 280 : 470;
+        this.avtYou.x = (logic) ? -280 : -490;
+        this.avtMonster.x = (logic) ? 280 : 490;
         this.avtMonster.y = (logic) ? 350 : 280;
         this.avtYou.y = (logic) ? 350 : 280;
         this.btnBeat.y = (logic) ? -1200 : -422;
@@ -256,7 +256,10 @@ var NewClass = /** @class */ (function (_super) {
                 this.logo.getComponent(cc.Widget).top = 48 + 30;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.4;
+                this.camera.zoomRatio = 1.6;
+                this.btnBeat.y = -950;
+                this.avtMonster.y = 240;
+                this.avtYou.y = 240;
             }
         }
         else {
@@ -272,7 +275,7 @@ var NewClass = /** @class */ (function (_super) {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.8;
+                // this.camera.zoomRatio = 0.8
             }
         }
     };
