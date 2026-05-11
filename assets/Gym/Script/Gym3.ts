@@ -5,10 +5,10 @@ globalThis.gold = 100
 export default class NewClass extends cc.Component {
     @property(cc.Camera)
     camera: cc.Camera = null;
+    // @property(cc.Node)
+    // npc: cc.Node = null
     @property(cc.Node)
-    npc: cc.Node = null
-    @property(cc.Node)
-    bg:cc.Node=null
+    bg: cc.Node = null
 
     @property(cc.AudioClip)
     soundBG: cc.AudioClip = null;
@@ -67,7 +67,7 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     endCard: cc.Node = null
     @property(cc.Node)
-    countDown:cc.Node=null
+    countDown: cc.Node = null
     arrPosCus = []
     arrCus = []
     arrCrunch = []
@@ -82,7 +82,7 @@ export default class NewClass extends cc.Component {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        cc.audioEngine.play(this.soundBG, true, 0.5)
+        cc.audioEngine.play(this.soundBG, true, 0.4)
         this.heroAnim = this.crowHero.getComponent(cc.Animation);
         this.monsterAnim = this.crowMonster.getComponent(cc.Animation);
 
@@ -106,7 +106,7 @@ export default class NewClass extends cc.Component {
         // let rd = Math.floor(Math.random() * 1)
         this.countHit++
         if (this.countHit == this.rdNext) {
-            this.countHit=0
+            this.countHit = 0
             this.rdNext = Math.floor(Math.random() * 2) + 4
             cc.audioEngine.play(this.listSoundHero[this.countSoundHero], false, 1)
             this.countSoundHero++
@@ -197,8 +197,8 @@ export default class NewClass extends cc.Component {
         this.isEndgame = true
         if (value) {
             this.winNode.active = true
-            this.phaohoa.active =true
-                cc.audioEngine.play(this.soundWin, false, 1)
+            this.phaohoa.active = true
+            cc.audioEngine.play(this.soundWin, false, 1)
         }
         else {
             this.loseNode.active = true
@@ -213,7 +213,7 @@ export default class NewClass extends cc.Component {
         let deviceResolution = cc.view.getFrameSize();
         if (deviceResolution.width < deviceResolution.height) {
             this.reponsive(true);
-            
+
         }
         else {
             this.reponsive(false);
@@ -236,7 +236,7 @@ export default class NewClass extends cc.Component {
             this.monsterAnim.play();
 
         }
-     
+
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
@@ -247,24 +247,25 @@ export default class NewClass extends cc.Component {
 
 
         this.camera.node.position = cc.v3(0, 0)
-     
+
         // this.endCard.scale = (logic) ? 1.5 : 0.7
         this.logo.scale = (logic) ? 1.5 : 1
-        this.bg.position=(logic)?cc.v3(0,-200):cc.v3(0,0)
-this.bg.scale=(logic)?1.3:1
-this.phaohoa.scale = (logic) ? 7 : 3;
-this.btnBeat.scale=(logic)?1.6:1
-this.btnBeat.getComponent(cc.Widget).bottom=(logic)?350:47;
-this.loseNode.scale=(logic)?1.4:0.7;
-this.winNode.scale=(logic)?1.4:0.7;
-this.countDown.scale=(logic)?1.4:1;
-this.you.x= (logic)?-280:-350;
-this.monster.x=(logic)?280:350;
-this.avtYou.x=(logic)?-280:-490;
-this.avtMonster.x=(logic)?280:490;
-this.avtMonster.y=(logic)?350:280;
-this.avtYou.y=(logic)?350:280
-this.btnBeat.y=(logic)?-1200:-422
+        this.logo.getComponent(cc.Widget).top = 18.04
+        this.bg.position = (logic) ? cc.v3(0, -200) : cc.v3(0, 0)
+        this.bg.scale = (logic) ? 1.3 : 1
+        this.phaohoa.scale = (logic) ? 7 : 3;
+        this.btnBeat.scale = (logic) ? 1.6 : 1
+        this.btnBeat.getComponent(cc.Widget).bottom = (logic) ? 350 : 47;
+        this.loseNode.scale = (logic) ? 1.4 : 0.7;
+        this.winNode.scale = (logic) ? 1.4 : 0.7;
+        this.countDown.scale = (logic) ? 1.4 : 1;
+        this.you.x = (logic) ? -280 : -350;
+        this.monster.x = (logic) ? 280 : 350;
+        this.avtYou.x = (logic) ? -280 : -490;
+        this.avtMonster.x = (logic) ? 280 : 490;
+        this.avtMonster.y = (logic) ? 350 : 280;
+        this.avtYou.y = (logic) ? 350 : 280
+        this.btnBeat.y = (logic) ? -1200 : -422
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
@@ -281,16 +282,23 @@ this.btnBeat.y=(logic)?-1200:-422
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
             this.camera.zoomRatio = 1.8
             this.camera.node.position = cc.v3(0, 0)
-           
+            this.logo.getComponent(cc.Widget).top = 100
+
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                // console.log("check iphonex")
-                this.logo.getComponent(cc.Widget).top = 48 + 30
+                // console.log("check iphonex")'
+                this.logo.getComponent(cc.Widget).top = 300
+
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.6
-this.btnBeat.y=-950
-this.avtMonster.y=240;
-this.avtYou.y=240
+                this.btnBeat.y = -950
+                this.avtMonster.y = 240;
+                this.avtYou.y = 240
+                this.logo.getComponent(cc.Widget).top = 15
+
+            }
+            else {
+
             }
         }
         else {
@@ -311,6 +319,7 @@ this.avtYou.y=240
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 // this.camera.zoomRatio = 0.8
+                this.btnBeat.scale = 0.8
             }
         }
 

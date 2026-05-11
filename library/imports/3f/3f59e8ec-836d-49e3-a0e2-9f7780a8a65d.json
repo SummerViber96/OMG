@@ -116,7 +116,7 @@
       }
     }
   },
-  "_atlasText": "\nFireplace_Lv1.png\nsize: 2048,2048\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n1A\n  rotate: false\n  xy: 2, 582\n  size: 578, 578\n  orig: 578, 578\n  offset: 0, 0\n  index: -1\n1B\n  rotate: false\n  xy: 2, 2\n  size: 578, 578\n  orig: 578, 578\n  offset: 0, 0\n  index: -1\n",
+  "_atlasText": "\r\nFireplace_Lv1.png\r\nsize: 2048,2048\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\n1A\r\n  rotate: false\r\n  xy: 2, 582\r\n  size: 578, 578\r\n  orig: 578, 578\r\n  offset: 0, 0\r\n  index: -1\r\n1B\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 578, 578\r\n  orig: 578, 578\r\n  offset: 0, 0\r\n  index: -1\r\n",
   "textures": [
     {
       "__uuid__": "928dea52-00fe-48c9-bed1-2ea43c446ebf"

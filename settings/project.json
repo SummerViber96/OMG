@@ -19,6 +19,7 @@
     "Graphics",
     "Geom Utils",
     "Intersection",
+    "Layout",
     "Mask",
     "Mesh",
     "MotionStreak",

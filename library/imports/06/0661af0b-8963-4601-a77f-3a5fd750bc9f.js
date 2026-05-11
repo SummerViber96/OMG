@@ -30,7 +30,8 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.camera = null;
-        _this.npc = null;
+        // @property(cc.Node)
+        // npc: cc.Node = null
         _this.bg = null;
         _this.soundBG = null;
         _this.soundShowPop = null;
@@ -84,7 +85,7 @@ var NewClass = /** @class */ (function (_super) {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        cc.audioEngine.play(this.soundBG, true, 0.5);
+        cc.audioEngine.play(this.soundBG, true, 0.4);
         this.heroAnim = this.crowHero.getComponent(cc.Animation);
         this.monsterAnim = this.crowMonster.getComponent(cc.Animation);
     };
@@ -223,6 +224,7 @@ var NewClass = /** @class */ (function (_super) {
         this.camera.node.position = cc.v3(0, 0);
         // this.endCard.scale = (logic) ? 1.5 : 0.7
         this.logo.scale = (logic) ? 1.5 : 1;
+        this.logo.getComponent(cc.Widget).top = 18.04;
         this.bg.position = (logic) ? cc.v3(0, -200) : cc.v3(0, 0);
         this.bg.scale = (logic) ? 1.3 : 1;
         this.phaohoa.scale = (logic) ? 7 : 3;
@@ -251,15 +253,19 @@ var NewClass = /** @class */ (function (_super) {
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             this.camera.zoomRatio = 1.8;
             this.camera.node.position = cc.v3(0, 0);
+            this.logo.getComponent(cc.Widget).top = 100;
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                // console.log("check iphonex")
-                this.logo.getComponent(cc.Widget).top = 48 + 30;
+                // console.log("check iphonex")'
+                this.logo.getComponent(cc.Widget).top = 300;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.6;
                 this.btnBeat.y = -950;
                 this.avtMonster.y = 240;
                 this.avtYou.y = 240;
+                this.logo.getComponent(cc.Widget).top = 15;
+            }
+            else {
             }
         }
         else {
@@ -276,15 +282,13 @@ var NewClass = /** @class */ (function (_super) {
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 // this.camera.zoomRatio = 0.8
+                this.btnBeat.scale = 0.8;
             }
         }
     };
     __decorate([
         property(cc.Camera)
     ], NewClass.prototype, "camera", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "npc", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "bg", void 0);
