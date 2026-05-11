@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1778505149775,
-    "meta": 1778505238632,
+    "meta": 1778511071248,
     "relativePath": "APP/skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2631,7 +2631,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1778505163586,
-    "meta": 1778505238784,
+    "meta": 1778511071249,
     "relativePath": "cooking/spine/Hotdog2/Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -12839,31 +12839,6 @@
     "meta": 1778505227368,
     "relativePath": "Gym/Gym3/Blue_Bar_Filled copy.png"
   },
-  "77100712-0385-4ca2-8219-b224ce225404": {
-    "asset": 1778505163175,
-    "meta": 1778505227575,
-    "relativePath": "Gym/Gym3/Try_Again_button.png"
-  },
-  "ba1b75ea-20bf-4e65-9fca-748530777537": {
-    "asset": 1778505163174,
-    "meta": 1778505227574,
-    "relativePath": "Gym/Gym3/The_Beast_Profile.png"
-  },
-  "bcaaf9a0-3783-47c7-bc48-a7459cd1d832": {
-    "asset": 1778505163181,
-    "meta": 1778505227604,
-    "relativePath": "Gym/Gym3/You_Profile.png"
-  },
-  "0886f5bf-a955-4e76-9b95-1633379668a4": {
-    "asset": 1778505163171,
-    "meta": 1778505227556,
-    "relativePath": "Gym/Gym3/Play-Now.png"
-  },
-  "6b8c57bd-3287-4d6c-96ec-67f3170773c8": {
-    "asset": 1778505163171,
-    "meta": 1778505227545,
-    "relativePath": "Gym/Gym3/Push-Up-challenge (1).png"
-  },
   "36a1d673-3cd3-495a-87f7-e17ec65376a0": {
     "asset": 1778505163158,
     "meta": 1778505227304,
@@ -12873,16 +12848,6 @@
     "asset": 1778505163149,
     "meta": 1778505227248,
     "relativePath": "Gym/Gym3/Background (2).jpg"
-  },
-  "31b7c88e-5897-4063-ad18-cd1b196eda30": {
-    "asset": 1778505163169,
-    "meta": 1778505227431,
-    "relativePath": "Gym/Gym3/Fail Popup.png"
-  },
-  "9e01a26a-fffb-428e-b5f2-9c42b616a84a": {
-    "asset": 1778505163180,
-    "meta": 1778505227623,
-    "relativePath": "Gym/Gym3/Win and Fail Popup.png"
   },
   "40dbcd50-ae71-48fb-8e11-eaeadf54f32a": {
     "asset": 1778505163188,
@@ -13199,16 +13164,6 @@
     "meta": 1778505228458,
     "relativePath": "Gym/sound/Men_Breathing.mp3"
   },
-  "4d9019c5-5a24-4156-8a53-7c67e61e0a3e": {
-    "asset": 1778505163172,
-    "meta": 1778505227561,
-    "relativePath": "Gym/Gym3/Tap_Fast.webp"
-  },
-  "a60873d7-798d-4fb8-98bf-e28e26985a90": {
-    "asset": 1778505163164,
-    "meta": 1778505227378,
-    "relativePath": "Gym/Gym3/Crown.webp"
-  },
   "15139983-8d20-4de3-8846-acc753a7e28b": {
     "asset": 1778505163182,
     "meta": 1778505227389,
@@ -13238,16 +13193,6 @@
     "asset": 1778505163381,
     "meta": 1778505228455,
     "relativePath": "Gym/sound/Men_Breathing (mp3cut.net).mp3"
-  },
-  "3e9de6fe-72fe-4c5e-b39a-684bf2f84c8a": {
-    "asset": 1778505163160,
-    "meta": 1778505227335,
-    "relativePath": "Gym/Gym3/Beat-Him_Button.png"
-  },
-  "158f77f4-7c9a-4659-ade3-f38edf218914": {
-    "asset": 1778505163163,
-    "meta": 1778505227356,
-    "relativePath": "Gym/Gym3/Beat-Him_ButtonRed.png"
   },
   "cb446a41-aa13-4e02-b4e4-d45567711f2a": {
     "asset": 1778505163150,
@@ -13790,8 +13735,73 @@
     "relativePath": "scenes/Gym3.fire"
   },
   "0661af0b-8963-4601-a77f-3a5fd750bc9f": {
-    "asset": 1778509841885,
-    "meta": 1778509844815,
+    "asset": 1778509924530,
+    "meta": 1778510973482,
     "relativePath": "Gym/Script/Gym3.ts"
+  },
+  "a60873d7-798d-4fb8-98bf-e28e26985a90": {
+    "asset": 1778486192000,
+    "meta": 1778511688094,
+    "relativePath": "Gym/Gym3/Crown.webp"
+  },
+  "31b7c88e-5897-4063-ad18-cd1b196eda30": {
+    "asset": 1778486192000,
+    "meta": 1778511688101,
+    "relativePath": "Gym/Gym3/Fail Popup.png"
+  },
+  "6b8c57bd-3287-4d6c-96ec-67f3170773c8": {
+    "asset": 1778486192000,
+    "meta": 1778511688106,
+    "relativePath": "Gym/Gym3/Push-Up-challenge (1).png"
+  },
+  "0886f5bf-a955-4e76-9b95-1633379668a4": {
+    "asset": 1778486192000,
+    "meta": 1778511688109,
+    "relativePath": "Gym/Gym3/Play-Now.png"
+  },
+  "4d9019c5-5a24-4156-8a53-7c67e61e0a3e": {
+    "asset": 1778486192000,
+    "meta": 1778511688116,
+    "relativePath": "Gym/Gym3/Tap_Fast.webp"
+  },
+  "ba1b75ea-20bf-4e65-9fca-748530777537": {
+    "asset": 1778486192000,
+    "meta": 1778511688116,
+    "relativePath": "Gym/Gym3/The_Beast_Profile.png"
+  },
+  "77100712-0385-4ca2-8219-b224ce225404": {
+    "asset": 1778486192000,
+    "meta": 1778511688122,
+    "relativePath": "Gym/Gym3/Try_Again_button.png"
+  },
+  "bcaaf9a0-3783-47c7-bc48-a7459cd1d832": {
+    "asset": 1778486192000,
+    "meta": 1778511688128,
+    "relativePath": "Gym/Gym3/You_Profile.png"
+  },
+  "9e01a26a-fffb-428e-b5f2-9c42b616a84a": {
+    "asset": 1778486192000,
+    "meta": 1778511688137,
+    "relativePath": "Gym/Gym3/Win and Fail Popup.png"
+  },
+  "4546bb16-8976-4979-b563-f065d80d3e92": {
+    "asset": 1778486192000,
+    "meta": 1778511688138,
+    "relativePath": "Gym/Gym3/Play-Now-2.png"
+  },
+  "ebf8b9e8-4b3b-416e-be6f-424705ab9047": {
+    "asset": 1778486192000,
+    "meta": 1778511688142,
+    "relativePath": "Gym/Gym3/Push-Up-challenge (1)-2.png"
+  },
+  "158f77f4-7c9a-4659-ade3-f38edf218914": {
+    "asset": 1778487022000,
+    "meta": 1778512265725,
+    "relativePath": "Gym/Gym3/Beat-Him_ButtonRed.png"
+  },
+  "3e9de6fe-72fe-4c5e-b39a-684bf2f84c8a": {
+    "asset": 1778487022000,
+    "meta": 1778512265725,
+    "relativePath": "Gym/Gym3/Beat-Him_Button.png"
   }
 }

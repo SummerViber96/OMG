@@ -1,22 +1,22 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "Beat-Him_Button",
-    "texture": "3e9de6fe-72fe-4c5e-b39a-684bf2f84c8a",
+    "name": "Play-Now-2",
+    "texture": "4546bb16-8976-4979-b563-f065d80d3e92",
     "atlas": "",
     "rect": [
-      1,
-      14,
-      591,
-      138
+      51,
+      35,
+      1334,
+      345
     ],
     "offset": [
-      0,
-      -1.5
+      10,
+      -4
     ],
     "originalSize": [
-      593,
-      163
+      1416,
+      407
     ],
     "capInsets": [
       0,
