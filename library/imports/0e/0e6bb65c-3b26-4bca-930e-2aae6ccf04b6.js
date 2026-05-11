@@ -34,6 +34,10 @@ var NewClass = /** @class */ (function (_super) {
         // label hiển thị %
         _this.percentLabel = null;
         _this.fill = null;
+        _this.listSoundMonster = [];
+        _this.countHit = 6;
+        _this.rdNext = 7;
+        _this.countSoundHero = 0;
         _this.rep = 0;
         _this.isMonster = false;
         _this.gamePLay = null;
@@ -49,6 +53,18 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.hit = function () {
         if (this.gamePLay.isEndgame)
             return;
+        if (this.isMonster) {
+            this.countHit++;
+            if (this.countHit == this.rdNext) {
+                this.countHit = 0;
+                this.rdNext = Math.floor(Math.random() * 2) + 6;
+                cc.audioEngine.play(this.listSoundMonster[this.countSoundHero], false, 1);
+                this.countSoundHero++;
+                if (this.countSoundHero >= this.listSoundMonster.length) {
+                    this.countSoundHero = 0;
+                }
+            }
+        }
         this.rep++;
         if (this.rep == 50) {
             this.gamePLay.to50rep();
@@ -133,6 +149,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Sprite)
     ], NewClass.prototype, "fill", void 0);
+    __decorate([
+        property([cc.AudioClip])
+    ], NewClass.prototype, "listSoundMonster", void 0);
     __decorate([
         property(cc.Boolean)
     ], NewClass.prototype, "isMonster", void 0);

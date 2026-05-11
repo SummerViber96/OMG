@@ -58,6 +58,12 @@ export default class NewClass extends cc.Component {
     crowHero: cc.Node = null;
     @property(cc.Node)
     crowMonster: cc.Node = null
+    @property([cc.AudioClip])
+    listSoundHero: cc.AudioClip[] = []
+    @property([cc.AudioClip])
+    listSoundMonster: cc.AudioClip[] = []
+    @property(cc.Node)
+    endCard: cc.Node = null
     arrPosCus = []
     arrCus = []
     arrCrunch = []
@@ -80,6 +86,9 @@ export default class NewClass extends cc.Component {
     isFirst = false
     isDelay = false
     delayTime = 0.15
+    countHit = 3
+    rdNext = 4
+    countSoundHero = 0
     btn_YouHit() {
         if (this.isDelay) return;
         this.isDelay = true
@@ -87,12 +96,27 @@ export default class NewClass extends cc.Component {
             this.isDelay = false
 
         }, this.delayTime)
-        cc.audioEngine.play(this.soundPut, false, 1)
+        cc.audioEngine.play(this.soundConfirm, false, 1)
+
+        // cc.audioEngine.play(this.soundPut, false, 1)
+        // let rd = Math.floor(Math.random() * 1)
+        this.countHit++
+        if (this.countHit == this.rdNext) {
+            this.countHit=0
+            this.rdNext = Math.floor(Math.random() * 2) + 4
+            cc.audioEngine.play(this.listSoundHero[this.countSoundHero], false, 1)
+            this.countSoundHero++
+            if (this.countSoundHero >= this.listSoundHero.length) {
+                this.countSoundHero = 0
+            }
+        }
+
         this.pop.active = false
         this.you.getComponent(cc.Animation).play()
         if (this.isFirst == false) {
             // this.texTnoti.node.parent.active = true
             this.isFirst = true
+            this.btnBeat.getChildByName("hand").active = false
         }
 
     }
@@ -149,8 +173,8 @@ export default class NewClass extends cc.Component {
         this.schedule(this.monsterHit, 0.4);
         this.avtMonster.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
         this.avtYou.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow
-        this.avtMonster.getComponent("rep").upgradeMonster()
-        this.avtYou.getComponent("rep").upgradeMonster()
+        this.monster.getComponent("rep").upgradeMonster()
+        this.you.getComponent("rep").upgradeMonster()
         this.delayTime = 0.1
     }
     startGame() {

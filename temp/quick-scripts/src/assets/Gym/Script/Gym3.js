@@ -56,6 +56,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.textHalf = null;
         _this.crowHero = null;
         _this.crowMonster = null;
+        _this.listSoundHero = [];
+        _this.listSoundMonster = [];
+        _this.endCard = null;
         _this.arrPosCus = [];
         _this.arrCus = [];
         _this.arrCrunch = [];
@@ -68,6 +71,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.isFirst = false;
         _this.isDelay = false;
         _this.delayTime = 0.15;
+        _this.countHit = 3;
+        _this.rdNext = 4;
+        _this.countSoundHero = 0;
         _this.arr50rep = 0;
         _this.isSpeedUp = false;
         return _this;
@@ -88,12 +94,25 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.isDelay = false;
         }, this.delayTime);
-        cc.audioEngine.play(this.soundPut, false, 1);
+        cc.audioEngine.play(this.soundConfirm, false, 1);
+        // cc.audioEngine.play(this.soundPut, false, 1)
+        // let rd = Math.floor(Math.random() * 1)
+        this.countHit++;
+        if (this.countHit == this.rdNext) {
+            this.countHit = 0;
+            this.rdNext = Math.floor(Math.random() * 2) + 4;
+            cc.audioEngine.play(this.listSoundHero[this.countSoundHero], false, 1);
+            this.countSoundHero++;
+            if (this.countSoundHero >= this.listSoundHero.length) {
+                this.countSoundHero = 0;
+            }
+        }
         this.pop.active = false;
         this.you.getComponent(cc.Animation).play();
         if (this.isFirst == false) {
             // this.texTnoti.node.parent.active = true
             this.isFirst = true;
+            this.btnBeat.getChildByName("hand").active = false;
         }
     };
     NewClass.prototype.monsterHit = function () {
@@ -140,8 +159,8 @@ var NewClass = /** @class */ (function (_super) {
         this.schedule(this.monsterHit, 0.4);
         this.avtMonster.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
         this.avtYou.getChildByName("fill").getComponent(cc.Sprite).spriteFrame = this.fillYellow;
-        this.avtMonster.getComponent("rep").upgradeMonster();
-        this.avtYou.getComponent("rep").upgradeMonster();
+        this.monster.getComponent("rep").upgradeMonster();
+        this.you.getComponent("rep").upgradeMonster();
         this.delayTime = 0.1;
     };
     NewClass.prototype.startGame = function () {
@@ -318,6 +337,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "crowMonster", void 0);
+    __decorate([
+        property([cc.AudioClip])
+    ], NewClass.prototype, "listSoundHero", void 0);
+    __decorate([
+        property([cc.AudioClip])
+    ], NewClass.prototype, "listSoundMonster", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "endCard", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

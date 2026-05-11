@@ -15,7 +15,11 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Sprite)
     fill: cc.Sprite = null
-
+    @property([cc.AudioClip])
+    listSoundMonster: cc.AudioClip[] = []
+    countHit = 6
+    rdNext = 7
+    countSoundHero = 0
     rep = 0
 
     @property(cc.Boolean)
@@ -35,8 +39,19 @@ export default class NewClass extends cc.Component {
     hit() {
         if (this.gamePLay.isEndgame) return;
 
+        if (this.isMonster) {
+            this.countHit++
+            if (this.countHit == this.rdNext) {
+                this.countHit = 0
+                this.rdNext = Math.floor(Math.random() * 2) + 6
+                cc.audioEngine.play(this.listSoundMonster[this.countSoundHero], false, 1)
+                this.countSoundHero++
+                if (this.countSoundHero >= this.listSoundMonster.length) {
+                    this.countSoundHero = 0
+                }
+            }
+        }
         this.rep++;
-
         if (this.rep == 50) {
             this.gamePLay.to50rep()
         }

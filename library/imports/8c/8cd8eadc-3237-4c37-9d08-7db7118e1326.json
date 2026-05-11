@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Beat-Him_ButtonRed",
+    "texture": "158f77f4-7c9a-4659-ade3-f38edf218914",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1185,
+      325
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1185,
+      325
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
