@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Fryer_03",
+    "texture": "d806b66f-4668-4e4c-8d5a-2b8f94b38f00",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      420,
+      616
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      420,
+      616
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

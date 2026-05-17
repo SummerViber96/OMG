@@ -64,8 +64,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.listKhaySub = null;
         _this.listhand = null;
         _this.btnDau = null;
-        // @property(cc.Camera)
-        // camera:cc.Camera=null
+        //isLockVegettable
+        _this.preChicken = null;
+        _this.listRo = [];
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
         _this.arrDonut = [null, null, null, null, null, null, null];
@@ -75,8 +76,6 @@ var NewClass = /** @class */ (function (_super) {
         _this.isTutMeat = false;
         _this.isTutVegetTable = false;
         _this.isTutClickMeat = false;
-        // @property(cc.AudioClip)
-        // soundBg:cc.AudioClip=null;
         _this.isTargetPop = null;
         _this.isStep = 0;
         _this.isTargetCus = null;
@@ -540,6 +539,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnDau", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "preChicken", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listRo", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

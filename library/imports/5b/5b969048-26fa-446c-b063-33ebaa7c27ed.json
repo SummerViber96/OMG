@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Raw chicken",
+    "texture": "e289db70-3cc5-45be-a130-c33cf88b0fce",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      994,
+      1017
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      994,
+      1017
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

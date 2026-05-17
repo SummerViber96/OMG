@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Hot Sauce",
+    "texture": "c6e82c9f-9501-41f6-a025-0b0f0e38fb32",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1024,
+      1534
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

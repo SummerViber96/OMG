@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Fryer_03_Overlap",
+    "texture": "0c625498-b93f-4f03-92a3-c5ace943ab94",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      303,
+      63
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      303,
+      63
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

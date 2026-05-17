@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "1a40e7da-b54b-4403-b1f0-cd8dc6498df5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 205,
+  "height": 252,
+  "platformSettings": {},
+  "subMetas": {
+    "Chicken Bucket": {
+      "ver": "1.0.4",
+      "uuid": "c5bbc1b9-2fc6-4abd-b9fe-5b8ebb41d346",
+      "rawTextureUuid": "1a40e7da-b54b-4403-b1f0-cd8dc6498df5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 205,
+      "height": 252,
+      "rawWidth": 205,
+      "rawHeight": 252,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

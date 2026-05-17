@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "f179117c-23ca-4607-95bd-e12a174ceba8",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1920,
+  "height": 1920,
+  "platformSettings": {},
+  "subMetas": {
+    "Oil_01_00006": {
+      "ver": "1.0.4",
+      "uuid": "39054a97-1f20-4243-a422-e479c036eb7b",
+      "rawTextureUuid": "f179117c-23ca-4607-95bd-e12a174ceba8",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1920,
+      "height": 1920,
+      "rawWidth": 1920,
+      "rawHeight": 1920,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "ee59e45a-d05b-45c2-a6f4-19bfd8dd9209",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 302,
+  "height": 60,
+  "platformSettings": {},
+  "subMetas": {
+    "Fryer_01_overlap": {
+      "ver": "1.0.4",
+      "uuid": "3925ed72-d8a3-435f-b8e9-0071b5a838f4",
+      "rawTextureUuid": "ee59e45a-d05b-45c2-a6f4-19bfd8dd9209",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 302,
+      "height": 60,
+      "rawWidth": 302,
+      "rawHeight": 60,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

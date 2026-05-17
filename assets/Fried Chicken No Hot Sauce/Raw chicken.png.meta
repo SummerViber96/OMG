@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "e289db70-3cc5-45be-a130-c33cf88b0fce",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 994,
+  "height": 1017,
+  "platformSettings": {},
+  "subMetas": {
+    "Raw chicken": {
+      "ver": "1.0.4",
+      "uuid": "5b969048-26fa-446c-b063-33ebaa7c27ed",
+      "rawTextureUuid": "e289db70-3cc5-45be-a130-c33cf88b0fce",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 994,
+      "height": 1017,
+      "rawWidth": 994,
+      "rawHeight": 1017,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

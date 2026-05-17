@@ -53,15 +53,11 @@ var NewClass = /** @class */ (function (_super) {
             _this.isReady = true;
             // this.node.getComponent(cc.Button).enabled = true
             _this.node.children[0].active = false;
+            _this.node.children[1].active = true;
         }).start();
     };
     NewClass.prototype.onTouch = function (event) {
         var worldPos = event.getLocation();
-        var worldPos2 = this.gamePlay.camera.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
-        // if (this.gamePlay.camera.node.active == true) {
-        //     worldPos2 = this..getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
-        // }
-        // this.checkCut(worldPos2);
         this.tryAction(event);
     };
     NewClass.prototype.tryAction = function (event) {
@@ -72,7 +68,6 @@ var NewClass = /** @class */ (function (_super) {
         // touch position (WORLD)
         var touchPos = event.getLocation();
         // convert WORLD → LOCAL của parent
-        // const localPos = this.node.parent.convertToNodeSpaceAR(touchPos);
         var worldPos = event.getLocation();
         var localPos = this.gamePlay.camera.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
         localPos = this.node.parent.convertToNodeSpaceAR(localPos);

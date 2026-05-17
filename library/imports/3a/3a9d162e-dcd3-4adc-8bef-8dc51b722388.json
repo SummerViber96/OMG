@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "CookingChaosLogo",
+    "texture": "47161895-8199-4b13-94a8-00fc16b595af",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      717,
+      608
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      720,
+      608
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

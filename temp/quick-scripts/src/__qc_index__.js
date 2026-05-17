@@ -1,4 +1,5 @@
 
+require('./assets/Fried Chicken No Hot Sauce/scripts/chicken');
 require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');
 require('./assets/HF/touch');

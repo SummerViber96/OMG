@@ -19,7 +19,7 @@ export default class NewClass extends cc.Component {
     isReady = false;
     value = 0
     start() {
-                this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
 
         this.gamePlay.node.on(cc.Node.EventType.TOUCH_START, this.onTouch, this);
         this.gamePlay.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouch, this);
@@ -29,15 +29,13 @@ export default class NewClass extends cc.Component {
             this.isReady = true
             // this.node.getComponent(cc.Button).enabled = true
             this.node.children[0].active = false
+            this.node.children[1].active = true
+
         }).start()
     }
     onTouch(event: cc.Event.EventTouch) {
         let worldPos = event.getLocation();
-        let worldPos2 = this.gamePlay.camera.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
-        // if (this.gamePlay.camera.node.active == true) {
-        //     worldPos2 = this..getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
-        // }
-        // this.checkCut(worldPos2);
+
         this.tryAction(event)
     }
     isTouching = false
@@ -49,10 +47,9 @@ export default class NewClass extends cc.Component {
         const touchPos = event.getLocation();
 
         // convert WORLD → LOCAL của parent
-        // const localPos = this.node.parent.convertToNodeSpaceAR(touchPos);
         let worldPos = event.getLocation();
         let localPos = this.gamePlay.camera.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
-        localPos=this.node.parent.convertToNodeSpaceAR(localPos);
+        localPos = this.node.parent.convertToNodeSpaceAR(localPos);
         // rect của node trong parent space
         const rect = this.node.getBoundingBox();
 
@@ -78,7 +75,7 @@ export default class NewClass extends cc.Component {
             // this.node.getComponent(cc.Button).enabled=false
             this.gamePlay.sellDonut(this.value, this.node)
         }
-        
+
     }
     checkNhan() {
     }

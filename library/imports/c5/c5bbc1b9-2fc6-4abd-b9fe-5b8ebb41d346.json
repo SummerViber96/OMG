@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Chicken Bucket",
+    "texture": "1a40e7da-b54b-4403-b1f0-cd8dc6498df5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      205,
+      252
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      205,
+      252
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

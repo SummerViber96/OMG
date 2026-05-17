@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Try_Now",
+    "texture": "b7158d5d-9af9-48f6-bd13-76d9337bda12",
+    "atlas": "",
+    "rect": [
+      13,
+      51,
+      669,
+      193
+    ],
+    "offset": [
+      0,
+      -3
+    ],
+    "originalSize": [
+      695,
+      289
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

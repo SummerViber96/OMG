@@ -75,8 +75,17 @@ export default class NewClass extends cc.Component {
     listhand: cc.Node = null
     @property(cc.Node)
     btnDau: cc.Node = null;
-    // @property(cc.Camera)
-    // camera:cc.Camera=null
+
+    //isLockVegettable
+    @property(cc.Prefab)
+    preChicken: cc.Prefab = null;
+    @property(cc.Node)
+    listRo: cc.Node[] = [];
+
+
+
+
+
 
     maxKhay = 7
 
@@ -88,8 +97,7 @@ export default class NewClass extends cc.Component {
     isTutMeat = false
     isTutVegetTable = false
     isTutClickMeat = false
-    // @property(cc.AudioClip)
-    // soundBg:cc.AudioClip=null;
+
 
     isTargetPop = null;
     isStep = 0
@@ -233,10 +241,10 @@ export default class NewClass extends cc.Component {
             donut.children[0].active = false
             donut.getComponent(cc.Animation).play("donut_idle")
         }, 1)
-        this.scheduleOnce(()=>{
+        this.scheduleOnce(() => {
             this.listhand.children[0].active = false;
 
-        },1)
+        }, 1)
         this.scheduleOnce(() => {
 
             if (this.isClickDonutChin == false) {
@@ -270,7 +278,7 @@ export default class NewClass extends cc.Component {
             return;
         }
         node.getComponent("donut").isStep = 1
-                    this.listhand.children[0].active = false;
+        this.listhand.children[0].active = false;
 
         this.isClickDonutChin = true
         this.listhand.children[1].active = false

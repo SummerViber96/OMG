@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "oil-wave",
+    "texture": "e75c499c-c5f3-4c76-bb36-14f6ac0e3e50",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      323,
+      427
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      323,
+      427
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
