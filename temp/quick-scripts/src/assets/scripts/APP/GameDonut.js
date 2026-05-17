@@ -66,7 +66,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.btnDau = null;
         //isLockVegettable
         _this.preChicken = null;
+        _this.listKhayTren = null;
         _this.listRo = [];
+        _this.listPosRo = [cc.v3(-300, -275), cc.v3(8, -278), cc.v3(310, -275)];
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
         _this.arrDonut = [null, null, null, null, null, null, null];
@@ -100,25 +102,80 @@ var NewClass = /** @class */ (function (_super) {
         this.showCus();
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
         this.idSound = cc.audioEngine.play(this.soundChien, true, 0.5);
-        this.scheduleOnce(function () {
-            cc.audioEngine.play(_this.soundTrans, false, 1);
-            var _loop_1 = function (i) {
-                var child = _this.btnDonut.children[i];
-                var localPos = child.position;
-                _this.scheduleOnce(function () {
-                    child.position = localPos.add(cc.v3(0, 80));
-                    cc.tween(child).to(0.17, { position: localPos, opacity: 255 }).start();
-                }, i * 0.05);
+        var _loop_1 = function (i) {
+            var ro = this_1.listRo[i];
+            var _loop_2 = function (j) {
+                this_1.scheduleOnce(function () {
+                    var ga = ro.children[j];
+                    ga.opacity = 0;
+                    ga.active = true;
+                    var localPos = ga.position;
+                    ga.position = localPos.add(cc.v3(0, 200));
+                    cc.tween(ga).to(0.1, { opacity: 255 }).start();
+                    cc.tween(ga).to(0.2, { position: localPos }).to(0.05, { scale: 1.3 }).to(0.05, { scale: 1.4 }).call(function () {
+                        if (i == _this.listRo.length - 1 && j == ro.childrenCount - 1) {
+                            _this.actionKhay();
+                        }
+                    }).start();
+                }, 0.11 * j);
             };
-            for (var i = 0; i < _this.btnDonut.childrenCount; i++) {
-                _loop_1(i);
+            for (var j = 0; j < ro.childrenCount; j++) {
+                _loop_2(j);
             }
-        }, 0.3);
-        for (var i = 0; i < this.listDonutSub.childrenCount; i++) {
-            this.arrDonutpos.push(this.listDonutSub.children[i].position);
+        };
+        var this_1 = this;
+        // this.scheduleOnce(() => {
+        //     cc.audioEngine.play(this.soundTrans, false, 1)
+        //     for (let i = 0; i < this.btnDonut.childrenCount; i++) {
+        //         let child = this.btnDonut.children[i]
+        //         let localPos = child.position
+        //         this.scheduleOnce(() => {
+        //             child.position = localPos.add(cc.v3(0, 80))
+        //             cc.tween(child).to(0.17, { position: localPos, opacity: 255 }).start()
+        //         }, i * 0.05)
+        //     }
+        // }, 0.3)
+        // for (let i = 0; i < this.listDonutSub.childrenCount; i++) {
+        //     this.arrDonutpos.push(this.listDonutSub.children[i].position);
+        // }
+        // for (let i = 0; i < this.listKhaySub.childrenCount; i++) {
+        //     this.arrKhayPos.push(this.listKhaySub.children[i].position);
+        // }
+        for (var i = 0; i < this.listRo.length; i++) {
+            _loop_1(i);
         }
-        for (var i = 0; i < this.listKhaySub.childrenCount; i++) {
-            this.arrKhayPos.push(this.listKhaySub.children[i].position);
+    };
+    NewClass.prototype.actionKhay = function () {
+        var _this = this;
+        var _loop_3 = function (i) {
+            var ro = this_2.listRo[i];
+            cc.tween(ro).to(0.3, { position: { value: this_2.listPosRo[i], easing: "sineOut" } }).call(function () {
+                if (i == _this.listRo.length - 1) {
+                    _this.actionChicken();
+                }
+            }).start();
+        };
+        var this_2 = this;
+        for (var i = 0; i < this.listRo.length; i++) {
+            _loop_3(i);
+        }
+    };
+    NewClass.prototype.actionChicken = function () {
+        var _loop_4 = function (i) {
+            var ro = this_3.listRo[i];
+            var _loop_5 = function (j) {
+                this_3.scheduleOnce(function () {
+                    var ga = ro.children[j];
+                    ga.getComponent("donut").show();
+                }, 0.11 * j);
+            };
+            for (var j = 0; j < ro.childrenCount; j++) {
+                _loop_5(j);
+            }
+        };
+        var this_3 = this;
+        for (var i = 0; i < this.listRo.length; i++) {
+            _loop_4(i);
         }
     };
     // onTouch(event: cc.Event.EventTouch) {
@@ -542,6 +599,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "preChicken", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listKhayTren", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listRo", void 0);

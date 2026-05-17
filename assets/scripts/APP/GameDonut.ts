@@ -80,8 +80,10 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     preChicken: cc.Prefab = null;
     @property(cc.Node)
+    listKhayTren: cc.Node = null;
+    @property(cc.Node)
     listRo: cc.Node[] = [];
-
+    listPosRo = [cc.v3(-300, -275), cc.v3(8, -278), cc.v3(310, -275)]
 
 
 
@@ -117,22 +119,66 @@ export default class NewClass extends cc.Component {
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
         this.idSound = cc.audioEngine.play(this.soundChien, true, 0.5)
 
-        this.scheduleOnce(() => {
-            cc.audioEngine.play(this.soundTrans, false, 1)
-            for (let i = 0; i < this.btnDonut.childrenCount; i++) {
-                let child = this.btnDonut.children[i]
-                let localPos = child.position
+        // this.scheduleOnce(() => {
+        //     cc.audioEngine.play(this.soundTrans, false, 1)
+        //     for (let i = 0; i < this.btnDonut.childrenCount; i++) {
+        //         let child = this.btnDonut.children[i]
+        //         let localPos = child.position
+        //         this.scheduleOnce(() => {
+        //             child.position = localPos.add(cc.v3(0, 80))
+        //             cc.tween(child).to(0.17, { position: localPos, opacity: 255 }).start()
+        //         }, i * 0.05)
+        //     }
+        // }, 0.3)
+        // for (let i = 0; i < this.listDonutSub.childrenCount; i++) {
+        //     this.arrDonutpos.push(this.listDonutSub.children[i].position);
+        // }
+        // for (let i = 0; i < this.listKhaySub.childrenCount; i++) {
+        //     this.arrKhayPos.push(this.listKhaySub.children[i].position);
+        // }
+        for (let i = 0; i < this.listRo.length; i++) {
+            let ro = this.listRo[i];
+            for (let j = 0; j < ro.childrenCount; j++) {
                 this.scheduleOnce(() => {
-                    child.position = localPos.add(cc.v3(0, 80))
-                    cc.tween(child).to(0.17, { position: localPos, opacity: 255 }).start()
-                }, i * 0.05)
+                    let ga = ro.children[j];
+                    ga.opacity = 0;
+                    ga.active = true;
+                    let localPos = ga.position;
+                    ga.position = localPos.add(cc.v3(0, 200));
+                    cc.tween(ga).to(0.1, { opacity: 255 }).start();
+                    cc.tween(ga).to(0.2, { position: localPos }).to(0.05, { scale: 1.3 }).to(0.05, { scale: 1.4 }).call(() => {
+                        if (i == this.listRo.length - 1 && j == ro.childrenCount - 1) {
+                            this.actionKhay()
+                        }
+                    }).start()
+
+                }, 0.11 * j)
+
             }
-        }, 0.3)
-        for (let i = 0; i < this.listDonutSub.childrenCount; i++) {
-            this.arrDonutpos.push(this.listDonutSub.children[i].position);
         }
-        for (let i = 0; i < this.listKhaySub.childrenCount; i++) {
-            this.arrKhayPos.push(this.listKhaySub.children[i].position);
+
+    }
+    actionKhay() {
+        for (let i = 0; i < this.listRo.length; i++) {
+            let ro = this.listRo[i];
+            cc.tween(ro).to(0.3, { position: { value: this.listPosRo[i], easing: "sineOut" } }).call(() => {
+                if (i == this.listRo.length-1) {
+                    this.actionChicken()
+                }
+            }).start()
+        }
+    }
+    actionChicken() {
+        for (let i = 0; i < this.listRo.length; i++) {
+            let ro = this.listRo[i];
+            for (let j = 0; j < ro.childrenCount; j++) {
+                this.scheduleOnce(() => {
+                    let ga = ro.children[j];
+                    ga.getComponent("donut").show()
+
+                }, 0.11 * j)
+
+            }
         }
     }
     // onTouch(event: cc.Event.EventTouch) {

@@ -4329,11 +4329,6 @@
     "meta": 1779031160803,
     "relativePath": "scripts"
   },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1779045239393,
-    "meta": 1779045239412,
-    "relativePath": "scenes\\Donut1.fire"
-  },
   "470ed163-3949-4cd6-9cdc-895dae391e9e": {
     "asset": 1755779915902,
     "meta": 1779031160826,
@@ -10264,14 +10259,19 @@
     "meta": 1779043817915,
     "relativePath": "Fried Chicken No Hot Sauce\\scripts\\chicken.ts"
   },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1779046736044,
+    "meta": 1779046736064,
+    "relativePath": "scenes\\Donut1.fire"
+  },
   "d082fcfb-0632-48fe-9fdd-66a87c18c159": {
-    "asset": 1779043873996,
-    "meta": 1779043874973,
+    "asset": 1779046699386,
+    "meta": 1779046721705,
     "relativePath": "cooking\\ietm\\donut.ts"
   },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1779044663051,
-    "meta": 1779044670667,
+    "asset": 1779047484891,
+    "meta": 1779047485846,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

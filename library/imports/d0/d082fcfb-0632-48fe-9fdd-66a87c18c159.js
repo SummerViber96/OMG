@@ -44,11 +44,13 @@ var NewClass = /** @class */ (function (_super) {
         // }
     }
     NewClass.prototype.start = function () {
-        var _this = this;
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         this.gamePlay.node.on(cc.Node.EventType.TOUCH_START, this.onTouch, this);
         this.gamePlay.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouch, this);
         this.gamePlay.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+    };
+    NewClass.prototype.show = function () {
+        var _this = this;
         cc.tween(this.iconChin).to(1.5, { opacity: 255 }).call(function () {
             _this.isReady = true;
             // this.node.getComponent(cc.Button).enabled = true

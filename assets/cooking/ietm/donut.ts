@@ -25,6 +25,9 @@ export default class NewClass extends cc.Component {
         this.gamePlay.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouch, this);
         this.gamePlay.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
 
+
+    }
+    show() {
         cc.tween(this.iconChin).to(1.5, { opacity: 255 }).call(() => {
             this.isReady = true
             // this.node.getComponent(cc.Button).enabled = true
@@ -33,6 +36,8 @@ export default class NewClass extends cc.Component {
 
         }).start()
     }
+
+
     onTouch(event: cc.Event.EventTouch) {
         let worldPos = event.getLocation();
 

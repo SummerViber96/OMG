@@ -23542,7 +23542,7 @@
       "ctor": "Float64Array",
       "array": [
         -299.629,
-        -275.224,
+        -181.484,
         0,
         0,
         0,
@@ -23602,7 +23602,7 @@
         "__id__": 613
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 621
@@ -25081,7 +25081,7 @@
         "__id__": 654
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 662
@@ -26560,7 +26560,7 @@
         "__id__": 695
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 703
@@ -28039,7 +28039,7 @@
         "__id__": 736
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 744
@@ -29565,7 +29565,7 @@
       "ctor": "Float64Array",
       "array": [
         7.906,
-        -278.144,
+        -181.484,
         0,
         0,
         0,
@@ -29625,7 +29625,7 @@
         "__id__": 779
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 787
@@ -31104,7 +31104,7 @@
         "__id__": 820
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 828
@@ -32583,7 +32583,7 @@
         "__id__": 861
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 869
@@ -34062,7 +34062,7 @@
         "__id__": 902
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 910
@@ -35588,7 +35588,7 @@
       "ctor": "Float64Array",
       "array": [
         309.885,
-        -275.224,
+        -181.484,
         0,
         0,
         0,
@@ -35648,7 +35648,7 @@
         "__id__": 945
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 953
@@ -37127,7 +37127,7 @@
         "__id__": 986
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 994
@@ -38606,7 +38606,7 @@
         "__id__": 1027
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 1035
@@ -40085,7 +40085,7 @@
         "__id__": 1068
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 1076
@@ -45579,7 +45579,20 @@
     "preChicken": {
       "__uuid__": "e94f8b8c-d156-499c-b25f-b1a39815fb6e"
     },
-    "listRo": [],
+    "listKhayTren": {
+      "__id__": 1082
+    },
+    "listRo": [
+      {
+        "__id__": 584
+      },
+      {
+        "__id__": 750
+      },
+      {
+        "__id__": 916
+      }
+    ],
     "_id": "30soU5wqpHSJOpMZt8D3RI"
   }
 ]
