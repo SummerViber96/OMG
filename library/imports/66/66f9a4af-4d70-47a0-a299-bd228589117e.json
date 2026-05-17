@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hopgared",
+    "texture": "5850d355-f1d0-4a09-ba43-c3d550cf737d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      363,
+      393
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      363,
+      393
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

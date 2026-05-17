@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boxtren",
+    "texture": "54858c0a-9ef6-4951-a534-5f4ca44d5885",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      292,
+      245
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      292,
+      245
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

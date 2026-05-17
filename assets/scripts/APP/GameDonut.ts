@@ -83,6 +83,13 @@ export default class NewClass extends cc.Component {
     listKhayTren: cc.Node = null;
     @property(cc.Node)
     listRo: cc.Node[] = [];
+    @property(cc.Node)
+    listBoxPlace: cc.Node = null;
+    @property(cc.Node)
+    btnChili: cc.Node = null;
+    @property(cc.Node)
+    btnHop:cc.Node=null;
+
     listPosRo = [cc.v3(-300, -275), cc.v3(8, -278), cc.v3(310, -275)]
 
 
@@ -93,7 +100,7 @@ export default class NewClass extends cc.Component {
 
     arrDonutpos = []
     arrDonut = [null, null, null, null, null, null, null]
-    arrKhay = [null, null, null, null, null, null, null]
+    arrKhay = [null, null, null, null]
     arrKhayPos = []
     isTutChili = false
     isTutMeat = false
@@ -161,22 +168,23 @@ export default class NewClass extends cc.Component {
     actionKhay() {
         for (let i = 0; i < this.listRo.length; i++) {
             let ro = this.listRo[i];
-            cc.tween(ro).to(0.3, { position: { value: this.listPosRo[i], easing: "sineOut" } }).call(() => {
-                if (i == this.listRo.length-1) {
-                    this.actionChicken()
+            cc.tween(ro).to(0.25, { position: { value: this.listPosRo[i], easing: "sineIn" } }).call(() => {
+                if (i == this.listRo.length - 1) {
                 }
             }).start()
         }
+        this.scheduleOnce(() => {
+            this.actionChicken()
+
+        }, 0.2)
     }
     actionChicken() {
         for (let i = 0; i < this.listRo.length; i++) {
             let ro = this.listRo[i];
             for (let j = 0; j < ro.childrenCount; j++) {
-                this.scheduleOnce(() => {
-                    let ga = ro.children[j];
-                    ga.getComponent("donut").show()
+                let ga = ro.children[j];
+                ga.getComponent("donut").show()
 
-                }, 0.11 * j)
 
             }
         }
@@ -277,16 +285,16 @@ export default class NewClass extends cc.Component {
         let pos = event.currentTarget.position
         this.creatFxColor(pos, 2)
         cc.audioEngine.play(this.soundClick, false, 1)
-        let donut = cc.instantiate(this.preDonut);
-        donut.parent = this.listDonutPlace;
-        donut.position = this.arrDonutpos[check]
+        let donut = cc.instantiate(this.preChicken);
+        donut.parent = this.listBoxPlace;
+        donut.position = this.listBoxPlace.children[check].position
         donut.getComponent("donut").value = check
-        donut.scale = 0.95
+        donut.scale = 1.4
         this.arrDonut[check] = donut
-        this.scheduleOnce(() => {
-            donut.children[0].active = false
-            donut.getComponent(cc.Animation).play("donut_idle")
-        }, 1)
+        // this.scheduleOnce(() => {
+        //     donut.children[0].active = false
+        //     donut.getComponent(cc.Animation).play("donut_idle")
+        // }, 1)
         this.scheduleOnce(() => {
             this.listhand.children[0].active = false;
 
@@ -316,11 +324,15 @@ export default class NewClass extends cc.Component {
         }
         return null
     }
+    btn_clickHop(){
+
+    }
     clickDonut(value, node) {
 
         let slot = this.checkSlotKhay()
         if (slot == null) {
             node.getComponent("donut").isTouching = false
+            this.btnHop.children[0].getComponent(cc.Animation).play()
             return;
         }
         node.getComponent("donut").isStep = 1
@@ -329,31 +341,27 @@ export default class NewClass extends cc.Component {
         this.isClickDonutChin = true
         this.listhand.children[1].active = false
         cc.audioEngine.play(this.soundDonutJump, false, 0.6)
-        let donut = this.arrDonut[value]
-        let pos = this.arrKhayPos[slot]
-        donut.parent = this.listKhayPlace
+        let poslocal = node.parent.convertToWorldSpaceAR(node.position);
+        poslocal = this.listBoxPlace.convertToNodeSpaceAR(poslocal)
+        let donut = node
+        let pos = this.listBoxPlace.children[slot].position
+        donut.parent = this.listBoxPlace
         this.arrKhay[slot] = donut
         this.arrDonut[value] = null
         donut.zIndex = 100
-
+        donut.position = poslocal
         donut.getComponent("donut").value = slot
-        donut.getComponent(cc.Animation).stop("donut_idle")
-        donut.children[1].position = cc.v3(0, 0)
-        let startpos = cc.v2(donut.x, donut.y);
+
+        let startpos = cc.v2(poslocal.x, poslocal.y);
         let endPos = cc.v2(pos.x, pos.y)
-        let midPos = cc.v2(endPos.x, endPos.y + 200)
+        let midPos = cc.v2(endPos.x, endPos.y + 400)
         cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start()
-        cc.tween(donut.children[1]).to(0.3, { angle: -72 }).start()
+        cc.tween(donut).to(0.3, { angle: this.listBoxPlace.children[slot].angle, scale: 1.1 }).start()
         this.scheduleOnce(() => {
             donut.zIndex = slot
 
         }, 0.2)
-        this.scheduleOnce(() => {
-            if (this.isClickSocola == false) {
-                this.listhand.children[2].active = true
-            }
-        }, 3)
-        // this.creatFxColor(pos, 1.5)
+
     }
     checkSlotNhan() {
         for (let i = 0; i < this.arrKhay.length; i++) {

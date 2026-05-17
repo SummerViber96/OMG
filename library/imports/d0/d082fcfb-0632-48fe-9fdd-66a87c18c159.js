@@ -51,6 +51,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.show = function () {
         var _this = this;
+        this.appear();
         cc.tween(this.iconChin).to(1.5, { opacity: 255 }).call(function () {
             _this.isReady = true;
             // this.node.getComponent(cc.Button).enabled = true
@@ -84,6 +85,7 @@ var NewClass = /** @class */ (function (_super) {
         this.isTouching = false; // reset để lần sau vuốt lại được
     };
     NewClass.prototype.btn_click = function () {
+        console.log("click");
         if (!this.isReady)
             return;
         if (this.isStep == 0) {
@@ -91,12 +93,12 @@ var NewClass = /** @class */ (function (_super) {
             this.node.getComponent(cc.Button).enabled = false;
             // this.isStep = 1;
         }
-        else if (this.isStep == 1) {
-        }
-        else if (this.isStep == 2) {
-            // this.node.getComponent(cc.Button).enabled=false
-            this.gamePlay.sellDonut(this.value, this.node);
-        }
+        // else if (this.isStep == 1) {
+        // }
+        // else if (this.isStep == 2) {
+        //     // this.node.getComponent(cc.Button).enabled=false
+        //     this.gamePlay.sellDonut(this.value, this.node)
+        // }
     };
     NewClass.prototype.checkNhan = function () {
     };

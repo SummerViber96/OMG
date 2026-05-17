@@ -68,11 +68,14 @@ var NewClass = /** @class */ (function (_super) {
         _this.preChicken = null;
         _this.listKhayTren = null;
         _this.listRo = [];
+        _this.listBoxPlace = null;
+        _this.btnChili = null;
+        _this.btnHop = null;
         _this.listPosRo = [cc.v3(-300, -275), cc.v3(8, -278), cc.v3(310, -275)];
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
         _this.arrDonut = [null, null, null, null, null, null, null];
-        _this.arrKhay = [null, null, null, null, null, null, null];
+        _this.arrKhay = [null, null, null, null];
         _this.arrKhayPos = [];
         _this.isTutChili = false;
         _this.isTutMeat = false;
@@ -149,9 +152,8 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         var _loop_3 = function (i) {
             var ro = this_2.listRo[i];
-            cc.tween(ro).to(0.3, { position: { value: this_2.listPosRo[i], easing: "sineOut" } }).call(function () {
+            cc.tween(ro).to(0.25, { position: { value: this_2.listPosRo[i], easing: "sineIn" } }).call(function () {
                 if (i == _this.listRo.length - 1) {
-                    _this.actionChicken();
                 }
             }).start();
         };
@@ -159,23 +161,17 @@ var NewClass = /** @class */ (function (_super) {
         for (var i = 0; i < this.listRo.length; i++) {
             _loop_3(i);
         }
+        this.scheduleOnce(function () {
+            _this.actionChicken();
+        }, 0.2);
     };
     NewClass.prototype.actionChicken = function () {
-        var _loop_4 = function (i) {
-            var ro = this_3.listRo[i];
-            var _loop_5 = function (j) {
-                this_3.scheduleOnce(function () {
-                    var ga = ro.children[j];
-                    ga.getComponent("donut").show();
-                }, 0.11 * j);
-            };
-            for (var j = 0; j < ro.childrenCount; j++) {
-                _loop_5(j);
-            }
-        };
-        var this_3 = this;
         for (var i = 0; i < this.listRo.length; i++) {
-            _loop_4(i);
+            var ro = this.listRo[i];
+            for (var j = 0; j < ro.childrenCount; j++) {
+                var ga = ro.children[j];
+                ga.getComponent("donut").show();
+            }
         }
     };
     // onTouch(event: cc.Event.EventTouch) {
@@ -269,16 +265,16 @@ var NewClass = /** @class */ (function (_super) {
         var pos = event.currentTarget.position;
         this.creatFxColor(pos, 2);
         cc.audioEngine.play(this.soundClick, false, 1);
-        var donut = cc.instantiate(this.preDonut);
-        donut.parent = this.listDonutPlace;
-        donut.position = this.arrDonutpos[check];
+        var donut = cc.instantiate(this.preChicken);
+        donut.parent = this.listBoxPlace;
+        donut.position = this.listBoxPlace.children[check].position;
         donut.getComponent("donut").value = check;
-        donut.scale = 0.95;
+        donut.scale = 1.4;
         this.arrDonut[check] = donut;
-        this.scheduleOnce(function () {
-            donut.children[0].active = false;
-            donut.getComponent(cc.Animation).play("donut_idle");
-        }, 1);
+        // this.scheduleOnce(() => {
+        //     donut.children[0].active = false
+        //     donut.getComponent(cc.Animation).play("donut_idle")
+        // }, 1)
         this.scheduleOnce(function () {
             _this.listhand.children[0].active = false;
         }, 1);
@@ -305,11 +301,13 @@ var NewClass = /** @class */ (function (_super) {
         }
         return null;
     };
+    NewClass.prototype.btn_clickHop = function () {
+    };
     NewClass.prototype.clickDonut = function (value, node) {
-        var _this = this;
         var slot = this.checkSlotKhay();
         if (slot == null) {
             node.getComponent("donut").isTouching = false;
+            this.btnHop.children[0].getComponent(cc.Animation).play();
             return;
         }
         node.getComponent("donut").isStep = 1;
@@ -317,29 +315,24 @@ var NewClass = /** @class */ (function (_super) {
         this.isClickDonutChin = true;
         this.listhand.children[1].active = false;
         cc.audioEngine.play(this.soundDonutJump, false, 0.6);
-        var donut = this.arrDonut[value];
-        var pos = this.arrKhayPos[slot];
-        donut.parent = this.listKhayPlace;
+        var poslocal = node.parent.convertToWorldSpaceAR(node.position);
+        poslocal = this.listBoxPlace.convertToNodeSpaceAR(poslocal);
+        var donut = node;
+        var pos = this.listBoxPlace.children[slot].position;
+        donut.parent = this.listBoxPlace;
         this.arrKhay[slot] = donut;
         this.arrDonut[value] = null;
         donut.zIndex = 100;
+        donut.position = poslocal;
         donut.getComponent("donut").value = slot;
-        donut.getComponent(cc.Animation).stop("donut_idle");
-        donut.children[1].position = cc.v3(0, 0);
-        var startpos = cc.v2(donut.x, donut.y);
+        var startpos = cc.v2(poslocal.x, poslocal.y);
         var endPos = cc.v2(pos.x, pos.y);
-        var midPos = cc.v2(endPos.x, endPos.y + 200);
+        var midPos = cc.v2(endPos.x, endPos.y + 400);
         cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start();
-        cc.tween(donut.children[1]).to(0.3, { angle: -72 }).start();
+        cc.tween(donut).to(0.3, { angle: this.listBoxPlace.children[slot].angle, scale: 1.1 }).start();
         this.scheduleOnce(function () {
             donut.zIndex = slot;
         }, 0.2);
-        this.scheduleOnce(function () {
-            if (_this.isClickSocola == false) {
-                _this.listhand.children[2].active = true;
-            }
-        }, 3);
-        // this.creatFxColor(pos, 1.5)
     };
     NewClass.prototype.checkSlotNhan = function () {
         for (var i = 0; i < this.arrKhay.length; i++) {
@@ -605,6 +598,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listRo", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listBoxPlace", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnChili", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnHop", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

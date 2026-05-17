@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hopga",
+    "texture": "d7102a7f-15c5-4ddd-913d-9cbbbcf9fb7e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      292,
+      328
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      292,
+      328
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

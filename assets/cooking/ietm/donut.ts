@@ -28,6 +28,7 @@ export default class NewClass extends cc.Component {
 
     }
     show() {
+        this.appear();
         cc.tween(this.iconChin).to(1.5, { opacity: 255 }).call(() => {
             this.isReady = true
             // this.node.getComponent(cc.Button).enabled = true
@@ -67,6 +68,7 @@ export default class NewClass extends cc.Component {
         this.isTouching = false; // reset để lần sau vuốt lại được
     }
     btn_click() {
+        console.log("click")
         if (!this.isReady) return;
         if (this.isStep == 0) {
             this.gamePlay.clickDonut(this.value, this.node);
@@ -74,12 +76,12 @@ export default class NewClass extends cc.Component {
             // this.isStep = 1;
 
         }
-        else if (this.isStep == 1) {
-        }
-        else if (this.isStep == 2) {
-            // this.node.getComponent(cc.Button).enabled=false
-            this.gamePlay.sellDonut(this.value, this.node)
-        }
+        // else if (this.isStep == 1) {
+        // }
+        // else if (this.isStep == 2) {
+        //     // this.node.getComponent(cc.Button).enabled=false
+        //     this.gamePlay.sellDonut(this.value, this.node)
+        // }
 
     }
     checkNhan() {

@@ -10084,11 +10084,6 @@
     "meta": 1779038439323,
     "relativePath": "Fried Chicken No Hot Sauce\\top.png"
   },
-  "95feb1ed-cc59-4c27-b3ef-2b8d27773476": {
-    "asset": 1779038439260,
-    "meta": 1779038439345,
-    "relativePath": "Fried Chicken No Hot Sauce\\bot.png"
-  },
   "baf8bc46-55ec-4e9f-8f77-d35e6691845c": {
     "asset": 1779038508720,
     "meta": 1779038512442,
@@ -10260,18 +10255,63 @@
     "relativePath": "Fried Chicken No Hot Sauce\\scripts\\chicken.ts"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1779046736044,
-    "meta": 1779046736064,
+    "asset": 1779056950863,
+    "meta": 1779056950879,
     "relativePath": "scenes\\Donut1.fire"
   },
+  "a0a63d59-148c-4bac-b0ff-ba69936da0c1": {
+    "asset": 1779049452953,
+    "meta": 1779049452987,
+    "relativePath": "Fried Chicken No Hot Sauce\\Layer 1.png"
+  },
+  "21e716c9-ce0f-47b6-b617-7516f695f23e": {
+    "asset": 1779049452952,
+    "meta": 1779049452998,
+    "relativePath": "Fried Chicken No Hot Sauce\\Menu Card.png"
+  },
+  "d7102a7f-15c5-4ddd-913d-9cbbbcf9fb7e": {
+    "asset": 1779049795702,
+    "meta": 1779049795736,
+    "relativePath": "Fried Chicken No Hot Sauce\\hopga.png"
+  },
+  "95feb1ed-cc59-4c27-b3ef-2b8d27773476": {
+    "asset": 1779052587420,
+    "meta": 1779052587501,
+    "relativePath": "Fried Chicken No Hot Sauce\\bot.png"
+  },
+  "54858c0a-9ef6-4951-a534-5f4ca44d5885": {
+    "asset": 1779053887807,
+    "meta": 1779053887837,
+    "relativePath": "Fried Chicken No Hot Sauce\\boxtren.png"
+  },
   "d082fcfb-0632-48fe-9fdd-66a87c18c159": {
-    "asset": 1779046699386,
-    "meta": 1779046721705,
+    "asset": 1779054094726,
+    "meta": 1779054160744,
     "relativePath": "cooking\\ietm\\donut.ts"
   },
+  "833d50ae-2b02-42fd-8967-7b0d311e4ddd": {
+    "asset": 1779056334275,
+    "meta": 1779056338014,
+    "relativePath": "Fried Chicken No Hot Sauce\\Hot SauceYellow.png"
+  },
+  "c5895afc-a15f-481f-8877-ff55dd591b3f": {
+    "asset": 1779056400903,
+    "meta": 1779056400912,
+    "relativePath": "anim\\hind.anim"
+  },
+  "5850d355-f1d0-4a09-ba43-c3d550cf737d": {
+    "asset": 1779056660914,
+    "meta": 1779056663740,
+    "relativePath": "Fried Chicken No Hot Sauce\\hopgared.png"
+  },
+  "e3b2e4ee-6b9a-4648-8333-49068f9eebaf": {
+    "asset": 1779056791319,
+    "meta": 1779056791328,
+    "relativePath": "anim\\vfx\\vfx_wrong.anim"
+  },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1779047484891,
-    "meta": 1779047485846,
+    "asset": 1779056925357,
+    "meta": 1779056927704,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

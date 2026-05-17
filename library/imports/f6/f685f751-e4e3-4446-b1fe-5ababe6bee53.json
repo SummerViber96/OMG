@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Menu Card",
+    "texture": "21e716c9-ce0f-47b6-b617-7516f695f23e",
+    "atlas": "",
+    "rect": [
+      21,
+      48,
+      384,
+      631
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      426,
+      728
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
