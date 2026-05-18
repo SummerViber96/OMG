@@ -11,7 +11,7 @@ const { ccclass, property } = cc._decorator;
 export default class NewClass extends cc.Component {
 
     gamePlay = null
-
+    isSauce = false
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
 

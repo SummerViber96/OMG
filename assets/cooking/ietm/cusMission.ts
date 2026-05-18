@@ -140,6 +140,7 @@ export default class NewClass extends cc.Component {
             this.anim.setAnimation(0, "angry", false)
             this.pop.getChildByName("wrong").active = true
             this.node.getChildByName("angry").active = true
+            this.node.getChildByName("vfx_Angry").getComponent(cc.Animation).play()
             this.gamePlay.spawDisLike()
         }
         this.scheduleOnce(() => {
@@ -149,7 +150,10 @@ export default class NewClass extends cc.Component {
             this.anim.setAnimation(0, "walk", true)
             cc.tween(this.node).to(1, { position: cc.v3(-900, 123.591) }).call(() => {
                 this.node.active = false
+                if(this.gamePlay.countCus<2){
                 this.gamePlay.nextCus(value)
+
+                }
 
             }).start()
         }, 1)

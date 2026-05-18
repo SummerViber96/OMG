@@ -139,6 +139,7 @@ var NewClass = /** @class */ (function (_super) {
             this.anim.setAnimation(0, "angry", false);
             this.pop.getChildByName("wrong").active = true;
             this.node.getChildByName("angry").active = true;
+            this.node.getChildByName("vfx_Angry").getComponent(cc.Animation).play();
             this.gamePlay.spawDisLike();
         }
         this.scheduleOnce(function () {
@@ -147,7 +148,9 @@ var NewClass = /** @class */ (function (_super) {
             _this.anim.setAnimation(0, "walk", true);
             cc.tween(_this.node).to(1, { position: cc.v3(-900, 123.591) }).call(function () {
                 _this.node.active = false;
-                _this.gamePlay.nextCus(value);
+                if (_this.gamePlay.countCus < 2) {
+                    _this.gamePlay.nextCus(value);
+                }
             }).start();
         }, 1);
     };

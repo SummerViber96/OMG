@@ -73,8 +73,8 @@ export default class NewClass extends cc.Component {
     listKhaySub: cc.Node = null
     @property(cc.Node)
     listhand: cc.Node = null
-    @property(cc.Node)
-    btnDau: cc.Node = null;
+    // @property(cc.Node)
+    // btnDau: cc.Node = null;
 
     //isLockVegettable
     @property(cc.Prefab)
@@ -94,7 +94,11 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     likeNode: cc.Node = null;
     @property(cc.Prefab)
-    preBox:cc.Prefab=null
+    preBox: cc.Prefab = null
+    @property(cc.Node)
+    main: cc.Node = null
+    @property(cc.Node)
+    failNode: cc.Node = null
     listPosRo = [cc.v3(-300, -275), cc.v3(8, -278), cc.v3(310, -275)]
 
 
@@ -125,29 +129,9 @@ export default class NewClass extends cc.Component {
         }
     }
     start() {
-        // this.node.on(cc.Node.EventType.TOUCH_START, this.onTouch, this);
-        // this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouch, this);
         this.showCus()
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
         this.idSound = cc.audioEngine.play(this.soundChien, true, 0.5)
-
-        // this.scheduleOnce(() => {
-        //     cc.audioEngine.play(this.soundTrans, false, 1)
-        //     for (let i = 0; i < this.btnDonut.childrenCount; i++) {
-        //         let child = this.btnDonut.children[i]
-        //         let localPos = child.position
-        //         this.scheduleOnce(() => {
-        //             child.position = localPos.add(cc.v3(0, 80))
-        //             cc.tween(child).to(0.17, { position: localPos, opacity: 255 }).start()
-        //         }, i * 0.05)
-        //     }
-        // }, 0.3)
-        // for (let i = 0; i < this.listDonutSub.childrenCount; i++) {
-        //     this.arrDonutpos.push(this.listDonutSub.children[i].position);
-        // }
-        // for (let i = 0; i < this.listKhaySub.childrenCount; i++) {
-        //     this.arrKhayPos.push(this.listKhaySub.children[i].position);
-        // }
         for (let i = 0; i < this.listRo.length; i++) {
             let ro = this.listRo[i];
             for (let j = 0; j < ro.childrenCount; j++) {
@@ -168,7 +152,7 @@ export default class NewClass extends cc.Component {
 
             }
         }
-
+        this.btnChili.zIndex = 2
     }
     actionKhay() {
         for (let i = 0; i < this.listRo.length; i++) {
@@ -196,13 +180,13 @@ export default class NewClass extends cc.Component {
         this.btnHop.active = true
     }
     spawDisLike() {
-        let arrPos = [cc.v3(-110.292), cc.v3(199, 329), cc.v3(-93, 342), cc.v3(180, 362),cc.v3(-110.292), cc.v3(199, 329)]
+        let arrPos = [cc.v3(-110.292), cc.v3(199, 329), cc.v3(-93, 342), cc.v3(180, 362), cc.v3(-110.292), cc.v3(199, 329)]
         for (let i = 0; i < 6; i++) {
             this.scheduleOnce(() => {
                 let like = cc.instantiate(this.preLike);
                 let pos = cc.v3(0, 0);
-              
-                    pos = arrPos[i];
+
+                pos = arrPos[i];
                 like.position = pos
                 like.parent = this.likeNode
                 cc.tween(like).by(0.6, { position: cc.v3(0, -200) }).start()
@@ -212,14 +196,7 @@ export default class NewClass extends cc.Component {
             }, 0.15 * i)
         }
     }
-    // onTouch(event: cc.Event.EventTouch) {
-    //     let worldPos = event.getLocation();
-    //     let worldPos2 = this.camera.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
-    //     if (this.cameraNgang.node.active == true) {
-    //         worldPos2 = this.cameraNgang.getScreenToWorldPoint(cc.v2(worldPos.x, worldPos.y));
-    //     }
-    //     this.checkCut(worldPos2);
-    // }
+
     showCus() {
         let child = this.listCus.children[0]
         child.position = cc.v3(700, 123.591)
@@ -227,7 +204,7 @@ export default class NewClass extends cc.Component {
             child.getChildByName("pop").scale = 0
 
             child.getChildByName("pop").active = true
-            child.children[0].getComponent(sp.Skeleton).setAnimation(0, "idle", true)
+            child.children[1].getComponent(sp.Skeleton).setAnimation(0, "idle", true)
             this.isTargetPop = child.getChildByName("pop")
             this.isTargetCus = child;
             cc.audioEngine.play(this.soundHello, false, 1)
@@ -247,6 +224,13 @@ export default class NewClass extends cc.Component {
     successCus() {
         this.isTargetCus = null;
         this.isTargetPop = null;
+        this.scheduleOnce(() => {
+            if (this.countCus == 2) {
+                this.onEndGame(false)
+
+            }
+        }, 1.5)
+
 
     }
     creatFxColor(pos, scale) {
@@ -257,10 +241,10 @@ export default class NewClass extends cc.Component {
     }
     nextCus(value) {
         this.countCus++
-        this.btnDau.active = true
+        // this.btnDau.active = true
 
         if (this.countCus == 3) {
-            this.onEndGame(value)
+            // this.onEndGame(value)
         }
         else {
             let child = this.listCus.children[this.countCus]
@@ -269,7 +253,7 @@ export default class NewClass extends cc.Component {
             cc.tween(child).to(0.8, { position: cc.v3(0, 123.591) }).call(() => {
                 child.getChildByName("pop").scale = 0
                 child.getChildByName("pop").active = true
-                child.children[0].getComponent(sp.Skeleton).setAnimation(0, "idle", true)
+                child.children[1].getComponent(sp.Skeleton).setAnimation(0, "idle", true)
 
                 this.isTargetPop = child.getChildByName("pop")
                 this.isTargetCus = child;
@@ -281,8 +265,16 @@ export default class NewClass extends cc.Component {
                     else if (this.countCus == 2) {
                         cc.audioEngine.play(this.soundHelloCus3, false, 2)
                     }
+                    let box = cc.instantiate(this.preBox)
+                    box.parent = this.main
+                    box.zIndex = 1;
+                    box.position = cc.v3(-175, -559)
+                    this.btnHop = box
+                    this.arrKhay = [null, null, null, null]
+                    this.listBoxPlace = box.getChildByName("listGa")
+                    this.btnChili.getComponent("chili").sauce = box.getChildByName("sot")
                 }, 0.1)
-              
+
             }).start()
         }
 
@@ -343,6 +335,7 @@ export default class NewClass extends cc.Component {
         if (!this.isReadyChicken) return;
         if (this.isTargetCus == null) return;
         if (this.isTargetPop == null) return;
+        this.isReadyChicken = false
         // this.listHand.children[4].opacity = 0
         this.listhand.children[3].active = false
         this.isClickKhay = true;
@@ -377,7 +370,7 @@ export default class NewClass extends cc.Component {
         }
         node.getComponent("donut").isStep = 1
         this.listhand.children[0].opacity = 0;
-
+        console.log("click donut")
         this.isClickDonutChin = true
         // this.listhand.children[1].active = false
         cc.audioEngine.play(this.soundDonutJump, false, 0.6)
@@ -427,6 +420,8 @@ export default class NewClass extends cc.Component {
     btn_chocalate(event) {
         let check = this.checkSlotNhan()
         if (check == null) return;
+        if (this.btnHop.getComponent("boxChicken").isSauce == true) return;
+        this.btnHop.getComponent("boxChicken").isSauce = true
         // this.listhand.children[2].active = false
         this.btnChili.getChildByName("hand").active = false;
         this.btnChili.getComponent(cc.Animation).play()
@@ -484,24 +479,6 @@ export default class NewClass extends cc.Component {
         }
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5)
     }
-    // checkSlotHotDog() {
-    //     for (let i = 0; i < this.arrHotDog.length; i++) {
-    //         if (this.arrHotDog[i] == null) return i
-    //     }
-    //     return null
-    // }
-    // checkSlotBread() {
-    //     for (let i = 0; i < this.arrBreak.length; i++) {
-    //         if (this.arrBreak[i] == null) return i
-    //     }
-    //     return null
-    // }
-    // checkSlotBuger() {
-    //     for (let i = 0; i < this.arrBuger.length; i++) {
-    //         if (this.arrBuger[i] == null) return i
-    //     }
-    //     return null
-    // }
 
 
     setGray(node) {
@@ -518,7 +495,7 @@ export default class NewClass extends cc.Component {
 
 
     onEndGame(value) {
-        cc.audioEngine.play(this.soundEnd, false, 1)
+        // cc.audioEngine.play(this.soundEnd, false, 1)
         if (value == true) {
             cc.audioEngine.play(this.soundWin, false, 1)
 
@@ -528,8 +505,18 @@ export default class NewClass extends cc.Component {
             cc.audioEngine.play(this.soundLose, false, 1)
 
         }
-        this.endCard.active = true;
-        this.linkToStore.active = true
+        this.failNode.active = true;
+        this.scheduleOnce(() => {
+            this.failNode.children[0].active = false
+            cc.tween(this.failNode.children[1]).to(0.3, { scale: 0 }).start()
+            this.scheduleOnce(() => {
+                cc.audioEngine.play(this.soundEnd,false,1)
+                this.endCard.active = true;
+                this.linkToStore.active = true
+            }, 0.5)
+
+        }, 1.2)
+
     }
     // btn_choose(event, value) {
 
@@ -547,11 +534,12 @@ export default class NewClass extends cc.Component {
         let canvas = this.node.getComponent(cc.Canvas);
         this.camera.zoomRatio = 1
         this.endCard.scale = (logic) ? 1.2 : 0.7
+        this.failNode.scale = (logic) ? 1 : 0.7
+
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = cc.v3(0, -60)
-        // this.barCoin.scale = (logic) ? 1.6 : 1
         this.listCus.scale = (logic) ? 1.2 : 1
         this.listCus.position = (logic) ? cc.v3(0, -130) : cc.v3(0, -120)
 

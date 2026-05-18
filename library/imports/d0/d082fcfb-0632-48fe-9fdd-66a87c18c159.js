@@ -52,7 +52,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.show = function () {
         var _this = this;
         this.appear();
-        cc.tween(this.iconChin).to(1.5, { opacity: 255 }).call(function () {
+        cc.tween(this.iconChin).to(1.3, { opacity: 255 }).call(function () {
             _this.isReady = true;
             // this.node.getComponent(cc.Button).enabled = true
             _this.node.children[0].active = false;
@@ -88,11 +88,11 @@ var NewClass = /** @class */ (function (_super) {
         console.log("click");
         if (!this.isReady)
             return;
-        if (this.isStep == 0) {
-            this.gamePlay.clickDonut(this.value, this.node);
-            this.node.getComponent(cc.Button).enabled = false;
-            // this.isStep = 1;
-        }
+        // if (this.isStep == 0) {
+        this.gamePlay.clickDonut(this.value, this.node);
+        this.node.getComponent(cc.Button).enabled = false;
+        // this.isStep = 1;
+        // }
         // else if (this.isStep == 1) {
         // }
         // else if (this.isStep == 2) {

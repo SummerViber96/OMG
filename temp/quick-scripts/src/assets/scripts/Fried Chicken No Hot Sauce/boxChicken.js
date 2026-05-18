@@ -35,6 +35,7 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.gamePlay = null;
+        _this.isSauce = false;
         return _this;
         // update (dt) {}
     }

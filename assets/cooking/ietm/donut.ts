@@ -29,7 +29,7 @@ export default class NewClass extends cc.Component {
     }
     show() {
         this.appear();
-        cc.tween(this.iconChin).to(1.5, { opacity: 255 }).call(() => {
+        cc.tween(this.iconChin).to(1.3, { opacity: 255 }).call(() => {
             this.isReady = true
             // this.node.getComponent(cc.Button).enabled = true
             this.node.children[0].active = false
@@ -70,12 +70,12 @@ export default class NewClass extends cc.Component {
     btn_click() {
         console.log("click")
         if (!this.isReady) return;
-        if (this.isStep == 0) {
-            this.gamePlay.clickDonut(this.value, this.node);
-            this.node.getComponent(cc.Button).enabled = false
-            // this.isStep = 1;
+        // if (this.isStep == 0) {
+        this.gamePlay.clickDonut(this.value, this.node);
+        this.node.getComponent(cc.Button).enabled = false
+        // this.isStep = 1;
 
-        }
+        // }
         // else if (this.isStep == 1) {
         // }
         // else if (this.isStep == 2) {

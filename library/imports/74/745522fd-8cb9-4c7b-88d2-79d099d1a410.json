@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Chicken_NoHotsauceFinal Table_00516",
+    "texture": "6a4a42eb-00be-496e-9c45-3c37adba1039",
+    "atlas": "",
+    "rect": [
+      142,
+      129,
+      355,
+      355
+    ],
+    "offset": [
+      -17.5,
+      -14.5
+    ],
+    "originalSize": [
+      674,
+      584
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

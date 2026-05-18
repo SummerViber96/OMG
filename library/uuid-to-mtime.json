@@ -10004,11 +10004,6 @@
     "meta": 1779033068488,
     "relativePath": "Fried Chicken No Hot Sauce\\oil-wave.png"
   },
-  "91aaeb8f-8a7d-4b61-94be-55689b38bec7": {
-    "asset": 1779033068443,
-    "meta": 1779033068505,
-    "relativePath": "Fried Chicken No Hot Sauce\\fail.png"
-  },
   "c6e82c9f-9501-41f6-a025-0b0f0e38fb32": {
     "asset": 1779033068445,
     "meta": 1779033068524,
@@ -10240,19 +10235,14 @@
     "relativePath": "Fried Chicken No Hot Sauce\\scripts"
   },
   "e94f8b8c-d156-499c-b25f-b1a39815fb6e": {
-    "asset": 1779043887369,
-    "meta": 1779043887378,
+    "asset": 1779137405847,
+    "meta": 1779137405859,
     "relativePath": "Donut\\prefab\\preChicken.prefab"
   },
   "83e594e4-d8f3-433c-9c59-690678a4aec5": {
     "asset": 1779043808215,
     "meta": 1779043817915,
     "relativePath": "Fried Chicken No Hot Sauce\\scripts\\chicken.ts"
-  },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1779136022163,
-    "meta": 1779136022186,
-    "relativePath": "scenes\\Donut1.fire"
   },
   "a0a63d59-148c-4bac-b0ff-ba69936da0c1": {
     "asset": 1779049452953,
@@ -10278,11 +10268,6 @@
     "asset": 1779053887807,
     "meta": 1779053887837,
     "relativePath": "Fried Chicken No Hot Sauce\\boxtren.png"
-  },
-  "d082fcfb-0632-48fe-9fdd-66a87c18c159": {
-    "asset": 1779054094726,
-    "meta": 1779054160744,
-    "relativePath": "cooking\\ietm\\donut.ts"
   },
   "833d50ae-2b02-42fd-8967-7b0d311e4ddd": {
     "asset": 1779056334275,
@@ -10314,11 +10299,6 @@
     "meta": 1779133345192,
     "relativePath": "scripts\\Fried Chicken No Hot Sauce"
   },
-  "9f1f2c8b-1ecb-420f-a12d-ab9767325eba": {
-    "asset": 1779132359384,
-    "meta": 1779132360414,
-    "relativePath": "scripts\\Fried Chicken No Hot Sauce\\boxChicken.ts"
-  },
   "dd91f34d-295a-42b2-b9c6-4bff18bb9188": {
     "asset": 1779132525669,
     "meta": 1779132525678,
@@ -10344,19 +10324,194 @@
     "meta": 1779134809093,
     "relativePath": "Donut\\prefab\\preLike.prefab"
   },
-  "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1779135482259,
-    "meta": 1779135483142,
-    "relativePath": "cooking\\ietm\\cusMission.ts"
-  },
   "9d796b1b-e523-41cb-8587-525b9057084e": {
-    "asset": 1779135979239,
-    "meta": 1779135984766,
+    "asset": 1779141371554,
+    "meta": 1779141371571,
     "relativePath": "Donut\\prefab\\preBox.prefab"
   },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1779141508565,
+    "meta": 1779141508586,
+    "relativePath": "scenes\\Donut1.fire"
+  },
+  "eac420c5-68b9-44f9-99e2-8d499553c724": {
+    "asset": 1779138486332,
+    "meta": 1779138486333,
+    "relativePath": "cooking\\vfx\\vfxFire"
+  },
+  "c16b1a9b-fafa-4b7a-9fc4-3e69b9c9358b": {
+    "asset": 1779138493926,
+    "meta": 1779138494008,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00510.png"
+  },
+  "6a4a42eb-00be-496e-9c45-3c37adba1039": {
+    "asset": 1779138493926,
+    "meta": 1779138494016,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00516.png"
+  },
+  "73a7d919-53c2-4fd8-9a72-b822a8e827c6": {
+    "asset": 1779138493926,
+    "meta": 1779138494033,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00519.png"
+  },
+  "bca41a53-f9eb-428a-9ecc-6275c5163ae2": {
+    "asset": 1779138493926,
+    "meta": 1779138494037,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00525.png"
+  },
+  "c762c4ea-60f6-4e25-af8b-b77cae73d77f": {
+    "asset": 1779138493927,
+    "meta": 1779138494063,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00531.png"
+  },
+  "e7189076-c766-4b08-9c3f-b3d27cf06a0e": {
+    "asset": 1779138493926,
+    "meta": 1779138494066,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00522.png"
+  },
+  "c39512e2-05c6-43a6-b0dc-3362f9d7d4d6": {
+    "asset": 1779138493927,
+    "meta": 1779138494081,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00528.png"
+  },
+  "5df9f0c5-2f4b-4ff8-926b-1664eedb03b0": {
+    "asset": 1779138493927,
+    "meta": 1779138494084,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00534.png"
+  },
+  "7ef0e07f-5fec-495f-92fb-d28dc2ced93d": {
+    "asset": 1779138493927,
+    "meta": 1779138494099,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00537.png"
+  },
+  "948e7678-73f4-43eb-b6fd-8219e34faf67": {
+    "asset": 1779138493927,
+    "meta": 1779138494102,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00543.png"
+  },
+  "3b9eb9c5-d065-4f12-9708-4c8f4ba31176": {
+    "asset": 1779138493927,
+    "meta": 1779138494118,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00540.png"
+  },
+  "8b21ab2d-3aa7-4970-b87c-b998faa3bcd1": {
+    "asset": 1779138493927,
+    "meta": 1779138494120,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00546.png"
+  },
+  "194f3548-13ed-48ba-9f7f-82dd3a650ffb": {
+    "asset": 1779138493927,
+    "meta": 1779138494137,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00549.png"
+  },
+  "7a517868-4b1a-4304-9aba-ca678f4b11f3": {
+    "asset": 1779138493927,
+    "meta": 1779138494140,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00552.png"
+  },
+  "1f456c9e-c45c-4d00-b48f-96176cfffa81": {
+    "asset": 1779138493927,
+    "meta": 1779138494155,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00561.png"
+  },
+  "dbd77f9e-8321-4724-b368-d7f76b083a99": {
+    "asset": 1779138493927,
+    "meta": 1779138494161,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00555.png"
+  },
+  "587e4afc-4ee2-49f2-a789-fd100fa06c85": {
+    "asset": 1779138493927,
+    "meta": 1779138494177,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00576.png"
+  },
+  "db35854d-a83c-45b6-9856-0657c6388534": {
+    "asset": 1779138493927,
+    "meta": 1779138494180,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00558.png"
+  },
+  "e00e23df-c1cf-4b62-9b94-ad082fa292a4": {
+    "asset": 1779138493927,
+    "meta": 1779138494195,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00582.png"
+  },
+  "ef483607-f275-4180-a8aa-bad4d0916f82": {
+    "asset": 1779138493927,
+    "meta": 1779138494197,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00579.png"
+  },
+  "f16e464c-9895-4024-a838-c2bf33a2d824": {
+    "asset": 1779138493927,
+    "meta": 1779138494213,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00585.png"
+  },
+  "a1e10186-842e-40d6-b5aa-a3d7caee461c": {
+    "asset": 1779138493927,
+    "meta": 1779138494215,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00588.png"
+  },
+  "30234b81-8d65-4f13-b4e8-0132587bbbca": {
+    "asset": 1779138493927,
+    "meta": 1779138494230,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00591.png"
+  },
+  "2596dc22-3c49-4f23-bebb-56463947d167": {
+    "asset": 1779138493927,
+    "meta": 1779138494232,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00594.png"
+  },
+  "bb32e0e3-a313-44c8-8b38-262e15496350": {
+    "asset": 1779138493927,
+    "meta": 1779138494249,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00600.png"
+  },
+  "efb31f87-1952-4620-98c8-25fd535bf01f": {
+    "asset": 1779138493927,
+    "meta": 1779138494252,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00597.png"
+  },
+  "1077cac2-76f2-48a2-b04c-5fd7eba777a4": {
+    "asset": 1779138493927,
+    "meta": 1779138494266,
+    "relativePath": "cooking\\vfx\\vfxFire\\Chicken_NoHotsauceFinal Table_00513.png"
+  },
+  "a9f94334-47c5-4f38-ad04-27e6516a0a48": {
+    "asset": 1779138574919,
+    "meta": 1779138574928,
+    "relativePath": "Fried Chicken No Hot Sauce\\anim\\vfx_angry.anim"
+  },
+  "9f1f2c8b-1ecb-420f-a12d-ab9767325eba": {
+    "asset": 1779138987372,
+    "meta": 1779139046208,
+    "relativePath": "scripts\\Fried Chicken No Hot Sauce\\boxChicken.ts"
+  },
+  "d082fcfb-0632-48fe-9fdd-66a87c18c159": {
+    "asset": 1779139124998,
+    "meta": 1779139125754,
+    "relativePath": "cooking\\ietm\\donut.ts"
+  },
+  "4d1e56a0-74dc-45c3-922f-d1ec6f02c205": {
+    "asset": 1779139731103,
+    "meta": 1779139731910,
+    "relativePath": "cooking\\sound\\Click_Wrong_01.mp3"
+  },
+  "91aaeb8f-8a7d-4b61-94be-55689b38bec7": {
+    "asset": 1779139868409,
+    "meta": 1779139868475,
+    "relativePath": "Fried Chicken No Hot Sauce\\fail.png"
+  },
+  "d65b4e74-3d92-40ac-8df5-fcb7b999b93d": {
+    "asset": 1779140019705,
+    "meta": 1779140019718,
+    "relativePath": "Fried Chicken No Hot Sauce\\anim\\vfx_failUI.anim"
+  },
+  "2147ad02-7b76-4274-8b19-f305f656d77c": {
+    "asset": 1779140826827,
+    "meta": 1779140827844,
+    "relativePath": "cooking\\ietm\\cusMission.ts"
+  },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1779136007927,
-    "meta": 1779136013732,
+    "asset": 1779141494068,
+    "meta": 1779141495471,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }
