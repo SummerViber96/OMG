@@ -17,6 +17,8 @@ require('./assets/scripts/APP/lock');
 require('./assets/scripts/APP/mainGun');
 require('./assets/scripts/APP/mainMusic');
 require('./assets/scripts/APP/volum');
+require('./assets/scripts/Fried Chicken No Hot Sauce/boxChicken');
+require('./assets/scripts/Fried Chicken No Hot Sauce/chili');
 require('./assets/scripts/Game28');
 require('./assets/scripts/HF/cus');
 require('./assets/scripts/ICY_14/Player');

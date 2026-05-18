@@ -88,8 +88,13 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     btnChili: cc.Node = null;
     @property(cc.Node)
-    btnHop:cc.Node=null;
-
+    btnHop: cc.Node = null;
+    @property(cc.Prefab)
+    preLike: cc.Prefab = null;
+    @property(cc.Node)
+    likeNode: cc.Node = null;
+    @property(cc.Prefab)
+    preBox:cc.Prefab=null
     listPosRo = [cc.v3(-300, -275), cc.v3(8, -278), cc.v3(310, -275)]
 
 
@@ -188,6 +193,24 @@ export default class NewClass extends cc.Component {
 
             }
         }
+        this.btnHop.active = true
+    }
+    spawDisLike() {
+        let arrPos = [cc.v3(-110.292), cc.v3(199, 329), cc.v3(-93, 342), cc.v3(180, 362),cc.v3(-110.292), cc.v3(199, 329)]
+        for (let i = 0; i < 6; i++) {
+            this.scheduleOnce(() => {
+                let like = cc.instantiate(this.preLike);
+                let pos = cc.v3(0, 0);
+              
+                    pos = arrPos[i];
+                like.position = pos
+                like.parent = this.likeNode
+                cc.tween(like).by(0.6, { position: cc.v3(0, -200) }).start()
+                cc.tween(like).delay(0.4).to(0.2, { opacity: 0 }).call(() => {
+                    like.destroy()
+                }).start()
+            }, 0.15 * i)
+        }
     }
     // onTouch(event: cc.Event.EventTouch) {
     //     let worldPos = event.getLocation();
@@ -257,22 +280,9 @@ export default class NewClass extends cc.Component {
                     }
                     else if (this.countCus == 2) {
                         cc.audioEngine.play(this.soundHelloCus3, false, 2)
-
                     }
                 }, 0.1)
-                // if (this.countCus == 3) {
-                //     this.isStep = 1
-                //     this.onBtn(this.btnMeatNode)
-                //     if (globalThis.gold < 100) {
-                //         globalThis.gold = 100
-                //     }
-                //     this.listHand.children[5].active = true
-                // }
-                // else if (this.countCus == 4 && this.isLockVegettable == true) {
-                //     if (globalThis.gold < 150) {
-                //         globalThis.gold = 150
-                //     }
-                // }
+              
             }).start()
         }
 
@@ -324,9 +334,39 @@ export default class NewClass extends cc.Component {
         }
         return null
     }
-    btn_clickHop(){
+    isReadyChicken = false
+    setReadyChicken() {
+        this.isReadyChicken = true;
 
     }
+    btn_clickHop() {
+        if (!this.isReadyChicken) return;
+        if (this.isTargetCus == null) return;
+        if (this.isTargetPop == null) return;
+        // this.listHand.children[4].opacity = 0
+        this.listhand.children[3].active = false
+        this.isClickKhay = true;
+        let dn = this.btnHop
+        dn.getComponent(cc.Button).enabled = false
+        cc.audioEngine.play(this.soundTrans, false, 1)
+        let child = this.btnHop
+        // this.arrKhay[value] = null;
+        let posEnd = this.isTargetPop.position
+        posEnd = this.isTargetPop.parent.convertToWorldSpaceAR(posEnd)
+        posEnd = child.parent.convertToNodeSpaceAR(posEnd)
+        let pos = child.parent.convertToWorldSpaceAR(child.position);
+        pos = this.node.convertToNodeSpaceAR(pos)
+        cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(0, 0)), scale: 0.6 }).call(() => {
+            child.opacity = 0
+
+        }).start()
+        if (this.isTargetCus) {
+            this.isTargetCus.getComponent("cusMission").checkSell(child)
+
+        }
+        this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5)
+    }
+    countDonut = 0
     clickDonut(value, node) {
 
         let slot = this.checkSlotKhay()
@@ -336,10 +376,10 @@ export default class NewClass extends cc.Component {
             return;
         }
         node.getComponent("donut").isStep = 1
-        this.listhand.children[0].active = false;
+        this.listhand.children[0].opacity = 0;
 
         this.isClickDonutChin = true
-        this.listhand.children[1].active = false
+        // this.listhand.children[1].active = false
         cc.audioEngine.play(this.soundDonutJump, false, 0.6)
         let poslocal = node.parent.convertToWorldSpaceAR(node.position);
         poslocal = this.listBoxPlace.convertToNodeSpaceAR(poslocal)
@@ -361,6 +401,18 @@ export default class NewClass extends cc.Component {
             donut.zIndex = slot
 
         }, 0.2)
+        this.countDonut++
+        if (this.countDonut == 4) {
+            this.showHindChili()
+        }
+
+    }
+    showHindChili() {
+        this.scheduleOnce(() => {
+            this.btnChili.children[0].active = true
+            this.btnChili.getChildByName("hand").active = true
+            this.btnChili.getComponent(cc.Button).enabled = true
+        }, 0.3)
 
     }
     checkSlotNhan() {
@@ -375,32 +427,37 @@ export default class NewClass extends cc.Component {
     btn_chocalate(event) {
         let check = this.checkSlotNhan()
         if (check == null) return;
-        this.listhand.children[2].active = false
+        // this.listhand.children[2].active = false
+        this.btnChili.getChildByName("hand").active = false;
+        this.btnChili.getComponent(cc.Animation).play()
         this.isClickSocola = true
         cc.audioEngine.play(this.soundTrans, false, 1)
-        let donut = this.arrKhay[check]
+        // let donut = this.arrKhay[check]
         // this.arrKhay[check] = null;
-        donut.getComponent("donut").onSocola()
+        // donut.getComponent("donut").onSocola()
         let pos = event.currentTarget.position
         this.creatFxColor(pos, 2)
-        this.scheduleOnce(() => {
-            if (this.isClickKhay == false) {
-                this.listhand.children[3].active = true
-            }
-        }, 3)
-    }
-    isClickKhay = false
-    btn_dau(event) {
-        let check = this.checkSlotNhan()
-        if (check == null) return;
-        cc.audioEngine.play(this.soundTrans, false, 1)
 
-        let donut = this.arrKhay[check]
-        // this.arrKhay[check] = null;
-        donut.getComponent("donut").onDau()
-        let pos = event.currentTarget.position
-        this.creatFxColor(pos, 2)
+
+        // this.scheduleOnce(() => {
+        //     if (this.isClickKhay == false) {
+        //         this.listhand.children[3].active = true
+        //     }
+        // }, 3)
     }
+
+    isClickKhay = false
+    // btn_dau(event) {
+    //     let check = this.checkSlotNhan()
+    //     if (check == null) return;
+    //     cc.audioEngine.play(this.soundTrans, false, 1)
+
+    //     let donut = this.arrKhay[check]
+    //     // this.arrKhay[check] = null;
+    //     donut.getComponent("donut").onDau()
+    //     let pos = event.currentTarget.position
+    //     this.creatFxColor(pos, 2)
+    // }
     sellDonut(value, dn) {
         // console.log(value)
         if (this.isTargetCus == null) return;

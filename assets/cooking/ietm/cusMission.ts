@@ -140,7 +140,7 @@ export default class NewClass extends cc.Component {
             this.anim.setAnimation(0, "angry", false)
             this.pop.getChildByName("wrong").active = true
             this.node.getChildByName("angry").active = true
-
+            this.gamePlay.spawDisLike()
         }
         this.scheduleOnce(() => {
             cc.audioEngine.play(this.gamePlay.soundClosePop, false, 1)
@@ -152,7 +152,7 @@ export default class NewClass extends cc.Component {
                 this.gamePlay.nextCus(value)
 
             }).start()
-        }, 0.5)
+        }, 1)
 
     }
     update(dt) {

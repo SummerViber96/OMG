@@ -1,0 +1,163 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "chili",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 2,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "Chocolate cream": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                0
+              ],
+              "motionPath": [
+                [
+                  -67,
+                  294,
+                  -11,
+                  260,
+                  -131,
+                  333
+                ]
+              ]
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                -321.8,
+                212.8
+              ],
+              "motionPath": []
+            },
+            {
+              "frame": 0.75,
+              "value": [
+                -321.8,
+                212.8
+              ],
+              "motionPath": []
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": [
+                -328.1,
+                199.5
+              ],
+              "motionPath": [
+                [
+                  -282.8,
+                  200.6,
+                  -300.1,
+                  209,
+                  -265.3,
+                  192
+                ]
+              ]
+            },
+            {
+              "frame": 1.0833333333333333,
+              "value": [
+                -258.4,
+                165.6
+              ],
+              "motionPath": []
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": [
+                -380.2,
+                148.6
+              ],
+              "motionPath": [
+                [
+                  -344.1,
+                  159.9,
+                  -358.8,
+                  160.6,
+                  -331.4,
+                  159.4
+                ]
+              ]
+            },
+            {
+              "frame": 1.6666666666666667,
+              "value": [
+                -325,
+                146.3
+              ],
+              "motionPath": [
+                [
+                  -84.9,
+                  207.4,
+                  -165.8,
+                  243.8,
+                  -3.3,
+                  170.7
+                ]
+              ]
+            },
+            {
+              "frame": 2,
+              "value": [
+                0,
+                0
+              ]
+            }
+          ],
+          "angle": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 144
+            },
+            {
+              "frame": 1.6666666666666667,
+              "value": 144
+            },
+            {
+              "frame": 2,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0,
+      "func": "startSauce",
+      "params": []
+    },
+    {
+      "frame": 0.9,
+      "func": "onSauce",
+      "params": [
+        1
+      ]
+    },
+    {
+      "frame": 1.4166666666666667,
+      "func": "onSauce",
+      "params": [
+        2
+      ]
+    },
+    {
+      "frame": 2,
+      "func": "end",
+      "params": []
+    }
+  ]
+}

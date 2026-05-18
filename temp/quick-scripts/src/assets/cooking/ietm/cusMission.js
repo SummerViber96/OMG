@@ -139,6 +139,7 @@ var NewClass = /** @class */ (function (_super) {
             this.anim.setAnimation(0, "angry", false);
             this.pop.getChildByName("wrong").active = true;
             this.node.getChildByName("angry").active = true;
+            this.gamePlay.spawDisLike();
         }
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.gamePlay.soundClosePop, false, 1);
@@ -148,7 +149,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.node.active = false;
                 _this.gamePlay.nextCus(value);
             }).start();
-        }, 0.5);
+        }, 1);
     };
     NewClass.prototype.update = function (dt) {
         this.lbCountSc.string = "x" + this.count[1].toString();

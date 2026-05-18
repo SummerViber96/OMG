@@ -71,6 +71,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.listBoxPlace = null;
         _this.btnChili = null;
         _this.btnHop = null;
+        _this.preLike = null;
+        _this.likeNode = null;
+        _this.preBox = null;
         _this.listPosRo = [cc.v3(-300, -275), cc.v3(8, -278), cc.v3(310, -275)];
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
@@ -90,6 +93,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.isClickDonut = false;
         _this.isClickDonutChin = false;
         _this.isClickSocola = false;
+        _this.isReadyChicken = false;
+        _this.countDonut = 0;
         _this.isClickKhay = false;
         return _this;
     }
@@ -173,6 +178,28 @@ var NewClass = /** @class */ (function (_super) {
                 ga.getComponent("donut").show();
             }
         }
+        this.btnHop.active = true;
+    };
+    NewClass.prototype.spawDisLike = function () {
+        var _this = this;
+        var arrPos = [cc.v3(-110.292), cc.v3(199, 329), cc.v3(-93, 342), cc.v3(180, 362), cc.v3(-110.292), cc.v3(199, 329)];
+        var _loop_4 = function (i) {
+            this_3.scheduleOnce(function () {
+                var like = cc.instantiate(_this.preLike);
+                var pos = cc.v3(0, 0);
+                pos = arrPos[i];
+                like.position = pos;
+                like.parent = _this.likeNode;
+                cc.tween(like).by(0.6, { position: cc.v3(0, -200) }).start();
+                cc.tween(like).delay(0.4).to(0.2, { opacity: 0 }).call(function () {
+                    like.destroy();
+                }).start();
+            }, 0.15 * i);
+        };
+        var this_3 = this;
+        for (var i = 0; i < 6; i++) {
+            _loop_4(i);
+        }
     };
     // onTouch(event: cc.Event.EventTouch) {
     //     let worldPos = event.getLocation();
@@ -240,19 +267,6 @@ var NewClass = /** @class */ (function (_super) {
                         cc.audioEngine.play(_this.soundHelloCus3, false, 2);
                     }
                 }, 0.1);
-                // if (this.countCus == 3) {
-                //     this.isStep = 1
-                //     this.onBtn(this.btnMeatNode)
-                //     if (globalThis.gold < 100) {
-                //         globalThis.gold = 100
-                //     }
-                //     this.listHand.children[5].active = true
-                // }
-                // else if (this.countCus == 4 && this.isLockVegettable == true) {
-                //     if (globalThis.gold < 150) {
-                //         globalThis.gold = 150
-                //     }
-                // }
             }).start();
         }
     };
@@ -301,7 +315,36 @@ var NewClass = /** @class */ (function (_super) {
         }
         return null;
     };
+    NewClass.prototype.setReadyChicken = function () {
+        this.isReadyChicken = true;
+    };
     NewClass.prototype.btn_clickHop = function () {
+        if (!this.isReadyChicken)
+            return;
+        if (this.isTargetCus == null)
+            return;
+        if (this.isTargetPop == null)
+            return;
+        // this.listHand.children[4].opacity = 0
+        this.listhand.children[3].active = false;
+        this.isClickKhay = true;
+        var dn = this.btnHop;
+        dn.getComponent(cc.Button).enabled = false;
+        cc.audioEngine.play(this.soundTrans, false, 1);
+        var child = this.btnHop;
+        // this.arrKhay[value] = null;
+        var posEnd = this.isTargetPop.position;
+        posEnd = this.isTargetPop.parent.convertToWorldSpaceAR(posEnd);
+        posEnd = child.parent.convertToNodeSpaceAR(posEnd);
+        var pos = child.parent.convertToWorldSpaceAR(child.position);
+        pos = this.node.convertToNodeSpaceAR(pos);
+        cc.tween(child).to(0.4, { position: posEnd.add(cc.v3(0, 0)), scale: 0.6 }).call(function () {
+            child.opacity = 0;
+        }).start();
+        if (this.isTargetCus) {
+            this.isTargetCus.getComponent("cusMission").checkSell(child);
+        }
+        this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5);
     };
     NewClass.prototype.clickDonut = function (value, node) {
         var slot = this.checkSlotKhay();
@@ -311,9 +354,9 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         node.getComponent("donut").isStep = 1;
-        this.listhand.children[0].active = false;
+        this.listhand.children[0].opacity = 0;
         this.isClickDonutChin = true;
-        this.listhand.children[1].active = false;
+        // this.listhand.children[1].active = false
         cc.audioEngine.play(this.soundDonutJump, false, 0.6);
         var poslocal = node.parent.convertToWorldSpaceAR(node.position);
         poslocal = this.listBoxPlace.convertToNodeSpaceAR(poslocal);
@@ -333,6 +376,18 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             donut.zIndex = slot;
         }, 0.2);
+        this.countDonut++;
+        if (this.countDonut == 4) {
+            this.showHindChili();
+        }
+    };
+    NewClass.prototype.showHindChili = function () {
+        var _this = this;
+        this.scheduleOnce(function () {
+            _this.btnChili.children[0].active = true;
+            _this.btnChili.getChildByName("hand").active = true;
+            _this.btnChili.getComponent(cc.Button).enabled = true;
+        }, 0.3);
     };
     NewClass.prototype.checkSlotNhan = function () {
         for (var i = 0; i < this.arrKhay.length; i++) {
@@ -344,35 +399,35 @@ var NewClass = /** @class */ (function (_super) {
         return null;
     };
     NewClass.prototype.btn_chocalate = function (event) {
-        var _this = this;
         var check = this.checkSlotNhan();
         if (check == null)
             return;
-        this.listhand.children[2].active = false;
+        // this.listhand.children[2].active = false
+        this.btnChili.getChildByName("hand").active = false;
+        this.btnChili.getComponent(cc.Animation).play();
         this.isClickSocola = true;
         cc.audioEngine.play(this.soundTrans, false, 1);
-        var donut = this.arrKhay[check];
+        // let donut = this.arrKhay[check]
         // this.arrKhay[check] = null;
-        donut.getComponent("donut").onSocola();
+        // donut.getComponent("donut").onSocola()
         var pos = event.currentTarget.position;
         this.creatFxColor(pos, 2);
-        this.scheduleOnce(function () {
-            if (_this.isClickKhay == false) {
-                _this.listhand.children[3].active = true;
-            }
-        }, 3);
+        // this.scheduleOnce(() => {
+        //     if (this.isClickKhay == false) {
+        //         this.listhand.children[3].active = true
+        //     }
+        // }, 3)
     };
-    NewClass.prototype.btn_dau = function (event) {
-        var check = this.checkSlotNhan();
-        if (check == null)
-            return;
-        cc.audioEngine.play(this.soundTrans, false, 1);
-        var donut = this.arrKhay[check];
-        // this.arrKhay[check] = null;
-        donut.getComponent("donut").onDau();
-        var pos = event.currentTarget.position;
-        this.creatFxColor(pos, 2);
-    };
+    // btn_dau(event) {
+    //     let check = this.checkSlotNhan()
+    //     if (check == null) return;
+    //     cc.audioEngine.play(this.soundTrans, false, 1)
+    //     let donut = this.arrKhay[check]
+    //     // this.arrKhay[check] = null;
+    //     donut.getComponent("donut").onDau()
+    //     let pos = event.currentTarget.position
+    //     this.creatFxColor(pos, 2)
+    // }
     NewClass.prototype.sellDonut = function (value, dn) {
         // console.log(value)
         if (this.isTargetCus == null)
@@ -607,6 +662,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnHop", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "preLike", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "likeNode", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "preBox", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

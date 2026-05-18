@@ -1,7 +1,7 @@
 {
   "2c57eeae-95a7-4ca9-87d9-802977e12c2d": {
-    "asset": 1779031135350,
-    "meta": 1779031154368,
+    "asset": 1779056373735,
+    "meta": 1779125434097,
     "relativePath": "anim"
   },
   "8cb730ee-e6cf-48a7-9fca-7c696815ad76": {
@@ -745,8 +745,8 @@
     "relativePath": "anim\\tree\\text_show.anim"
   },
   "70838e08-311c-4e4c-909d-7952e186a0a0": {
-    "asset": 1779040021347,
-    "meta": 1779044736669,
+    "asset": 1779056744569,
+    "meta": 1779125434098,
     "relativePath": "anim\\vfx"
   },
   "8ebe7bcb-216a-47ad-9512-5b16c53bc69c": {
@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1779044736701,
+    "meta": 1779133345195,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1779044736699,
+    "meta": 1779133345193,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -2880,8 +2880,8 @@
     "relativePath": "Donut\\Sound"
   },
   "93a653f6-cb50-4f69-9c15-2782fb1e4a44": {
-    "asset": 1779031135508,
-    "meta": 1779031158205,
+    "asset": 1779131816907,
+    "meta": 1779131816917,
     "relativePath": "Donut\\prefab\\preDonut.prefab"
   },
   "1f50176b-7ad0-4c5b-acb4-ec9c56f7a660": {
@@ -4325,8 +4325,8 @@
     "relativePath": "prefab\\Wood-part.prefab"
   },
   "1973ede5-c389-44a0-8934-fa1ab32451d1": {
-    "asset": 1779031152715,
-    "meta": 1779031160803,
+    "asset": 1779130091849,
+    "meta": 1779133345191,
     "relativePath": "scripts"
   },
   "470ed163-3949-4cd6-9cdc-895dae391e9e": {
@@ -9339,11 +9339,6 @@
     "meta": 1779031158189,
     "relativePath": "Donut\\anim\\donut_idle.anim"
   },
-  "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1779031135570,
-    "meta": 1779031157047,
-    "relativePath": "cooking\\ietm\\cusMission.ts"
-  },
   "3772252e-b68f-4a83-8e6a-c83b59a7c682": {
     "asset": 1779031135517,
     "meta": 1779031158396,
@@ -10025,8 +10020,8 @@
     "relativePath": "Fried Chicken No Hot Sauce\\2a992edceff8b6c76d2969852da33718.png"
   },
   "8ec60aa7-d1be-493f-80e3-edb710745d32": {
-    "asset": 1779043131102,
-    "meta": 1779044736695,
+    "asset": 1779129456251,
+    "meta": 1779133345186,
     "relativePath": "Fried Chicken No Hot Sauce"
   },
   "e97ff8af-9f75-45f9-bb7f-135f7a4d4c0b": {
@@ -10255,8 +10250,8 @@
     "relativePath": "Fried Chicken No Hot Sauce\\scripts\\chicken.ts"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1779056950863,
-    "meta": 1779056950879,
+    "asset": 1779136022163,
+    "meta": 1779136022186,
     "relativePath": "scenes\\Donut1.fire"
   },
   "a0a63d59-148c-4bac-b0ff-ba69936da0c1": {
@@ -10309,9 +10304,59 @@
     "meta": 1779056791328,
     "relativePath": "anim\\vfx\\vfx_wrong.anim"
   },
+  "0914655b-15ea-47a7-afea-f46357eeaf11": {
+    "asset": 1779131103495,
+    "meta": 1779131103504,
+    "relativePath": "Fried Chicken No Hot Sauce\\anim\\chili.anim"
+  },
+  "77cdf6f2-1831-43bb-8ce5-0582c8152f73": {
+    "asset": 1779132180098,
+    "meta": 1779133345192,
+    "relativePath": "scripts\\Fried Chicken No Hot Sauce"
+  },
+  "9f1f2c8b-1ecb-420f-a12d-ab9767325eba": {
+    "asset": 1779132359384,
+    "meta": 1779132360414,
+    "relativePath": "scripts\\Fried Chicken No Hot Sauce\\boxChicken.ts"
+  },
+  "dd91f34d-295a-42b2-b9c6-4bff18bb9188": {
+    "asset": 1779132525669,
+    "meta": 1779132525678,
+    "relativePath": "Fried Chicken No Hot Sauce\\anim\\box_show.anim"
+  },
+  "73f60cba-6b58-407b-8caf-ac2941e0261d": {
+    "asset": 1779132637752,
+    "meta": 1779132813095,
+    "relativePath": "scripts\\Fried Chicken No Hot Sauce\\chili.ts"
+  },
+  "c71ba6ef-a69a-4e49-86f5-b1f6acaf6414": {
+    "asset": 1779132380499,
+    "meta": 1779133345188,
+    "relativePath": "Fried Chicken No Hot Sauce\\anim"
+  },
+  "fa846dfe-b8a4-4370-b951-b98084ceeb72": {
+    "asset": 1779134610577,
+    "meta": 1779134610604,
+    "relativePath": "Fried Chicken No Hot Sauce\\like.png"
+  },
+  "b8926ab4-2af9-42d4-92aa-08a9c723b68b": {
+    "asset": 1779134809089,
+    "meta": 1779134809093,
+    "relativePath": "Donut\\prefab\\preLike.prefab"
+  },
+  "2147ad02-7b76-4274-8b19-f305f656d77c": {
+    "asset": 1779135482259,
+    "meta": 1779135483142,
+    "relativePath": "cooking\\ietm\\cusMission.ts"
+  },
+  "9d796b1b-e523-41cb-8587-525b9057084e": {
+    "asset": 1779135979239,
+    "meta": 1779135984766,
+    "relativePath": "Donut\\prefab\\preBox.prefab"
+  },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1779056925357,
-    "meta": 1779056927704,
+    "asset": 1779136007927,
+    "meta": 1779136013732,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }
