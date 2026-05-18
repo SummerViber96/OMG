@@ -2914,11 +2914,6 @@
     "meta": 1779031158287,
     "relativePath": "Donut\\Sound\\happy7_01.mp3"
   },
-  "33a985c8-ddda-4c31-b160-f2f4a01fa694": {
-    "asset": 1779031135487,
-    "meta": 1779031158300,
-    "relativePath": "Donut\\Sound\\Hollow Pop 06 (mp3cut.net) (1).mp3"
-  },
   "bc192ca3-a953-4095-9da6-32ce672a339b": {
     "asset": 1779031135488,
     "meta": 1779031158315,
@@ -10290,8 +10285,8 @@
     "relativePath": "anim\\vfx\\vfx_wrong.anim"
   },
   "0914655b-15ea-47a7-afea-f46357eeaf11": {
-    "asset": 1779131103495,
-    "meta": 1779131103504,
+    "asset": 1779143388782,
+    "meta": 1779143388793,
     "relativePath": "Fried Chicken No Hot Sauce\\anim\\chili.anim"
   },
   "77cdf6f2-1831-43bb-8ce5-0582c8152f73": {
@@ -10303,11 +10298,6 @@
     "asset": 1779132525669,
     "meta": 1779132525678,
     "relativePath": "Fried Chicken No Hot Sauce\\anim\\box_show.anim"
-  },
-  "73f60cba-6b58-407b-8caf-ac2941e0261d": {
-    "asset": 1779132637752,
-    "meta": 1779132813095,
-    "relativePath": "scripts\\Fried Chicken No Hot Sauce\\chili.ts"
   },
   "c71ba6ef-a69a-4e49-86f5-b1f6acaf6414": {
     "asset": 1779132380499,
@@ -10328,11 +10318,6 @@
     "asset": 1779141371554,
     "meta": 1779141371571,
     "relativePath": "Donut\\prefab\\preBox.prefab"
-  },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1779141710171,
-    "meta": 1779141710192,
-    "relativePath": "scenes\\Donut1.fire"
   },
   "eac420c5-68b9-44f9-99e2-8d499553c724": {
     "asset": 1779138486332,
@@ -10504,14 +10489,124 @@
     "meta": 1779140019718,
     "relativePath": "Fried Chicken No Hot Sauce\\anim\\vfx_failUI.anim"
   },
-  "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1779140826827,
-    "meta": 1779140827844,
-    "relativePath": "cooking\\ietm\\cusMission.ts"
+  "4416d00a-76b0-4f1a-a0e7-2b03a3fa3302": {
+    "asset": 1779141850047,
+    "meta": 1779141850635,
+    "relativePath": "Donut\\Sound\\Crush_WrOrderNoChiliSChaos_NoChilly_Sauce_CTA_ChooseABoost_4X5_280825.mp3"
+  },
+  "6e3b2929-a2e4-471c-b0f1-dcbf56eec611": {
+    "asset": 1779142121879,
+    "meta": 1779142122466,
+    "relativePath": "Donut\\Sound\\Ugress - Undead Funeral March (mp3cut.net).mp3"
+  },
+  "33a985c8-ddda-4c31-b160-f2f4a01fa694": {
+    "asset": 1779142339116,
+    "meta": 1779142339777,
+    "relativePath": "Donut\\Sound\\Hollow Pop 06 (mp3cut.net) (1).mp3"
+  },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1779144356680,
+    "meta": 1779144356708,
+    "relativePath": "scenes\\Donut1.fire"
+  },
+  "5cf0ee86-d280-4d83-b928-58f5b17173d0": {
+    "asset": 1779142538789,
+    "meta": 1779142538789,
+    "relativePath": "Donut\\Sound\\voice"
+  },
+  "b1fc8ef5-b800-49a8-b5c8-b6c369a03f47": {
+    "asset": 1779142543892,
+    "meta": 1779142544551,
+    "relativePath": "Donut\\Sound\\voice\\Latina_Ordering.mp3"
+  },
+  "a8d2f70a-980b-47ce-9a10-389ae9d0bf40": {
+    "asset": 1779142543892,
+    "meta": 1779142544552,
+    "relativePath": "Donut\\Sound\\voice\\Latina_Angry_Girl.mp3"
+  },
+  "2ccf2427-cb55-4072-9c72-6253a3f69b4e": {
+    "asset": 1779142543893,
+    "meta": 1779142544560,
+    "relativePath": "Donut\\Sound\\voice\\Boy_angry.mp3"
+  },
+  "7c513d7b-eec4-4a16-9bbf-62648be42dd1": {
+    "asset": 1779142543893,
+    "meta": 1779142544562,
+    "relativePath": "Donut\\Sound\\voice\\Latina_Angry_Girl_03.mp3"
+  },
+  "a309c853-6af4-43dd-a109-8462ed7c888b": {
+    "asset": 1779142543893,
+    "meta": 1779142544572,
+    "relativePath": "Donut\\Sound\\voice\\Boy_Ordering.mp3"
+  },
+  "c55d5abf-ff1a-464d-954c-2fcc65570275": {
+    "asset": 1779142543894,
+    "meta": 1779142544575,
+    "relativePath": "Donut\\Sound\\voice\\Latina_Angry_Girl_02.mp3"
+  },
+  "c07a8721-4273-4b62-9235-310a9c834100": {
+    "asset": 1779142543894,
+    "meta": 1779142544583,
+    "relativePath": "Donut\\Sound\\voice\\oldman_angry.mp3"
+  },
+  "465b7b43-5000-4238-bd93-7eeec80d405b": {
+    "asset": 1779142543894,
+    "meta": 1779142544585,
+    "relativePath": "Donut\\Sound\\voice\\oldman_ordering-02.mp3"
+  },
+  "9b702b32-1f1e-4375-b483-cf88fd25e89e": {
+    "asset": 1779142543894,
+    "meta": 1779142544594,
+    "relativePath": "Donut\\Sound\\voice\\oldman_ordering-03.mp3"
+  },
+  "1079c223-7607-4254-9ec4-96ba02614769": {
+    "asset": 1779142543894,
+    "meta": 1779142544595,
+    "relativePath": "Donut\\Sound\\voice\\oldman_angry_04.mp3"
+  },
+  "54b72b54-1b36-4862-ab26-31f424e9fee9": {
+    "asset": 1779142879165,
+    "meta": 1779142879769,
+    "relativePath": "Donut\\Sound\\Bubble_Food_01.mp3"
+  },
+  "b2523777-b80b-4e7b-a47a-439548e5e836": {
+    "asset": 1779142950503,
+    "meta": 1779142951050,
+    "relativePath": "Donut\\Sound\\cream spread.mp3"
+  },
+  "05ed581c-c4f7-4690-b71e-79bd4f59c636": {
+    "asset": 1779142950487,
+    "meta": 1779142951050,
+    "relativePath": "Donut\\Sound\\cream spread2.mp3"
+  },
+  "73f60cba-6b58-407b-8caf-ac2941e0261d": {
+    "asset": 1779143286737,
+    "meta": 1779143288031,
+    "relativePath": "scripts\\Fried Chicken No Hot Sauce\\chili.ts"
   },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1779141494068,
-    "meta": 1779141495471,
+    "asset": 1779143797791,
+    "meta": 1779143799564,
     "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "71312094-6527-4043-921a-72da7ff84301": {
+    "asset": 1779143873711,
+    "meta": 1779143874087,
+    "relativePath": "Donut\\Sound\\voice\\oldman_angry_04 (mp3cut.net).mp3"
+  },
+  "a120c837-c963-4475-86e8-b518f7ee5f08": {
+    "asset": 1779144105655,
+    "meta": 1779144115749,
+    "relativePath": "Donut\\Sound\\voice\\Boy_angry (mp3cut.net).mp3"
+  },
+  "2147ad02-7b76-4274-8b19-f305f656d77c": {
+    "asset": 1779144299145,
+    "meta": 1779144302318,
+    "relativePath": "cooking\\ietm\\cusMission.ts"
+  },
+  "a14fbc4b-7546-4ba7-b9b5-21ab647d2aca": {
+    "asset": 1779144342789,
+    "meta": 1779144343366,
+    "relativePath": "Donut\\Sound\\voice\\Boy_Ordering (mp3cut.net).mp3"
   }
 }

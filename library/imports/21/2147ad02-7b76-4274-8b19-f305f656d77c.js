@@ -29,6 +29,7 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.soundHappy = null;
+        _this.soundAngry = null;
         _this.dau = false;
         _this.socola = false;
         _this.count = [];
@@ -136,11 +137,17 @@ var NewClass = /** @class */ (function (_super) {
         }
         else {
             this.unscheduleAllCallbacks();
-            this.anim.setAnimation(0, "angry", false);
+            if (this.anim.findAnimation("angry")) {
+                this.anim.setAnimation(0, "angry", false);
+            }
+            else {
+                this.anim.setAnimation(0, "6.angry", false);
+            }
             this.pop.getChildByName("wrong").active = true;
             this.node.getChildByName("angry").active = true;
             this.node.getChildByName("vfx_Angry").getComponent(cc.Animation).play();
             this.gamePlay.spawDisLike();
+            cc.audioEngine.play(this.soundAngry, false, 1);
         }
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.gamePlay.soundClosePop, false, 1);
@@ -152,7 +159,7 @@ var NewClass = /** @class */ (function (_super) {
                     _this.gamePlay.nextCus(value);
                 }
             }).start();
-        }, 1);
+        }, 1.5);
     };
     NewClass.prototype.update = function (dt) {
         this.lbCountSc.string = "x" + this.count[1].toString();
@@ -189,6 +196,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundHappy", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundAngry", void 0);
     __decorate([
         property(cc.Boolean)
     ], NewClass.prototype, "dau", void 0);

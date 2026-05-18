@@ -130,7 +130,7 @@ export default class NewClass extends cc.Component {
     }
     start() {
         this.showCus()
-        this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
+        this.idSound = cc.audioEngine.play(this.soundBg, true, 0.3)
         this.idSound = cc.audioEngine.play(this.soundChien, true, 0.5)
         for (let i = 0; i < this.listRo.length; i++) {
             let ro = this.listRo[i];
@@ -143,12 +143,16 @@ export default class NewClass extends cc.Component {
                     ga.position = localPos.add(cc.v3(0, 200));
                     cc.tween(ga).to(0.1, { opacity: 255 }).start();
                     cc.tween(ga).to(0.2, { position: localPos }).to(0.05, { scale: 1.3 }).to(0.05, { scale: 1.4 }).call(() => {
+                        if (i == 0) {
+                            cc.audioEngine.play(this.soundClick, false, 1)
+
+                        }
                         if (i == this.listRo.length - 1 && j == ro.childrenCount - 1) {
                             this.actionKhay()
                         }
                     }).start()
 
-                }, 0.11 * j)
+                }, 0.15 * j)
 
             }
         }
@@ -217,7 +221,7 @@ export default class NewClass extends cc.Component {
                     this.listhand.children[0].active = true
 
                 }
-            }, 2)
+            }, 0.7)
         }).start()
 
     }
@@ -327,15 +331,22 @@ export default class NewClass extends cc.Component {
         return null
     }
     isReadyChicken = false
+    isFirstBox = false
     setReadyChicken() {
         this.isReadyChicken = true;
-
+        if (!this.isFirstBox) {
+            this.btnHop.getChildByName("hand").active = true;
+            this.isFirstBox=true
+        }
     }
     btn_clickHop() {
         if (!this.isReadyChicken) return;
         if (this.isTargetCus == null) return;
         if (this.isTargetPop == null) return;
         this.isReadyChicken = false
+        if( this.btnHop.getChildByName("hand")){
+             this.btnHop.getChildByName("hand").active=false
+        }
         // this.listHand.children[4].opacity = 0
         this.listhand.children[3].active = false
         this.isClickKhay = true;
@@ -395,7 +406,7 @@ export default class NewClass extends cc.Component {
 
         }, 0.2)
         this.countDonut++
-        if (this.countDonut == 4) {
+        if (this.countDonut == 4||this.countDonut==8||this.countDonut==12) {
             this.showHindChili()
         }
 
@@ -426,7 +437,7 @@ export default class NewClass extends cc.Component {
         this.btnChili.getChildByName("hand").active = false;
         this.btnChili.getComponent(cc.Animation).play()
         this.isClickSocola = true
-        cc.audioEngine.play(this.soundTrans, false, 1)
+        // cc.audioEngine.play(this.soundTrans, false, 1)
         // let donut = this.arrKhay[check]
         // this.arrKhay[check] = null;
         // donut.getComponent("donut").onSocola()
@@ -510,10 +521,10 @@ export default class NewClass extends cc.Component {
             this.failNode.children[0].active = false
             cc.tween(this.failNode.children[1]).to(0.3, { scale: 0 }).start()
             this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundEnd,false,1)
+                cc.audioEngine.play(this.soundEnd, false, 1)
                 this.endCard.active = true;
                 this.linkToStore.active = true
-            }, 0.5)
+            }, 1)
 
         }, 1.2)
 

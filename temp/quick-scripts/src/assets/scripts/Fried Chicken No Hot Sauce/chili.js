@@ -29,6 +29,8 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.sauce = null;
+        _this.soundCream1 = null;
+        _this.soundCream2 = null;
         _this.gamePlay = null;
         return _this;
     }
@@ -43,6 +45,14 @@ var NewClass = /** @class */ (function (_super) {
             this.sauce.children[1].active = true;
         }
     };
+    NewClass.prototype.onSound = function (value) {
+        if (value == 1) {
+            cc.audioEngine.play(this.soundCream1, false, 0.5);
+        }
+        else {
+            cc.audioEngine.play(this.soundCream2, false, 0.5);
+        }
+    };
     NewClass.prototype.startSauce = function () {
         this.node.children[0].active = false;
     };
@@ -52,6 +62,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "sauce", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundCream1", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundCream2", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

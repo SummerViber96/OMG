@@ -141,10 +141,24 @@
       "params": []
     },
     {
+      "frame": 0.75,
+      "func": "onSound",
+      "params": [
+        1
+      ]
+    },
+    {
       "frame": 0.9,
       "func": "onSauce",
       "params": [
         1
+      ]
+    },
+    {
+      "frame": 1.3666666666666667,
+      "func": "onSound",
+      "params": [
+        2
       ]
     },
     {
@@ -153,6 +167,11 @@
       "params": [
         2
       ]
+    },
+    {
+      "frame": 2,
+      "func": "end",
+      "params": []
     }
   ]
 }

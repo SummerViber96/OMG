@@ -6,6 +6,8 @@ const { ccclass, property } = cc._decorator;
 export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundHappy: cc.AudioClip = null
+     @property(cc.AudioClip)
+    soundAngry: cc.AudioClip = null
     @property(cc.Boolean)
     dau = false
     @property(cc.Boolean)
@@ -137,11 +139,19 @@ export default class NewClass extends cc.Component {
         }
         else {
             this.unscheduleAllCallbacks()
+            if(this.anim.findAnimation("angry")){
             this.anim.setAnimation(0, "angry", false)
+
+            }
+            else {
+                          this.anim.setAnimation(0, "6.angry", false)
+  
+            }
             this.pop.getChildByName("wrong").active = true
             this.node.getChildByName("angry").active = true
             this.node.getChildByName("vfx_Angry").getComponent(cc.Animation).play()
             this.gamePlay.spawDisLike()
+            cc.audioEngine.play(this.soundAngry,false,1)
         }
         this.scheduleOnce(() => {
             cc.audioEngine.play(this.gamePlay.soundClosePop, false, 1)
@@ -156,7 +166,7 @@ export default class NewClass extends cc.Component {
                 }
 
             }).start()
-        }, 1)
+        }, 1.5)
 
     }
     update(dt) {
