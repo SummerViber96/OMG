@@ -51961,7 +51961,7 @@
         "__id__": 1375
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 1378
@@ -52264,7 +52264,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1416.4,
+      "width": 1187.8,
       "height": 140
     },
     "_anchorPoint": {
@@ -53429,7 +53429,7 @@
       "__uuid__": "2744c6b2-ebf4-4c8d-9ad7-cbc8f8409304"
     },
     "soundEnd": {
-      "__uuid__": "b6516688-bff1-4f4f-99b9-ee2bbddd9529"
+      "__uuid__": "9842598c-845d-4f7a-ba9c-eaa8b9345125"
     },
     "soundSellDone": {
       "__uuid__": "24fbb393-28ba-4809-8ecb-a8e2ffeb60e3"
