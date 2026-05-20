@@ -1756,7 +1756,7 @@
     "node": {
       "__id__": 10
     },
-    "_enabled": true,
+    "_enabled": false,
     "vfxSmoke": {
       "__id__": 26
     },
@@ -3235,7 +3235,7 @@
     "node": {
       "__id__": 51
     },
-    "_enabled": true,
+    "_enabled": false,
     "vfxSmoke": {
       "__id__": 67
     },
@@ -4714,7 +4714,7 @@
     "node": {
       "__id__": 92
     },
-    "_enabled": true,
+    "_enabled": false,
     "vfxSmoke": {
       "__id__": 108
     },
@@ -6193,7 +6193,7 @@
     "node": {
       "__id__": 133
     },
-    "_enabled": true,
+    "_enabled": false,
     "vfxSmoke": {
       "__id__": 149
     },

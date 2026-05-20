@@ -32,8 +32,7 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundEnd: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundSellDone
-        : cc.AudioClip = null;
+    soundSellDone: cc.AudioClip = null;
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -54,6 +53,10 @@ export default class NewClass extends cc.Component {
 
     @property(cc.AudioClip)
     soundWrong: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundChienRan: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundEror:cc.AudioClip=null
 
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
@@ -98,8 +101,10 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     main: cc.Node = null
     @property(cc.Node)
-    failNode: cc.Node = null
-    listPosRo = [cc.v3(-300, -275), cc.v3(8, -278), cc.v3(310, -275)]
+    failNode: cc.Node = null;
+    @property(cc.Node)
+    warning:cc.Node=null;
+    listPosRo = [cc.v3(-290, -275), cc.v3(8, -278), cc.v3(310, -275)]
 
 
 
@@ -163,6 +168,7 @@ export default class NewClass extends cc.Component {
             let ro = this.listRo[i];
             cc.tween(ro).to(0.25, { position: { value: this.listPosRo[i], easing: "sineIn" } }).call(() => {
                 if (i == this.listRo.length - 1) {
+                    cc.audioEngine.play(this.soundChienRan, false, 1)
                 }
             }).start()
         }
@@ -211,17 +217,18 @@ export default class NewClass extends cc.Component {
             child.children[1].getComponent(sp.Skeleton).setAnimation(0, "idle", true)
             this.isTargetPop = child.getChildByName("pop")
             this.isTargetCus = child;
-            cc.audioEngine.play(this.soundHello, false, 1)
+
+            cc.audioEngine.play(this.soundHello, false, 4)
             this.scheduleOnce(() => {
                 cc.audioEngine.play(this.soundShowPop, false, 1)
             }, 0.1)
-            this.btnDonut.getComponent(cc.Button).enabled = true
+            // this.btnDonut.getComponent(cc.Button).enabled = true
             this.scheduleOnce(() => {
                 if (this.isClickDonut == false) {
                     this.listhand.children[0].active = true
 
                 }
-            }, 0.7)
+            }, 3)
         }).start()
 
     }
@@ -335,8 +342,11 @@ export default class NewClass extends cc.Component {
     setReadyChicken() {
         this.isReadyChicken = true;
         if (!this.isFirstBox) {
-            this.btnHop.getChildByName("hand").active = true;
-            this.isFirstBox=true
+            this.scheduleOnce(() => {
+                this.btnHop.getChildByName("hand").active = true;
+
+            }, 2)
+            this.isFirstBox = true
         }
     }
     btn_clickHop() {
@@ -344,8 +354,8 @@ export default class NewClass extends cc.Component {
         if (this.isTargetCus == null) return;
         if (this.isTargetPop == null) return;
         this.isReadyChicken = false
-        if( this.btnHop.getChildByName("hand")){
-             this.btnHop.getChildByName("hand").active=false
+        if (this.btnHop.getChildByName("hand")) {
+            this.btnHop.getChildByName("hand").opacity = 0
         }
         // this.listHand.children[4].opacity = 0
         this.listhand.children[3].active = false
@@ -406,7 +416,7 @@ export default class NewClass extends cc.Component {
 
         }, 0.2)
         this.countDonut++
-        if (this.countDonut == 4||this.countDonut==8||this.countDonut==12) {
+        if (this.countDonut == 4 || this.countDonut == 8 || this.countDonut == 12) {
             this.showHindChili()
         }
 
@@ -414,7 +424,10 @@ export default class NewClass extends cc.Component {
     showHindChili() {
         this.scheduleOnce(() => {
             this.btnChili.children[0].active = true
-            this.btnChili.getChildByName("hand").active = true
+            this.scheduleOnce(() => {
+                this.btnChili.getChildByName("hand").active = true
+
+            }, 3)
             this.btnChili.getComponent(cc.Button).enabled = true
         }, 0.3)
 
@@ -434,7 +447,7 @@ export default class NewClass extends cc.Component {
         if (this.btnHop.getComponent("boxChicken").isSauce == true) return;
         this.btnHop.getComponent("boxChicken").isSauce = true
         // this.listhand.children[2].active = false
-        this.btnChili.getChildByName("hand").active = false;
+        this.btnChili.getChildByName("hand").opacity = 0;
         this.btnChili.getComponent(cc.Animation).play()
         this.isClickSocola = true
         // cc.audioEngine.play(this.soundTrans, false, 1)
@@ -558,7 +571,7 @@ export default class NewClass extends cc.Component {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
-            this.camera.node.position = cc.v3(0, 200)
+            this.camera.node.position = cc.v3(0, 100)
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);

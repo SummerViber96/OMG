@@ -65,7 +65,7 @@ export default class NewClass extends cc.Component {
         }
     }
     onTouchEnd() {
-        this.isTouching = false; // reset để lần sau vuốt lại được
+        // this.isTouching = false; // reset để lần sau vuốt lại được
     }
     btn_click() {
         console.log("click")

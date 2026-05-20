@@ -54,6 +54,8 @@ var NewClass = /** @class */ (function (_super) {
         // @property(cc.Node)
         // listHand: cc.Node = null;
         _this.soundWrong = null;
+        _this.soundChienRan = null;
+        _this.soundEror = null;
         _this.fxColor = null;
         //new
         _this.btnDonut = null;
@@ -77,7 +79,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.preBox = null;
         _this.main = null;
         _this.failNode = null;
-        _this.listPosRo = [cc.v3(-300, -275), cc.v3(8, -278), cc.v3(310, -275)];
+        _this.warning = null;
+        _this.listPosRo = [cc.v3(-290, -275), cc.v3(8, -278), cc.v3(310, -275)];
         _this.maxKhay = 7;
         _this.arrDonutpos = [];
         _this.arrDonut = [null, null, null, null, null, null, null];
@@ -148,6 +151,7 @@ var NewClass = /** @class */ (function (_super) {
             var ro = this_2.listRo[i];
             cc.tween(ro).to(0.25, { position: { value: this_2.listPosRo[i], easing: "sineIn" } }).call(function () {
                 if (i == _this.listRo.length - 1) {
+                    cc.audioEngine.play(_this.soundChienRan, false, 1);
                 }
             }).start();
         };
@@ -200,16 +204,16 @@ var NewClass = /** @class */ (function (_super) {
             child.children[1].getComponent(sp.Skeleton).setAnimation(0, "idle", true);
             _this.isTargetPop = child.getChildByName("pop");
             _this.isTargetCus = child;
-            cc.audioEngine.play(_this.soundHello, false, 1);
+            cc.audioEngine.play(_this.soundHello, false, 4);
             _this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.soundShowPop, false, 1);
             }, 0.1);
-            _this.btnDonut.getComponent(cc.Button).enabled = true;
+            // this.btnDonut.getComponent(cc.Button).enabled = true
             _this.scheduleOnce(function () {
                 if (_this.isClickDonut == false) {
                     _this.listhand.children[0].active = true;
                 }
-            }, 0.7);
+            }, 3);
         }).start();
     };
     NewClass.prototype.successCus = function () {
@@ -311,9 +315,12 @@ var NewClass = /** @class */ (function (_super) {
         return null;
     };
     NewClass.prototype.setReadyChicken = function () {
+        var _this = this;
         this.isReadyChicken = true;
         if (!this.isFirstBox) {
-            this.btnHop.getChildByName("hand").active = true;
+            this.scheduleOnce(function () {
+                _this.btnHop.getChildByName("hand").active = true;
+            }, 2);
             this.isFirstBox = true;
         }
     };
@@ -326,7 +333,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.isReadyChicken = false;
         if (this.btnHop.getChildByName("hand")) {
-            this.btnHop.getChildByName("hand").active = false;
+            this.btnHop.getChildByName("hand").opacity = 0;
         }
         // this.listHand.children[4].opacity = 0
         this.listhand.children[3].active = false;
@@ -389,7 +396,9 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         this.scheduleOnce(function () {
             _this.btnChili.children[0].active = true;
-            _this.btnChili.getChildByName("hand").active = true;
+            _this.scheduleOnce(function () {
+                _this.btnChili.getChildByName("hand").active = true;
+            }, 3);
             _this.btnChili.getComponent(cc.Button).enabled = true;
         }, 0.3);
     };
@@ -410,7 +419,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.btnHop.getComponent("boxChicken").isSauce = true;
         // this.listhand.children[2].active = false
-        this.btnChili.getChildByName("hand").active = false;
+        this.btnChili.getChildByName("hand").opacity = 0;
         this.btnChili.getComponent(cc.Animation).play();
         this.isClickSocola = true;
         // cc.audioEngine.play(this.soundTrans, false, 1)
@@ -514,7 +523,7 @@ var NewClass = /** @class */ (function (_super) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            this.camera.node.position = cc.v3(0, 200);
+            this.camera.node.position = cc.v3(0, 100);
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
@@ -616,6 +625,12 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundWrong", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundChienRan", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundEror", void 0);
+    __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "fxColor", void 0);
     __decorate([
@@ -672,6 +687,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "failNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "warning", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

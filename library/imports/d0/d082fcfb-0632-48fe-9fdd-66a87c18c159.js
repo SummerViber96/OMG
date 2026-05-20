@@ -82,7 +82,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.onTouchEnd = function () {
-        this.isTouching = false; // reset để lần sau vuốt lại được
+        // this.isTouching = false; // reset để lần sau vuốt lại được
     };
     NewClass.prototype.btn_click = function () {
         console.log("click");

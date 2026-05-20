@@ -143,11 +143,24 @@ var NewClass = /** @class */ (function (_super) {
             else {
                 this.anim.setAnimation(0, "6.angry", false);
             }
+            this.gamePlay.warning.active = true;
+            this.scheduleOnce(function () {
+                _this.gamePlay.warning.active = false;
+            }, 0.8);
             this.pop.getChildByName("wrong").active = true;
             this.node.getChildByName("angry").active = true;
             this.node.getChildByName("vfx_Angry").getComponent(cc.Animation).play();
             this.gamePlay.spawDisLike();
-            cc.audioEngine.play(this.soundAngry, false, 1);
+            cc.audioEngine.play(this.gamePlay.soundEror, false, 1);
+            if (this.node.name == "cus1") {
+                console.log("gỉl");
+                cc.audioEngine.play(this.soundAngry, false, 3);
+            }
+            else {
+                this.scheduleOnce(function () {
+                    cc.audioEngine.play(_this.soundAngry, false, 1);
+                }, 0.4);
+            }
         }
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.gamePlay.soundClosePop, false, 1);
