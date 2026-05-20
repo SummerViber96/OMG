@@ -9599,19 +9599,14 @@
     "meta": 1779289578483,
     "relativePath": "Fried Chicken No Hot Sauce\\anh.png"
   },
-  "0c625498-b93f-4f03-92a3-c5ace943ab94": {
-    "asset": 1779041991955,
-    "meta": 1779289578789,
-    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_03_Overlap.png"
-  },
   "9407f4e6-91cb-4998-b586-8c500ec206c2": {
     "asset": 1779043140423,
     "meta": 1779289578966,
     "relativePath": "Fried Chicken No Hot Sauce\\scripts"
   },
   "e94f8b8c-d156-499c-b25f-b1a39815fb6e": {
-    "asset": 1779296955723,
-    "meta": 1779296955738,
+    "asset": 1779299436619,
+    "meta": 1779299436629,
     "relativePath": "Donut\\prefab\\preChicken.prefab"
   },
   "83e594e4-d8f3-433c-9c59-690678a4aec5": {
@@ -9660,8 +9655,8 @@
     "relativePath": "Donut\\prefab\\preLike.prefab"
   },
   "9d796b1b-e523-41cb-8587-525b9057084e": {
-    "asset": 1779293904202,
-    "meta": 1779293904214,
+    "asset": 1779300095243,
+    "meta": 1779300095259,
     "relativePath": "Donut\\prefab\\preBox.prefab"
   },
   "eac420c5-68b9-44f9-99e2-8d499553c724": {
@@ -10479,36 +10474,6 @@
     "meta": 1779295502968,
     "relativePath": "Fried Chicken No Hot Sauce\\2a992edceff8b6c76d2969852da33718.png"
   },
-  "91aaeb8f-8a7d-4b61-94be-55689b38bec7": {
-    "asset": 1779270060000,
-    "meta": 1779295502990,
-    "relativePath": "Fried Chicken No Hot Sauce\\fail.png"
-  },
-  "ee59e45a-d05b-45c2-a6f4-19bfd8dd9209": {
-    "asset": 1779270060000,
-    "meta": 1779295503006,
-    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_01_overlap.png"
-  },
-  "bdb65686-f904-4b4c-ba8d-bc6791f8d70d": {
-    "asset": 1779270060000,
-    "meta": 1779295503012,
-    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_01.png"
-  },
-  "0fd89aae-0aa1-49fd-aa02-67c1990bcf0d": {
-    "asset": 1779270060000,
-    "meta": 1779295503020,
-    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_02_Overlap.png"
-  },
-  "e3ec35ba-ba5e-436d-949b-ace683282b3a": {
-    "asset": 1779270060000,
-    "meta": 1779295503031,
-    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_02.png"
-  },
-  "d806b66f-4668-4e4c-8d5a-2b8f94b38f00": {
-    "asset": 1779270060000,
-    "meta": 1779295503039,
-    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_03.png"
-  },
   "d8eacfff-011f-49d1-8eea-e5dc06dbb93e": {
     "asset": 1779270060000,
     "meta": 1779295503047,
@@ -10589,11 +10554,6 @@
     "meta": 1779296095112,
     "relativePath": "Donut\\Sound\\Ugress-Undead-Funeral-March-mp3c (1).mp3"
   },
-  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1779296170215,
-    "meta": 1779296171840,
-    "relativePath": "scripts\\APP\\GameDonut.ts"
-  },
   "d082fcfb-0632-48fe-9fdd-66a87c18c159": {
     "asset": 1779296264942,
     "meta": 1779296266602,
@@ -10620,8 +10580,8 @@
     "relativePath": "Fried Chicken No Hot Sauce\\Fried chicken.png"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1779299085517,
-    "meta": 1779299085537,
+    "asset": 1779301915996,
+    "meta": 1779301916024,
     "relativePath": "scenes\\Donut1.fire"
   },
   "a14fbc4b-7546-4ba7-b9b5-21ab647d2aca": {
@@ -10678,5 +10638,50 @@
     "asset": 1779299014138,
     "meta": 1779299075405,
     "relativePath": "Donut\\Sound\\_ _closes the lid of the pan when frying (mp3cut.net).mp3"
+  },
+  "49143a4b-6df6-4c12-a4ce-f8b64df3a117": {
+    "asset": 1779300346895,
+    "meta": 1779300347449,
+    "relativePath": "Donut\\Sound\\Ugress-Undead-Funeral-March-mp3c (1) (mp3cut.net).mp3"
+  },
+  "91aaeb8f-8a7d-4b61-94be-55689b38bec7": {
+    "asset": 1779300720176,
+    "meta": 1779300771146,
+    "relativePath": "Fried Chicken No Hot Sauce\\fail.png"
+  },
+  "0fd89aae-0aa1-49fd-aa02-67c1990bcf0d": {
+    "asset": 1779275638000,
+    "meta": 1779300872646,
+    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_02_Overlap.png"
+  },
+  "ee59e45a-d05b-45c2-a6f4-19bfd8dd9209": {
+    "asset": 1779275638000,
+    "meta": 1779300872648,
+    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_01_overlap.png"
+  },
+  "0c625498-b93f-4f03-92a3-c5ace943ab94": {
+    "asset": 1779275638000,
+    "meta": 1779300872664,
+    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_03_Overlap.png"
+  },
+  "bdb65686-f904-4b4c-ba8d-bc6791f8d70d": {
+    "asset": 1779300924000,
+    "meta": 1779300963808,
+    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_01.png"
+  },
+  "e3ec35ba-ba5e-436d-949b-ace683282b3a": {
+    "asset": 1779300925000,
+    "meta": 1779300963809,
+    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_02.png"
+  },
+  "d806b66f-4668-4e4c-8d5a-2b8f94b38f00": {
+    "asset": 1779300926000,
+    "meta": 1779300963819,
+    "relativePath": "Fried Chicken No Hot Sauce\\Fryer_03.png"
+  },
+  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
+    "asset": 1779301909026,
+    "meta": 1779301911806,
+    "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

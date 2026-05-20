@@ -514,12 +514,14 @@ var NewClass = /** @class */ (function (_super) {
         this.endCard.scale = (logic) ? 1.2 : 0.7;
         this.failNode.scale = (logic) ? 1 : 0.7;
         this.logo.scale = (logic) ? 0.6 : 0.4;
+        this.logo.getComponent(cc.Widget).top = 40.63;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, -60);
         this.listCus.scale = (logic) ? 1.2 : 1;
         this.listCus.position = (logic) ? cc.v3(0, -130) : cc.v3(0, -120);
         if (logic == true) {
+            this.logo.getComponent(cc.Widget).top = 120;
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
@@ -534,6 +536,7 @@ var NewClass = /** @class */ (function (_super) {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
                 this.camera.zoomRatio = 2.38;
+                this.logo.getComponent(cc.Widget).top = 150;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.6;

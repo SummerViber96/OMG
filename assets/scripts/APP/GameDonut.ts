@@ -56,7 +56,7 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundChienRan: cc.AudioClip = null
     @property(cc.AudioClip)
-    soundEror:cc.AudioClip=null
+    soundEror: cc.AudioClip = null
 
     @property(cc.Prefab)
     fxColor: cc.Prefab = null
@@ -103,7 +103,7 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     failNode: cc.Node = null;
     @property(cc.Node)
-    warning:cc.Node=null;
+    warning: cc.Node = null;
     listPosRo = [cc.v3(-290, -275), cc.v3(8, -278), cc.v3(310, -275)]
 
 
@@ -561,6 +561,7 @@ export default class NewClass extends cc.Component {
         this.failNode.scale = (logic) ? 1 : 0.7
 
         this.logo.scale = (logic) ? 0.6 : 0.4
+        this.logo.getComponent(cc.Widget).top = 40.63
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = cc.v3(0, -60)
@@ -568,6 +569,8 @@ export default class NewClass extends cc.Component {
         this.listCus.position = (logic) ? cc.v3(0, -130) : cc.v3(0, -120)
 
         if (logic == true) {
+            this.logo.getComponent(cc.Widget).top = 120
+
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
@@ -585,6 +588,7 @@ export default class NewClass extends cc.Component {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
                 this.camera.zoomRatio = 2.38
+            this.logo.getComponent(cc.Widget).top = 150
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
