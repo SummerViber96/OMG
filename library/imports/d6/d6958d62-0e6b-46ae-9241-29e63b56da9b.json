@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "botE",
+    "texture": "d665140d-8e91-4750-ad30-5fc49affc3b0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1675,
+      939
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1675,
+      939
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
