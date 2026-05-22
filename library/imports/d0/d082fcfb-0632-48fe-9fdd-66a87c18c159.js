@@ -32,6 +32,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.iconChin = null;
         _this.iconDau = null;
         _this.iconSocola = null;
+        _this.tagKhay = 0;
         _this.isSocola = false;
         _this.isDau = false;
         _this.isStep = 0;
@@ -89,7 +90,7 @@ var NewClass = /** @class */ (function (_super) {
         if (!this.isReady)
             return;
         // if (this.isStep == 0) {
-        this.gamePlay.clickDonut(this.value, this.node);
+        this.gamePlay.clickDonut(this.value, this.node, this.tagKhay);
         this.node.getComponent(cc.Button).enabled = false;
         // this.isStep = 1;
         // }

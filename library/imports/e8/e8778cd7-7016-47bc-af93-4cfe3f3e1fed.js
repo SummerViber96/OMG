@@ -96,6 +96,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.countCus = 0;
         _this.idSound = null;
+        _this.arrRo = [];
         _this.isClickDonut = false;
         _this.isClickDonutChin = false;
         _this.isClickSocola = false;
@@ -117,6 +118,7 @@ var NewClass = /** @class */ (function (_super) {
         this.idSound = cc.audioEngine.play(this.soundChien, true, 0.5);
         var _loop_1 = function (i) {
             var ro = this_1.listRo[i];
+            this_1.arrRo[i] = [];
             var _loop_2 = function (j) {
                 this_1.scheduleOnce(function () {
                     var ga = ro.children[j];
@@ -124,6 +126,8 @@ var NewClass = /** @class */ (function (_super) {
                     ga.active = true;
                     var localPos = ga.position;
                     ga.position = localPos.add(cc.v3(0, 200));
+                    ga.getComponent("donut").tagKhay = i;
+                    _this.arrRo[i][j] = ga;
                     cc.tween(ga).to(0.1, { opacity: 255 }).start();
                     cc.tween(ga).to(0.2, { position: localPos }).to(0.05, { scale: 1.3 }).to(0.05, { scale: 1.4 }).call(function () {
                         if (i == 0) {
@@ -356,38 +360,68 @@ var NewClass = /** @class */ (function (_super) {
         }
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5);
     };
-    NewClass.prototype.clickDonut = function (value, node) {
+    NewClass.prototype.clickDonut = function (value, node, tagKhay) {
+        var _this = this;
         var slot = this.checkSlotKhay();
         if (slot == null) {
             node.getComponent("donut").isTouching = false;
             this.btnHop.children[0].getComponent(cc.Animation).play();
             return;
         }
-        node.getComponent("donut").isStep = 1;
+        var _loop_5 = function (i) {
+            this_4.countDonut++;
+            var child = this_4.arrRo[tagKhay][i];
+            var childComp = child.getComponent("donut");
+            childComp.isReady = false;
+            childComp.isStep = 1;
+            cc.audioEngine.play(this_4.soundDonutJump, false, 0.6);
+            this_4.scheduleOnce(function () {
+                var poslocal = child.parent.convertToWorldSpaceAR(child.position);
+                poslocal = _this.listBoxPlace.convertToNodeSpaceAR(poslocal);
+                var donut = child;
+                var pos = _this.listBoxPlace.children[i].position;
+                donut.parent = _this.listBoxPlace;
+                _this.arrKhay[i] = donut;
+                _this.arrDonut[value] = null;
+                donut.zIndex = 100;
+                donut.position = poslocal;
+                donut.getComponent("donut").value = i;
+                var startpos = cc.v2(poslocal.x, poslocal.y);
+                var endPos = cc.v2(pos.x, pos.y);
+                var midPos = cc.v2(endPos.x, endPos.y + 400);
+                cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start();
+                cc.tween(donut).to(0.3, { angle: _this.listBoxPlace.children[i].angle, scale: 1.1 }).start();
+                _this.scheduleOnce(function () {
+                    donut.zIndex = slot;
+                }, 0.2);
+            }, 0.1 * i);
+        };
+        var this_4 = this;
+        for (var i = 0; i < this.arrRo[tagKhay].length; i++) {
+            _loop_5(i);
+        }
+        // node.getComponent("donut").isStep = 1
         this.listhand.children[0].opacity = 0;
-        console.log("click donut");
         this.isClickDonutChin = true;
-        // this.listhand.children[1].active = false
-        cc.audioEngine.play(this.soundDonutJump, false, 0.6);
-        var poslocal = node.parent.convertToWorldSpaceAR(node.position);
-        poslocal = this.listBoxPlace.convertToNodeSpaceAR(poslocal);
-        var donut = node;
-        var pos = this.listBoxPlace.children[slot].position;
-        donut.parent = this.listBoxPlace;
-        this.arrKhay[slot] = donut;
-        this.arrDonut[value] = null;
-        donut.zIndex = 100;
-        donut.position = poslocal;
-        donut.getComponent("donut").value = slot;
-        var startpos = cc.v2(poslocal.x, poslocal.y);
-        var endPos = cc.v2(pos.x, pos.y);
-        var midPos = cc.v2(endPos.x, endPos.y + 400);
-        cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start();
-        cc.tween(donut).to(0.3, { angle: this.listBoxPlace.children[slot].angle, scale: 1.1 }).start();
-        this.scheduleOnce(function () {
-            donut.zIndex = slot;
-        }, 0.2);
-        this.countDonut++;
+        // cc.audioEngine.play(this.soundDonutJump, false, 0.6)
+        // let poslocal = node.parent.convertToWorldSpaceAR(node.position);
+        // poslocal = this.listBoxPlace.convertToNodeSpaceAR(poslocal)
+        // let donut = node
+        // let pos = this.listBoxPlace.children[slot].position
+        // donut.parent = this.listBoxPlace
+        // this.arrKhay[slot] = donut
+        // this.arrDonut[value] = null
+        // donut.zIndex = 100
+        // donut.position = poslocal
+        // donut.getComponent("donut").value = slot
+        // let startpos = cc.v2(poslocal.x, poslocal.y);
+        // let endPos = cc.v2(pos.x, pos.y)
+        // let midPos = cc.v2(endPos.x, endPos.y + 400)
+        // cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start()
+        // cc.tween(donut).to(0.3, { angle: this.listBoxPlace.children[slot].angle, scale: 1.1 }).start()
+        // this.scheduleOnce(() => {
+        //     donut.zIndex = slot
+        // }, 0.2)
         if (this.countDonut == 4 || this.countDonut == 8 || this.countDonut == 12) {
             this.showHindChili();
         }

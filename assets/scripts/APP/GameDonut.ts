@@ -128,6 +128,7 @@ export default class NewClass extends cc.Component {
     adChanel = '{{__adv_channels_adapter__}}'
     countCus = 0
     idSound = null
+    arrRo = []
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
@@ -139,6 +140,7 @@ export default class NewClass extends cc.Component {
         this.idSound = cc.audioEngine.play(this.soundChien, true, 0.5)
         for (let i = 0; i < this.listRo.length; i++) {
             let ro = this.listRo[i];
+            this.arrRo[i] = []
             for (let j = 0; j < ro.childrenCount; j++) {
                 this.scheduleOnce(() => {
                     let ga = ro.children[j];
@@ -146,6 +148,8 @@ export default class NewClass extends cc.Component {
                     ga.active = true;
                     let localPos = ga.position;
                     ga.position = localPos.add(cc.v3(0, 200));
+                    ga.getComponent("donut").tagKhay = i
+                    this.arrRo[i][j] = ga
                     cc.tween(ga).to(0.1, { opacity: 255 }).start();
                     cc.tween(ga).to(0.2, { position: localPos }).to(0.05, { scale: 1.3 }).to(0.05, { scale: 1.4 }).call(() => {
                         if (i == 0) {
@@ -381,7 +385,7 @@ export default class NewClass extends cc.Component {
         this.creatFxColor(pos.add(cc.v3(0, 50)), 1.5)
     }
     countDonut = 0
-    clickDonut(value, node) {
+    clickDonut(value, node, tagKhay) {
 
         let slot = this.checkSlotKhay()
         if (slot == null) {
@@ -389,33 +393,62 @@ export default class NewClass extends cc.Component {
             this.btnHop.children[0].getComponent(cc.Animation).play()
             return;
         }
-        node.getComponent("donut").isStep = 1
+        for (let i = 0; i < this.arrRo[tagKhay].length; i++) {
+            this.countDonut++
+
+            let child = this.arrRo[tagKhay][i]
+            let childComp = child.getComponent("donut")
+            childComp.isReady = false;
+            childComp.isStep = 1
+            cc.audioEngine.play(this.soundDonutJump, false, 0.6)
+            this.scheduleOnce(() => {
+                let poslocal = child.parent.convertToWorldSpaceAR(child.position);
+                poslocal = this.listBoxPlace.convertToNodeSpaceAR(poslocal)
+                let donut = child
+                let pos = this.listBoxPlace.children[i].position
+                donut.parent = this.listBoxPlace
+                this.arrKhay[i] = donut
+                this.arrDonut[value] = null
+                donut.zIndex = 100
+                donut.position = poslocal
+                donut.getComponent("donut").value = i
+
+                let startpos = cc.v2(poslocal.x, poslocal.y);
+                let endPos = cc.v2(pos.x, pos.y)
+                let midPos = cc.v2(endPos.x, endPos.y + 400)
+                cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start()
+                cc.tween(donut).to(0.3, { angle: this.listBoxPlace.children[i].angle, scale: 1.1 }).start()
+                this.scheduleOnce(() => {
+                    donut.zIndex = slot
+
+                }, 0.2)
+            }, 0.1 * i)
+
+        }
+        // node.getComponent("donut").isStep = 1
         this.listhand.children[0].opacity = 0;
-        console.log("click donut")
         this.isClickDonutChin = true
-        // this.listhand.children[1].active = false
-        cc.audioEngine.play(this.soundDonutJump, false, 0.6)
-        let poslocal = node.parent.convertToWorldSpaceAR(node.position);
-        poslocal = this.listBoxPlace.convertToNodeSpaceAR(poslocal)
-        let donut = node
-        let pos = this.listBoxPlace.children[slot].position
-        donut.parent = this.listBoxPlace
-        this.arrKhay[slot] = donut
-        this.arrDonut[value] = null
-        donut.zIndex = 100
-        donut.position = poslocal
-        donut.getComponent("donut").value = slot
+        // cc.audioEngine.play(this.soundDonutJump, false, 0.6)
+        // let poslocal = node.parent.convertToWorldSpaceAR(node.position);
+        // poslocal = this.listBoxPlace.convertToNodeSpaceAR(poslocal)
+        // let donut = node
+        // let pos = this.listBoxPlace.children[slot].position
+        // donut.parent = this.listBoxPlace
+        // this.arrKhay[slot] = donut
+        // this.arrDonut[value] = null
+        // donut.zIndex = 100
+        // donut.position = poslocal
+        // donut.getComponent("donut").value = slot
 
-        let startpos = cc.v2(poslocal.x, poslocal.y);
-        let endPos = cc.v2(pos.x, pos.y)
-        let midPos = cc.v2(endPos.x, endPos.y + 400)
-        cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start()
-        cc.tween(donut).to(0.3, { angle: this.listBoxPlace.children[slot].angle, scale: 1.1 }).start()
-        this.scheduleOnce(() => {
-            donut.zIndex = slot
+        // let startpos = cc.v2(poslocal.x, poslocal.y);
+        // let endPos = cc.v2(pos.x, pos.y)
+        // let midPos = cc.v2(endPos.x, endPos.y + 400)
+        // cc.tween(donut).bezierTo(0.3, startpos, midPos, endPos).start()
+        // cc.tween(donut).to(0.3, { angle: this.listBoxPlace.children[slot].angle, scale: 1.1 }).start()
+        // this.scheduleOnce(() => {
+        //     donut.zIndex = slot
 
-        }, 0.2)
-        this.countDonut++
+        // }, 0.2)
         if (this.countDonut == 4 || this.countDonut == 8 || this.countDonut == 12) {
             this.showHindChili()
         }

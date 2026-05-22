@@ -12,6 +12,7 @@ export default class NewClass extends cc.Component {
     iconDau: cc.Node = null;
     @property(cc.Node)
     iconSocola: cc.Node = null;
+    tagKhay=0
     isSocola = false;
     isDau = false;
     isStep = 0;
@@ -71,7 +72,7 @@ export default class NewClass extends cc.Component {
         console.log("click")
         if (!this.isReady) return;
         // if (this.isStep == 0) {
-        this.gamePlay.clickDonut(this.value, this.node);
+        this.gamePlay.clickDonut(this.value, this.node,this.tagKhay);
         this.node.getComponent(cc.Button).enabled = false
         // this.isStep = 1;
 
