@@ -521,11 +521,11 @@ var NewClass = /** @class */ (function (_super) {
         this.listCus.scale = (logic) ? 1.2 : 1;
         this.listCus.position = (logic) ? cc.v3(0, -130) : cc.v3(0, -120);
         if (logic == true) {
-            this.logo.getComponent(cc.Widget).top = 120;
+            this.logo.getComponent(cc.Widget).top = 150;
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            this.camera.node.position = cc.v3(0, 100);
+            this.camera.node.position = cc.v3(0, 90);
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
@@ -536,7 +536,7 @@ var NewClass = /** @class */ (function (_super) {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
                 this.camera.zoomRatio = 2.38;
-                this.logo.getComponent(cc.Widget).top = 150;
+                this.logo.getComponent(cc.Widget).top = 180;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.6;
