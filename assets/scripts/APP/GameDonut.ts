@@ -569,12 +569,12 @@ export default class NewClass extends cc.Component {
         this.listCus.position = (logic) ? cc.v3(0, -130) : cc.v3(0, -120)
 
         if (logic == true) {
-            this.logo.getComponent(cc.Widget).top = 120
+            this.logo.getComponent(cc.Widget).top = 150
 
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
-            this.camera.node.position = cc.v3(0, 100)
+            this.camera.node.position = cc.v3(0, 90)
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
@@ -588,7 +588,7 @@ export default class NewClass extends cc.Component {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
                 this.camera.zoomRatio = 2.38
-            this.logo.getComponent(cc.Widget).top = 150
+                this.logo.getComponent(cc.Widget).top = 180
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
