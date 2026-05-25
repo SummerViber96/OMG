@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "kcbox",
+    "texture": "0a49d5cf-0296-43f5-a6d6-ece2961350ee",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      292,
+      328
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      292,
+      328
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
