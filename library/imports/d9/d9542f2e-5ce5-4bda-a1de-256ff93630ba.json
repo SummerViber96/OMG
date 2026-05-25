@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "minichaos",
+    "texture": "397ff0dc-16c4-4625-a0a7-37622edb4562",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      119,
+      99
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      119,
+      99
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
