@@ -1,13 +1,12 @@
 [
   {
     "__type__": "cc.SceneAsset",
-    "_name": "Crush",
+    "_name": "",
     "_objFlags": 0,
     "_native": "",
     "scene": {
       "__id__": 1
-    },
-    "asyncLoadAssets": false
+    }
   },
   {
     "__type__": "cc.Scene",
@@ -59,7 +58,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "fbc7ea97-65c8-4019-9e02-dfbdb4f132da"
+    "_id": "d0420c44-0826-4969-abd2-7e44e0405329"
   },
   {
     "__type__": "cc.Node",
@@ -33695,8 +33694,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 945,
-      "height": 563
+      "width": 717,
+      "height": 608
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -33748,7 +33747,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "123fe196-6adc-4e0e-96c5-46a3d67c7c89"
+      "__uuid__": "3a9d162e-dcd3-4adc-8bef-8dc51b722388"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -34291,7 +34290,7 @@
         "__id__": 885
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 888
@@ -34484,8 +34483,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1323,
-      "height": 788.2
+      "width": 717,
+      "height": 608
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -34537,10 +34536,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "167b423f-6138-460c-9f18-c6a2d7eb521d"
+      "__uuid__": "3a9d162e-dcd3-4adc-8bef-8dc51b722388"
     },
     "_type": 0,
-    "_sizeMode": 0,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -34799,7 +34798,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 398,
+      "width": 383.84,
       "height": 116.8
     },
     "_anchorPoint": {
