@@ -48,20 +48,28 @@ var Card = /** @class */ (function (_super) {
         this.back.active = !value;
     };
     Card.prototype.onTouchStart = function () {
-        // chỉ cho kéo card mở trên cùng
+        // chỉ cho kéo card top
         if (!this.isFaceUp)
             return;
         if (!this.stack.isTopCard(this))
             return;
         this.startPos = this.node.position.clone();
         this.node.scale = 1.1;
-        this.node.setSiblingIndex(999);
+        // convert world pos
+        var worldPos = this.node.parent.convertToWorldSpaceAR(this.node.position);
+        // đưa lên drag layer
+        var dragLayer = cc.find("Canvas/DragLayer");
+        this.node.parent = dragLayer;
+        this.node.position = dragLayer.convertToNodeSpaceAR(worldPos);
+        // layer cao nhất
+        this.node.zIndex = 9999;
     };
     Card.prototype.onTouchMove = function (e) {
         if (!this.isFaceUp)
             return;
         if (!this.stack.isTopCard(this))
             return;
+        this.node.angle = Math.random(-5, 5);
         var delta = e.getDelta();
         this.node.x += delta.x;
         this.node.y += delta.y;
@@ -87,6 +95,10 @@ var Card = /** @class */ (function (_super) {
         }
     };
     Card.prototype.moveBack = function () {
+        var worldPos = this.node.parent.convertToWorldSpaceAR(this.node.position);
+        this.node.parent = this.stack.node;
+        this.node.position =
+            this.stack.node.convertToNodeSpaceAR(worldPos);
         cc.tween(this.node)
             .to(0.2, {
             position: this.startPos

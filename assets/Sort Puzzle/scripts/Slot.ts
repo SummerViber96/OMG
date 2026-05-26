@@ -34,7 +34,11 @@ export default class Slot extends cc.Component {
 
         this.cards.push(card);
 
+        let worldPos = card.node.parent.convertToWorldSpaceAR(card.node.position);
+
         card.node.parent = this.node;
+
+        card.node.position = this.node.convertToNodeSpaceAR(worldPos);
 
         let index = this.cards.length - 1;
 

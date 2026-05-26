@@ -35,7 +35,7 @@ export default class Card extends cc.Component {
 
     onTouchStart() {
 
-        // chỉ cho kéo card mở trên cùng
+        // chỉ cho kéo card top
         if (!this.isFaceUp) return;
 
         if (!this.stack.isTopCard(this)) return;
@@ -44,7 +44,18 @@ export default class Card extends cc.Component {
 
         this.node.scale = 1.1;
 
-        this.node.setSiblingIndex(999);
+        // convert world pos
+        let worldPos = this.node.parent.convertToWorldSpaceAR(this.node.position);
+
+        // đưa lên drag layer
+        let dragLayer = cc.find("Canvas/DragLayer");
+
+        this.node.parent = dragLayer;
+
+        this.node.position = dragLayer.convertToNodeSpaceAR(worldPos);
+
+        // layer cao nhất
+        this.node.zIndex = 9999;
     }
 
     onTouchMove(e: cc.Event.EventTouch) {
@@ -52,7 +63,7 @@ export default class Card extends cc.Component {
         if (!this.isFaceUp) return;
 
         if (!this.stack.isTopCard(this)) return;
-
+        this.node.angle = Math.random(-5, 5);
         let delta = e.getDelta();
 
         this.node.x += delta.x;
@@ -89,6 +100,13 @@ export default class Card extends cc.Component {
     }
 
     moveBack() {
+
+        let worldPos = this.node.parent.convertToWorldSpaceAR(this.node.position);
+
+        this.node.parent = this.stack.node;
+
+        this.node.position =
+            this.stack.node.convertToNodeSpaceAR(worldPos);
 
         cc.tween(this.node)
             .to(0.2, {

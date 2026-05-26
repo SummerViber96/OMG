@@ -10695,8 +10695,8 @@
     "relativePath": "scenes\\Chaos.fire"
   },
   "35b5afee-9660-4953-b24d-b0caf519aea9": {
-    "asset": 1779821806560,
-    "meta": 1779821806574,
+    "asset": 1779822360224,
+    "meta": 1779822360242,
     "relativePath": "scenes\\CardGame.fire"
   },
   "8bc24ed8-9da6-4c6a-94ec-4632ebf82aff": {
@@ -10785,28 +10785,113 @@
     "relativePath": "Sort Puzzle\\scripts"
   },
   "a828d1ba-141b-4f70-96df-b3bc88617afd": {
-    "asset": 1779821708924,
-    "meta": 1779821708931,
+    "asset": 1779824907432,
+    "meta": 1779824907438,
     "relativePath": "Sort Puzzle\\prefab\\cardPrefab.prefab"
-  },
-  "b2b108b2-9554-464c-8895-eb41e3d6224e": {
-    "asset": 1779821092406,
-    "meta": 1779821093918,
-    "relativePath": "Sort Puzzle\\scripts\\Card.ts"
   },
   "3aeed810-a9cf-467e-9e52-796b3a3708e2": {
     "asset": 1779821363913,
     "meta": 1779821365165,
     "relativePath": "Sort Puzzle\\scripts\\CardStack.ts"
   },
-  "1f7d55b4-433b-4b12-9bbe-da76ed455f4f": {
-    "asset": 1779821398220,
-    "meta": 1779821398993,
-    "relativePath": "Sort Puzzle\\scripts\\Slot.ts"
-  },
   "aa1f8bad-f230-45f5-964d-88002bf3d134": {
     "asset": 1779821668511,
     "meta": 1779821669457,
     "relativePath": "Sort Puzzle\\scripts\\GameManager.ts"
+  },
+  "1f7d55b4-433b-4b12-9bbe-da76ed455f4f": {
+    "asset": 1779822085967,
+    "meta": 1779822086956,
+    "relativePath": "Sort Puzzle\\scripts\\Slot.ts"
+  },
+  "b2b108b2-9554-464c-8895-eb41e3d6224e": {
+    "asset": 1779822270582,
+    "meta": 1779822272167,
+    "relativePath": "Sort Puzzle\\scripts\\Card.ts"
+  },
+  "819a1d73-4b4e-4451-b60d-e333337a7c30": {
+    "asset": 1779823898041,
+    "meta": 1779823898042,
+    "relativePath": "Sort Puzzle\\card"
+  },
+  "415c4ca8-9b9f-4d95-9dbc-368fb39a0255": {
+    "asset": 1779823908692,
+    "meta": 1779823908750,
+    "relativePath": "Sort Puzzle\\card\\Layer 6.png"
+  },
+  "a83976d7-d7ec-44fa-99cb-a45ab418bb60": {
+    "asset": 1779823908692,
+    "meta": 1779823908751,
+    "relativePath": "Sort Puzzle\\card\\Layer 2.png"
+  },
+  "be33f3b6-db9b-49c5-b88d-b7017bec447d": {
+    "asset": 1779823908692,
+    "meta": 1779823908769,
+    "relativePath": "Sort Puzzle\\card\\Layer 7.png"
+  },
+  "edf9e606-b23d-4f20-b65e-38d3d0422dd5": {
+    "asset": 1779823908692,
+    "meta": 1779823908771,
+    "relativePath": "Sort Puzzle\\card\\Layer 8.png"
+  },
+  "b59b2471-ee34-4a88-9edc-8cb2729ca504": {
+    "asset": 1779823908692,
+    "meta": 1779823908787,
+    "relativePath": "Sort Puzzle\\card\\Layer 12.png"
+  },
+  "a7c47f5c-6524-4de7-84fc-46a8b7c4d69d": {
+    "asset": 1779823908692,
+    "meta": 1779823908789,
+    "relativePath": "Sort Puzzle\\card\\Layer 11.png"
+  },
+  "3180c7c3-8b6b-4a26-9f26-ce7b80476af5": {
+    "asset": 1779823908693,
+    "meta": 1779823908808,
+    "relativePath": "Sort Puzzle\\card\\Layer 5.png"
+  },
+  "5aac1c59-c9c2-4c8e-aa7d-12633f9751a7": {
+    "asset": 1779823908693,
+    "meta": 1779823908810,
+    "relativePath": "Sort Puzzle\\card\\Layer 4.png"
+  },
+  "56fdc9ec-e5f8-42e0-9ffb-121119e781a4": {
+    "asset": 1779823908693,
+    "meta": 1779823908826,
+    "relativePath": "Sort Puzzle\\card\\Layer 10.png"
+  },
+  "328c3126-ca11-4e5c-8b72-46432c869b16": {
+    "asset": 1779823908693,
+    "meta": 1779823908828,
+    "relativePath": "Sort Puzzle\\card\\Layer 9.png"
+  },
+  "92245c85-2914-45e5-baf3-c910b1edc5f7": {
+    "asset": 1779823908693,
+    "meta": 1779823908847,
+    "relativePath": "Sort Puzzle\\card\\Layer 1.png"
+  },
+  "b43d67eb-2906-4c1a-99cd-b4e80edb4e20": {
+    "asset": 1779823908693,
+    "meta": 1779823908847,
+    "relativePath": "Sort Puzzle\\card\\Layer 3.png"
+  },
+  "c6c1e84a-dc35-49ff-9d61-7bc65488601a": {
+    "asset": 1779824906100,
+    "meta": 1779824906134,
+    "relativePath": "Sort Puzzle\\card\\Layer 23.png"
+  },
+  "d86f5aed-4c35-457d-9255-8c3a56ee57d6": {
+    "asset": 1779824906100,
+    "meta": 1779824906135,
+    "relativePath": "Sort Puzzle\\card\\Layer 24.png"
+  },
+  "f4ef3856-6c7f-4cc1-8be0-22a95c0282de": {
+    "asset": 1779824906100,
+    "meta": 1779824906152,
+    "relativePath": "Sort Puzzle\\card\\Layer21.png"
+  },
+  "4ebe535b-0a82-46bf-abf7-08545a780225": {
+    "asset": 1779824906100,
+    "meta": 1779824906153,
+    "relativePath": "Sort Puzzle\\card\\Layer 22.png"
   }
 }

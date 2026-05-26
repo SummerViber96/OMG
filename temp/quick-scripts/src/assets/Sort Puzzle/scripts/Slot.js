@@ -48,7 +48,9 @@ var Slot = /** @class */ (function (_super) {
     };
     Slot.prototype.addCard = function (card) {
         this.cards.push(card);
+        var worldPos = card.node.parent.convertToWorldSpaceAR(card.node.position);
         card.node.parent = this.node;
+        card.node.position = this.node.convertToNodeSpaceAR(worldPos);
         var index = this.cards.length - 1;
         cc.tween(card.node)
             .to(0.15, {
