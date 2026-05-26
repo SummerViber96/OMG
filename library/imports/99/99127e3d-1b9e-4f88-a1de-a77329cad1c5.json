@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cate_slot copy 1",
+    "texture": "014a21e2-c659-4f99-800f-a18364a0550d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      142,
+      204
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      142,
+      204
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
