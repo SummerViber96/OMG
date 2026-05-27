@@ -30,35 +30,150 @@ var GameManager = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.cardPrefab = null;
         _this.board = null;
+        _this.astronautSprites = [];
+        _this.farmerSprites = [];
+        _this.singerSprites = [];
+        _this.policeSprites = [];
+        _this.judgeSprites = [];
         /*
-            dữ liệu:
+            Hierarchy:
     
-            [
-                [
-                    "singer",
-                    "astronaut",
-                    "police"
-                ],
-    
-                [
-                    "farmer",
-                    "judge",
-                    "singer"
-                ]
-            ]
-    
+            Canvas
+             ├── Board
+             │    ├── Row1
+             │    │    ├── LeftStack
+             │    │    ├── CenterSlot
+             │    │    └── RightStack
+             │    ├── Row2
+             │    ├── Row3
+             │    └── Row4
+             └── DragLayer
         */
-        _this.leftData = [
-            ["singer", "astronaut", "police"],
-            ["farmer", "judge", "singer"],
-            ["astronaut", "farmer", "judge"],
-            ["police", "singer", "astronaut"]
-        ];
-        _this.rightData = [
-            ["judge", "police", "astronaut"],
-            ["singer", "astronaut", "farmer"],
-            ["judge", "police", "farmer"],
-            ["singer", "judge", "police"]
+        _this.levelData = [
+            {
+                mission: "police",
+                left: [
+                    {
+                        type: "singer",
+                        variant: 1
+                    },
+                    {
+                        type: "farmer",
+                        variant: 2
+                    },
+                    {
+                        type: "police",
+                        variant: 1
+                    },
+                ],
+                right: [
+                    {
+                        type: "police",
+                        variant: 2
+                    },
+                    {
+                        type: "police",
+                        variant: 4
+                    },
+                    {
+                        type: "astronaut",
+                        variant: 1
+                    },
+                ]
+            },
+            {
+                mission: "singer",
+                left: [
+                    {
+                        type: "police",
+                        variant: 2
+                    },
+                    {
+                        type: "farmer",
+                        variant: 3
+                    },
+                    {
+                        type: "astronaut",
+                        variant: 2
+                    },
+                ],
+                right: [
+                    {
+                        type: "police",
+                        variant: 2
+                    },
+                    {
+                        type: "police",
+                        variant: 4
+                    },
+                    {
+                        type: "singer",
+                        variant: 2
+                    },
+                ]
+            },
+            {
+                mission: "astronaut",
+                left: [
+                    {
+                        type: "police",
+                        variant: 2
+                    },
+                    {
+                        type: "farmer",
+                        variant: 1
+                    },
+                    {
+                        type: "police",
+                        variant: 2
+                    },
+                ],
+                right: [
+                    {
+                        type: "police",
+                        variant: 2
+                    },
+                    {
+                        type: "astronaut",
+                        variant: 4
+                    },
+                    {
+                        type: "singer",
+                        variant: 3
+                    },
+                ]
+            },
+            {
+                mission: "farmer",
+                left: [
+                    {
+                        type: "police",
+                        variant: 2
+                    },
+                    {
+                        type: "farmer",
+                        variant: 2
+                    },
+                    {
+                        type: "singer",
+                        variant: 4
+                    },
+                ],
+                right: [
+                    {
+                        type: "police",
+                        variant: 2
+                    },
+                    {
+                        type: "astronaut",
+                        variant: 3
+                    },
+                    {
+                        type: "police",
+                        variant: 3
+                    },
+                ]
+            }
         ];
         return _this;
     }
@@ -68,32 +183,98 @@ var GameManager = /** @class */ (function (_super) {
     GameManager.prototype.spawnBoard = function () {
         for (var i = 0; i < this.board.childrenCount; i++) {
             var row = this.board.children[i];
+            var data = this.levelData[i];
+            if (!data)
+                continue;
             var leftStack = row.getChildByName("LeftStack");
             var rightStack = row.getChildByName("RightStack");
-            this.spawnStack(leftStack, this.leftData[i]);
-            this.spawnStack(rightStack, this.rightData[i]);
+            var slot = row.getChildByName("CenterSlot");
+            // init slot
+            console.log(data.mission);
+            slot.getComponent("Slot")
+                .init(data.mission);
+            // spawn stack
+            this.spawnStack(leftStack, data.left);
+            this.spawnStack(rightStack, data.right);
         }
     };
     GameManager.prototype.spawnStack = function (parent, data) {
         parent.removeAllChildren();
         for (var i = 0; i < data.length; i++) {
-            var type = data[i];
+            var info = data[i];
             var card = cc.instantiate(this.cardPrefab);
             parent.addChild(card);
             card.y = i * 18;
+            card.zIndex = i;
             var cardComp = card.getComponent("Card");
-            cardComp.cardType = type;
-            this.setCardVisual(card, type);
+            cardComp.cardType = info.type;
+            cardComp.variant = info.variant;
+            this.setCardVisual(card, info.type, info.variant);
         }
-        parent.getComponent("CardStack").setup();
+        parent.getComponent("CardStack")
+            .setup();
     };
-    GameManager.prototype.setCardVisual = function (card, type) {
-        // let label = card.getChildByName("Front")
-        //     .getChildByName("Label")
+    GameManager.prototype.setCardVisual = function (card, type, variant) {
+        var front = card.getChildByName("front");
+        var icon = front
+            .getChildByName("icon")
+            .getComponent(cc.Sprite);
+        // let lbTitle = front
+        //     .getChildByName("lbTitle")
         //     .getComponent(cc.Label);
-        // label.string = type;
-        // TODO:
-        // set avatar sprite theo type
+        // lbTitle.string = this.getCardName(type);
+        console.log(variant, type);
+        variant -= 1;
+        var spriteFrame = null;
+        switch (type) {
+            case "astronaut":
+                spriteFrame =
+                    this.astronautSprites[variant];
+                break;
+            case "farmer":
+                spriteFrame =
+                    this.farmerSprites[variant];
+                break;
+            case "singer":
+                spriteFrame =
+                    this.singerSprites[variant];
+                break;
+            case "police":
+                spriteFrame =
+                    this.policeSprites[variant];
+                break;
+            case "judge":
+                spriteFrame =
+                    this.judgeSprites[variant];
+                break;
+        }
+        icon.spriteFrame = spriteFrame;
+    };
+    GameManager.prototype.getCardName = function (type) {
+        switch (type) {
+            case "astronaut":
+                return "Astronaut";
+            case "farmer":
+                return "Farmer";
+            case "singer":
+                return "Pop Star";
+            case "police":
+                return "Public Servant";
+            case "judge":
+                return "Judge";
+        }
+        return type;
+    };
+    // shuffle test
+    GameManager.prototype.randomType = function () {
+        var arr = [
+            "astronaut",
+            "farmer",
+            "singer",
+            "police",
+            "judge"
+        ];
+        return arr[Math.floor(Math.random() * arr.length)];
     };
     __decorate([
         property(cc.Prefab)
@@ -101,6 +282,21 @@ var GameManager = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], GameManager.prototype, "board", void 0);
+    __decorate([
+        property([cc.SpriteFrame])
+    ], GameManager.prototype, "astronautSprites", void 0);
+    __decorate([
+        property([cc.SpriteFrame])
+    ], GameManager.prototype, "farmerSprites", void 0);
+    __decorate([
+        property([cc.SpriteFrame])
+    ], GameManager.prototype, "singerSprites", void 0);
+    __decorate([
+        property([cc.SpriteFrame])
+    ], GameManager.prototype, "policeSprites", void 0);
+    __decorate([
+        property([cc.SpriteFrame])
+    ], GameManager.prototype, "judgeSprites", void 0);
     GameManager = __decorate([
         ccclass
     ], GameManager);

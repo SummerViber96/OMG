@@ -10,7 +10,7 @@ export default class Card extends cc.Component {
     back: cc.Node = null;
 
     cardType = "";
-
+    variant = 0;
     isFaceUp = false;
 
     stack = null;
@@ -63,6 +63,7 @@ export default class Card extends cc.Component {
         if (!this.isFaceUp) return;
 
         if (!this.stack.isTopCard(this)) return;
+
         this.node.angle = Math.random(-5, 5);
         let delta = e.getDelta();
 

@@ -31,6 +31,7 @@ var Card = /** @class */ (function (_super) {
         _this.front = null;
         _this.back = null;
         _this.cardType = "";
+        _this.variant = 0;
         _this.isFaceUp = false;
         _this.stack = null;
         _this.startPos = cc.v3();

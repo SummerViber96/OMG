@@ -23,65 +23,129 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var ccclass = cc._decorator.ccclass;
+var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var Slot = /** @class */ (function (_super) {
     __extends(Slot, _super);
     function Slot() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.lbTitle = null;
+        _this.lbNum = null;
+        _this.cardContainer = null;
+        _this.upgradeUI = [];
+        _this.lbNum2 = null;
+        _this.lbTitle2 = null;
+        _this.missionType = "";
+        _this.posNumLocal = cc.v3(-47, 113);
         _this.cards = [];
         _this.maxCard = 4;
         return _this;
     }
+    Slot.prototype.init = function (type) {
+        this.missionType = type;
+        // console.log("type",type)
+        this.lbTitle.string = this.getMissionName(type);
+        this.lbTitle2.string = this.getMissionName(type);
+        this.updateCounter();
+    };
     Slot.prototype.tryAddCard = function (card) {
-        if (this.cards.length >= this.maxCard) {
+        // sai loại
+        if (card.cardType != this.missionType) {
+            this.shake();
             return false;
         }
-        if (this.cards.length > 0) {
-            var type = this.cards[0].cardType;
-            if (type != card.cardType) {
-                this.shake();
-                return false;
-            }
+        // full
+        if (this.cards.length >= this.maxCard) {
+            return false;
         }
         this.addCard(card);
         return true;
     };
+    Slot.prototype.upgradeLayout = function () {
+    };
     Slot.prototype.addCard = function (card) {
         this.cards.push(card);
+        // convert world pos
         var worldPos = card.node.parent.convertToWorldSpaceAR(card.node.position);
-        card.node.parent = this.node;
-        card.node.position = this.node.convertToNodeSpaceAR(worldPos);
+        // move vào container
+        card.node.parent = this.cardContainer;
+        card.node.position =
+            this.cardContainer.convertToNodeSpaceAR(worldPos);
         var index = this.cards.length - 1;
+        // visual stack
+        var targetPos = cc.v3(0, 0);
         cc.tween(card.node)
             .to(0.15, {
-            position: cc.v3(0, index * 25)
+            position: targetPos,
+            scale: 0.9,
+            angle: 0
+        }, {
+            easing: "backOut"
         })
             .start();
+        // update UI
+        this.updateCounter();
+        this.bumpCounter();
         this.checkComplete();
     };
+    Slot.prototype.updateCounter = function () {
+        if (this.cards.length == 1) {
+            for (var i = 0; i < this.upgradeUI.length; i++) {
+                this.upgradeUI[i].active = true;
+            }
+            this.lbNum.node.active = false;
+            this.lbTitle.node.active = false;
+        }
+        this.lbNum.string =
+            this.cards.length + "/" + this.maxCard;
+        this.lbNum2.string =
+            this.cards.length + "/" + this.maxCard;
+    };
+    Slot.prototype.bumpCounter = function () {
+        this.lbNum.node.scale = 1.2;
+        cc.tween(this.lbNum.node)
+            .to(0.1, {
+            scale: 1
+        })
+            .start();
+    };
     Slot.prototype.checkComplete = function () {
-        if (this.cards.length < 4)
+        if (this.cards.length < this.maxCard)
             return;
         this.success();
     };
     Slot.prototype.success = function () {
-        var _loop_1 = function (c) {
-            cc.tween(c.node)
+        var _loop_1 = function (i) {
+            var card = this_1.cards[i];
+            cc.tween(card.node)
+                .delay(i * 0.05)
                 .parallel(cc.tween().to(0.25, {
                 scale: 0
             }), cc.tween().by(0.25, {
                 y: 100
             }))
                 .call(function () {
-                c.node.destroy();
+                card.node.destroy();
             })
                 .start();
         };
-        for (var _i = 0, _a = this.cards; _i < _a.length; _i++) {
-            var c = _a[_i];
-            _loop_1(c);
+        var this_1 = this;
+        for (var i = 0; i < this.cards.length; i++) {
+            _loop_1(i);
         }
         this.cards = [];
+        this.updateCounter();
+        this.playCompleteEffect();
+    };
+    Slot.prototype.playCompleteEffect = function () {
+        cc.tween(this.node)
+            .to(0.1, {
+            scale: 1.05
+        })
+            .to(0.1, {
+            scale: 1
+        })
+            .start();
+        cc.log("MISSION COMPLETE");
     };
     Slot.prototype.shake = function () {
         cc.tween(this.node)
@@ -91,6 +155,39 @@ var Slot = /** @class */ (function (_super) {
             .by(0.05, { x: 10 })
             .start();
     };
+    Slot.prototype.getMissionName = function (type) {
+        switch (type) {
+            case "astronaut":
+                return "Astronauts";
+            case "farmer":
+                return "Farmers";
+            case "singer":
+                return "Pop stars";
+            case "police":
+                return "Public servants";
+            case "judge":
+                return "Judges";
+        }
+        return type;
+    };
+    __decorate([
+        property(cc.Label)
+    ], Slot.prototype, "lbTitle", void 0);
+    __decorate([
+        property(cc.Label)
+    ], Slot.prototype, "lbNum", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Slot.prototype, "cardContainer", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Slot.prototype, "upgradeUI", void 0);
+    __decorate([
+        property(cc.Label)
+    ], Slot.prototype, "lbNum2", void 0);
+    __decorate([
+        property(cc.Label)
+    ], Slot.prototype, "lbTitle2", void 0);
     Slot = __decorate([
         ccclass
     ], Slot);

@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1779816211199,
+    "meta": 1779904160095,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1779816211201,
+    "meta": 1779904160097,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -4310,8 +4310,8 @@
     "relativePath": "prefab\\vfx\\vfx_smoke.prefab"
   },
   "5ac3afaa-e931-4ba4-a643-89d66b4157f7": {
-    "asset": 1779614085093,
-    "meta": 1779816211191,
+    "asset": 1779816264017,
+    "meta": 1779904160087,
     "relativePath": "scenes"
   },
   "e36e27a3-29e3-4284-b879-a39eb6ec879e": {
@@ -4320,8 +4320,8 @@
     "relativePath": "prefab\\Wood-part.prefab"
   },
   "1973ede5-c389-44a0-8934-fa1ab32451d1": {
-    "asset": 1779613975850,
-    "meta": 1779614000733,
+    "asset": 1779817183899,
+    "meta": 1779904160089,
     "relativePath": "scripts"
   },
   "470ed163-3949-4cd6-9cdc-895dae391e9e": {
@@ -10695,13 +10695,13 @@
     "relativePath": "scenes\\Chaos.fire"
   },
   "35b5afee-9660-4953-b24d-b0caf519aea9": {
-    "asset": 1779822360224,
-    "meta": 1779822360242,
+    "asset": 1779910864022,
+    "meta": 1779910864036,
     "relativePath": "scenes\\CardGame.fire"
   },
   "8bc24ed8-9da6-4c6a-94ec-4632ebf82aff": {
-    "asset": 1779816517138,
-    "meta": 1779816517140,
+    "asset": 1779823902077,
+    "meta": 1779904160092,
     "relativePath": "Sort Puzzle"
   },
   "159981ff-4e0b-433b-878d-921251eb7715": {
@@ -10760,8 +10760,8 @@
     "relativePath": "Sort Puzzle\\bg 6.png"
   },
   "4fc2e2df-0692-4e20-803f-3fd77c3a584d": {
-    "asset": 1779817177398,
-    "meta": 1779817177398,
+    "asset": 1779820578654,
+    "meta": 1779904160091,
     "relativePath": "scripts\\GamePuzzle"
   },
   "1a401c78-5477-4c6d-816b-f8a699b3f66c": {
@@ -10770,8 +10770,8 @@
     "relativePath": "Sort Puzzle\\card2 4.png"
   },
   "4d136c55-13bd-4a3b-aaa7-020391831eac": {
-    "asset": 1779817559453,
-    "meta": 1779817559454,
+    "asset": 1779820270536,
+    "meta": 1779904160093,
     "relativePath": "Sort Puzzle\\prefab"
   },
   "8164a0b4-2c44-473d-b0f5-3ceda9b88eac": {
@@ -10780,13 +10780,13 @@
     "relativePath": "Sort Puzzle\\prefab\\cardBg.prefab"
   },
   "cf33081e-4eac-4596-a50a-b35b2c5f65a1": {
-    "asset": 1779818130818,
-    "meta": 1779818130818,
+    "asset": 1779821351165,
+    "meta": 1779904160095,
     "relativePath": "Sort Puzzle\\scripts"
   },
   "a828d1ba-141b-4f70-96df-b3bc88617afd": {
-    "asset": 1779824907432,
-    "meta": 1779824907438,
+    "asset": 1779912036507,
+    "meta": 1779912036518,
     "relativePath": "Sort Puzzle\\prefab\\cardPrefab.prefab"
   },
   "3aeed810-a9cf-467e-9e52-796b3a3708e2": {
@@ -10794,104 +10794,124 @@
     "meta": 1779821365165,
     "relativePath": "Sort Puzzle\\scripts\\CardStack.ts"
   },
+  "819a1d73-4b4e-4451-b60d-e333337a7c30": {
+    "asset": 1779824906105,
+    "meta": 1779904160093,
+    "relativePath": "Sort Puzzle\\card"
+  },
+  "92245c85-2914-45e5-baf3-c910b1edc5f7": {
+    "asset": 1779909291761,
+    "meta": 1779909292061,
+    "relativePath": "Sort Puzzle\\card\\singer\\Layer 1.png"
+  },
+  "3180c7c3-8b6b-4a26-9f26-ce7b80476af5": {
+    "asset": 1779909291762,
+    "meta": 1779909292062,
+    "relativePath": "Sort Puzzle\\card\\singer\\Layer 5.png"
+  },
+  "a83976d7-d7ec-44fa-99cb-a45ab418bb60": {
+    "asset": 1779909291762,
+    "meta": 1779910087071,
+    "relativePath": "Sort Puzzle\\card\\congchuc\\1.png"
+  },
+  "be33f3b6-db9b-49c5-b88d-b7017bec447d": {
+    "asset": 1779909291762,
+    "meta": 1779909292081,
+    "relativePath": "Sort Puzzle\\card\\singer\\Layer 7.png"
+  },
+  "415c4ca8-9b9f-4d95-9dbc-368fb39a0255": {
+    "asset": 1779909291762,
+    "meta": 1779909292095,
+    "relativePath": "Sort Puzzle\\card\\congchuc\\Layer 6.png"
+  },
+  "5aac1c59-c9c2-4c8e-aa7d-12633f9751a7": {
+    "asset": 1779909291762,
+    "meta": 1779909519377,
+    "relativePath": "Sort Puzzle\\card\\phihanhgia\\Layer 1.png"
+  },
+  "b59b2471-ee34-4a88-9edc-8cb2729ca504": {
+    "asset": 1779909291762,
+    "meta": 1779910092256,
+    "relativePath": "Sort Puzzle\\card\\congchuc\\3.png"
+  },
+  "edf9e606-b23d-4f20-b65e-38d3d0422dd5": {
+    "asset": 1779909291762,
+    "meta": 1779909292117,
+    "relativePath": "Sort Puzzle\\card\\singer\\Layer 8.png"
+  },
+  "a7c47f5c-6524-4de7-84fc-46a8b7c4d69d": {
+    "asset": 1779909291762,
+    "meta": 1779909292135,
+    "relativePath": "Sort Puzzle\\card\\farmer\\Layer 11.png"
+  },
+  "328c3126-ca11-4e5c-8b72-46432c869b16": {
+    "asset": 1779909291762,
+    "meta": 1779910089485,
+    "relativePath": "Sort Puzzle\\card\\congchuc\\2.png"
+  },
+  "d86f5aed-4c35-457d-9255-8c3a56ee57d6": {
+    "asset": 1779909291762,
+    "meta": 1779909292159,
+    "relativePath": "Sort Puzzle\\card\\phihanhgia\\Layer 24.png"
+  },
+  "56fdc9ec-e5f8-42e0-9ffb-121119e781a4": {
+    "asset": 1779909291762,
+    "meta": 1779909292161,
+    "relativePath": "Sort Puzzle\\card\\farmer\\Layer 10.png"
+  },
+  "f4ef3856-6c7f-4cc1-8be0-22a95c0282de": {
+    "asset": 1779909291762,
+    "meta": 1779909292174,
+    "relativePath": "Sort Puzzle\\card\\farmer\\Layer21.png"
+  },
+  "4ebe535b-0a82-46bf-abf7-08545a780225": {
+    "asset": 1779909291762,
+    "meta": 1779909292176,
+    "relativePath": "Sort Puzzle\\card\\farmer\\Layer 22.png"
+  },
+  "c6c1e84a-dc35-49ff-9d61-7bc65488601a": {
+    "asset": 1779909291762,
+    "meta": 1779909292187,
+    "relativePath": "Sort Puzzle\\card\\phihanhgia\\Layer 23.png"
+  },
+  "b43d67eb-2906-4c1a-99cd-b4e80edb4e20": {
+    "asset": 1779909291762,
+    "meta": 1779909292188,
+    "relativePath": "Sort Puzzle\\card\\phihanhgia\\Layer 3.png"
+  },
+  "a391f83f-e561-4bf1-a865-58e3cc19a985": {
+    "asset": 1779909355854,
+    "meta": 1779909355855,
+    "relativePath": "Sort Puzzle\\card\\singer"
+  },
+  "5f828c8e-ae3a-405a-9ef6-43e8fff1cd70": {
+    "asset": 1779909377541,
+    "meta": 1779909377542,
+    "relativePath": "Sort Puzzle\\card\\congchuc"
+  },
+  "f958a59b-9add-40e4-9d88-5f4454cddad3": {
+    "asset": 1779909421787,
+    "meta": 1779909421789,
+    "relativePath": "Sort Puzzle\\card\\farmer"
+  },
+  "cac9f911-df54-487c-af5f-ad30145bb8b3": {
+    "asset": 1779909486161,
+    "meta": 1779909486162,
+    "relativePath": "Sort Puzzle\\card\\phihanhgia"
+  },
+  "b2b108b2-9554-464c-8895-eb41e3d6224e": {
+    "asset": 1779911568688,
+    "meta": 1779911652477,
+    "relativePath": "Sort Puzzle\\scripts\\Card.ts"
+  },
   "aa1f8bad-f230-45f5-964d-88002bf3d134": {
-    "asset": 1779821668511,
-    "meta": 1779821669457,
+    "asset": 1779911903900,
+    "meta": 1779911904659,
     "relativePath": "Sort Puzzle\\scripts\\GameManager.ts"
   },
   "1f7d55b4-433b-4b12-9bbe-da76ed455f4f": {
-    "asset": 1779822085967,
-    "meta": 1779822086956,
+    "asset": 1779911973087,
+    "meta": 1779911974013,
     "relativePath": "Sort Puzzle\\scripts\\Slot.ts"
-  },
-  "b2b108b2-9554-464c-8895-eb41e3d6224e": {
-    "asset": 1779822270582,
-    "meta": 1779822272167,
-    "relativePath": "Sort Puzzle\\scripts\\Card.ts"
-  },
-  "819a1d73-4b4e-4451-b60d-e333337a7c30": {
-    "asset": 1779823898041,
-    "meta": 1779823898042,
-    "relativePath": "Sort Puzzle\\card"
-  },
-  "415c4ca8-9b9f-4d95-9dbc-368fb39a0255": {
-    "asset": 1779823908692,
-    "meta": 1779823908750,
-    "relativePath": "Sort Puzzle\\card\\Layer 6.png"
-  },
-  "a83976d7-d7ec-44fa-99cb-a45ab418bb60": {
-    "asset": 1779823908692,
-    "meta": 1779823908751,
-    "relativePath": "Sort Puzzle\\card\\Layer 2.png"
-  },
-  "be33f3b6-db9b-49c5-b88d-b7017bec447d": {
-    "asset": 1779823908692,
-    "meta": 1779823908769,
-    "relativePath": "Sort Puzzle\\card\\Layer 7.png"
-  },
-  "edf9e606-b23d-4f20-b65e-38d3d0422dd5": {
-    "asset": 1779823908692,
-    "meta": 1779823908771,
-    "relativePath": "Sort Puzzle\\card\\Layer 8.png"
-  },
-  "b59b2471-ee34-4a88-9edc-8cb2729ca504": {
-    "asset": 1779823908692,
-    "meta": 1779823908787,
-    "relativePath": "Sort Puzzle\\card\\Layer 12.png"
-  },
-  "a7c47f5c-6524-4de7-84fc-46a8b7c4d69d": {
-    "asset": 1779823908692,
-    "meta": 1779823908789,
-    "relativePath": "Sort Puzzle\\card\\Layer 11.png"
-  },
-  "3180c7c3-8b6b-4a26-9f26-ce7b80476af5": {
-    "asset": 1779823908693,
-    "meta": 1779823908808,
-    "relativePath": "Sort Puzzle\\card\\Layer 5.png"
-  },
-  "5aac1c59-c9c2-4c8e-aa7d-12633f9751a7": {
-    "asset": 1779823908693,
-    "meta": 1779823908810,
-    "relativePath": "Sort Puzzle\\card\\Layer 4.png"
-  },
-  "56fdc9ec-e5f8-42e0-9ffb-121119e781a4": {
-    "asset": 1779823908693,
-    "meta": 1779823908826,
-    "relativePath": "Sort Puzzle\\card\\Layer 10.png"
-  },
-  "328c3126-ca11-4e5c-8b72-46432c869b16": {
-    "asset": 1779823908693,
-    "meta": 1779823908828,
-    "relativePath": "Sort Puzzle\\card\\Layer 9.png"
-  },
-  "92245c85-2914-45e5-baf3-c910b1edc5f7": {
-    "asset": 1779823908693,
-    "meta": 1779823908847,
-    "relativePath": "Sort Puzzle\\card\\Layer 1.png"
-  },
-  "b43d67eb-2906-4c1a-99cd-b4e80edb4e20": {
-    "asset": 1779823908693,
-    "meta": 1779823908847,
-    "relativePath": "Sort Puzzle\\card\\Layer 3.png"
-  },
-  "c6c1e84a-dc35-49ff-9d61-7bc65488601a": {
-    "asset": 1779824906100,
-    "meta": 1779824906134,
-    "relativePath": "Sort Puzzle\\card\\Layer 23.png"
-  },
-  "d86f5aed-4c35-457d-9255-8c3a56ee57d6": {
-    "asset": 1779824906100,
-    "meta": 1779824906135,
-    "relativePath": "Sort Puzzle\\card\\Layer 24.png"
-  },
-  "f4ef3856-6c7f-4cc1-8be0-22a95c0282de": {
-    "asset": 1779824906100,
-    "meta": 1779824906152,
-    "relativePath": "Sort Puzzle\\card\\Layer21.png"
-  },
-  "4ebe535b-0a82-46bf-abf7-08545a780225": {
-    "asset": 1779824906100,
-    "meta": 1779824906153,
-    "relativePath": "Sort Puzzle\\card\\Layer 22.png"
   }
 }
