@@ -23,6 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var MissionConfig_1 = require("./MissionConfig");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var Slot = /** @class */ (function (_super) {
     __extends(Slot, _super);
@@ -38,16 +39,35 @@ var Slot = /** @class */ (function (_super) {
         _this.posNumLocal = cc.v3(-47, 113);
         _this.cards = [];
         _this.maxCard = 4;
+        _this.isCompleting = false;
         return _this;
     }
     Slot.prototype.init = function (type) {
+        this.resetState();
         this.missionType = type;
-        // console.log("type",type)
-        this.lbTitle.string = this.getMissionName(type);
-        this.lbTitle2.string = this.getMissionName(type);
+        this.lbTitle.string = MissionConfig_1.getMissionTitle(type);
+        this.lbTitle2.string = MissionConfig_1.getMissionTitle(type);
         this.updateCounter();
     };
+    Slot.prototype.resetState = function () {
+        this.cards = [];
+        if (this.cardContainer) {
+            this.cardContainer.removeAllChildren();
+        }
+        for (var i = 0; i < this.upgradeUI.length; i++) {
+            this.upgradeUI[i].active = false;
+        }
+        if (this.lbNum) {
+            this.lbNum.node.active = true;
+        }
+        if (this.lbTitle) {
+            this.lbTitle.node.active = true;
+        }
+    };
     Slot.prototype.tryAddCard = function (card) {
+        if (this.isCompleting) {
+            return false;
+        }
         // sai loại
         if (card.cardType != this.missionType) {
             this.shake();
@@ -82,6 +102,7 @@ var Slot = /** @class */ (function (_super) {
             easing: "backOut"
         })
             .start();
+        this.node.getComponent(cc.Animation).play();
         // update UI
         this.updateCounter();
         this.bumpCounter();
@@ -114,6 +135,9 @@ var Slot = /** @class */ (function (_super) {
         this.success();
     };
     Slot.prototype.success = function () {
+        var _this = this;
+        this.isCompleting = true;
+        var cardCount = this.cards.length;
         var _loop_1 = function (i) {
             var card = this_1.cards[i];
             cc.tween(card.node)
@@ -129,12 +153,19 @@ var Slot = /** @class */ (function (_super) {
                 .start();
         };
         var this_1 = this;
-        for (var i = 0; i < this.cards.length; i++) {
+        for (var i = 0; i < cardCount; i++) {
             _loop_1(i);
         }
         this.cards = [];
         this.updateCounter();
         this.playCompleteEffect();
+        this.scheduleOnce(function () {
+            var gm = cc.find("Canvas")
+                .getComponent("GameManager");
+            if (gm) {
+                gm.onSlotComplete(_this);
+            }
+        }, cardCount * 0.05 + 0.3);
     };
     Slot.prototype.playCompleteEffect = function () {
         cc.tween(this.node)
@@ -154,21 +185,6 @@ var Slot = /** @class */ (function (_super) {
             .by(0.05, { x: -20 })
             .by(0.05, { x: 10 })
             .start();
-    };
-    Slot.prototype.getMissionName = function (type) {
-        switch (type) {
-            case "astronaut":
-                return "Astronauts";
-            case "farmer":
-                return "Farmers";
-            case "singer":
-                return "Pop stars";
-            case "police":
-                return "Public servants";
-            case "judge":
-                return "Judges";
-        }
-        return type;
     };
     __decorate([
         property(cc.Label)

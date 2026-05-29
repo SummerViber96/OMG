@@ -1,3 +1,5 @@
+import { getMissionTitle } from "./MissionConfig";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -24,17 +26,46 @@ export default class Slot extends cc.Component {
 
     maxCard = 4;
 
+    isCompleting = false;
+
     init(type: string) {
 
+        this.resetState();
+
         this.missionType = type;
-// console.log("type",type)
-        this.lbTitle.string = this.getMissionName(type);
-        this.lbTitle2.string = this.getMissionName(type);
+
+        this.lbTitle.string = getMissionTitle(type);
+        this.lbTitle2.string = getMissionTitle(type);
 
         this.updateCounter();
     }
 
+    resetState() {
+
+        this.cards = [];
+
+        if (this.cardContainer) {
+            this.cardContainer.removeAllChildren();
+        }
+
+        for (let i = 0; i < this.upgradeUI.length; i++) {
+            this.upgradeUI[i].active = false;
+        }
+
+        if (this.lbNum) {
+            this.lbNum.node.active = true;
+        }
+
+        if (this.lbTitle) {
+            this.lbTitle.node.active = true;
+        }
+    }
+
     tryAddCard(card) {
+
+        if (this.isCompleting) {
+            return false;
+        }
 
         // sai loại
         if (card.cardType != this.missionType) {
@@ -89,7 +120,7 @@ export default class Slot extends cc.Component {
                 easing: "backOut"
             })
             .start();
-
+this.node.getComponent(cc.Animation).play()
         // update UI
         this.updateCounter();
 
@@ -132,7 +163,11 @@ export default class Slot extends cc.Component {
 
     success() {
 
-        for (let i = 0; i < this.cards.length; i++) {
+        this.isCompleting = true;
+
+        let cardCount = this.cards.length;
+
+        for (let i = 0; i < cardCount; i++) {
 
             let card = this.cards[i];
 
@@ -160,6 +195,17 @@ export default class Slot extends cc.Component {
         this.updateCounter();
 
         this.playCompleteEffect();
+
+        this.scheduleOnce(() => {
+
+            let gm = cc.find("Canvas")
+                .getComponent("GameManager");
+
+            if (gm) {
+                gm.onSlotComplete(this);
+            }
+
+        }, cardCount * 0.05 + 0.3);
     }
 
     playCompleteEffect() {
@@ -186,26 +232,4 @@ export default class Slot extends cc.Component {
             .start();
     }
 
-    getMissionName(type: string) {
-
-        switch (type) {
-
-            case "astronaut":
-                return "Astronauts";
-
-            case "farmer":
-                return "Farmers";
-
-            case "singer":
-                return "Pop stars";
-
-            case "police":
-                return "Public servants";
-
-            case "judge":
-                return "Judges";
-        }
-
-        return type;
-    }
 }

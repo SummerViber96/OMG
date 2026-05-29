@@ -17,6 +17,7 @@ require('./assets/HF/touch');
 require('./assets/Sort Puzzle/scripts/Card');
 require('./assets/Sort Puzzle/scripts/CardStack');
 require('./assets/Sort Puzzle/scripts/GameManager');
+require('./assets/Sort Puzzle/scripts/MissionConfig');
 require('./assets/Sort Puzzle/scripts/Slot');
 require('./assets/cooking/ietm/buger');
 require('./assets/cooking/ietm/cake');

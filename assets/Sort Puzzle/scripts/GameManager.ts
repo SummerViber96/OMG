@@ -1,3 +1,9 @@
+import {
+    getMissionIds,
+    getMissionTitle,
+    getNextSpawnMission
+} from "./MissionConfig";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -21,7 +27,24 @@ export default class GameManager extends cc.Component {
     policeSprites: cc.SpriteFrame[] = [];
 
     @property([cc.SpriteFrame])
-    judgeSprites: cc.SpriteFrame[] = [];
+    footballSprites: cc.SpriteFrame[] = [];
+
+    @property([cc.SpriteFrame])
+    airplaneSprites: cc.SpriteFrame[] = [];
+
+    @property([cc.SpriteFrame])
+    esportSprites: cc.SpriteFrame[] = [];
+
+ 
+
+    spriteMap: Record<string, cc.SpriteFrame[]> = {};
+
+    spawnQueueIndex = 0;
+
+    static ins: GameManager = null;
+
+    @property
+    stackRefillCount = 3;
     /*
         Hierarchy:
 
@@ -169,11 +192,11 @@ export default class GameManager extends cc.Component {
             mission: "farmer",
 
             left: [
-                 {
+                {
                     type: "police",
                     variant: 2
                 },
-                   {
+                {
                     type: "farmer",
                     variant: 2
                 },
@@ -182,17 +205,17 @@ export default class GameManager extends cc.Component {
                     variant: 4
                 },
 
-             
 
-               
+
+
             ],
 
             right: [
-                 {
+                {
                     type: "police",
                     variant: 2
                 },
-                  {
+                {
                     type: "astronaut",
                     variant: 3
                 },
@@ -201,16 +224,81 @@ export default class GameManager extends cc.Component {
                     variant: 3
                 },
 
-              
 
-               
+
+
             ]
         }
     ];
 
+    onLoad() {
+
+        GameManager.ins = this;
+
+        let canvas = this.node;
+        let dragLayer = canvas.getChildByName("DragLayer");
+
+        if (dragLayer) {
+            dragLayer.setSiblingIndex(canvas.childrenCount - 1);
+        }
+
+        this.spriteMap = {
+            astronaut: this.astronautSprites,
+            farmer: this.farmerSprites,
+            singer: this.singerSprites,
+            police: this.policeSprites,
+            football: this.footballSprites,
+            airplane: this.airplaneSprites,
+            esport: this.esportSprites,
+        };
+    }
+
     start() {
 
         this.spawnBoard();
+    }
+
+    onSlotComplete(completedSlot) {
+
+        let oldNode = completedSlot.node;
+        let row = oldNode.parent;
+        let pos = oldNode.position.clone();
+
+        let newMission = this.getNextMission(completedSlot.missionType);
+
+        let newSlotNode = cc.instantiate(oldNode);
+
+        row.addChild(newSlotNode);
+
+        newSlotNode.name = "CenterSlot";
+        newSlotNode.position = pos;
+        newSlotNode.scale = 0;
+
+        oldNode.destroy();
+
+        let slot = newSlotNode.getComponent("Slot");
+
+        slot.init(newMission);
+
+        cc.tween(newSlotNode)
+            .to(0.2, {
+                scale: 1
+            }, {
+                easing: "backOut"
+            })
+            .start();
+    }
+
+    getNextMission(exclude: string) {
+
+        let result = getNextSpawnMission(
+            exclude,
+            this.spawnQueueIndex
+        );
+
+        this.spawnQueueIndex = result.nextIndex;
+
+        return result.missionId;
     }
 
     spawnBoard() {
@@ -249,29 +337,103 @@ export default class GameManager extends cc.Component {
 
             let info = data[i];
 
-            let card = cc.instantiate(this.cardPrefab);
+            let cardNode = this.createCardNode(parent, info);
 
-            parent.addChild(card);
-
-            card.y = i * 18;
-
-            card.zIndex = i;
-
-            let cardComp = card.getComponent("Card");
-
-            cardComp.cardType = info.type;
-
-            cardComp.variant = info.variant;
-
-            this.setCardVisual(
-                card,
-                info.type,
-                info.variant
-            );
+            cardNode.y = i * 20;
+            cardNode.zIndex = i;
         }
 
-        parent.getComponent("CardStack")
-            .setup();
+        let stackComp = parent.getComponent("CardStack");
+
+        stackComp.init(this);
+        stackComp.setup();
+    }
+
+    onStackEmpty(stack) {
+
+        let count = this.stackRefillCount;
+
+        for (let i = 0; i < count; i++) {
+
+            let info = this.randomCardInfo();
+
+            if (!info) {
+                cc.warn("[GameManager] Không spawn được thẻ — kiểm tra sprite trong Editor");
+                return;
+            }
+
+            let cardNode = this.createCardNode(stack.node, info);
+
+            cardNode.y = i * 20;
+            cardNode.zIndex = i;
+        }
+
+        stack.setup();
+
+        let top = stack.cards[stack.cards.length - 1];
+
+        if (top) {
+
+            top.node.scale = 0;
+
+            cc.tween(top.node)
+                .to(0.15, {
+                    scale: 1
+                }, {
+                    easing: "backOut"
+                })
+                .start();
+        }
+    }
+
+    createCardNode(
+        parent: cc.Node,
+        info: { type: string; variant: number }
+    ): cc.Node {
+
+        let card = cc.instantiate(this.cardPrefab);
+
+        parent.addChild(card);
+
+        let cardComp = card.getComponent("Card");
+
+        cardComp.cardType = info.type;
+
+        cardComp.variant = info.variant;
+
+        this.setCardVisual(
+            card,
+            info.type,
+            info.variant
+        );
+
+        return card;
+    }
+
+    randomCardInfo(): { type: string; variant: number } {
+
+        let types = this.getSpawnableTypes();
+
+        if (types.length == 0) return null;
+
+        let type = types[
+            Math.floor(Math.random() * types.length)
+        ];
+
+        let sprites = this.spriteMap[type];
+        let variant = Math.floor(Math.random() * sprites.length) + 1;
+
+        return { type, variant };
+    }
+
+    getSpawnableTypes(): string[] {
+
+        return getMissionIds().filter(id => {
+
+            let sprites = this.spriteMap[id];
+
+            return sprites && sprites.length > 0;
+        });
     }
 
     setCardVisual(
@@ -292,86 +454,29 @@ export default class GameManager extends cc.Component {
 
         // lbTitle.string = this.getCardName(type);
         console.log(variant, type)
-        variant -= 1
-        let spriteFrame = null;
+        variant -= 1;
 
-        switch (type) {
+        let sprites = this.spriteMap[type];
 
-            case "astronaut":
-
-                spriteFrame =
-                    this.astronautSprites[variant];
-
-                break;
-
-            case "farmer":
-
-                spriteFrame =
-                    this.farmerSprites[variant];
-
-                break;
-
-            case "singer":
-
-                spriteFrame =
-                    this.singerSprites[variant];
-
-                break;
-
-            case "police":
-
-                spriteFrame =
-                    this.policeSprites[variant];
-
-                break;
-
-            case "judge":
-
-                spriteFrame =
-                    this.judgeSprites[variant];
-
-                break;
+        if (!sprites || !sprites[variant]) {
+            cc.warn(`[GameManager] Thiếu sprite: type=${type}, variant=${variant + 1}`);
+            return;
         }
 
-        icon.spriteFrame = spriteFrame;
+        icon.spriteFrame = sprites[variant];
     }
 
     getCardName(type: string) {
 
-        switch (type) {
-
-            case "astronaut":
-                return "Astronaut";
-
-            case "farmer":
-                return "Farmer";
-
-            case "singer":
-                return "Pop Star";
-
-            case "police":
-                return "Public Servant";
-
-            case "judge":
-                return "Judge";
-        }
-
-        return type;
+        return getMissionTitle(type);
     }
 
-    // shuffle test
     randomType() {
 
-        let arr = [
-            "astronaut",
-            "farmer",
-            "singer",
-            "police",
-            "judge"
-        ];
+        let ids = getMissionIds();
 
-        return arr[
-            Math.floor(Math.random() * arr.length)
+        return ids[
+            Math.floor(Math.random() * ids.length)
         ];
     }
 }

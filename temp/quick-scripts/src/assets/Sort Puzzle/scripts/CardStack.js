@@ -29,20 +29,25 @@ var CardStack = /** @class */ (function (_super) {
     function CardStack() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.cards = [];
+        _this.gameManager = null;
         return _this;
     }
-    CardStack.prototype.start = function () {
-        this.setup();
+    CardStack.prototype.init = function (gm) {
+        this.gameManager = gm;
     };
     CardStack.prototype.setup = function () {
+        this.cards = [];
         for (var i = 0; i < this.node.childrenCount; i++) {
             var card = this.node.children[i]
                 .getComponent("Card");
+            if (!card)
+                continue;
             card.stack = this;
             this.cards.push(card);
             // chỉ card top được mở
             card.setFaceUp(i == this.node.childrenCount - 1);
             card.node.y = i * 20;
+            card.node.zIndex = i;
         }
     };
     CardStack.prototype.isTopCard = function (card) {
@@ -50,10 +55,27 @@ var CardStack = /** @class */ (function (_super) {
     };
     CardStack.prototype.removeTopCard = function () {
         this.cards.pop();
-        if (this.cards.length <= 0)
+        if (this.cards.length <= 0) {
+            var gm = this.gameManager
+                || cc.find("Canvas").getComponent("GameManager");
+            if (gm) {
+                gm.onStackEmpty(this);
+            }
+            else {
+                cc.warn("[CardStack] Không tìm thấy GameManager");
+            }
             return;
+        }
         var nextTop = this.cards[this.cards.length - 1];
         this.flipCard(nextTop);
+    };
+    CardStack.prototype.pushCard = function (card) {
+        this.cards.push(card);
+        card.stack = this;
+        var index = this.cards.length - 1;
+        card.node.y = index * 20;
+        card.node.zIndex = index;
+        card.setFaceUp(true);
     };
     CardStack.prototype.flipCard = function (card) {
         cc.tween(card.node)

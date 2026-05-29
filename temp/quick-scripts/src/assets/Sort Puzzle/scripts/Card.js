@@ -34,58 +34,95 @@ var Card = /** @class */ (function (_super) {
         _this.variant = 0;
         _this.isFaceUp = false;
         _this.stack = null;
-        _this.startPos = cc.v3();
+        _this.stackStartPos = cc.v3();
+        _this.dragLayer = null;
+        _this.isDragging = false;
+        _this.isReturning = false;
+        _this.dragAngle = 0;
+        _this.movedDistance = 0;
         return _this;
     }
+    Card_1 = Card;
     Card.prototype.onLoad = function () {
         this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
-        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchCancel, this);
     };
     Card.prototype.setFaceUp = function (value) {
         this.isFaceUp = value;
         this.front.active = value;
         this.back.active = !value;
     };
-    Card.prototype.onTouchStart = function () {
-        // chỉ cho kéo card top
+    Card.prototype.onTouchStart = function (e) {
         if (!this.isFaceUp)
             return;
-        if (!this.stack.isTopCard(this))
+        if (!this.stack || !this.stack.isTopCard(this))
             return;
-        this.startPos = this.node.position.clone();
-        this.node.scale = 1.1;
-        // convert world pos
-        var worldPos = this.node.parent.convertToWorldSpaceAR(this.node.position);
-        // đưa lên drag layer
+        // Đang bay về / đang kéo — bỏ qua click thứ 2 (double click)
+        if (this.isReturning || this.isDragging)
+            return;
+        // Thẻ còn kẹt trên DragLayer từ lần trước → đưa về stack trước
         var dragLayer = cc.find("Canvas/DragLayer");
-        this.node.parent = dragLayer;
-        this.node.position = dragLayer.convertToNodeSpaceAR(worldPos);
-        // layer cao nhất
-        this.node.zIndex = 9999;
+        if (dragLayer && this.node.parent === dragLayer) {
+            this.syncStackStartPos();
+            this.forceBackToStack();
+            return;
+        }
+        cc.Tween.stopAllByTarget(this.node);
+        this.isDragging = true;
+        this.movedDistance = 0;
+        this.stackStartPos = this.node.position.clone();
+        this.dragAngle = Math.random() * 10 - 5;
+        this.dragLayer = dragLayer;
+        if (!this.dragLayer) {
+            this.isDragging = false;
+            return;
+        }
+        var worldPos = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        this.node.parent = this.dragLayer;
+        this.node.position = this.dragLayer.convertToNodeSpaceAR(worldPos);
+        this.node.angle = this.dragAngle;
+        this.node.scale = 1.1;
+        this.bringToFront(this.dragLayer);
     };
     Card.prototype.onTouchMove = function (e) {
-        if (!this.isFaceUp)
+        if (!this.isFaceUp || !this.isDragging || this.isReturning)
             return;
-        if (!this.stack.isTopCard(this))
+        if (!this.stack || !this.stack.isTopCard(this))
             return;
-        this.node.angle = Math.random(-5, 5);
         var delta = e.getDelta();
+        this.movedDistance += Math.sqrt(delta.x * delta.x + delta.y * delta.y);
         this.node.x += delta.x;
         this.node.y += delta.y;
     };
     Card.prototype.onTouchEnd = function () {
-        if (!this.isFaceUp)
+        this.onTouchFinish(false);
+    };
+    Card.prototype.onTouchCancel = function () {
+        this.onTouchFinish(true);
+    };
+    Card.prototype.onTouchFinish = function (cancelled) {
+        if (!this.isDragging || this.isReturning)
             return;
-        if (!this.stack.isTopCard(this))
-            return;
+        this.isDragging = false;
         this.node.scale = 1;
+        if (!this.stack || !this.stack.isTopCard(this)) {
+            this.forceBackToStack();
+            return;
+        }
+        // Click / double-click không kéo → chỉ trả về, không thả vào slot
+        if (this.movedDistance < Card_1.MIN_DRAG_DIST || cancelled) {
+            this.moveBack();
+            return;
+        }
         var slot = this.getDropSlot();
         if (slot) {
             var success = slot.getComponent("Slot").tryAddCard(this);
             if (success) {
                 this.stack.removeTopCard();
+                this.dragLayer = null;
+                this.movedDistance = 0;
             }
             else {
                 this.moveBack();
@@ -96,38 +133,104 @@ var Card = /** @class */ (function (_super) {
         }
     };
     Card.prototype.moveBack = function () {
-        var worldPos = this.node.parent.convertToWorldSpaceAR(this.node.position);
-        this.node.parent = this.stack.node;
-        this.node.position =
-            this.stack.node.convertToNodeSpaceAR(worldPos);
+        var _this = this;
+        if (!this.stack)
+            return;
+        var dragLayer = this.dragLayer || cc.find("Canvas/DragLayer");
+        if (!dragLayer)
+            return;
+        cc.Tween.stopAllByTarget(this.node);
+        this.isReturning = true;
+        if (this.node.parent !== dragLayer) {
+            var worldPos = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+            this.node.parent = dragLayer;
+            this.node.position = dragLayer.convertToNodeSpaceAR(worldPos);
+        }
+        this.bringToFront(dragLayer);
+        var targetWorld = this.stack.node.convertToWorldSpaceAR(this.stackStartPos);
+        var targetInDrag = dragLayer.convertToNodeSpaceAR(targetWorld);
         cc.tween(this.node)
             .to(0.2, {
-            position: this.startPos
+            position: targetInDrag,
+            angle: 0,
+            scale: 1
+        }, {
+            easing: "sineOut"
+        })
+            .call(function () {
+            _this.finishMoveBack();
         })
             .start();
+    };
+    Card.prototype.finishMoveBack = function () {
+        if (!this.stack) {
+            this.isReturning = false;
+            return;
+        }
+        this.node.parent = this.stack.node;
+        this.node.position = this.stackStartPos;
+        this.node.angle = 0;
+        this.node.scale = 1;
+        var z = Math.max(0, this.stack.cards.length - 1);
+        this.node.zIndex = z;
+        this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        this.dragLayer = null;
+        this.isReturning = false;
+        this.movedDistance = 0;
+    };
+    Card.prototype.syncStackStartPos = function () {
+        if (!this.stack)
+            return;
+        var index = this.stack.cards.indexOf(this);
+        if (index < 0) {
+            index = this.stack.cards.length - 1;
+        }
+        this.stackStartPos = cc.v3(0, index * 20, 0);
+    };
+    Card.prototype.forceBackToStack = function () {
+        cc.Tween.stopAllByTarget(this.node);
+        this.isDragging = false;
+        this.isReturning = false;
+        this.movedDistance = 0;
+        if (!this.stack)
+            return;
+        this.node.parent = this.stack.node;
+        this.node.position = this.stackStartPos;
+        this.node.angle = 0;
+        this.node.scale = 1;
+        var z = Math.max(0, this.stack.cards.length - 1);
+        this.node.zIndex = z;
+        this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        this.dragLayer = null;
+    };
+    Card.prototype.bringToFront = function (layer) {
+        this.node.zIndex = 9999;
+        this.node.setSiblingIndex(layer.childrenCount - 1);
     };
     Card.prototype.getDropSlot = function () {
         var slots = cc.find("Canvas/Board")
             .getComponentsInChildren(cc.Component);
+        var wp = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
         for (var _i = 0, slots_1 = slots; _i < slots_1.length; _i++) {
             var s = slots_1[_i];
             if (s.node.name != "CenterSlot")
                 continue;
             var box = s.node.getBoundingBoxToWorld();
-            var wp = this.node.parent.convertToWorldSpaceAR(this.node.position);
             if (box.contains(wp)) {
                 return s.node;
             }
         }
         return null;
     };
+    var Card_1;
+    Card.MIN_DRAG_DIST = 12;
     __decorate([
         property(cc.Node)
     ], Card.prototype, "front", void 0);
     __decorate([
         property(cc.Node)
     ], Card.prototype, "back", void 0);
-    Card = __decorate([
+    Card = Card_1 = __decorate([
         ccclass
     ], Card);
     return Card;

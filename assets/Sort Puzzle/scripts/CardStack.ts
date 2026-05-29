@@ -5,17 +5,22 @@ export default class CardStack extends cc.Component {
 
     cards = [];
 
-    start() {
+    gameManager = null;
 
-        this.setup();
+    init(gm) {
+        this.gameManager = gm;
     }
 
     setup() {
+
+        this.cards = [];
 
         for (let i = 0; i < this.node.childrenCount; i++) {
 
             let card = this.node.children[i]
                 .getComponent("Card");
+
+            if (!card) continue;
 
             card.stack = this;
 
@@ -25,6 +30,7 @@ export default class CardStack extends cc.Component {
             card.setFaceUp(i == this.node.childrenCount - 1);
 
             card.node.y = i * 20;
+            card.node.zIndex = i;
         }
     }
 
@@ -37,11 +43,37 @@ export default class CardStack extends cc.Component {
 
         this.cards.pop();
 
-        if (this.cards.length <= 0) return;
+        if (this.cards.length <= 0) {
+
+            let gm = this.gameManager
+                || cc.find("Canvas").getComponent("GameManager");
+
+            if (gm) {
+                gm.onStackEmpty(this);
+            } else {
+                cc.warn("[CardStack] Không tìm thấy GameManager");
+            }
+
+            return;
+        }
 
         let nextTop = this.cards[this.cards.length - 1];
 
         this.flipCard(nextTop);
+    }
+
+    pushCard(card) {
+
+        this.cards.push(card);
+
+        card.stack = this;
+
+        let index = this.cards.length - 1;
+
+        card.node.y = index * 20;
+        card.node.zIndex = index;
+
+        card.setFaceUp(true);
     }
 
     flipCard(card) {

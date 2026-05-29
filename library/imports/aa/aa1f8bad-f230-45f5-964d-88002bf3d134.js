@@ -23,6 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var MissionConfig_1 = require("./MissionConfig");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var GameManager = /** @class */ (function (_super) {
     __extends(GameManager, _super);
@@ -34,7 +35,12 @@ var GameManager = /** @class */ (function (_super) {
         _this.farmerSprites = [];
         _this.singerSprites = [];
         _this.policeSprites = [];
-        _this.judgeSprites = [];
+        _this.footballSprites = [];
+        _this.airplaneSprites = [];
+        _this.esportSprites = [];
+        _this.spriteMap = {};
+        _this.spawnQueueIndex = 0;
+        _this.stackRefillCount = 3;
         /*
             Hierarchy:
     
@@ -177,8 +183,52 @@ var GameManager = /** @class */ (function (_super) {
         ];
         return _this;
     }
+    GameManager_1 = GameManager;
+    GameManager.prototype.onLoad = function () {
+        GameManager_1.ins = this;
+        var canvas = this.node;
+        var dragLayer = canvas.getChildByName("DragLayer");
+        if (dragLayer) {
+            dragLayer.setSiblingIndex(canvas.childrenCount - 1);
+        }
+        this.spriteMap = {
+            astronaut: this.astronautSprites,
+            farmer: this.farmerSprites,
+            singer: this.singerSprites,
+            police: this.policeSprites,
+            football: this.footballSprites,
+            airplane: this.airplaneSprites,
+            esport: this.esportSprites,
+        };
+    };
     GameManager.prototype.start = function () {
         this.spawnBoard();
+    };
+    GameManager.prototype.onSlotComplete = function (completedSlot) {
+        var oldNode = completedSlot.node;
+        var row = oldNode.parent;
+        var pos = oldNode.position.clone();
+        var newMission = this.getNextMission(completedSlot.missionType);
+        var newSlotNode = cc.instantiate(oldNode);
+        row.addChild(newSlotNode);
+        newSlotNode.name = "CenterSlot";
+        newSlotNode.position = pos;
+        newSlotNode.scale = 0;
+        oldNode.destroy();
+        var slot = newSlotNode.getComponent("Slot");
+        slot.init(newMission);
+        cc.tween(newSlotNode)
+            .to(0.2, {
+            scale: 1
+        }, {
+            easing: "backOut"
+        })
+            .start();
+    };
+    GameManager.prototype.getNextMission = function (exclude) {
+        var result = MissionConfig_1.getNextSpawnMission(exclude, this.spawnQueueIndex);
+        this.spawnQueueIndex = result.nextIndex;
+        return result.missionId;
     };
     GameManager.prototype.spawnBoard = function () {
         for (var i = 0; i < this.board.childrenCount; i++) {
@@ -202,17 +252,63 @@ var GameManager = /** @class */ (function (_super) {
         parent.removeAllChildren();
         for (var i = 0; i < data.length; i++) {
             var info = data[i];
-            var card = cc.instantiate(this.cardPrefab);
-            parent.addChild(card);
-            card.y = i * 18;
-            card.zIndex = i;
-            var cardComp = card.getComponent("Card");
-            cardComp.cardType = info.type;
-            cardComp.variant = info.variant;
-            this.setCardVisual(card, info.type, info.variant);
+            var cardNode = this.createCardNode(parent, info);
+            cardNode.y = i * 20;
+            cardNode.zIndex = i;
         }
-        parent.getComponent("CardStack")
-            .setup();
+        var stackComp = parent.getComponent("CardStack");
+        stackComp.init(this);
+        stackComp.setup();
+    };
+    GameManager.prototype.onStackEmpty = function (stack) {
+        var count = this.stackRefillCount;
+        for (var i = 0; i < count; i++) {
+            var info = this.randomCardInfo();
+            if (!info) {
+                cc.warn("[GameManager] Không spawn được thẻ — kiểm tra sprite trong Editor");
+                return;
+            }
+            var cardNode = this.createCardNode(stack.node, info);
+            cardNode.y = i * 20;
+            cardNode.zIndex = i;
+        }
+        stack.setup();
+        var top = stack.cards[stack.cards.length - 1];
+        if (top) {
+            top.node.scale = 0;
+            cc.tween(top.node)
+                .to(0.15, {
+                scale: 1
+            }, {
+                easing: "backOut"
+            })
+                .start();
+        }
+    };
+    GameManager.prototype.createCardNode = function (parent, info) {
+        var card = cc.instantiate(this.cardPrefab);
+        parent.addChild(card);
+        var cardComp = card.getComponent("Card");
+        cardComp.cardType = info.type;
+        cardComp.variant = info.variant;
+        this.setCardVisual(card, info.type, info.variant);
+        return card;
+    };
+    GameManager.prototype.randomCardInfo = function () {
+        var types = this.getSpawnableTypes();
+        if (types.length == 0)
+            return null;
+        var type = types[Math.floor(Math.random() * types.length)];
+        var sprites = this.spriteMap[type];
+        var variant = Math.floor(Math.random() * sprites.length) + 1;
+        return { type: type, variant: variant };
+    };
+    GameManager.prototype.getSpawnableTypes = function () {
+        var _this = this;
+        return MissionConfig_1.getMissionIds().filter(function (id) {
+            var sprites = _this.spriteMap[id];
+            return sprites && sprites.length > 0;
+        });
     };
     GameManager.prototype.setCardVisual = function (card, type, variant) {
         var front = card.getChildByName("front");
@@ -225,57 +321,22 @@ var GameManager = /** @class */ (function (_super) {
         // lbTitle.string = this.getCardName(type);
         console.log(variant, type);
         variant -= 1;
-        var spriteFrame = null;
-        switch (type) {
-            case "astronaut":
-                spriteFrame =
-                    this.astronautSprites[variant];
-                break;
-            case "farmer":
-                spriteFrame =
-                    this.farmerSprites[variant];
-                break;
-            case "singer":
-                spriteFrame =
-                    this.singerSprites[variant];
-                break;
-            case "police":
-                spriteFrame =
-                    this.policeSprites[variant];
-                break;
-            case "judge":
-                spriteFrame =
-                    this.judgeSprites[variant];
-                break;
+        var sprites = this.spriteMap[type];
+        if (!sprites || !sprites[variant]) {
+            cc.warn("[GameManager] Thi\u1EBFu sprite: type=" + type + ", variant=" + (variant + 1));
+            return;
         }
-        icon.spriteFrame = spriteFrame;
+        icon.spriteFrame = sprites[variant];
     };
     GameManager.prototype.getCardName = function (type) {
-        switch (type) {
-            case "astronaut":
-                return "Astronaut";
-            case "farmer":
-                return "Farmer";
-            case "singer":
-                return "Pop Star";
-            case "police":
-                return "Public Servant";
-            case "judge":
-                return "Judge";
-        }
-        return type;
+        return MissionConfig_1.getMissionTitle(type);
     };
-    // shuffle test
     GameManager.prototype.randomType = function () {
-        var arr = [
-            "astronaut",
-            "farmer",
-            "singer",
-            "police",
-            "judge"
-        ];
-        return arr[Math.floor(Math.random() * arr.length)];
+        var ids = MissionConfig_1.getMissionIds();
+        return ids[Math.floor(Math.random() * ids.length)];
     };
+    var GameManager_1;
+    GameManager.ins = null;
     __decorate([
         property(cc.Prefab)
     ], GameManager.prototype, "cardPrefab", void 0);
@@ -296,8 +357,17 @@ var GameManager = /** @class */ (function (_super) {
     ], GameManager.prototype, "policeSprites", void 0);
     __decorate([
         property([cc.SpriteFrame])
-    ], GameManager.prototype, "judgeSprites", void 0);
-    GameManager = __decorate([
+    ], GameManager.prototype, "footballSprites", void 0);
+    __decorate([
+        property([cc.SpriteFrame])
+    ], GameManager.prototype, "airplaneSprites", void 0);
+    __decorate([
+        property([cc.SpriteFrame])
+    ], GameManager.prototype, "esportSprites", void 0);
+    __decorate([
+        property
+    ], GameManager.prototype, "stackRefillCount", void 0);
+    GameManager = GameManager_1 = __decorate([
         ccclass
     ], GameManager);
     return GameManager;
