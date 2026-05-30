@@ -86,8 +86,8 @@ export default class GameManager extends cc.Component {
 
             right: [
                 {
-                    type: "police",
-                    variant: 2
+                    type: "football",
+                    variant: 3
                 },
                 {
                     type: "police",
@@ -109,8 +109,8 @@ export default class GameManager extends cc.Component {
 
             left: [
                 {
-                    type: "police",
-                    variant: 2
+                    type: "airplane",
+                    variant: 1
                 },
                 {
                     type: "farmer",
@@ -128,12 +128,12 @@ export default class GameManager extends cc.Component {
 
             right: [
                 {
-                    type: "police",
-                    variant: 2
+                    type: "football",
+                    variant: 4
                 },
                 {
                     type: "police",
-                    variant: 4
+                    variant: 3
                 },
                 {
                     type: "singer",
@@ -151,7 +151,7 @@ export default class GameManager extends cc.Component {
 
             left: [
                 {
-                    type: "police",
+                    type: "football",
                     variant: 2
                 },
                 {
@@ -163,14 +163,14 @@ export default class GameManager extends cc.Component {
                     variant: 2
                 },
 
-
+///////////////////////
 
 
             ],
 
             right: [
                 {
-                    type: "police",
+                    type: "airplane",
                     variant: 2
                 },
                 {
@@ -193,12 +193,12 @@ export default class GameManager extends cc.Component {
 
             left: [
                 {
-                    type: "police",
-                    variant: 2
+                    type: "football",
+                    variant: 1
                 },
                 {
                     type: "farmer",
-                    variant: 2
+                    variant: 4
                 },
                 {
                     type: "singer",
@@ -212,16 +212,16 @@ export default class GameManager extends cc.Component {
 
             right: [
                 {
-                    type: "police",
-                    variant: 2
+                    type: "airplane",
+                    variant: 3
                 },
                 {
                     type: "astronaut",
                     variant: 3
                 },
                 {
-                    type: "police",
-                    variant: 3
+                    type: "airplane",
+                    variant: 4
                 },
 
 
@@ -257,7 +257,7 @@ export default class GameManager extends cc.Component {
 
         this.spawnBoard();
     }
-
+isCountComplete=0
     onSlotComplete(completedSlot) {
 
         let oldNode = completedSlot.node;

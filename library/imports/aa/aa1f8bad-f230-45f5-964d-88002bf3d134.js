@@ -74,8 +74,8 @@ var GameManager = /** @class */ (function (_super) {
                 ],
                 right: [
                     {
-                        type: "police",
-                        variant: 2
+                        type: "football",
+                        variant: 3
                     },
                     {
                         type: "police",
@@ -91,8 +91,8 @@ var GameManager = /** @class */ (function (_super) {
                 mission: "singer",
                 left: [
                     {
-                        type: "police",
-                        variant: 2
+                        type: "airplane",
+                        variant: 1
                     },
                     {
                         type: "farmer",
@@ -105,12 +105,12 @@ var GameManager = /** @class */ (function (_super) {
                 ],
                 right: [
                     {
-                        type: "police",
-                        variant: 2
+                        type: "football",
+                        variant: 4
                     },
                     {
                         type: "police",
-                        variant: 4
+                        variant: 3
                     },
                     {
                         type: "singer",
@@ -122,7 +122,7 @@ var GameManager = /** @class */ (function (_super) {
                 mission: "astronaut",
                 left: [
                     {
-                        type: "police",
+                        type: "football",
                         variant: 2
                     },
                     {
@@ -136,7 +136,7 @@ var GameManager = /** @class */ (function (_super) {
                 ],
                 right: [
                     {
-                        type: "police",
+                        type: "airplane",
                         variant: 2
                     },
                     {
@@ -153,12 +153,12 @@ var GameManager = /** @class */ (function (_super) {
                 mission: "farmer",
                 left: [
                     {
-                        type: "police",
-                        variant: 2
+                        type: "football",
+                        variant: 1
                     },
                     {
                         type: "farmer",
-                        variant: 2
+                        variant: 4
                     },
                     {
                         type: "singer",
@@ -167,20 +167,21 @@ var GameManager = /** @class */ (function (_super) {
                 ],
                 right: [
                     {
-                        type: "police",
-                        variant: 2
+                        type: "airplane",
+                        variant: 3
                     },
                     {
                         type: "astronaut",
                         variant: 3
                     },
                     {
-                        type: "police",
-                        variant: 3
+                        type: "airplane",
+                        variant: 4
                     },
                 ]
             }
         ];
+        _this.isCountComplete = 0;
         return _this;
     }
     GameManager_1 = GameManager;
