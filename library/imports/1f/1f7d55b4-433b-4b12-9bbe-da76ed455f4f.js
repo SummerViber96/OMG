@@ -40,8 +40,12 @@ var Slot = /** @class */ (function (_super) {
         _this.cards = [];
         _this.maxCard = 4;
         _this.isCompleting = false;
+        _this.gamePlay = null;
         return _this;
     }
+    Slot.prototype.start = function () {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameManager");
+    };
     Slot.prototype.init = function (type) {
         this.resetState();
         this.missionType = type;
@@ -84,6 +88,7 @@ var Slot = /** @class */ (function (_super) {
     };
     Slot.prototype.addCard = function (card) {
         this.cards.push(card);
+        this.gamePlay.addDone(this.node.position);
         // convert world pos
         var worldPos = card.node.parent.convertToWorldSpaceAR(card.node.position);
         // move vào container
@@ -91,6 +96,8 @@ var Slot = /** @class */ (function (_super) {
         card.node.position =
             this.cardContainer.convertToNodeSpaceAR(worldPos);
         var index = this.cards.length - 1;
+        this.gamePlay.handGuild.active = false;
+        cc.audioEngine.play(this.gamePlay.soundClickCard, false, 1);
         // visual stack
         var targetPos = cc.v3(0, 0);
         cc.tween(card.node)
@@ -179,6 +186,7 @@ var Slot = /** @class */ (function (_super) {
         cc.log("MISSION COMPLETE");
     };
     Slot.prototype.shake = function () {
+        this.gamePlay.addWrong(this.node.position);
         cc.tween(this.node)
             .by(0.05, { x: -10 })
             .by(0.05, { x: 20 })

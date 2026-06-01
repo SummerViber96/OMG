@@ -30,6 +30,9 @@ var GameManager = /** @class */ (function (_super) {
     function GameManager() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.cardPrefab = null;
+        _this.endGameNode = null;
+        _this.linkToStore = null;
+        _this.phaohoa = null;
         _this.board = null;
         _this.astronautSprites = [];
         _this.farmerSprites = [];
@@ -38,9 +41,32 @@ var GameManager = /** @class */ (function (_super) {
         _this.footballSprites = [];
         _this.airplaneSprites = [];
         _this.esportSprites = [];
+        _this.vikingSprites = [];
+        _this.armySprites = [];
+        _this.putGame = null;
+        _this.handGuild = null;
+        //sound
+        _this.soundWin = null;
+        _this.soundComplete = null;
+        _this.soundClickCard = null;
+        _this.soundWrong = null;
+        _this.soundBg = null;
+        _this.soundTouchCard = null;
+        _this.preDone = null;
+        _this.preWrong = null;
+        _this.boardNode = null;
+        _this.lbMoveCount = null;
+        _this.countMove = 0;
         _this.spriteMap = {};
+        _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.spawnQueueIndex = 0;
+        /** Thẻ đã có trên bàn (setup + spawn random), key = "type:variant" */
+        _this.appearedCards = new Set();
+        _this.completedMissionCount = 0;
+        _this.missionsToWin = 3;
+        _this.gameEnded = false;
         _this.stackRefillCount = 3;
+        _this.iconFillRatio = 0.92;
         /*
             Hierarchy:
     
@@ -181,12 +207,26 @@ var GameManager = /** @class */ (function (_super) {
                 ]
             }
         ];
-        _this.isCountComplete = 0;
+        _this.isOffGuild = false;
         return _this;
     }
     GameManager_1 = GameManager;
+    GameManager.prototype.addWrong = function (pos) {
+        var fix = cc.instantiate(this.preWrong);
+        fix.parent = this.boardNode;
+        fix.position = pos;
+    };
+    GameManager.prototype.addDone = function (pos) {
+        var fix = cc.instantiate(this.preDone);
+        fix.parent = this.boardNode;
+        fix.position = pos;
+    };
     GameManager.prototype.onLoad = function () {
-        GameManager_1.ins = this;
+        var _this = this;
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
+        cc.audioEngine.play(this.soundBg, true, 0.5);
         var canvas = this.node;
         var dragLayer = canvas.getChildByName("DragLayer");
         if (dragLayer) {
@@ -199,13 +239,39 @@ var GameManager = /** @class */ (function (_super) {
             police: this.policeSprites,
             football: this.footballSprites,
             airplane: this.airplaneSprites,
-            esport: this.esportSprites,
+            vikings: this.vikingSprites,
+            army: this.armySprites,
         };
+        this.scheduleOnce(function () {
+            _this.offGuild;
+            // this.putGame.active = false
+        }, 3);
+    };
+    GameManager.prototype.offGuild = function () {
+        var _this = this;
+        if (this.isOffGuild)
+            return;
+        this.isOffGuild = true;
+        cc.tween(this.putGame).to(0.3, { opacity: 0 }).call(function () {
+            _this.putGame.active = false;
+            _this.handGuild.active = true;
+        }).start();
     };
     GameManager.prototype.start = function () {
+        cc.view.setDesignResolutionSize(1080, 1920, cc.ResolutionPolicy.SHOW_ALL);
+        GameManager_1.ins = this;
+        this.appearedCards.clear();
+        this.completedMissionCount = 0;
+        this.gameEnded = false;
         this.spawnBoard();
     };
     GameManager.prototype.onSlotComplete = function (completedSlot) {
+        this.completedMissionCount++;
+        if (this.completedMissionCount >= this.missionsToWin) {
+            this.endGame();
+            return;
+        }
+        cc.audioEngine.play(this.soundComplete, false, 1);
         var oldNode = completedSlot.node;
         var row = oldNode.parent;
         var pos = oldNode.position.clone();
@@ -262,6 +328,8 @@ var GameManager = /** @class */ (function (_super) {
         stackComp.setup();
     };
     GameManager.prototype.onStackEmpty = function (stack) {
+        if (this.gameEnded)
+            return;
         var count = this.stackRefillCount;
         for (var i = 0; i < count; i++) {
             var info = this.randomCardInfo();
@@ -292,17 +360,38 @@ var GameManager = /** @class */ (function (_super) {
         var cardComp = card.getComponent("Card");
         cardComp.cardType = info.type;
         cardComp.variant = info.variant;
+        this.markCardAppeared(info.type, info.variant);
         this.setCardVisual(card, info.type, info.variant);
         return card;
     };
     GameManager.prototype.randomCardInfo = function () {
-        var types = this.getSpawnableTypes();
-        if (types.length == 0)
+        var options = this.getUnappearedCardOptions();
+        if (options.length === 0)
             return null;
-        var type = types[Math.floor(Math.random() * types.length)];
-        var sprites = this.spriteMap[type];
-        var variant = Math.floor(Math.random() * sprites.length) + 1;
-        return { type: type, variant: variant };
+        return options[Math.floor(Math.random() * options.length)];
+    };
+    GameManager.prototype.cardKey = function (type, variant) {
+        return type + ":" + variant;
+    };
+    GameManager.prototype.markCardAppeared = function (type, variant) {
+        this.appearedCards.add(this.cardKey(type, variant));
+    };
+    GameManager.prototype.hasCardAppeared = function (type, variant) {
+        return this.appearedCards.has(this.cardKey(type, variant));
+    };
+    /** Chỉ các thẻ (type + variant) chưa từng spawn / setup */
+    GameManager.prototype.getUnappearedCardOptions = function () {
+        var options = [];
+        for (var _i = 0, _a = this.getSpawnableTypes(); _i < _a.length; _i++) {
+            var type = _a[_i];
+            var sprites = this.spriteMap[type];
+            for (var v = 1; v <= sprites.length; v++) {
+                if (!this.hasCardAppeared(type, v)) {
+                    options.push({ type: type, variant: v });
+                }
+            }
+        }
+        return options;
     };
     GameManager.prototype.getSpawnableTypes = function () {
         var _this = this;
@@ -310,6 +399,24 @@ var GameManager = /** @class */ (function (_super) {
             var sprites = _this.spriteMap[id];
             return sprites && sprites.length > 0;
         });
+    };
+    GameManager.prototype.endGame = function () {
+        if (this.gameEnded)
+            return;
+        cc.audioEngine.play(this.soundWin, false, 1);
+        this.phaohoa.active = true;
+        this.endGameNode.active = true;
+        this.linkToStore.active = true;
+        this.gameEnded = true;
+        var canvas = cc.find("Canvas");
+        if (canvas) {
+            var gameDonut = canvas.getComponent("GameDonut");
+            if (gameDonut && gameDonut.onEndGame) {
+                gameDonut.onEndGame(true);
+                return;
+            }
+        }
+        cc.log("[GameManager] Hoàn thành", this.missionsToWin, "mission — kết thúc game");
     };
     GameManager.prototype.setCardVisual = function (card, type, variant) {
         var front = card.getChildByName("front");
@@ -328,6 +435,21 @@ var GameManager = /** @class */ (function (_super) {
             return;
         }
         icon.spriteFrame = sprites[variant];
+        this.fitIconToCard(icon);
+    };
+    GameManager.prototype.fitIconToCard = function (icon) {
+        if (!icon || !icon.spriteFrame)
+            return;
+        icon.sizeMode = cc.Sprite.SizeMode.CUSTOM;
+        icon.node.setScale(0.9);
+        var front = icon.node.parent;
+        if (!front)
+            return;
+        var maxWidth = front.width * this.iconFillRatio;
+        var maxHeight = front.height * this.iconFillRatio;
+        var rect = icon.spriteFrame.getRect();
+        var scale = Math.min(maxWidth / rect.width, maxHeight / rect.height);
+        icon.node.setContentSize(rect.width * scale, rect.height * scale);
     };
     GameManager.prototype.getCardName = function (type) {
         return MissionConfig_1.getMissionTitle(type);
@@ -341,6 +463,15 @@ var GameManager = /** @class */ (function (_super) {
     __decorate([
         property(cc.Prefab)
     ], GameManager.prototype, "cardPrefab", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "endGameNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "linkToStore", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "phaohoa", void 0);
     __decorate([
         property(cc.Node)
     ], GameManager.prototype, "board", void 0);
@@ -366,8 +497,56 @@ var GameManager = /** @class */ (function (_super) {
         property([cc.SpriteFrame])
     ], GameManager.prototype, "esportSprites", void 0);
     __decorate([
+        property([cc.SpriteFrame])
+    ], GameManager.prototype, "vikingSprites", void 0);
+    __decorate([
+        property([cc.SpriteFrame])
+    ], GameManager.prototype, "armySprites", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "putGame", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "handGuild", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], GameManager.prototype, "soundWin", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], GameManager.prototype, "soundComplete", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], GameManager.prototype, "soundClickCard", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], GameManager.prototype, "soundWrong", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], GameManager.prototype, "soundBg", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], GameManager.prototype, "soundTouchCard", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], GameManager.prototype, "preDone", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], GameManager.prototype, "preWrong", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "boardNode", void 0);
+    __decorate([
+        property(cc.Label)
+    ], GameManager.prototype, "lbMoveCount", void 0);
+    __decorate([
+        property
+    ], GameManager.prototype, "missionsToWin", void 0);
+    __decorate([
         property
     ], GameManager.prototype, "stackRefillCount", void 0);
+    __decorate([
+        property({ tooltip: "Tỷ lệ chiếm diện tích mặt thẻ (0–1), ví dụ 0.92 = ~92% chiều rộng/cao" })
+    ], GameManager.prototype, "iconFillRatio", void 0);
     GameManager = GameManager_1 = __decorate([
         ccclass
     ], GameManager);

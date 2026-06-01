@@ -17,13 +17,15 @@ exports.ALL_MISSIONS = [
     { id: "police", title: "Public servants" },
     { id: "football", title: "Football" },
     { id: "airplane", title: "Airplane" },
-    { id: "esport", title: "Esport" },
+    { id: "vikings", title: "Vikings" },
+    { id: "army", title: "Army" },
 ];
 /** Thứ tự mission spawn sau khi hoàn thành 4/4 (lặp vòng) */
 exports.SPAWN_MISSION_QUEUE = [
     "football",
     "airplane",
-    "esport",
+    "vikings",
+    "army"
 ];
 var missionById = {};
 for (var _i = 0, ALL_MISSIONS_1 = exports.ALL_MISSIONS; _i < ALL_MISSIONS_1.length; _i++) {

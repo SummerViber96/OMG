@@ -23,8 +23,9 @@ export default class Card extends cc.Component {
     private movedDistance = 0;
 
     private static MIN_DRAG_DIST = 12;
-
+    gamePlay = null;
     onLoad() {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameManager")
 
         this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
@@ -118,7 +119,8 @@ export default class Card extends cc.Component {
             this.forceBackToStack();
             return;
         }
-
+        this.gamePlay.countMove++;
+        this.gamePlay.lbMoveCount.string="Moves: "+this.gamePlay.countMove.toString()
         // Click / double-click không kéo → chỉ trả về, không thả vào slot
         if (this.movedDistance < Card.MIN_DRAG_DIST || cancelled) {
             this.moveBack();
@@ -151,11 +153,10 @@ export default class Card extends cc.Component {
     moveBack() {
 
         if (!this.stack) return;
-
+        cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.5)
         let dragLayer = this.dragLayer || cc.find("Canvas/DragLayer");
 
         if (!dragLayer) return;
-
         cc.Tween.stopAllByTarget(this.node);
         this.isReturning = true;
 

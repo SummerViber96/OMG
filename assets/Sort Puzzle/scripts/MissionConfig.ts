@@ -20,14 +20,18 @@ export const ALL_MISSIONS: MissionDef[] = [
 
     { id: "football", title: "Football" },
     { id: "airplane", title: "Airplane" },
-    { id: "esport", title: "Esport" },
+    { id: "vikings", title: "Vikings" },
+    { id: "army", title: "Army" },
+
+    // { id: "esport", title: "Esport" },
 ];
 
 /** Thứ tự mission spawn sau khi hoàn thành 4/4 (lặp vòng) */
 export const SPAWN_MISSION_QUEUE: string[] = [
     "football",
     "airplane",
-    "esport",
+    "vikings",
+    "army"
 ];
 
 const missionById: Record<string, MissionDef> = {};

@@ -40,10 +40,12 @@ var Card = /** @class */ (function (_super) {
         _this.isReturning = false;
         _this.dragAngle = 0;
         _this.movedDistance = 0;
+        _this.gamePlay = null;
         return _this;
     }
     Card_1 = Card;
     Card.prototype.onLoad = function () {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameManager");
         this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
@@ -111,6 +113,8 @@ var Card = /** @class */ (function (_super) {
             this.forceBackToStack();
             return;
         }
+        this.gamePlay.countMove++;
+        this.gamePlay.lbMoveCount.string = "Moves: " + this.gamePlay.countMove.toString();
         // Click / double-click không kéo → chỉ trả về, không thả vào slot
         if (this.movedDistance < Card_1.MIN_DRAG_DIST || cancelled) {
             this.moveBack();
@@ -136,6 +140,7 @@ var Card = /** @class */ (function (_super) {
         var _this = this;
         if (!this.stack)
             return;
+        cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.5);
         var dragLayer = this.dragLayer || cc.find("Canvas/DragLayer");
         if (!dragLayer)
             return;

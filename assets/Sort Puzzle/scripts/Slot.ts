@@ -27,7 +27,10 @@ export default class Slot extends cc.Component {
     maxCard = 4;
 
     isCompleting = false;
-
+    gamePlay = null
+    protected start(): void {
+        this.gamePlay=cc.Canvas.instance.node.getComponent("GameManager")
+    }
     init(type: string) {
 
         this.resetState();
@@ -92,7 +95,7 @@ export default class Slot extends cc.Component {
     addCard(card) {
 
         this.cards.push(card);
-
+this.gamePlay.addDone(this.node.position)
         // convert world pos
         let worldPos =
             card.node.parent.convertToWorldSpaceAR(card.node.position);
@@ -104,23 +107,24 @@ export default class Slot extends cc.Component {
             this.cardContainer.convertToNodeSpaceAR(worldPos);
 
         let index = this.cards.length - 1;
-
+        this.gamePlay.handGuild.active = false
+        cc.audioEngine.play(this.gamePlay.soundClickCard,false,1)
         // visual stack
         let targetPos = cc.v3(
             0,
-              0
+            0
         );
 
         cc.tween(card.node)
             .to(0.15, {
                 position: targetPos,
                 scale: 0.9,
-                angle:0
+                angle: 0
             }, {
                 easing: "backOut"
             })
             .start();
-this.node.getComponent(cc.Animation).play()
+        this.node.getComponent(cc.Animation).play()
         // update UI
         this.updateCounter();
 
@@ -134,8 +138,8 @@ this.node.getComponent(cc.Animation).play()
             for (let i = 0; i < this.upgradeUI.length; i++) {
                 this.upgradeUI[i].active = true
             }
-            this.lbNum.node.active=false;
-            this.lbTitle.node.active=false
+            this.lbNum.node.active = false;
+            this.lbTitle.node.active = false
         }
         this.lbNum.string =
             `${this.cards.length}/${this.maxCard}`;
@@ -223,6 +227,7 @@ this.node.getComponent(cc.Animation).play()
     }
 
     shake() {
+        this.gamePlay.addWrong(this.node.position)
 
         cc.tween(this.node)
             .by(0.05, { x: -10 })

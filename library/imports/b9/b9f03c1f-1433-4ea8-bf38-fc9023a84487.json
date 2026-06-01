@@ -55,5 +55,11 @@
       }
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 0.5,
+      "func": "ds",
+      "params": []
+    }
+  ]
 }
