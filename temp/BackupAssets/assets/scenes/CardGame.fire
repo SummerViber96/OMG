@@ -93,19 +93,19 @@
         "__id__": 250
       },
       {
-        "__id__": 377
+        "__id__": 376
       }
     ],
     "_active": true,
     "_components": [
       {
+        "__id__": 380
+      },
+      {
         "__id__": 381
       },
       {
         "__id__": 382
-      },
-      {
-        "__id__": 383
       }
     ],
     "_prefab": null,
@@ -10038,13 +10038,13 @@
         "__id__": 324
       },
       {
-        "__id__": 370
+        "__id__": 369
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 376
+        "__id__": 375
       }
     ],
     "_prefab": null,
@@ -13016,9 +13016,6 @@
       },
       {
         "__id__": 367
-      },
-      {
-        "__id__": 368
       }
     ],
     "_prefab": null,
@@ -14748,16 +14745,6 @@
     "_id": "5bD3lU5bdGKYplj1G+KaFA"
   },
   {
-    "__type__": "cc.BlockInputEvents",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 324
-    },
-    "_enabled": true,
-    "_id": "4auhM5EQpP5JJHnjcUYo4S"
-  },
-  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -14771,7 +14758,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 369
+        "__id__": 368
       }
     ],
     "_N$interactable": true,
@@ -14848,16 +14835,16 @@
     },
     "_children": [
       {
-        "__id__": 371
+        "__id__": 370
       },
       {
-        "__id__": 373
+        "__id__": 372
       }
     ],
     "_active": false,
     "_components": [
       {
-        "__id__": 375
+        "__id__": 374
       }
     ],
     "_prefab": null,
@@ -14913,13 +14900,13 @@
     "_name": "hand",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 370
+      "__id__": 369
     },
     "_children": [],
     "_active": false,
     "_components": [
       {
-        "__id__": 372
+        "__id__": 371
       }
     ],
     "_prefab": null,
@@ -14975,7 +14962,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 371
+      "__id__": 370
     },
     "_enabled": true,
     "_materials": [
@@ -15007,13 +14994,13 @@
     "_name": "Hand",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 370
+      "__id__": 369
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 374
+        "__id__": 373
       }
     ],
     "_prefab": null,
@@ -15069,7 +15056,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 373
+      "__id__": 372
     },
     "_enabled": true,
     "_materials": [
@@ -15111,7 +15098,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 370
+      "__id__": 369
     },
     "_enabled": true,
     "_defaultClip": {
@@ -15161,13 +15148,13 @@
     },
     "_children": [
       {
-        "__id__": 378
+        "__id__": 377
       }
     ],
     "_active": false,
     "_components": [
       {
-        "__id__": 380
+        "__id__": 379
       }
     ],
     "_prefab": null,
@@ -15223,13 +15210,13 @@
     "_name": "0001 shot (Copy)",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 377
+      "__id__": 376
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 379
+        "__id__": 378
       }
     ],
     "_prefab": null,
@@ -15285,7 +15272,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 378
+      "__id__": 377
     },
     "_enabled": true,
     "_materials": [
@@ -15319,7 +15306,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 377
+      "__id__": 376
     },
     "_enabled": true,
     "_defaultClip": {
@@ -15395,7 +15382,7 @@
       "__id__": 263
     },
     "phaohoa": {
-      "__id__": 377
+      "__id__": 376
     },
     "board": {
       "__id__": 11
@@ -15517,7 +15504,7 @@
       "__id__": 324
     },
     "handGuild": {
-      "__id__": 370
+      "__id__": 369
     },
     "soundWin": {
       "__uuid__": "97f41450-2f43-43de-be0b-9c6ada4e745e"
@@ -15536,6 +15523,9 @@
     },
     "soundTouchCard": {
       "__uuid__": "f07a93b4-22dd-43e0-8dbb-e60a67c214ee"
+    },
+    "soundLose": {
+      "__uuid__": "9652b014-1696-401d-8ba9-30f333c23167"
     },
     "preDone": {
       "__uuid__": "219aebb2-944b-413a-af86-eec759738103"

@@ -52,7 +52,7 @@ export default class Card extends cc.Component {
 
         // Thẻ còn kẹt trên DragLayer từ lần trước → đưa về stack trước
         let dragLayer = cc.find("Canvas/DragLayer");
-
+this.gamePlay.offGuild()
         if (dragLayer && this.node.parent === dragLayer) {
             this.syncStackStartPos();
             this.forceBackToStack();
@@ -112,6 +112,7 @@ export default class Card extends cc.Component {
 
         if (!this.isDragging || this.isReturning) return;
 
+
         this.isDragging = false;
         this.node.scale = 1;
 
@@ -119,8 +120,8 @@ export default class Card extends cc.Component {
             this.forceBackToStack();
             return;
         }
-        this.gamePlay.countMove++;
-        this.gamePlay.lbMoveCount.string="Moves: "+this.gamePlay.countMove.toString()
+        this.gamePlay.checkMove()
+     
         // Click / double-click không kéo → chỉ trả về, không thả vào slot
         if (this.movedDistance < Card.MIN_DRAG_DIST || cancelled) {
             this.moveBack();

@@ -62,6 +62,8 @@ export default class GameManager extends cc.Component {
     soundBg: cc.AudioClip = null
     @property(cc.AudioClip)
     soundTouchCard: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundLose: cc.AudioClip = null
     @property(cc.Prefab)
     preDone: cc.AudioClip = null;
     @property(cc.Prefab)
@@ -69,8 +71,8 @@ export default class GameManager extends cc.Component {
     @property(cc.Node)
     boardNode: cc.Node = null
     @property(cc.Label)
-    lbMoveCount:cc.Label=null;
-    countMove=0
+    lbMoveCount: cc.Label = null;
+    countMove = 30
 
     spriteMap: Record<string, cc.SpriteFrame[]> = {};
     adChanel = '{{__adv_channels_adapter__}}'
@@ -279,18 +281,25 @@ export default class GameManager extends cc.Component {
             ]
         }
     ];
+    checkMove() {
+        this.countMove--;
+        if (this.countMove == 0) {
+            this.endGame(false)
+        }
+        this.lbMoveCount.string = "Moves: " + this.countMove.toString()
+    }
     addWrong(pos) {
         let fix = cc.instantiate(this.preWrong)
         fix.parent = this.boardNode;
-        fix.position=pos
+        fix.position = pos
     }
-     addDone(pos) {
+    addDone(pos) {
         let fix = cc.instantiate(this.preDone)
         fix.parent = this.boardNode;
-        fix.position=pos
+        fix.position = pos
     }
     onLoad() {
- if (this.adChanel == 'Mintegral') {
+        if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
         cc.audioEngine.play(this.soundBg, true, 0.5)
@@ -322,9 +331,9 @@ export default class GameManager extends cc.Component {
     offGuild() {
         if (this.isOffGuild) return;
         this.isOffGuild = true
-        cc.tween(this.putGame).to(0.3, { opacity: 0 }).call(() => {
+        cc.tween(this.putGame).to(0.2, { opacity: 0 }).call(() => {
             this.putGame.active = false
-            this.handGuild.active = true
+            // this.handGuild.active = true
         }).start()
     }
 
@@ -346,7 +355,7 @@ export default class GameManager extends cc.Component {
         this.completedMissionCount++;
 
         if (this.completedMissionCount >= this.missionsToWin) {
-            this.endGame();
+            this.endGame(true);
             return;
         }
         cc.audioEngine.play(this.soundComplete, false, 1)
@@ -557,10 +566,17 @@ export default class GameManager extends cc.Component {
         });
     }
 
-    endGame() {
+    endGame(value) {
 
         if (this.gameEnded) return;
-        cc.audioEngine.play(this.soundWin, false, 1)
+        if (value == true) {
+            cc.audioEngine.play(this.soundWin, false, 1)
+
+        }
+        else {
+            cc.audioEngine.play(this.soundLose, false, 1)
+
+        }
         this.phaohoa.active = true;
         this.endGameNode.active = true;
         this.linkToStore.active = true;

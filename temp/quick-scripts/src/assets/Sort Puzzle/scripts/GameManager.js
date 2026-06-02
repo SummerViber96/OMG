@@ -52,11 +52,12 @@ var GameManager = /** @class */ (function (_super) {
         _this.soundWrong = null;
         _this.soundBg = null;
         _this.soundTouchCard = null;
+        _this.soundLose = null;
         _this.preDone = null;
         _this.preWrong = null;
         _this.boardNode = null;
         _this.lbMoveCount = null;
-        _this.countMove = 0;
+        _this.countMove = 30;
         _this.spriteMap = {};
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.spawnQueueIndex = 0;
@@ -211,6 +212,13 @@ var GameManager = /** @class */ (function (_super) {
         return _this;
     }
     GameManager_1 = GameManager;
+    GameManager.prototype.checkMove = function () {
+        this.countMove--;
+        if (this.countMove == 0) {
+            this.endGame(false);
+        }
+        this.lbMoveCount.string = "Moves: " + this.countMove.toString();
+    };
     GameManager.prototype.addWrong = function (pos) {
         var fix = cc.instantiate(this.preWrong);
         fix.parent = this.boardNode;
@@ -252,9 +260,9 @@ var GameManager = /** @class */ (function (_super) {
         if (this.isOffGuild)
             return;
         this.isOffGuild = true;
-        cc.tween(this.putGame).to(0.3, { opacity: 0 }).call(function () {
+        cc.tween(this.putGame).to(0.2, { opacity: 0 }).call(function () {
             _this.putGame.active = false;
-            _this.handGuild.active = true;
+            // this.handGuild.active = true
         }).start();
     };
     GameManager.prototype.start = function () {
@@ -268,7 +276,7 @@ var GameManager = /** @class */ (function (_super) {
     GameManager.prototype.onSlotComplete = function (completedSlot) {
         this.completedMissionCount++;
         if (this.completedMissionCount >= this.missionsToWin) {
-            this.endGame();
+            this.endGame(true);
             return;
         }
         cc.audioEngine.play(this.soundComplete, false, 1);
@@ -400,10 +408,15 @@ var GameManager = /** @class */ (function (_super) {
             return sprites && sprites.length > 0;
         });
     };
-    GameManager.prototype.endGame = function () {
+    GameManager.prototype.endGame = function (value) {
         if (this.gameEnded)
             return;
-        cc.audioEngine.play(this.soundWin, false, 1);
+        if (value == true) {
+            cc.audioEngine.play(this.soundWin, false, 1);
+        }
+        else {
+            cc.audioEngine.play(this.soundLose, false, 1);
+        }
         this.phaohoa.active = true;
         this.endGameNode.active = true;
         this.linkToStore.active = true;
@@ -526,6 +539,9 @@ var GameManager = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], GameManager.prototype, "soundTouchCard", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], GameManager.prototype, "soundLose", void 0);
     __decorate([
         property(cc.Prefab)
     ], GameManager.prototype, "preDone", void 0);

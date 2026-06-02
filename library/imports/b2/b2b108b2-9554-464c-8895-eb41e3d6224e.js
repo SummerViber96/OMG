@@ -66,6 +66,7 @@ var Card = /** @class */ (function (_super) {
             return;
         // Thẻ còn kẹt trên DragLayer từ lần trước → đưa về stack trước
         var dragLayer = cc.find("Canvas/DragLayer");
+        this.gamePlay.offGuild();
         if (dragLayer && this.node.parent === dragLayer) {
             this.syncStackStartPos();
             this.forceBackToStack();
@@ -113,8 +114,7 @@ var Card = /** @class */ (function (_super) {
             this.forceBackToStack();
             return;
         }
-        this.gamePlay.countMove++;
-        this.gamePlay.lbMoveCount.string = "Moves: " + this.gamePlay.countMove.toString();
+        this.gamePlay.checkMove();
         // Click / double-click không kéo → chỉ trả về, không thả vào slot
         if (this.movedDistance < Card_1.MIN_DRAG_DIST || cancelled) {
             this.moveBack();
