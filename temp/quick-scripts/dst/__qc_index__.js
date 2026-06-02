@@ -15,6 +15,7 @@ require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');
 require('./assets/HF/touch');
 require('./assets/Sort Puzzle/scripts/Card');
+require('./assets/Sort Puzzle/scripts/CardBgSlot');
 require('./assets/Sort Puzzle/scripts/CardStack');
 require('./assets/Sort Puzzle/scripts/GameManager');
 require('./assets/Sort Puzzle/scripts/MissionConfig');

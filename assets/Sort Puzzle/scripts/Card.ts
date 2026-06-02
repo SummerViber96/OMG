@@ -145,10 +145,23 @@ this.gamePlay.offGuild()
                 this.moveBack();
             }
 
-        } else {
-
-            this.moveBack();
+            return;
         }
+
+        let bgSlot = this.getDropBgSlot();
+
+        if (bgSlot && bgSlot.tryAddCard(this)) {
+
+            let sourceStack = this.stack;
+
+            sourceStack.removeTopCard();
+            this.stack = bgSlot.stack;
+            this.dragLayer = null;
+            this.movedDistance = 0;
+            return;
+        }
+
+        this.moveBack();
     }
 
     moveBack() {
@@ -195,15 +208,26 @@ this.gamePlay.offGuild()
             return;
         }
 
-        this.node.parent = this.stack.node;
-        this.node.position = this.stackStartPos;
-        this.node.angle = 0;
-        this.node.scale = 1;
+        if (this.stack.bgSlot && this.stack.bgSlot.getCard() === this) {
 
-        let z = Math.max(0, this.stack.cards.length - 1);
+            this.node.parent = this.stack.bgSlot.node;
+            this.node.position = this.stackStartPos;
+            this.node.angle = 0;
+            this.node.scale = 1;
+            this.node.zIndex = 1;
 
-        this.node.zIndex = z;
-        this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        } else {
+
+            this.node.parent = this.stack.node;
+            this.node.position = this.stackStartPos;
+            this.node.angle = 0;
+            this.node.scale = 1;
+
+            let z = Math.max(0, this.stack.cards.length - 1);
+
+            this.node.zIndex = z;
+            this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        }
 
         this.dragLayer = null;
         this.isReturning = false;
@@ -213,6 +237,11 @@ this.gamePlay.offGuild()
     syncStackStartPos() {
 
         if (!this.stack) return;
+
+        if (this.stack.bgSlot && this.stack.bgSlot.getCard() === this) {
+            this.stackStartPos = cc.v3(0, 0, 0);
+            return;
+        }
 
         let index = this.stack.cards.indexOf(this);
 
@@ -233,15 +262,26 @@ this.gamePlay.offGuild()
 
         if (!this.stack) return;
 
-        this.node.parent = this.stack.node;
-        this.node.position = this.stackStartPos;
-        this.node.angle = 0;
-        this.node.scale = 1;
+        if (this.stack.bgSlot && this.stack.bgSlot.getCard() === this) {
 
-        let z = Math.max(0, this.stack.cards.length - 1);
+            this.node.parent = this.stack.bgSlot.node;
+            this.node.position = this.stackStartPos;
+            this.node.angle = 0;
+            this.node.scale = 1;
+            this.node.zIndex = 1;
 
-        this.node.zIndex = z;
-        this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        } else {
+
+            this.node.parent = this.stack.node;
+            this.node.position = this.stackStartPos;
+            this.node.angle = 0;
+            this.node.scale = 1;
+
+            let z = Math.max(0, this.stack.cards.length - 1);
+
+            this.node.zIndex = z;
+            this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        }
 
         this.dragLayer = null;
     }
@@ -267,6 +307,35 @@ this.gamePlay.offGuild()
 
             if (box.contains(wp)) {
                 return s.node;
+            }
+        }
+
+        return null;
+    }
+
+    getDropBgSlot() {
+
+        let board = cc.find("Canvas/Board");
+
+        if (!board) return null;
+
+        let wp = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+
+        for (let i = 0; i < board.childrenCount; i++) {
+
+            let row = board.children[i];
+
+            for (let name of ["LeftStack", "RightStack"]) {
+
+                let stackNode = row.getChildByName(name);
+
+                if (!stackNode) continue;
+
+                let bg = stackNode.getComponentInChildren("CardBgSlot");
+
+                if (bg && bg.canAcceptDrop(wp)) {
+                    return bg;
+                }
             }
         }
 

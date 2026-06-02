@@ -57,6 +57,7 @@ var GameManager = /** @class */ (function (_super) {
         _this.preWrong = null;
         _this.boardNode = null;
         _this.lbMoveCount = null;
+        _this.cardBg = null;
         _this.countMove = 30;
         _this.spriteMap = {};
         _this.adChanel = '{{__adv_channels_adapter__}}';
@@ -324,7 +325,12 @@ var GameManager = /** @class */ (function (_super) {
         }
     };
     GameManager.prototype.spawnStack = function (parent, data) {
-        parent.removeAllChildren();
+        for (var i = parent.childrenCount - 1; i >= 0; i--) {
+            var child = parent.children[i];
+            if (child.getComponent("CardBgSlot"))
+                continue;
+            child.destroy();
+        }
         for (var i = 0; i < data.length; i++) {
             var info = data[i];
             var cardNode = this.createCardNode(parent, info);
@@ -338,18 +344,23 @@ var GameManager = /** @class */ (function (_super) {
     GameManager.prototype.onStackEmpty = function (stack) {
         if (this.gameEnded)
             return;
-        var count = this.stackRefillCount;
-        for (var i = 0; i < count; i++) {
+        var spawned = 0;
+        for (var i = 0; i < this.stackRefillCount; i++) {
             var info = this.randomCardInfo();
-            if (!info) {
-                cc.warn("[GameManager] Không spawn được thẻ — kiểm tra sprite trong Editor");
-                return;
-            }
+            if (!info)
+                break;
             var cardNode = this.createCardNode(stack.node, info);
             cardNode.y = i * 20;
             cardNode.zIndex = i;
+            spawned++;
         }
         stack.setup();
+        if (this.isSpawnPoolEmpty()) {
+            this.ensureBgSlot(stack);
+            stack.setup();
+        }
+        if (spawned === 0)
+            return;
         var top = stack.cards[stack.cards.length - 1];
         if (top) {
             top.node.scale = 0;
@@ -361,6 +372,31 @@ var GameManager = /** @class */ (function (_super) {
             })
                 .start();
         }
+    };
+    GameManager.prototype.isSpawnPoolEmpty = function () {
+        return this.getUnappearedCardOptions().length === 0;
+    };
+    GameManager.prototype.ensureBgSlot = function (stack) {
+        if (!this.cardBg) {
+            cc.warn("[GameManager] Chưa gán prefab cardBg trong Editor");
+            return;
+        }
+        if (stack.bgSlot || stack.node.getComponentInChildren("CardBgSlot")) {
+            return;
+        }
+        var bgNode = cc.instantiate(this.cardBg);
+        stack.node.addChild(bgNode, 0);
+        bgNode.setPosition(0, 0);
+        bgNode.zIndex = 0;
+        var bgComp = bgNode.getComponent("CardBgSlot");
+        if (!bgComp) {
+            bgComp = bgNode.addComponent("CardBgSlot");
+        }
+        var icon = bgNode.getChildByName("icon");
+        if (icon) {
+            bgComp.placeholder = icon;
+        }
+        bgComp.init(this, stack);
     };
     GameManager.prototype.createCardNode = function (parent, info) {
         var card = cc.instantiate(this.cardPrefab);
@@ -554,6 +590,9 @@ var GameManager = /** @class */ (function (_super) {
     __decorate([
         property(cc.Label)
     ], GameManager.prototype, "lbMoveCount", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], GameManager.prototype, "cardBg", void 0);
     __decorate([
         property
     ], GameManager.prototype, "missionsToWin", void 0);

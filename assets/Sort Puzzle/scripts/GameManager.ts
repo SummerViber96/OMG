@@ -72,6 +72,8 @@ export default class GameManager extends cc.Component {
     boardNode: cc.Node = null
     @property(cc.Label)
     lbMoveCount: cc.Label = null;
+    @property(cc.Prefab)
+    cardBg:cc.Prefab = null
     countMove = 30
 
     spriteMap: Record<string, cc.SpriteFrame[]> = {};
@@ -430,7 +432,14 @@ export default class GameManager extends cc.Component {
 
     spawnStack(parent: cc.Node, data: any[]) {
 
-        parent.removeAllChildren();
+        for (let i = parent.childrenCount - 1; i >= 0; i--) {
+
+            let child = parent.children[i];
+
+            if (child.getComponent("CardBgSlot")) continue;
+
+            child.destroy();
+        }
 
         for (let i = 0; i < data.length; i++) {
 
@@ -452,24 +461,29 @@ export default class GameManager extends cc.Component {
 
         if (this.gameEnded) return;
 
-        let count = this.stackRefillCount;
+        let spawned = 0;
 
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i < this.stackRefillCount; i++) {
 
             let info = this.randomCardInfo();
 
-            if (!info) {
-                cc.warn("[GameManager] Không spawn được thẻ — kiểm tra sprite trong Editor");
-                return;
-            }
+            if (!info) break;
 
             let cardNode = this.createCardNode(stack.node, info);
 
             cardNode.y = i * 20;
             cardNode.zIndex = i;
+            spawned++;
         }
 
         stack.setup();
+
+        if (this.isSpawnPoolEmpty()) {
+            this.ensureBgSlot(stack);
+            stack.setup();
+        }
+
+        if (spawned === 0) return;
 
         let top = stack.cards[stack.cards.length - 1];
 
@@ -485,6 +499,42 @@ export default class GameManager extends cc.Component {
                 })
                 .start();
         }
+    }
+
+    isSpawnPoolEmpty(): boolean {
+        return this.getUnappearedCardOptions().length === 0;
+    }
+
+    ensureBgSlot(stack) {
+
+        if (!this.cardBg) {
+            cc.warn("[GameManager] Chưa gán prefab cardBg trong Editor");
+            return;
+        }
+
+        if (stack.bgSlot || stack.node.getComponentInChildren("CardBgSlot")) {
+            return;
+        }
+
+        let bgNode = cc.instantiate(this.cardBg);
+
+        stack.node.addChild(bgNode, 0);
+        bgNode.setPosition(0, 0);
+        bgNode.zIndex = 0;
+
+        let bgComp = bgNode.getComponent("CardBgSlot");
+
+        if (!bgComp) {
+            bgComp = bgNode.addComponent("CardBgSlot");
+        }
+
+        let icon = bgNode.getChildByName("icon");
+
+        if (icon) {
+            bgComp.placeholder = icon;
+        }
+
+        bgComp.init(this, stack);
     }
 
     createCardNode(

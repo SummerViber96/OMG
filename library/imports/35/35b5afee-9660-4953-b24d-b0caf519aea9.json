@@ -838,7 +838,7 @@
       "__id__": 13
     },
     "asset": {
-      "__uuid__": "8164a0b4-2c44-473d-b0f5-3ceda9b88eac"
+      "__uuid__": "be311114-807b-4827-878a-76d464416f64"
     },
     "fileId": "89WGTJNzVC47j5KTaTgbPB",
     "sync": false
@@ -859,7 +859,7 @@
       "__id__": 13
     },
     "asset": {
-      "__uuid__": "8164a0b4-2c44-473d-b0f5-3ceda9b88eac"
+      "__uuid__": "be311114-807b-4827-878a-76d464416f64"
     },
     "fileId": "",
     "sync": false
@@ -15454,6 +15454,9 @@
     },
     "lbMoveCount": {
       "__id__": 278
+    },
+    "cardBg": {
+      "__uuid__": "be311114-807b-4827-878a-76d464416f64"
     },
     "missionsToWin": 3,
     "stackRefillCount": 3,

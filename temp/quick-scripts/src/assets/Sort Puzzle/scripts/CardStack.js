@@ -30,6 +30,7 @@ var CardStack = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.cards = [];
         _this.gameManager = null;
+        _this.bgSlot = null;
         return _this;
     }
     CardStack.prototype.init = function (gm) {
@@ -37,37 +38,69 @@ var CardStack = /** @class */ (function (_super) {
     };
     CardStack.prototype.setup = function () {
         this.cards = [];
+        this.bgSlot = null;
         for (var i = 0; i < this.node.childrenCount; i++) {
-            var card = this.node.children[i]
-                .getComponent("Card");
+            var child = this.node.children[i];
+            var bg = child.getComponent("CardBgSlot");
+            if (bg) {
+                this.bgSlot = bg;
+                bg.init(this.gameManager, this);
+                bg.node.zIndex = 0;
+                bg.node.setSiblingIndex(0);
+                continue;
+            }
+            var card = child.getComponent("Card");
             if (!card)
                 continue;
             card.stack = this;
             this.cards.push(card);
-            // chỉ card top được mở
-            card.setFaceUp(i == this.node.childrenCount - 1);
-            card.node.y = i * 20;
-            card.node.zIndex = i;
+        }
+        var cardCount = this.cards.length;
+        for (var c = 0; c < cardCount; c++) {
+            var card = this.cards[c];
+            card.setFaceUp(c === cardCount - 1);
+            card.node.y = c * 20;
+            card.node.zIndex = c + 1;
+        }
+        if (this.bgSlot && this.bgSlot.getCard()) {
+            var bgCard = this.bgSlot.getCard();
+            bgCard.stack = this;
+            bgCard.setFaceUp(true);
         }
     };
     CardStack.prototype.isTopCard = function (card) {
+        if (this.bgSlot && this.bgSlot.getCard() === card) {
+            return this.cards.length === 0;
+        }
         return this.cards[this.cards.length - 1] == card;
     };
     CardStack.prototype.removeTopCard = function () {
+        if (this.bgSlot && this.bgSlot.getCard()) {
+            this.bgSlot.clearCard();
+            this.notifyIfEmpty();
+            return;
+        }
         this.cards.pop();
         if (this.cards.length <= 0) {
-            var gm = this.gameManager
-                || cc.find("Canvas").getComponent("GameManager");
-            if (gm) {
-                gm.onStackEmpty(this);
-            }
-            else {
-                cc.warn("[CardStack] Không tìm thấy GameManager");
-            }
+            this.notifyIfEmpty();
             return;
         }
         var nextTop = this.cards[this.cards.length - 1];
         this.flipCard(nextTop);
+    };
+    CardStack.prototype.notifyIfEmpty = function () {
+        if (this.cards.length > 0)
+            return;
+        if (this.bgSlot && this.bgSlot.hasCard())
+            return;
+        var gm = this.gameManager
+            || cc.find("Canvas").getComponent("GameManager");
+        if (gm) {
+            gm.onStackEmpty(this);
+        }
+        else {
+            cc.warn("[CardStack] Không tìm thấy GameManager");
+        }
     };
     CardStack.prototype.pushCard = function (card) {
         this.cards.push(card);

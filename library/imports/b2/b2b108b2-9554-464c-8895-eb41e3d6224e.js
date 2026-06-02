@@ -131,10 +131,18 @@ var Card = /** @class */ (function (_super) {
             else {
                 this.moveBack();
             }
+            return;
         }
-        else {
-            this.moveBack();
+        var bgSlot = this.getDropBgSlot();
+        if (bgSlot && bgSlot.tryAddCard(this)) {
+            var sourceStack = this.stack;
+            sourceStack.removeTopCard();
+            this.stack = bgSlot.stack;
+            this.dragLayer = null;
+            this.movedDistance = 0;
+            return;
         }
+        this.moveBack();
     };
     Card.prototype.moveBack = function () {
         var _this = this;
@@ -172,13 +180,22 @@ var Card = /** @class */ (function (_super) {
             this.isReturning = false;
             return;
         }
-        this.node.parent = this.stack.node;
-        this.node.position = this.stackStartPos;
-        this.node.angle = 0;
-        this.node.scale = 1;
-        var z = Math.max(0, this.stack.cards.length - 1);
-        this.node.zIndex = z;
-        this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        if (this.stack.bgSlot && this.stack.bgSlot.getCard() === this) {
+            this.node.parent = this.stack.bgSlot.node;
+            this.node.position = this.stackStartPos;
+            this.node.angle = 0;
+            this.node.scale = 1;
+            this.node.zIndex = 1;
+        }
+        else {
+            this.node.parent = this.stack.node;
+            this.node.position = this.stackStartPos;
+            this.node.angle = 0;
+            this.node.scale = 1;
+            var z = Math.max(0, this.stack.cards.length - 1);
+            this.node.zIndex = z;
+            this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        }
         this.dragLayer = null;
         this.isReturning = false;
         this.movedDistance = 0;
@@ -186,6 +203,10 @@ var Card = /** @class */ (function (_super) {
     Card.prototype.syncStackStartPos = function () {
         if (!this.stack)
             return;
+        if (this.stack.bgSlot && this.stack.bgSlot.getCard() === this) {
+            this.stackStartPos = cc.v3(0, 0, 0);
+            return;
+        }
         var index = this.stack.cards.indexOf(this);
         if (index < 0) {
             index = this.stack.cards.length - 1;
@@ -199,13 +220,22 @@ var Card = /** @class */ (function (_super) {
         this.movedDistance = 0;
         if (!this.stack)
             return;
-        this.node.parent = this.stack.node;
-        this.node.position = this.stackStartPos;
-        this.node.angle = 0;
-        this.node.scale = 1;
-        var z = Math.max(0, this.stack.cards.length - 1);
-        this.node.zIndex = z;
-        this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        if (this.stack.bgSlot && this.stack.bgSlot.getCard() === this) {
+            this.node.parent = this.stack.bgSlot.node;
+            this.node.position = this.stackStartPos;
+            this.node.angle = 0;
+            this.node.scale = 1;
+            this.node.zIndex = 1;
+        }
+        else {
+            this.node.parent = this.stack.node;
+            this.node.position = this.stackStartPos;
+            this.node.angle = 0;
+            this.node.scale = 1;
+            var z = Math.max(0, this.stack.cards.length - 1);
+            this.node.zIndex = z;
+            this.node.setSiblingIndex(this.stack.node.childrenCount - 1);
+        }
         this.dragLayer = null;
     };
     Card.prototype.bringToFront = function (layer) {
@@ -223,6 +253,26 @@ var Card = /** @class */ (function (_super) {
             var box = s.node.getBoundingBoxToWorld();
             if (box.contains(wp)) {
                 return s.node;
+            }
+        }
+        return null;
+    };
+    Card.prototype.getDropBgSlot = function () {
+        var board = cc.find("Canvas/Board");
+        if (!board)
+            return null;
+        var wp = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        for (var i = 0; i < board.childrenCount; i++) {
+            var row = board.children[i];
+            for (var _i = 0, _a = ["LeftStack", "RightStack"]; _i < _a.length; _i++) {
+                var name = _a[_i];
+                var stackNode = row.getChildByName(name);
+                if (!stackNode)
+                    continue;
+                var bg = stackNode.getComponentInChildren("CardBgSlot");
+                if (bg && bg.canAcceptDrop(wp)) {
+                    return bg;
+                }
             }
         }
         return null;
