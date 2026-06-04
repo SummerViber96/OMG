@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cup-lemonade",
+    "texture": "0e011038-d5f4-4c30-8f30-c089bda7e337",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      316,
+      250
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      320,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

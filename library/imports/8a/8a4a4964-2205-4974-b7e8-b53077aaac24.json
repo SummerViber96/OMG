@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ddd_0005_Rounded-Rectangle-7-copy-2",
+    "texture": "80d3d728-189f-4287-93a0-0bc49396c1fd",
+    "atlas": "",
+    "rect": [
+      31,
+      12,
+      252,
+      225
+    ],
+    "offset": [
+      15.5,
+      -0.5
+    ],
+    "originalSize": [
+      283,
+      248
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

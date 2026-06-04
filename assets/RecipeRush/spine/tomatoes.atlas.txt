@@ -1,0 +1,104 @@
+
+tomatoes.png
+size: 316,680
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lv1-box
+  rotate: false
+  xy: 2, 247
+  size: 150, 210
+  orig: 150, 210
+  offset: 0, 0
+  index: -1
+lv1-box2
+  rotate: false
+  xy: 154, 152
+  size: 150, 40
+  orig: 150, 40
+  offset: 0, 0
+  index: -1
+lv1-tomatoes
+  rotate: false
+  xy: 156, 6
+  size: 68, 64
+  orig: 68, 64
+  offset: 0, 0
+  index: -1
+lv2-box
+  rotate: false
+  xy: 155, 461
+  size: 150, 214
+  orig: 150, 214
+  offset: 0, 0
+  index: -1
+lv2-box2
+  rotate: false
+  xy: 154, 194
+  size: 150, 49
+  orig: 150, 49
+  offset: 0, 0
+  index: -1
+lv2-tomatoes
+  rotate: false
+  xy: 86, 2
+  size: 68, 68
+  orig: 68, 68
+  offset: 0, 0
+  index: -1
+lv3-box
+  rotate: false
+  xy: 155, 245
+  size: 150, 214
+  orig: 150, 214
+  offset: 0, 0
+  index: -1
+lv3-box2
+  rotate: false
+  xy: 2, 185
+  size: 150, 60
+  orig: 150, 60
+  offset: 0, 0
+  index: -1
+lv3-tomatoes
+  rotate: false
+  xy: 236, 75
+  size: 75, 75
+  orig: 75, 75
+  offset: 0, 0
+  index: -1
+lv4-box
+  rotate: false
+  xy: 2, 459
+  size: 151, 216
+  orig: 151, 216
+  offset: 0, 0
+  index: -1
+lv4-box2
+  rotate: false
+  xy: 2, 137
+  size: 148, 46
+  orig: 148, 46
+  offset: 0, 0
+  index: -1
+lv4-la
+  rotate: false
+  xy: 236, 10
+  size: 74, 63
+  orig: 74, 63
+  offset: 0, 0
+  index: -1
+lv4-tomatoes
+  rotate: false
+  xy: 152, 72
+  size: 82, 78
+  orig: 82, 78
+  offset: 0, 0
+  index: -1
+lv4-tomatoes2
+  rotate: false
+  xy: 2, 57
+  size: 82, 78
+  orig: 82, 78
+  offset: 0, 0
+  index: -1

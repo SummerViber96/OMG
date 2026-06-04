@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pr-bubble-yellow",
+    "texture": "e821d621-cc14-4c89-9845-d0f7600a2244",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      20,
+      244
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      20,
+      244
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

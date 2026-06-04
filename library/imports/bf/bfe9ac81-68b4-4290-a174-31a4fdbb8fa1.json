@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Chiken-wing",
+    "texture": "855d23bb-832d-4f62-8271-8204dea9b972",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      432,
+      1052
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      436,
+      1056
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

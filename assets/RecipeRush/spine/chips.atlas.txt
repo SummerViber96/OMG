@@ -1,0 +1,48 @@
+
+chips.png
+size: 380, 376
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+lv1-bong
+  rotate: false
+  xy: 2, 34
+  size: 209, 135
+  orig: 211, 138
+  offset: 1, 1
+  index: -1
+lv1-chip1
+  rotate: false
+  xy: 228, 242
+  size: 150, 131
+  orig: 152, 133
+  offset: 1, 1
+  index: -1
+lv1-chip2
+  rotate: false
+  xy: 213, 2
+  size: 150, 105
+  orig: 152, 107
+  offset: 1, 1
+  index: -1
+lv1-chip3
+  rotate: false
+  xy: 228, 109
+  size: 150, 131
+  orig: 152, 133
+  offset: 1, 1
+  index: -1
+lv1-tray
+  rotate: false
+  xy: 2, 202
+  size: 224, 171
+  orig: 226, 173
+  offset: 1, 1
+  index: -1
+lv3-tray1
+  rotate: false
+  xy: 2, 171
+  size: 221, 29
+  orig: 223, 31
+  offset: 1, 1
+  index: -1

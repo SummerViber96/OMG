@@ -112,8 +112,8 @@ export default class NewClass extends cc.Component {
     notiMission: cc.Node = null
     @property([cc.Prefab])
     listPreCus: cc.Prefab[] = []
-    @property(cc.Node)
-    bg: cc.Node = null
+    // @property(cc.Node)
+    // bg: cc.Node = null
     @property(cc.Node)
     table: cc.Node = null
     @property(cc.Node)
@@ -959,13 +959,13 @@ export default class NewClass extends cc.Component {
     arrPosDoc = [cc.v3(26, -337), cc.v3(336, -112), cc.v3(15.5, -121), cc.v3(-170, -525.7), cc.v3(-300, -352), cc.v3(186.96, -512), cc.v3(355, -335), cc.v3(-292, -116)]
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1
+        this.camera.zoomRatio = 0.7
         this.endCard.scale = (logic) ? 1.2 : 0.7
         this.endCardWin.scale = (logic) ? 1.2 : 0.7
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
-        this.camera.node.position = (logic) ? cc.v3(-200, 140) : cc.v3(0, 50)
+        // this.camera.node.position = (logic) ? cc.v3(-200, 140) : cc.v3(0, 50)
         this.barCoin.scale = (logic) ? 2.5 : 1.4
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80
         this.phaoHoa.scale = (logic) ? 9 : 5
@@ -976,8 +976,8 @@ export default class NewClass extends cc.Component {
         this.listKhay.scale = (logic) ? 1.1 : 1
         this.timeup.scale = (logic) ? 1 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
-        this.bg.scale = (logic) ? 2.1 : 1
-        this.bg.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50)
+        // this.bg.scale = (logic) ? 2.1 : 1
+        // this.bg.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50)
         this.listMenu.scale = (logic) ? 1.1 : 1
         this.endCardDoc.scale = 1.5
         this.notiMission.scale = (logic) ? 1.6 : 1

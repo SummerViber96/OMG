@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv2-chips",
+    "texture": "1c0a2463-f1be-46dc-9720-2c9167ed71bc",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      242,
+      200
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      242,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

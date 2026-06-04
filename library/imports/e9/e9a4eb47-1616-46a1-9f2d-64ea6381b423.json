@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv4-wings",
+    "texture": "5358b02e-bdf7-4a11-9c7c-202f72ca0491",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      254,
+      220
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      254,
+      220
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv1-thigh-raw",
+    "texture": "c23f1790-83de-4c97-8f65-1b0d54bf1cc1",
+    "atlas": "",
+    "rect": [
+      33,
+      12,
+      103,
+      113
+    ],
+    "offset": [
+      5,
+      -1.5
+    ],
+    "originalSize": [
+      159,
+      134
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

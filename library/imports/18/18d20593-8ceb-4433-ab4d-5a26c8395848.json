@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv1-lettuce",
+    "texture": "15765b47-9c2c-451d-9b2b-aff0d09748bb",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      185,
+      260
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      185,
+      260
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

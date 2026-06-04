@@ -1,0 +1,809 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "cupcake",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "YXpB966H5Og",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2.43"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "1",
+        "parent": "root",
+        "x": -0.68,
+        "y": -82.23
+      },
+      {
+        "name": "lv4-cc",
+        "parent": "1",
+        "length": 48.51,
+        "rotation": 89.59,
+        "x": -50.95,
+        "y": 69.45
+      },
+      {
+        "name": "lv4-bong",
+        "parent": "1",
+        "x": -52.7,
+        "y": 82.01
+      },
+      {
+        "name": "2",
+        "parent": "root",
+        "x": 93.55,
+        "y": -107.36
+      },
+      {
+        "name": "lv4-cc2",
+        "parent": "2",
+        "length": 48.51,
+        "rotation": 89.59,
+        "x": -50.95,
+        "y": 69.45
+      },
+      {
+        "name": "lv4-bong2",
+        "parent": "2",
+        "x": -52.7,
+        "y": 82.01
+      },
+      {
+        "name": "3",
+        "parent": "root",
+        "x": 93.55,
+        "y": -107.36
+      },
+      {
+        "name": "lv4-cc3",
+        "parent": "3",
+        "length": 48.51,
+        "rotation": 89.59,
+        "x": -50.95,
+        "y": 69.45
+      },
+      {
+        "name": "lv4-bong3",
+        "parent": "3",
+        "x": -52.7,
+        "y": 82.01
+      },
+      {
+        "name": "4",
+        "parent": "root",
+        "x": 93.55,
+        "y": -107.36
+      },
+      {
+        "name": "lv4-cc4",
+        "parent": "4",
+        "length": 48.51,
+        "rotation": 89.59,
+        "x": -50.95,
+        "y": 69.45
+      },
+      {
+        "name": "lv4-bong4",
+        "parent": "4",
+        "x": -52.7,
+        "y": 82.01
+      }
+    ],
+    "slots": [
+      {
+        "name": "lv4-tray",
+        "bone": "root"
+      },
+      {
+        "name": "lv4-bong",
+        "bone": "lv4-bong"
+      },
+      {
+        "name": "lv4-bong2",
+        "bone": "lv4-bong2"
+      },
+      {
+        "name": "lv4-bong3",
+        "bone": "lv4-bong3"
+      },
+      {
+        "name": "lv4-bong4",
+        "bone": "lv4-bong4"
+      },
+      {
+        "name": "lv4-cc",
+        "bone": "lv4-cc"
+      },
+      {
+        "name": "lv4-cc2",
+        "bone": "lv4-cc2"
+      },
+      {
+        "name": "lv4-cc3",
+        "bone": "lv4-cc3"
+      },
+      {
+        "name": "lv4-cc4",
+        "bone": "lv4-cc4"
+      },
+      {
+        "name": "lv3-tray2",
+        "bone": "root"
+      },
+      {
+        "name": "lv4-tray2",
+        "bone": "root"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "lv4-bong": {
+            "lv1-bong": {
+              "x": 0.69,
+              "y": 0.88,
+              "width": 89,
+              "height": 77
+            },
+            "lv3-bong": {
+              "x": 0.69,
+              "y": -15.62,
+              "width": 89,
+              "height": 77
+            },
+            "lv4-bong": {
+              "x": 1.94,
+              "y": -8.12,
+              "width": 99,
+              "height": 77
+            }
+          },
+          "lv4-bong2": {
+            "lv1-bong": {
+              "x": 0.69,
+              "y": 0.88,
+              "width": 89,
+              "height": 77
+            },
+            "lv3-bong": {
+              "x": 0.69,
+              "y": -15.62,
+              "width": 89,
+              "height": 77
+            },
+            "lv4-bong": {
+              "x": 1.94,
+              "y": -8.12,
+              "width": 99,
+              "height": 77
+            }
+          },
+          "lv4-bong3": {
+            "lv3-bong": {
+              "x": 0.69,
+              "y": -15.62,
+              "width": 89,
+              "height": 77
+            },
+            "lv4-bong": {
+              "x": 1.94,
+              "y": -8.12,
+              "width": 99,
+              "height": 77
+            }
+          },
+          "lv4-bong4": {
+            "lv4-bong": {
+              "x": 1.94,
+              "y": -8.12,
+              "width": 99,
+              "height": 77
+            }
+          },
+          "lv4-cc": {
+            "lv1-cc": {
+              "x": 44.94,
+              "y": 0.87,
+              "rotation": -89.59,
+              "width": 102,
+              "height": 120
+            },
+            "lv2-cc": {
+              "x": 42.93,
+              "y": 2.86,
+              "rotation": -89.59,
+              "width": 102,
+              "height": 120
+            },
+            "lv3-cc": {
+              "x": 44.94,
+              "y": 0.87,
+              "rotation": -89.59,
+              "width": 101,
+              "height": 139
+            },
+            "lv4-cc": {
+              "x": 44.94,
+              "y": 0.87,
+              "rotation": -89.59,
+              "width": 108,
+              "height": 126
+            }
+          },
+          "lv4-cc2": {
+            "lv1-cc": {
+              "x": 44.94,
+              "y": 0.87,
+              "rotation": -89.59,
+              "width": 102,
+              "height": 120
+            },
+            "lv2-cc": {
+              "x": 42.93,
+              "y": 2.86,
+              "rotation": -89.59,
+              "width": 102,
+              "height": 120
+            },
+            "lv3-cc": {
+              "x": 44.94,
+              "y": 0.87,
+              "rotation": -89.59,
+              "width": 101,
+              "height": 139
+            },
+            "lv4-cc": {
+              "x": 44.94,
+              "y": 0.87,
+              "rotation": -89.59,
+              "width": 108,
+              "height": 126
+            }
+          },
+          "lv4-cc3": {
+            "lv3-cc": {
+              "x": 44.94,
+              "y": 0.87,
+              "rotation": -89.59,
+              "width": 101,
+              "height": 139
+            },
+            "lv4-cc": {
+              "x": 44.94,
+              "y": 0.87,
+              "rotation": -89.59,
+              "width": 108,
+              "height": 126
+            }
+          },
+          "lv4-cc4": {
+            "lv4-cc": {
+              "x": 44.94,
+              "y": 0.87,
+              "rotation": -89.59,
+              "width": 108,
+              "height": 126
+            }
+          },
+          "lv4-tray": {
+            "lv1-tray": {
+              "x": -5.18,
+              "y": 5.67,
+              "width": 226,
+              "height": 173
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "lv1-idle": {
+        "slots": {
+          "lv4-bong": {
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          },
+          "lv4-bong2": {
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          },
+          "lv4-cc": {
+            "attachment": [
+              {
+                "name": "lv1-cc"
+              }
+            ]
+          },
+          "lv4-cc2": {
+            "attachment": [
+              {
+                "name": "lv1-cc"
+              }
+            ]
+          },
+          "lv4-tray": {
+            "attachment": [
+              {
+                "name": "lv1-tray"
+              }
+            ]
+          }
+        }
+      },
+      "lv1-tap": {
+        "slots": {
+          "lv4-bong": {
+            "color": [
+              {
+                "time": 0.1667,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.3333,
+                "color": "ffffff63"
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffffff"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          },
+          "lv4-bong2": {
+            "color": [
+              {
+                "time": 0.2667,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.4333,
+                "color": "ffffff63"
+              },
+              {
+                "time": 0.6,
+                "color": "ffffffff"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          },
+          "lv4-bong3": {
+            "color": [
+              {
+                "time": 0.2667,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.4333,
+                "color": "ffffff63"
+              },
+              {
+                "time": 0.6,
+                "color": "ffffffff"
+              }
+            ]
+          },
+          "lv4-bong4": {
+            "color": [
+              {
+                "time": 0.2667,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.4333,
+                "color": "ffffff63"
+              },
+              {
+                "time": 0.6,
+                "color": "ffffffff"
+              }
+            ]
+          },
+          "lv4-cc": {
+            "attachment": [
+              {
+                "name": "lv1-cc"
+              }
+            ]
+          },
+          "lv4-cc2": {
+            "attachment": [
+              {
+                "name": "lv1-cc"
+              }
+            ]
+          },
+          "lv4-tray": {
+            "attachment": [
+              {
+                "name": "lv1-tray"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "lv4-bong": {
+            "translate": [
+              {},
+              {
+                "time": 0.1667,
+                "y": -8.67
+              },
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.6667,
+                "y": -8.67
+              },
+              {
+                "time": 0.8333
+              }
+            ],
+            "scale": [
+              {},
+              {
+                "time": 0.1667,
+                "x": 1.139,
+                "y": 0.853
+              },
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.6667,
+                "x": 1.139,
+                "y": 0.853
+              },
+              {
+                "time": 0.8333
+              }
+            ]
+          },
+          "lv4-cc": {
+            "translate": [
+              {},
+              {
+                "time": 0.1667,
+                "x": -0.05,
+                "y": -7.13
+              },
+              {
+                "time": 0.3333,
+                "x": 0.25,
+                "y": 34.06
+              },
+              {
+                "time": 0.6667,
+                "x": -0.05,
+                "y": -7.13
+              },
+              {
+                "time": 0.8333
+              }
+            ],
+            "scale": [
+              {},
+              {
+                "time": 0.1667,
+                "x": 0.86,
+                "y": 1.077
+              },
+              {
+                "time": 0.3333,
+                "x": 1.057,
+                "y": 0.942
+              },
+              {
+                "time": 0.6667,
+                "x": 0.86,
+                "y": 1.077
+              },
+              {
+                "time": 0.8333
+              }
+            ]
+          },
+          "lv4-bong2": {
+            "translate": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "y": -8.67
+              },
+              {
+                "time": 0.4333
+              },
+              {
+                "time": 0.6,
+                "y": -8.67
+              },
+              {
+                "time": 0.7667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": 1.139,
+                "y": 0.853
+              },
+              {
+                "time": 0.4333
+              },
+              {
+                "time": 0.6,
+                "x": 1.139,
+                "y": 0.853
+              },
+              {
+                "time": 0.7667
+              }
+            ]
+          },
+          "lv4-cc2": {
+            "translate": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": -0.05,
+                "y": -7.13
+              },
+              {
+                "time": 0.4333,
+                "x": 0.25,
+                "y": 34.06
+              },
+              {
+                "time": 0.6,
+                "x": -0.05,
+                "y": -7.13
+              },
+              {
+                "time": 0.7667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": 0.86,
+                "y": 1.077
+              },
+              {
+                "time": 0.4333,
+                "x": 1.057,
+                "y": 0.942
+              },
+              {
+                "time": 0.6,
+                "x": 0.86,
+                "y": 1.077
+              },
+              {
+                "time": 0.7667
+              }
+            ]
+          },
+          "lv4-cc3": {
+            "translate": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": -0.05,
+                "y": -7.13
+              },
+              {
+                "time": 0.4333,
+                "x": 0.25,
+                "y": 34.06
+              },
+              {
+                "time": 0.6,
+                "x": -0.05,
+                "y": -7.13
+              },
+              {
+                "time": 0.7667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": 0.86,
+                "y": 1.077
+              },
+              {
+                "time": 0.4333,
+                "x": 1.057,
+                "y": 0.942
+              },
+              {
+                "time": 0.6,
+                "x": 0.86,
+                "y": 1.077
+              },
+              {
+                "time": 0.7667
+              }
+            ]
+          },
+          "lv4-bong3": {
+            "translate": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "y": -8.67
+              },
+              {
+                "time": 0.4333
+              },
+              {
+                "time": 0.6,
+                "y": -8.67
+              },
+              {
+                "time": 0.7667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": 1.139,
+                "y": 0.853
+              },
+              {
+                "time": 0.4333
+              },
+              {
+                "time": 0.6,
+                "x": 1.139,
+                "y": 0.853
+              },
+              {
+                "time": 0.7667
+              }
+            ]
+          },
+          "lv4-cc4": {
+            "translate": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": -0.05,
+                "y": -7.13
+              },
+              {
+                "time": 0.4333,
+                "x": 0.25,
+                "y": 34.06
+              },
+              {
+                "time": 0.6,
+                "x": -0.05,
+                "y": -7.13
+              },
+              {
+                "time": 0.7667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": 0.86,
+                "y": 1.077
+              },
+              {
+                "time": 0.4333,
+                "x": 1.057,
+                "y": 0.942
+              },
+              {
+                "time": 0.6,
+                "x": 0.86,
+                "y": 1.077
+              },
+              {
+                "time": 0.7667
+              }
+            ]
+          },
+          "lv4-bong4": {
+            "translate": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "y": -8.67
+              },
+              {
+                "time": 0.4333
+              },
+              {
+                "time": 0.6,
+                "y": -8.67
+              },
+              {
+                "time": 0.7667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": 1.139,
+                "y": 0.853
+              },
+              {
+                "time": 0.4333
+              },
+              {
+                "time": 0.6,
+                "x": 1.139,
+                "y": 0.853
+              },
+              {
+                "time": 0.7667
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\ncupcake.png\nsize: 332, 368\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nlv1-bong\n  rotate: true\n  xy: 141, 106\n  size: 87, 75\n  orig: 89, 77\n  offset: 1, 1\n  index: -1\nlv1-cc\n  rotate: false\n  xy: 228, 248\n  size: 100, 118\n  orig: 102, 120\n  offset: 1, 1\n  index: -1\nlv1-tray\n  rotate: false\n  xy: 2, 195\n  size: 224, 171\n  orig: 226, 173\n  offset: 1, 1\n  index: -1\nlv2-cc\n  rotate: false\n  xy: 228, 128\n  size: 100, 118\n  orig: 102, 120\n  offset: 1, 1\n  index: -1\nlv3-bong\n  rotate: true\n  xy: 141, 17\n  size: 87, 75\n  orig: 89, 77\n  offset: 1, 1\n  index: -1\nlv3-cc\n  rotate: true\n  xy: 2, 94\n  size: 99, 137\n  orig: 101, 139\n  offset: 1, 1\n  index: -1\nlv4-bong\n  rotate: false\n  xy: 2, 19\n  size: 95, 73\n  orig: 99, 77\n  offset: 2, 2\n  index: -1\nlv4-cc\n  rotate: false\n  xy: 218, 2\n  size: 106, 124\n  orig: 108, 126\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "f8d00fa3-146f-4317-8a31-c47a5b47238f"
+    }
+  ],
+  "textureNames": [
+    "cupcake.png"
+  ],
+  "scale": 1
+}

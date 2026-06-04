@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv3-chips",
+    "texture": "ad2b4da8-7e9c-49d1-94b1-c95403c8190a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      251,
+      212
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      251,
+      212
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

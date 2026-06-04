@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv2-thigh-burnt",
+    "texture": "c36c02eb-abea-41bc-9b35-fd4d916d16b6",
+    "atlas": "",
+    "rect": [
+      31,
+      5,
+      117,
+      123
+    ],
+    "offset": [
+      10,
+      0.5
+    ],
+    "originalSize": [
+      159,
+      134
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

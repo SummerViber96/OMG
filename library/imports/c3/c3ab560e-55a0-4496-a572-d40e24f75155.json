@@ -1,0 +1,607 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "chips",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "7KJqJfA0l64",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2.43"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "lv4-bong3",
+        "parent": "root",
+        "x": -9.42,
+        "y": -42.64
+      },
+      {
+        "name": "lv1-chip1",
+        "parent": "root",
+        "length": 41.68,
+        "rotation": 45,
+        "x": -17.49,
+        "y": 34.63
+      },
+      {
+        "name": "lv1-chip3",
+        "parent": "root",
+        "length": 31.51,
+        "rotation": 136.68,
+        "x": -27.32,
+        "y": 29.39
+      },
+      {
+        "name": "lv1-chip2",
+        "parent": "root",
+        "length": 34.59,
+        "rotation": 18.78,
+        "x": -6.36,
+        "y": 21.52
+      },
+      {
+        "name": "lv2-chip1",
+        "parent": "root",
+        "length": 43.19,
+        "rotation": 61.7,
+        "x": -7.75,
+        "y": 18.91
+      },
+      {
+        "name": "lv2-chip2",
+        "parent": "root",
+        "length": 46.13,
+        "rotation": 102.45,
+        "x": -38.17,
+        "y": 7.8
+      },
+      {
+        "name": "lv2-chip3",
+        "parent": "root",
+        "length": 43.48,
+        "rotation": 100.86,
+        "x": 36.13,
+        "y": 5.46
+      },
+      {
+        "name": "lv3-chip1",
+        "parent": "root",
+        "length": 38.63,
+        "rotation": 35.13,
+        "x": -32.32,
+        "y": 26.52
+      },
+      {
+        "name": "lv3-chip2",
+        "parent": "root",
+        "length": 39.8,
+        "rotation": 88.32,
+        "x": -52.21,
+        "y": 3.7
+      },
+      {
+        "name": "lv3-chip3",
+        "parent": "root",
+        "length": 47.97,
+        "rotation": 89.3,
+        "x": 36.71,
+        "y": 1.36
+      },
+      {
+        "name": "lv4-chip1",
+        "parent": "root",
+        "length": 40.57,
+        "rotation": 47.34,
+        "x": -80.87,
+        "y": 39.39
+      },
+      {
+        "name": "lv4-chip2",
+        "parent": "root",
+        "length": 37.52,
+        "rotation": 59.04,
+        "x": -29.98,
+        "y": 41.73
+      },
+      {
+        "name": "lv4-chip3",
+        "parent": "root",
+        "length": 32.59,
+        "rotation": 68.96,
+        "x": 3.95,
+        "y": 35.29
+      },
+      {
+        "name": "lv4-chip4",
+        "parent": "root",
+        "length": 34.74,
+        "rotation": 69.74,
+        "x": 40.47,
+        "y": 27.17
+      },
+      {
+        "name": "lv4-chip5",
+        "parent": "root",
+        "length": 35.46,
+        "rotation": 66.8,
+        "x": 60.64,
+        "y": 19.02
+      }
+    ],
+    "slots": [
+      {
+        "name": "lv4-tray",
+        "bone": "root"
+      },
+      {
+        "name": "lv4-bong3",
+        "bone": "lv4-bong3"
+      },
+      {
+        "name": "lv1-chip3",
+        "bone": "lv1-chip3"
+      },
+      {
+        "name": "lv1-chip2",
+        "bone": "lv1-chip2"
+      },
+      {
+        "name": "lv1-chip1",
+        "bone": "lv1-chip1"
+      },
+      {
+        "name": "lv2-chip3",
+        "bone": "lv2-chip3"
+      },
+      {
+        "name": "lv2-bong2",
+        "bone": "lv4-bong3"
+      },
+      {
+        "name": "lv2-chip2",
+        "bone": "lv2-chip2"
+      },
+      {
+        "name": "lv2-bong1",
+        "bone": "lv4-bong3"
+      },
+      {
+        "name": "lv2-chip1",
+        "bone": "lv2-chip1"
+      },
+      {
+        "name": "lv3-chip3",
+        "bone": "lv3-chip3"
+      },
+      {
+        "name": "lv3-bong2",
+        "bone": "lv4-bong3"
+      },
+      {
+        "name": "lv3-chip2",
+        "bone": "lv3-chip2"
+      },
+      {
+        "name": "lv3-bong1",
+        "bone": "lv4-bong3"
+      },
+      {
+        "name": "lv3-chip1",
+        "bone": "lv3-chip1"
+      },
+      {
+        "name": "lv4-chip5",
+        "bone": "lv4-chip5"
+      },
+      {
+        "name": "lv4-chip4",
+        "bone": "lv4-chip4"
+      },
+      {
+        "name": "lv4-chip3",
+        "bone": "lv4-chip3"
+      },
+      {
+        "name": "lv4-bong2",
+        "bone": "lv4-bong3",
+        "blend": "multiply"
+      },
+      {
+        "name": "lv4-chip2",
+        "bone": "lv4-chip2"
+      },
+      {
+        "name": "lv4-bong1",
+        "bone": "lv4-bong3"
+      },
+      {
+        "name": "lv4-chip1",
+        "bone": "lv4-chip1"
+      },
+      {
+        "name": "lv3-tray1",
+        "bone": "root"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "lv1-chip1": {
+            "lv1-chip1": {
+              "x": 23.68,
+              "y": -4.42,
+              "rotation": -45,
+              "width": 152,
+              "height": 133
+            }
+          },
+          "lv1-chip2": {
+            "lv1-chip2": {
+              "x": 19.53,
+              "y": -10.1,
+              "rotation": -18.78,
+              "width": 152,
+              "height": 107
+            }
+          },
+          "lv1-chip3": {
+            "lv1-chip3": {
+              "x": 13.86,
+              "y": 10.52,
+              "rotation": -136.68,
+              "width": 152,
+              "height": 133
+            }
+          },
+          "lv3-tray1": {
+            "lv3-tray1": {
+              "x": -10.12,
+              "y": -36.75,
+              "width": 223,
+              "height": 31
+            }
+          },
+          "lv4-bong3": {
+            "lv1-bong": {
+              "x": -5.7,
+              "y": 65.38,
+              "width": 211,
+              "height": 138
+            }
+          },
+          "lv4-tray": {
+            "lv1-tray": {
+              "x": -10.62,
+              "y": 25.24,
+              "width": 226,
+              "height": 173
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "lv1-idle": {
+        "slots": {
+          "lv1-chip1": {
+            "attachment": [
+              {
+                "name": "lv1-chip1"
+              }
+            ]
+          },
+          "lv1-chip2": {
+            "attachment": [
+              {
+                "name": "lv1-chip2"
+              }
+            ]
+          },
+          "lv1-chip3": {
+            "attachment": [
+              {
+                "name": "lv1-chip3"
+              }
+            ]
+          },
+          "lv4-bong3": {
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          },
+          "lv4-tray": {
+            "attachment": [
+              {
+                "name": "lv1-tray"
+              }
+            ]
+          }
+        }
+      },
+      "lv1-tap": {
+        "slots": {
+          "lv1-chip1": {
+            "attachment": [
+              {
+                "name": "lv1-chip1"
+              }
+            ]
+          },
+          "lv1-chip2": {
+            "attachment": [
+              {
+                "name": "lv1-chip2"
+              }
+            ]
+          },
+          "lv1-chip3": {
+            "attachment": [
+              {
+                "name": "lv1-chip3"
+              }
+            ]
+          },
+          "lv4-bong3": {
+            "color": [
+              {
+                "time": 0.3333,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.5,
+                "color": "ffffff83"
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffffff"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          },
+          "lv4-tray": {
+            "attachment": [
+              {
+                "name": "lv1-tray"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "lv1-chip1": {
+            "rotate": [
+              {},
+              {
+                "time": 0.1667,
+                "angle": 12.76
+              },
+              {
+                "time": 0.3333,
+                "angle": -5.21
+              },
+              {
+                "time": 0.6667,
+                "angle": 12.76
+              },
+              {
+                "time": 0.8333
+              }
+            ],
+            "translate": [
+              {},
+              {
+                "time": 0.1667,
+                "x": -8.21,
+                "y": -8.53
+              },
+              {
+                "time": 0.3333,
+                "x": -4.71,
+                "y": 75.64
+              },
+              {
+                "time": 0.6667,
+                "x": -8.21,
+                "y": -8.53
+              },
+              {
+                "time": 0.8333
+              }
+            ],
+            "scale": [
+              {},
+              {
+                "time": 0.1667,
+                "x": 0.9,
+                "y": 0.9
+              },
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.6667,
+                "x": 0.9,
+                "y": 0.9
+              },
+              {
+                "time": 0.8333
+              }
+            ]
+          },
+          "lv1-chip2": {
+            "rotate": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "angle": 11.61
+              },
+              {
+                "time": 0.4333,
+                "angle": -1.76
+              },
+              {
+                "time": 0.7,
+                "angle": 11.61
+              },
+              {
+                "time": 0.8667
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": -11.14,
+                "y": -4.03
+              },
+              {
+                "time": 0.4333,
+                "x": -5.05,
+                "y": 46.51
+              },
+              {
+                "time": 0.7,
+                "x": -11.14,
+                "y": -4.03
+              },
+              {
+                "time": 0.8667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": 0.9,
+                "y": 0.9
+              },
+              {
+                "time": 0.4333
+              },
+              {
+                "time": 0.7,
+                "x": 0.9,
+                "y": 0.9
+              },
+              {
+                "time": 0.8667
+              }
+            ]
+          },
+          "lv1-chip3": {
+            "rotate": [
+              {
+                "time": 0.2
+              },
+              {
+                "time": 0.3667,
+                "angle": -11.09
+              },
+              {
+                "time": 0.5333,
+                "angle": 1.4
+              },
+              {
+                "time": 0.7,
+                "angle": -11.09
+              },
+              {
+                "time": 0.8667
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.2
+              },
+              {
+                "time": 0.3667,
+                "x": 8.84,
+                "y": -8.02
+              },
+              {
+                "time": 0.5333,
+                "x": 4.65,
+                "y": 24.67
+              },
+              {
+                "time": 0.7,
+                "x": 8.84,
+                "y": -8.02
+              },
+              {
+                "time": 0.8667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.2
+              },
+              {
+                "time": 0.3667,
+                "x": 0.9,
+                "y": 0.9
+              },
+              {
+                "time": 0.5333
+              },
+              {
+                "time": 0.7,
+                "x": 0.9,
+                "y": 0.9
+              },
+              {
+                "time": 0.8667
+              }
+            ]
+          },
+          "lv4-bong3": {
+            "scale": [
+              {},
+              {
+                "time": 0.3333,
+                "x": 0.9,
+                "y": 0.9
+              },
+              {
+                "time": 0.5
+              },
+              {
+                "time": 0.6667,
+                "x": 0.9,
+                "y": 0.9
+              },
+              {
+                "time": 0.8333
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nchips.png\nsize: 380, 376\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nlv1-bong\n  rotate: false\n  xy: 2, 34\n  size: 209, 135\n  orig: 211, 138\n  offset: 1, 1\n  index: -1\nlv1-chip1\n  rotate: false\n  xy: 228, 242\n  size: 150, 131\n  orig: 152, 133\n  offset: 1, 1\n  index: -1\nlv1-chip2\n  rotate: false\n  xy: 213, 2\n  size: 150, 105\n  orig: 152, 107\n  offset: 1, 1\n  index: -1\nlv1-chip3\n  rotate: false\n  xy: 228, 109\n  size: 150, 131\n  orig: 152, 133\n  offset: 1, 1\n  index: -1\nlv1-tray\n  rotate: false\n  xy: 2, 202\n  size: 224, 171\n  orig: 226, 173\n  offset: 1, 1\n  index: -1\nlv3-tray1\n  rotate: false\n  xy: 2, 171\n  size: 221, 29\n  orig: 223, 31\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "deb09d21-c236-4be3-924e-9a304cb8530f"
+    }
+  ],
+  "textureNames": [
+    "chips.png"
+  ],
+  "scale": 1
+}

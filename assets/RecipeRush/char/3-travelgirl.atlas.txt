@@ -1,0 +1,237 @@
+
+3-travelgirl.png
+size: 992,312
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+L-baptay
+  rotate: false
+  xy: 55, 8
+  size: 39, 77
+  orig: 39, 77
+  offset: 0, 0
+  index: -1
+L-cangtay
+  rotate: false
+  xy: 917, 51
+  size: 56, 66
+  orig: 56, 66
+  offset: 0, 0
+  index: -1
+L-cangtay2
+  rotate: false
+  xy: 133, 16
+  size: 48, 69
+  orig: 48, 69
+  offset: 0, 0
+  index: -1
+L-chan
+  rotate: false
+  xy: 215, 136
+  size: 45, 174
+  orig: 45, 174
+  offset: 0, 0
+  index: -1
+L-chan2
+  rotate: false
+  xy: 325, 139
+  size: 61, 171
+  orig: 61, 171
+  offset: 0, 0
+  index: -1
+Layer 16
+  rotate: false
+  xy: 560, 3
+  size: 25, 22
+  orig: 25, 22
+  offset: 0, 0
+  index: -1
+R-baptay
+  rotate: false
+  xy: 96, 11
+  size: 35, 74
+  orig: 35, 74
+  offset: 0, 0
+  index: -1
+R-cangtay
+  rotate: false
+  xy: 875, 33
+  size: 40, 84
+  orig: 40, 84
+  offset: 0, 0
+  index: -1
+R-cangtay2
+  rotate: false
+  xy: 183, 16
+  size: 33, 69
+  orig: 33, 69
+  offset: 0, 0
+  index: -1
+R-cangtay3
+  rotate: false
+  xy: 825, 7
+  size: 48, 88
+  orig: 48, 88
+  offset: 0, 0
+  index: -1
+R-cangtay4
+  rotate: false
+  xy: 750, 7
+  size: 73, 88
+  orig: 73, 88
+  offset: 0, 0
+  index: -1
+R-chan
+  rotate: false
+  xy: 262, 138
+  size: 61, 172
+  orig: 61, 172
+  offset: 0, 0
+  index: -1
+bag
+  rotate: false
+  xy: 457, 9
+  size: 101, 131
+  orig: 101, 131
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 750, 97
+  size: 87, 91
+  orig: 87, 91
+  offset: 0, 0
+  index: -1
+brows1
+  rotate: false
+  xy: 217, 3
+  size: 79, 11
+  orig: 79, 11
+  offset: 0, 0
+  index: -1
+brows2
+  rotate: false
+  xy: 587, 6
+  size: 79, 19
+  orig: 79, 19
+  offset: 0, 0
+  index: -1
+brows3
+  rotate: false
+  xy: 354, 5
+  size: 67, 13
+  orig: 67, 13
+  offset: 0, 0
+  index: -1
+dress
+  rotate: false
+  xy: 388, 142
+  size: 157, 168
+  orig: 157, 168
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 662, 164
+  size: 76, 24
+  orig: 76, 24
+  offset: 0, 0
+  index: -1
+eye2
+  rotate: false
+  xy: 133, 2
+  size: 82, 12
+  orig: 82, 12
+  offset: 0, 0
+  index: -1
+glass
+  rotate: false
+  xy: 547, 148
+  size: 113, 39
+  orig: 113, 39
+  offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 753, 205
+  size: 237, 105
+  orig: 237, 105
+  offset: 0, 0
+  index: -1
+hat2
+  rotate: false
+  xy: 218, 20
+  size: 237, 114
+  orig: 237, 114
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 635, 190
+  size: 116, 120
+  orig: 116, 120
+  offset: 0, 0
+  index: -1
+mouth1
+  rotate: false
+  xy: 298, 2
+  size: 27, 16
+  orig: 27, 16
+  offset: 0, 0
+  index: -1
+mouth2
+  rotate: false
+  xy: 327, 2
+  size: 25, 16
+  orig: 25, 16
+  offset: 0, 0
+  index: -1
+mouth3
+  rotate: false
+  xy: 423, 5
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+toc1
+  rotate: false
+  xy: 661, 49
+  size: 87, 97
+  orig: 87, 97
+  offset: 0, 0
+  index: -1
+toc2
+  rotate: false
+  xy: 839, 119
+  size: 135, 84
+  orig: 135, 84
+  offset: 0, 0
+  index: -1
+toc3
+  rotate: false
+  xy: 547, 189
+  size: 86, 121
+  orig: 86, 121
+  offset: 0, 0
+  index: -1
+toc4
+  rotate: false
+  xy: 560, 27
+  size: 99, 119
+  orig: 99, 119
+  offset: 0, 0
+  index: -1
+toc5
+  rotate: false
+  xy: 2, 8
+  size: 51, 77
+  orig: 51, 77
+  offset: 0, 0
+  index: -1
+toc6
+  rotate: false
+  xy: 2, 87
+  size: 211, 223
+  orig: 211, 223
+  offset: 0, 0
+  index: -1

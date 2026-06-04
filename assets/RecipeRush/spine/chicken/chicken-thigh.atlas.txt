@@ -1,0 +1,223 @@
+
+chicken-thigh.png
+size: 1908,280
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lv1-bong
+  rotate: false
+  xy: 328, 15
+  size: 169, 107
+  orig: 169, 107
+  offset: 0, 0
+  index: -1
+lv1-dui1
+  rotate: false
+  xy: 810, 3
+  size: 132, 121
+  orig: 132, 121
+  offset: 0, 0
+  index: -1
+lv1-dui2
+  rotate: false
+  xy: 1645, 52
+  size: 150, 92
+  orig: 150, 92
+  offset: 0, 0
+  index: -1
+lv1-thot
+  rotate: false
+  xy: 1006, 126
+  size: 193, 152
+  orig: 193, 152
+  offset: 0, 0
+  index: -1
+lv2-bong1
+  rotate: false
+  xy: 1777, 223
+  size: 73, 55
+  orig: 73, 55
+  offset: 0, 0
+  index: -1
+lv2-bong2
+  rotate: false
+  xy: 1201, 131
+  size: 197, 147
+  orig: 197, 147
+  offset: 0, 0
+  index: -1
+lv2-dui1
+  rotate: false
+  xy: 1234, 3
+  size: 142, 126
+  orig: 142, 126
+  offset: 0, 0
+  index: -1
+lv2-dui2
+  rotate: false
+  xy: 499, 21
+  size: 164, 101
+  orig: 164, 101
+  offset: 0, 0
+  index: -1
+lv2-dui3
+  rotate: false
+  xy: 1400, 144
+  size: 162, 134
+  orig: 162, 134
+  offset: 0, 0
+  index: -1
+lv2-la
+  rotate: false
+  xy: 1772, 163
+  size: 78, 56
+  orig: 78, 56
+  offset: 0, 0
+  index: -1
+lv2-thot
+  rotate: false
+  xy: 810, 126
+  size: 194, 152
+  orig: 194, 152
+  offset: 0, 0
+  index: -1
+lv3-bong
+  rotate: false
+  xy: 1852, 218
+  size: 49, 60
+  orig: 49, 60
+  offset: 0, 0
+  index: -1
+lv3-bong2
+  rotate: false
+  xy: 610, 127
+  size: 198, 151
+  orig: 198, 151
+  offset: 0, 0
+  index: -1
+lv3-dui1
+  rotate: false
+  xy: 665, 11
+  size: 143, 114
+  orig: 143, 114
+  offset: 0, 0
+  index: -1
+lv3-dui2
+  rotate: false
+  xy: 1511, 8
+  size: 132, 134
+  orig: 132, 134
+  offset: 0, 0
+  index: -1
+lv3-la
+  rotate: false
+  xy: 1797, 46
+  size: 66, 49
+  orig: 66, 49
+  offset: 0, 0
+  index: -1
+lv3-la2
+  rotate: false
+  xy: 1797, 97
+  size: 63, 64
+  orig: 63, 64
+  offset: 0, 0
+  index: -1
+lv3-thot
+  rotate: false
+  xy: 409, 124
+  size: 199, 154
+  orig: 199, 154
+  offset: 0, 0
+  index: -1
+lv4-aa
+  rotate: false
+  xy: 944, 2
+  size: 130, 122
+  orig: 130, 122
+  offset: 0, 0
+  index: -1
+lv4-bong1
+  rotate: false
+  xy: 1645, 6
+  size: 34, 44
+  orig: 34, 44
+  offset: 0, 0
+  index: -1
+lv4-bong2
+  rotate: false
+  xy: 1693, 160
+  size: 77, 59
+  orig: 77, 59
+  offset: 0, 0
+  index: -1
+lv4-bong3
+  rotate: false
+  xy: 165, 5
+  size: 161, 117
+  orig: 161, 117
+  offset: 0, 0
+  index: -1
+lv4-bong4
+  rotate: false
+  xy: 2, 3
+  size: 161, 119
+  orig: 161, 119
+  offset: 0, 0
+  index: -1
+lv4-bong5
+  rotate: false
+  xy: 206, 124
+  size: 201, 154
+  orig: 201, 154
+  offset: 0, 0
+  index: -1
+lv4-chanh1
+  rotate: false
+  xy: 1852, 166
+  size: 54, 50
+  orig: 54, 50
+  offset: 0, 0
+  index: -1
+lv4-chanh2
+  rotate: false
+  xy: 1852, 166
+  size: 54, 50
+  orig: 54, 50
+  offset: 0, 0
+  index: -1
+lv4-dui1
+  rotate: false
+  xy: 1076, 23
+  size: 156, 101
+  orig: 156, 101
+  offset: 0, 0
+  index: -1
+lv4-dui2
+  rotate: false
+  xy: 1564, 146
+  size: 127, 132
+  orig: 127, 132
+  offset: 0, 0
+  index: -1
+lv4-dui3
+  rotate: false
+  xy: 1378, 10
+  size: 131, 119
+  orig: 131, 119
+  offset: 0, 0
+  index: -1
+lv4-la
+  rotate: false
+  xy: 1693, 221
+  size: 82, 57
+  orig: 82, 57
+  offset: 0, 0
+  index: -1
+lv4-thot
+  rotate: false
+  xy: 2, 124
+  size: 202, 154
+  orig: 202, 154
+  offset: 0, 0
+  index: -1

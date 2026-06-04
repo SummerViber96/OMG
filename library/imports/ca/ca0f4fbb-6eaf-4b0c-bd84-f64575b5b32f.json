@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv4-wing-burnt",
+    "texture": "ddc535e8-db72-4951-b457-cb272320727b",
+    "atlas": "",
+    "rect": [
+      23,
+      2,
+      114,
+      117
+    ],
+    "offset": [
+      0.5,
+      6.5
+    ],
+    "originalSize": [
+      159,
+      134
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

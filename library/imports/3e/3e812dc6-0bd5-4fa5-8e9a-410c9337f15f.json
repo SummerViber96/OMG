@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv3-knives",
+    "texture": "e6a32e55-325b-4a74-9a0b-d11e1574e2df",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      147,
+      236
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      147,
+      236
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

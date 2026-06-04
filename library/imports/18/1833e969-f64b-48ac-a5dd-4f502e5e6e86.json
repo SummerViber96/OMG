@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "cupcake.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\ncupcake.png\nsize: 332, 368\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nlv1-bong\n  rotate: true\n  xy: 141, 106\n  size: 87, 75\n  orig: 89, 77\n  offset: 1, 1\n  index: -1\nlv1-cc\n  rotate: false\n  xy: 228, 248\n  size: 100, 118\n  orig: 102, 120\n  offset: 1, 1\n  index: -1\nlv1-tray\n  rotate: false\n  xy: 2, 195\n  size: 224, 171\n  orig: 226, 173\n  offset: 1, 1\n  index: -1\nlv2-cc\n  rotate: false\n  xy: 228, 128\n  size: 100, 118\n  orig: 102, 120\n  offset: 1, 1\n  index: -1\nlv3-bong\n  rotate: true\n  xy: 141, 17\n  size: 87, 75\n  orig: 89, 77\n  offset: 1, 1\n  index: -1\nlv3-cc\n  rotate: true\n  xy: 2, 94\n  size: 99, 137\n  orig: 101, 139\n  offset: 1, 1\n  index: -1\nlv4-bong\n  rotate: false\n  xy: 2, 19\n  size: 95, 73\n  orig: 99, 77\n  offset: 2, 2\n  index: -1\nlv4-cc\n  rotate: false\n  xy: 218, 2\n  size: 106, 124\n  orig: 108, 126\n  offset: 1, 1\n  index: -1\n"
+}

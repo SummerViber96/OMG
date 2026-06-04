@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv1-cucumber",
+    "texture": "e7958348-0a15-4786-a191-3d561e0f852e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      185,
+      260
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      185,
+      260
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

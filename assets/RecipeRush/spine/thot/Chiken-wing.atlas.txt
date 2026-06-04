@@ -1,0 +1,258 @@
+
+Chiken-wing.png
+size: 436,1056
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lv1-bong1
+  rotate: false
+  xy: 282, 11
+  size: 109, 62
+  orig: 109, 62
+  offset: 0, 0
+  index: -1
+lv1-bong2
+  rotate: false
+  xy: 103, 4
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+lv1-bong3
+  rotate: false
+  xy: 2, 116
+  size: 175, 118
+  orig: 175, 118
+  offset: 0, 0
+  index: -1
+lv1-dui1
+  rotate: false
+  xy: 185, 59
+  size: 95, 114
+  orig: 95, 114
+  offset: 0, 0
+  index: -1
+lv1-dui2
+  rotate: false
+  xy: 309, 171
+  size: 109, 107
+  orig: 109, 107
+  offset: 0, 0
+  index: -1
+lv1-dui3
+  rotate: false
+  xy: 2, 2
+  size: 99, 112
+  orig: 99, 112
+  offset: 0, 0
+  index: -1
+lv1-thot
+  rotate: false
+  xy: 2, 588
+  size: 193, 152
+  orig: 193, 152
+  offset: 0, 0
+  index: -1
+lv2-bong1
+  rotate: false
+  xy: 390, 532
+  size: 40, 41
+  orig: 40, 41
+  offset: 0, 0
+  index: -1
+lv2-bong2
+  rotate: false
+  xy: 2, 236
+  size: 187, 107
+  orig: 187, 107
+  offset: 0, 0
+  index: -1
+lv2-dui1
+  rotate: false
+  xy: 191, 175
+  size: 116, 118
+  orig: 116, 118
+  offset: 0, 0
+  index: -1
+lv2-dui2
+  rotate: false
+  xy: 330, 280
+  size: 104, 119
+  orig: 104, 119
+  offset: 0, 0
+  index: -1
+lv2-dui3
+  rotate: false
+  xy: 330, 280
+  size: 104, 119
+  orig: 104, 119
+  offset: 0, 0
+  index: -1
+lv2-la1
+  rotate: false
+  xy: 390, 495
+  size: 42, 35
+  orig: 42, 35
+  offset: 0, 0
+  index: -1
+lv2-la2
+  rotate: false
+  xy: 376, 413
+  size: 38, 39
+  orig: 38, 39
+  offset: 0, 0
+  index: -1
+lv2-la3
+  rotate: false
+  xy: 387, 454
+  size: 42, 39
+  orig: 42, 39
+  offset: 0, 0
+  index: -1
+lv2-thot
+  rotate: false
+  xy: 206, 902
+  size: 194, 152
+  orig: 194, 152
+  offset: 0, 0
+  index: -1
+lv3-bong
+  rotate: false
+  xy: 345, 686
+  size: 86, 90
+  orig: 86, 90
+  offset: 0, 0
+  index: -1
+lv3-bong2
+  rotate: false
+  xy: 2, 345
+  size: 190, 113
+  orig: 190, 113
+  offset: 0, 0
+  index: -1
+lv3-dui1
+  rotate: false
+  xy: 203, 650
+  size: 140, 126
+  orig: 140, 126
+  offset: 0, 0
+  index: -1
+lv3-dui2
+  rotate: false
+  xy: 204, 512
+  size: 130, 136
+  orig: 130, 136
+  offset: 0, 0
+  index: -1
+lv3-la1
+  rotate: false
+  xy: 336, 468
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+lv3-la2
+  rotate: false
+  xy: 336, 575
+  size: 69, 51
+  orig: 69, 51
+  offset: 0, 0
+  index: -1
+lv3-la3
+  rotate: false
+  xy: 358, 785
+  size: 72, 53
+  orig: 72, 53
+  offset: 0, 0
+  index: -1
+lv3-thot
+  rotate: false
+  xy: 2, 742
+  size: 199, 154
+  orig: 199, 154
+  offset: 0, 0
+  index: -1
+lv4-aaa
+  rotate: false
+  xy: 206, 778
+  size: 150, 122
+  orig: 150, 122
+  offset: 0, 0
+  index: -1
+lv4-bong1
+  rotate: false
+  xy: 336, 415
+  size: 38, 51
+  orig: 38, 51
+  offset: 0, 0
+  index: -1
+lv4-bong2
+  rotate: false
+  xy: 345, 628
+  size: 86, 56
+  orig: 86, 56
+  offset: 0, 0
+  index: -1
+lv4-bong3
+  rotate: false
+  xy: 358, 840
+  size: 75, 60
+  orig: 75, 60
+  offset: 0, 0
+  index: -1
+lv4-bong4
+  rotate: false
+  xy: 2, 460
+  size: 200, 126
+  orig: 200, 126
+  offset: 0, 0
+  index: -1
+lv4-chanh1
+  rotate: false
+  xy: 336, 519
+  size: 52, 54
+  orig: 52, 54
+  offset: 0, 0
+  index: -1
+lv4-chanh2
+  rotate: false
+  xy: 336, 519
+  size: 52, 54
+  orig: 52, 54
+  offset: 0, 0
+  index: -1
+lv4-dui1
+  rotate: false
+  xy: 204, 401
+  size: 130, 109
+  orig: 130, 109
+  offset: 0, 0
+  index: -1
+lv4-dui2
+  rotate: false
+  xy: 194, 295
+  size: 134, 104
+  orig: 134, 104
+  offset: 0, 0
+  index: -1
+lv4-dui3
+  rotate: false
+  xy: 282, 75
+  size: 114, 94
+  orig: 114, 94
+  offset: 0, 0
+  index: -1
+lv4-la
+  rotate: false
+  xy: 185, 4
+  size: 82, 53
+  orig: 82, 53
+  offset: 0, 0
+  index: -1
+lv4-thot
+  rotate: false
+  xy: 2, 898
+  size: 202, 156
+  orig: 202, 156
+  offset: 0, 0
+  index: -1

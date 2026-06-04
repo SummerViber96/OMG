@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv2-snack",
+    "texture": "6b1fb979-fc7a-4a67-814b-a48dbe49e47a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      242,
+      171
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      242,
+      171
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

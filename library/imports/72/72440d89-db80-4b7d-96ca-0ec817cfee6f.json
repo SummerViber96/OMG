@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv2-cup1",
+    "texture": "5a3c5907-edb3-452b-8e97-850cc2bd2966",
+    "atlas": "",
+    "rect": [
+      2,
+      0,
+      75,
+      122
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      79,
+      122
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

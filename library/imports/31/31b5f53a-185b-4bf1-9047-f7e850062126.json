@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv4-sauce",
+    "texture": "d8015254-424e-497d-bbb9-f342514c72bb",
+    "atlas": "",
+    "rect": [
+      1,
+      7,
+      253,
+      224
+    ],
+    "offset": [
+      0,
+      -3
+    ],
+    "originalSize": [
+      255,
+      232
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

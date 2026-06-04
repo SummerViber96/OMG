@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv3-wing-raw",
+    "texture": "12bb5fd4-6ce1-4bd8-8a5a-a1efc54051ce",
+    "atlas": "",
+    "rect": [
+      25,
+      11,
+      110,
+      113
+    ],
+    "offset": [
+      0.5,
+      -0.5
+    ],
+    "originalSize": [
+      159,
+      134
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

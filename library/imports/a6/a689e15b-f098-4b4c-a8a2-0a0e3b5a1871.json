@@ -1,0 +1,1068 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "Chiken-wing",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "w+XAQfCDKspPgF5raOb6mjUW2Ko",
+      "spine": "3.8.99"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "lv4-bong4",
+        "parent": "root",
+        "x": -0.96,
+        "y": -46.78
+      },
+      {
+        "name": "lv1-dui1",
+        "parent": "root",
+        "length": 70.71,
+        "rotation": 130.22,
+        "x": 12.13,
+        "y": 0.53
+      },
+      {
+        "name": "lv1-dui2",
+        "parent": "root",
+        "length": 78.79,
+        "rotation": -175.85,
+        "x": 4.66,
+        "y": 16.78
+      },
+      {
+        "name": "lv1-dui3",
+        "parent": "root",
+        "length": 65.07,
+        "rotation": 125.94,
+        "x": 62.17,
+        "y": -5.61
+      },
+      {
+        "name": "lv2-dui1",
+        "parent": "root",
+        "length": 63.46,
+        "rotation": 160.19,
+        "x": -24.75,
+        "y": 0.53
+      },
+      {
+        "name": "lv2-dui2",
+        "parent": "root",
+        "length": 72.02,
+        "rotation": 135.49,
+        "x": 13,
+        "y": 13.7
+      },
+      {
+        "name": "lv2-dui3",
+        "parent": "root",
+        "length": 70.16,
+        "rotation": 134.49,
+        "x": 67.88,
+        "y": 14.14
+      },
+      {
+        "name": "lv2-la1",
+        "parent": "root",
+        "x": -81.38,
+        "y": -27.12
+      },
+      {
+        "name": "lv2-la2",
+        "parent": "root",
+        "x": -8.07,
+        "y": 39.61
+      },
+      {
+        "name": "lv2-la3",
+        "parent": "root",
+        "x": 77.1,
+        "y": 57.17
+      },
+      {
+        "name": "lv3-la2",
+        "parent": "root",
+        "length": 33.2,
+        "rotation": 155.07,
+        "x": -54.13,
+        "y": -32.6
+      },
+      {
+        "name": "lv3-dui1",
+        "parent": "root",
+        "length": 56.07,
+        "rotation": 86.53,
+        "x": -38.02,
+        "y": -2.07
+      },
+      {
+        "name": "lv3-dui2",
+        "parent": "root",
+        "length": 65.57,
+        "rotation": 84.81,
+        "x": 15.83,
+        "y": 7.25
+      },
+      {
+        "name": "lv3-la1",
+        "parent": "root",
+        "length": 24.33,
+        "rotation": 41.47,
+        "x": -53.29,
+        "y": 47.96
+      },
+      {
+        "name": "lv3-la3",
+        "parent": "root",
+        "length": 46.6,
+        "rotation": 15.3,
+        "x": 13.28,
+        "y": 69.58
+      },
+      {
+        "name": "lv4-dui1",
+        "parent": "root",
+        "length": 70.39,
+        "rotation": 90.69,
+        "x": -61.77,
+        "y": -16.49
+      },
+      {
+        "name": "lv4-dui3",
+        "parent": "root",
+        "length": 69.27,
+        "rotation": 101.65,
+        "x": 21.34,
+        "y": 36.51
+      },
+      {
+        "name": "lv4-dui2",
+        "parent": "root",
+        "length": 71.31,
+        "rotation": 80.76,
+        "x": 43.81,
+        "y": -24.12
+      },
+      {
+        "name": "lv4-la",
+        "parent": "root",
+        "x": -24.03,
+        "y": 68.73
+      },
+      {
+        "name": "lv4-chanh1",
+        "parent": "root",
+        "x": 84.51,
+        "y": -2.5
+      },
+      {
+        "name": "lv4-chanh2",
+        "parent": "root",
+        "x": 58.23,
+        "y": -12.67
+      },
+      {
+        "name": "lv4-aaa",
+        "parent": "root",
+        "x": 13.71,
+        "y": 41.6
+      }
+    ],
+    "slots": [
+      {
+        "name": "lv4-thot",
+        "bone": "root"
+      },
+      {
+        "name": "lv4-bong4",
+        "bone": "lv4-bong4",
+        "blend": "multiply"
+      },
+      {
+        "name": "lv1-dui3",
+        "bone": "lv1-dui3"
+      },
+      {
+        "name": "lv1-bong2",
+        "bone": "lv4-bong4"
+      },
+      {
+        "name": "lv1-dui2",
+        "bone": "lv1-dui2"
+      },
+      {
+        "name": "lv1-bong1",
+        "bone": "lv4-bong4"
+      },
+      {
+        "name": "lv1-dui1",
+        "bone": "lv1-dui1"
+      },
+      {
+        "name": "lv2-la3",
+        "bone": "lv2-la3"
+      },
+      {
+        "name": "lv2-dui3",
+        "bone": "lv2-dui3"
+      },
+      {
+        "name": "lv2-dui2",
+        "bone": "lv2-dui2"
+      },
+      {
+        "name": "lv2-bong1",
+        "bone": "lv4-bong4"
+      },
+      {
+        "name": "lv2-la2",
+        "bone": "lv2-la2"
+      },
+      {
+        "name": "lv2-dui1",
+        "bone": "lv2-dui1"
+      },
+      {
+        "name": "lv2-la1",
+        "bone": "lv2-la1"
+      },
+      {
+        "name": "lv3-la3",
+        "bone": "lv3-la3"
+      },
+      {
+        "name": "lv3-dui2",
+        "bone": "lv3-dui2"
+      },
+      {
+        "name": "lv3-bong",
+        "bone": "lv4-bong4"
+      },
+      {
+        "name": "lv3-dui1",
+        "bone": "lv3-dui1"
+      },
+      {
+        "name": "lv3-la2",
+        "bone": "lv3-la2"
+      },
+      {
+        "name": "lv3-la1",
+        "bone": "lv3-la1"
+      },
+      {
+        "name": "lv4-aaa",
+        "bone": "lv4-aaa"
+      },
+      {
+        "name": "lv4-dui3",
+        "bone": "lv4-dui3"
+      },
+      {
+        "name": "lv4-dui2",
+        "bone": "lv4-dui2"
+      },
+      {
+        "name": "lv4-bong3",
+        "bone": "lv4-bong4"
+      },
+      {
+        "name": "lv4-bong2",
+        "bone": "lv4-bong4"
+      },
+      {
+        "name": "lv4-la",
+        "bone": "lv4-la"
+      },
+      {
+        "name": "lv4-dui1",
+        "bone": "lv4-dui1"
+      },
+      {
+        "name": "lv4-chanh2",
+        "bone": "lv4-chanh2"
+      },
+      {
+        "name": "lv4-bong1",
+        "bone": "lv4-bong4"
+      },
+      {
+        "name": "lv4-chanh1",
+        "bone": "lv4-chanh1"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "lv1-bong1": {
+            "lv1-bong1": {
+              "x": -39.55,
+              "y": 54.62,
+              "width": 136,
+              "height": 77
+            }
+          },
+          "lv1-bong2": {
+            "lv1-bong2": {
+              "x": 35.45,
+              "y": 76.12,
+              "width": 100,
+              "height": 138
+            }
+          },
+          "lv1-dui1": {
+            "lv1-dui1": {
+              "x": 43.28,
+              "y": -8.91,
+              "rotation": -130.22,
+              "width": 119,
+              "height": 142
+            }
+          },
+          "lv1-dui2": {
+            "lv1-dui2": {
+              "x": 43.64,
+              "y": -22.78,
+              "rotation": 175.85,
+              "width": 136,
+              "height": 134
+            }
+          },
+          "lv1-dui3": {
+            "lv1-dui3": {
+              "x": 38.31,
+              "y": -8.4,
+              "rotation": -125.94,
+              "width": 124,
+              "height": 140
+            }
+          },
+          "lv2-bong1": {
+            "lv2-bong1": {
+              "x": -12.55,
+              "y": 90.62,
+              "width": 50,
+              "height": 51
+            }
+          },
+          "lv2-dui1": {
+            "lv2-dui1": {
+              "x": 28.15,
+              "y": -18.35,
+              "rotation": -160.19,
+              "width": 145,
+              "height": 148
+            }
+          },
+          "lv2-dui2": {
+            "lv2-dui2": {
+              "x": 34.34,
+              "y": -7.1,
+              "rotation": -135.49,
+              "width": 130,
+              "height": 149
+            }
+          },
+          "lv2-dui3": {
+            "lv2-dui3": {
+              "x": 36.16,
+              "y": -4.14,
+              "rotation": -134.49,
+              "width": 130,
+              "height": 149
+            }
+          },
+          "lv2-la1": {
+            "lv2-la1": {
+              "x": -4.63,
+              "y": 4.46,
+              "width": 53,
+              "height": 44
+            }
+          },
+          "lv2-la2": {
+            "lv2-la2": {
+              "x": -5.45,
+              "y": 7.23,
+              "width": 48,
+              "height": 49
+            }
+          },
+          "lv2-la3": {
+            "lv2-la3": {
+              "x": 5.89,
+              "y": 6.67,
+              "width": 53,
+              "height": 49
+            }
+          },
+          "lv3-bong": {
+            "lv3-bong": {
+              "x": 6.45,
+              "y": 92.62,
+              "width": 108,
+              "height": 113
+            }
+          },
+          "lv3-dui1": {
+            "lv3-dui1": {
+              "x": 34.26,
+              "y": -12.96,
+              "rotation": -86.53,
+              "width": 175,
+              "height": 158
+            }
+          },
+          "lv3-dui2": {
+            "lv3-dui2": {
+              "x": 40.39,
+              "y": -12.56,
+              "rotation": -84.81,
+              "width": 163,
+              "height": 170
+            }
+          },
+          "lv3-la1": {
+            "lv3-la1": {
+              "x": 36.16,
+              "y": 1.25,
+              "rotation": -41.47,
+              "width": 61,
+              "height": 61
+            }
+          },
+          "lv3-la2": {
+            "lv3-la2": {
+              "x": 34.2,
+              "y": -3.89,
+              "rotation": -155.07,
+              "width": 86,
+              "height": 64
+            }
+          },
+          "lv3-la3": {
+            "lv3-la3": {
+              "x": 37.76,
+              "y": 0.82,
+              "rotation": -15.3,
+              "width": 90,
+              "height": 66
+            }
+          },
+          "lv4-aaa": {
+            "lv4-aaa": {
+              "x": -2.22,
+              "y": -10.26,
+              "width": 188,
+              "height": 152
+            }
+          },
+          "lv4-bong1": {
+            "lv4-bong1": {
+              "x": 65.45,
+              "y": 35.12,
+              "width": 48,
+              "height": 64
+            }
+          },
+          "lv4-bong2": {
+            "lv4-bong2": {
+              "x": -24.05,
+              "y": 118.12,
+              "width": 107,
+              "height": 70
+            }
+          },
+          "lv4-bong3": {
+            "lv4-bong3": {
+              "x": 59.45,
+              "y": 38.62,
+              "width": 94,
+              "height": 75
+            }
+          },
+          "lv4-bong4": {
+            "lv1-bong3": {
+              "x": 0.95,
+              "y": 72.12,
+              "width": 219,
+              "height": 148
+            },
+            "lv2-bong2": {
+              "x": -2.55,
+              "y": 65.12,
+              "width": 234,
+              "height": 134
+            },
+            "lv3-bong2": {
+              "x": -7.55,
+              "y": 63.62,
+              "width": 238,
+              "height": 141
+            },
+            "lv4-bong4": {
+              "x": -3.55,
+              "y": 71.12,
+              "width": 250,
+              "height": 158
+            }
+          },
+          "lv4-chanh1": {
+            "lv4-chanh1": {
+              "x": -3.53,
+              "y": -0.66,
+              "width": 65,
+              "height": 67
+            }
+          },
+          "lv4-chanh2": {
+            "lv4-chanh2": {
+              "x": -2.24,
+              "y": -0.49,
+              "width": 65,
+              "height": 67
+            }
+          },
+          "lv4-dui1": {
+            "lv4-dui1": {
+              "x": 37.65,
+              "y": -14.71,
+              "rotation": -90.69,
+              "width": 162,
+              "height": 136
+            }
+          },
+          "lv4-dui2": {
+            "lv4-dui2": {
+              "x": 46.5,
+              "y": 16,
+              "rotation": -80.76,
+              "width": 168,
+              "height": 130
+            }
+          },
+          "lv4-dui3": {
+            "lv4-dui3": {
+              "x": 48,
+              "y": 8.33,
+              "rotation": -101.65,
+              "width": 142,
+              "height": 117
+            }
+          },
+          "lv4-la": {
+            "lv4-la": {
+              "x": -0.98,
+              "y": 13.6,
+              "width": 103,
+              "height": 66
+            }
+          },
+          "lv4-thot": {
+            "lv1-thot": {
+              "x": -1.01,
+              "y": 18.34,
+              "width": 241,
+              "height": 190
+            },
+            "lv2-thot": {
+              "x": -0.51,
+              "y": 18.34,
+              "width": 242,
+              "height": 190
+            },
+            "lv3-thot": {
+              "x": -0.01,
+              "y": 19.84,
+              "width": 249,
+              "height": 193
+            },
+            "lv4-thot": {
+              "x": -0.01,
+              "y": 15.84,
+              "width": 253,
+              "height": 195
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "lv1-idle": {
+        "slots": {
+          "lv1-bong1": {
+            "attachment": [
+              {
+                "name": "lv1-bong1"
+              }
+            ]
+          },
+          "lv1-bong2": {
+            "attachment": [
+              {
+                "name": "lv1-bong2"
+              }
+            ]
+          },
+          "lv1-dui1": {
+            "attachment": [
+              {
+                "name": "lv1-dui1"
+              }
+            ]
+          },
+          "lv1-dui2": {
+            "attachment": [
+              {
+                "name": "lv1-dui2"
+              }
+            ]
+          },
+          "lv1-dui3": {
+            "attachment": [
+              {
+                "name": "lv1-dui3"
+              }
+            ]
+          },
+          "lv4-bong4": {
+            "attachment": [
+              {
+                "name": "lv1-bong3"
+              }
+            ]
+          },
+          "lv4-thot": {
+            "attachment": [
+              {
+                "name": "lv1-thot"
+              }
+            ]
+          }
+        }
+      },
+      "lv1-tap": {
+        "slots": {
+          "lv1-bong1": {
+            "color": [
+              {
+                "time": 0.3333,
+                "color": "ffffffff",
+                "curve": 0.878,
+                "c3": 0.75
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffff00",
+                "curve": 0.878,
+                "c3": 0.75
+              },
+              {
+                "time": 1.1667,
+                "color": "ffffffff"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "lv1-bong1"
+              }
+            ]
+          },
+          "lv1-bong2": {
+            "color": [
+              {
+                "time": 0.3333,
+                "color": "ffffffff",
+                "curve": 0.878,
+                "c3": 0.75
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffff00",
+                "curve": 0.878,
+                "c3": 0.75
+              },
+              {
+                "time": 1.1667,
+                "color": "ffffffff"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "lv1-bong2"
+              }
+            ]
+          },
+          "lv1-dui1": {
+            "attachment": [
+              {
+                "name": "lv1-dui1"
+              }
+            ]
+          },
+          "lv1-dui2": {
+            "attachment": [
+              {
+                "name": "lv1-dui2"
+              }
+            ]
+          },
+          "lv1-dui3": {
+            "attachment": [
+              {
+                "name": "lv1-dui3"
+              }
+            ]
+          },
+          "lv4-bong4": {
+            "color": [
+              {
+                "time": 0.3333,
+                "color": "ffffffff",
+                "curve": 0.719,
+                "c3": 0.75
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffff85",
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.1667,
+                "color": "ffffffff"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "lv1-bong3"
+              }
+            ]
+          },
+          "lv4-thot": {
+            "attachment": [
+              {
+                "name": "lv1-thot"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "lv1-dui1": {
+            "rotate": [
+              {
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.3333,
+                "angle": 2.41,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.6667,
+                "angle": -12.9,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.1667,
+                "angle": 2.41,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5
+              }
+            ],
+            "translate": [
+              {
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.3333,
+                "x": -0.55,
+                "y": -9.44,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.6667,
+                "x": -1.86,
+                "y": 81.8,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.1667,
+                "x": -0.55,
+                "y": -9.44,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5
+              }
+            ],
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.3333,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.6667,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.1667,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5
+              }
+            ]
+          },
+          "lv1-dui2": {
+            "rotate": [
+              {
+                "time": 0.1,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.4333,
+                "angle": 2.41,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.7667,
+                "angle": -12.7,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.2,
+                "angle": 2.41,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5333
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.1,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.4333,
+                "x": -4.56,
+                "y": -5.38,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.7667,
+                "x": -3.18,
+                "y": 49.13,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.2,
+                "x": -4.56,
+                "y": -5.38,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5333
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.4333,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.7667,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.2,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5333
+              }
+            ]
+          },
+          "lv1-dui3": {
+            "rotate": [
+              {
+                "time": 0.2,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.5333,
+                "angle": 2.41,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.8667,
+                "angle": -14.34,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.2,
+                "angle": 2.41,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5333
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.2,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.5333,
+                "x": -1.25,
+                "y": -9.37,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.8667,
+                "x": 3.71,
+                "y": 47.63,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.2,
+                "x": -1.25,
+                "y": -9.37,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5333
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.2,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.5333,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.8667,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.2,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5333
+              }
+            ]
+          },
+          "lv4-bong4": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.3333,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.6667,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 1.1667,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 1.5
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nChiken-wing.png\nsize: 436,1056\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nlv1-bong1\n  rotate: false\n  xy: 282, 11\n  size: 109, 62\n  orig: 109, 62\n  offset: 0, 0\n  index: -1\nlv1-bong2\n  rotate: false\n  xy: 103, 4\n  size: 80, 110\n  orig: 80, 110\n  offset: 0, 0\n  index: -1\nlv1-bong3\n  rotate: false\n  xy: 2, 116\n  size: 175, 118\n  orig: 175, 118\n  offset: 0, 0\n  index: -1\nlv1-dui1\n  rotate: false\n  xy: 185, 59\n  size: 95, 114\n  orig: 95, 114\n  offset: 0, 0\n  index: -1\nlv1-dui2\n  rotate: false\n  xy: 309, 171\n  size: 109, 107\n  orig: 109, 107\n  offset: 0, 0\n  index: -1\nlv1-dui3\n  rotate: false\n  xy: 2, 2\n  size: 99, 112\n  orig: 99, 112\n  offset: 0, 0\n  index: -1\nlv1-thot\n  rotate: false\n  xy: 2, 588\n  size: 193, 152\n  orig: 193, 152\n  offset: 0, 0\n  index: -1\nlv2-bong1\n  rotate: false\n  xy: 390, 532\n  size: 40, 41\n  orig: 40, 41\n  offset: 0, 0\n  index: -1\nlv2-bong2\n  rotate: false\n  xy: 2, 236\n  size: 187, 107\n  orig: 187, 107\n  offset: 0, 0\n  index: -1\nlv2-dui1\n  rotate: false\n  xy: 191, 175\n  size: 116, 118\n  orig: 116, 118\n  offset: 0, 0\n  index: -1\nlv2-dui2\n  rotate: false\n  xy: 330, 280\n  size: 104, 119\n  orig: 104, 119\n  offset: 0, 0\n  index: -1\nlv2-dui3\n  rotate: false\n  xy: 330, 280\n  size: 104, 119\n  orig: 104, 119\n  offset: 0, 0\n  index: -1\nlv2-la1\n  rotate: false\n  xy: 390, 495\n  size: 42, 35\n  orig: 42, 35\n  offset: 0, 0\n  index: -1\nlv2-la2\n  rotate: false\n  xy: 376, 413\n  size: 38, 39\n  orig: 38, 39\n  offset: 0, 0\n  index: -1\nlv2-la3\n  rotate: false\n  xy: 387, 454\n  size: 42, 39\n  orig: 42, 39\n  offset: 0, 0\n  index: -1\nlv2-thot\n  rotate: false\n  xy: 206, 902\n  size: 194, 152\n  orig: 194, 152\n  offset: 0, 0\n  index: -1\nlv3-bong\n  rotate: false\n  xy: 345, 686\n  size: 86, 90\n  orig: 86, 90\n  offset: 0, 0\n  index: -1\nlv3-bong2\n  rotate: false\n  xy: 2, 345\n  size: 190, 113\n  orig: 190, 113\n  offset: 0, 0\n  index: -1\nlv3-dui1\n  rotate: false\n  xy: 203, 650\n  size: 140, 126\n  orig: 140, 126\n  offset: 0, 0\n  index: -1\nlv3-dui2\n  rotate: false\n  xy: 204, 512\n  size: 130, 136\n  orig: 130, 136\n  offset: 0, 0\n  index: -1\nlv3-la1\n  rotate: false\n  xy: 336, 468\n  size: 49, 49\n  orig: 49, 49\n  offset: 0, 0\n  index: -1\nlv3-la2\n  rotate: false\n  xy: 336, 575\n  size: 69, 51\n  orig: 69, 51\n  offset: 0, 0\n  index: -1\nlv3-la3\n  rotate: false\n  xy: 358, 785\n  size: 72, 53\n  orig: 72, 53\n  offset: 0, 0\n  index: -1\nlv3-thot\n  rotate: false\n  xy: 2, 742\n  size: 199, 154\n  orig: 199, 154\n  offset: 0, 0\n  index: -1\nlv4-aaa\n  rotate: false\n  xy: 206, 778\n  size: 150, 122\n  orig: 150, 122\n  offset: 0, 0\n  index: -1\nlv4-bong1\n  rotate: false\n  xy: 336, 415\n  size: 38, 51\n  orig: 38, 51\n  offset: 0, 0\n  index: -1\nlv4-bong2\n  rotate: false\n  xy: 345, 628\n  size: 86, 56\n  orig: 86, 56\n  offset: 0, 0\n  index: -1\nlv4-bong3\n  rotate: false\n  xy: 358, 840\n  size: 75, 60\n  orig: 75, 60\n  offset: 0, 0\n  index: -1\nlv4-bong4\n  rotate: false\n  xy: 2, 460\n  size: 200, 126\n  orig: 200, 126\n  offset: 0, 0\n  index: -1\nlv4-chanh1\n  rotate: false\n  xy: 336, 519\n  size: 52, 54\n  orig: 52, 54\n  offset: 0, 0\n  index: -1\nlv4-chanh2\n  rotate: false\n  xy: 336, 519\n  size: 52, 54\n  orig: 52, 54\n  offset: 0, 0\n  index: -1\nlv4-dui1\n  rotate: false\n  xy: 204, 401\n  size: 130, 109\n  orig: 130, 109\n  offset: 0, 0\n  index: -1\nlv4-dui2\n  rotate: false\n  xy: 194, 295\n  size: 134, 104\n  orig: 134, 104\n  offset: 0, 0\n  index: -1\nlv4-dui3\n  rotate: false\n  xy: 282, 75\n  size: 114, 94\n  orig: 114, 94\n  offset: 0, 0\n  index: -1\nlv4-la\n  rotate: false\n  xy: 185, 4\n  size: 82, 53\n  orig: 82, 53\n  offset: 0, 0\n  index: -1\nlv4-thot\n  rotate: false\n  xy: 2, 898\n  size: 202, 156\n  orig: 202, 156\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "855d23bb-832d-4f62-8271-8204dea9b972"
+    }
+  ],
+  "textureNames": [
+    "Chiken-wing.png"
+  ],
+  "scale": 1
+}

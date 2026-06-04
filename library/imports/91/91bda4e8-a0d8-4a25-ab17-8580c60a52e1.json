@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "coca-2",
+    "texture": "02d85f5a-3771-45c9-a1bf-226418ae7ebd",
+    "atlas": "",
+    "rect": [
+      4,
+      0,
+      75,
+      126
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      83,
+      126
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

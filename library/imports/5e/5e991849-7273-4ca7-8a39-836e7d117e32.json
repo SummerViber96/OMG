@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chip-4",
+    "texture": "5e242d8b-079f-43fa-89c8-b8b5747a9265",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      96,
+      119
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      96,
+      119
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

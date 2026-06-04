@@ -1,0 +1,850 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "chicken-thigh",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "yPOEmxc969Ywd6Mqm+rkI/IIHkY",
+      "spine": "3.8.99"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "lv1-dui1",
+        "parent": "root",
+        "length": 89.89,
+        "rotation": 39.21,
+        "x": -21.46,
+        "y": 10.27
+      },
+      {
+        "name": "lv1-dui2",
+        "parent": "root",
+        "length": 81.92,
+        "rotation": 157.64,
+        "x": 29.26,
+        "y": 10.27
+      },
+      {
+        "name": "lv4-bong5",
+        "parent": "root",
+        "x": -2.31,
+        "y": 15.65
+      },
+      {
+        "name": "lv2-dui1",
+        "parent": "root",
+        "length": 103.81,
+        "rotation": 40.36,
+        "x": -11.41,
+        "y": 2.97
+      },
+      {
+        "name": "lv2-dui2",
+        "parent": "root",
+        "length": 115.54,
+        "rotation": 155.44,
+        "x": 33.79,
+        "y": -1.55
+      },
+      {
+        "name": "lv2-dui3",
+        "parent": "root",
+        "length": 112.41,
+        "rotation": 148.15,
+        "x": 78.99,
+        "y": 30.65
+      },
+      {
+        "name": "lv2-la",
+        "parent": "root",
+        "x": -11.98,
+        "y": 75.29
+      },
+      {
+        "name": "lv3-la",
+        "parent": "root",
+        "length": 32.64,
+        "rotation": 152.35,
+        "x": 0.92,
+        "y": -34.08
+      },
+      {
+        "name": "lv3-dui1",
+        "parent": "root",
+        "length": 72.45,
+        "rotation": 147.42,
+        "x": -18.36,
+        "y": -7.92
+      },
+      {
+        "name": "lv3-la2",
+        "parent": "root",
+        "length": 37.65,
+        "rotation": 44.01,
+        "x": 56,
+        "y": 40.28
+      },
+      {
+        "name": "lv3-dui2",
+        "parent": "root",
+        "length": 73.7,
+        "rotation": 140.56,
+        "x": 62.89,
+        "y": 11.82
+      },
+      {
+        "name": "lv4-la",
+        "parent": "root",
+        "x": -14.58,
+        "y": 73.51
+      },
+      {
+        "name": "lv4-dui2",
+        "parent": "root",
+        "length": 105.5,
+        "rotation": 146.63,
+        "x": -0.46,
+        "y": -19.82
+      },
+      {
+        "name": "lv4-dui1",
+        "parent": "root",
+        "length": 86.28,
+        "rotation": -0.82,
+        "x": -36.07,
+        "y": 44.96
+      },
+      {
+        "name": "lv4-dui3",
+        "parent": "root",
+        "length": 93.17,
+        "rotation": 130.72,
+        "x": 63.7,
+        "y": 17.02
+      },
+      {
+        "name": "lv4-aa",
+        "parent": "root",
+        "x": 37.63,
+        "y": 66.45
+      },
+      {
+        "name": "lv4-chanh1",
+        "parent": "root",
+        "x": -77.29,
+        "y": -8.69
+      },
+      {
+        "name": "lv4-chanh2",
+        "parent": "root",
+        "x": -49.44,
+        "y": -7.36
+      },
+      {
+        "name": "lv4-thot",
+        "parent": "root",
+        "x": -0.33,
+        "y": 33.98
+      }
+    ],
+    "slots": [
+      {
+        "name": "lv4-thot",
+        "bone": "lv4-thot"
+      },
+      {
+        "name": "lv4-bong5",
+        "bone": "lv4-bong5",
+        "blend": "multiply"
+      },
+      {
+        "name": "lv1-dui2",
+        "bone": "lv1-dui2"
+      },
+      {
+        "name": "lv1-dui1",
+        "bone": "lv1-dui1"
+      },
+      {
+        "name": "lv2-dui3",
+        "bone": "lv2-dui3"
+      },
+      {
+        "name": "lv2-dui2",
+        "bone": "lv2-dui2"
+      },
+      {
+        "name": "lv2-dui1",
+        "bone": "lv2-dui1"
+      },
+      {
+        "name": "lv2-bong1",
+        "bone": "lv2-la"
+      },
+      {
+        "name": "lv2-la",
+        "bone": "lv2-la"
+      },
+      {
+        "name": "lv3-dui2",
+        "bone": "lv3-dui2"
+      },
+      {
+        "name": "lv3-bong",
+        "bone": "lv3-dui2"
+      },
+      {
+        "name": "lv3-la2",
+        "bone": "lv3-la2"
+      },
+      {
+        "name": "lv3-dui1",
+        "bone": "lv3-dui1"
+      },
+      {
+        "name": "lv3-la",
+        "bone": "lv3-la"
+      },
+      {
+        "name": "lv4-aa",
+        "bone": "lv4-aa"
+      },
+      {
+        "name": "lv4-dui3",
+        "bone": "lv4-dui3"
+      },
+      {
+        "name": "lv4-bong4",
+        "bone": "root",
+        "blend": "multiply"
+      },
+      {
+        "name": "lv4-dui2",
+        "bone": "lv4-dui2"
+      },
+      {
+        "name": "lv4-bong3",
+        "bone": "root",
+        "blend": "multiply"
+      },
+      {
+        "name": "lv4-dui1",
+        "bone": "lv4-dui1"
+      },
+      {
+        "name": "lv4-bong2",
+        "bone": "root",
+        "blend": "multiply"
+      },
+      {
+        "name": "lv4-chanh2",
+        "bone": "lv4-chanh2"
+      },
+      {
+        "name": "lv4-bong1",
+        "bone": "lv4-chanh2",
+        "blend": "multiply"
+      },
+      {
+        "name": "lv4-chanh1",
+        "bone": "lv4-chanh1"
+      },
+      {
+        "name": "lv4-la",
+        "bone": "lv4-la"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "lv1-dui1": {
+            "lv1-dui1": {
+              "x": 48.19,
+              "y": -2.7,
+              "rotation": -39.21,
+              "width": 165,
+              "height": 151
+            }
+          },
+          "lv1-dui2": {
+            "lv1-dui2": {
+              "x": 48.43,
+              "y": -4.27,
+              "rotation": -157.64,
+              "width": 188,
+              "height": 115
+            }
+          },
+          "lv2-bong1": {
+            "lv2-bong1": {
+              "x": 2.56,
+              "y": 2.35,
+              "width": 91,
+              "height": 69
+            }
+          },
+          "lv2-dui1": {
+            "lv2-dui1": {
+              "x": 52.45,
+              "y": -2.37,
+              "rotation": -40.36,
+              "width": 178,
+              "height": 158
+            }
+          },
+          "lv2-dui2": {
+            "lv2-dui2": {
+              "x": 61.46,
+              "y": 3.14,
+              "rotation": -155.44,
+              "width": 205,
+              "height": 126
+            }
+          },
+          "lv2-dui3": {
+            "lv2-dui3": {
+              "x": 77.75,
+              "y": -4.06,
+              "rotation": -148.15,
+              "width": 202,
+              "height": 168
+            }
+          },
+          "lv2-la": {
+            "lv2-la": {
+              "x": 3.06,
+              "y": 7.85,
+              "width": 98,
+              "height": 70
+            }
+          },
+          "lv3-bong": {
+            "lv3-bong": {
+              "x": 71.1,
+              "y": 28.95,
+              "rotation": -140.56,
+              "width": 61,
+              "height": 75
+            }
+          },
+          "lv3-dui1": {
+            "lv3-dui1": {
+              "x": 32.6,
+              "y": -24.91,
+              "rotation": -147.42,
+              "width": 179,
+              "height": 143
+            }
+          },
+          "lv3-dui2": {
+            "lv3-dui2": {
+              "x": 48.19,
+              "y": -20.33,
+              "rotation": -140.56,
+              "width": 165,
+              "height": 168
+            }
+          },
+          "lv3-la": {
+            "lv3-la": {
+              "x": 35.09,
+              "y": -1.62,
+              "rotation": -152.35,
+              "width": 83,
+              "height": 61
+            }
+          },
+          "lv3-la2": {
+            "lv3-la2": {
+              "x": 41.97,
+              "y": 3.74,
+              "rotation": -44.01,
+              "width": 79,
+              "height": 80
+            }
+          },
+          "lv4-aa": {
+            "lv4-aa": {
+              "x": -11.04,
+              "y": -28.32,
+              "width": 163,
+              "height": 152
+            }
+          },
+          "lv4-bong1": {
+            "lv4-bong1": {
+              "x": -13.47,
+              "y": -7,
+              "width": 42,
+              "height": 55
+            }
+          },
+          "lv4-bong2": {
+            "lv4-bong2": {
+              "x": -8.91,
+              "y": 83.13,
+              "width": 96,
+              "height": 74
+            }
+          },
+          "lv4-bong3": {
+            "lv4-bong3": {
+              "x": -3.41,
+              "y": 39.13,
+              "width": 201,
+              "height": 146
+            }
+          },
+          "lv4-bong4": {
+            "lv4-bong4": {
+              "x": -3.41,
+              "y": 40.63,
+              "width": 201,
+              "height": 149
+            }
+          },
+          "lv4-bong5": {
+            "lv1-bong": {
+              "x": -2.1,
+              "y": 9.48,
+              "width": 211,
+              "height": 134
+            },
+            "lv2-bong2": {
+              "x": -0.6,
+              "y": 34.48,
+              "width": 246,
+              "height": 184
+            },
+            "lv3-bong2": {
+              "x": 2.9,
+              "y": 19.98,
+              "width": 247,
+              "height": 189
+            },
+            "lv4-bong5": {
+              "x": 4.9,
+              "y": 18.48,
+              "width": 251,
+              "height": 192
+            }
+          },
+          "lv4-chanh1": {
+            "lv4-chanh1": {
+              "x": 0.38,
+              "y": -2.18,
+              "width": 68,
+              "height": 62
+            }
+          },
+          "lv4-chanh2": {
+            "lv4-chanh2": {
+              "x": -0.47,
+              "y": -3.5,
+              "width": 68,
+              "height": 62
+            }
+          },
+          "lv4-dui1": {
+            "lv4-dui1": {
+              "x": 36.71,
+              "y": -3.3,
+              "rotation": 0.82,
+              "width": 195,
+              "height": 126
+            }
+          },
+          "lv4-dui2": {
+            "lv4-dui2": {
+              "x": 61.67,
+              "y": -21,
+              "rotation": -146.63,
+              "width": 159,
+              "height": 165
+            }
+          },
+          "lv4-dui3": {
+            "lv4-dui3": {
+              "x": 46.61,
+              "y": -14.24,
+              "rotation": -130.72,
+              "width": 164,
+              "height": 149
+            }
+          },
+          "lv4-la": {
+            "lv4-la": {
+              "x": -0.33,
+              "y": 16.13,
+              "width": 102,
+              "height": 71
+            }
+          },
+          "lv4-thot": {
+            "lv1-thot": {
+              "x": -0.08,
+              "y": -9.85,
+              "width": 241,
+              "height": 190
+            },
+            "lv2-thot": {
+              "x": -0.58,
+              "y": -9.85,
+              "width": 242,
+              "height": 190
+            },
+            "lv3-thot": {
+              "x": -0.08,
+              "y": -8.35,
+              "width": 249,
+              "height": 193
+            },
+            "lv4-thot": {
+              "x": -0.08,
+              "y": -11.35,
+              "width": 253,
+              "height": 193
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "lv1-idle": {
+        "slots": {
+          "lv1-dui1": {
+            "attachment": [
+              {
+                "name": "lv1-dui1"
+              }
+            ]
+          },
+          "lv1-dui2": {
+            "attachment": [
+              {
+                "name": "lv1-dui2"
+              }
+            ]
+          },
+          "lv4-bong5": {
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          },
+          "lv4-thot": {
+            "attachment": [
+              {
+                "name": "lv1-thot"
+              }
+            ]
+          }
+        }
+      },
+      "lv1-tap": {
+        "slots": {
+          "lv1-dui1": {
+            "attachment": [
+              {
+                "name": "lv1-dui1"
+              }
+            ]
+          },
+          "lv1-dui2": {
+            "attachment": [
+              {
+                "name": "lv1-dui2"
+              }
+            ]
+          },
+          "lv4-bong5": {
+            "color": [
+              {
+                "time": 0.3333,
+                "color": "ffffffff",
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffff92",
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 1,
+                "color": "ffffffff"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          },
+          "lv4-thot": {
+            "attachment": [
+              {
+                "name": "lv1-thot"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "lv1-dui2": {
+            "rotate": [
+              {
+                "time": 0.1667,
+                "curve": 0.303,
+                "c3": 0.272
+              },
+              {
+                "time": 0.5,
+                "angle": 5.19,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.8333,
+                "angle": -12.01,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 1.1667,
+                "angle": 5.19,
+                "curve": 0.303,
+                "c3": 0.272
+              },
+              {
+                "time": 1.5
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.1667,
+                "curve": 0.303,
+                "c3": 0.272
+              },
+              {
+                "time": 0.5,
+                "x": -6.71,
+                "y": -16.47,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.8333,
+                "x": 1.85,
+                "y": 56.92,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 1.1667,
+                "x": -6.71,
+                "y": -16.47,
+                "curve": 0.303,
+                "c3": 0.272
+              },
+              {
+                "time": 1.5
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1667,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.5,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.8333,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 1.1667,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.303,
+                "c3": 0.272
+              },
+              {
+                "time": 1.5
+              }
+            ]
+          },
+          "lv1-dui1": {
+            "rotate": [
+              {
+                "curve": 0.268,
+                "c3": 0.281
+              },
+              {
+                "time": 0.3333,
+                "angle": -7.66,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.6667,
+                "angle": 14.77,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 1,
+                "angle": -7.66,
+                "curve": 0.268,
+                "c3": 0.272
+              },
+              {
+                "time": 1.3333
+              }
+            ],
+            "translate": [
+              {
+                "curve": 0.268,
+                "c3": 0.281
+              },
+              {
+                "time": 0.3333,
+                "x": 3.12,
+                "y": -12.16,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.6667,
+                "x": 0.3,
+                "y": 34.9,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 1,
+                "x": 3.12,
+                "y": -12.16,
+                "curve": 0.268,
+                "c3": 0.272
+              },
+              {
+                "time": 1.3333
+              }
+            ],
+            "scale": [
+              {
+                "curve": 0.268,
+                "c3": 0.281
+              },
+              {
+                "time": 0.3333,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.6667,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 1,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.268,
+                "c3": 0.272
+              },
+              {
+                "time": 1.3333
+              }
+            ]
+          },
+          "lv4-bong5": {
+            "translate": [
+              {
+                "curve": 0.277,
+                "c3": 0.281
+              },
+              {
+                "time": 0.3333,
+                "y": -6.73,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.6667,
+                "y": 1.84,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 1,
+                "y": -6.73,
+                "curve": 0.277,
+                "c3": 0.281
+              },
+              {
+                "time": 1.3333
+              }
+            ],
+            "scale": [
+              {
+                "curve": 0.277,
+                "c3": 0.281
+              },
+              {
+                "time": 0.3333,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 0.6667,
+                "x": 1.05,
+                "y": 1.05,
+                "curve": 0.728,
+                "c3": 0.865
+              },
+              {
+                "time": 1,
+                "x": 0.9,
+                "y": 0.9,
+                "curve": 0.277,
+                "c3": 0.281
+              },
+              {
+                "time": 1.3333
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nchicken-thigh.png\nsize: 1908,280\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nlv1-bong\n  rotate: false\n  xy: 328, 15\n  size: 169, 107\n  orig: 169, 107\n  offset: 0, 0\n  index: -1\nlv1-dui1\n  rotate: false\n  xy: 810, 3\n  size: 132, 121\n  orig: 132, 121\n  offset: 0, 0\n  index: -1\nlv1-dui2\n  rotate: false\n  xy: 1645, 52\n  size: 150, 92\n  orig: 150, 92\n  offset: 0, 0\n  index: -1\nlv1-thot\n  rotate: false\n  xy: 1006, 126\n  size: 193, 152\n  orig: 193, 152\n  offset: 0, 0\n  index: -1\nlv2-bong1\n  rotate: false\n  xy: 1777, 223\n  size: 73, 55\n  orig: 73, 55\n  offset: 0, 0\n  index: -1\nlv2-bong2\n  rotate: false\n  xy: 1201, 131\n  size: 197, 147\n  orig: 197, 147\n  offset: 0, 0\n  index: -1\nlv2-dui1\n  rotate: false\n  xy: 1234, 3\n  size: 142, 126\n  orig: 142, 126\n  offset: 0, 0\n  index: -1\nlv2-dui2\n  rotate: false\n  xy: 499, 21\n  size: 164, 101\n  orig: 164, 101\n  offset: 0, 0\n  index: -1\nlv2-dui3\n  rotate: false\n  xy: 1400, 144\n  size: 162, 134\n  orig: 162, 134\n  offset: 0, 0\n  index: -1\nlv2-la\n  rotate: false\n  xy: 1772, 163\n  size: 78, 56\n  orig: 78, 56\n  offset: 0, 0\n  index: -1\nlv2-thot\n  rotate: false\n  xy: 810, 126\n  size: 194, 152\n  orig: 194, 152\n  offset: 0, 0\n  index: -1\nlv3-bong\n  rotate: false\n  xy: 1852, 218\n  size: 49, 60\n  orig: 49, 60\n  offset: 0, 0\n  index: -1\nlv3-bong2\n  rotate: false\n  xy: 610, 127\n  size: 198, 151\n  orig: 198, 151\n  offset: 0, 0\n  index: -1\nlv3-dui1\n  rotate: false\n  xy: 665, 11\n  size: 143, 114\n  orig: 143, 114\n  offset: 0, 0\n  index: -1\nlv3-dui2\n  rotate: false\n  xy: 1511, 8\n  size: 132, 134\n  orig: 132, 134\n  offset: 0, 0\n  index: -1\nlv3-la\n  rotate: false\n  xy: 1797, 46\n  size: 66, 49\n  orig: 66, 49\n  offset: 0, 0\n  index: -1\nlv3-la2\n  rotate: false\n  xy: 1797, 97\n  size: 63, 64\n  orig: 63, 64\n  offset: 0, 0\n  index: -1\nlv3-thot\n  rotate: false\n  xy: 409, 124\n  size: 199, 154\n  orig: 199, 154\n  offset: 0, 0\n  index: -1\nlv4-aa\n  rotate: false\n  xy: 944, 2\n  size: 130, 122\n  orig: 130, 122\n  offset: 0, 0\n  index: -1\nlv4-bong1\n  rotate: false\n  xy: 1645, 6\n  size: 34, 44\n  orig: 34, 44\n  offset: 0, 0\n  index: -1\nlv4-bong2\n  rotate: false\n  xy: 1693, 160\n  size: 77, 59\n  orig: 77, 59\n  offset: 0, 0\n  index: -1\nlv4-bong3\n  rotate: false\n  xy: 165, 5\n  size: 161, 117\n  orig: 161, 117\n  offset: 0, 0\n  index: -1\nlv4-bong4\n  rotate: false\n  xy: 2, 3\n  size: 161, 119\n  orig: 161, 119\n  offset: 0, 0\n  index: -1\nlv4-bong5\n  rotate: false\n  xy: 206, 124\n  size: 201, 154\n  orig: 201, 154\n  offset: 0, 0\n  index: -1\nlv4-chanh1\n  rotate: false\n  xy: 1852, 166\n  size: 54, 50\n  orig: 54, 50\n  offset: 0, 0\n  index: -1\nlv4-chanh2\n  rotate: false\n  xy: 1852, 166\n  size: 54, 50\n  orig: 54, 50\n  offset: 0, 0\n  index: -1\nlv4-dui1\n  rotate: false\n  xy: 1076, 23\n  size: 156, 101\n  orig: 156, 101\n  offset: 0, 0\n  index: -1\nlv4-dui2\n  rotate: false\n  xy: 1564, 146\n  size: 127, 132\n  orig: 127, 132\n  offset: 0, 0\n  index: -1\nlv4-dui3\n  rotate: false\n  xy: 1378, 10\n  size: 131, 119\n  orig: 131, 119\n  offset: 0, 0\n  index: -1\nlv4-la\n  rotate: false\n  xy: 1693, 221\n  size: 82, 57\n  orig: 82, 57\n  offset: 0, 0\n  index: -1\nlv4-thot\n  rotate: false\n  xy: 2, 124\n  size: 202, 154\n  orig: 202, 154\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "c17af322-89b8-4b4c-b850-7b7bebcc3611"
+    }
+  ],
+  "textureNames": [
+    "chicken-thigh.png"
+  ],
+  "scale": 1
+}

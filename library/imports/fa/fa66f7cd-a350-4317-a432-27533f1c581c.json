@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv1-maync2",
+    "texture": "c03905c6-7203-49a7-a7ab-1089ad0d0491",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      242,
+      227
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      242,
+      227
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

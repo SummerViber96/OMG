@@ -1,0 +1,62 @@
+
+cupcake.png
+size: 332, 368
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+lv1-bong
+  rotate: true
+  xy: 141, 106
+  size: 87, 75
+  orig: 89, 77
+  offset: 1, 1
+  index: -1
+lv1-cc
+  rotate: false
+  xy: 228, 248
+  size: 100, 118
+  orig: 102, 120
+  offset: 1, 1
+  index: -1
+lv1-tray
+  rotate: false
+  xy: 2, 195
+  size: 224, 171
+  orig: 226, 173
+  offset: 1, 1
+  index: -1
+lv2-cc
+  rotate: false
+  xy: 228, 128
+  size: 100, 118
+  orig: 102, 120
+  offset: 1, 1
+  index: -1
+lv3-bong
+  rotate: true
+  xy: 141, 17
+  size: 87, 75
+  orig: 89, 77
+  offset: 1, 1
+  index: -1
+lv3-cc
+  rotate: true
+  xy: 2, 94
+  size: 99, 137
+  orig: 101, 139
+  offset: 1, 1
+  index: -1
+lv4-bong
+  rotate: false
+  xy: 2, 19
+  size: 95, 73
+  orig: 99, 77
+  offset: 2, 2
+  index: -1
+lv4-cc
+  rotate: false
+  xy: 218, 2
+  size: 106, 124
+  orig: 108, 126
+  offset: 1, 1
+  index: -1

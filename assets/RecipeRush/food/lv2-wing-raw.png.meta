@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "226c10eb-a0c3-489e-880d-f7d0ca072c38",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 159,
+  "height": 134,
+  "platformSettings": {},
+  "subMetas": {
+    "lv2-wing-raw": {
+      "ver": "1.0.4",
+      "uuid": "bb099a26-c5c8-4627-9665-cc2a9e3c25cd",
+      "rawTextureUuid": "226c10eb-a0c3-489e-880d-f7d0ca072c38",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 8,
+      "offsetY": 0,
+      "trimX": 40,
+      "trimY": 10,
+      "width": 95,
+      "height": 114,
+      "rawWidth": 159,
+      "rawHeight": 134,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

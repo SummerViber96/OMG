@@ -1,0 +1,90 @@
+
+cup-lemonade.png
+size: 320, 256
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+coca
+  rotate: false
+  xy: 84, 24
+  size: 17, 103
+  orig: 17, 103
+  offset: 0, 0
+  index: -1
+lv1-coca
+  rotate: false
+  xy: 103, 17
+  size: 58, 43
+  orig: 60, 45
+  offset: 1, 1
+  index: -1
+lv1-cup1
+  rotate: false
+  xy: 164, 136
+  size: 70, 116
+  orig: 70, 116
+  offset: 0, 0
+  index: -1
+lv1-cup2
+  rotate: false
+  xy: 164, 54
+  size: 70, 80
+  orig: 72, 82
+  offset: 1, 1
+  index: -1
+lv2-coca
+  rotate: false
+  xy: 163, 5
+  size: 63, 47
+  orig: 65, 49
+  offset: 1, 1
+  index: -1
+lv2-cup1
+  rotate: false
+  xy: 87, 130
+  size: 75, 122
+  orig: 79, 122
+  offset: 2, 0
+  index: -1
+lv2-cup2
+  rotate: true
+  xy: 236, 95
+  size: 73, 82
+  orig: 75, 84
+  offset: 1, 1
+  index: -1
+lv3-coca
+  rotate: true
+  xy: 103, 62
+  size: 66, 49
+  orig: 68, 51
+  offset: 1, 1
+  index: -1
+lv3-cup1
+  rotate: false
+  xy: 2, 129
+  size: 83, 123
+  orig: 86, 123
+  offset: 2, 0
+  index: -1
+lv3-cup2
+  rotate: false
+  xy: 236, 170
+  size: 82, 82
+  orig: 90, 84
+  offset: 4, 1
+  index: -1
+lv4-cup1
+  rotate: false
+  xy: 2, 2
+  size: 80, 125
+  orig: 84, 130
+  offset: 2, 3
+  index: -1
+lv4-cup2
+  rotate: false
+  xy: 236, 10
+  size: 80, 83
+  orig: 84, 87
+  offset: 2, 2
+  index: -1

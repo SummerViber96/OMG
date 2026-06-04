@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lv4-lettuce2",
+    "texture": "9f8e3660-783b-42a2-82c6-8194f166fc43",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      187,
+      190
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      187,
+      190
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

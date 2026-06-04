@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "drink1-4",
+    "texture": "07250b74-27c6-4d34-a136-d580dee5565b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      80,
+      126
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      80,
+      126
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

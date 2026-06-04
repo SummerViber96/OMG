@@ -92,7 +92,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.notiCoin = null;
         _this.notiMission = null;
         _this.listPreCus = [];
-        _this.bg = null;
+        // @property(cc.Node)
+        // bg: cc.Node = null
         _this.table = null;
         _this.listMenu = null;
         _this.handtut = null;
@@ -832,13 +833,13 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1;
+        this.camera.zoomRatio = 0.7;
         this.endCard.scale = (logic) ? 1.2 : 0.7;
         this.endCardWin.scale = (logic) ? 1.2 : 0.7;
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
-        this.camera.node.position = (logic) ? cc.v3(-200, 140) : cc.v3(0, 50);
+        // this.camera.node.position = (logic) ? cc.v3(-200, 140) : cc.v3(0, 50)
         this.barCoin.scale = (logic) ? 2.5 : 1.4;
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80;
         this.phaoHoa.scale = (logic) ? 9 : 5;
@@ -849,8 +850,8 @@ var NewClass = /** @class */ (function (_super) {
         this.listKhay.scale = (logic) ? 1.1 : 1;
         this.timeup.scale = (logic) ? 1 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
-        this.bg.scale = (logic) ? 2.1 : 1;
-        this.bg.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50);
+        // this.bg.scale = (logic) ? 2.1 : 1
+        // this.bg.position = (logic) ? cc.v3(-200, 0) : cc.v3(0, 50)
         this.listMenu.scale = (logic) ? 1.1 : 1;
         this.endCardDoc.scale = 1.5;
         this.notiMission.scale = (logic) ? 1.6 : 1;
@@ -1051,9 +1052,6 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property([cc.Prefab])
     ], NewClass.prototype, "listPreCus", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "bg", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "table", void 0);

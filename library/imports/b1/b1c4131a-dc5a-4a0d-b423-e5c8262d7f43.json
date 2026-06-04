@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pr-bubble-color",
+    "texture": "09b28d64-32e7-4b51-b2a9-5ff7aea3c5d2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      20,
+      242
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      20,
+      242
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
