@@ -1,0 +1,34 @@
+
+sauces.png
+size: 132,252
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lv4-bot1
+  rotate: false
+  xy: 2, 2
+  size: 49, 98
+  orig: 49, 98
+  offset: 0, 0
+  index: -1
+lv4-bot2
+  rotate: false
+  xy: 53, 2
+  size: 49, 98
+  orig: 49, 98
+  offset: 0, 0
+  index: -1
+lv4-box1
+  rotate: false
+  xy: 2, 102
+  size: 114, 40
+  orig: 114, 40
+  offset: 0, 0
+  index: -1
+lv4-box2
+  rotate: false
+  xy: 2, 144
+  size: 128, 106
+  orig: 128, 106
+  offset: 0, 0
+  index: -1

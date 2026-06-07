@@ -10,7 +10,7 @@ export default class NewClass extends cc.Component {
     soundAngry: cc.AudioClip = null
     @property(cc.AudioClip)
     soundAngry2: cc.AudioClip = null
-     @property(cc.AudioClip)
+    @property(cc.AudioClip)
     soundHello: cc.AudioClip = null
     @property(cc.Boolean)
     dau = false
@@ -53,8 +53,10 @@ export default class NewClass extends cc.Component {
     }
     showMission() {
         this.pop.getComponent(cc.Animation).play()
-        if(this.soundHello){
-            cc.audioEngine.play(this.soundHello,false,1)
+        this.anim.setAnimation(0, "idle", false)
+
+        if (this.soundHello) {
+            cc.audioEngine.play(this.soundHello, false, 1)
         }
         // this.loadTime()
     }
@@ -118,7 +120,7 @@ export default class NewClass extends cc.Component {
 
     }
     move() {
-        this.anim.setAnimation(0, "happy", false)
+        this.anim.setAnimation(0, "walk", false)
 
     }
     end(value) {
@@ -184,7 +186,7 @@ export default class NewClass extends cc.Component {
 
         cc.audioEngine.play(this.soundAngry2, false, 1)
         let wrongtick = this.pop.getChildByName('x')
-        wrongtick.active=true
+        wrongtick.active = true
         wrongtick.getComponent(cc.Animation).play()
         this.scheduleOnce(() => {
             wrongtick.active = false

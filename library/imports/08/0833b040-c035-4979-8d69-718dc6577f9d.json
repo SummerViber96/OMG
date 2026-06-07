@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Chicken-thigh",
+    "texture": "d97ed738-cd48-46b6-a63e-30660e71585a",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      168,
+      794
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      172,
+      800
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

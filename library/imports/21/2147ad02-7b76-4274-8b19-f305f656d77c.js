@@ -60,6 +60,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.showMission = function () {
         this.pop.getComponent(cc.Animation).play();
+        this.anim.setAnimation(0, "idle", false);
         if (this.soundHello) {
             cc.audioEngine.play(this.soundHello, false, 1);
         }
@@ -116,7 +117,7 @@ var NewClass = /** @class */ (function (_super) {
         globalThis.gold += 50;
     };
     NewClass.prototype.move = function () {
-        this.anim.setAnimation(0, "happy", false);
+        this.anim.setAnimation(0, "walk", false);
     };
     NewClass.prototype.end = function (value) {
         var _this = this;

@@ -1,0 +1,13 @@
+
+hand.png
+size: 116,108
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hand
+  rotate: false
+  xy: 2, 2
+  size: 112, 102
+  orig: 112, 102
+  offset: 0, 0
+  index: -1

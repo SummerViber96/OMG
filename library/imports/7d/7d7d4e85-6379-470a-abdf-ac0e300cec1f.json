@@ -1,0 +1,324 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "sauces",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "e7R9UJ+Uiov60/q4VSJKt7znyQ0",
+      "spine": "3.8.99"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "lv4-bot1",
+        "parent": "root",
+        "length": 87.29,
+        "rotation": 90.31,
+        "x": -41.03,
+        "y": -15.95
+      },
+      {
+        "name": "lv1-bot4",
+        "parent": "root",
+        "length": 80.67,
+        "rotation": 90,
+        "x": 43.86,
+        "y": -6.16
+      },
+      {
+        "name": "lv1-bot5",
+        "parent": "root",
+        "length": 80.67,
+        "rotation": 90,
+        "x": 43.86,
+        "y": -6.16
+      },
+      {
+        "name": "lv4-bot2",
+        "parent": "root",
+        "length": 87.29,
+        "rotation": 90.31,
+        "x": 53.97,
+        "y": -15.43
+      }
+    ],
+    "slots": [
+      {
+        "name": "lv4-box2",
+        "bone": "root"
+      },
+      {
+        "name": "lv1-bot5",
+        "bone": "lv1-bot5"
+      },
+      {
+        "name": "lv1-bot4",
+        "bone": "lv1-bot4"
+      },
+      {
+        "name": "lv4-bot1",
+        "bone": "lv4-bot1"
+      },
+      {
+        "name": "lv4-bot3",
+        "bone": "lv4-bot2"
+      },
+      {
+        "name": "lv4-box1",
+        "bone": "root"
+      },
+      {
+        "name": "lv4-bot2",
+        "bone": "root"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "lv4-bot1": {
+            "lv4-bot2": {
+              "x": 84.75,
+              "y": 3,
+              "rotation": -90.31,
+              "width": 98,
+              "height": 196
+            }
+          },
+          "lv4-bot3": {
+            "lv4-bot1": {
+              "x": 84.46,
+              "y": -0.36,
+              "rotation": -90.31,
+              "width": 98,
+              "height": 196
+            }
+          },
+          "lv4-box1": {
+            "lv4-box1": {
+              "x": 2.87,
+              "y": -5.48,
+              "width": 228,
+              "height": 79
+            }
+          },
+          "lv4-box2": {
+            "lv4-box2": {
+              "x": 3.37,
+              "y": 46.52,
+              "width": 255,
+              "height": 211
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "lv4-idle": {
+        "slots": {
+          "lv4-bot1": {
+            "attachment": [
+              {
+                "name": "lv4-bot2"
+              }
+            ]
+          },
+          "lv4-bot3": {
+            "attachment": [
+              {
+                "name": "lv4-bot1"
+              }
+            ]
+          },
+          "lv4-box1": {
+            "attachment": [
+              {
+                "name": "lv4-box1"
+              }
+            ]
+          },
+          "lv4-box2": {
+            "attachment": [
+              {
+                "name": "lv4-box2"
+              }
+            ]
+          }
+        }
+      },
+      "lv4-tap": {
+        "slots": {
+          "lv4-bot1": {
+            "attachment": [
+              {
+                "name": "lv4-bot2"
+              }
+            ]
+          },
+          "lv4-bot3": {
+            "attachment": [
+              {
+                "name": "lv4-bot1"
+              }
+            ]
+          },
+          "lv4-box1": {
+            "attachment": [
+              {
+                "name": "lv4-box1"
+              }
+            ]
+          },
+          "lv4-box2": {
+            "attachment": [
+              {
+                "name": "lv4-box2"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "lv4-bot1": {
+            "translate": [
+              {
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.1667,
+                "x": 0.03,
+                "y": -4.91,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.3333,
+                "x": -0.22,
+                "y": 40.44,
+                "curve": 0.728,
+                "c3": 0.75
+              },
+              {
+                "time": 0.6667,
+                "x": 0.03,
+                "y": -4.91,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.8333
+              }
+            ],
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.29
+              },
+              {
+                "time": 0.1667,
+                "x": 0.837,
+                "y": 1.084,
+                "curve": 0.737,
+                "c3": 0.75
+              },
+              {
+                "time": 0.3333,
+                "x": 1.103,
+                "y": 0.929,
+                "curve": 0.737,
+                "c3": 0.75
+              },
+              {
+                "time": 0.6667,
+                "x": 0.837,
+                "y": 1.084,
+                "curve": 0.25,
+                "c3": 0.29
+              },
+              {
+                "time": 0.8333
+              }
+            ]
+          },
+          "lv4-bot2": {
+            "translate": [
+              {
+                "time": 0.1,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.2667,
+                "x": 0.04,
+                "y": -7.32,
+                "curve": 0.737,
+                "c3": 0.75
+              },
+              {
+                "time": 0.4333,
+                "x": -0.28,
+                "y": 51.98,
+                "curve": 0.737,
+                "c3": 0.75
+              },
+              {
+                "time": 0.7,
+                "x": 0.04,
+                "y": -7.32,
+                "curve": 0.25,
+                "c3": 0.281
+              },
+              {
+                "time": 0.8667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1,
+                "curve": 0.25,
+                "c3": 0.29
+              },
+              {
+                "time": 0.2667,
+                "x": 0.837,
+                "y": 1.084,
+                "curve": 0.737,
+                "c3": 0.75
+              },
+              {
+                "time": 0.4333,
+                "x": 1.103,
+                "y": 0.929,
+                "curve": 0.737,
+                "c3": 0.75
+              },
+              {
+                "time": 0.7,
+                "x": 0.837,
+                "y": 1.084,
+                "curve": 0.25,
+                "c3": 0.29
+              },
+              {
+                "time": 0.8667
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nsauces.png\nsize: 132,252\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nlv4-bot1\n  rotate: false\n  xy: 2, 2\n  size: 49, 98\n  orig: 49, 98\n  offset: 0, 0\n  index: -1\nlv4-bot2\n  rotate: false\n  xy: 53, 2\n  size: 49, 98\n  orig: 49, 98\n  offset: 0, 0\n  index: -1\nlv4-box1\n  rotate: false\n  xy: 2, 102\n  size: 114, 40\n  orig: 114, 40\n  offset: 0, 0\n  index: -1\nlv4-box2\n  rotate: false\n  xy: 2, 144\n  size: 128, 106\n  orig: 128, 106\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "342a03cd-6620-4587-ba53-38a2fc05b0e2"
+    }
+  ],
+  "textureNames": [
+    "sauces.png"
+  ],
+  "scale": 1
+}

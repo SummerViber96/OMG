@@ -1,0 +1,117 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "hand",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "LCDIE6QgZ6AqHnQE8F794Evd0nw",
+      "spine": "3.8.99",
+      "x": -137.19,
+      "y": -88.46,
+      "width": 224,
+      "height": 204
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "all",
+        "parent": "root"
+      },
+      {
+        "name": "all2",
+        "parent": "all"
+      }
+    ],
+    "slots": [
+      {
+        "name": "hand",
+        "bone": "all2",
+        "attachment": "hand"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "hand": {
+            "hand": {
+              "x": -25.19,
+              "y": 13.54,
+              "width": 224,
+              "height": 204
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "action": {
+        "bones": {
+          "all": {
+            "translate": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.4,
+                "x": -63.46,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 1
+              }
+            ],
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.4,
+                "x": 0.85,
+                "y": 0.85,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 1
+              }
+            ]
+          },
+          "all2": {
+            "translate": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.4,
+                "y": 82.37,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nhand.png\nsize: 116,108\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nhand\n  rotate: false\n  xy: 2, 2\n  size: 112, 102\n  orig: 112, 102\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "fe5138b9-3133-44e0-be3e-aed05679dcea"
+    }
+  ],
+  "textureNames": [
+    "hand.png"
+  ],
+  "scale": 1
+}

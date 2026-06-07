@@ -1,0 +1,181 @@
+
+Chicken-thigh.png
+size: 172,800
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bb
+  rotate: false
+  xy: 163, 435
+  size: 7, 6
+  orig: 7, 6
+  offset: 0, 0
+  index: -1
+lv1-burnt
+  rotate: false
+  xy: 2, 371
+  size: 76, 68
+  orig: 76, 68
+  offset: 0, 0
+  index: -1
+lv1-cooked
+  rotate: false
+  xy: 85, 372
+  size: 76, 69
+  orig: 76, 69
+  offset: 0, 0
+  index: -1
+lv1-oil
+  rotate: false
+  xy: 2, 2
+  size: 72, 53
+  orig: 72, 53
+  offset: 0, 0
+  index: -1
+lv1-oil2
+  rotate: false
+  xy: 2, 57
+  size: 79, 57
+  orig: 79, 57
+  offset: 0, 0
+  index: -1
+lv1-raw
+  rotate: false
+  xy: 2, 234
+  size: 71, 65
+  orig: 71, 65
+  offset: 0, 0
+  index: -1
+lv1-shadow
+  rotate: false
+  xy: 2, 301
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+lv2-burnt
+  rotate: false
+  xy: 88, 725
+  size: 82, 71
+  orig: 82, 71
+  offset: 0, 0
+  index: -1
+lv2-cooked
+  rotate: false
+  xy: 88, 652
+  size: 82, 71
+  orig: 82, 71
+  offset: 0, 0
+  index: -1
+lv2-oil
+  rotate: false
+  xy: 84, 116
+  size: 79, 61
+  orig: 79, 61
+  offset: 0, 0
+  index: -1
+lv2-oil2
+  rotate: false
+  xy: 83, 5
+  size: 82, 53
+  orig: 82, 53
+  offset: 0, 0
+  index: -1
+lv2-raw
+  rotate: false
+  xy: 85, 510
+  size: 79, 70
+  orig: 79, 70
+  offset: 0, 0
+  index: -1
+lv2-shadow
+  rotate: false
+  xy: 2, 579
+  size: 81, 71
+  orig: 81, 71
+  offset: 0, 0
+  index: -1
+lv3-burnt
+  rotate: false
+  xy: 2, 510
+  size: 81, 67
+  orig: 81, 67
+  offset: 0, 0
+  index: -1
+lv3-cooked
+  rotate: false
+  xy: 2, 441
+  size: 81, 67
+  orig: 81, 67
+  offset: 0, 0
+  index: -1
+lv3-oil
+  rotate: false
+  xy: 75, 179
+  size: 80, 62
+  orig: 80, 62
+  offset: 0, 0
+  index: -1
+lv3-oil2
+  rotate: false
+  xy: 83, 60
+  size: 81, 54
+  orig: 81, 54
+  offset: 0, 0
+  index: -1
+lv3-raw
+  rotate: false
+  xy: 80, 306
+  size: 80, 64
+  orig: 80, 64
+  offset: 0, 0
+  index: -1
+lv3-raw copy
+  rotate: false
+  xy: 85, 443
+  size: 81, 65
+  orig: 81, 65
+  offset: 0, 0
+  index: -1
+lv4-burnt
+  rotate: false
+  xy: 2, 725
+  size: 84, 71
+  orig: 84, 71
+  offset: 0, 0
+  index: -1
+lv4-cooked
+  rotate: false
+  xy: 2, 652
+  size: 84, 71
+  orig: 84, 71
+  offset: 0, 0
+  index: -1
+lv4-oil
+  rotate: false
+  xy: 2, 116
+  size: 80, 61
+  orig: 80, 61
+  offset: 0, 0
+  index: -1
+lv4-oil2
+  rotate: false
+  xy: 78, 243
+  size: 82, 61
+  orig: 82, 61
+  offset: 0, 0
+  index: -1
+lv4-raw
+  rotate: false
+  xy: 85, 582
+  size: 82, 68
+  orig: 82, 68
+  offset: 0, 0
+  index: -1
+smoke
+  rotate: false
+  xy: 2, 179
+  size: 57, 53
+  orig: 57, 53
+  offset: 0, 0
+  index: -1

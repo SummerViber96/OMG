@@ -11,23 +11,25 @@
                     function __define (exports, require, module) {
                         if (!nodeEnv) {__quick_compile_project__.registerModule(__filename, module);}
 require('./assets/CakeAssembly/script/barCoin');
-require('./assets/CakeAssembly/script/barTime');
 require('./assets/CakeAssembly/script/timeClock');
 require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');
 require('./assets/HF/touch');
 require('./assets/New Folder/Scripts/Item');
 require('./assets/New Folder/Scripts/Ray');
+require('./assets/RecipeRush/scripts/GameDonut');
+require('./assets/RecipeRush/scripts/barTime');
+require('./assets/RecipeRush/scripts/chicken');
+require('./assets/RecipeRush/scripts/machine');
+require('./assets/RecipeRush/scripts/mc');
 require('./assets/cooking/ietm/buger');
 require('./assets/cooking/ietm/cake');
-require('./assets/cooking/ietm/cake2');
 require('./assets/cooking/ietm/cusMission');
 require('./assets/cooking/ietm/donut');
 require('./assets/cooking/ietm/meat');
 require('./assets/cooking/ietm/preBread');
 require('./assets/scripts/APP/CC2');
 require('./assets/scripts/APP/GameApp');
-require('./assets/scripts/APP/GameDonut');
 require('./assets/scripts/APP/guildText');
 require('./assets/scripts/APP/listitem');
 require('./assets/scripts/APP/lock');
