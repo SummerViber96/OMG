@@ -133,6 +133,10 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     btnCoca: cc.Node = null;
     @property(cc.Node)
+    btnCake: cc.Node = null;
+    @property(cc.Node)
+    btnPotato: cc.Node = null;
+    @property(cc.Node)
     mc: cc.Node = null;
     mcComp = null
 
@@ -157,6 +161,7 @@ export default class NewClass extends cc.Component {
     isTargetCus = null;
     adChanel = '{{__adv_channels_adapter__}}'
     countCus = 0
+    maxCustomers = 6
     idSound = null
     isStep = 0
     //item: 0:buger, 1: kem 2:donut 3:khoaitay 4:pho 5: pudding 6: tra  7:banhmi 8:coconut
@@ -166,6 +171,13 @@ export default class NewClass extends cc.Component {
     arrKhay = []
     arrTargetMission = []
     arrCus = []
+    sellTargetCus = null
+    sellTraySlot = -1
+    cusCounterPos = null
+    cusSlotGap = 500
+    cusEnterOffset = cc.v3(350, 0, 0)
+    cusWalkSpeed = 437.5
+    counterCusCount = 0
     isStartgame = false
     isFirstClick = false
     //0:banh thuong 1:chocolate 2: strawberry 
@@ -190,63 +202,194 @@ export default class NewClass extends cc.Component {
     }
     isHand = null
 
-    startGame() {
-        for (let i = 0; i < this.arrCus.length; i++) {
-            let cus = this.arrCus[i];
-            if (i == 0) {
-                cus.active = true
-            }
-            cc.tween(cus).by(0.8, { position: cc.v3(-350, 0) }).start();
+    initCusQueue() {
+        if (!this.cusCounterPos && this.arrCus.length > 0) {
+            this.cusCounterPos = this.arrCus[0].position.clone().sub(this.cusEnterOffset)
         }
+    }
+
+    getCusCounterPos(slot: number, total: number) {
+        this.initCusQueue()
+        if (total <= 1) return this.cusCounterPos.clone()
+        let offsetX = (slot - (total - 1) / 2) * this.cusSlotGap
+        return this.cusCounterPos.clone().add(cc.v3(offsetX, 0, 0))
+    }
+
+    showCounterMissions(count: number) {
+        for (let i = 0; i < count && i < this.arrCus.length; i++) {
+            this.arrCus[i].getComponent("cusMission").showMission()
+        }
+    }
+
+    enterCustomers(count: number) {
+        this.counterCusCount = count
+        let arrPos = [cc.v3(0, 0, 0)]
+        if(count==2){
+            arrPos = [cc.v3(-285, 0, 0), cc.v3(88, 0, 0)]
+        }
+        else if(count==3){
+            arrPos = [cc.v3(-443, 0, 0), cc.v3(-73, 0, 0), cc.v3(273, 0, 0)]
+        }
+        let maxDuration = 0
+        for (let i = 0; i < count && i < this.arrCus.length; i++) {
+            let cus = this.arrCus[i]
+            // let targetPos = this.getCusCounterPos(i, count)
+            let targetPos = arrPos[i]
+
+            let spawnPos = targetPos.clone().add(this.cusEnterOffset)
+            let distance = spawnPos.sub(targetPos).mag()
+            let duration = distance / this.cusWalkSpeed
+            maxDuration = Math.max(maxDuration, duration)
+
+            cc.Tween.stopAllByTarget(cus)
+            cus.position = spawnPos
+            cus.active = true
+            cus.getComponent("cusMission").move()
+            cc.tween(cus)
+                .to(duration, { position: targetPos })
+                .start()
+        }
+
         this.scheduleOnce(() => {
-            let firstCus = this.arrCus[0];
-            firstCus.getComponent("cusMission").showMission();
-            let mission = firstCus.getComponent("cusMission").order;
-            // this.spawKhay(mission);
+            this.showCounterMissions(count)
+            if (count === 1 && this.arrCus.length > 0) {
+                this.isTargetCus = this.arrCus[0]
+            }
             this.barMission.getComponent("barTime").countDown()
-        }, 0.8)
+        }, maxDuration)
+    }
+
+    getEnterCountForWave() {
+        if (this.countCus === 1) return 2
+        if (this.countCus === 3) return 3
+        return 1
+    }
+
+    startGame() {
+        this.initCusQueue()
+        for (let i = 1; i < this.arrCus.length; i++) {
+            this.arrCus[i].active = false
+        }
+        this.enterCustomers(1)
         this.scheduleOnce(() => {
             if (!this.isFirstClick) {
-                this.isFirstClick = true;
+                this.isFirstClick = true
                 this.btnChicken.getChildByName("hind").active = true
-
             }
         }, 3)
-
     }
     isMoving = false
     isFist = false
     btn_chicken() {
         if (this.isMoving) return;
+        this.mcComp.discardTrayIfDifferentType("chicken")
+        if (!this.mcComp.canPickMoreChicken()) return;
         this.isMoving = true
-
         this.btnChicken.getChildByName("hind").opacity = 0;
-        this.mc.getComponent("mc").moveToChicken()
+        this.mcComp.moveToChicken()
         this.scheduleOnce(() => {
             this.btnMachine.getChildByName("hind").active = true
-
         }, 2)
-
-        // if (this.isFist==false) {
-        //     this.isFist = true;
-        //     this.scheduleOnce(() => {
-        //     }, 4)
-        // }
     }
+
     btn_mayChien() {
         if (this.isMoving) return;
-        this.isMoving=true
+        this.mcComp.discardTrayIfDifferentType("chicken")
+        let machineComp = this.btnMachine.getComponent("machine")
+        let canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null
+        let canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3) && machineComp.chicken != null && this.mcComp.isTrayEmpty()
+        if (!canFry && !canPickup) return;
+
+        this.isMoving = true
         this.btnMachine.getChildByName("hind").active = false
         this.btnMachine.getChildByName("hind").opacity = 0
         this.mcComp.moveToMachine()
     }
     btn_cola() {
-
+        if (this.isMoving) return;
+        this.isMoving = true
+        this.mcComp.moveToCoca()
     }
     btn_sauce() {
         if (this.isMoving) return;
+        if (!this.mcComp.hasAnyItem() || this.mcComp.findCookedTraySlot() < 0) return;
+        this.isMoving = true
         this.mcComp.moveToSauce()
+    }
+    btn_cake() {
+        if (this.isMoving) return;
+        this.isMoving = true
+        this.mcComp.moveToCake()
+    }
+    btn_tomato() {
+        if (this.isMoving) return;
+        this.isMoving = true
+        this.mcComp.moveToTomato()
+    }
+    getCusTrayIndex(cusNode: cc.Node) {
+        return this.arrCus.indexOf(cusNode)
+    }
+    checkSell(targetCus?: cc.Node) {
+        let cus = targetCus || this.sellTargetCus || this.arrCus[0]
+        if (this.isMoving || !cus) return false
+        let cusComp = cus.getComponent("cusMission")
+        let trayIdx = this.mcComp.findTrayForCustomer(cusComp)
+        if (!this.mcComp.hasAnyItem() || trayIdx < 0) return false
+        this.sellTargetCus = cus
+        this.sellTraySlot = trayIdx
+        this.isTargetCus = cus
+        this.isMoving = true
+        this.mcComp.moveToBuy()
+        return true
+    }
+    validateSellAtCounter() {
+        let cus = this.sellTargetCus || this.isTargetCus || this.arrCus[0]
+        if (!cus) {
+            this.isMoving = false
+            return
+        }
+        let cusComp = cus.getComponent("cusMission")
+        if (!cusComp) {
+            this.isMoving = false
+            return
+        }
+        cusComp.validateSell()
+    }
+    nextCus(value: boolean, departedCus?: cc.Node) {
+        if (departedCus) {
+            let idx = this.arrCus.indexOf(departedCus)
+            if (idx >= 0) this.arrCus.splice(idx, 1)
+        } else if (this.arrCus.length > 0) {
+            this.arrCus.splice(0, 1)
+        }
 
+        this.countCus++
+        if(this.countCus==2){
+            this.btnCake.getComponent(cc.Button).enabled = true;
+            this.btnPotato.getComponent(cc.Button).enabled = true;
+        }
+        this.isMoving = false
+        this.sellTargetCus = null
+        this.sellTraySlot = -1
+
+        if (this.countCus >= this.maxCustomers || this.arrCus.length === 0) {
+            this.isTargetCus = null
+            this.onEndGame(true)
+            return
+        }
+
+        let wasGroupAtCounter = this.counterCusCount > 1
+        if (wasGroupAtCounter) {
+            this.counterCusCount--
+            this.mcComp.afterCustomerLeft()
+            return
+        }
+
+        this.isTargetCus = null
+        this.mcComp.resetToStart()
+
+        let enterCount = this.getEnterCountForWave()
+        this.enterCustomers(enterCount)
     }
     // isFirstClickbanh = false
     // isFrist = false
@@ -845,13 +988,8 @@ export default class NewClass extends cc.Component {
         if (value == true) {
             this.barTime.getComponent("barTime").endGame()
             this.amazing.active = true;
-
-            // cc.audioEngine.play(this.soundEnd, false, 1)
             this.scheduleOnce(() => {
-                // cc.audioEngine.play(this.soundThinkWin, false, 1)
-                // cc.audioEngine.play(this.soundWin, false, 1)
-                // this.endCard.getChildByName("title").active = false
-                // this.endCardWin.active = true;
+                if (this.endCardWin) this.endCardWin.active = true
             }, 0.5)
 
 

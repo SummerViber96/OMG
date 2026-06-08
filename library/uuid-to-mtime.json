@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1780813464685,
+    "meta": 1780923045996,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -1105,8 +1105,8 @@
     "relativePath": "APP\\TopNavigation-content2.png"
   },
   "e5292322-8f76-4afa-9ad7-1b7db9dc0007": {
-    "asset": 1780590496570,
-    "meta": 1780590550582,
+    "asset": 1780863876041,
+    "meta": 1780923045772,
     "relativePath": "cooking"
   },
   "eb7ca460-9857-4d9e-ae63-65ddbbca597c": {
@@ -2040,8 +2040,8 @@
     "relativePath": "cooking\\HotdogPlate.png"
   },
   "e316d39d-eb3a-4d0e-ac32-9154d1e94a64": {
-    "asset": 1780590496566,
-    "meta": 1780590550600,
+    "asset": 1780865294937,
+    "meta": 1780923045774,
     "relativePath": "cooking\\ietm"
   },
   "453e6656-19f5-40fb-8c61-2fbdd3e43814": {
@@ -2255,8 +2255,8 @@
     "relativePath": "cooking\\pan-burger_lv2.png"
   },
   "a8295ba8-3b29-4558-8e9c-ce51b3f77c45": {
-    "asset": 1780590496567,
-    "meta": 1780590550753,
+    "asset": 1780864274814,
+    "meta": 1780923045775,
     "relativePath": "cooking\\preFab"
   },
   "2aa7539a-7338-437e-a70b-8bab3c839e58": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1780813464684,
+    "meta": 1780923045997,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -4325,8 +4325,8 @@
     "relativePath": "scripts\\animal.ts"
   },
   "cdf0b8ba-5fcf-477f-a761-6b2937f53023": {
-    "asset": 1780590496588,
-    "meta": 1780590552292,
+    "asset": 1780864320216,
+    "meta": 1780923045992,
     "relativePath": "scripts\\APP"
   },
   "00603e08-58f5-4fee-a678-5ce835d40706": {
@@ -10005,8 +10005,8 @@
     "relativePath": "anim\\taptokitchen\\hand_Scale.anim"
   },
   "3ff51cb8-8161-4bf3-bd2d-a3c98f638eb1": {
-    "asset": 1780590496564,
-    "meta": 1780590549292,
+    "asset": 1780934435579,
+    "meta": 1780934435590,
     "relativePath": "anim\\vfx_coin.anim"
   },
   "ee93c286-07c4-4a77-bc13-ebc5263fb045": {
@@ -10070,8 +10070,8 @@
     "relativePath": "CakeAssembly\\anim\\vfx_done.anim"
   },
   "3717f010-12ea-418f-9b05-6c7c7a9b3215": {
-    "asset": 1780590496348,
-    "meta": 1780590549331,
+    "asset": 1780865728504,
+    "meta": 1780923045769,
     "relativePath": "CakeAssembly\\script"
   },
   "9f600644-2412-4b80-b4ee-71ea6c92ebf1": {
@@ -10859,11 +10859,6 @@
     "meta": 1780590551754,
     "relativePath": "New Folder\\Scripts"
   },
-  "117cdde5-fa8e-435d-9bc4-9eed99a14f10": {
-    "asset": 1780590496477,
-    "meta": 1780590551804,
-    "relativePath": "New Folder\\Scripts\\Item.ts"
-  },
   "5b794464-d0c6-4ac0-9d27-a1ffc653a5a8": {
     "asset": 1780590496478,
     "meta": 1780590551838,
@@ -11075,8 +11070,8 @@
     "relativePath": "prefab\\cookingCustomer\\cus5.prefab"
   },
   "1c8743b4-28a9-49da-b7e3-02e8d0dce655": {
-    "asset": 1780596509196,
-    "meta": 1780767523815,
+    "asset": 1780864312195,
+    "meta": 1780923045804,
     "relativePath": "RecipeRush"
   },
   "872571f6-3151-4867-8eef-1e30831ce7a1": {
@@ -11390,8 +11385,8 @@
     "relativePath": "RecipeRush\\map\\2.png"
   },
   "f9f886ec-51de-4589-93c6-0387e2715812": {
-    "asset": 1780591734335,
-    "meta": 1780767523834,
+    "asset": 1780832276174,
+    "meta": 1780923045807,
     "relativePath": "RecipeRush\\map"
   },
   "54681812-81e3-403a-884e-6bc9c99a7958": {
@@ -11414,14 +11409,9 @@
     "meta": 1780592174007,
     "relativePath": "scenes\\Donut1 - 002.fire"
   },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1780869797499,
-    "meta": 1780869797520,
-    "relativePath": "scenes\\Donut1.fire"
-  },
   "ff1bc1ee-8ba9-48ab-b588-ef9aa3f5162b": {
-    "asset": 1780600861747,
-    "meta": 1780767523842,
+    "asset": 1780862398210,
+    "meta": 1780923045992,
     "relativePath": "RecipeRush\\ui"
   },
   "7cd54691-d131-4805-b66f-9f5ded80502c": {
@@ -12065,8 +12055,8 @@
     "relativePath": "RecipeRush\\ingredients\\tray.png"
   },
   "b6771d52-c477-47ad-8524-414baaf05f44": {
-    "asset": 1780599409718,
-    "meta": 1780767523837,
+    "asset": 1780831493838,
+    "meta": 1780923045990,
     "relativePath": "RecipeRush\\spine"
   },
   "f57c28ee-6b39-4a19-a4f7-93614fd0c922": {
@@ -12410,18 +12400,13 @@
     "relativePath": "RecipeRush\\spine\\sauces.png"
   },
   "ccdd649b-4366-4ef9-9b2f-29ad41180dec": {
-    "asset": 1780816395856,
-    "meta": 1780816395858,
+    "asset": 1780864589043,
+    "meta": 1780923045990,
     "relativePath": "RecipeRush\\spine\\garan"
   },
-  "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1780819064205,
-    "meta": 1780819065492,
-    "relativePath": "cooking\\ietm\\cusMission.ts"
-  },
   "c544e752-4007-4181-aa30-7d0e8ae7011e": {
-    "asset": 1780819933682,
-    "meta": 1780819933683,
+    "asset": 1780834289458,
+    "meta": 1780923045991,
     "relativePath": "RecipeRush\\tut"
   },
   "a2a50c78-5720-4d60-a40d-bb9fd9bfe106": {
@@ -12505,18 +12490,18 @@
     "relativePath": "RecipeRush\\ui\\coin.png"
   },
   "2ee52842-2ee3-4a0a-ba19-871231b22d94": {
-    "asset": 1780869915577,
-    "meta": 1780869915589,
+    "asset": 1780948108933,
+    "meta": 1780948108949,
     "relativePath": "RecipeRush\\prefab\\PreChicken.prefab"
   },
   "d4fdb943-afb7-4087-8320-2a152795b558": {
-    "asset": 1780864253998,
-    "meta": 1780864253999,
+    "asset": 1780864274814,
+    "meta": 1780923045809,
     "relativePath": "RecipeRush\\prefab"
   },
   "dfedc07f-1eb1-4eaf-ac05-9cd591f2cea1": {
-    "asset": 1780864305294,
-    "meta": 1780864305294,
+    "asset": 1780869184533,
+    "meta": 1780923045810,
     "relativePath": "RecipeRush\\scripts"
   },
   "525b8771-2c93-40c9-a957-cbfa119269d4": {
@@ -12539,29 +12524,69 @@
     "meta": 1780865458984,
     "relativePath": "RecipeRush\\anim\\chicken_show.anim"
   },
-  "12d9a21c-6621-4e20-a730-29141c5463c5": {
-    "asset": 1780865707237,
-    "meta": 1780865714029,
-    "relativePath": "RecipeRush\\scripts\\barTime.ts"
+  "1c9b43ec-3b3c-4c70-adf7-78bca5505a08": {
+    "asset": 1780865322728,
+    "meta": 1780923045806,
+    "relativePath": "RecipeRush\\anim"
   },
-  "c384d263-b1dc-4837-a1fb-1c44810ce336": {
-    "asset": 1780871833702,
-    "meta": 1780871876434,
-    "relativePath": "RecipeRush\\scripts\\machine.ts"
+  "117cdde5-fa8e-435d-9bc4-9eed99a14f10": {
+    "asset": 1780935015791,
+    "meta": 1780935016667,
+    "relativePath": "New Folder\\Scripts\\Item.ts"
   },
   "32d54513-c43d-4f66-a8f0-d4a945f089f0": {
-    "asset": 1780872077147,
-    "meta": 1780872175241,
+    "asset": 1780935763147,
+    "meta": 1780935764619,
     "relativePath": "RecipeRush\\scripts\\chicken.ts"
   },
-  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1780872101487,
-    "meta": 1780872175382,
-    "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
+  "c384d263-b1dc-4837-a1fb-1c44810ce336": {
+    "asset": 1780939746735,
+    "meta": 1780939758048,
+    "relativePath": "RecipeRush\\scripts\\machine.ts"
+  },
+  "0f699338-c160-4fe8-8873-09b1e91371d6": {
+    "asset": 1780948102871,
+    "meta": 1780948102881,
+    "relativePath": "RecipeRush\\prefab\\preCoca.prefab"
+  },
+  "0549bd95-a906-4ef2-a0bb-71372ccd1bc5": {
+    "asset": 1780949537465,
+    "meta": 1780949539891,
+    "relativePath": "RecipeRush\\scripts\\coca.ts"
+  },
+  "ca623b45-7331-4f75-b347-7a4f9f014ac5": {
+    "asset": 1780951273611,
+    "meta": 1780951273620,
+    "relativePath": "RecipeRush\\prefab\\preCake.prefab"
+  },
+  "7b363bcd-ee0a-4797-977c-104827aa0b77": {
+    "asset": 1780951409901,
+    "meta": 1780951409914,
+    "relativePath": "RecipeRush\\prefab\\prePotato.prefab"
+  },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1780959118927,
+    "meta": 1780959118954,
+    "relativePath": "scenes\\Donut1.fire"
   },
   "57915beb-7cae-42a5-8af6-5a90b22a2187": {
-    "asset": 1780872030174,
-    "meta": 1780872175421,
+    "asset": 1780956832404,
+    "meta": 1780956833447,
     "relativePath": "RecipeRush\\scripts\\mc.ts"
+  },
+  "12d9a21c-6621-4e20-a730-29141c5463c5": {
+    "asset": 1780958135120,
+    "meta": 1780958233601,
+    "relativePath": "RecipeRush\\scripts\\barTime.ts"
+  },
+  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
+    "asset": 1780958232409,
+    "meta": 1780958233726,
+    "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
+  },
+  "2147ad02-7b76-4274-8b19-f305f656d77c": {
+    "asset": 1780959024250,
+    "meta": 1780959026176,
+    "relativePath": "RecipeRush\\scripts\\cusMission.ts"
   }
 }

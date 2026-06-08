@@ -19,9 +19,15 @@ export default class NewClass extends cc.Component {
         // this.countDown()
     }
     countDown() {
+        this.unscheduleAllCallbacks()
+        this.isTime = 60
+        this.lbTime.string = this.isTime.toString()
         this.schedule(() => {
             this.isTime--;
             this.lbTime.string = this.isTime.toString();
+            // if (this.isTime < 0) {
+
+            // }
             if (this.isTime == 10) {
                 if (this.gamePlay.isEndGame == false) {
                     this.idClick = cc.audioEngine.play(this.clockSound, true, 1)
@@ -30,11 +36,13 @@ export default class NewClass extends cc.Component {
 
             }
             this.lbTime.getComponent(cc.Animation).play()
-            if (this.isTime == 0) {
+            if (this.isTime <= 0) {
                 this.warning.active = false
                 this.gamePlay.onEndGame(false)
+                this.lbTime.string = "0";
+
             }
-        }, 1, 59)
+        }, 1, 60)
     }
     endGame() {
         if (this.idClick) {

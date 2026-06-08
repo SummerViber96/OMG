@@ -79,11 +79,14 @@ var NewClass = /** @class */ (function (_super) {
             _this.node.getChildByName("hind").active = true;
             _this.node.getChildByName("hind").zIndex = 2;
             _this.chicken = chicken;
+            _this.gamePlay.isMoving = false;
         }).start();
     };
     NewClass.prototype.getChicken = function () {
         this.isChin = false;
-        return this.chicken;
+        var chicken = this.chicken;
+        this.chicken = null;
+        return chicken;
     };
     __decorate([
         property(cc.AudioClip)

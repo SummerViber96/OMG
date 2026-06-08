@@ -14,7 +14,8 @@ export default class NewClass extends cc.Component {
     tomato: cc.Node = null
 
     gamePlay = null;
-
+    isChin = false;
+    isSauce = false;
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
 
@@ -29,11 +30,14 @@ export default class NewClass extends cc.Component {
     }
     chin2() {
         this.chinIdle.active = true;
-        this.anim.node.active = false
+        this.anim.node.active = false;
+        this.isChin = true;
+
     }
     addSauce() {
         this.sauce.active = true;
         this.node.getComponent(cc.Animation).play()
+        this.isSauce=true
     }
 
 }

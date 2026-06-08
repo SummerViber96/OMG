@@ -89,6 +89,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.btnChicken = null;
         _this.btnMachine = null;
         _this.btnCoca = null;
+        _this.btnCake = null;
+        _this.btnPotato = null;
         _this.mc = null;
         _this.mcComp = null;
         // @property(cc.Node)
@@ -106,6 +108,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isTargetCus = null;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.countCus = 0;
+        _this.maxCustomers = 6;
         _this.idSound = null;
         _this.isStep = 0;
         //item: 0:buger, 1: kem 2:donut 3:khoaitay 4:pho 5: pudding 6: tra  7:banhmi 8:coconut
@@ -115,6 +118,13 @@ var NewClass = /** @class */ (function (_super) {
         _this.arrKhay = [];
         _this.arrTargetMission = [];
         _this.arrCus = [];
+        _this.sellTargetCus = null;
+        _this.sellTraySlot = -1;
+        _this.cusCounterPos = null;
+        _this.cusSlotGap = 500;
+        _this.cusEnterOffset = cc.v3(350, 0, 0);
+        _this.cusWalkSpeed = 437.5;
+        _this.counterCusCount = 0;
         _this.isStartgame = false;
         _this.isFirstClick = false;
         _this.isHand = null;
@@ -170,22 +180,72 @@ var NewClass = /** @class */ (function (_super) {
         }, 1.5);
         this.mcComp = this.mc.getComponent("mc");
     };
-    NewClass.prototype.startGame = function () {
+    NewClass.prototype.initCusQueue = function () {
+        if (!this.cusCounterPos && this.arrCus.length > 0) {
+            this.cusCounterPos = this.arrCus[0].position.clone().sub(this.cusEnterOffset);
+        }
+    };
+    NewClass.prototype.getCusCounterPos = function (slot, total) {
+        this.initCusQueue();
+        if (total <= 1)
+            return this.cusCounterPos.clone();
+        var offsetX = (slot - (total - 1) / 2) * this.cusSlotGap;
+        return this.cusCounterPos.clone().add(cc.v3(offsetX, 0, 0));
+    };
+    NewClass.prototype.showCounterMissions = function (count) {
+        for (var i = 0; i < count && i < this.arrCus.length; i++) {
+            this.arrCus[i].getComponent("cusMission").showMission();
+        }
+    };
+    NewClass.prototype.enterCustomers = function (count) {
         var _this = this;
-        for (var i = 0; i < this.arrCus.length; i++) {
+        this.counterCusCount = count;
+        var arrPos = [cc.v3(0, 0, 0)];
+        if (count == 2) {
+            arrPos = [cc.v3(-285, 0, 0), cc.v3(88, 0, 0)];
+        }
+        else if (count == 3) {
+            arrPos = [cc.v3(-443, 0, 0), cc.v3(-73, 0, 0), cc.v3(273, 0, 0)];
+        }
+        var maxDuration = 0;
+        for (var i = 0; i < count && i < this.arrCus.length; i++) {
             var cus = this.arrCus[i];
-            if (i == 0) {
-                cus.active = true;
-            }
-            cc.tween(cus).by(0.8, { position: cc.v3(-350, 0) }).start();
+            // let targetPos = this.getCusCounterPos(i, count)
+            var targetPos = arrPos[i];
+            var spawnPos = targetPos.clone().add(this.cusEnterOffset);
+            var distance = spawnPos.sub(targetPos).mag();
+            var duration = distance / this.cusWalkSpeed;
+            maxDuration = Math.max(maxDuration, duration);
+            cc.Tween.stopAllByTarget(cus);
+            cus.position = spawnPos;
+            cus.active = true;
+            cus.getComponent("cusMission").move();
+            cc.tween(cus)
+                .to(duration, { position: targetPos })
+                .start();
         }
         this.scheduleOnce(function () {
-            var firstCus = _this.arrCus[0];
-            firstCus.getComponent("cusMission").showMission();
-            var mission = firstCus.getComponent("cusMission").order;
-            // this.spawKhay(mission);
+            _this.showCounterMissions(count);
+            if (count === 1 && _this.arrCus.length > 0) {
+                _this.isTargetCus = _this.arrCus[0];
+            }
             _this.barMission.getComponent("barTime").countDown();
-        }, 0.8);
+        }, maxDuration);
+    };
+    NewClass.prototype.getEnterCountForWave = function () {
+        if (this.countCus === 1)
+            return 2;
+        if (this.countCus === 3)
+            return 3;
+        return 1;
+    };
+    NewClass.prototype.startGame = function () {
+        var _this = this;
+        this.initCusQueue();
+        for (var i = 1; i < this.arrCus.length; i++) {
+            this.arrCus[i].active = false;
+        }
+        this.enterCustomers(1);
         this.scheduleOnce(function () {
             if (!_this.isFirstClick) {
                 _this.isFirstClick = true;
@@ -197,20 +257,24 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         if (this.isMoving)
             return;
+        this.mcComp.discardTrayIfDifferentType("chicken");
+        if (!this.mcComp.canPickMoreChicken())
+            return;
         this.isMoving = true;
         this.btnChicken.getChildByName("hind").opacity = 0;
-        this.mc.getComponent("mc").moveToChicken();
+        this.mcComp.moveToChicken();
         this.scheduleOnce(function () {
             _this.btnMachine.getChildByName("hind").active = true;
         }, 2);
-        // if (this.isFist==false) {
-        //     this.isFist = true;
-        //     this.scheduleOnce(() => {
-        //     }, 4)
-        // }
     };
     NewClass.prototype.btn_mayChien = function () {
         if (this.isMoving)
+            return;
+        this.mcComp.discardTrayIfDifferentType("chicken");
+        var machineComp = this.btnMachine.getComponent("machine");
+        var canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null;
+        var canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3) && machineComp.chicken != null && this.mcComp.isTrayEmpty();
+        if (!canFry && !canPickup)
             return;
         this.isMoving = true;
         this.btnMachine.getChildByName("hind").active = false;
@@ -218,11 +282,94 @@ var NewClass = /** @class */ (function (_super) {
         this.mcComp.moveToMachine();
     };
     NewClass.prototype.btn_cola = function () {
+        if (this.isMoving)
+            return;
+        this.isMoving = true;
+        this.mcComp.moveToCoca();
     };
     NewClass.prototype.btn_sauce = function () {
         if (this.isMoving)
             return;
+        if (!this.mcComp.hasAnyItem() || this.mcComp.findCookedTraySlot() < 0)
+            return;
+        this.isMoving = true;
         this.mcComp.moveToSauce();
+    };
+    NewClass.prototype.btn_cake = function () {
+        if (this.isMoving)
+            return;
+        this.isMoving = true;
+        this.mcComp.moveToCake();
+    };
+    NewClass.prototype.btn_tomato = function () {
+        if (this.isMoving)
+            return;
+        this.isMoving = true;
+        this.mcComp.moveToTomato();
+    };
+    NewClass.prototype.getCusTrayIndex = function (cusNode) {
+        return this.arrCus.indexOf(cusNode);
+    };
+    NewClass.prototype.checkSell = function (targetCus) {
+        var cus = targetCus || this.sellTargetCus || this.arrCus[0];
+        if (this.isMoving || !cus)
+            return false;
+        var cusComp = cus.getComponent("cusMission");
+        var trayIdx = this.mcComp.findTrayForCustomer(cusComp);
+        if (!this.mcComp.hasAnyItem() || trayIdx < 0)
+            return false;
+        this.sellTargetCus = cus;
+        this.sellTraySlot = trayIdx;
+        this.isTargetCus = cus;
+        this.isMoving = true;
+        this.mcComp.moveToBuy();
+        return true;
+    };
+    NewClass.prototype.validateSellAtCounter = function () {
+        var cus = this.sellTargetCus || this.isTargetCus || this.arrCus[0];
+        if (!cus) {
+            this.isMoving = false;
+            return;
+        }
+        var cusComp = cus.getComponent("cusMission");
+        if (!cusComp) {
+            this.isMoving = false;
+            return;
+        }
+        cusComp.validateSell();
+    };
+    NewClass.prototype.nextCus = function (value, departedCus) {
+        if (departedCus) {
+            var idx = this.arrCus.indexOf(departedCus);
+            if (idx >= 0)
+                this.arrCus.splice(idx, 1);
+        }
+        else if (this.arrCus.length > 0) {
+            this.arrCus.splice(0, 1);
+        }
+        this.countCus++;
+        if (this.countCus == 2) {
+            this.btnCake.getComponent(cc.Button).enabled = true;
+            this.btnPotato.getComponent(cc.Button).enabled = true;
+        }
+        this.isMoving = false;
+        this.sellTargetCus = null;
+        this.sellTraySlot = -1;
+        if (this.countCus >= this.maxCustomers || this.arrCus.length === 0) {
+            this.isTargetCus = null;
+            this.onEndGame(true);
+            return;
+        }
+        var wasGroupAtCounter = this.counterCusCount > 1;
+        if (wasGroupAtCounter) {
+            this.counterCusCount--;
+            this.mcComp.afterCustomerLeft();
+            return;
+        }
+        this.isTargetCus = null;
+        this.mcComp.resetToStart();
+        var enterCount = this.getEnterCountForWave();
+        this.enterCustomers(enterCount);
     };
     // isFirstClickbanh = false
     // isFrist = false
@@ -707,12 +854,9 @@ var NewClass = /** @class */ (function (_super) {
         if (value == true) {
             this.barTime.getComponent("barTime").endGame();
             this.amazing.active = true;
-            // cc.audioEngine.play(this.soundEnd, false, 1)
             this.scheduleOnce(function () {
-                // cc.audioEngine.play(this.soundThinkWin, false, 1)
-                // cc.audioEngine.play(this.soundWin, false, 1)
-                // this.endCard.getChildByName("title").active = false
-                // this.endCardWin.active = true;
+                if (_this.endCardWin)
+                    _this.endCardWin.active = true;
             }, 0.5);
         }
         else {
@@ -986,6 +1130,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnCoca", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnCake", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnPotato", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "mc", void 0);

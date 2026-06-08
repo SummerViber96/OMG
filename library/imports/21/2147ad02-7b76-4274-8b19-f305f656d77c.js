@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '2147a0Ce3ZCdIsZ8wX2Vtd8', 'cusMission');
-// cooking/ietm/cusMission.ts
+// RecipeRush/scripts/cusMission.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -32,10 +32,13 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundAngry = null;
         _this.soundAngry2 = null;
         _this.soundHello = null;
-        _this.dau = false;
-        _this.socola = false;
+        _this.chicken = false;
+        _this.cake = false;
+        _this.coca = false;
+        _this.potato = false;
         _this.count = [];
         _this.order = [];
+        _this.sauce = false;
         _this.lbCountSc = null;
         _this.lbCountDau = null;
         _this.pop = null;
@@ -59,12 +62,16 @@ var NewClass = /** @class */ (function (_super) {
         this.addEndEventSpine();
     };
     NewClass.prototype.showMission = function () {
+        this.isEnd = false;
+        this.isSuccess = false;
+        this.isAngry = false;
+        this.pop.scale = 1;
         this.pop.getComponent(cc.Animation).play();
         this.anim.setAnimation(0, "idle", false);
         if (this.soundHello) {
             cc.audioEngine.play(this.soundHello, false, 1);
         }
-        // this.loadTime()
+        this.loadTime();
     };
     NewClass.prototype.updateItem = function (id) {
         console.log("update item " + id);
@@ -81,40 +88,64 @@ var NewClass = /** @class */ (function (_super) {
             }
         });
     };
+    NewClass.prototype.activeDone = function (value) {
+        for (var i = 0; i < this.order.length; i++) {
+            if (this.order[i] == value && this.doneNode.children[i].active == false) {
+                this.doneNode.children[i].active = true;
+                return;
+            }
+        }
+    };
     NewClass.prototype.updateMission = function (value) {
         var _this = this;
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1);
+        this.activeDone(value);
         switch (value) {
-            case 0: //dau
+            case 0: //chicken
                 this.count[0]--;
                 if (this.count[0] == 0) {
                     this.isEnd = true;
-                    this.scheduleOnce(function () {
-                        _this.doneNode.active = true;
-                    }, 0.3);
-                    this.lbCountDau.node.active = false;
+                    // this.lbCountDau.node.active = false
                 }
                 break;
-            case 1: //socola
+            case 1: //coca
                 this.count[1]--;
                 if (this.count[1] == 0) {
                     this.isEnd = true;
-                    this.lbCountSc.node.active = false;
-                    // this.scheduleOnce(() => {
-                    // }, 0.4)
+                }
+                break;
+            case 2: //cake
+                this.count[2]--;
+                if (this.count[2] == 0) {
+                    this.isEnd = true;
+                }
+                break;
+            case 3: //potato
+                this.count[3]--;
+                if (this.count[3] == 0) {
+                    this.isEnd = true;
                 }
                 break;
         }
         this.scheduleOnce(function () {
             _this.node.getChildByName("vfx_coin").active = true;
             _this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play();
-            _this.pop.getChildByName("right").active = true;
-            _this.pop.getChildByName("right").getComponent(cc.Animation).play();
         }, 0.4);
-        if (this.count[1] == 0 && this.count[0] == 0) {
+        this.gamePlay.mcComp.deliverItem();
+        this.gamePlay.sellTraySlot = -1;
+        if (this.isOrderComplete()) {
             this.end(true);
         }
-        globalThis.gold += 50;
+        globalThis.coin += 50;
+    };
+    NewClass.prototype.isOrderComplete = function () {
+        if (!this.count || this.count.length === 0)
+            return true;
+        for (var i = 0; i < this.count.length; i++) {
+            if (this.count[i] > 0)
+                return false;
+        }
+        return true;
     };
     NewClass.prototype.move = function () {
         this.anim.setAnimation(0, "walk", false);
@@ -124,30 +155,33 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isSuccess)
             return;
         this.isSuccess = true;
-        this.gamePlay.successCus();
+        cc.Tween.stopAllByTarget(this.fillBar);
         if (value == true) {
             cc.audioEngine.play(this.soundHappy, false, 1);
             this.doneNode.active = true;
-            this.lbCountDau.node.active = false;
-            this.lbCountSc.node.active = false;
+            // this.lbCountDau.node.active = false;
+            // this.lbCountSc.node.active = false
             this.anim.setAnimation(0, "happy", false);
-            this.pop.getChildByName("right").active = true;
-            this.node.getChildByName("happy").active = true;
+            // this.pop.getChildByName("right").active = true
+            // this.node.getChildByName("happy").active = true
         }
         else {
             this.unscheduleAllCallbacks();
             this.anim.setAnimation(0, "angry", false);
-            this.pop.getChildByName("wrong").active = true;
-            this.node.getChildByName("angry").active = true;
+            // this.pop.getChildByName("wrong").active = true
+            // this.node.getChildByName("angry").active = true
         }
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.gamePlay.soundClosePop, false, 1);
             cc.tween(_this.pop).to(0.3, { scale: 0 }).start();
             _this.anim.setAnimation(0, "walk", true);
-            cc.tween(_this.node).to(1, { position: cc.v3(-900, 123.591) }).call(function () {
+            cc.tween(_this.node)
+                .by(1, { position: cc.v3(-500, 0) })
+                .call(function () {
                 _this.node.active = false;
-                _this.gamePlay.nextCus(value);
-            }).start();
+                _this.gamePlay.nextCus(value, _this.node);
+            })
+                .start();
         }, 0.5);
     };
     NewClass.prototype.laugh = function () {
@@ -172,7 +206,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.angry = function () {
-        this.anim.setAnimation(0, "7.angry_idle", false);
+        this.anim.setAnimation(0, "angry", false);
         cc.audioEngine.play(this.soundAngry2, false, 1);
         var wrongtick = this.pop.getChildByName('x');
         wrongtick.active = true;
@@ -183,30 +217,49 @@ var NewClass = /** @class */ (function (_super) {
     };
     // wrong(){
     // }
-    NewClass.prototype.checkSell = function (donut) {
-        var donutComp = donut.getComponent("donut");
-        var check = false;
-        if (this.socola && this.count[1] > 0) {
-            if (donutComp.isSocola) {
-                this.updateMission(1);
-                check = true;
-            }
+    NewClass.prototype.checkSell = function () {
+        if (this.gamePlay.arrCus.indexOf(this.node) < 0)
+            return false;
+        return this.gamePlay.checkSell(this.node);
+    };
+    NewClass.prototype.validateSell = function () {
+        var _this = this;
+        var mcComp = this.gamePlay.mcComp;
+        var itemType = mcComp.getItemType();
+        var chickenComp = mcComp.getChickenComp(mcComp.getTrayItem());
+        var isChickenValid = this.chicken && this.count[0] > 0
+            && itemType === "chicken"
+            && chickenComp && chickenComp.isChin
+            && this.sauce == chickenComp.isSauce;
+        var isCocaValid = this.coca && this.count[1] > 0 && itemType === "coca";
+        var isCakeValid = this.cake && this.count[2] > 0 && itemType === "cake";
+        var isPotatoValid = this.potato && this.count[3] > 0 && itemType === "tomato";
+        if (isChickenValid || isCocaValid || isCakeValid || isPotatoValid) {
+            cc.audioEngine.play(this.gamePlay.soundOk, false, 1);
+            var missionType_1 = isCocaValid ? 1 : isCakeValid ? 2 : isPotatoValid ? 3 : 0;
+            this.scheduleOnce(function () {
+                _this.updateMission(missionType_1);
+                mcComp.afterDeliver();
+            }, 0.5);
+            return true;
         }
-        if (this.dau) {
-            if (donutComp.isDau && this.count[0] > 0) {
-                this.updateMission(0);
-                check = true;
-            }
-        }
-        if (check == false) {
-            this.isEnd = true;
-            this.end(false);
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8);
-        }
+        this.isEnd = true;
+        cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8);
+        var wrongtick = this.pop.getChildByName("x");
+        wrongtick.active = true;
+        wrongtick.getComponent(cc.Animation).play();
+        this.scheduleOnce(function () {
+            wrongtick.active = false;
+            mcComp.idle();
+            _this.gamePlay.isMoving = false;
+            _this.gamePlay.sellTraySlot = -1;
+            _this.end(false);
+        }, 0.5);
+        return false;
     };
     NewClass.prototype.loadTime = function () {
         var _this = this;
-        cc.tween(this.fillBar).to(this.timeWaiting, { fillRange: 0 }).call(function () { }).start();
+        cc.Tween.stopAllByTarget(this.fillBar);
         this.fillBar.fillRange = 1;
         var changedYellow = false;
         var changedRed = false;
@@ -218,7 +271,7 @@ var NewClass = /** @class */ (function (_super) {
                 if (value <= 0.5 && !changedYellow && _this.isSuccess == false) {
                     changedYellow = true;
                     _this.fillBar.spriteFrame = _this.fillYellow;
-                    _this.anim.setAnimation(0, "6.angry", true);
+                    _this.anim.setAnimation(0, "angry", true);
                     if (_this.soundAngry) {
                         cc.audioEngine.play(_this.soundAngry, false, 1);
                     }
@@ -227,7 +280,7 @@ var NewClass = /** @class */ (function (_super) {
                     changedRed = true;
                     _this.isAngry = true;
                     _this.fillBar.spriteFrame = _this.fillRed;
-                    _this.anim.setAnimation(0, "7.angry_idle", true);
+                    _this.anim.setAnimation(0, "angry", true);
                     if (_this.soundAngry2 && _this.isSuccess == false) {
                         cc.audioEngine.play(_this.soundAngry2, false, 1);
                     }
@@ -256,16 +309,25 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "soundHello", void 0);
     __decorate([
         property(cc.Boolean)
-    ], NewClass.prototype, "dau", void 0);
+    ], NewClass.prototype, "chicken", void 0);
     __decorate([
         property(cc.Boolean)
-    ], NewClass.prototype, "socola", void 0);
+    ], NewClass.prototype, "cake", void 0);
     __decorate([
-        property([cc.Integer])
+        property(cc.Boolean)
+    ], NewClass.prototype, "coca", void 0);
+    __decorate([
+        property(cc.Boolean)
+    ], NewClass.prototype, "potato", void 0);
+    __decorate([
+        property([cc.Integer]) //0 chicken 1//coca 2//cake //3khoaitay
     ], NewClass.prototype, "count", void 0);
     __decorate([
         property([cc.Integer])
     ], NewClass.prototype, "order", void 0);
+    __decorate([
+        property(cc.Boolean)
+    ], NewClass.prototype, "sauce", void 0);
     __decorate([
         property(cc.Label)
     ], NewClass.prototype, "lbCountSc", void 0);

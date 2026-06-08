@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '12d9aIcZiFOIKcwKRQcVGPF', 'barTime');
-// CakeAssembly/script/barTime.ts
+// RecipeRush/scripts/barTime.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -43,9 +43,14 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.countDown = function () {
         var _this = this;
+        this.unscheduleAllCallbacks();
+        this.isTime = 60;
+        this.lbTime.string = this.isTime.toString();
         this.schedule(function () {
             _this.isTime--;
             _this.lbTime.string = _this.isTime.toString();
+            // if (this.isTime < 0) {
+            // }
             if (_this.isTime == 10) {
                 if (_this.gamePlay.isEndGame == false) {
                     _this.idClick = cc.audioEngine.play(_this.clockSound, true, 1);
@@ -53,11 +58,12 @@ var NewClass = /** @class */ (function (_super) {
                 }
             }
             _this.lbTime.getComponent(cc.Animation).play();
-            if (_this.isTime == 0) {
+            if (_this.isTime <= 0) {
                 _this.warning.active = false;
                 _this.gamePlay.onEndGame(false);
+                _this.lbTime.string = "0";
             }
-        }, 1, 59);
+        }, 1, 60);
     };
     NewClass.prototype.endGame = function () {
         if (this.idClick) {

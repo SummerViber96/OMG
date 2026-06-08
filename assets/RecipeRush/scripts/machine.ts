@@ -57,11 +57,14 @@ export default class NewClass extends cc.Component {
             this.node.getChildByName("hind").opacity = 255;
             this.node.getChildByName("hind").active = true
             this.node.getChildByName("hind").zIndex = 2
-            this.chicken=chicken;
+            this.chicken = chicken;
+            this.gamePlay.isMoving = false
         }).start();
     }
     getChicken() {
         this.isChin = false;
-        return this.chicken;
+        let chicken=this.chicken
+        this.chicken=null
+        return chicken
     }
 }

@@ -33,6 +33,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.chinIdle = null;
         _this.tomato = null;
         _this.gamePlay = null;
+        _this.isChin = false;
+        _this.isSauce = false;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -48,10 +50,12 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.chin2 = function () {
         this.chinIdle.active = true;
         this.anim.node.active = false;
+        this.isChin = true;
     };
     NewClass.prototype.addSauce = function () {
         this.sauce.active = true;
         this.node.getComponent(cc.Animation).play();
+        this.isSauce = true;
     };
     __decorate([
         property(sp.Skeleton)

@@ -13,13 +13,19 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundHello: cc.AudioClip = null
     @property(cc.Boolean)
-    dau = false
+    chicken = false
     @property(cc.Boolean)
-    socola = false;
-    @property([cc.Integer])
+    cake = false;
+    @property(cc.Boolean)
+    coca = false;
+    @property(cc.Boolean)
+    potato = false;
+    @property([cc.Integer])//0 chicken 1//coca 2//cake //3khoaitay
     count = []
     @property([cc.Integer])
     order = []
+    @property(cc.Boolean)
+    sauce = false
     @property(cc.Label)
     lbCountSc: cc.Label = null
     @property(cc.Label)
@@ -40,6 +46,7 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Integer)
     timeWaiting = 30
+
     isEnd = false
     isSuccess = false
     gamePlay = null
@@ -52,13 +59,18 @@ export default class NewClass extends cc.Component {
 
     }
     showMission() {
+        this.isEnd = false
+        this.isSuccess = false
+        this.isAngry = false
+        this.pop.scale = 1
         this.pop.getComponent(cc.Animation).play()
+
         this.anim.setAnimation(0, "idle", false)
 
         if (this.soundHello) {
             cc.audioEngine.play(this.soundHello, false, 1)
         }
-        // this.loadTime()
+        this.loadTime()
     }
     updateItem(id) {
         console.log("update item " + id)
@@ -76,48 +88,67 @@ export default class NewClass extends cc.Component {
             }
         })
     }
+    activeDone(value) {
+        for (let i = 0; i < this.order.length; i++) {
+            if (this.order[i] == value && this.doneNode.children[i].active == false) {
+                this.doneNode.children[i].active = true
+                return ;
+            }
+        }
+    }
     updateMission(value) { //1:socola //0:dau
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1)
-
+        this.activeDone(value)
         switch (value) {
-            case 0: //dau
+            case 0: //chicken
                 this.count[0]--
                 if (this.count[0] == 0) {
                     this.isEnd = true
-                    this.scheduleOnce(() => {
-                        this.doneNode.active = true
 
-                    }, 0.3)
-                    this.lbCountDau.node.active = false
+                    // this.lbCountDau.node.active = false
                 }
                 break;
-            case 1: //socola
+            case 1: //coca
                 this.count[1]--
                 if (this.count[1] == 0) {
                     this.isEnd = true
 
-                    this.lbCountSc.node.active = false
+                }
+                break;
+            case 2: //cake
+                this.count[2]--
+                if (this.count[2] == 0) {
+                    this.isEnd = true
 
-                    // this.scheduleOnce(() => {
+                }
+                break;
+            case 3: //potato
+                this.count[3]--
+                if (this.count[3] == 0) {
+                    this.isEnd = true
 
-                    // }, 0.4)
                 }
                 break;
         }
         this.scheduleOnce(() => {
             this.node.getChildByName("vfx_coin").active = true
             this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play()
-            this.pop.getChildByName("right").active = true
-            this.pop.getChildByName("right").getComponent(cc.Animation).play()
-
         }, 0.4)
-        if (this.count[1] == 0 && this.count[0] == 0) {
+
+        this.gamePlay.mcComp.deliverItem()
+        this.gamePlay.sellTraySlot = -1
+
+        if (this.isOrderComplete()) {
             this.end(true)
-
         }
-        globalThis.gold += 50
-
-
+        globalThis.coin += 50
+    }
+    isOrderComplete() {
+        if (!this.count || this.count.length === 0) return true
+        for (let i = 0; i < this.count.length; i++) {
+            if (this.count[i] > 0) return false
+        }
+        return true
     }
     move() {
         this.anim.setAnimation(0, "walk", false)
@@ -126,35 +157,37 @@ export default class NewClass extends cc.Component {
     end(value) {
         if (this.isSuccess) return;
         this.isSuccess = true
-        this.gamePlay.successCus()
+        cc.Tween.stopAllByTarget(this.fillBar)
 
         if (value == true) {
             cc.audioEngine.play(this.soundHappy, false, 1)
             this.doneNode.active = true;
 
-            this.lbCountDau.node.active = false;
-            this.lbCountSc.node.active = false
+            // this.lbCountDau.node.active = false;
+            // this.lbCountSc.node.active = false
             this.anim.setAnimation(0, "happy", false)
-            this.pop.getChildByName("right").active = true
-            this.node.getChildByName("happy").active = true
+            // this.pop.getChildByName("right").active = true
+            // this.node.getChildByName("happy").active = true
 
         }
         else {
             this.unscheduleAllCallbacks()
             this.anim.setAnimation(0, "angry", false)
-            this.pop.getChildByName("wrong").active = true
-            this.node.getChildByName("angry").active = true
+            // this.pop.getChildByName("wrong").active = true
+            // this.node.getChildByName("angry").active = true
 
         }
         this.scheduleOnce(() => {
             cc.audioEngine.play(this.gamePlay.soundClosePop, false, 1)
             cc.tween(this.pop).to(0.3, { scale: 0 }).start()
             this.anim.setAnimation(0, "walk", true)
-            cc.tween(this.node).to(1, { position: cc.v3(-900, 123.591) }).call(() => {
-                this.node.active = false
-                this.gamePlay.nextCus(value)
-
-            }).start()
+            cc.tween(this.node)
+                .by(1, { position: cc.v3(-500, 0) })
+                .call(() => {
+                    this.node.active = false
+                    this.gamePlay.nextCus(value, this.node)
+                })
+                .start()
         }, 0.5)
 
     }
@@ -182,7 +215,7 @@ export default class NewClass extends cc.Component {
 
     }
     angry() {
-        this.anim.setAnimation(0, "7.angry_idle", false);
+        this.anim.setAnimation(0, "angry", false);
 
         cc.audioEngine.play(this.soundAngry2, false, 1)
         let wrongtick = this.pop.getChildByName('x')
@@ -195,30 +228,51 @@ export default class NewClass extends cc.Component {
     // wrong(){
 
     // }
-    checkSell(donut) {
-        let donutComp = donut.getComponent("donut")
-        let check = false
-        if (this.socola && this.count[1] > 0) {
-            if (donutComp.isSocola) {
-                this.updateMission(1)
-                check = true
-            }
+    checkSell() {
+        if (this.gamePlay.arrCus.indexOf(this.node) < 0) return false
+        return this.gamePlay.checkSell(this.node)
+    }
+    validateSell() {
+        let mcComp = this.gamePlay.mcComp
+        let itemType = mcComp.getItemType()
+        let chickenComp = mcComp.getChickenComp(mcComp.getTrayItem())
+
+        let isChickenValid = this.chicken && this.count[0] > 0
+            && itemType === "chicken"
+            && chickenComp && chickenComp.isChin
+            && this.sauce == chickenComp.isSauce
+
+        let isCocaValid = this.coca && this.count[1] > 0 && itemType === "coca"
+        let isCakeValid = this.cake && this.count[2] > 0 && itemType === "cake"
+        let isPotatoValid = this.potato && this.count[3] > 0 && itemType === "tomato"
+
+        if (isChickenValid || isCocaValid || isCakeValid || isPotatoValid) {
+            cc.audioEngine.play(this.gamePlay.soundOk, false, 1)
+            let missionType = isCocaValid ? 1 : isCakeValid ? 2 : isPotatoValid ? 3 : 0
+            this.scheduleOnce(() => {
+                this.updateMission(missionType)
+                mcComp.afterDeliver()
+            }, 0.5)
+            return true
         }
-        if (this.dau) {
-            if (donutComp.isDau && this.count[0] > 0) {
-                this.updateMission(0)
-                check = true
-            }
-        }
-        if (check == false) {
-            this.isEnd = true
+
+        this.isEnd = true
+        cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
+        let wrongtick = this.pop.getChildByName("x")
+        wrongtick.active = true
+        wrongtick.getComponent(cc.Animation).play()
+        this.scheduleOnce(() => {
+            wrongtick.active = false
+            mcComp.idle()
+            this.gamePlay.isMoving = false
+            this.gamePlay.sellTraySlot = -1
             this.end(false)
-            cc.audioEngine.play(this.gamePlay.soundWrong, false, 0.8)
-        }
+        }, 0.5)
+        return false
     }
     isDelaySound = false
     loadTime() {
-        cc.tween(this.fillBar).to(this.timeWaiting, { fillRange: 0 }).call(() => { }).start()
+        cc.Tween.stopAllByTarget(this.fillBar)
         this.fillBar.fillRange = 1;
         let changedYellow = false;
         let changedRed = false;
@@ -232,7 +286,7 @@ export default class NewClass extends cc.Component {
                     if (value <= 0.5 && !changedYellow && this.isSuccess == false) {
                         changedYellow = true;
                         this.fillBar.spriteFrame = this.fillYellow;
-                        this.anim.setAnimation(0, "6.angry", true);
+                        this.anim.setAnimation(0, "angry", true);
                         if (this.soundAngry) {
                             cc.audioEngine.play(this.soundAngry, false, 1)
 
@@ -244,7 +298,7 @@ export default class NewClass extends cc.Component {
                         this.isAngry = true
 
                         this.fillBar.spriteFrame = this.fillRed;
-                        this.anim.setAnimation(0, "7.angry_idle", true);
+                        this.anim.setAnimation(0, "angry", true);
 
                         if (this.soundAngry2 && this.isSuccess == false) {
                             cc.audioEngine.play(this.soundAngry2, false, 1)
