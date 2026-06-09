@@ -141,7 +141,18 @@ export default class NewClass extends cc.Component {
         let current = this.getItemType()
         if (!current || current === targetType) return
         this.consumeTrayItem()
-        if (this.localId === 4 || this.localId === 5) this.localId = 3
+        this.normalizeLocalIdAfterSwitch(targetType)
+        this.updateArms()
+    }
+
+    normalizeLocalIdAfterSwitch(targetType: string) {
+        if (targetType === "chicken") {
+            if (this.localId === 4 || this.localId === 5) this.localId = 3
+            return
+        }
+        if (this.localId === 1 || this.localId === 2 || this.localId === 4 || this.localId === 5) {
+            this.localId = 3
+        }
     }
 
     hideTrays() {
@@ -191,6 +202,7 @@ export default class NewClass extends cc.Component {
             this.gamePlay.isMoving = false
             return
         }
+        this.node.scaleX = 1
         this.anim.setAnimation(0, "Walk", true)
         this.updateArms()
         cc.tween(this.node)
@@ -229,6 +241,10 @@ export default class NewClass extends cc.Component {
             this.anim.setAnimation(0, "Walk", true)
             this.updateArms()
             cc.tween(this.node)
+                .call(() => {
+                    this.node.zIndex = 2
+                    this.table.zIndex = 1
+                })
                 .to(1, { position: this.getPos(this.POS_MACHINE) })
                 .call(() => {
                     let chicken = this.trayItem
@@ -378,8 +394,12 @@ export default class NewClass extends cc.Component {
     }
     moveToCoca() {
         this.discardTrayIfDifferentType("coca")
-        if (this.localId == 3 || this.localId == 5) {
-            this.node.zIndex = 2
+        this.node.scaleX = -1
+        if (this.localId == 1 || this.localId == 3 || this.localId == 5) {
+            this.gamePlay.isMoving = true
+            this.scheduleOnce(() => {
+                this.node.zIndex = 2
+            }, 0.4)
             this.anim.setAnimation(0, "Walk", true)
             this.updateArms()
             cc.tween(this.node)
@@ -388,7 +408,6 @@ export default class NewClass extends cc.Component {
                     this.idle()
                     let coca = this.gamePlay.btnCoca.getComponent("coca")
                     if (coca) coca.cooking()
-                    this.gamePlay.isMoving = false
                     this.localId = 4
                 })
                 .start()
@@ -405,7 +424,7 @@ export default class NewClass extends cc.Component {
             this.gamePlay.isMoving = false
         }
         else if (this.localId == 2) {
-
+            this.gamePlay.isMoving = true
             this.anim.setAnimation(0, "Walk", true)
             this.node.scaleX = -1
             cc.tween(this.node)
@@ -419,7 +438,6 @@ export default class NewClass extends cc.Component {
                     this.idle()
                     let coca = this.gamePlay.btnCoca.getComponent("coca")
                     if (coca) coca.cooking()
-                    this.gamePlay.isMoving = false
                     this.localId = 4
                 })
                 .start()
@@ -432,7 +450,7 @@ export default class NewClass extends cc.Component {
     moveToCake() {
         this.discardTrayIfDifferentType("cake")
 
-        if (this.localId == 0 || this.localId == 2) {
+        if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
             this.gamePlay.isMoving = true
             this.anim.setAnimation(0, "Walk", true)
             this.node.scaleX = -1
@@ -493,7 +511,7 @@ export default class NewClass extends cc.Component {
     }
     moveToTomato() {
         this.discardTrayIfDifferentType("tomato")
-        if (this.localId == 0 || this.localId == 2) {
+        if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
             this.gamePlay.isMoving = true
             this.anim.setAnimation(0, "Walk", true)
             this.node.scaleX = -1

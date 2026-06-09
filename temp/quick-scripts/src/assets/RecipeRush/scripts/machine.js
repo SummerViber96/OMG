@@ -35,6 +35,7 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.soundChien = null;
+        _this.soundDone = null;
         _this.tag = 0;
         _this.fillTime = null;
         _this.clock = null;
@@ -42,6 +43,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.gamePlay = null;
         _this.chicken = null;
         _this.time = 2;
+        _this.isSoundCooking = null;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -65,7 +67,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.cooking = function (chicken) {
         var _this = this;
         // this.setOn()
-        cc.audioEngine.play(this.soundChien, false, 1);
+        this.isSoundCooking = cc.audioEngine.play(this.soundChien, false, 1);
         chicken.parent = this.node;
         chicken.position = cc.v3(0.5, 17);
         chicken.getComponent("chicken").song();
@@ -74,6 +76,8 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(function () {
             _this.clock.active = false;
             _this.isChin = true;
+            cc.audioEngine.stop(_this.isSoundCooking);
+            cc.audioEngine.play(_this.soundDone, false, 1);
             chicken.getComponent("chicken").chin();
             _this.node.getChildByName("hind").opacity = 255;
             _this.node.getChildByName("hind").active = true;
@@ -86,11 +90,15 @@ var NewClass = /** @class */ (function (_super) {
         this.isChin = false;
         var chicken = this.chicken;
         this.chicken = null;
+        this.gamePlay.onHind();
         return chicken;
     };
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundChien", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundDone", void 0);
     __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "tag", void 0);

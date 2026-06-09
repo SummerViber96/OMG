@@ -155,8 +155,18 @@ var NewClass = /** @class */ (function (_super) {
         if (!current || current === targetType)
             return;
         this.consumeTrayItem();
-        if (this.localId === 4 || this.localId === 5)
+        this.normalizeLocalIdAfterSwitch(targetType);
+        this.updateArms();
+    };
+    NewClass.prototype.normalizeLocalIdAfterSwitch = function (targetType) {
+        if (targetType === "chicken") {
+            if (this.localId === 4 || this.localId === 5)
+                this.localId = 3;
+            return;
+        }
+        if (this.localId === 1 || this.localId === 2 || this.localId === 4 || this.localId === 5) {
             this.localId = 3;
+        }
     };
     NewClass.prototype.hideTrays = function () {
         if (this.khay)
@@ -204,6 +214,7 @@ var NewClass = /** @class */ (function (_super) {
             this.gamePlay.isMoving = false;
             return;
         }
+        this.node.scaleX = 1;
         this.anim.setAnimation(0, "Walk", true);
         this.updateArms();
         cc.tween(this.node)
@@ -241,6 +252,10 @@ var NewClass = /** @class */ (function (_super) {
             this.anim.setAnimation(0, "Walk", true);
             this.updateArms();
             cc.tween(this.node)
+                .call(function () {
+                _this.node.zIndex = 2;
+                _this.table.zIndex = 1;
+            })
                 .to(1, { position: this.getPos(this.POS_MACHINE) })
                 .call(function () {
                 var chicken = _this.trayItem;
@@ -382,8 +397,12 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveToCoca = function () {
         var _this = this;
         this.discardTrayIfDifferentType("coca");
-        if (this.localId == 3 || this.localId == 5) {
-            this.node.zIndex = 2;
+        this.node.scaleX = -1;
+        if (this.localId == 1 || this.localId == 3 || this.localId == 5) {
+            this.gamePlay.isMoving = true;
+            this.scheduleOnce(function () {
+                _this.node.zIndex = 2;
+            }, 0.4);
             this.anim.setAnimation(0, "Walk", true);
             this.updateArms();
             cc.tween(this.node)
@@ -393,7 +412,6 @@ var NewClass = /** @class */ (function (_super) {
                 var coca = _this.gamePlay.btnCoca.getComponent("coca");
                 if (coca)
                     coca.cooking();
-                _this.gamePlay.isMoving = false;
                 _this.localId = 4;
             })
                 .start();
@@ -410,6 +428,7 @@ var NewClass = /** @class */ (function (_super) {
             this.gamePlay.isMoving = false;
         }
         else if (this.localId == 2) {
+            this.gamePlay.isMoving = true;
             this.anim.setAnimation(0, "Walk", true);
             this.node.scaleX = -1;
             cc.tween(this.node)
@@ -424,7 +443,6 @@ var NewClass = /** @class */ (function (_super) {
                 var coca = _this.gamePlay.btnCoca.getComponent("coca");
                 if (coca)
                     coca.cooking();
-                _this.gamePlay.isMoving = false;
                 _this.localId = 4;
             })
                 .start();
@@ -436,7 +454,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveToCake = function () {
         var _this = this;
         this.discardTrayIfDifferentType("cake");
-        if (this.localId == 0 || this.localId == 2) {
+        if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
             this.gamePlay.isMoving = true;
             this.anim.setAnimation(0, "Walk", true);
             this.node.scaleX = -1;
@@ -498,7 +516,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveToTomato = function () {
         var _this = this;
         this.discardTrayIfDifferentType("tomato");
-        if (this.localId == 0 || this.localId == 2) {
+        if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
             this.gamePlay.isMoving = true;
             this.anim.setAnimation(0, "Walk", true);
             this.node.scaleX = -1;

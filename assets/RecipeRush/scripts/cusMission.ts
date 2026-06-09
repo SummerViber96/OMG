@@ -62,7 +62,7 @@ export default class NewClass extends cc.Component {
         this.isEnd = false
         this.isSuccess = false
         this.isAngry = false
-        this.pop.scale = 1
+     
         this.pop.getComponent(cc.Animation).play()
 
         this.anim.setAnimation(0, "idle", false)

@@ -65,7 +65,6 @@ var NewClass = /** @class */ (function (_super) {
         this.isEnd = false;
         this.isSuccess = false;
         this.isAngry = false;
-        this.pop.scale = 1;
         this.pop.getComponent(cc.Animation).play();
         this.anim.setAnimation(0, "idle", false);
         if (this.soundHello) {

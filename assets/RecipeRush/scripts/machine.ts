@@ -12,6 +12,8 @@ export default class NewClass extends cc.Component {
 
     @property(cc.AudioClip)
     soundChien: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundDone: cc.AudioClip = null
     @property(cc.Integer)
     tag = 0
     @property(cc.Sprite)
@@ -20,8 +22,9 @@ export default class NewClass extends cc.Component {
     clock: cc.Node = null
     isChin = false
     gamePlay = null
-    chicken=null
+    chicken = null
     time = 2
+    isSoundCooking = null
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
 
@@ -44,7 +47,7 @@ export default class NewClass extends cc.Component {
     }
     cooking(chicken) {
         // this.setOn()
-        cc.audioEngine.play(this.soundChien, false, 1)
+        this.isSoundCooking = cc.audioEngine.play(this.soundChien, false, 1)
         chicken.parent = this.node;
         chicken.position = cc.v3(0.5, 17)
         chicken.getComponent("chicken").song()
@@ -53,6 +56,8 @@ export default class NewClass extends cc.Component {
         cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(() => {
             this.clock.active = false
             this.isChin = true
+            cc.audioEngine.stop(this.isSoundCooking)
+            cc.audioEngine.play(this.soundDone, false, 1)
             chicken.getComponent("chicken").chin()
             this.node.getChildByName("hind").opacity = 255;
             this.node.getChildByName("hind").active = true
@@ -63,8 +68,9 @@ export default class NewClass extends cc.Component {
     }
     getChicken() {
         this.isChin = false;
-        let chicken=this.chicken
-        this.chicken=null
+        let chicken = this.chicken
+        this.chicken = null
+        this.gamePlay.onHind()
         return chicken
     }
 }

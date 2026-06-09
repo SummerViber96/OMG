@@ -85,6 +85,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.listDia = null;
         _this.preBanh = null;
         _this.barMission = null;
+        _this.barMission2 = null;
         //btn
         _this.btnChicken = null;
         _this.btnMachine = null;
@@ -92,6 +93,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.btnCake = null;
         _this.btnPotato = null;
         _this.mc = null;
+        _this.hind1 = null;
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -239,6 +241,9 @@ var NewClass = /** @class */ (function (_super) {
             return 3;
         return 1;
     };
+    NewClass.prototype.onHind = function () {
+        this.hind1.active = true;
+    };
     NewClass.prototype.startGame = function () {
         var _this = this;
         this.initCusQueue();
@@ -339,6 +344,7 @@ var NewClass = /** @class */ (function (_super) {
         cusComp.validateSell();
     };
     NewClass.prototype.nextCus = function (value, departedCus) {
+        var _this = this;
         if (departedCus) {
             var idx = this.arrCus.indexOf(departedCus);
             if (idx >= 0)
@@ -351,6 +357,14 @@ var NewClass = /** @class */ (function (_super) {
         if (this.countCus == 2) {
             this.btnCake.getComponent(cc.Button).enabled = true;
             this.btnPotato.getComponent(cc.Button).enabled = true;
+        }
+        else if (this.countCus == 3) {
+            this.barMission2.active = true;
+            this.scheduleOnce(function () {
+                cc.tween(_this.barMission2).by(0.4, { opacity: -255, position: cc.v3(0, 200) }).call(function () {
+                    _this.barMission2.active = false;
+                }).start();
+            }, 1);
         }
         this.isMoving = false;
         this.sellTargetCus = null;
@@ -854,10 +868,9 @@ var NewClass = /** @class */ (function (_super) {
         if (value == true) {
             this.barTime.getComponent("barTime").endGame();
             this.amazing.active = true;
-            this.scheduleOnce(function () {
-                if (_this.endCardWin)
-                    _this.endCardWin.active = true;
-            }, 0.5);
+            // this.scheduleOnce(() => {
+            //     if (this.endCardWin) this.endCardWin.active = true
+            // }, 0.5)
         }
         else {
             this.barTime.getComponent("barTime").endGame();
@@ -896,14 +909,14 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1;
+        this.camera.zoomRatio = 0.85;
         this.endCard.scale = (logic) ? 1.2 : 0.7;
         this.endCardWin.scale = (logic) ? 1.2 : 0.7;
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.barCoin.scale = (logic) ? 2.5 : 1.4;
-        this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80;
+        this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 100;
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
@@ -915,6 +928,8 @@ var NewClass = /** @class */ (function (_super) {
         this.notiMission.scale = (logic) ? 2 : 1;
         // this.tutMision.scale = (logic) ? 2 : 1
         this.barMission.scale = (logic) ? 1.7 : 1;
+        this.barMission.scale = (logic) ? 1.8 : 1;
+        this.mainCamera.node.position = (logic) ? cc.v3(0, 0, 0) : cc.v3(0, 110, 0);
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false;
             this.endCardWin.active = (logic) ? false : true;
@@ -1123,6 +1138,9 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "barMission", void 0);
     __decorate([
         property(cc.Node)
+    ], NewClass.prototype, "barMission2", void 0);
+    __decorate([
+        property(cc.Node)
     ], NewClass.prototype, "btnChicken", void 0);
     __decorate([
         property(cc.Node)
@@ -1139,6 +1157,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "mc", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "hind1", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -124,7 +124,8 @@ export default class NewClass extends cc.Component {
     preBanh: cc.Prefab = null;
     @property(cc.Node)
     barMission: cc.Node = null
-
+    @property(cc.Node)
+    barMission2: cc.Node = null
     //btn
     @property(cc.Node)
     btnChicken: cc.Node = null;
@@ -138,6 +139,8 @@ export default class NewClass extends cc.Component {
     btnPotato: cc.Node = null;
     @property(cc.Node)
     mc: cc.Node = null;
+    @property(cc.Node)
+    hind1: cc.Node = null;
     mcComp = null
 
     // @property(cc.Node)
@@ -264,7 +267,9 @@ export default class NewClass extends cc.Component {
         if (this.countCus === 3) return 3
         return 1
     }
-
+    onHind(){
+        this.hind1.active = true;
+    }
     startGame() {
         this.initCusQueue()
         for (let i = 1; i < this.arrCus.length; i++) {
@@ -367,6 +372,14 @@ export default class NewClass extends cc.Component {
         if(this.countCus==2){
             this.btnCake.getComponent(cc.Button).enabled = true;
             this.btnPotato.getComponent(cc.Button).enabled = true;
+        }
+        else if(this.countCus==3){
+            this.barMission2.active = true;
+            this.scheduleOnce(() => {
+                cc.tween(this.barMission2).by(0.4, { opacity: -255, position: cc.v3(0, 200) }).call(() => {
+                    this.barMission2.active = false
+                }).start()
+            }, 1)
         }
         this.isMoving = false
         this.sellTargetCus = null
@@ -988,9 +1001,9 @@ export default class NewClass extends cc.Component {
         if (value == true) {
             this.barTime.getComponent("barTime").endGame()
             this.amazing.active = true;
-            this.scheduleOnce(() => {
-                if (this.endCardWin) this.endCardWin.active = true
-            }, 0.5)
+            // this.scheduleOnce(() => {
+            //     if (this.endCardWin) this.endCardWin.active = true
+            // }, 0.5)
 
 
         }
@@ -1035,14 +1048,14 @@ export default class NewClass extends cc.Component {
     arrPosDoc = [cc.v3(26, -337), cc.v3(336, -112), cc.v3(15.5, -121), cc.v3(-170, -525.7), cc.v3(-300, -352), cc.v3(186.96, -512), cc.v3(355, -335), cc.v3(-292, -116)]
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1
+        this.camera.zoomRatio = 0.85
         this.endCard.scale = (logic) ? 1.2 : 0.7
         this.endCardWin.scale = (logic) ? 1.2 : 0.7
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.barCoin.scale = (logic) ? 2.5 : 1.4
-        this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 80
+        this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 100
         this.phaoHoa.scale = (logic) ? 9 : 5
         this.guild.scale = (logic) ? 2 : 1.2
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
@@ -1054,6 +1067,9 @@ export default class NewClass extends cc.Component {
         this.notiMission.scale = (logic) ? 2 : 1
         // this.tutMision.scale = (logic) ? 2 : 1
         this.barMission.scale = (logic) ? 1.7 : 1
+        this.barMission.scale = (logic) ? 1.8 : 1
+        this.mainCamera.node.position = (logic) ? cc.v3(0, 0, 0) : cc.v3(0, 110, 0)
+
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false
             this.endCardWin.active = (logic) ? false : true

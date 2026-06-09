@@ -29,7 +29,10 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.anim = null;
+        _this.fillTime = null;
+        _this.clock = null;
         _this.isCoca = false;
+        _this.time = 0.8;
         return _this;
         // update (dt) {}
     }
@@ -38,9 +41,13 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.cooking = function () {
         var _this = this;
         this.anim.setAnimation(0, "lv2-active", false);
-        this.scheduleOnce(function () {
+        this.clock.active = true;
+        this.fillTime.fillRange = 0;
+        cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(function () {
+            _this.clock.active = false;
+            _this.isChin = true;
             _this.readyCoca();
-        }, 0.5);
+        }).start();
     };
     NewClass.prototype.readyCoca = function () {
         this.isCoca = true;
@@ -53,6 +60,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(sp.Skeleton)
     ], NewClass.prototype, "anim", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], NewClass.prototype, "fillTime", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "clock", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
