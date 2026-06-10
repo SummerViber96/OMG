@@ -3,5 +3,5 @@
   "_name": "hand.atlas",
   "_objFlags": 0,
   "_native": "",
-  "text": "\nhand.png\nsize: 116,108\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nhand\n  rotate: false\n  xy: 2, 2\n  size: 112, 102\n  orig: 112, 102\n  offset: 0, 0\n  index: -1\n"
+  "text": "\r\nhand.png\r\nsize: 116,108\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nhand\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 112, 102\r\n  orig: 112, 102\r\n  offset: 0, 0\r\n  index: -1\r\n"
 }
