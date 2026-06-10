@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "9_Cancer",
+    "texture": "15d22bef-ecde-4aed-bf1c-0a2975401a37",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      167,
+      167
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      167,
+      167
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

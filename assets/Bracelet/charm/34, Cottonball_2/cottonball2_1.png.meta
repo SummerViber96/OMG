@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "8ef1675e-64e0-431f-b017-a61ca23b7403",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 339,
+  "height": 340,
+  "platformSettings": {},
+  "subMetas": {
+    "cottonball2_1": {
+      "ver": "1.0.4",
+      "uuid": "97d7569e-0ea3-4704-8d3f-b70fc92ca868",
+      "rawTextureUuid": "8ef1675e-64e0-431f-b017-a61ca23b7403",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -5.5,
+      "trimX": 2,
+      "trimY": 11,
+      "width": 336,
+      "height": 329,
+      "rawWidth": 339,
+      "rawHeight": 340,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

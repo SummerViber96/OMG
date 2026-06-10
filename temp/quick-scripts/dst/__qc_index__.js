@@ -10,6 +10,10 @@
                     };
                     function __define (exports, require, module) {
                         if (!nodeEnv) {__quick_compile_project__.registerModule(__filename, module);}
+require('./assets/Bracelet/script/Bracelet');
+require('./assets/Bracelet/script/CharmGame');
+require('./assets/Bracelet/script/ItemString');
+require('./assets/Bracelet/script/StringGame');
 require('./assets/CakeAssembly/script/barCoin');
 require('./assets/CakeAssembly/script/timeClock');
 require('./assets/HF/GamePLay');

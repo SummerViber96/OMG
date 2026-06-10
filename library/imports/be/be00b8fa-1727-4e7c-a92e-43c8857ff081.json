@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "heart_dia_blue",
+    "texture": "808d68ee-abf1-4905-8439-51415920b1bc",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      130,
+      108
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      130,
+      108
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

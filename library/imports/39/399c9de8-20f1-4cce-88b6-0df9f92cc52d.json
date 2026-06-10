@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tie_rainbow",
+    "texture": "1ca03b12-7e77-4df9-b4e7-bdf24dca4cdc",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      161,
+      97
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      161,
+      97
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

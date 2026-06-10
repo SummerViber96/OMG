@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "central pedestal",
+    "texture": "4d43e8de-7dc7-4e73-9dec-eef628dc5f44",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      881,
+      850
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      881,
+      850
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

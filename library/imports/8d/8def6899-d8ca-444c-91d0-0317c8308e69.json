@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "strawgirl_2",
+    "texture": "572bd65c-7c67-4f0b-b060-c05ba5414163",
+    "atlas": "",
+    "rect": [
+      15,
+      163,
+      309,
+      177
+    ],
+    "offset": [
+      0,
+      -81.5
+    ],
+    "originalSize": [
+      339,
+      340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

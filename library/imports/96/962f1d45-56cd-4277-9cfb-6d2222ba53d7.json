@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cord1_yellow_plate",
+    "texture": "e0cd4480-60fc-45b5-9bbc-f67218ffce10",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      123,
+      643
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      123,
+      643
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "melody",
+    "texture": "b7284072-aff7-4b2e-ae0d-d91aaaaf2a36",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      190,
+      237
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      190,
+      237
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

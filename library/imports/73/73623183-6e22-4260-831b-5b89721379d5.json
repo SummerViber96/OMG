@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "charmblack_2",
+    "texture": "e33bf901-5af2-4e32-bbb3-6c61c52ab6e8",
+    "atlas": "",
+    "rect": [
+      4,
+      63,
+      332,
+      277
+    ],
+    "offset": [
+      0.5,
+      -31.5
+    ],
+    "originalSize": [
+      339,
+      340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

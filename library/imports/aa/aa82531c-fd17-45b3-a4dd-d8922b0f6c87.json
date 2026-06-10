@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tab_tittlecomplete",
+    "texture": "8a75f809-234e-46bc-9f7a-7b3872e8817a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1192,
+      418
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1192,
+      418
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

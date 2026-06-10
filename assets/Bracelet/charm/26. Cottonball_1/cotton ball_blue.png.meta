@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "ecef45c3-9460-4653-b6b2-5ebe9d919afe",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 143,
+  "height": 141,
+  "platformSettings": {},
+  "subMetas": {
+    "cotton ball_blue": {
+      "ver": "1.0.4",
+      "uuid": "4f56324d-dd2e-445b-8d42-c9d301e9090b",
+      "rawTextureUuid": "ecef45c3-9460-4653-b6b2-5ebe9d919afe",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 2,
+      "width": 141,
+      "height": 136,
+      "rawWidth": 143,
+      "rawHeight": 141,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

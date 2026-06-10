@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "charm_hafltapple",
+    "texture": "3499d8b2-b104-4af2-a1fa-e1bf1e5e7145",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      170,
+      144
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      170,
+      144
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

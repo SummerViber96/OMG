@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tie_big_purple",
+    "texture": "77944788-fe15-43be-bb2c-840eb7a3f303",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      203,
+      246
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      203,
+      246
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

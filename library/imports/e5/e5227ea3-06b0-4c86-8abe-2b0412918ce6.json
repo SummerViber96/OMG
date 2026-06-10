@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "charm_cat",
+    "texture": "46afd594-096c-415c-9ae6-9ba9e3fbc961",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      194,
+      167
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      194,
+      167
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

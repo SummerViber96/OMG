@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "choose_charm",
+    "texture": "e8356a47-3548-4835-9540-a0603b02cbca",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1440,
+      2880
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1440,
+      2880
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_cord_green",
+    "texture": "9b65fe98-36b0-475d-8a3a-d6fb1a536964",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      61,
+      1095
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      61,
+      1095
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

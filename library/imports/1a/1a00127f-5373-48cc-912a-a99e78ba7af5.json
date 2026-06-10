@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "charm_dog",
+    "texture": "78ee0e23-b83b-4260-9c5f-4efcb8d9c9c7",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      213,
+      139
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      213,
+      139
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

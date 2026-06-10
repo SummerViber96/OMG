@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cotton ball_blue",
+    "texture": "ecef45c3-9460-4653-b6b2-5ebe9d919afe",
+    "atlas": "",
+    "rect": [
+      1,
+      2,
+      141,
+      136
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      143,
+      141
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

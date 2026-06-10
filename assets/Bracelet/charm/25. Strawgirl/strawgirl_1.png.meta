@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "34c156c5-63c2-4f3f-a432-59fcadfce496",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 339,
+  "height": 340,
+  "platformSettings": {},
+  "subMetas": {
+    "strawgirl_1": {
+      "ver": "1.0.4",
+      "uuid": "fd913c9e-ee7c-4a3c-8b83-03873574331b",
+      "rawTextureUuid": "34c156c5-63c2-4f3f-a432-59fcadfce496",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -6,
+      "trimX": 15,
+      "trimY": 12,
+      "width": 310,
+      "height": 328,
+      "rawWidth": 339,
+      "rawHeight": 340,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

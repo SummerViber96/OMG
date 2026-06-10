@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cotton ball_purple",
+    "texture": "4f31c471-4222-49f5-a42a-d1f073b63390",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      143,
+      141
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      143,
+      141
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,4 +1,8 @@
 
+require('./assets/Bracelet/script/Bracelet');
+require('./assets/Bracelet/script/CharmGame');
+require('./assets/Bracelet/script/ItemString');
+require('./assets/Bracelet/script/StringGame');
 require('./assets/CakeAssembly/script/barCoin');
 require('./assets/CakeAssembly/script/timeClock');
 require('./assets/HF/GamePLay');

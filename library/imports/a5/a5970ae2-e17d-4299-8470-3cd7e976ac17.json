@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "heartwing_2",
+    "texture": "48fb7f1b-09e6-479c-861b-f148cc8d877c",
+    "atlas": "",
+    "rect": [
+      1,
+      49,
+      337,
+      291
+    ],
+    "offset": [
+      0,
+      -24.5
+    ],
+    "originalSize": [
+      339,
+      340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "elip_1",
+    "texture": "b7a1ff08-c95e-40d9-83e5-bb6514137810",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      94,
+      142
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      94,
+      142
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

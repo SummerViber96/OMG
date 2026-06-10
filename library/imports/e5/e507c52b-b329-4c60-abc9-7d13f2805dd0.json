@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "charm_peach",
+    "texture": "4467d02b-325d-4f8b-942f-fd5a164eb056",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      148,
+      144
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      148,
+      144
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

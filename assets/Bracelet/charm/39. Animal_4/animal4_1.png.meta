@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "baba8819-d4f8-487f-b82f-b99f74330385",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 339,
+  "height": 340,
+  "platformSettings": {},
+  "subMetas": {
+    "animal4_1": {
+      "ver": "1.0.4",
+      "uuid": "db33667d-a4d3-48ea-8f4e-513035b45e18",
+      "rawTextureUuid": "baba8819-d4f8-487f-b82f-b99f74330385",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1,
+      "offsetY": -7,
+      "trimX": 0,
+      "trimY": 14,
+      "width": 337,
+      "height": 326,
+      "rawWidth": 339,
+      "rawHeight": 340,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

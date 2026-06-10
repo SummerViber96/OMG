@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "charm_rabit",
+    "texture": "f4b293f4-e4f0-41f1-9bf2-a401a5915f0a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      185,
+      187
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      185,
+      187
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

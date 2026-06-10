@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cord1_black_plate",
+    "texture": "ecefea6f-6054-4a72-a23a-bb902dcb77cf",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      123,
+      647
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      123,
+      647
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

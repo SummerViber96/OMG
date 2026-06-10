@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "clover_1",
+    "texture": "e8e35da0-0928-4d69-8216-76a2fbf9098f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      172,
+      171
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      172,
+      171
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

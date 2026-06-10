@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tie1_blue",
+    "texture": "6ab0b084-fb9f-4fd4-8ecc-179f419820d2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      197,
+      170
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      197,
+      170
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

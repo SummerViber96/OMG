@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cotton ball_pink",
+    "texture": "2d4ab637-54ac-4293-be09-f29ca660472c",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      143,
+      138
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      143,
+      141
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

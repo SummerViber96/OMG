@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cnady4_2",
+    "texture": "7239cf05-bfca-4af2-8a61-0c363a9486da",
+    "atlas": "",
+    "rect": [
+      0,
+      51,
+      339,
+      288
+    ],
+    "offset": [
+      0,
+      -25
+    ],
+    "originalSize": [
+      339,
+      340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

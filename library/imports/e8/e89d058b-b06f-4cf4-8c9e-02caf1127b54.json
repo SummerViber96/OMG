@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cinnamoroll",
+    "texture": "ed684d4d-d2f7-41f9-b953-f4bc34624107",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      286,
+      176
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      286,
+      176
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cloundrainbow_2",
+    "texture": "2b2844d2-242e-4ac3-9bff-0c1794e648ef",
+    "atlas": "",
+    "rect": [
+      0,
+      94,
+      339,
+      246
+    ],
+    "offset": [
+      0,
+      -47
+    ],
+    "originalSize": [
+      339,
+      340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

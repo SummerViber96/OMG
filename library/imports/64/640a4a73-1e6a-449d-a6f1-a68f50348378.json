@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "girl_strawberry_1",
+    "texture": "9f51fa2c-936f-41bc-a9b3-2333bcf37b70",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      177,
+      192
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      177,
+      192
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

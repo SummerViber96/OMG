@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "capy_1",
+    "texture": "87770bc2-84ea-4dee-8b05-006ff1d80ec1",
+    "atlas": "",
+    "rect": [
+      0,
+      6,
+      339,
+      334
+    ],
+    "offset": [
+      0,
+      -3
+    ],
+    "originalSize": [
+      339,
+      340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

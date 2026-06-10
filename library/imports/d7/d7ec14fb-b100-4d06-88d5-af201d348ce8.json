@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cottonball_2",
+    "texture": "be6e1c16-cdb0-4fae-8366-c461ae21bea3",
+    "atlas": "",
+    "rect": [
+      3,
+      87,
+      336,
+      253
+    ],
+    "offset": [
+      1.5,
+      -43.5
+    ],
+    "originalSize": [
+      339,
+      340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pony_2",
+    "texture": "17c481e4-8f25-4d0a-a2c9-994ae1e44c3e",
+    "atlas": "",
+    "rect": [
+      0,
+      68,
+      339,
+      272
+    ],
+    "offset": [
+      0,
+      -34
+    ],
+    "originalSize": [
+      339,
+      340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "clound_satr",
+    "texture": "603466e5-1fa9-4e42-b1cf-ad87e81a8412",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      205,
+      140
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      205,
+      140
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

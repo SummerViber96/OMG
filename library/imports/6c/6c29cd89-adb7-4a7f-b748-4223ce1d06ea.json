@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cord1_pink_plate",
+    "texture": "aa99f94b-9950-4ade-974b-18c3496cba12",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      121,
+      644
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      121,
+      644
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

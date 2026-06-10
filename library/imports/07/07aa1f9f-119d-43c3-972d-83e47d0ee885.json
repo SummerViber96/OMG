@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tie_pink",
+    "texture": "9ad50300-d07e-4a84-a3d9-b3a38d6b854b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      162,
+      97
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      162,
+      97
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

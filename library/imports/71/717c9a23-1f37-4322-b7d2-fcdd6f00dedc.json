@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tie1_balck",
+    "texture": "6bc733b9-dae9-4e3a-9eac-d2b3124a25e1",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      197,
+      170
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      197,
+      170
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

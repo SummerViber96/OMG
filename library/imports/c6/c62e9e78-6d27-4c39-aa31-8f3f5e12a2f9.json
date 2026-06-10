@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_cord_black",
+    "texture": "60effd2a-d475-42a6-95c8-1259459a297e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      62,
+      1095
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      62,
+      1095
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

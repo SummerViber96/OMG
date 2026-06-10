@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "heart_dia_purple",
+    "texture": "ab09e80f-1578-4ecf-ad6d-e34b16b0761e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      130,
+      108
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      130,
+      108
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

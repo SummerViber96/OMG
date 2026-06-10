@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "zodiac2_2",
+    "texture": "ddf594a7-3ab2-43ec-8bb6-4eacc9f20a8c",
+    "atlas": "",
+    "rect": [
+      0,
+      78,
+      331,
+      251
+    ],
+    "offset": [
+      0,
+      -39
+    ],
+    "originalSize": [
+      331,
+      329
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

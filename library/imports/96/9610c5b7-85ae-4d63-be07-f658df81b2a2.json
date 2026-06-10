@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "candy sater_2",
+    "texture": "1aaf3a71-dcb5-4804-8904-77c0e59dd2d8",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      135,
+      133
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      135,
+      133
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

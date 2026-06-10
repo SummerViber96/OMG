@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "charm_chicken",
+    "texture": "0751ae63-e357-4aae-84e0-11c611a255b0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      173,
+      171
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      173,
+      171
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
