@@ -14345,8 +14345,8 @@
     "relativePath": "Bracelet\\prefab\\preCharm2.prefab"
   },
   "ed604c34-af67-401a-9bdc-91560617465b": {
-    "asset": 1781217636963,
-    "meta": 1781217636976,
+    "asset": 1781219712781,
+    "meta": 1781219712785,
     "relativePath": "Bracelet\\prefab\\preCharm3.prefab"
   },
   "a748eac8-436e-492c-adf7-b5873f9e4a41": {
@@ -14389,14 +14389,14 @@
     "meta": 1781219593453,
     "relativePath": "scenes\\Bracelet.fire"
   },
-  "d1cd0f07-9e7c-46b4-8be9-ded12fe9bd91": {
-    "asset": 1781219543523,
-    "meta": 1781219564520,
-    "relativePath": "Bracelet\\script\\Bracelet.ts"
-  },
   "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
     "asset": 1781219591648,
     "meta": 1781219592879,
     "relativePath": "Bracelet\\script\\CordRoundGame.ts"
+  },
+  "d1cd0f07-9e7c-46b4-8be9-ded12fe9bd91": {
+    "asset": 1781219831515,
+    "meta": 1781219832571,
+    "relativePath": "Bracelet\\script\\Bracelet.ts"
   }
 }

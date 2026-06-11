@@ -84,19 +84,22 @@ var NewClass = /** @class */ (function (_super) {
         this.startGame2();
     };
     NewClass.prototype.startGame2 = function () {
+        var _this = this;
         var id = globalThis.idString;
         console.log("id", id);
-        var stringAround = this.listCordRound.children[id];
-        stringAround.active = true;
-        stringAround.opacity = 0;
-        this.charmNode.getComponent("CharmGame").OffEvent();
-        cc.tween(stringAround).to(0.4, { opacity: 255 }).start();
+        this.scheduleOnce(function () {
+            var stringAround = _this.listCordRound.children[id];
+            stringAround.active = true;
+            stringAround.opacity = 0;
+            _this.charmNode.getComponent("CharmGame").OffEvent();
+            cc.tween(stringAround).to(0.4, { opacity: 255 }).start();
+            var cordGame = _this.listCordRound.getComponent("CordRoundGame");
+            if (cordGame) {
+                cordGame.startBraceletMode();
+            }
+        }, 0.4);
         if (this.stringBot) {
             this.stringBot.active = false;
-        }
-        var cordGame = this.listCordRound.getComponent("CordRoundGame");
-        if (cordGame) {
-            cordGame.startBraceletMode();
         }
     };
     __decorate([
