@@ -21407,7 +21407,7 @@
         "__id__": 489
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 491
@@ -24662,8 +24662,13 @@
       "__id__": 15
     },
     "entryDetectRadius": 110,
+    "pathSampleSpacing": 12,
     "segmentRadius": 14,
-    "segmentSpacing": 22,
+    "slideGravity": 320,
+    "maxSlideSpeed": 280,
+    "pathPullStrength": 420,
+    "settleSpeed": 22,
+    "pivotColliderRadius": 8,
     "_id": "49JuXMgvlLEpRoaZxJLr4y"
   },
   {

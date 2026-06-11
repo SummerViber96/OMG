@@ -8,13 +8,14 @@ interface CordPathData {
 }
 
 interface CordCharmState {
-    node: cc.Node;
+    pivot: cc.Node;
+    charm: cc.Node;
     settled: boolean;
+    stillTime: number;
     side: CordSide;
     pathStartIndex: number;
     pathDir: number;
     pathDistance: number;
-    pathSpeed: number;
 }
 
 interface DropAnchor {
@@ -47,7 +48,13 @@ export default class CordRoundGame extends cc.Component {
     maxSlideSpeed: number = 280;
 
     @property
-    charmSpacing: number = 42;
+    pathPullStrength: number = 420;
+
+    @property
+    settleSpeed: number = 22;
+
+    @property
+    pivotColliderRadius: number = 8;
 
     private activeCord: cc.Node = null;
     private cordPaths: Map<cc.Node, CordPathData> = new Map();
@@ -79,7 +86,7 @@ export default class CordRoundGame extends cc.Component {
             return;
         }
 
-        cc.director.getPhysicsManager().gravity = cc.v2(0, 0);
+        cc.director.getPhysicsManager().gravity = cc.v2(0, -520);
         for (let i = 0; i < this.CordRoundList.childrenCount; i++) {
             this.prepareCord(this.CordRoundList.children[i]);
         }
@@ -87,7 +94,6 @@ export default class CordRoundGame extends cc.Component {
         this.bindTouch();
     }
 
-    /** Đọc PolygonCollider, tự gán physics vòng, lưu path để charm trượt theo. */
     private prepareCord(cord: cc.Node) {
         if (this.preparedCords.indexOf(cord) >= 0) return;
 
@@ -290,28 +296,143 @@ export default class CordRoundGame extends cc.Component {
         const pathDir = this.pickPathDirection(path.points, startIndex, dropAnchor.side);
         const startPose = this.getPoseOnPath(path.points, startIndex, pathDir, 0);
 
-        charm.parent = this.charmLayer;
-        charm.setPosition(cc.v3(startPose.x, startPose.y, 0));
-        charm.angle = startPose.angle;
+        const pivot = this.setupCharmHangRig(charm);
+        pivot.parent = this.charmLayer;
+        pivot.setPosition(cc.v3(startPose.x, startPose.y, 0));
+        charm.angle = 0;
 
-        const body = charm.getComponent(cc.RigidBody);
-        if (body) {
-            body.type = cc.RigidBodyType.Kinematic;
-            body.gravityScale = 0;
-            body.linearVelocity = cc.v2(0, 0);
-            body.angularVelocity = 0;
-            body.awake = true;
+        const pivotBody = pivot.getComponent(cc.RigidBody);
+        if (pivotBody) {
+            pivotBody.gravityScale = 1;
+            pivotBody.allowSleep = false;
+            pivotBody.awake = true;
+            pivotBody.active = true;
+
+            const tangent = this.getTangentAtIndex(path.points, startIndex, pathDir);
+            pivotBody.linearVelocity = tangent.mul(90);
+        }
+
+        const charmBody = charm.getComponent(cc.RigidBody);
+        if (charmBody) {
+            charmBody.angularVelocity = (Math.random() - 0.5) * 4;
         }
 
         this.cordCharms.push({
-            node: charm,
+            pivot,
+            charm,
             settled: false,
+            stillTime: 0,
             side: dropAnchor.side,
             pathStartIndex: startIndex,
             pathDir,
             pathDistance: 0,
-            pathSpeed: 60,
         });
+    }
+
+    /** Tạo pivot (điểm neo trên dây) + RevoluteJoint; phần dưới charm lung lay theo physics. */
+    private setupCharmHangRig(charm: cc.Node): cc.Node {
+        if (charm.parent && charm.parent.name === 'charmPivot') {
+            return charm.parent;
+        }
+
+        const hangLocal = this.getHangLocalOffset(charm);
+        const layer = charm.parent;
+        const worldPos = layer.convertToWorldSpaceAR(charm.position);
+
+        const pivot = new cc.Node('charmPivot');
+        pivot.parent = layer;
+        pivot.setPosition(layer.convertToNodeSpaceAR(worldPos));
+
+        charm.parent = pivot;
+        charm.setPosition(cc.v3(-hangLocal.x, -hangLocal.y, 0));
+        charm.angle = 0;
+
+        let pivotBody = pivot.getComponent(cc.RigidBody);
+        if (!pivotBody) {
+            pivotBody = pivot.addComponent(cc.RigidBody);
+        }
+        pivotBody.type = cc.RigidBodyType.Dynamic;
+        pivotBody.gravityScale = 1;
+        pivotBody.linearDamping = 0.12;
+        pivotBody.angularDamping = 1;
+        pivotBody.fixedRotation = true;
+        pivotBody.allowSleep = false;
+
+        let pivotCol = pivot.getComponent(cc.PhysicsCircleCollider);
+        if (!pivotCol) {
+            pivotCol = pivot.addComponent(cc.PhysicsCircleCollider);
+        }
+        pivotCol.radius = this.pivotColliderRadius;
+        pivotCol.friction = 0.3;
+        pivotCol.restitution = 0.05;
+        pivotCol.enabled = true;
+
+        let charmBody = charm.getComponent(cc.RigidBody);
+        if (!charmBody) {
+            charmBody = charm.addComponent(cc.RigidBody);
+        }
+        charmBody.type = cc.RigidBodyType.Dynamic;
+        charmBody.gravityScale = 1;
+        charmBody.linearDamping = 0.05;
+        charmBody.angularDamping = 0.12;
+        charmBody.fixedRotation = false;
+        charmBody.allowSleep = false;
+
+        this.enableCharmPhysicsCollider(charm);
+
+        let joint = pivot.getComponent(cc.RevoluteJoint);
+        if (!joint) {
+            joint = pivot.addComponent(cc.RevoluteJoint);
+        }
+        joint.connectedBody = charmBody;
+        joint.anchor = cc.v2(0, 0);
+        joint.connectedAnchor = hangLocal;
+        joint.collideConnected = false;
+
+        return pivot;
+    }
+
+    private getHangLocalOffset(charm: cc.Node): cc.Vec2 {
+        const item = charm.getComponent('CharmItem') as any;
+        if (item && item.getHangLocalOffset) {
+            return item.getHangLocalOffset();
+        }
+        return cc.v2(0, 55);
+    }
+
+    private enableCharmPhysicsCollider(charm: cc.Node) {
+        const collider = charm.getComponent(cc.PhysicsPolygonCollider);
+        if (collider) {
+            collider.enabled = true;
+            collider.sensor = false;
+            collider.friction = 0.25;
+            collider.restitution = 0.08;
+        }
+    }
+
+    private getTangentAtIndex(points: cc.Vec2[], index: number, dir: number): cc.Vec2 {
+        const nextIdx = this.wrapIndex(index + dir, points.length);
+        const a = points[index];
+        const b = points[nextIdx];
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const len = Math.sqrt(dx * dx + dy * dy) || 1;
+        return cc.v2(dx / len, dy / len);
+    }
+
+    private getNearestOnPath(points: cc.Vec2[], pos: cc.Vec2): { index: number; nearest: cc.Vec2 } {
+        let bestIndex = 0;
+        let bestDist = Number.MAX_VALUE;
+
+        for (let i = 0; i < points.length; i++) {
+            const d = cc.v2(points[i].x - pos.x, points[i].y - pos.y).magSqr();
+            if (d < bestDist) {
+                bestDist = d;
+                bestIndex = i;
+            }
+        }
+
+        return { index: bestIndex, nearest: points[bestIndex] };
     }
 
     private findNearestPathIndex(points: cc.Vec2[], pos: cc.Vec2): number {
@@ -396,59 +517,92 @@ export default class CordRoundGame extends cc.Component {
         return path.totalLength * 0.52;
     }
 
-    private getBlockedDistance(state: CordCharmState): number | null {
-        let minBlock: number | null = null;
-
-        for (let i = 0; i < this.cordCharms.length; i++) {
-            const other = this.cordCharms[i];
-            if (other === state || other.node === state.node) continue;
-            if (other.side !== state.side) continue;
-
-            const gap = other.pathDistance - state.pathDistance;
-            if (gap > 0 && gap < this.charmSpacing) {
-                const blockAt = other.pathDistance - this.charmSpacing;
-                if (minBlock === null || blockAt < minBlock) {
-                    minBlock = Math.max(0, blockAt);
-                }
-            }
-        }
-
-        return minBlock;
-    }
-
     private updateCharmSlide(state: CordCharmState, dt: number) {
-        if (state.settled) return;
-
-        state.pathSpeed += this.slideGravity * dt;
-        state.pathSpeed = Math.min(state.pathSpeed, this.maxSlideSpeed);
-
-        let nextDist = state.pathDistance + state.pathSpeed * dt;
-        const maxDist = this.getMaxSlideDistance(state);
-        nextDist = Math.min(nextDist, maxDist);
-
-        const blocked = this.getBlockedDistance(state);
-        if (blocked !== null) {
-            nextDist = Math.min(nextDist, blocked);
-            state.pathSpeed = 0;
-            state.settled = true;
-        } else if (nextDist >= maxDist - 1) {
-            state.pathSpeed = 0;
-            state.settled = true;
-        }
-
-        state.pathDistance = nextDist;
-
+        const body = state.pivot.getComponent(cc.RigidBody);
         const path = this.cordPaths.get(this.activeCord);
-        if (!path) return;
+        if (!body || !path) return;
 
-        const pose = this.getPoseOnPath(
+        const pos = cc.v2(state.pivot.x, state.pivot.y);
+        const onPath = this.getNearestOnPath(path.points, pos);
+        const tangent = this.getTangentAtIndex(path.points, onPath.index, state.pathDir);
+
+        state.pathDistance = this.getDistanceAlongPath(
             path.points,
             state.pathStartIndex,
             state.pathDir,
-            state.pathDistance
+            pos
         );
-        state.node.setPosition(cc.v3(pose.x, pose.y, 0));
-        state.node.angle = pose.angle;
+
+        if (!state.settled) {
+            const toPathX = onPath.nearest.x - pos.x;
+            const toPathY = onPath.nearest.y - pos.y;
+            let vx = body.linearVelocity.x + toPathX * this.pathPullStrength * dt;
+            let vy = body.linearVelocity.y + toPathY * this.pathPullStrength * dt;
+            vx += tangent.x * this.slideGravity * dt;
+            vy += tangent.y * this.slideGravity * dt;
+
+            const speed = Math.sqrt(vx * vx + vy * vy);
+            if (speed > this.maxSlideSpeed) {
+                const scale = this.maxSlideSpeed / speed;
+                vx *= scale;
+                vy *= scale;
+            }
+            body.linearVelocity = cc.v2(vx, vy);
+
+            if (state.pathDistance >= this.getMaxSlideDistance(state) - 2) {
+                state.settled = true;
+            }
+        }
+
+        const speed = body.linearVelocity.mag();
+        if (speed < this.settleSpeed) {
+            state.stillTime += dt;
+            if (state.stillTime >= 0.4) {
+                state.settled = true;
+            }
+        } else {
+            state.stillTime = 0;
+        }
+
+        if (state.settled) {
+            body.gravityScale = 0;
+            body.linearDamping = 1.2;
+            body.angularDamping = 0.8;
+            body.allowSleep = true;
+
+            const holdX = (onPath.nearest.x - pos.x) * this.pathPullStrength * dt * 0.35;
+            const holdY = (onPath.nearest.y - pos.y) * this.pathPullStrength * dt * 0.35;
+            body.linearVelocity = cc.v2(
+                body.linearVelocity.x + holdX,
+                body.linearVelocity.y + holdY
+            );
+        }
+    }
+
+    private getDistanceAlongPath(
+        points: cc.Vec2[],
+        startIndex: number,
+        dir: number,
+        pos: cc.Vec2
+    ): number {
+        const nearest = this.getNearestOnPath(points, pos);
+        let dist = 0;
+        let idx = startIndex;
+        const target = nearest.index;
+        let guard = 0;
+
+        while (idx !== target && guard < points.length + 1) {
+            const nextIdx = this.wrapIndex(idx + dir, points.length);
+            const a = points[idx];
+            const b = points[nextIdx];
+            dist += cc.v2(b.x - a.x, b.y - a.y).mag();
+            idx = nextIdx;
+            guard++;
+        }
+
+        const segA = points[idx];
+        dist += cc.v2(pos.x - segA.x, pos.y - segA.y).mag();
+        return dist;
     }
 
     private getDropAnchor(worldPos: cc.Vec2): DropAnchor | null {
@@ -506,7 +660,12 @@ export default class CordRoundGame extends cc.Component {
     }
 
     private isCharmOnCord(charm: cc.Node): boolean {
-        return this.cordCharms.some(state => state.node === charm);
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            const state = this.cordCharms[i];
+            if (state.charm === charm || state.pivot === charm) return true;
+            if (charm.parent === state.pivot) return true;
+        }
+        return false;
     }
 
     private getMainLocalPos(screenPos: cc.Vec2): cc.Vec3 {

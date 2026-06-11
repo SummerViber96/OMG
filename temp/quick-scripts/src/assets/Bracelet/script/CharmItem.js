@@ -24,27 +24,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var NewClass = /** @class */ (function (_super) {
-    __extends(NewClass, _super);
-    function NewClass() {
+var CharmItem = /** @class */ (function (_super) {
+    __extends(CharmItem, _super);
+    function CharmItem() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.listImg = [];
+        /** Điểm neo treo lên dây — đặt node con tên hangPoint ở đỉnh charm. */
+        _this.hangPoint = null;
         return _this;
-        // update (dt) {}
     }
-    NewClass.prototype.start = function () {
-    };
-    NewClass.prototype.loadIMG = function (id) {
+    CharmItem.prototype.loadIMG = function (id) {
         this.node.children[0].getComponent(cc.Sprite).spriteFrame = this.listImg[id];
+    };
+    CharmItem.prototype.getHangLocalOffset = function () {
+        var hang = this.hangPoint
+            || this.node.getChildByName('hangPoint')
+            || this.node.getChildByName('hookNode');
+        if (hang) {
+            return cc.v2(hang.x, hang.y);
+        }
+        var icon = this.node.getChildByName('icon');
+        if (icon) {
+            var h = icon.height * Math.abs(icon.scaleY);
+            var ay = icon.anchorY;
+            return cc.v2(0, h * (1 - ay));
+        }
+        return cc.v2(0, 55);
     };
     __decorate([
         property(cc.SpriteFrame)
-    ], NewClass.prototype, "listImg", void 0);
-    NewClass = __decorate([
-        ccclass
-    ], NewClass);
-    return NewClass;
+    ], CharmItem.prototype, "listImg", void 0);
+    __decorate([
+        property(cc.Node)
+    ], CharmItem.prototype, "hangPoint", void 0);
+    CharmItem = __decorate([
+        ccclass('CharmItem')
+    ], CharmItem);
+    return CharmItem;
 }(cc.Component));
-exports.default = NewClass;
+exports.default = CharmItem;
 
 cc._RF.pop();

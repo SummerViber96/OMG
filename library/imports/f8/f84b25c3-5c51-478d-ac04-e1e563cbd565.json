@@ -19,22 +19,25 @@
     "_children": [
       {
         "__id__": 2
+      },
+      {
+        "__id__": 5
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 5
-      },
-      {
-        "__id__": 6
-      },
-      {
         "__id__": 7
+      },
+      {
+        "__id__": 8
+      },
+      {
+        "__id__": 9
       }
     ],
     "_prefab": {
-      "__id__": 8
+      "__id__": 10
     },
     "_opacity": 255,
     "_color": {
@@ -185,9 +188,80 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f84b25c3-5c51-478d-ac04-e1e563cbd565"
     },
     "fileId": "fbl0vF9mxKhqV+yfCOqM00",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "New Node",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [],
+    "_prefab": {
+      "__id__": 6
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f84b25c3-5c51-478d-ac04-e1e563cbd565"
+    },
+    "fileId": "52Q8U6PAZLFIChIST5VBKt",
     "sync": false
   },
   {
@@ -262,6 +336,9 @@
         "__uuid__": "2f91a88d-18aa-4113-8578-8b5b8e23db34"
       }
     ],
+    "hangPoint": {
+      "__id__": 5
+    },
     "_id": ""
   },
   {
@@ -270,7 +347,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f84b25c3-5c51-478d-ac04-e1e563cbd565"
     },
     "fileId": "",
     "sync": false
