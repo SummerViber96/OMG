@@ -72,14 +72,21 @@ export default class NewClass extends cc.Component {
     startGame2() {
         let id = globalThis.idString;
         console.log("id", id);
-        let stringAround = this.listCordRound.children[id];
-        stringAround.active = true;
-        stringAround.opacity = 0;
-        this.charmNode.getComponent("CharmGame").OffEvent();
-        cc.tween(stringAround).to(0.4, { opacity: 255 }).start()
+        // let stringAround = this.listCordRound.children[id];
+        // stringAround.active = true;
+        // stringAround.opacity = 0;
+        // this.charmNode.getComponent("CharmGame").OffEvent();
+        // cc.tween(stringAround).to(0.4, { opacity: 255 }).start()
         if (this.stringBot) {
             this.stringBot.active = false;
         }
+        this.scheduleOnce(() => {
+            let stringAround = this.listCordRound.children[id];
+            stringAround.active = true;
+            stringAround.opacity = 0;
+            this.charmNode.getComponent("CharmGame").OffEvent();
+            cc.tween(stringAround).to(0.4, { opacity: 255 }).start()
+        }, 0.4)
         const cordGame = this.listCordRound.getComponent("CordRoundGame");
         if (cordGame) {
             cordGame.startBraceletMode();

@@ -336,10 +336,9 @@
         "__uuid__": "bb9d9519-a49b-4224-b35a-e4aba1fe2f32"
       }
     ],
-    "hookNode": {
+    "hangPoint": {
       "__id__": 5
     },
-    "hookOffsetY": 0,
     "_id": ""
   },
   {

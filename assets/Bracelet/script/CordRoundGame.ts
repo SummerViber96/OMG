@@ -56,6 +56,10 @@ export default class CordRoundGame extends cc.Component {
     @property
     pivotColliderRadius: number = 8;
 
+    /** Thu nhỏ PhysicsPolygonCollider của charm (1 = giữ nguyên prefab). */
+    @property
+    charmColliderScale: number = 0.85;
+
     private activeCord: cc.Node = null;
     private cordPaths: Map<cc.Node, CordPathData> = new Map();
     private preparedCords: cc.Node[] = [];
@@ -402,12 +406,20 @@ export default class CordRoundGame extends cc.Component {
 
     private enableCharmPhysicsCollider(charm: cc.Node) {
         const collider = charm.getComponent(cc.PhysicsPolygonCollider);
-        if (collider) {
-            collider.enabled = true;
-            collider.sensor = false;
-            collider.friction = 0.25;
-            collider.restitution = 0.08;
+        if (!collider) return;
+
+        if (!(charm as any)._colliderScaled) {
+            const scale = this.charmColliderScale;
+            if (scale > 0 && scale !== 1) {
+                collider.points = collider.points.map(p => cc.v2(p.x * scale, p.y * scale));
+            }
+            (charm as any)._colliderScaled = true;
         }
+
+        collider.enabled = true;
+        collider.sensor = false;
+        collider.friction = 0.25;
+        collider.restitution = 0.08;
     }
 
     private getTangentAtIndex(points: cc.Vec2[], index: number, dir: number): cc.Vec2 {

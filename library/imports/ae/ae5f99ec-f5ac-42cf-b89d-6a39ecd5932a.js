@@ -38,6 +38,8 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.pathPullStrength = 420;
         _this.settleSpeed = 22;
         _this.pivotColliderRadius = 8;
+        /** Thu nhỏ PhysicsPolygonCollider của charm (1 = giữ nguyên prefab). */
+        _this.charmColliderScale = 0.85;
         _this.activeCord = null;
         _this.cordPaths = new Map();
         _this.preparedCords = [];
@@ -342,12 +344,19 @@ var CordRoundGame = /** @class */ (function (_super) {
     };
     CordRoundGame.prototype.enableCharmPhysicsCollider = function (charm) {
         var collider = charm.getComponent(cc.PhysicsPolygonCollider);
-        if (collider) {
-            collider.enabled = true;
-            collider.sensor = false;
-            collider.friction = 0.25;
-            collider.restitution = 0.08;
+        if (!collider)
+            return;
+        if (!charm._colliderScaled) {
+            var scale_1 = this.charmColliderScale;
+            if (scale_1 > 0 && scale_1 !== 1) {
+                collider.points = collider.points.map(function (p) { return cc.v2(p.x * scale_1, p.y * scale_1); });
+            }
+            charm._colliderScaled = true;
         }
+        collider.enabled = true;
+        collider.sensor = false;
+        collider.friction = 0.25;
+        collider.restitution = 0.08;
     };
     CordRoundGame.prototype.getTangentAtIndex = function (points, index, dir) {
         var nextIdx = this.wrapIndex(index + dir, points.length);
@@ -617,6 +626,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property
     ], CordRoundGame.prototype, "pivotColliderRadius", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "charmColliderScale", void 0);
     CordRoundGame = __decorate([
         ccclass
     ], CordRoundGame);
