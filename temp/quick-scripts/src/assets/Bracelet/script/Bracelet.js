@@ -102,6 +102,13 @@ var NewClass = /** @class */ (function (_super) {
             this.stringBot.active = false;
         }
     };
+    NewClass.prototype.btn_cord3 = function (event) {
+        var btn = event.currentTarget;
+        btn.getComponent(cc.Button).enabled = false;
+        btn.active = false;
+        this.plate.active = false;
+        cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).start();
+    };
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "scene1", void 0);

@@ -52,6 +52,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.activeTouchId = -1;
         _this.isActive = false;
         _this.touchBound = false;
+        _this.btnOk = null;
         return _this;
     }
     CordRoundGame.prototype.startBraceletMode = function () {
@@ -205,6 +206,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         var dropAnchor = this.getDropAnchor(charmWorld);
         if (dropAnchor) {
             this.threadCharmOntoCord(charm, dropAnchor);
+            this.btnOk.active = true;
         }
         else {
             this.resetDraggedCharm(charm);
@@ -256,6 +258,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         pivot.parent = this.charmLayer;
         pivot.setPosition(cc.v3(startPose.x, startPose.y, 0));
         charm.angle = 0;
+        charm.children[0].scale = 0.8;
         var pivotBody = pivot.getComponent(cc.RigidBody);
         if (pivotBody) {
             pivotBody.gravityScale = 1;
@@ -617,6 +620,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property
     ], CordRoundGame.prototype, "pivotColliderRadius", void 0);
+    __decorate([
+        property(cc.Node)
+    ], CordRoundGame.prototype, "btnOk", void 0);
     CordRoundGame = __decorate([
         ccclass
     ], CordRoundGame);

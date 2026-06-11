@@ -70,6 +70,8 @@ export default class CordRoundGame extends cc.Component {
     private activeTouchId: number = -1;
     private isActive: boolean = false;
     private touchBound: boolean = false;
+    @property(cc.Node)
+    btnOk: cc.Node = null;
 
     startBraceletMode() {
         if (!this.CordRoundList) return;
@@ -242,6 +244,7 @@ export default class CordRoundGame extends cc.Component {
         const dropAnchor = this.getDropAnchor(charmWorld);
         if (dropAnchor) {
             this.threadCharmOntoCord(charm, dropAnchor);
+            this.btnOk.active = true;
         } else {
             this.resetDraggedCharm(charm);
         }
@@ -300,7 +303,7 @@ export default class CordRoundGame extends cc.Component {
         pivot.parent = this.charmLayer;
         pivot.setPosition(cc.v3(startPose.x, startPose.y, 0));
         charm.angle = 0;
-
+        charm.children[0].scale = 0.8;
         const pivotBody = pivot.getComponent(cc.RigidBody);
         if (pivotBody) {
             pivotBody.gravityScale = 1;

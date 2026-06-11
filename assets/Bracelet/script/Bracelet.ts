@@ -25,7 +25,7 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     listCordRound: cc.Node = null;
     @property(cc.Node)
-    stringBot:cc.Node=null;
+    stringBot: cc.Node = null;
     onLoad() {
         cc.director.getPhysicsManager().enabled = true;
         cc.director.getPhysicsManager().gravity = cc.v2();
@@ -72,7 +72,7 @@ export default class NewClass extends cc.Component {
     startGame2() {
         let id = globalThis.idString;
         console.log("id", id);
-    
+
         this.scheduleOnce(() => {
             let stringAround = this.listCordRound.children[id];
             stringAround.active = true;
@@ -87,7 +87,14 @@ export default class NewClass extends cc.Component {
         if (this.stringBot) {
             this.stringBot.active = false;
         }
-       
+
+    }
+    btn_cord3(event) {
+        let btn = event.currentTarget;
+        btn.getComponent(cc.Button).enabled = false;
+        btn.active = false;
+        this.plate.active = false;
+        cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).start()
     }
 
     // update (dt) {}
