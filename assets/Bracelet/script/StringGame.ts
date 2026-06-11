@@ -16,7 +16,7 @@ export default class StringGame extends cc.Component {
     @property(cc.Node)
     btnOk: cc.Node = null
     @property(cc.Node)
-    hand:cc.Node=null
+    hand: cc.Node = null
 
     private selectedString: cc.Node = null;
     private isDragging: boolean = false;
@@ -205,7 +205,7 @@ export default class StringGame extends cc.Component {
 
     private movePlateUp() {
         if (!this.plate || !this.plateOriginPos) return;
-        let newPos = this.plate.position.add(cc.v3(0, 50))
+        let newPos = this.plateOriginPos.add(cc.v3(0, 50))
         cc.tween(this.plate).to(0.3, { position: newPos }).start()
         // this.plate.setPosition(
         //     this.plateOriginPos.x,
@@ -285,7 +285,7 @@ export default class StringGame extends cc.Component {
             // console.log( this.strings[index]);
             // this.strings[index].active = false
             let id = this.strings[index].getComponent("ItemString").tag;
-
+            globalThis.idString = id;
             this.strings[index].position = this.strings[index].getComponent("ItemString").localPos;
             this.strings[index].active = false
             this.strings[index].setSiblingIndex(this.strings[index].getComponent("ItemString").originSiblingIndex);
@@ -312,4 +312,11 @@ export default class StringGame extends cc.Component {
         this.node.emit('select-string', stringNode);
     }
     isFirst = false
+    OffTOuch(){
+        const touchNode = cc.Canvas.instance.node;
+        touchNode.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        touchNode.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        touchNode.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        touchNode.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);   
+    }
 }

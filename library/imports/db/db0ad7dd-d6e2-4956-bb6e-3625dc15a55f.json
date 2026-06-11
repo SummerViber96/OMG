@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "keychain_14",
+    "texture": "173d333a-4030-41c0-b4ec-072c4a1419cd",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      253,
+      382
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      253,
+      382
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -10,9 +10,21 @@ export default class NewClass extends cc.Component {
     listBoxNode: cc.Node = null;
     @property(cc.Node)
     plate: cc.Node = null
+    @property(cc.Node)
+    localPos: cc.Node = null;
+    @property(cc.Prefab)
+    listCharms: cc.Prefab[] = [];
+    @property(cc.Node)
+    notiFull: cc.Node = null;
+    @property(cc.Node)
+    btnOk:cc.Node=null
     charms = []
     isTargetbox = null;
+    onLoad() {
+      
+    }
     start() {
+
         for (let i = 0; i < this.listBoxNode.childrenCount; i++) {
             let child = this.listBoxNode.children[i];
             this.charms.push(child);
@@ -24,6 +36,13 @@ export default class NewClass extends cc.Component {
         touchNode.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
 
     }
+    OffEvent(){
+        const touchNode = cc.Canvas.instance.node;
+        touchNode.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        touchNode.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        touchNode.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        touchNode.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+    }
     onTouchStart(event) {
         if (this.isTargetbox) return;
         let pos = event.getLocation()
@@ -34,6 +53,7 @@ export default class NewClass extends cc.Component {
         pos = this.listBoxNode.convertToNodeSpaceAR(pos)
         let box = this.getBox(pos)
         if (box) {
+            this.btnOk.active = true;
             this.isTargetbox = box
             this.spoon.active = true;
             this.spoon.getComponent(cc.Animation).play()
@@ -85,9 +105,86 @@ export default class NewClass extends cc.Component {
         this.isTargetbox = null;
         this.spoon.getComponent("Spoon").off()
     }
+    totalCharm = 0
     dropCharms() {
-        let tag=this.isTargetbox.getComponent()
+        if (!this.isTargetbox || !this.localPos) return;
 
+        const tag = this.isTargetbox.getComponent("BoxCharm").tag;
+        const count = this.getCharmCount(tag);
+        const centerPos = cc.v3(0, 80, 0);
+        const dropDelay = 0.06;
+
+        for (let i = 0; i < count; i++) {
+            this.scheduleOnce(() => {
+                if (this.totalCharm <= 40) {
+                    this.totalCharm++;
+                    this.spawnCharmWithDrop(i, tag, centerPos);
+                }
+                else {
+                    this.showNotiFull()
+                }
+            }, i * dropDelay);
+        }
+
+        // this.scheduleOnce(() => {
+        this.clearSpoon();
+        // this.isTargetbox.getComponent("BoxCharm").getCharm();
+        // }, count * dropDelay + 0.1);
+    }
+
+    private getCharmCount(tag: number): number {
+        const counts = [4, 5, 3, 5, 5, 3, 5, 5, 5];
+        return counts[tag] || 0;
+    }
+
+    private getTargetPosition(index: number): cc.Vec3 {
+        const marker = this.localPos.children[index];
+        if (!marker) return cc.v3(0, 0, 0);
+        const worldPos = marker.convertToWorldSpaceAR(cc.v2(0, 0));
+        return this.plate.convertToNodeSpaceAR(worldPos);
+    }
+
+    private spawnCharmWithDrop(index: number, tag: number, centerPos: cc.Vec3) {
+        const charm = cc.instantiate(this.listCharms[tag]);
+        charm.parent = this.plate;
+        charm.getComponent("CharmItem").loadIMG(index);
+
+        const targetPos = this.getTargetPosition(index);
+        const spread = cc.v3(
+            (Math.random() - 0.5) * 24,
+            (Math.random() - 0.5) * 24,
+            0
+        );
+        charm.setPosition(centerPos.add(spread));
+
+        const rigidBody = charm.getComponent(cc.RigidBody);
+        if (!rigidBody) return;
+
+        rigidBody.awake = true;
+        rigidBody.active = true;
+
+        const dir = cc.v2(targetPos.x - charm.x, targetPos.y - charm.y);
+        const dist = dir.mag();
+        if (dist > 0) {
+            dir.normalizeSelf();
+            const speed = Math.min(dist * 2.8, 650);
+            rigidBody.linearVelocity = dir.mul(speed);
+        }
+        rigidBody.angularVelocity = (Math.random() - 0.5) * 18;
+    }
+    isDelay = false
+    showNotiFull() {
+        if(this.isDelay) return;
+        this.isDelay = true;
+        this.scheduleOnce(() => {
+            this.isDelay = false;
+        }, 1)
+        this.notiFull.active = true;
+        this.notiFull.getComponent(cc.Animation).play()
+    }
+    btn_ok() {
+        // this.notiFull.active = false;
+        // this.btnOk.active = false;
     }
     // update (dt) {}
 }

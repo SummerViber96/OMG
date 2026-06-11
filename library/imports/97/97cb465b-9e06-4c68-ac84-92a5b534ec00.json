@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cord_round_pink",
+    "texture": "c419623f-84f6-4183-842f-b28740aa68ce",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      835,
+      727
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      835,
+      727
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

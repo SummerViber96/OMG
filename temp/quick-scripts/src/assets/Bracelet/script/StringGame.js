@@ -195,7 +195,7 @@ var StringGame = /** @class */ (function (_super) {
     StringGame.prototype.movePlateUp = function () {
         if (!this.plate || !this.plateOriginPos)
             return;
-        var newPos = this.plate.position.add(cc.v3(0, 50));
+        var newPos = this.plateOriginPos.add(cc.v3(0, 50));
         cc.tween(this.plate).to(0.3, { position: newPos }).start();
         // this.plate.setPosition(
         //     this.plateOriginPos.x,
@@ -269,6 +269,7 @@ var StringGame = /** @class */ (function (_super) {
             // console.log( this.strings[index]);
             // this.strings[index].active = false
             var id = this.strings[index].getComponent("ItemString").tag;
+            globalThis.idString = id;
             this.strings[index].position = this.strings[index].getComponent("ItemString").localPos;
             this.strings[index].active = false;
             this.strings[index].setSiblingIndex(this.strings[index].getComponent("ItemString").originSiblingIndex);
@@ -288,6 +289,13 @@ var StringGame = /** @class */ (function (_super) {
             }
         }
         this.node.emit('select-string', stringNode);
+    };
+    StringGame.prototype.OffTOuch = function () {
+        var touchNode = cc.Canvas.instance.node;
+        touchNode.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        touchNode.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        touchNode.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        touchNode.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
     };
     __decorate([
         property(cc.Node)

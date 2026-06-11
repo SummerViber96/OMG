@@ -23,6 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+globalThis.idString = 0;
+globalThis.idCharm = 0;
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
@@ -35,14 +37,21 @@ var NewClass = /** @class */ (function (_super) {
         _this.hand2 = null;
         _this.charmNode = null;
         _this.soundBg = null;
+        _this.title = null;
+        _this.listCordRound = null;
+        _this.stringBot = null;
         return _this;
         // update (dt) {}
     }
+    NewClass.prototype.onLoad = function () {
+        cc.director.getPhysicsManager().enabled = true;
+        cc.director.getPhysicsManager().gravity = cc.v2();
+        var manager = cc.director.getCollisionManager();
+        manager.enabled = true;
+    };
     NewClass.prototype.start = function () {
         cc.audioEngine.play(this.soundBg, true, 0.5);
         cc.game.setFrameRate(60);
-        var manager = cc.director.getCollisionManager();
-        manager.enabled = true;
     };
     NewClass.prototype.btn_startGame = function () {
         var _this = this;
@@ -52,9 +61,43 @@ var NewClass = /** @class */ (function (_super) {
             _this.hand2.active = true;
         }).start();
     };
-    NewClass.prototype.btn_cord = function () {
+    NewClass.prototype.btn_cord = function (event) {
+        var btn = event.currentTarget;
+        btn.getComponent(cc.Button).enabled = false;
+        btn.active = false;
+        cc.tween(this.stringNode).to(0.4, { opacity: 0 }).start();
         this.stringNode.active = false;
         this.charmNode.active = true;
+        this.title.string = "CHOOSE CHARMS";
+    };
+    NewClass.prototype.btn_cord2 = function (event) {
+        var _this = this;
+        var btn = event.currentTarget;
+        btn.getComponent(cc.Button).enabled = false;
+        btn.active = false;
+        this.stringNode.active = false;
+        cc.tween(this.charmNode).to(0.4, { opacity: 0 }).call(function () {
+            _this.charmNode.active = false;
+        }).start();
+        cc.tween(this.plate).to(0.4, { position: cc.v3(0, 230, 0) }).start();
+        this.title.string = "MAKE BRACELET";
+        this.startGame2();
+    };
+    NewClass.prototype.startGame2 = function () {
+        var id = globalThis.idString;
+        console.log("id", id);
+        var stringAround = this.listCordRound.children[id];
+        stringAround.active = true;
+        stringAround.opacity = 0;
+        this.charmNode.getComponent("CharmGame").OffEvent();
+        cc.tween(stringAround).to(0.4, { opacity: 255 }).start();
+        if (this.stringBot) {
+            this.stringBot.active = false;
+        }
+        var cordGame = this.listCordRound.getComponent("CordRoundGame");
+        if (cordGame) {
+            cordGame.startBraceletMode();
+        }
     };
     __decorate([
         property(cc.Node)
@@ -77,6 +120,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundBg", void 0);
+    __decorate([
+        property(cc.Label)
+    ], NewClass.prototype, "title", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listCordRound", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "stringBot", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

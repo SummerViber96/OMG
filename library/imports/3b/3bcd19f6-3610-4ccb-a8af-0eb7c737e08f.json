@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cord_round_yellow",
+    "texture": "38bcb0b7-649e-4084-95f9-242160855d7e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      835,
+      728
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      835,
+      728
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
