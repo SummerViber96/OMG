@@ -144,7 +144,7 @@ var NewClass = /** @class */ (function (_super) {
             _this.node.getChildByName("vfx_coin").active = true;
             _this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play();
         }, 0.4);
-        this.gamePlay.mcComp.deliverItem();
+        this.gamePlay.mcComp.deliverItem(this.gamePlay.sellTraySlot);
         this.gamePlay.sellTraySlot = -1;
         if (this.isOrderComplete()) {
             this.end(true);
@@ -271,6 +271,7 @@ var NewClass = /** @class */ (function (_super) {
         var isPotatoValid = this.potato && this.count[3] > 0 && itemType === "tomato";
         if (isChickenValid || isCocaValid || isCakeValid || isPotatoValid) {
             var missionType_1 = isCocaValid ? 1 : isCakeValid ? 2 : isPotatoValid ? 3 : 0;
+            this.gamePlay.sellTraySlot = sellSlot;
             this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.gamePlay.soundOk, false, 1);
                 _this.updateMission(missionType_1);

@@ -150,7 +150,7 @@ export default class NewClass extends cc.Component {
             this.node.getChildByName("vfx_coin").getComponent(cc.Animation).play()
         }, 0.4)
 
-        this.gamePlay.mcComp.deliverItem()
+        this.gamePlay.mcComp.deliverItem(this.gamePlay.sellTraySlot)
         this.gamePlay.sellTraySlot = -1
 
         if (this.isOrderComplete()) {
@@ -282,6 +282,7 @@ export default class NewClass extends cc.Component {
 
         if (isChickenValid || isCocaValid || isCakeValid || isPotatoValid) {
             let missionType = isCocaValid ? 1 : isCakeValid ? 2 : isPotatoValid ? 3 : 0
+            this.gamePlay.sellTraySlot = sellSlot
             this.scheduleOnce(() => {
                             cc.audioEngine.play(this.gamePlay.soundOk, false, 1)
 

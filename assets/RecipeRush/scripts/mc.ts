@@ -171,7 +171,8 @@ export default class NewClass extends cc.Component {
     }
 
     consumeTrayItem(slot?: number) {
-        let targetSlot = slot != null ? slot : this.resolveTraySlot()
+        let targetSlot = slot != null && slot >= 0 ? slot : this.resolveTraySlot()
+        if (targetSlot < 0) return
         if (this.trayItems[targetSlot]) {
             this.trayItems[targetSlot].destroy()
             this.trayItems[targetSlot] = null
@@ -203,17 +204,18 @@ export default class NewClass extends cc.Component {
         this.anim.setAnimation(2, "Idle", false)
     }
 
-    deliverItem() {
-        let slot = this.gamePlay ? this.gamePlay.sellTraySlot : 0
-        this.consumeTrayItem(slot >= 0 ? slot : 0)
+    deliverItem(slot?: number) {
+        let targetSlot = slot != null && slot >= 0 ? slot : (this.gamePlay ? this.gamePlay.sellTraySlot : -1)
+        if (targetSlot < 0) return
+        this.consumeTrayItem(targetSlot)
     }
 
     afterDeliver() {
         this.anim.setAnimation(0, "Idle", true)
-        if (this.isTrayEmpty()) {
-            this.hideTrays()
-        } else {
+        if (this.hasAnyItem()) {
             this.updateArms()
+        } else {
+            this.hideTrays()
         }
         this.gamePlay.isMoving = false
     }
@@ -284,6 +286,7 @@ export default class NewClass extends cc.Component {
                 .call(() => this.spawChicken())
                 .start()
         }
+        
         // if(this.localId==)
 
 
@@ -623,6 +626,8 @@ export default class NewClass extends cc.Component {
             this.gamePlay.isMoving = true
             this.anim.setAnimation(0, "Walk", true)
             this.node.scaleX = -1
+            this.node.zIndex = 2
+            this.table.zIndex = 1
             cc.tween(this.node)
                 .to(1, { position: this.getPos(this.POS_CAKE) })
                 .call(() => this.getCake())

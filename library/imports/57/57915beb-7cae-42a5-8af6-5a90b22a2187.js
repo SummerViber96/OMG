@@ -190,7 +190,9 @@ var NewClass = /** @class */ (function (_super) {
         this.updateArms();
     };
     NewClass.prototype.consumeTrayItem = function (slot) {
-        var targetSlot = slot != null ? slot : this.resolveTraySlot();
+        var targetSlot = slot != null && slot >= 0 ? slot : this.resolveTraySlot();
+        if (targetSlot < 0)
+            return;
         if (this.trayItems[targetSlot]) {
             this.trayItems[targetSlot].destroy();
             this.trayItems[targetSlot] = null;
@@ -221,17 +223,19 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(1, "Idle", false);
         this.anim.setAnimation(2, "Idle", false);
     };
-    NewClass.prototype.deliverItem = function () {
-        var slot = this.gamePlay ? this.gamePlay.sellTraySlot : 0;
-        this.consumeTrayItem(slot >= 0 ? slot : 0);
+    NewClass.prototype.deliverItem = function (slot) {
+        var targetSlot = slot != null && slot >= 0 ? slot : (this.gamePlay ? this.gamePlay.sellTraySlot : -1);
+        if (targetSlot < 0)
+            return;
+        this.consumeTrayItem(targetSlot);
     };
     NewClass.prototype.afterDeliver = function () {
         this.anim.setAnimation(0, "Idle", true);
-        if (this.isTrayEmpty()) {
-            this.hideTrays();
+        if (this.hasAnyItem()) {
+            this.updateArms();
         }
         else {
-            this.updateArms();
+            this.hideTrays();
         }
         this.gamePlay.isMoving = false;
     };
@@ -627,6 +631,8 @@ var NewClass = /** @class */ (function (_super) {
             this.gamePlay.isMoving = true;
             this.anim.setAnimation(0, "Walk", true);
             this.node.scaleX = -1;
+            this.node.zIndex = 2;
+            this.table.zIndex = 1;
             cc.tween(this.node)
                 .to(1, { position: this.getPos(this.POS_CAKE) })
                 .call(function () { return _this.getCake(); })
