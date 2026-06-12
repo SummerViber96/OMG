@@ -353,7 +353,6 @@ export default class NewClass extends cc.Component {
                 this.btnMachine.getChildByName("hind").active = true
             }, 2)
         }
-        this.mcComp.discardTrayIfDifferentType("chicken")
         if (!this.mcComp.canPickMoreChicken()) return;
         this.isMoving = true
         this.btnChicken.getChildByName("hind").opacity = 0;
@@ -363,10 +362,9 @@ export default class NewClass extends cc.Component {
 
     btn_mayChien() {
         if (this.isMoving) return;
-        this.mcComp.discardTrayIfDifferentType("chicken")
         let machineComp = this.btnMachine.getComponent("machine")
         let canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null
-        let canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4) && machineComp.chicken != null && this.mcComp.isTrayEmpty()
+        let canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4) && machineComp.chicken != null && this.mcComp.canPickItemType("chicken")
         if (!canFry && !canPickup) return;
 
         this.isMoving = true

@@ -254,8 +254,14 @@ var NewClass = /** @class */ (function (_super) {
             return false;
         }
         var mcComp = this.gamePlay.mcComp;
-        var itemType = mcComp.getItemType();
-        var chickenComp = mcComp.getChickenComp(mcComp.getTrayItem());
+        var sellSlot = this.gamePlay.sellTraySlot >= 0 ? this.gamePlay.sellTraySlot : mcComp.findTrayForCustomer(this);
+        if (sellSlot < 0) {
+            this.gamePlay.isMoving = false;
+            this.gamePlay.sellTraySlot = -1;
+            return false;
+        }
+        var itemType = mcComp.getItemType(sellSlot);
+        var chickenComp = mcComp.getChickenComp(mcComp.getTrayItem(sellSlot));
         var isChickenValid = this.chicken && this.count[0] > 0
             && itemType === "chicken"
             && chickenComp && chickenComp.isChin

@@ -262,8 +262,14 @@ export default class NewClass extends cc.Component {
             return false
         }
         let mcComp = this.gamePlay.mcComp
-        let itemType = mcComp.getItemType()
-        let chickenComp = mcComp.getChickenComp(mcComp.getTrayItem())
+        let sellSlot = this.gamePlay.sellTraySlot >= 0 ? this.gamePlay.sellTraySlot : mcComp.findTrayForCustomer(this)
+        if (sellSlot < 0) {
+            this.gamePlay.isMoving = false
+            this.gamePlay.sellTraySlot = -1
+            return false
+        }
+        let itemType = mcComp.getItemType(sellSlot)
+        let chickenComp = mcComp.getChickenComp(mcComp.getTrayItem(sellSlot))
 
         let isChickenValid = this.chicken && this.count[0] > 0
             && itemType === "chicken"

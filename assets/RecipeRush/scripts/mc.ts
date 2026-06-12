@@ -42,8 +42,8 @@ export default class NewClass extends cc.Component {
     gamePlay = null
     targetChicken = null
     chicken = false
-    trayItem = null
-    trayItemType = null
+    trayItems: cc.Node[] = [null, null]
+    trayItemTypes: string[] = [null, null]
 
     start() {
         this.node.position = this.posStart.clone();
@@ -55,32 +55,58 @@ export default class NewClass extends cc.Component {
         return this.arrPos[index]
     }
 
-    // --- Khay (1 tray) ---
+    // --- Khay (2 tray) ---
 
-    getTrayItem() {
-        return this.trayItem
+    getTrayNode(slot: number) {
+        return slot === 0 ? this.khay : this.khay2
+    }
+
+    resolveTraySlot(slot?: number) {
+        if (slot != null && slot >= 0) return slot
+        let sellSlot = this.gamePlay ? this.gamePlay.sellTraySlot : -1
+        if (sellSlot >= 0) return sellSlot
+        if (this.trayItems[0]) return 0
+        if (this.trayItems[1]) return 1
+        return 0
+    }
+
+    getFirstEmptyTraySlot() {
+        if (!this.trayItems[0]) return 0
+        if (!this.trayItems[1]) return 1
+        return -1
+    }
+
+    getTrayItem(slot?: number) {
+        return this.trayItems[this.resolveTraySlot(slot)]
     }
 
     getChickenComp(item: cc.Node) {
         return item ? item.getComponent("chicken") : null
     }
 
-    getItemType() {
-        if (this.trayItemType) return this.trayItemType
-        if (!this.trayItem) return null
-        if (this.getChickenComp(this.trayItem)) return "chicken"
+    getItemType(slot?: number) {
+        let idx = this.resolveTraySlot(slot)
+        if (this.trayItemTypes[idx]) return this.trayItemTypes[idx]
+        let item = this.trayItems[idx]
+        if (!item) return null
+        if (this.getChickenComp(item)) return "chicken"
         return null
     }
 
     isCocaItem(item: cc.Node) {
-        return item != null && item === this.trayItem && this.getItemType() === "coca"
+        if (!item) return false
+        for (let i = 0; i < 2; i++) {
+            if (item === this.trayItems[i] && this.getItemType(i) === "coca") return true
+        }
+        return false
     }
 
-    canSellToCustomer(cusComp) {
-        let type = this.getItemType()
+    canSellTrayToCustomer(cusComp, slot: number) {
+        let type = this.getItemType(slot)
         if (!type) return false
+        let item = this.trayItems[slot]
         if (cusComp.chicken && cusComp.count[0] > 0 && type === "chicken") {
-            let comp = this.getChickenComp(this.trayItem)
+            let comp = this.getChickenComp(item)
             return comp && comp.isChin && cusComp.sauce == comp.isSauce
         }
         if (cusComp.coca && cusComp.count[1] > 0 && type === "coca") return true
@@ -89,70 +115,85 @@ export default class NewClass extends cc.Component {
         return false
     }
 
+    canSellToCustomer(cusComp) {
+        return this.findTrayForCustomer(cusComp) >= 0
+    }
+
     findTrayForCustomer(cusComp) {
-        return this.canSellToCustomer(cusComp) ? 0 : -1
+        for (let i = 0; i < 2; i++) {
+            if (this.canSellTrayToCustomer(cusComp, i)) return i
+        }
+        return -1
     }
 
     hasAnyItem() {
-        return this.trayItem != null
+        return this.trayItems[0] != null || this.trayItems[1] != null
     }
 
     isTrayEmpty() {
-        return this.trayItem == null
+        return this.trayItems[0] == null && this.trayItems[1] == null
+    }
+
+    isTrayFull() {
+        return this.trayItems[0] != null && this.trayItems[1] != null
     }
 
     getRawTraySlot() {
-        let comp = this.getChickenComp(this.trayItem)
-        if (comp && !comp.isChin) return 0
+        for (let i = 0; i < 2; i++) {
+            let comp = this.getChickenComp(this.trayItems[i])
+            if (comp && !comp.isChin) return i
+        }
         return -1
     }
 
     findCookedTraySlot() {
-        let comp = this.getChickenComp(this.trayItem)
-        if (comp && comp.isChin && !comp.isSauce) return 0
+        for (let i = 0; i < 2; i++) {
+            let comp = this.getChickenComp(this.trayItems[i])
+            if (comp && comp.isChin && !comp.isSauce) return i
+        }
         return -1
     }
 
-    putTrayItem(item: cc.Node, type?: string) {
-        if (!this.khay || this.trayItem) return
-        item.parent = this.khay
+    putTrayItem(item: cc.Node, type?: string, slot?: number) {
+        let targetSlot = slot != null ? slot : this.getFirstEmptyTraySlot()
+        if (targetSlot < 0) return
+        let khayNode = this.getTrayNode(targetSlot)
+        if (!khayNode) return
+        item.parent = khayNode
         let anim = item.getComponent(cc.Animation)
         if (anim) anim.play()
-        this.trayItem = item
-        this.trayItemType = type || (this.getChickenComp(item) ? "chicken" : null)
-        this.khay.active = true
+        this.trayItems[targetSlot] = item
+        this.trayItemTypes[targetSlot] = type || (this.getChickenComp(item) ? "chicken" : null)
+        khayNode.active = true
         this.targetChicken = item
         this.chicken = true
         this.updateArms()
     }
 
-    consumeTrayItem() {
-        if (this.trayItem) {
-            this.trayItem.destroy()
-            this.trayItem = null
+    consumeTrayItem(slot?: number) {
+        let targetSlot = slot != null ? slot : this.resolveTraySlot()
+        if (this.trayItems[targetSlot]) {
+            this.trayItems[targetSlot].destroy()
+            this.trayItems[targetSlot] = null
+            this.trayItemTypes[targetSlot] = null
         }
-        this.trayItemType = null
-        this.chicken = false
-        this.targetChicken = null
-        this.hideTrays()
+        if (this.isTrayEmpty()) {
+            this.chicken = false
+            this.targetChicken = null
+            this.hideTrays()
+        } else {
+            this.updateArms()
+        }
     }
 
-    discardTrayIfDifferentType(targetType: string) {
-        let current = this.getItemType()
-        if (!current || current === targetType) return
-        this.consumeTrayItem()
-        this.normalizeLocalIdAfterSwitch(targetType)
-        this.updateArms()
+    // Cùng loại hoặc khác loại: dùng khay trống, không xóa item đang có
+    // Chỉ chặn khi cả 2 khay đều đầy
+    canPickItemType(targetType: string) {
+        return !this.isTrayFull()
     }
 
-    normalizeLocalIdAfterSwitch(targetType: string) {
-        if (targetType === "chicken") {
-            if (this.localId === 4 || this.localId === 5) this.localId = 3
-            return
-        }
-        if (this.localId === 1 || this.localId === 2 || this.localId === 4 || this.localId === 5) {
-            this.localId = 3
-        }
+    preparePickupSlot(targetType: string) {
+        return this.getFirstEmptyTraySlot()
     }
 
     hideTrays() {
@@ -163,25 +204,35 @@ export default class NewClass extends cc.Component {
     }
 
     deliverItem() {
-        this.consumeTrayItem()
+        let slot = this.gamePlay ? this.gamePlay.sellTraySlot : 0
+        this.consumeTrayItem(slot >= 0 ? slot : 0)
     }
 
     afterDeliver() {
         this.anim.setAnimation(0, "Idle", true)
-        this.hideTrays()
+        if (this.isTrayEmpty()) {
+            this.hideTrays()
+        } else {
+            this.updateArms()
+        }
         this.gamePlay.isMoving = false
     }
 
     updateArms() {
-        if (this.trayItem) {
+        if (this.trayItems[0]) {
             this.khay.active = true
             this.anim.setAnimation(1, "L-arm", true)
         } else {
             this.khay.active = false
             this.anim.setAnimation(1, "Idle", false)
         }
-        if (this.khay2) this.khay2.active = false
-        this.anim.setAnimation(2, "Idle", false)
+        if (this.trayItems[1]) {
+            if (this.khay2) this.khay2.active = true
+            this.anim.setAnimation(2, "R-arm", true)
+        } else {
+            if (this.khay2) this.khay2.active = false
+            this.anim.setAnimation(2, "Idle", false)
+        }
     }
 
     afterCustomerLeft() {
@@ -190,14 +241,13 @@ export default class NewClass extends cc.Component {
     }
 
     canPickMoreChicken() {
-        if (!this.isTrayEmpty()) return false
+        if (!this.canPickItemType("chicken")) return false
         return this.localId == 0 || this.localId == 1 || this.localId == 2 || this.localId == 3
     }
 
     // --- Di chuyển ---
 
     moveToChicken() {
-        this.discardTrayIfDifferentType("chicken")
         console.log(this.localId)
         if (!this.canPickMoreChicken()) {
             this.gamePlay.isMoving = false
@@ -240,13 +290,14 @@ export default class NewClass extends cc.Component {
     }
 
     spawChicken() {
-        if (!this.isTrayEmpty()) {
+        let slot = this.preparePickupSlot("chicken")
+        if (slot < 0) {
             this.gamePlay.isMoving = false
             return
         }
         this.gamePlay.btnChicken.children[0].getComponent(sp.Skeleton).setAnimation(0, "lv1-tap", false)
         let chicken = cc.instantiate(this.preChicken)
-        this.putTrayItem(chicken)
+        this.putTrayItem(chicken, "chicken", slot)
         if (this.localId == 0) this.localId = 1
         else if (this.localId == 3) this.localId = 1
         this.anim.setAnimation(0, "Idle", true)
@@ -260,7 +311,6 @@ export default class NewClass extends cc.Component {
     }
 
     moveToMachine() {
-        this.discardTrayIfDifferentType("chicken")
         this.node.zIndex = 2
         let machine = this.gamePlay.btnMachine.getComponent("machine")
         let rawSlot = this.getRawTraySlot()
@@ -274,9 +324,10 @@ export default class NewClass extends cc.Component {
                 })
                 .to(1, { position: this.getPos(this.POS_MACHINE) })
                 .call(() => {
-                    let chicken = this.trayItem
-                    this.trayItem = null
-                    this.trayItemType = null
+                    let slot = this.getRawTraySlot()
+                    let chicken = this.trayItems[slot]
+                    this.trayItems[slot] = null
+                    this.trayItemTypes[slot] = null
                     this.updateArms()
                     machine.cooking(chicken)
                     this.chicken = false
@@ -289,7 +340,7 @@ export default class NewClass extends cc.Component {
         }
 
         if (this.localId == 2 && machine.chicken != null) {
-            if (!this.isTrayEmpty()) {
+            if (!this.canPickItemType("chicken")) {
                 this.gamePlay.isMoving = false
                 return
             }
@@ -297,7 +348,12 @@ export default class NewClass extends cc.Component {
             this.updateArms()
             let chicken = machine.getChicken()
             chicken.getComponent("chicken").chin2()
-            this.putTrayItem(chicken)
+            let slot = this.preparePickupSlot("chicken")
+            if (slot < 0) {
+                this.gamePlay.isMoving = false
+                return
+            }
+            this.putTrayItem(chicken, "chicken", slot)
             this.localId = 2
             this.anim.setAnimation(0, "Idle", true)
             this.gamePlay.isMoving = false
@@ -313,7 +369,12 @@ export default class NewClass extends cc.Component {
                     this.updateArms()
                     let chicken = machine.getChicken()
                     chicken.getComponent("chicken").chin2()
-                    this.putTrayItem(chicken)
+                    let slot = this.preparePickupSlot("chicken")
+                    if (slot < 0) {
+                        this.gamePlay.isMoving = false
+                        return
+                    }
+                    this.putTrayItem(chicken, "chicken", slot)
                     this.localId = 2
                     this.anim.setAnimation(0, "Idle", true)
                     this.gamePlay.isMoving = false
@@ -374,6 +435,7 @@ export default class NewClass extends cc.Component {
             this.gamePlay.isMoving = false
             return
         }
+        let cookedItem = this.trayItems[slot]
         this.node.zIndex = 2
         this.anim.setAnimation(0, "Walk", true)
         this.updateArms()
@@ -381,7 +443,7 @@ export default class NewClass extends cc.Component {
         cc.tween(this.node)
             .to(0.5, { position: this.getPos(this.POS_SAUCE) })
             .call(() => {
-                this.getChickenComp(this.trayItem).addSauce()
+                this.getChickenComp(cookedItem).addSauce()
                 this.node.scaleX = 1
                 this.idle()
                 this.gamePlay.isMoving = false
@@ -460,7 +522,6 @@ export default class NewClass extends cc.Component {
 
     }
     moveToCoca() {
-        this.discardTrayIfDifferentType("coca")
         this.node.scaleX = -1
         if (this.localId == 1 || this.localId == 3 || this.localId == 5) {
             this.gamePlay.isMoving = true
@@ -481,12 +542,17 @@ export default class NewClass extends cc.Component {
         }
         else if (this.localId == 4 && this.gamePlay.btnCoca.getComponent("coca").isCoca) {
             this.gamePlay.btnCoca.getComponent("coca").getCoca()
-            if (!this.isTrayEmpty()) {
+            if (!this.canPickItemType("coca")) {
+                this.gamePlay.isMoving = false
+                return
+            }
+            let slot = this.preparePickupSlot("coca")
+            if (slot < 0) {
                 this.gamePlay.isMoving = false
                 return
             }
             let coca = cc.instantiate(this.preCoca)
-            this.putTrayItem(coca, "coca")
+            this.putTrayItem(coca, "coca", slot)
             this.localId = 4
             this.gamePlay.isMoving = false
         }
@@ -515,7 +581,6 @@ export default class NewClass extends cc.Component {
         }
     }
     moveToCake() {
-        this.discardTrayIfDifferentType("cake")
 
         if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
             this.gamePlay.isMoving = true
@@ -567,27 +632,36 @@ export default class NewClass extends cc.Component {
         this.gamePlay.isMoving = false
     }
     getCake() {
-        if (!this.isTrayEmpty()) {
+        if (!this.canPickItemType("cake")) {
+            this.gamePlay.isMoving = false
+            return
+        }
+        let slot = this.preparePickupSlot("cake")
+        if (slot < 0) {
             this.gamePlay.isMoving = false
             return
         }
         let cake = cc.instantiate(this.preCake)
-        this.putTrayItem(cake, "cake")
+        this.putTrayItem(cake, "cake", slot)
         this.localId = 5
         this.idle()
     }
     getTomato() {
-        if (!this.isTrayEmpty()) {
+        if (!this.canPickItemType("tomato")) {
+            this.gamePlay.isMoving = false
+            return
+        }
+        let slot = this.preparePickupSlot("tomato")
+        if (slot < 0) {
             this.gamePlay.isMoving = false
             return
         }
         let tomato = cc.instantiate(this.preTomato)
-        this.putTrayItem(tomato, "tomato")
+        this.putTrayItem(tomato, "tomato", slot)
         this.localId = 5
         this.idle()
     }
     moveToTomato() {
-        this.discardTrayIfDifferentType("tomato")
         if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
             this.gamePlay.isMoving = true
             this.anim.setAnimation(0, "Walk", true)
@@ -630,7 +704,8 @@ export default class NewClass extends cc.Component {
     // --- Reset ---
 
     clearTray() {
-        this.consumeTrayItem()
+        this.consumeTrayItem(0)
+        this.consumeTrayItem(1)
     }
 
     resetToStart() {

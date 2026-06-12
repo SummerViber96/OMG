@@ -322,7 +322,6 @@ var NewClass = /** @class */ (function (_super) {
                 _this.btnMachine.getChildByName("hind").active = true;
             }, 2);
         }
-        this.mcComp.discardTrayIfDifferentType("chicken");
         if (!this.mcComp.canPickMoreChicken())
             return;
         this.isMoving = true;
@@ -332,10 +331,9 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_mayChien = function () {
         if (this.isMoving)
             return;
-        this.mcComp.discardTrayIfDifferentType("chicken");
         var machineComp = this.btnMachine.getComponent("machine");
         var canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null;
-        var canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4) && machineComp.chicken != null && this.mcComp.isTrayEmpty();
+        var canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4) && machineComp.chicken != null && this.mcComp.canPickItemType("chicken");
         if (!canFry && !canPickup)
             return;
         this.isMoving = true;

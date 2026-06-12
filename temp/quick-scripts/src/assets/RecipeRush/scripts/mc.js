@@ -57,8 +57,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.gamePlay = null;
         _this.targetChicken = null;
         _this.chicken = false;
-        _this.trayItem = null;
-        _this.trayItemType = null;
+        _this.trayItems = [null, null];
+        _this.trayItemTypes = [null, null];
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -70,31 +70,62 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.getPos = function (index) {
         return this.arrPos[index];
     };
-    // --- Khay (1 tray) ---
-    NewClass.prototype.getTrayItem = function () {
-        return this.trayItem;
+    // --- Khay (2 tray) ---
+    NewClass.prototype.getTrayNode = function (slot) {
+        return slot === 0 ? this.khay : this.khay2;
+    };
+    NewClass.prototype.resolveTraySlot = function (slot) {
+        if (slot != null && slot >= 0)
+            return slot;
+        var sellSlot = this.gamePlay ? this.gamePlay.sellTraySlot : -1;
+        if (sellSlot >= 0)
+            return sellSlot;
+        if (this.trayItems[0])
+            return 0;
+        if (this.trayItems[1])
+            return 1;
+        return 0;
+    };
+    NewClass.prototype.getFirstEmptyTraySlot = function () {
+        if (!this.trayItems[0])
+            return 0;
+        if (!this.trayItems[1])
+            return 1;
+        return -1;
+    };
+    NewClass.prototype.getTrayItem = function (slot) {
+        return this.trayItems[this.resolveTraySlot(slot)];
     };
     NewClass.prototype.getChickenComp = function (item) {
         return item ? item.getComponent("chicken") : null;
     };
-    NewClass.prototype.getItemType = function () {
-        if (this.trayItemType)
-            return this.trayItemType;
-        if (!this.trayItem)
+    NewClass.prototype.getItemType = function (slot) {
+        var idx = this.resolveTraySlot(slot);
+        if (this.trayItemTypes[idx])
+            return this.trayItemTypes[idx];
+        var item = this.trayItems[idx];
+        if (!item)
             return null;
-        if (this.getChickenComp(this.trayItem))
+        if (this.getChickenComp(item))
             return "chicken";
         return null;
     };
     NewClass.prototype.isCocaItem = function (item) {
-        return item != null && item === this.trayItem && this.getItemType() === "coca";
+        if (!item)
+            return false;
+        for (var i = 0; i < 2; i++) {
+            if (item === this.trayItems[i] && this.getItemType(i) === "coca")
+                return true;
+        }
+        return false;
     };
-    NewClass.prototype.canSellToCustomer = function (cusComp) {
-        var type = this.getItemType();
+    NewClass.prototype.canSellTrayToCustomer = function (cusComp, slot) {
+        var type = this.getItemType(slot);
         if (!type)
             return false;
+        var item = this.trayItems[slot];
         if (cusComp.chicken && cusComp.count[0] > 0 && type === "chicken") {
-            var comp = this.getChickenComp(this.trayItem);
+            var comp = this.getChickenComp(item);
             return comp && comp.isChin && cusComp.sauce == comp.isSauce;
         }
         if (cusComp.coca && cusComp.count[1] > 0 && type === "coca")
@@ -105,68 +136,82 @@ var NewClass = /** @class */ (function (_super) {
             return true;
         return false;
     };
+    NewClass.prototype.canSellToCustomer = function (cusComp) {
+        return this.findTrayForCustomer(cusComp) >= 0;
+    };
     NewClass.prototype.findTrayForCustomer = function (cusComp) {
-        return this.canSellToCustomer(cusComp) ? 0 : -1;
+        for (var i = 0; i < 2; i++) {
+            if (this.canSellTrayToCustomer(cusComp, i))
+                return i;
+        }
+        return -1;
     };
     NewClass.prototype.hasAnyItem = function () {
-        return this.trayItem != null;
+        return this.trayItems[0] != null || this.trayItems[1] != null;
     };
     NewClass.prototype.isTrayEmpty = function () {
-        return this.trayItem == null;
+        return this.trayItems[0] == null && this.trayItems[1] == null;
+    };
+    NewClass.prototype.isTrayFull = function () {
+        return this.trayItems[0] != null && this.trayItems[1] != null;
     };
     NewClass.prototype.getRawTraySlot = function () {
-        var comp = this.getChickenComp(this.trayItem);
-        if (comp && !comp.isChin)
-            return 0;
+        for (var i = 0; i < 2; i++) {
+            var comp = this.getChickenComp(this.trayItems[i]);
+            if (comp && !comp.isChin)
+                return i;
+        }
         return -1;
     };
     NewClass.prototype.findCookedTraySlot = function () {
-        var comp = this.getChickenComp(this.trayItem);
-        if (comp && comp.isChin && !comp.isSauce)
-            return 0;
+        for (var i = 0; i < 2; i++) {
+            var comp = this.getChickenComp(this.trayItems[i]);
+            if (comp && comp.isChin && !comp.isSauce)
+                return i;
+        }
         return -1;
     };
-    NewClass.prototype.putTrayItem = function (item, type) {
-        if (!this.khay || this.trayItem)
+    NewClass.prototype.putTrayItem = function (item, type, slot) {
+        var targetSlot = slot != null ? slot : this.getFirstEmptyTraySlot();
+        if (targetSlot < 0)
             return;
-        item.parent = this.khay;
+        var khayNode = this.getTrayNode(targetSlot);
+        if (!khayNode)
+            return;
+        item.parent = khayNode;
         var anim = item.getComponent(cc.Animation);
         if (anim)
             anim.play();
-        this.trayItem = item;
-        this.trayItemType = type || (this.getChickenComp(item) ? "chicken" : null);
-        this.khay.active = true;
+        this.trayItems[targetSlot] = item;
+        this.trayItemTypes[targetSlot] = type || (this.getChickenComp(item) ? "chicken" : null);
+        khayNode.active = true;
         this.targetChicken = item;
         this.chicken = true;
         this.updateArms();
     };
-    NewClass.prototype.consumeTrayItem = function () {
-        if (this.trayItem) {
-            this.trayItem.destroy();
-            this.trayItem = null;
+    NewClass.prototype.consumeTrayItem = function (slot) {
+        var targetSlot = slot != null ? slot : this.resolveTraySlot();
+        if (this.trayItems[targetSlot]) {
+            this.trayItems[targetSlot].destroy();
+            this.trayItems[targetSlot] = null;
+            this.trayItemTypes[targetSlot] = null;
         }
-        this.trayItemType = null;
-        this.chicken = false;
-        this.targetChicken = null;
-        this.hideTrays();
+        if (this.isTrayEmpty()) {
+            this.chicken = false;
+            this.targetChicken = null;
+            this.hideTrays();
+        }
+        else {
+            this.updateArms();
+        }
     };
-    NewClass.prototype.discardTrayIfDifferentType = function (targetType) {
-        var current = this.getItemType();
-        if (!current || current === targetType)
-            return;
-        this.consumeTrayItem();
-        this.normalizeLocalIdAfterSwitch(targetType);
-        this.updateArms();
+    // Cùng loại hoặc khác loại: dùng khay trống, không xóa item đang có
+    // Chỉ chặn khi cả 2 khay đều đầy
+    NewClass.prototype.canPickItemType = function (targetType) {
+        return !this.isTrayFull();
     };
-    NewClass.prototype.normalizeLocalIdAfterSwitch = function (targetType) {
-        if (targetType === "chicken") {
-            if (this.localId === 4 || this.localId === 5)
-                this.localId = 3;
-            return;
-        }
-        if (this.localId === 1 || this.localId === 2 || this.localId === 4 || this.localId === 5) {
-            this.localId = 3;
-        }
+    NewClass.prototype.preparePickupSlot = function (targetType) {
+        return this.getFirstEmptyTraySlot();
     };
     NewClass.prototype.hideTrays = function () {
         if (this.khay)
@@ -177,15 +222,21 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(2, "Idle", false);
     };
     NewClass.prototype.deliverItem = function () {
-        this.consumeTrayItem();
+        var slot = this.gamePlay ? this.gamePlay.sellTraySlot : 0;
+        this.consumeTrayItem(slot >= 0 ? slot : 0);
     };
     NewClass.prototype.afterDeliver = function () {
         this.anim.setAnimation(0, "Idle", true);
-        this.hideTrays();
+        if (this.isTrayEmpty()) {
+            this.hideTrays();
+        }
+        else {
+            this.updateArms();
+        }
         this.gamePlay.isMoving = false;
     };
     NewClass.prototype.updateArms = function () {
-        if (this.trayItem) {
+        if (this.trayItems[0]) {
             this.khay.active = true;
             this.anim.setAnimation(1, "L-arm", true);
         }
@@ -193,23 +244,29 @@ var NewClass = /** @class */ (function (_super) {
             this.khay.active = false;
             this.anim.setAnimation(1, "Idle", false);
         }
-        if (this.khay2)
-            this.khay2.active = false;
-        this.anim.setAnimation(2, "Idle", false);
+        if (this.trayItems[1]) {
+            if (this.khay2)
+                this.khay2.active = true;
+            this.anim.setAnimation(2, "R-arm", true);
+        }
+        else {
+            if (this.khay2)
+                this.khay2.active = false;
+            this.anim.setAnimation(2, "Idle", false);
+        }
     };
     NewClass.prototype.afterCustomerLeft = function () {
         // this.localId = this.hasAnyItem() ? 2 : 0
         this.updateArms();
     };
     NewClass.prototype.canPickMoreChicken = function () {
-        if (!this.isTrayEmpty())
+        if (!this.canPickItemType("chicken"))
             return false;
         return this.localId == 0 || this.localId == 1 || this.localId == 2 || this.localId == 3;
     };
     // --- Di chuyển ---
     NewClass.prototype.moveToChicken = function () {
         var _this = this;
-        this.discardTrayIfDifferentType("chicken");
         console.log(this.localId);
         if (!this.canPickMoreChicken()) {
             this.gamePlay.isMoving = false;
@@ -247,13 +304,14 @@ var NewClass = /** @class */ (function (_super) {
         // if(this.localId==)
     };
     NewClass.prototype.spawChicken = function () {
-        if (!this.isTrayEmpty()) {
+        var slot = this.preparePickupSlot("chicken");
+        if (slot < 0) {
             this.gamePlay.isMoving = false;
             return;
         }
         this.gamePlay.btnChicken.children[0].getComponent(sp.Skeleton).setAnimation(0, "lv1-tap", false);
         var chicken = cc.instantiate(this.preChicken);
-        this.putTrayItem(chicken);
+        this.putTrayItem(chicken, "chicken", slot);
         if (this.localId == 0)
             this.localId = 1;
         else if (this.localId == 3)
@@ -268,7 +326,6 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.moveToMachine = function () {
         var _this = this;
-        this.discardTrayIfDifferentType("chicken");
         this.node.zIndex = 2;
         var machine = this.gamePlay.btnMachine.getComponent("machine");
         var rawSlot = this.getRawTraySlot();
@@ -282,9 +339,10 @@ var NewClass = /** @class */ (function (_super) {
             })
                 .to(1, { position: this.getPos(this.POS_MACHINE) })
                 .call(function () {
-                var chicken = _this.trayItem;
-                _this.trayItem = null;
-                _this.trayItemType = null;
+                var slot = _this.getRawTraySlot();
+                var chicken = _this.trayItems[slot];
+                _this.trayItems[slot] = null;
+                _this.trayItemTypes[slot] = null;
                 _this.updateArms();
                 machine.cooking(chicken);
                 _this.chicken = false;
@@ -296,7 +354,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         if (this.localId == 2 && machine.chicken != null) {
-            if (!this.isTrayEmpty()) {
+            if (!this.canPickItemType("chicken")) {
                 this.gamePlay.isMoving = false;
                 return;
             }
@@ -304,7 +362,12 @@ var NewClass = /** @class */ (function (_super) {
             this.updateArms();
             var chicken = machine.getChicken();
             chicken.getComponent("chicken").chin2();
-            this.putTrayItem(chicken);
+            var slot = this.preparePickupSlot("chicken");
+            if (slot < 0) {
+                this.gamePlay.isMoving = false;
+                return;
+            }
+            this.putTrayItem(chicken, "chicken", slot);
             this.localId = 2;
             this.anim.setAnimation(0, "Idle", true);
             this.gamePlay.isMoving = false;
@@ -319,7 +382,12 @@ var NewClass = /** @class */ (function (_super) {
                 _this.updateArms();
                 var chicken = machine.getChicken();
                 chicken.getComponent("chicken").chin2();
-                _this.putTrayItem(chicken);
+                var slot = _this.preparePickupSlot("chicken");
+                if (slot < 0) {
+                    _this.gamePlay.isMoving = false;
+                    return;
+                }
+                _this.putTrayItem(chicken, "chicken", slot);
                 _this.localId = 2;
                 _this.anim.setAnimation(0, "Idle", true);
                 _this.gamePlay.isMoving = false;
@@ -375,6 +443,7 @@ var NewClass = /** @class */ (function (_super) {
             this.gamePlay.isMoving = false;
             return;
         }
+        var cookedItem = this.trayItems[slot];
         this.node.zIndex = 2;
         this.anim.setAnimation(0, "Walk", true);
         this.updateArms();
@@ -382,7 +451,7 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.node)
             .to(0.5, { position: this.getPos(this.POS_SAUCE) })
             .call(function () {
-            _this.getChickenComp(_this.trayItem).addSauce();
+            _this.getChickenComp(cookedItem).addSauce();
             _this.node.scaleX = 1;
             _this.idle();
             _this.gamePlay.isMoving = false;
@@ -456,7 +525,6 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.moveToCoca = function () {
         var _this = this;
-        this.discardTrayIfDifferentType("coca");
         this.node.scaleX = -1;
         if (this.localId == 1 || this.localId == 3 || this.localId == 5) {
             this.gamePlay.isMoving = true;
@@ -478,12 +546,17 @@ var NewClass = /** @class */ (function (_super) {
         }
         else if (this.localId == 4 && this.gamePlay.btnCoca.getComponent("coca").isCoca) {
             this.gamePlay.btnCoca.getComponent("coca").getCoca();
-            if (!this.isTrayEmpty()) {
+            if (!this.canPickItemType("coca")) {
+                this.gamePlay.isMoving = false;
+                return;
+            }
+            var slot = this.preparePickupSlot("coca");
+            if (slot < 0) {
                 this.gamePlay.isMoving = false;
                 return;
             }
             var coca = cc.instantiate(this.preCoca);
-            this.putTrayItem(coca, "coca");
+            this.putTrayItem(coca, "coca", slot);
             this.localId = 4;
             this.gamePlay.isMoving = false;
         }
@@ -513,7 +586,6 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.moveToCake = function () {
         var _this = this;
-        this.discardTrayIfDifferentType("cake");
         if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
             this.gamePlay.isMoving = true;
             this.anim.setAnimation(0, "Walk", true);
@@ -564,28 +636,37 @@ var NewClass = /** @class */ (function (_super) {
         this.gamePlay.isMoving = false;
     };
     NewClass.prototype.getCake = function () {
-        if (!this.isTrayEmpty()) {
+        if (!this.canPickItemType("cake")) {
+            this.gamePlay.isMoving = false;
+            return;
+        }
+        var slot = this.preparePickupSlot("cake");
+        if (slot < 0) {
             this.gamePlay.isMoving = false;
             return;
         }
         var cake = cc.instantiate(this.preCake);
-        this.putTrayItem(cake, "cake");
+        this.putTrayItem(cake, "cake", slot);
         this.localId = 5;
         this.idle();
     };
     NewClass.prototype.getTomato = function () {
-        if (!this.isTrayEmpty()) {
+        if (!this.canPickItemType("tomato")) {
+            this.gamePlay.isMoving = false;
+            return;
+        }
+        var slot = this.preparePickupSlot("tomato");
+        if (slot < 0) {
             this.gamePlay.isMoving = false;
             return;
         }
         var tomato = cc.instantiate(this.preTomato);
-        this.putTrayItem(tomato, "tomato");
+        this.putTrayItem(tomato, "tomato", slot);
         this.localId = 5;
         this.idle();
     };
     NewClass.prototype.moveToTomato = function () {
         var _this = this;
-        this.discardTrayIfDifferentType("tomato");
         if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
             this.gamePlay.isMoving = true;
             this.anim.setAnimation(0, "Walk", true);
@@ -627,7 +708,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     // --- Reset ---
     NewClass.prototype.clearTray = function () {
-        this.consumeTrayItem();
+        this.consumeTrayItem(0);
+        this.consumeTrayItem(1);
     };
     NewClass.prototype.resetToStart = function () {
         cc.Tween.stopAllByTarget(this.node);
