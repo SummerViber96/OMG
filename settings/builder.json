@@ -1,9 +1,11 @@
 {
   "title": "Code",
   "packageName": "org.cocos2d.demo",
-  "startScene": "fbc7ea97-65c8-4019-9e02-dfbdb4f132da",
+  "startScene": "8955fff1-b37f-4a2f-8afd-57877e8ecbb8",
   "excludeScenes": [
-    "b9e511d6-faa1-4404-a5de-77104d031665"
+    "b9e511d6-faa1-4404-a5de-77104d031665",
+    "2276c920-7893-4a2d-b279-b15dd4bfc20e",
+    "fbc7ea97-65c8-4019-9e02-dfbdb4f132da"
   ],
   "orientation": {
     "landscapeRight": true,

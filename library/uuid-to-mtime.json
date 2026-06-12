@@ -12589,11 +12589,6 @@
     "meta": 1781218284019,
     "relativePath": "Bracelet"
   },
-  "6810dc11-a489-47d7-ac38-4517f68c31d2": {
-    "asset": 1781106677929,
-    "meta": 1781106677956,
-    "relativePath": "Bracelet\\logo 1.png"
-  },
   "0fa41789-4213-4dc4-b06a-2175fa2bd9bb": {
     "asset": 1781107144934,
     "meta": 1781107144979,
@@ -14375,8 +14370,8 @@
     "relativePath": "Bracelet\\prefab\\preCharm1.prefab"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1781224674067,
-    "meta": 1781224674084,
+    "asset": 1781224914319,
+    "meta": 1781224914337,
     "relativePath": "scenes\\Bracelet.fire"
   },
   "bd4ba15f-30c4-40bd-9e74-625948abb041": {
@@ -14903,5 +14898,10 @@
     "asset": 1781224532527,
     "meta": 1781224535477,
     "relativePath": "Bracelet\\script\\Bracelet.ts"
+  },
+  "6810dc11-a489-47d7-ac38-4517f68c31d2": {
+    "asset": 1781224861885,
+    "meta": 1781224890158,
+    "relativePath": "Bracelet\\logo 1.png"
   }
 }
