@@ -141,6 +141,8 @@ export default class NewClass extends cc.Component {
     mc: cc.Node = null;
     @property(cc.Node)
     hind1: cc.Node = null;
+    @property(cc.Prefab)
+    listPreCUs:cc.Prefab[]=[]
     mcComp = null
 
     // @property(cc.Node)
@@ -181,6 +183,7 @@ export default class NewClass extends cc.Component {
     cusEnterOffset = cc.v3(350, 0, 0)
     cusWalkSpeed = 437.5
     counterCusCount = 0
+    preCusIndex = 0
     isStartgame = false
     isFirstClick = false
     //0:banh thuong 1:chocolate 2: strawberry 
@@ -266,6 +269,61 @@ export default class NewClass extends cc.Component {
         if (this.countCus === 3) return 3
         return 1
     }
+
+    spawnCustomerFromPrefab(): cc.Node {
+        if (this.listPreCUs.length === 0) return null
+        let prefab = this.listPreCUs[this.preCusIndex % this.listPreCUs.length]
+        this.preCusIndex++
+        let newCus = cc.instantiate(prefab)
+        newCus.parent = this.listCus
+        newCus.active = false
+        return newCus
+    }
+
+    replaceCustomer(departedCus: cc.Node, counterPos: cc.Vec3) {
+        let idx = this.arrCus.indexOf(departedCus)
+
+        let newCus = this.spawnCustomerFromPrefab()
+        if (!newCus) return
+
+        let newCusComp = newCus.getComponent("cusMission")
+        if (newCusComp) {
+            newCusComp.gamePlay = this
+            newCusComp.isReadyForSell = false
+        }
+
+        if (this.sellTargetCus === departedCus || this.isTargetCus === departedCus) {
+            this.sellTargetCus = null
+            this.sellTraySlot = -1
+        }
+        this.isMoving = false
+        if (this.mcComp) {
+            this.mcComp.unscheduleAllCallbacks()
+        }
+
+        if (idx >= 0) {
+            this.arrCus[idx] = newCus
+        } else {
+            this.arrCus.push(newCus)
+        }
+        departedCus.destroy()
+
+        let spawnPos = counterPos.clone().add(this.cusEnterOffset)
+        let distance = spawnPos.sub(counterPos).mag()
+        let duration = distance / this.cusWalkSpeed
+
+        cc.Tween.stopAllByTarget(newCus)
+        newCus.position = spawnPos
+        newCus.active = true
+        newCusComp.move()
+        cc.tween(newCus)
+            .to(duration, { position: counterPos })
+            .call(() => {
+                newCusComp.showMission()
+                this.isTargetCus = newCus
+            })
+            .start()
+    }
     onHind() {
         this.hind1.active = true;
     }
@@ -343,9 +401,10 @@ export default class NewClass extends cc.Component {
     }
     checkSell(targetCus?: cc.Node) {
         console.log("check sell Main")
-        let cus = targetCus || this.sellTargetCus || this.arrCus[0]
+        let cus = targetCus || this.sellTargetCus || this.isTargetCus || this.arrCus[0]
         if (this.isMoving || !cus) return false
         let cusComp = cus.getComponent("cusMission")
+        if (!cusComp || cusComp.isSuccess || !cusComp.isReadyForSell) return false
         let trayIdx = this.mcComp.findTrayForCustomer(cusComp)
         if (!this.mcComp.hasAnyItem() || trayIdx < 0) return false
         this.sellTargetCus = cus
@@ -362,8 +421,9 @@ export default class NewClass extends cc.Component {
             return
         }
         let cusComp = cus.getComponent("cusMission")
-        if (!cusComp) {
+        if (!cusComp || cusComp.isSuccess || !cusComp.isReadyForSell) {
             this.isMoving = false
+            this.sellTraySlot = -1
             return
         }
         cusComp.validateSell()

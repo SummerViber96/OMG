@@ -518,9 +518,19 @@ var NewClass = /** @class */ (function (_super) {
             this.gamePlay.isMoving = true;
             this.anim.setAnimation(0, "Walk", true);
             this.node.scaleX = -1;
+            this.node.zIndex = 2;
+            this.table.zIndex = 1;
             cc.tween(this.node)
                 .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                .call(function () {
+                _this.node.zIndex = 1;
+                _this.table.zIndex = 2;
+            })
                 .to(0.8, { position: this.getPos(this.POS_COCA) })
+                .call(function () {
+                _this.node.zIndex = 2;
+                _this.table.zIndex = 1;
+            })
                 .to(1, { position: this.getPos(this.POS_CAKE) })
                 .call(function () { return _this.getCake(); })
                 .start();

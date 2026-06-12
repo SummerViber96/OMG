@@ -51,21 +51,34 @@ var NewClass = /** @class */ (function (_super) {
         _this.timeWaiting = 30;
         _this.isEnd = false;
         _this.isSuccess = false;
+        _this.isReadyForSell = false;
         _this.gamePlay = null;
         _this.timeFill = 60;
         _this.isAngry = false;
         _this.isDelaySound = false;
         return _this;
     }
-    NewClass.prototype.start = function () {
+    NewClass.prototype.onLoad = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
-        // this.loadTime()
+    };
+    NewClass.prototype.start = function () {
+        if (!this.gamePlay) {
+            this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
+        }
         this.addEndEventSpine();
     };
     NewClass.prototype.showMission = function () {
         this.isEnd = false;
         this.isSuccess = false;
         this.isAngry = false;
+        this.isReadyForSell = true;
+        cc.Tween.stopAllByTarget(this.pop);
+        this.pop.scale = 1;
+        if (this.doneNode) {
+            for (var i = 0; i < this.doneNode.childrenCount; i++) {
+                this.doneNode.children[i].active = false;
+            }
+        }
         this.pop.getComponent(cc.Animation).play();
         this.anim.setAnimation(0, "idle", false);
         if (this.soundHello) {
@@ -148,10 +161,12 @@ var NewClass = /** @class */ (function (_super) {
         return true;
     };
     NewClass.prototype.move = function () {
+        this.isReadyForSell = false;
         this.anim.setAnimation(0, "walk", false);
     };
-    NewClass.prototype.end = function (value) {
+    NewClass.prototype.end = function (value, isTimeout) {
         var _this = this;
+        if (isTimeout === void 0) { isTimeout = false; }
         if (this.isSuccess)
             return;
         this.isSuccess = true;
@@ -171,6 +186,7 @@ var NewClass = /** @class */ (function (_super) {
             // this.pop.getChildByName("wrong").active = true
             // this.node.getChildByName("angry").active = true
         }
+        var counterPos = this.node.position.clone();
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.gamePlay.soundClosePop, false, 1);
             cc.tween(_this.pop).to(0.3, { scale: 0 }).start();
@@ -178,8 +194,13 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(_this.node)
                 .by(1, { position: cc.v3(-500, 0) })
                 .call(function () {
-                _this.node.active = false;
-                _this.gamePlay.nextCus(value, _this.node);
+                if (isTimeout) {
+                    _this.gamePlay.replaceCustomer(_this.node, counterPos);
+                }
+                else {
+                    _this.node.active = false;
+                    _this.gamePlay.nextCus(value, _this.node);
+                }
             })
                 .start();
         }, 0.5);
@@ -219,12 +240,19 @@ var NewClass = /** @class */ (function (_super) {
     // }
     NewClass.prototype.checkSell = function () {
         console.log("checkSell");
-        if (this.gamePlay.arrCus.indexOf(this.node) < 0)
+        if (this.isSuccess || !this.isReadyForSell)
+            return false;
+        if (!this.gamePlay || this.gamePlay.arrCus.indexOf(this.node) < 0)
             return false;
         return this.gamePlay.checkSell(this.node);
     };
     NewClass.prototype.validateSell = function () {
         var _this = this;
+        if (this.isSuccess || !this.isReadyForSell) {
+            this.gamePlay.isMoving = false;
+            this.gamePlay.sellTraySlot = -1;
+            return false;
+        }
         var mcComp = this.gamePlay.mcComp;
         var itemType = mcComp.getItemType();
         var chickenComp = mcComp.getChickenComp(mcComp.getTrayItem());
@@ -289,10 +317,9 @@ var NewClass = /** @class */ (function (_super) {
                 return value;
             }
         }).call(function () {
-            //  this.gamePlay.onEndGame(false)   
-            // let id = this.gamePlay.getPlace(this.node)
-            // this.gamePlay.isCountDone++
-            // this.gamePlay.enqueueMove(this.node);
+            if (!_this.isSuccess) {
+                _this.end(false, true);
+            }
         })
             .start();
     };

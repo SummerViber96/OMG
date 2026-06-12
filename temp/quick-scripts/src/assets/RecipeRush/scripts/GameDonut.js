@@ -94,6 +94,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.btnPotato = null;
         _this.mc = null;
         _this.hind1 = null;
+        _this.listPreCUs = [];
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -127,6 +128,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.cusEnterOffset = cc.v3(350, 0, 0);
         _this.cusWalkSpeed = 437.5;
         _this.counterCusCount = 0;
+        _this.preCusIndex = 0;
         _this.isStartgame = false;
         _this.isFirstClick = false;
         _this.isHand = null;
@@ -241,6 +243,57 @@ var NewClass = /** @class */ (function (_super) {
             return 3;
         return 1;
     };
+    NewClass.prototype.spawnCustomerFromPrefab = function () {
+        if (this.listPreCUs.length === 0)
+            return null;
+        var prefab = this.listPreCUs[this.preCusIndex % this.listPreCUs.length];
+        this.preCusIndex++;
+        var newCus = cc.instantiate(prefab);
+        newCus.parent = this.listCus;
+        newCus.active = false;
+        return newCus;
+    };
+    NewClass.prototype.replaceCustomer = function (departedCus, counterPos) {
+        var _this = this;
+        var idx = this.arrCus.indexOf(departedCus);
+        var newCus = this.spawnCustomerFromPrefab();
+        if (!newCus)
+            return;
+        var newCusComp = newCus.getComponent("cusMission");
+        if (newCusComp) {
+            newCusComp.gamePlay = this;
+            newCusComp.isReadyForSell = false;
+        }
+        if (this.sellTargetCus === departedCus || this.isTargetCus === departedCus) {
+            this.sellTargetCus = null;
+            this.sellTraySlot = -1;
+        }
+        this.isMoving = false;
+        if (this.mcComp) {
+            this.mcComp.unscheduleAllCallbacks();
+        }
+        if (idx >= 0) {
+            this.arrCus[idx] = newCus;
+        }
+        else {
+            this.arrCus.push(newCus);
+        }
+        departedCus.destroy();
+        var spawnPos = counterPos.clone().add(this.cusEnterOffset);
+        var distance = spawnPos.sub(counterPos).mag();
+        var duration = distance / this.cusWalkSpeed;
+        cc.Tween.stopAllByTarget(newCus);
+        newCus.position = spawnPos;
+        newCus.active = true;
+        newCusComp.move();
+        cc.tween(newCus)
+            .to(duration, { position: counterPos })
+            .call(function () {
+            newCusComp.showMission();
+            _this.isTargetCus = newCus;
+        })
+            .start();
+    };
     NewClass.prototype.onHind = function () {
         this.hind1.active = true;
     };
@@ -322,10 +375,12 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.checkSell = function (targetCus) {
         console.log("check sell Main");
-        var cus = targetCus || this.sellTargetCus || this.arrCus[0];
+        var cus = targetCus || this.sellTargetCus || this.isTargetCus || this.arrCus[0];
         if (this.isMoving || !cus)
             return false;
         var cusComp = cus.getComponent("cusMission");
+        if (!cusComp || cusComp.isSuccess || !cusComp.isReadyForSell)
+            return false;
         var trayIdx = this.mcComp.findTrayForCustomer(cusComp);
         if (!this.mcComp.hasAnyItem() || trayIdx < 0)
             return false;
@@ -343,8 +398,9 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         var cusComp = cus.getComponent("cusMission");
-        if (!cusComp) {
+        if (!cusComp || cusComp.isSuccess || !cusComp.isReadyForSell) {
             this.isMoving = false;
+            this.sellTraySlot = -1;
             return;
         }
         cusComp.validateSell();
@@ -1166,6 +1222,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "hind1", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "listPreCUs", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
