@@ -44,7 +44,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.countDown = function () {
         var _this = this;
         this.unscheduleAllCallbacks();
-        this.isTime = 60;
+        this.isTime = 80;
         this.lbTime.string = this.isTime.toString();
         this.schedule(function () {
             _this.isTime--;
@@ -63,7 +63,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.gamePlay.onEndGame(false);
                 _this.lbTime.string = "0";
             }
-        }, 1, 60);
+        }, 1, 80);
     };
     NewClass.prototype.endGame = function () {
         if (this.idClick) {

@@ -111,7 +111,7 @@ export default class NewClass extends cc.Component {
             }
         }
     }
-    updateMission(value) { //1:socola //0:dau
+    updateMission(value, deferEnd = false) { //1:socola //0:dau
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1)
         this.activeDone(value)
         switch (value) {
@@ -153,7 +153,7 @@ export default class NewClass extends cc.Component {
         this.gamePlay.mcComp.deliverItem(this.gamePlay.sellTraySlot)
         this.gamePlay.sellTraySlot = -1
 
-        if (this.isOrderComplete()) {
+        if (!deferEnd && this.isOrderComplete()) {
             this.end(true)
         }
         globalThis.coin += 50
@@ -262,31 +262,17 @@ export default class NewClass extends cc.Component {
             return false
         }
         let mcComp = this.gamePlay.mcComp
-        let sellSlot = this.gamePlay.sellTraySlot >= 0 ? this.gamePlay.sellTraySlot : mcComp.findTrayForCustomer(this)
-        if (sellSlot < 0) {
-            this.gamePlay.isMoving = false
-            this.gamePlay.sellTraySlot = -1
-            return false
-        }
-        let itemType = mcComp.getItemType(sellSlot)
-        let chickenComp = mcComp.getChickenComp(mcComp.getTrayItem(sellSlot))
+        let validSlots = mcComp.findAllTraysForCustomer(this)
 
-        let isChickenValid = this.chicken && this.count[0] > 0
-            && itemType === "chicken"
-            && chickenComp && chickenComp.isChin
-            && this.sauce == chickenComp.isSauce
-
-        let isCocaValid = this.coca && this.count[1] > 0 && itemType === "coca"
-        let isCakeValid = this.cake && this.count[2] > 0 && itemType === "cake"
-        let isPotatoValid = this.potato && this.count[3] > 0 && itemType === "tomato"
-
-        if (isChickenValid || isCocaValid || isCakeValid || isPotatoValid) {
-            let missionType = isCocaValid ? 1 : isCakeValid ? 2 : isPotatoValid ? 3 : 0
-            this.gamePlay.sellTraySlot = sellSlot
+        if (validSlots.length > 0) {
             this.scheduleOnce(() => {
-                            cc.audioEngine.play(this.gamePlay.soundOk, false, 1)
-
-                this.updateMission(missionType)
+                cc.audioEngine.play(this.gamePlay.soundOk, false, 1)
+                for (let i = 0; i < validSlots.length; i++) {
+                    let slot = validSlots[i]
+                    let missionType = mcComp.getMissionTypeForSlot(slot)
+                    this.gamePlay.sellTraySlot = slot
+                    this.updateMission(missionType, i < validSlots.length - 1)
+                }
                 mcComp.afterDeliver()
             }, 0.5)
             return true

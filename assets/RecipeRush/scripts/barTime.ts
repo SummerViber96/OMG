@@ -20,7 +20,7 @@ export default class NewClass extends cc.Component {
     }
     countDown() {
         this.unscheduleAllCallbacks()
-        this.isTime = 60
+        this.isTime = 80
         this.lbTime.string = this.isTime.toString()
         this.schedule(() => {
             this.isTime--;
@@ -42,7 +42,7 @@ export default class NewClass extends cc.Component {
                 this.lbTime.string = "0";
 
             }
-        }, 1, 60)
+        }, 1, 80)
     }
     endGame() {
         if (this.idClick) {

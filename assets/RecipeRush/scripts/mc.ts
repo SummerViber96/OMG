@@ -120,10 +120,45 @@ export default class NewClass extends cc.Component {
     }
 
     findTrayForCustomer(cusComp) {
-        for (let i = 0; i < 2; i++) {
-            if (this.canSellTrayToCustomer(cusComp, i)) return i
-        }
+        let trays = this.findAllTraysForCustomer(cusComp)
+        return trays.length > 0 ? trays[0] : -1
+    }
+
+    getMissionTypeForSlot(slot: number) {
+        let type = this.getItemType(slot)
+        if (type === "chicken") return 0
+        if (type === "coca") return 1
+        if (type === "cake") return 2
+        if (type === "tomato") return 3
         return -1
+    }
+
+    canSellTrayToCustomerWithRemaining(cusComp, slot: number, remaining: number[]) {
+        let type = this.getItemType(slot)
+        if (!type) return false
+        let item = this.trayItems[slot]
+        if (cusComp.chicken && remaining[0] > 0 && type === "chicken") {
+            let comp = this.getChickenComp(item)
+            return comp && comp.isChin && cusComp.sauce == comp.isSauce
+        }
+        if (cusComp.coca && remaining[1] > 0 && type === "coca") return true
+        if (cusComp.cake && remaining[2] > 0 && type === "cake") return true
+        if (cusComp.potato && remaining[3] > 0 && type === "tomato") return true
+        return false
+    }
+
+    findAllTraysForCustomer(cusComp) {
+        let slots = []
+        let remaining = cusComp.count ? cusComp.count.slice() : [0, 0, 0, 0]
+        for (let i = 0; i < 2; i++) {
+            if (!this.canSellTrayToCustomerWithRemaining(cusComp, i, remaining)) continue
+            slots.push(i)
+            let missionType = this.getMissionTypeForSlot(i)
+            if (missionType >= 0 && remaining[missionType] > 0) {
+                remaining[missionType]--
+            }
+        }
+        return slots
     }
 
     hasAnyItem() {

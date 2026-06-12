@@ -140,11 +140,51 @@ var NewClass = /** @class */ (function (_super) {
         return this.findTrayForCustomer(cusComp) >= 0;
     };
     NewClass.prototype.findTrayForCustomer = function (cusComp) {
-        for (var i = 0; i < 2; i++) {
-            if (this.canSellTrayToCustomer(cusComp, i))
-                return i;
-        }
+        var trays = this.findAllTraysForCustomer(cusComp);
+        return trays.length > 0 ? trays[0] : -1;
+    };
+    NewClass.prototype.getMissionTypeForSlot = function (slot) {
+        var type = this.getItemType(slot);
+        if (type === "chicken")
+            return 0;
+        if (type === "coca")
+            return 1;
+        if (type === "cake")
+            return 2;
+        if (type === "tomato")
+            return 3;
         return -1;
+    };
+    NewClass.prototype.canSellTrayToCustomerWithRemaining = function (cusComp, slot, remaining) {
+        var type = this.getItemType(slot);
+        if (!type)
+            return false;
+        var item = this.trayItems[slot];
+        if (cusComp.chicken && remaining[0] > 0 && type === "chicken") {
+            var comp = this.getChickenComp(item);
+            return comp && comp.isChin && cusComp.sauce == comp.isSauce;
+        }
+        if (cusComp.coca && remaining[1] > 0 && type === "coca")
+            return true;
+        if (cusComp.cake && remaining[2] > 0 && type === "cake")
+            return true;
+        if (cusComp.potato && remaining[3] > 0 && type === "tomato")
+            return true;
+        return false;
+    };
+    NewClass.prototype.findAllTraysForCustomer = function (cusComp) {
+        var slots = [];
+        var remaining = cusComp.count ? cusComp.count.slice() : [0, 0, 0, 0];
+        for (var i = 0; i < 2; i++) {
+            if (!this.canSellTrayToCustomerWithRemaining(cusComp, i, remaining))
+                continue;
+            slots.push(i);
+            var missionType = this.getMissionTypeForSlot(i);
+            if (missionType >= 0 && remaining[missionType] > 0) {
+                remaining[missionType]--;
+            }
+        }
+        return slots;
     };
     NewClass.prototype.hasAnyItem = function () {
         return this.trayItems[0] != null || this.trayItems[1] != null;

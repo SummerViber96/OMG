@@ -109,8 +109,9 @@ var NewClass = /** @class */ (function (_super) {
             }
         }
     };
-    NewClass.prototype.updateMission = function (value) {
+    NewClass.prototype.updateMission = function (value, deferEnd) {
         var _this = this;
+        if (deferEnd === void 0) { deferEnd = false; }
         cc.audioEngine.play(this.gamePlay.soundSellDone, false, 1);
         this.activeDone(value);
         switch (value) {
@@ -146,7 +147,7 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.4);
         this.gamePlay.mcComp.deliverItem(this.gamePlay.sellTraySlot);
         this.gamePlay.sellTraySlot = -1;
-        if (this.isOrderComplete()) {
+        if (!deferEnd && this.isOrderComplete()) {
             this.end(true);
         }
         globalThis.coin += 50;
@@ -254,27 +255,16 @@ var NewClass = /** @class */ (function (_super) {
             return false;
         }
         var mcComp = this.gamePlay.mcComp;
-        var sellSlot = this.gamePlay.sellTraySlot >= 0 ? this.gamePlay.sellTraySlot : mcComp.findTrayForCustomer(this);
-        if (sellSlot < 0) {
-            this.gamePlay.isMoving = false;
-            this.gamePlay.sellTraySlot = -1;
-            return false;
-        }
-        var itemType = mcComp.getItemType(sellSlot);
-        var chickenComp = mcComp.getChickenComp(mcComp.getTrayItem(sellSlot));
-        var isChickenValid = this.chicken && this.count[0] > 0
-            && itemType === "chicken"
-            && chickenComp && chickenComp.isChin
-            && this.sauce == chickenComp.isSauce;
-        var isCocaValid = this.coca && this.count[1] > 0 && itemType === "coca";
-        var isCakeValid = this.cake && this.count[2] > 0 && itemType === "cake";
-        var isPotatoValid = this.potato && this.count[3] > 0 && itemType === "tomato";
-        if (isChickenValid || isCocaValid || isCakeValid || isPotatoValid) {
-            var missionType_1 = isCocaValid ? 1 : isCakeValid ? 2 : isPotatoValid ? 3 : 0;
-            this.gamePlay.sellTraySlot = sellSlot;
+        var validSlots = mcComp.findAllTraysForCustomer(this);
+        if (validSlots.length > 0) {
             this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.gamePlay.soundOk, false, 1);
-                _this.updateMission(missionType_1);
+                for (var i = 0; i < validSlots.length; i++) {
+                    var slot = validSlots[i];
+                    var missionType = mcComp.getMissionTypeForSlot(slot);
+                    _this.gamePlay.sellTraySlot = slot;
+                    _this.updateMission(missionType, i < validSlots.length - 1);
+                }
                 mcComp.afterDeliver();
             }, 0.5);
             return true;

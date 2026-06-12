@@ -12530,8 +12530,8 @@
     "relativePath": "RecipeRush\\prefab\\prePotato.prefab"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1781303134957,
-    "meta": 1781303134981,
+    "asset": 1781304065130,
+    "meta": 1781304065152,
     "relativePath": "scenes\\Donut1.fire"
   },
   "0549bd95-a906-4ef2-a0bb-71372ccd1bc5": {
@@ -12588,11 +12588,6 @@
     "asset": 1770817820079,
     "meta": 1781291188501,
     "relativePath": "scripts\\New Folder"
-  },
-  "12d9a21c-6621-4e20-a730-29141c5463c5": {
-    "asset": 1781292302040,
-    "meta": 1781292302997,
-    "relativePath": "RecipeRush\\scripts\\barTime.ts"
   },
   "2b11edc2-b64f-4a08-9ef5-ee8150ccc92d": {
     "asset": 1781297011390,
@@ -12654,14 +12649,19 @@
     "meta": 1781301088637,
     "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
   },
+  "12d9a21c-6621-4e20-a730-29141c5463c5": {
+    "asset": 1781303336323,
+    "meta": 1781303337822,
+    "relativePath": "RecipeRush\\scripts\\barTime.ts"
+  },
   "2147ad02-7b76-4274-8b19-f305f656d77c": {
-    "asset": 1781301425397,
-    "meta": 1781301463870,
+    "asset": 1781303935361,
+    "meta": 1781303971569,
     "relativePath": "RecipeRush\\scripts\\cusMission.ts"
   },
   "57915beb-7cae-42a5-8af6-5a90b22a2187": {
-    "asset": 1781302992466,
-    "meta": 1781302994712,
+    "asset": 1781303968097,
+    "meta": 1781303971721,
     "relativePath": "RecipeRush\\scripts\\mc.ts"
   }
 }
