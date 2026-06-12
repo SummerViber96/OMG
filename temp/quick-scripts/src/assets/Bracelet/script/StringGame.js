@@ -42,6 +42,7 @@ var StringGame = /** @class */ (function (_super) {
         _this.originSiblingIndex = 0;
         _this.touchStartPos = null;
         _this.plateOriginPos = null;
+        _this.arrString = [];
         _this.isOldStringBot = null;
         _this.isFirst = false;
         return _this;
@@ -296,6 +297,12 @@ var StringGame = /** @class */ (function (_super) {
         touchNode.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         touchNode.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
         touchNode.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+    };
+    StringGame.prototype.offString = function () {
+        for (var i = 0; i < this.strings.length; i++) {
+            this.strings[i].active = false;
+            this.strings[i].opacity = 0;
+        }
     };
     __decorate([
         property(cc.Node)

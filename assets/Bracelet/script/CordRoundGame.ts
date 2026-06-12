@@ -72,6 +72,48 @@ export default class CordRoundGame extends cc.Component {
     private touchBound: boolean = false;
     @property(cc.Node)
     btnOk: cc.Node = null;
+    @property(cc.Node)
+    hand3: cc.Node = null;
+
+    liftBracelet(targetPos: cc.Vec3, duration: number = 0.4) {
+        if (!this.CordRoundList) return;
+
+        this.isActive = false;
+
+        const bodies: cc.RigidBody[] = [];
+        const collectBodies = (node: cc.Node) => {
+            const body = node.getComponent(cc.RigidBody);
+            if (body) {
+                bodies.push(body);
+            }
+            for (let i = 0; i < node.childrenCount; i++) {
+                collectBodies(node.children[i]);
+            }
+        };
+        collectBodies(this.node);
+
+        for (let i = 0; i < bodies.length; i++) {
+            const body = bodies[i];
+            body.linearVelocity = cc.v2(0, 0);
+            body.angularVelocity = 0;
+            body.type = cc.RigidBodyType.Kinematic;
+            body.awake = true;
+        }
+
+        const syncBodies = () => {
+            for (let i = 0; i < bodies.length; i++) {
+                bodies[i].syncPosition(true);
+                bodies[i].syncRotation(true);
+            }
+        };
+
+        cc.tween(this.node)
+            .to(duration, { position: targetPos }, { onUpdate: syncBodies })
+            .call(() => {
+                syncBodies();
+            })
+            .start();
+    }
 
     startBraceletMode() {
         if (!this.CordRoundList) return;
@@ -245,6 +287,7 @@ export default class CordRoundGame extends cc.Component {
         if (dropAnchor) {
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
+            this.hand3.active = false;
         } else {
             this.resetDraggedCharm(charm);
         }

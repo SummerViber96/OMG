@@ -71,7 +71,7 @@
                 "width": 1264,
                 "height": 637,
                 "type": "panel",
-                "active": 0,
+                "active": 1,
                 "children": [
                   "console",
                   "timeline",

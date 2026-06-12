@@ -53,8 +53,45 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.isActive = false;
         _this.touchBound = false;
         _this.btnOk = null;
+        _this.hand3 = null;
         return _this;
     }
+    CordRoundGame.prototype.liftBracelet = function (targetPos, duration) {
+        if (duration === void 0) { duration = 0.4; }
+        if (!this.CordRoundList)
+            return;
+        this.isActive = false;
+        var bodies = [];
+        var collectBodies = function (node) {
+            var body = node.getComponent(cc.RigidBody);
+            if (body) {
+                bodies.push(body);
+            }
+            for (var i = 0; i < node.childrenCount; i++) {
+                collectBodies(node.children[i]);
+            }
+        };
+        collectBodies(this.node);
+        for (var i = 0; i < bodies.length; i++) {
+            var body = bodies[i];
+            body.linearVelocity = cc.v2(0, 0);
+            body.angularVelocity = 0;
+            body.type = cc.RigidBodyType.Kinematic;
+            body.awake = true;
+        }
+        var syncBodies = function () {
+            for (var i = 0; i < bodies.length; i++) {
+                bodies[i].syncPosition(true);
+                bodies[i].syncRotation(true);
+            }
+        };
+        cc.tween(this.node)
+            .to(duration, { position: targetPos }, { onUpdate: syncBodies })
+            .call(function () {
+            syncBodies();
+        })
+            .start();
+    };
     CordRoundGame.prototype.startBraceletMode = function () {
         if (!this.CordRoundList)
             return;
@@ -207,6 +244,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         if (dropAnchor) {
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
+            this.hand3.active = false;
         }
         else {
             this.resetDraggedCharm(charm);
@@ -623,6 +661,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], CordRoundGame.prototype, "btnOk", void 0);
+    __decorate([
+        property(cc.Node)
+    ], CordRoundGame.prototype, "hand3", void 0);
     CordRoundGame = __decorate([
         ccclass
     ], CordRoundGame);

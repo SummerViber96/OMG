@@ -17,6 +17,8 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     hand2: cc.Node = null
     @property(cc.Node)
+    hand3: cc.Node = null
+    @property(cc.Node)
     charmNode: cc.Node = null
     @property(cc.AudioClip)
     soundBg: cc.AudioClip = null
@@ -26,6 +28,20 @@ export default class NewClass extends cc.Component {
     listCordRound: cc.Node = null;
     @property(cc.Node)
     stringBot: cc.Node = null;
+    @property(cc.Node)
+    listKey: cc.Node = null
+    @property(cc.Node)
+    listPet: cc.Node = null
+    @property(cc.Node)
+    endGameNode: cc.Node = null
+    @property(cc.Node)
+    linkToStore: cc.Node = null
+    @property(cc.Node)
+    btnOk4: cc.Node = null
+    @property(cc.Node)
+    phaoho: cc.Node = null
+    // @property(cc.Node)
+    // listCard
     onLoad() {
         cc.director.getPhysicsManager().enabled = true;
         cc.director.getPhysicsManager().gravity = cc.v2();
@@ -53,7 +69,7 @@ export default class NewClass extends cc.Component {
         this.stringNode.active = false
         this.charmNode.active = true
         this.title.string = "CHOOSE CHARMS"
-
+        this.hand3.active = true;
 
     }
     btn_cord2(event) {
@@ -67,6 +83,9 @@ export default class NewClass extends cc.Component {
         cc.tween(this.plate).to(0.4, { position: cc.v3(0, 230, 0) }).start()
         this.title.string = "MAKE BRACELET"
         this.startGame2();
+        this.scheduleOnce(() => {
+            this.hand3.active = true;
+        }, 0.4)
 
     }
     startGame2() {
@@ -94,7 +113,58 @@ export default class NewClass extends cc.Component {
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
         this.plate.active = false;
-        cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).start()
+        const cordGame = this.listCordRound.getComponent("CordRoundGame");
+        if (cordGame) {
+            cordGame.liftBracelet(cc.v3(0, 230, 0), 0.4);
+        } else {
+            cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).call(() => {
+
+            }).start();
+        }
+        this.scheduleOnce(() => {
+            this.title.string = "KEY CHAIN"
+            let lock = this.listCordRound.children[globalThis.idString].children[2]
+            lock.opacity = 0;
+            lock.active = true;
+            cc.tween(lock).to(0.4, { opacity: 255 }).start();
+            this.listKey.active = true;
+        }, 0.8)
+    }
+    btn_choseCard(event, value) {
+        this.btnOk4.active = true;
+        for (let child of this.listPet.children) {
+            child.active = false;
+        }
+        switch (value) {
+            case "0":
+                this.listPet.children[0].active = true;
+                this.listPet.children[0].getComponent(cc.Animation).play();
+                break;
+            case "1":
+                this.listPet.children[1].active = true;
+                this.listPet.children[1].getComponent(cc.Animation).play();
+
+                break;
+            case "2":
+                this.listPet.children[2].active = true;
+                this.listPet.children[2].getComponent(cc.Animation).play();
+
+                break;
+        }
+    }
+    btn_ok4(event) {
+        let btn = event.currentTarget;
+        btn.getComponent(cc.Button).enabled = false;
+        btn.active = false;
+        this.phaoho.active = true;
+
+        this.scheduleOnce(() => {
+            this.endGame();
+        }, 1)
+    }
+    endGame() {
+        this.endGameNode.active = true;
+        this.linkToStore.active = true;
     }
 
     // update (dt) {}

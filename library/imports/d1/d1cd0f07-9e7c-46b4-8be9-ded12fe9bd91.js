@@ -35,14 +35,23 @@ var NewClass = /** @class */ (function (_super) {
         _this.stringNode = null;
         _this.plate = null;
         _this.hand2 = null;
+        _this.hand3 = null;
         _this.charmNode = null;
         _this.soundBg = null;
         _this.title = null;
         _this.listCordRound = null;
         _this.stringBot = null;
+        _this.listKey = null;
+        _this.listPet = null;
+        _this.endGameNode = null;
+        _this.linkToStore = null;
+        _this.btnOk4 = null;
+        _this.phaoho = null;
         return _this;
         // update (dt) {}
     }
+    // @property(cc.Node)
+    // listCard
     NewClass.prototype.onLoad = function () {
         cc.director.getPhysicsManager().enabled = true;
         cc.director.getPhysicsManager().gravity = cc.v2();
@@ -69,6 +78,7 @@ var NewClass = /** @class */ (function (_super) {
         this.stringNode.active = false;
         this.charmNode.active = true;
         this.title.string = "CHOOSE CHARMS";
+        this.hand3.active = true;
     };
     NewClass.prototype.btn_cord2 = function (event) {
         var _this = this;
@@ -82,6 +92,9 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.plate).to(0.4, { position: cc.v3(0, 230, 0) }).start();
         this.title.string = "MAKE BRACELET";
         this.startGame2();
+        this.scheduleOnce(function () {
+            _this.hand3.active = true;
+        }, 0.4);
     };
     NewClass.prototype.startGame2 = function () {
         var _this = this;
@@ -103,11 +116,62 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.btn_cord3 = function (event) {
+        var _this = this;
         var btn = event.currentTarget;
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
         this.plate.active = false;
-        cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).start();
+        var cordGame = this.listCordRound.getComponent("CordRoundGame");
+        if (cordGame) {
+            cordGame.liftBracelet(cc.v3(0, 230, 0), 0.4);
+        }
+        else {
+            cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).call(function () {
+            }).start();
+        }
+        this.scheduleOnce(function () {
+            _this.title.string = "KEY CHAIN";
+            var lock = _this.listCordRound.children[globalThis.idString].children[2];
+            lock.opacity = 0;
+            lock.active = true;
+            cc.tween(lock).to(0.4, { opacity: 255 }).start();
+            _this.listKey.active = true;
+        }, 0.8);
+    };
+    NewClass.prototype.btn_choseCard = function (event, value) {
+        this.btnOk4.active = true;
+        for (var _i = 0, _a = this.listPet.children; _i < _a.length; _i++) {
+            var child = _a[_i];
+            child.active = false;
+        }
+        switch (value) {
+            case "0":
+                this.listPet.children[0].active = true;
+                this.listPet.children[0].getComponent(cc.Animation).play();
+                break;
+            case "1":
+                this.listPet.children[1].active = true;
+                this.listPet.children[1].getComponent(cc.Animation).play();
+                break;
+            case "2":
+                this.listPet.children[2].active = true;
+                this.listPet.children[2].getComponent(cc.Animation).play();
+                break;
+        }
+    };
+    NewClass.prototype.btn_ok4 = function (event) {
+        var _this = this;
+        var btn = event.currentTarget;
+        btn.getComponent(cc.Button).enabled = false;
+        btn.active = false;
+        this.phaoho.active = true;
+        this.scheduleOnce(function () {
+            _this.endGame();
+        }, 1);
+    };
+    NewClass.prototype.endGame = function () {
+        this.endGameNode.active = true;
+        this.linkToStore.active = true;
     };
     __decorate([
         property(cc.Node)
@@ -126,6 +190,9 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "hand2", void 0);
     __decorate([
         property(cc.Node)
+    ], NewClass.prototype, "hand3", void 0);
+    __decorate([
+        property(cc.Node)
     ], NewClass.prototype, "charmNode", void 0);
     __decorate([
         property(cc.AudioClip)
@@ -139,6 +206,24 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "stringBot", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listKey", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listPet", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "endGameNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "linkToStore", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnOk4", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "phaoho", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

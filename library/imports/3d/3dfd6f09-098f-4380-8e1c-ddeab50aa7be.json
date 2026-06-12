@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "charm_lock_black",
+    "texture": "8f4f83bb-1293-4557-bbed-9339181fcbf9",
+    "atlas": "",
+    "rect": [
+      4,
+      6,
+      91,
+      89
+    ],
+    "offset": [
+      -0.5,
+      -0.5
+    ],
+    "originalSize": [
+      100,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

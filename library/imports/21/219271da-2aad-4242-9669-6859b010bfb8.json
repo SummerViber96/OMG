@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "charm_lock_green",
+    "texture": "97dda1c6-6084-4153-b1a1-190e5b354a3b",
+    "atlas": "",
+    "rect": [
+      5,
+      6,
+      90,
+      89
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      100,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

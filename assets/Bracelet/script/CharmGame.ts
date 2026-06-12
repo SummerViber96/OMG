@@ -17,11 +17,13 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     notiFull: cc.Node = null;
     @property(cc.Node)
-    btnOk:cc.Node=null
+    btnOk: cc.Node = null
+    @property(cc.Node)
+    hand3: cc.Node = null;
     charms = []
     isTargetbox = null;
     onLoad() {
-      
+
     }
     start() {
 
@@ -36,7 +38,7 @@ export default class NewClass extends cc.Component {
         touchNode.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
 
     }
-    OffEvent(){
+    OffEvent() {
         const touchNode = cc.Canvas.instance.node;
         touchNode.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         touchNode.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
@@ -60,7 +62,7 @@ export default class NewClass extends cc.Component {
             this.spoon.position = pos.add(cc.v3(-30, 50))
             let boxComp = box.getComponent("BoxCharm");
             this.spoon.getComponent("Spoon").setCharms(boxComp.tag)
-
+this.hand3.active = false;
         }
     }
     getBox(pos) {
@@ -174,7 +176,7 @@ export default class NewClass extends cc.Component {
     }
     isDelay = false
     showNotiFull() {
-        if(this.isDelay) return;
+        if (this.isDelay) return;
         this.isDelay = true;
         this.scheduleOnce(() => {
             this.isDelay = false;

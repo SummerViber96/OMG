@@ -26,7 +26,7 @@ export default class StringGame extends cc.Component {
     private originSiblingIndex: number = 0;
     private touchStartPos: cc.Vec2 = null;
     private plateOriginPos: cc.Vec3 = null;
-
+arrString=[]
     onLoad() {
         this.resolveReferences();
         this.initStrings();
@@ -318,5 +318,11 @@ export default class StringGame extends cc.Component {
         touchNode.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         touchNode.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
         touchNode.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);   
+    }
+    offString(){
+        for(let i=0;i<this.strings.length;i++){
+            this.strings[i].active = false;
+            this.strings[i].opacity = 0;
+        }
     }
 }

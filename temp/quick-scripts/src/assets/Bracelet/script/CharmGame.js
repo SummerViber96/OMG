@@ -35,6 +35,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.listCharms = [];
         _this.notiFull = null;
         _this.btnOk = null;
+        _this.hand3 = null;
         _this.charms = [];
         _this.isTargetbox = null;
         _this.totalCharm = 0;
@@ -79,6 +80,7 @@ var NewClass = /** @class */ (function (_super) {
             this.spoon.position = pos.add(cc.v3(-30, 50));
             var boxComp = box.getComponent("BoxCharm");
             this.spoon.getComponent("Spoon").setCharms(boxComp.tag);
+            this.hand3.active = false;
         }
     };
     NewClass.prototype.getBox = function (pos) {
@@ -217,6 +219,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnOk", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "hand3", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
