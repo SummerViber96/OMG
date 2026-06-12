@@ -10,8 +10,8 @@
     "relativePath": "anim\\arrow1.anim"
   },
   "bc781772-a602-42de-a9a2-0b20ae7bfc22": {
-    "asset": 1778173046154,
-    "meta": 1781105503425,
+    "asset": 1781223824478,
+    "meta": 1781281896312,
     "relativePath": "anim\\bang"
   },
   "5aef2233-0f12-4345-a119-d97e4b0b77a0": {
@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1781218284303,
+    "meta": 1781281896358,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1781218284305,
+    "meta": 1781281896356,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -4300,8 +4300,8 @@
     "relativePath": "prefab\\vfx\\vfx_smoke.prefab"
   },
   "5ac3afaa-e931-4ba4-a643-89d66b4157f7": {
-    "asset": 1781218248859,
-    "meta": 1781218284282,
+    "asset": 1781219249751,
+    "meta": 1781281896349,
     "relativePath": "scenes"
   },
   "e36e27a3-29e3-4284-b879-a39eb6ec879e": {
@@ -12585,8 +12585,8 @@
     "relativePath": "scripts\\New Folder"
   },
   "88462c7c-fb2c-4a3b-a609-b27fa4dfaba1": {
-    "asset": 1781211103195,
-    "meta": 1781218284019,
+    "asset": 1781224168921,
+    "meta": 1781281896317,
     "relativePath": "Bracelet"
   },
   "0fa41789-4213-4dc4-b06a-2175fa2bd9bb": {
@@ -12635,8 +12635,8 @@
     "relativePath": "Bracelet\\decore\\decor_1.png"
   },
   "fafbee01-f8ce-4294-a580-79b623ba8694": {
-    "asset": 1781204298569,
-    "meta": 1781206515575,
+    "asset": 1781221308480,
+    "meta": 1781281896321,
     "relativePath": "Bracelet\\ui"
   },
   "bb097506-d68c-402a-8258-e5ec48696a47": {
@@ -12680,8 +12680,8 @@
     "relativePath": "Bracelet\\ui\\handtap 1.png"
   },
   "0494932d-7062-439f-a92f-70e6f20cff26": {
-    "asset": 1781218210885,
-    "meta": 1781218284026,
+    "asset": 1781219543523,
+    "meta": 1781281896320,
     "relativePath": "Bracelet\\script"
   },
   "ecc5e8a9-2f65-40e3-aa09-f7f8ae23b374": {
@@ -12810,8 +12810,8 @@
     "relativePath": "Bracelet\\script\\ItemString.ts"
   },
   "7b359a0c-48f3-48f0-8331-7accee719220": {
-    "asset": 1781194757164,
-    "meta": 1781206515571,
+    "asset": 1781221850984,
+    "meta": 1781281896318,
     "relativePath": "Bracelet\\anim"
   },
   "3c02f13d-599b-4cde-8aca-93eaf777ceef": {
@@ -14175,8 +14175,8 @@
     "relativePath": "Bracelet\\script\\Spoon.ts"
   },
   "ec868c86-51e5-4f81-b7f1-2ed9e088bdeb": {
-    "asset": 1781215927823,
-    "meta": 1781218284023,
+    "asset": 1781219249748,
+    "meta": 1781281896319,
     "relativePath": "Bracelet\\prefab"
   },
   "701ab4d3-0daa-4d5a-83c5-bf82392b2541": {
@@ -14370,8 +14370,8 @@
     "relativePath": "Bracelet\\prefab\\preCharm1.prefab"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1781224914319,
-    "meta": 1781224914337,
+    "asset": 1781225218017,
+    "meta": 1781225218050,
     "relativePath": "scenes\\Bracelet.fire"
   },
   "bd4ba15f-30c4-40bd-9e74-625948abb041": {
