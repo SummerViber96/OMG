@@ -210,17 +210,41 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveToChicken = function () {
         var _this = this;
         this.discardTrayIfDifferentType("chicken");
+        console.log(this.localId);
         if (!this.canPickMoreChicken()) {
             this.gamePlay.isMoving = false;
             return;
         }
-        this.node.scaleX = 1;
-        this.anim.setAnimation(0, "Walk", true);
-        this.updateArms();
-        cc.tween(this.node)
-            .to(1, { position: this.getPos(this.POS_CHICKEN) })
-            .call(function () { return _this.spawChicken(); })
-            .start();
+        if (this.localId == 0) {
+            this.node.scaleX = 1;
+            this.anim.setAnimation(0, "Walk", true);
+            this.updateArms();
+            cc.tween(this.node)
+                .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                .call(function () { return _this.spawChicken(); })
+                .start();
+        }
+        else if (this.localId == 3) {
+            this.node.scaleX = 1;
+            this.anim.setAnimation(0, "Walk", true);
+            this.updateArms();
+            cc.tween(this.node)
+                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(function () { return _this.spawChicken(); })
+                .start();
+        }
+        if (this.localId == 4) {
+            this.node.scaleX = 1;
+            this.node.zIndex = 1;
+            this.table.zIndex = 2;
+            this.anim.setAnimation(0, "Walk", true);
+            this.updateArms();
+            cc.tween(this.node)
+                .to(1.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(function () { return _this.spawChicken(); })
+                .start();
+        }
+        // if(this.localId==)
     };
     NewClass.prototype.spawChicken = function () {
         if (!this.isTrayEmpty()) {
@@ -248,7 +272,7 @@ var NewClass = /** @class */ (function (_super) {
         this.node.zIndex = 2;
         var machine = this.gamePlay.btnMachine.getComponent("machine");
         var rawSlot = this.getRawTraySlot();
-        if ((this.localId == 1 || this.localId == 2 || this.localId == 3) && rawSlot >= 0 && machine.chicken == null) {
+        if ((this.localId == 1 || this.localId == 2) && rawSlot >= 0 && machine.chicken == null) {
             this.anim.setAnimation(0, "Walk", true);
             this.updateArms();
             cc.tween(this.node)
@@ -302,7 +326,43 @@ var NewClass = /** @class */ (function (_super) {
             })
                 .start();
         }
-        this.gamePlay.isMoving = false;
+        if (this.localId == 4) {
+            this.anim.setAnimation(0, "Walk", true);
+            this.node.scaleX = 1;
+            cc.tween(this.node)
+                .to(0.6, { position: this.getPos(this.POS_SELL) })
+                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(function () {
+                _this.node.zIndex = 2;
+                _this.table.zIndex = 1;
+            })
+                .to(1, { position: this.getPos(this.POS_MACHINE) })
+                .call(function () {
+                _this.anim.setAnimation(0, "Idle", true);
+                _this.updateArms();
+                _this.localId = 2;
+                _this.gamePlay.isMoving = false;
+            })
+                .start();
+        }
+        if (this.localId == 3) {
+            this.anim.setAnimation(0, "Walk", true);
+            this.node.scaleX = 1;
+            cc.tween(this.node)
+                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(function () {
+                _this.node.zIndex = 2;
+                _this.table.zIndex = 1;
+            })
+                .to(1, { position: this.getPos(this.POS_MACHINE) })
+                .call(function () {
+                _this.anim.setAnimation(0, "Idle", true);
+                _this.updateArms();
+                _this.localId = 2;
+                _this.gamePlay.isMoving = false;
+            })
+                .start();
+        }
     };
     NewClass.prototype.moveToSauce = function () {
         var _this = this;

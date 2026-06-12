@@ -47,6 +47,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.fillBar = null;
         _this.fillYellow = null;
         _this.fillRed = null;
+        _this.volumHello = 1;
         _this.timeWaiting = 30;
         _this.isEnd = false;
         _this.isSuccess = false;
@@ -68,7 +69,7 @@ var NewClass = /** @class */ (function (_super) {
         this.pop.getComponent(cc.Animation).play();
         this.anim.setAnimation(0, "idle", false);
         if (this.soundHello) {
-            cc.audioEngine.play(this.soundHello, false, 1);
+            cc.audioEngine.play(this.soundHello, false, this.volumHello);
         }
         this.loadTime();
     };
@@ -217,6 +218,7 @@ var NewClass = /** @class */ (function (_super) {
     // wrong(){
     // }
     NewClass.prototype.checkSell = function () {
+        console.log("checkSell");
         if (this.gamePlay.arrCus.indexOf(this.node) < 0)
             return false;
         return this.gamePlay.checkSell(this.node);
@@ -234,9 +236,9 @@ var NewClass = /** @class */ (function (_super) {
         var isCakeValid = this.cake && this.count[2] > 0 && itemType === "cake";
         var isPotatoValid = this.potato && this.count[3] > 0 && itemType === "tomato";
         if (isChickenValid || isCocaValid || isCakeValid || isPotatoValid) {
-            cc.audioEngine.play(this.gamePlay.soundOk, false, 1);
             var missionType_1 = isCocaValid ? 1 : isCakeValid ? 2 : isPotatoValid ? 3 : 0;
             this.scheduleOnce(function () {
+                cc.audioEngine.play(_this.gamePlay.soundOk, false, 1);
                 _this.updateMission(missionType_1);
                 mcComp.afterDeliver();
             }, 0.5);
@@ -351,6 +353,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.SpriteFrame)
     ], NewClass.prototype, "fillRed", void 0);
+    __decorate([
+        property(cc.Integer)
+    ], NewClass.prototype, "volumHello", void 0);
     __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "timeWaiting", void 0);

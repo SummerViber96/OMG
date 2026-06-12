@@ -12,7 +12,7 @@ export default class NewClass extends cc.Component {
     clockSound: cc.AudioClip = null
     @property(cc.Node)
     warning: cc.Node = null
-    isTime = 60;
+    isTime = 80;
     idClick = null
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");

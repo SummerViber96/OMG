@@ -32,7 +32,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.gamePlay = null;
         _this.clockSound = null;
         _this.warning = null;
-        _this.isTime = 60;
+        _this.isTime = 80;
         _this.idClick = null;
         return _this;
         // update (dt) {}

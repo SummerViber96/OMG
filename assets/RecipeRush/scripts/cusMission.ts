@@ -43,6 +43,8 @@ export default class NewClass extends cc.Component {
     fillYellow: cc.SpriteFrame = null;
     @property(cc.SpriteFrame)
     fillRed: cc.SpriteFrame = null;
+    @property(cc.Integer)
+    volumHello=1
 
     @property(cc.Integer)
     timeWaiting = 30
@@ -68,7 +70,7 @@ export default class NewClass extends cc.Component {
         this.anim.setAnimation(0, "idle", false)
 
         if (this.soundHello) {
-            cc.audioEngine.play(this.soundHello, false, 1)
+            cc.audioEngine.play(this.soundHello, false, this.volumHello)
         }
         this.loadTime()
     }
@@ -229,6 +231,7 @@ export default class NewClass extends cc.Component {
 
     // }
     checkSell() {
+        console.log("checkSell")
         if (this.gamePlay.arrCus.indexOf(this.node) < 0) return false
         return this.gamePlay.checkSell(this.node)
     }
@@ -247,9 +250,10 @@ export default class NewClass extends cc.Component {
         let isPotatoValid = this.potato && this.count[3] > 0 && itemType === "tomato"
 
         if (isChickenValid || isCocaValid || isCakeValid || isPotatoValid) {
-            cc.audioEngine.play(this.gamePlay.soundOk, false, 1)
             let missionType = isCocaValid ? 1 : isCakeValid ? 2 : isPotatoValid ? 3 : 0
             this.scheduleOnce(() => {
+                            cc.audioEngine.play(this.gamePlay.soundOk, false, 1)
+
                 this.updateMission(missionType)
                 mcComp.afterDeliver()
             }, 0.5)

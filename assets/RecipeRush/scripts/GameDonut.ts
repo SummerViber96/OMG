@@ -227,10 +227,10 @@ export default class NewClass extends cc.Component {
     enterCustomers(count: number) {
         this.counterCusCount = count
         let arrPos = [cc.v3(0, 0, 0)]
-        if(count==2){
+        if (count == 2) {
             arrPos = [cc.v3(-285, 0, 0), cc.v3(88, 0, 0)]
         }
-        else if(count==3){
+        else if (count == 3) {
             arrPos = [cc.v3(-443, 0, 0), cc.v3(-73, 0, 0), cc.v3(273, 0, 0)]
         }
         let maxDuration = 0
@@ -258,7 +258,6 @@ export default class NewClass extends cc.Component {
             if (count === 1 && this.arrCus.length > 0) {
                 this.isTargetCus = this.arrCus[0]
             }
-            this.barMission.getComponent("barTime").countDown()
         }, maxDuration)
     }
 
@@ -267,7 +266,7 @@ export default class NewClass extends cc.Component {
         if (this.countCus === 3) return 3
         return 1
     }
-    onHind(){
+    onHind() {
         this.hind1.active = true;
     }
     startGame() {
@@ -285,16 +284,23 @@ export default class NewClass extends cc.Component {
     }
     isMoving = false
     isFist = false
+    isFistClickChicken = false
+
     btn_chicken() {
         if (this.isMoving) return;
+        if (!this.isFistClickChicken) {
+            this.barMission.getComponent("barTime").countDown()
+            this.isFistClickChicken = true
+            this.scheduleOnce(() => {
+                this.btnMachine.getChildByName("hind").active = true
+            }, 2)
+        }
         this.mcComp.discardTrayIfDifferentType("chicken")
         if (!this.mcComp.canPickMoreChicken()) return;
         this.isMoving = true
         this.btnChicken.getChildByName("hind").opacity = 0;
         this.mcComp.moveToChicken()
-        this.scheduleOnce(() => {
-            this.btnMachine.getChildByName("hind").active = true
-        }, 2)
+
     }
 
     btn_mayChien() {
@@ -302,7 +308,7 @@ export default class NewClass extends cc.Component {
         this.mcComp.discardTrayIfDifferentType("chicken")
         let machineComp = this.btnMachine.getComponent("machine")
         let canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null
-        let canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3) && machineComp.chicken != null && this.mcComp.isTrayEmpty()
+        let canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4) && machineComp.chicken != null && this.mcComp.isTrayEmpty()
         if (!canFry && !canPickup) return;
 
         this.isMoving = true
@@ -322,6 +328,7 @@ export default class NewClass extends cc.Component {
         this.mcComp.moveToSauce()
     }
     btn_cake() {
+        console.log(this.isMoving)
         if (this.isMoving) return;
         this.isMoving = true
         this.mcComp.moveToCake()
@@ -335,6 +342,7 @@ export default class NewClass extends cc.Component {
         return this.arrCus.indexOf(cusNode)
     }
     checkSell(targetCus?: cc.Node) {
+        console.log("check sell Main")
         let cus = targetCus || this.sellTargetCus || this.arrCus[0]
         if (this.isMoving || !cus) return false
         let cusComp = cus.getComponent("cusMission")
@@ -369,11 +377,12 @@ export default class NewClass extends cc.Component {
         }
 
         this.countCus++
-        if(this.countCus==2){
+        if (this.countCus == 1) {
+
             this.btnCake.getComponent(cc.Button).enabled = true;
             this.btnPotato.getComponent(cc.Button).enabled = true;
         }
-        else if(this.countCus==3){
+        else if (this.countCus == 3) {
             this.barMission2.active = true;
             this.scheduleOnce(() => {
                 cc.tween(this.barMission2).by(0.4, { opacity: -255, position: cc.v3(0, 200) }).call(() => {

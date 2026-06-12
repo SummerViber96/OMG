@@ -132,6 +132,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isHand = null;
         _this.isMoving = false;
         _this.isFist = false;
+        _this.isFistClickChicken = false;
         // moveClocktoUI(node1) {
         //     this.moveItemToUI(node1, this.barTime.children[1]);
         // }
@@ -231,7 +232,6 @@ var NewClass = /** @class */ (function (_super) {
             if (count === 1 && _this.arrCus.length > 0) {
                 _this.isTargetCus = _this.arrCus[0];
             }
-            _this.barMission.getComponent("barTime").countDown();
         }, maxDuration);
     };
     NewClass.prototype.getEnterCountForWave = function () {
@@ -262,15 +262,19 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         if (this.isMoving)
             return;
+        if (!this.isFistClickChicken) {
+            this.barMission.getComponent("barTime").countDown();
+            this.isFistClickChicken = true;
+            this.scheduleOnce(function () {
+                _this.btnMachine.getChildByName("hind").active = true;
+            }, 2);
+        }
         this.mcComp.discardTrayIfDifferentType("chicken");
         if (!this.mcComp.canPickMoreChicken())
             return;
         this.isMoving = true;
         this.btnChicken.getChildByName("hind").opacity = 0;
         this.mcComp.moveToChicken();
-        this.scheduleOnce(function () {
-            _this.btnMachine.getChildByName("hind").active = true;
-        }, 2);
     };
     NewClass.prototype.btn_mayChien = function () {
         if (this.isMoving)
@@ -278,7 +282,7 @@ var NewClass = /** @class */ (function (_super) {
         this.mcComp.discardTrayIfDifferentType("chicken");
         var machineComp = this.btnMachine.getComponent("machine");
         var canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null;
-        var canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3) && machineComp.chicken != null && this.mcComp.isTrayEmpty();
+        var canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4) && machineComp.chicken != null && this.mcComp.isTrayEmpty();
         if (!canFry && !canPickup)
             return;
         this.isMoving = true;
@@ -301,6 +305,7 @@ var NewClass = /** @class */ (function (_super) {
         this.mcComp.moveToSauce();
     };
     NewClass.prototype.btn_cake = function () {
+        console.log(this.isMoving);
         if (this.isMoving)
             return;
         this.isMoving = true;
@@ -316,6 +321,7 @@ var NewClass = /** @class */ (function (_super) {
         return this.arrCus.indexOf(cusNode);
     };
     NewClass.prototype.checkSell = function (targetCus) {
+        console.log("check sell Main");
         var cus = targetCus || this.sellTargetCus || this.arrCus[0];
         if (this.isMoving || !cus)
             return false;
@@ -354,7 +360,7 @@ var NewClass = /** @class */ (function (_super) {
             this.arrCus.splice(0, 1);
         }
         this.countCus++;
-        if (this.countCus == 2) {
+        if (this.countCus == 1) {
             this.btnCake.getComponent(cc.Button).enabled = true;
             this.btnPotato.getComponent(cc.Button).enabled = true;
         }

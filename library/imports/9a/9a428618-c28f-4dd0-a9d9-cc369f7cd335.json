@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "no-fire",
+    "texture": "2b11edc2-b64f-4a08-9ef5-ee8150ccc92d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      46,
+      63
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      46,
+      63
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

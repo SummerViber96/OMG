@@ -198,17 +198,45 @@ export default class NewClass extends cc.Component {
 
     moveToChicken() {
         this.discardTrayIfDifferentType("chicken")
+        console.log(this.localId)
         if (!this.canPickMoreChicken()) {
             this.gamePlay.isMoving = false
             return
         }
-        this.node.scaleX = 1
-        this.anim.setAnimation(0, "Walk", true)
-        this.updateArms()
-        cc.tween(this.node)
-            .to(1, { position: this.getPos(this.POS_CHICKEN) })
-            .call(() => this.spawChicken())
-            .start()
+
+        if (this.localId == 0) {
+
+            this.node.scaleX = 1
+            this.anim.setAnimation(0, "Walk", true)
+            this.updateArms()
+            cc.tween(this.node)
+                .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.spawChicken())
+                .start()
+        }
+        else if (this.localId == 3) {
+            this.node.scaleX = 1
+            this.anim.setAnimation(0, "Walk", true)
+            this.updateArms()
+            cc.tween(this.node)
+                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.spawChicken())
+                .start()
+        }
+        if (this.localId == 4) {
+            this.node.scaleX = 1
+            this.node.zIndex = 1;
+            this.table.zIndex = 2
+            this.anim.setAnimation(0, "Walk", true)
+            this.updateArms()
+            cc.tween(this.node)
+                .to(1.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.spawChicken())
+                .start()
+        }
+        // if(this.localId==)
+
+
     }
 
     spawChicken() {
@@ -236,8 +264,7 @@ export default class NewClass extends cc.Component {
         this.node.zIndex = 2
         let machine = this.gamePlay.btnMachine.getComponent("machine")
         let rawSlot = this.getRawTraySlot()
-
-        if ((this.localId == 1 || this.localId == 2 || this.localId == 3) && rawSlot >= 0 && machine.chicken == null) {
+        if ((this.localId == 1 || this.localId == 2) && rawSlot >= 0 && machine.chicken == null) {
             this.anim.setAnimation(0, "Walk", true)
             this.updateArms()
             cc.tween(this.node)
@@ -293,8 +320,48 @@ export default class NewClass extends cc.Component {
                 })
                 .start()
         }
+        if (this.localId == 4) {
+            this.anim.setAnimation(0, "Walk", true)
+            this.node.scaleX = 1
+            cc.tween(this.node)
+                .to(0.6, { position: this.getPos(this.POS_SELL) })
 
-        this.gamePlay.isMoving = false
+                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => {
+                    this.node.zIndex = 2;
+                    this.table.zIndex = 1
+                })
+                .to(1, { position: this.getPos(this.POS_MACHINE) })
+                .call(() => {
+                    this.anim.setAnimation(0, "Idle", true)
+                    this.updateArms()
+                    this.localId = 2
+                    this.gamePlay.isMoving = false
+
+                })
+                .start()
+        }
+        if (this.localId == 3) {
+            this.anim.setAnimation(0, "Walk", true)
+            this.node.scaleX = 1
+            cc.tween(this.node)
+
+                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => {
+                    this.node.zIndex = 2;
+                    this.table.zIndex = 1
+                })
+                .to(1, { position: this.getPos(this.POS_MACHINE) })
+                .call(() => {
+                    this.anim.setAnimation(0, "Idle", true)
+                    this.updateArms()
+                    this.localId = 2
+                    this.gamePlay.isMoving = false
+
+                })
+                .start()
+        }
+
     }
 
     moveToSauce() {
@@ -454,9 +521,19 @@ export default class NewClass extends cc.Component {
             this.gamePlay.isMoving = true
             this.anim.setAnimation(0, "Walk", true)
             this.node.scaleX = -1
+            this.node.zIndex = 2;
+            this.table.zIndex = 1
             cc.tween(this.node)
                 .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => {
+                    this.node.zIndex = 1;
+                    this.table.zIndex = 2
+                })
                 .to(0.8, { position: this.getPos(this.POS_COCA) })
+                .call(() => {
+                    this.node.zIndex = 2;
+                    this.table.zIndex = 1
+                })
                 .to(1, { position: this.getPos(this.POS_CAKE) })
                 .call(() => this.getCake())
                 .start()

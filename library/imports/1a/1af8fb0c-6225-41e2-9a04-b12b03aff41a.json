@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dk-rac",
+    "texture": "59c29f4a-486e-422a-bd02-3f9cf6501697",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      50,
+      59
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      50,
+      59
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
