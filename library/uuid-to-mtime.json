@@ -14375,8 +14375,8 @@
     "relativePath": "Bracelet\\prefab\\preCharm1.prefab"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1781223989074,
-    "meta": 1781223989096,
+    "asset": 1781224674067,
+    "meta": 1781224674084,
     "relativePath": "scenes\\Bracelet.fire"
   },
   "bd4ba15f-30c4-40bd-9e74-625948abb041": {
@@ -14559,9 +14559,349 @@
     "meta": 1781223970456,
     "relativePath": "Bracelet\\script\\CharmGame.ts"
   },
+  "32772eb5-4527-4cba-9945-98008c9605c9": {
+    "asset": 1781224168985,
+    "meta": 1781224168989,
+    "relativePath": "Bracelet\\SOUND"
+  },
+  "0c880992-8055-48f6-a2aa-bbe77f96e84f": {
+    "asset": 1781224168887,
+    "meta": 1781224169570,
+    "relativePath": "Bracelet\\SOUND\\bgm_2.mp3"
+  },
+  "942aef52-3283-4764-a2bd-89bb90363fc9": {
+    "asset": 1781224168888,
+    "meta": 1781224169573,
+    "relativePath": "Bracelet\\SOUND\\bgm_1.mp3"
+  },
+  "00f94eb9-9f7d-4b2d-b12a-6ceac746a8ad": {
+    "asset": 1781224168883,
+    "meta": 1781224169585,
+    "relativePath": "Bracelet\\SOUND\\bgm_4.ogg"
+  },
+  "82115c72-6bdc-4fc1-95c9-a5b849bf3888": {
+    "asset": 1781224168887,
+    "meta": 1781224169593,
+    "relativePath": "Bracelet\\SOUND\\bgm.mp3"
+  },
+  "b26638fa-67f5-4eea-9adf-822f8e4f3903": {
+    "asset": 1781224168791,
+    "meta": 1781224169599,
+    "relativePath": "Bracelet\\SOUND\\buying.mp3"
+  },
+  "c2bb2390-4903-4db7-bdad-be63a58d34aa": {
+    "asset": 1781224168918,
+    "meta": 1781224169608,
+    "relativePath": "Bracelet\\SOUND\\bgm_3.ogg"
+  },
+  "6261696b-bf76-46ed-ae1e-11a5ad838108": {
+    "asset": 1781224168945,
+    "meta": 1781224169610,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor"
+  },
+  "67f3ef9d-b340-45c1-9505-6e3cdc62aab6": {
+    "asset": 1781224168790,
+    "meta": 1781224169613,
+    "relativePath": "Bracelet\\SOUND\\camera.ogg"
+  },
+  "b8f9c8e3-f1da-488f-b3e9-6f3b9e81ccde": {
+    "asset": 1781224168869,
+    "meta": 1781224169617,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmConnectVongTay.mp3"
+  },
+  "cd28f0ad-ef10-4bce-a182-b1a1db554a66": {
+    "asset": 1781224168882,
+    "meta": 1781224169625,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmDatDay.wav"
+  },
+  "af8c6134-1924-4f2e-93e5-92e6e71b8ad6": {
+    "asset": 1781224168870,
+    "meta": 1781224169627,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmDoCharmRaKhay.wav"
+  },
+  "d90ff9a9-4d37-40ef-a344-307b3b5276a9": {
+    "asset": 1781224168870,
+    "meta": 1781224169635,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmDoCharmRaKhay1.wav"
+  },
+  "6cb78083-0ae0-453a-a788-79feca1ad380": {
+    "asset": 1781224168871,
+    "meta": 1781224169639,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmDoCharmRaKhay2.wav"
+  },
+  "442789a6-482d-4dad-86ad-bab6d3eb533f": {
+    "asset": 1781224168869,
+    "meta": 1781224169642,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmItemDrop1.mp3"
+  },
+  "78130988-892a-4019-8b18-eec272be509b": {
+    "asset": 1781224168869,
+    "meta": 1781224169647,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmItemDrop2.mp3"
+  },
+  "4ab4d1bd-8b9b-428a-9823-05c125c7764d": {
+    "asset": 1781224168869,
+    "meta": 1781224169657,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmItemDrop4.mp3"
+  },
+  "da33a8b2-2121-4a6e-9182-7592c9c95cb2": {
+    "asset": 1781224168869,
+    "meta": 1781224169658,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmItemDrop3.mp3"
+  },
+  "1fce0377-c04d-41a5-b0d0-9ab324b14c32": {
+    "asset": 1781224168869,
+    "meta": 1781224169665,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmItemDrop5.mp3"
+  },
+  "1ca0782b-78bf-4087-9d18-7fb557c98a2b": {
+    "asset": 1781224168869,
+    "meta": 1781224169666,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmItemDrop6.mp3"
+  },
+  "5953e92c-cf6c-490d-8a2c-d2cfaeddeab2": {
+    "asset": 1781224168869,
+    "meta": 1781224169675,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmItemDrop7.mp3"
+  },
+  "dcba2127-91a4-4178-b066-c630b7828186": {
+    "asset": 1781224168869,
+    "meta": 1781224169677,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmPhunSon.wav"
+  },
+  "e6b85d71-851e-442a-a5cc-c07013c6cf1f": {
+    "asset": 1781224168869,
+    "meta": 1781224169685,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmPickDay.wav"
+  },
+  "f3e29e67-8c29-42a3-bb45-59713ccc3807": {
+    "asset": 1781224168872,
+    "meta": 1781224169687,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmPickKeychain.wav"
+  },
+  "66d7e72b-5c6a-4d29-b298-4fdeb2eef0ac": {
+    "asset": 1781224168883,
+    "meta": 1781224169695,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\Charmremove.wav"
+  },
+  "0aa82116-3382-493c-a36c-fe447087254e": {
+    "asset": 1781224168886,
+    "meta": 1781224169700,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmSprayComplete.wav"
+  },
+  "e779825c-b4fb-4808-892f-828640558f14": {
+    "asset": 1781224168870,
+    "meta": 1781224169702,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmXoCharm_CharmCaCham.wav"
+  },
+  "25a33d1b-6372-4d31-bf38-f3a1cd18198b": {
+    "asset": 1781224168872,
+    "meta": 1781224169711,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmXoCharm_PickCharm.wav"
+  },
+  "6a4729eb-7841-46a4-802f-9b5b400eb66d": {
+    "asset": 1781224168872,
+    "meta": 1781224169713,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmXoCharm_Snap.wav"
+  },
+  "571475ff-f31d-4c8c-9e12-888ae2363633": {
+    "asset": 1781224168870,
+    "meta": 1781224169718,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmXucCharm1.mp3"
+  },
+  "042a915c-73ac-4aba-92e9-794a054f180b": {
+    "asset": 1781224168872,
+    "meta": 1781224169724,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmXucCharm.wav"
+  },
+  "eb138b7f-7534-489d-bd8b-0218512a59c7": {
+    "asset": 1781224168791,
+    "meta": 1781224169735,
+    "relativePath": "Bracelet\\SOUND\\click.mp3"
+  },
+  "760ddfaf-d000-4d1a-9f08-7dc25a5be970": {
+    "asset": 1781224168872,
+    "meta": 1781224169737,
+    "relativePath": "Bracelet\\SOUND\\CharmDecor\\CharmXucCharm2.wav"
+  },
+  "dd02ce4a-1372-440d-bf4e-7c960c63b10e": {
+    "asset": 1781224168791,
+    "meta": 1781224169744,
+    "relativePath": "Bracelet\\SOUND\\collect_dollar.mp3"
+  },
+  "b7976a27-a648-4180-b789-9bc725e3cf9b": {
+    "asset": 1781224168791,
+    "meta": 1781224169745,
+    "relativePath": "Bracelet\\SOUND\\clock.mp3"
+  },
+  "68367ee1-ff73-4375-a46d-91641f50de4c": {
+    "asset": 1781224168790,
+    "meta": 1781224169754,
+    "relativePath": "Bracelet\\SOUND\\comment.ogg"
+  },
+  "b4c68f96-0f67-48b9-8429-14bb5865926c": {
+    "asset": 1781224168872,
+    "meta": 1781224169757,
+    "relativePath": "Bracelet\\SOUND\\complete.wav"
+  },
+  "1d640779-088d-42e2-aec3-479b68c2d0a4": {
+    "asset": 1781224168794,
+    "meta": 1781224169762,
+    "relativePath": "Bracelet\\SOUND\\cut_pizza.wav"
+  },
+  "6eec9499-3bf9-46b0-b6eb-75562ebb813c": {
+    "asset": 1781224168867,
+    "meta": 1781224169768,
+    "relativePath": "Bracelet\\SOUND\\done_job.ogg"
+  },
+  "718d9ec5-2278-40ba-94de-69d14874c6e2": {
+    "asset": 1781224168884,
+    "meta": 1781224169773,
+    "relativePath": "Bracelet\\SOUND\\drink_end.wav"
+  },
+  "8a5820f9-32db-4271-bd79-59720e2291d2": {
+    "asset": 1781224168795,
+    "meta": 1781224169776,
+    "relativePath": "Bracelet\\SOUND\\drinking_2.mp3"
+  },
+  "afb42a6c-11dd-4138-88be-6516b5ae9a5f": {
+    "asset": 1781224168792,
+    "meta": 1781224169783,
+    "relativePath": "Bracelet\\SOUND\\drop_burger.mp3"
+  },
+  "1ae23fcd-78cb-416e-afac-bb28fa92fecb": {
+    "asset": 1781224168791,
+    "meta": 1781224169787,
+    "relativePath": "Bracelet\\SOUND\\drinking.ogg"
+  },
+  "1a3b98f4-6ddf-4831-822e-aec29032c300": {
+    "asset": 1781224168792,
+    "meta": 1781224169795,
+    "relativePath": "Bracelet\\SOUND\\drop_lid.mp3"
+  },
+  "7d548559-ed71-4ead-9cd0-0f02d2c549c6": {
+    "asset": 1781224168791,
+    "meta": 1781224169798,
+    "relativePath": "Bracelet\\SOUND\\drop_straw.ogg"
+  },
+  "419508d2-2e0b-4f7e-8157-495ae80f0a8f": {
+    "asset": 1781224168791,
+    "meta": 1781224169803,
+    "relativePath": "Bracelet\\SOUND\\drop.ogg"
+  },
+  "b2529fff-df4f-4462-bf99-20536e256de3": {
+    "asset": 1781224168791,
+    "meta": 1781224169806,
+    "relativePath": "Bracelet\\SOUND\\eating.ogg"
+  },
+  "a5014fe5-c61e-4ee2-a365-ac3f525d979e": {
+    "asset": 1781224168791,
+    "meta": 1781224169816,
+    "relativePath": "Bracelet\\SOUND\\grill_done.ogg"
+  },
+  "f45ce0e3-468a-4216-94bd-1c9d7c1f4b1b": {
+    "asset": 1781224168791,
+    "meta": 1781224169818,
+    "relativePath": "Bracelet\\SOUND\\happy.ogg"
+  },
+  "cf49b13f-9c16-47c9-8c4a-3b473de9bab4": {
+    "asset": 1781224168791,
+    "meta": 1781224169827,
+    "relativePath": "Bracelet\\SOUND\\readygo.ogg"
+  },
+  "79ab0547-bf31-413d-8705-cb6dff505349": {
+    "asset": 1781224168806,
+    "meta": 1781224169829,
+    "relativePath": "Bracelet\\SOUND\\knead.ogg"
+  },
+  "5b924553-7588-459e-ad8c-c56dc2221dfe": {
+    "asset": 1781224168791,
+    "meta": 1781224169835,
+    "relativePath": "Bracelet\\SOUND\\right.ogg"
+  },
+  "a02798b3-9c20-4d67-b354-df63550748b7": {
+    "asset": 1781224168868,
+    "meta": 1781224169839,
+    "relativePath": "Bracelet\\SOUND\\reward.wav"
+  },
+  "cef0024a-32f4-48fe-8603-addae065cf64": {
+    "asset": 1781224168806,
+    "meta": 1781224169844,
+    "relativePath": "Bracelet\\SOUND\\sauce.ogg"
+  },
+  "abefc2af-6348-4a9a-b80d-cb1d4817406a": {
+    "asset": 1781224168793,
+    "meta": 1781224169849,
+    "relativePath": "Bracelet\\SOUND\\SFX_Nhackhay.ogg"
+  },
+  "48eb6db5-4446-48ab-ac9f-b2345c92720d": {
+    "asset": 1781224168789,
+    "meta": 1781224169857,
+    "relativePath": "Bracelet\\SOUND\\SFX_Place.ogg"
+  },
+  "ce2c6d71-235b-41f8-a011-ef3190446e74": {
+    "asset": 1781224168789,
+    "meta": 1781224169859,
+    "relativePath": "Bracelet\\SOUND\\SFX_Progress_unlock.mp3"
+  },
+  "15904b74-f96d-42a9-83b1-ac010d44ed96": {
+    "asset": 1781224168792,
+    "meta": 1781224169866,
+    "relativePath": "Bracelet\\SOUND\\shake.ogg"
+  },
+  "aea2ec7c-1f32-477d-9a8b-ad43587ec3a0": {
+    "asset": 1781224168806,
+    "meta": 1781224169871,
+    "relativePath": "Bracelet\\SOUND\\smash_soldout.wav"
+  },
+  "8416f687-770f-482f-8239-eb01ddeeae96": {
+    "asset": 1781224168792,
+    "meta": 1781224169875,
+    "relativePath": "Bracelet\\SOUND\\special.ogg"
+  },
+  "acdcb0bc-abaa-4133-81b0-a1e535db6075": {
+    "asset": 1781224168807,
+    "meta": 1781224169878,
+    "relativePath": "Bracelet\\SOUND\\spice.mp3"
+  },
+  "9f504632-2374-4342-abb7-11563a97f780": {
+    "asset": 1781224168792,
+    "meta": 1781224169886,
+    "relativePath": "Bracelet\\SOUND\\squeeze.ogg"
+  },
+  "b6c49eca-72bd-478d-b7cd-f0d30d668de9": {
+    "asset": 1781224168866,
+    "meta": 1781224169888,
+    "relativePath": "Bracelet\\SOUND\\Spinning_Wheel.mp3"
+  },
+  "49ddd28d-c9d3-43c1-84d7-568d3199f218": {
+    "asset": 1781224168792,
+    "meta": 1781224169897,
+    "relativePath": "Bracelet\\SOUND\\Water_shake.ogg"
+  },
+  "2bede307-d460-450c-8c15-4c69b018957d": {
+    "asset": 1781224168807,
+    "meta": 1781224169898,
+    "relativePath": "Bracelet\\SOUND\\water1.ogg"
+  },
+  "ce149ef5-343c-46e8-8029-fa1c8127565a": {
+    "asset": 1781224168807,
+    "meta": 1781224169908,
+    "relativePath": "Bracelet\\SOUND\\water2.ogg"
+  },
+  "cb130198-f398-4537-98dc-0d31ee733c48": {
+    "asset": 1781224168872,
+    "meta": 1781224169910,
+    "relativePath": "Bracelet\\SOUND\\water3.mp3"
+  },
+  "c2a79493-4156-4c14-bf72-164469ebb645": {
+    "asset": 1781224168870,
+    "meta": 1781224169917,
+    "relativePath": "Bracelet\\SOUND\\wrong.ogg"
+  },
   "d1cd0f07-9e7c-46b4-8be9-ded12fe9bd91": {
-    "asset": 1781224071996,
-    "meta": 1781224072979,
+    "asset": 1781224532527,
+    "meta": 1781224535477,
     "relativePath": "Bracelet\\script\\Bracelet.ts"
   }
 }

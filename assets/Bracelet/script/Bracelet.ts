@@ -47,6 +47,8 @@ export default class NewClass extends cc.Component {
         cc.director.getPhysicsManager().gravity = cc.v2();
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;
+            cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
+
     }
     start() {
         cc.audioEngine.play(this.soundBg, true, 0.5)

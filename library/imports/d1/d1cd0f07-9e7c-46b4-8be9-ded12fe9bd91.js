@@ -57,6 +57,7 @@ var NewClass = /** @class */ (function (_super) {
         cc.director.getPhysicsManager().gravity = cc.v2();
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
+        cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
     };
     NewClass.prototype.start = function () {
         cc.audioEngine.play(this.soundBg, true, 0.5);
