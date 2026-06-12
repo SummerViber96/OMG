@@ -244,7 +244,7 @@ export default class NewClass extends cc.Component {
 
     canPickMoreChicken() {
         if (!this.canPickItemType("chicken")) return false
-        return this.localId == 0 || this.localId == 1 || this.localId == 2 || this.localId == 3
+        return this.localId >= 0 && this.localId <= 5
     }
 
     // --- Di chuyển ---
@@ -257,12 +257,20 @@ export default class NewClass extends cc.Component {
         }
 
         if (this.localId == 0) {
-
             this.node.scaleX = 1
             this.anim.setAnimation(0, "Walk", true)
             this.updateArms()
             cc.tween(this.node)
                 .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.spawChicken())
+                .start()
+        }
+        else if (this.localId == 1 || this.localId == 2) {
+            this.node.scaleX = 1
+            this.anim.setAnimation(0, "Walk", true)
+            this.updateArms()
+            cc.tween(this.node)
+                .to(0.8, { position: this.getPos(this.POS_CHICKEN) })
                 .call(() => this.spawChicken())
                 .start()
         }
@@ -275,9 +283,9 @@ export default class NewClass extends cc.Component {
                 .call(() => this.spawChicken())
                 .start()
         }
-        if (this.localId == 4) {
+        else if (this.localId == 4) {
             this.node.scaleX = 1
-            this.node.zIndex = 1;
+            this.node.zIndex = 1
             this.table.zIndex = 2
             this.anim.setAnimation(0, "Walk", true)
             this.updateArms()
@@ -286,10 +294,21 @@ export default class NewClass extends cc.Component {
                 .call(() => this.spawChicken())
                 .start()
         }
-        
-        // if(this.localId==)
-
-
+        else if (this.localId == 5) {
+            this.node.scaleX = 1
+            this.node.zIndex = 1
+            this.table.zIndex = 2
+            this.anim.setAnimation(0, "Walk", true)
+            this.updateArms()
+            cc.tween(this.node)
+                .to(1, { position: this.getPos(this.POS_COCA) })
+                .to(1.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.spawChicken())
+                .start()
+        }
+        else {
+            this.gamePlay.isMoving = false
+        }
     }
 
     spawChicken() {
@@ -301,8 +320,9 @@ export default class NewClass extends cc.Component {
         this.gamePlay.btnChicken.children[0].getComponent(sp.Skeleton).setAnimation(0, "lv1-tap", false)
         let chicken = cc.instantiate(this.preChicken)
         this.putTrayItem(chicken, "chicken", slot)
-        if (this.localId == 0) this.localId = 1
-        else if (this.localId == 3) this.localId = 1
+        if (this.localId == 0 || this.localId == 3 || this.localId == 4 || this.localId == 5) {
+            this.localId = 1
+        }
         this.anim.setAnimation(0, "Idle", true)
         this.gamePlay.isMoving = false
     }
@@ -464,14 +484,22 @@ export default class NewClass extends cc.Component {
         this.node.scaleX = -1
         this.anim.setAnimation(0, "Walk", true)
         this.updateArms()
-        this.table.zIndex = 2
-        this.node.zIndex = 1
+        this.table.zIndex = 1
+        this.node.zIndex = 2
         if (this.localId == 2 || this.localId == 3) {
             let duration = this.localId == 3 ? 0.4 : 1.4
             let tween = this.localId == 3
-                ? cc.tween(this.node).to(0.4, { position: this.getPos(this.POS_SELL) })
+                ? cc.tween(this.node).call(() => {
+                    this.node.zIndex = 1
+                    this.table.zIndex = 2
+                }).to(0.4, { position: this.getPos(this.POS_SELL) })
+
                 : cc.tween(this.node)
                     .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                    .call(() => {
+                        this.node.zIndex = 1
+                        this.table.zIndex = 2
+                    })
                     .to(0.4, { position: this.getPos(this.POS_SELL) })
             tween
                 .call(() => {
@@ -486,6 +514,8 @@ export default class NewClass extends cc.Component {
 
         }
         else if (this.localId == 4) {
+            this.table.zIndex = 2
+            this.node.zIndex = 1
             // console.log("moveToCocaBuy")
             this.node.scaleX = 1
             cc.tween(this.node)
@@ -504,9 +534,14 @@ export default class NewClass extends cc.Component {
         }
         else if (this.localId == 5) {
             this.node.scaleX = 1
+            this.table.zIndex = 1
+            this.node.zIndex = 2
             cc.tween(this.node)
                 .to(1, { position: this.getPos(this.POS_COCA) })
-
+                .call(() => {
+                    this.node.zIndex = 1
+                    this.table.zIndex = 2
+                })
                 .to(0.6, { position: this.getPos(this.POS_SELL) })
                 .call(() => {
                     this.anim.setAnimation(0, "Idle", true)
