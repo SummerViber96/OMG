@@ -9593,6 +9593,12 @@
     "hand3": {
       "__id__": 490
     },
+    "soundXuc": {
+      "__uuid__": "760ddfaf-d000-4d1a-9f08-7dc25a5be970"
+    },
+    "soundDo": {
+      "__uuid__": "6cb78083-0ae0-453a-a788-79feca1ad380"
+    },
     "_id": "75IbpxfyNHobIRwN1of/7H"
   },
   {
@@ -15933,14 +15939,14 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 1,
+      "x": 0.5,
       "y": 1
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        494.52,
+        0,
         919.369,
         0,
         0,
@@ -15998,7 +16004,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 1,
+      "x": 0.5,
       "y": 1
     },
     "_trs": {
@@ -29319,6 +29325,9 @@
     },
     "phaoho": {
       "__id__": 461
+    },
+    "soundClick": {
+      "__uuid__": "eb138b7f-7534-489d-bd8b-0218512a59c7"
     },
     "_id": "1eq/x+PfpFkIw1fhtTE5dF"
   }

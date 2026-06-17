@@ -47,6 +47,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.linkToStore = null;
         _this.btnOk4 = null;
         _this.phaoho = null;
+        _this.soundClick = null;
         return _this;
         // update (dt) {}
     }
@@ -66,6 +67,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_startGame = function () {
         var _this = this;
         this.scene2.active = true;
+        cc.audioEngine.play(this.soundClick, false, 1);
         cc.tween(this.scene1).to(0.4, { opacity: 0 }).call(function () {
             _this.scene1.active = false;
             _this.hand2.active = true;
@@ -73,6 +75,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_cord = function (event) {
         var btn = event.currentTarget;
+        cc.audioEngine.play(this.soundClick, false, 1);
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
         cc.tween(this.stringNode).to(0.4, { opacity: 0 }).start();
@@ -84,6 +87,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_cord2 = function (event) {
         var _this = this;
         var btn = event.currentTarget;
+        cc.audioEngine.play(this.soundClick, false, 1);
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
         this.stringNode.active = false;
@@ -119,6 +123,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_cord3 = function (event) {
         var _this = this;
         var btn = event.currentTarget;
+        cc.audioEngine.play(this.soundClick, false, 1);
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
         this.plate.active = false;
@@ -141,6 +146,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_choseCard = function (event, value) {
         this.btnOk4.active = true;
+        cc.audioEngine.play(this.soundClick, false, 1);
         for (var _i = 0, _a = this.listPet.children; _i < _a.length; _i++) {
             var child = _a[_i];
             child.active = false;
@@ -163,6 +169,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_ok4 = function (event) {
         var _this = this;
         var btn = event.currentTarget;
+        cc.audioEngine.play(this.soundClick, false, 1);
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
         this.phaoho.active = true;
@@ -225,6 +232,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "phaoho", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundClick", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

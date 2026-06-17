@@ -20,6 +20,10 @@ export default class NewClass extends cc.Component {
     btnOk: cc.Node = null
     @property(cc.Node)
     hand3: cc.Node = null;
+    @property(cc.AudioClip)
+    soundXuc: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundDo: cc.AudioClip = null
     charms = []
     isTargetbox = null;
     onLoad() {
@@ -62,7 +66,8 @@ export default class NewClass extends cc.Component {
             this.spoon.position = pos.add(cc.v3(-30, 50))
             let boxComp = box.getComponent("BoxCharm");
             this.spoon.getComponent("Spoon").setCharms(boxComp.tag)
-this.hand3.active = false;
+            this.hand3.active = false;
+            cc.audioEngine.play(this.soundXuc, false, 1)
         }
     }
     getBox(pos) {
@@ -110,7 +115,7 @@ this.hand3.active = false;
     totalCharm = 0
     dropCharms() {
         if (!this.isTargetbox || !this.localPos) return;
-
+        cc.audioEngine.play(this.soundDo, false, 1)
         const tag = this.isTargetbox.getComponent("BoxCharm").tag;
         const count = this.getCharmCount(tag);
         const centerPos = cc.v3(0, 80, 0);

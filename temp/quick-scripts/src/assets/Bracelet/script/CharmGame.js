@@ -36,6 +36,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.notiFull = null;
         _this.btnOk = null;
         _this.hand3 = null;
+        _this.soundXuc = null;
+        _this.soundDo = null;
         _this.charms = [];
         _this.isTargetbox = null;
         _this.totalCharm = 0;
@@ -81,6 +83,7 @@ var NewClass = /** @class */ (function (_super) {
             var boxComp = box.getComponent("BoxCharm");
             this.spoon.getComponent("Spoon").setCharms(boxComp.tag);
             this.hand3.active = false;
+            cc.audioEngine.play(this.soundXuc, false, 1);
         }
     };
     NewClass.prototype.getBox = function (pos) {
@@ -127,6 +130,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         if (!this.isTargetbox || !this.localPos)
             return;
+        cc.audioEngine.play(this.soundDo, false, 1);
         var tag = this.isTargetbox.getComponent("BoxCharm").tag;
         var count = this.getCharmCount(tag);
         var centerPos = cc.v3(0, 80, 0);
@@ -222,6 +226,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "hand3", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundXuc", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundDo", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
