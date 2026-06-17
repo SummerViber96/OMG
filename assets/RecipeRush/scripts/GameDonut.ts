@@ -200,7 +200,9 @@ export default class NewClass extends cc.Component {
         });
         this.scheduleOnce(() => {
             cc.tween(this.notiMission).by(0.4, { opacity: -255, position: cc.v3(0, 200) }).call(() => {
-                this.notiMission.active = false
+                this.notiMission.active = 
+                this.barMission.getComponent("barTime").countDown()
+
                 this.startGame()
             }).start()
         }, 1.5)
@@ -344,10 +346,13 @@ export default class NewClass extends cc.Component {
     isFist = false
     isFistClickChicken = false
 
+    isMcBusy() {
+        return this.isMoving || (this.mcComp && this.mcComp.isWalking())
+    }
+
     btn_chicken() {
-        if (this.isMoving) return;
+        if (this.isMcBusy()) return;
         if (!this.isFistClickChicken) {
-            this.barMission.getComponent("barTime").countDown()
             this.isFistClickChicken = true
             this.scheduleOnce(() => {
                 this.btnMachine.getChildByName("hind").active = true
@@ -361,10 +366,10 @@ export default class NewClass extends cc.Component {
     }
 
     btn_mayChien() {
-        if (this.isMoving) return;
+        if (this.isMcBusy()) return;
         let machineComp = this.btnMachine.getComponent("machine")
         let canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null
-        let canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4) && machineComp.chicken != null && this.mcComp.canPickItemType("chicken")
+        let canPickup = (this.mcComp.localId == 1 || this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4 || this.mcComp.localId == 5) && machineComp.chicken != null && this.mcComp.canPickItemType("chicken")
         if (!canFry && !canPickup) return;
 
         this.isMoving = true
@@ -373,24 +378,24 @@ export default class NewClass extends cc.Component {
         this.mcComp.moveToMachine()
     }
     btn_cola() {
-        if (this.isMoving) return;
+        if (this.isMcBusy()) return;
         this.isMoving = true
         this.mcComp.moveToCoca()
     }
     btn_sauce() {
-        if (this.isMoving) return;
+        if (this.isMcBusy()) return;
         if (!this.mcComp.hasAnyItem() || this.mcComp.findCookedTraySlot() < 0) return;
         this.isMoving = true
         this.mcComp.moveToSauce()
     }
     btn_cake() {
         console.log(this.isMoving)
-        if (this.isMoving) return;
+        if (this.isMcBusy()) return;
         this.isMoving = true
         this.mcComp.moveToCake()
     }
     btn_tomato() {
-        if (this.isMoving) return;
+        if (this.isMcBusy()) return;
         this.isMoving = true
         this.mcComp.moveToTomato()
     }
@@ -400,7 +405,7 @@ export default class NewClass extends cc.Component {
     checkSell(targetCus?: cc.Node) {
         console.log("check sell Main")
         let cus = targetCus || this.sellTargetCus || this.isTargetCus || this.arrCus[0]
-        if (this.isMoving || !cus) return false
+        if (this.isMcBusy() || !cus) return false
         let cusComp = cus.getComponent("cusMission")
         if (!cusComp || cusComp.isSuccess || !cusComp.isReadyForSell) return false
         let trayIdx = this.mcComp.findTrayForCustomer(cusComp)
@@ -1132,6 +1137,7 @@ export default class NewClass extends cc.Component {
         this.amazing.scale = (logic) ? 1 : 1.4
         this.endCardDoc.scale = 1.5
         this.notiMission.scale = (logic) ? 2 : 1
+        this.barMission2.scale = (logic) ? 2 : 1
         // this.tutMision.scale = (logic) ? 2 : 1
         this.barMission.scale = (logic) ? 1.7 : 1
         this.barMission.scale = (logic) ? 1.8 : 1

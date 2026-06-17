@@ -59,6 +59,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.chicken = false;
         _this.trayItems = [null, null];
         _this.trayItemTypes = [null, null];
+        // --- Di chuyển (chống tween/schedule chồng nhau) ---
+        _this._moveId = 0;
+        _this._isWalking = false;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -69,6 +72,60 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.getPos = function (index) {
         return this.arrPos[index];
+    };
+    NewClass.prototype.isAtPos = function (posIndex, threshold) {
+        if (threshold === void 0) { threshold = 12; }
+        var target = this.getPos(posIndex);
+        var pos = this.node.position;
+        return Math.abs(pos.x - target.x) <= threshold && Math.abs(pos.y - target.y) <= threshold;
+    };
+    NewClass.prototype.pickAtCakeCounterOrAct = function (onPick) {
+        this.setInFrontOfTable();
+        onPick();
+    };
+    NewClass.prototype.walkToMachineOrAct = function (moveId, onArrive) {
+        var _this = this;
+        if (this.isAtPos(this.POS_MACHINE)) {
+            this.setInFrontOfTable();
+            onArrive();
+            return;
+        }
+        this.startWalk(moveId, function () { }, function (t) { return t
+            .call(function () { return _this.setInFrontOfTable(); })
+            .to(1, { position: _this.getPos(_this.POS_MACHINE) }); }, onArrive);
+    };
+    NewClass.prototype.walkFromCakeToMachine = function (moveId, onArrive) {
+        var _this = this;
+        if (this.isAtPos(this.POS_MACHINE)) {
+            this.setInFrontOfTable();
+            onArrive();
+            return;
+        }
+        this.startWalk(moveId, function () {
+            _this.node.scaleX = 1;
+        }, function (t) {
+            var tween = t;
+            if (_this.isAtPos(_this.POS_CAKE)) {
+                tween = tween.to(0.8, { position: _this.getPos(_this.POS_COCA) }).call(function () { return _this.setBehindTable(); });
+            }
+            return tween
+                .call(function () { return _this.setBehindTable(); })
+                .to(0.6, { position: _this.getPos(_this.POS_CHICKEN) })
+                .call(function () { return _this.setInFrontOfTable(); })
+                .to(1, { position: _this.getPos(_this.POS_MACHINE) });
+        }, onArrive);
+    };
+    NewClass.prototype.handleMachineAction = function (moveId, machine, walkFn) {
+        var _this = this;
+        if (machine.chicken != null && this.canPickItemType("chicken")) {
+            walkFn(moveId, function () { return _this.pickupMachineChicken(machine); });
+            return true;
+        }
+        if (this.getRawTraySlot() >= 0 && machine.chicken == null) {
+            walkFn(moveId, function () { return _this.fryTrayChicken(machine); });
+            return true;
+        }
+        return false;
     };
     // --- Khay (2 tray) ---
     NewClass.prototype.getTrayNode = function (slot) {
@@ -247,13 +304,24 @@ var NewClass = /** @class */ (function (_super) {
             this.updateArms();
         }
     };
-    // Cùng loại hoặc khác loại: dùng khay trống, không xóa item đang có
-    // Chỉ chặn khi cả 2 khay đều đầy
+    // Có khay trống thì dùng khay trống; cả 2 khay đầy thì bỏ 1 món rồi thêm đồ mới
     NewClass.prototype.canPickItemType = function (targetType) {
-        return !this.isTrayFull();
+        return true;
+    };
+    NewClass.prototype.findReplaceTraySlot = function (targetType) {
+        for (var i = 0; i < 2; i++) {
+            if (this.getItemType(i) !== targetType)
+                return i;
+        }
+        return 1;
     };
     NewClass.prototype.preparePickupSlot = function (targetType) {
-        return this.getFirstEmptyTraySlot();
+        var empty = this.getFirstEmptyTraySlot();
+        if (empty >= 0)
+            return empty;
+        var slot = this.findReplaceTraySlot(targetType);
+        this.consumeTrayItem(slot);
+        return slot;
     };
     NewClass.prototype.hideTrays = function () {
         if (this.khay)
@@ -270,14 +338,13 @@ var NewClass = /** @class */ (function (_super) {
         this.consumeTrayItem(targetSlot);
     };
     NewClass.prototype.afterDeliver = function () {
-        this.anim.setAnimation(0, "Idle", true);
         if (this.hasAnyItem()) {
             this.updateArms();
         }
         else {
             this.hideTrays();
         }
-        this.gamePlay.isMoving = false;
+        this.finishMove();
     };
     NewClass.prototype.updateArms = function () {
         if (this.trayItems[0]) {
@@ -308,486 +375,488 @@ var NewClass = /** @class */ (function (_super) {
             return false;
         return this.localId >= 0 && this.localId <= 5;
     };
-    // --- Di chuyển ---
+    NewClass.prototype.isWalking = function () {
+        return this._isWalking;
+    };
+    NewClass.prototype.cancelMove = function () {
+        this._moveId++;
+        this._isWalking = false;
+        cc.Tween.stopAllByTarget(this.node);
+    };
+    NewClass.prototype.beginMove = function () {
+        this.cancelMove();
+        this._isWalking = true;
+        return this._moveId;
+    };
+    NewClass.prototype.isMoveActive = function (moveId) {
+        return moveId === this._moveId;
+    };
+    NewClass.prototype.finishMove = function () {
+        this._isWalking = false;
+        this.anim.setAnimation(0, "Idle", true);
+        this.updateArms();
+        if (this.gamePlay)
+            this.gamePlay.isMoving = false;
+    };
+    NewClass.prototype.arriveIdle = function () {
+        this.anim.setAnimation(0, "Idle", true);
+        this.updateArms();
+    };
+    NewClass.prototype.scheduleOnMove = function (delay, moveId, fn) {
+        var _this = this;
+        this.scheduleOnce(function () {
+            if (_this.isMoveActive(moveId))
+                fn();
+        }, delay);
+    };
+    NewClass.prototype.setInFrontOfTable = function () {
+        this.node.zIndex = 2;
+        this.table.zIndex = 1;
+    };
+    NewClass.prototype.setBehindTable = function () {
+        this.node.zIndex = 1;
+        this.table.zIndex = 2;
+    };
+    NewClass.prototype.startWalk = function (moveId, setup, build, onComplete) {
+        var _this = this;
+        if (!this.isMoveActive(moveId))
+            return;
+        setup();
+        this.anim.setAnimation(0, "Walk", true);
+        this.updateArms();
+        build(cc.tween(this.node))
+            .call(function () {
+            if (!_this.isMoveActive(moveId))
+                return;
+            _this._isWalking = false;
+            if (onComplete)
+                onComplete();
+        })
+            .start();
+    };
+    NewClass.prototype.getChickenWalkDuration = function () {
+        if (this.localId == 0)
+            return 1;
+        if (this.localId == 1 || this.localId == 2)
+            return 0.8;
+        if (this.localId == 3)
+            return 0.6;
+        if (this.localId == 4)
+            return 1.6;
+        return 0.8;
+    };
     NewClass.prototype.moveToChicken = function () {
         var _this = this;
-        console.log(this.localId);
         if (!this.canPickMoreChicken()) {
-            this.gamePlay.isMoving = false;
+            this.finishMove();
             return;
         }
-        if (this.localId == 0) {
-            this.node.scaleX = 1;
-            this.anim.setAnimation(0, "Walk", true);
-            this.updateArms();
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                .call(function () { return _this.spawChicken(); })
-                .start();
+        var moveId = this.beginMove();
+        if (this.localId == 5) {
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = 1;
+                _this.setInFrontOfTable();
+            }, function (t) { return t
+                .to(1, { position: _this.getPos(_this.POS_COCA) })
+                .call(function () { return _this.setBehindTable(); })
+                .to(1.6, { position: _this.getPos(_this.POS_CHICKEN) }); }, function () { return _this.spawChicken(); });
+            return;
         }
-        else if (this.localId == 1 || this.localId == 2) {
-            this.node.scaleX = 1;
-            this.anim.setAnimation(0, "Walk", true);
-            this.updateArms();
-            cc.tween(this.node)
-                .to(0.8, { position: this.getPos(this.POS_CHICKEN) })
-                .call(function () { return _this.spawChicken(); })
-                .start();
+        if (this.localId >= 0 && this.localId <= 4) {
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = 1;
+                if (_this.localId == 4)
+                    _this.setBehindTable();
+            }, function (t) { return t.to(_this.getChickenWalkDuration(), { position: _this.getPos(_this.POS_CHICKEN) }); }, function () { return _this.spawChicken(); });
+            return;
         }
-        else if (this.localId == 3) {
-            this.node.scaleX = 1;
-            this.anim.setAnimation(0, "Walk", true);
-            this.updateArms();
-            cc.tween(this.node)
-                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(function () { return _this.spawChicken(); })
-                .start();
-        }
-        else if (this.localId == 4) {
-            this.node.scaleX = 1;
-            this.node.zIndex = 1;
-            this.table.zIndex = 2;
-            this.anim.setAnimation(0, "Walk", true);
-            this.updateArms();
-            cc.tween(this.node)
-                .to(1.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(function () { return _this.spawChicken(); })
-                .start();
-        }
-        else if (this.localId == 5) {
-            this.node.scaleX = 1;
-            this.node.zIndex = 1;
-            this.table.zIndex = 2;
-            this.anim.setAnimation(0, "Walk", true);
-            this.updateArms();
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_COCA) })
-                .to(1.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(function () { return _this.spawChicken(); })
-                .start();
-        }
-        else {
-            this.gamePlay.isMoving = false;
-        }
+        this.finishMove();
     };
     NewClass.prototype.spawChicken = function () {
         var slot = this.preparePickupSlot("chicken");
         if (slot < 0) {
-            this.gamePlay.isMoving = false;
+            this.finishMove();
             return;
         }
         this.gamePlay.btnChicken.children[0].getComponent(sp.Skeleton).setAnimation(0, "lv1-tap", false);
         var chicken = cc.instantiate(this.preChicken);
         this.putTrayItem(chicken, "chicken", slot);
-        if (this.localId == 0 || this.localId == 3 || this.localId == 4 || this.localId == 5) {
-            this.localId = 1;
-        }
-        this.anim.setAnimation(0, "Idle", true);
-        this.gamePlay.isMoving = false;
+        // if (this.localId == 0 || this.localId == 3 || this.localId == 4 || this.localId == 5) {
+        this.localId = 1;
+        // }
+        this.finishMove();
     };
     NewClass.prototype.idle = function () {
-        this.anim.setAnimation(0, "Idle", true);
+        this.finishMove();
+    };
+    NewClass.prototype.pickupMachineChicken = function (machine) {
+        var chicken = machine.getChicken();
+        chicken.getComponent("chicken").chin2();
+        var slot = this.preparePickupSlot("chicken");
+        if (slot < 0) {
+            this.finishMove();
+            return false;
+        }
+        this.putTrayItem(chicken, "chicken", slot);
+        this.localId = 2;
+        this.finishMove();
+        return true;
+    };
+    NewClass.prototype.fryTrayChicken = function (machine) {
+        var slot = this.getRawTraySlot();
+        if (slot < 0) {
+            this.finishMove();
+            return;
+        }
+        var chicken = this.trayItems[slot];
+        this.trayItems[slot] = null;
+        this.trayItemTypes[slot] = null;
+        if (this.isTrayEmpty()) {
+            this.chicken = false;
+            this.targetChicken = null;
+        }
         this.updateArms();
-        this.gamePlay.isMoving = false;
+        machine.cooking(chicken);
+        this.localId = 2;
+        this.finishMove();
     };
     NewClass.prototype.moveToMachine = function () {
         var _this = this;
-        this.node.zIndex = 2;
         var machine = this.gamePlay.btnMachine.getComponent("machine");
-        var rawSlot = this.getRawTraySlot();
-        if ((this.localId == 1 || this.localId == 2) && rawSlot >= 0 && machine.chicken == null) {
-            this.anim.setAnimation(0, "Walk", true);
-            this.updateArms();
-            cc.tween(this.node)
-                .call(function () {
-                _this.node.zIndex = 2;
-                _this.table.zIndex = 1;
-            })
-                .to(1, { position: this.getPos(this.POS_MACHINE) })
-                .call(function () {
-                var slot = _this.getRawTraySlot();
-                var chicken = _this.trayItems[slot];
-                _this.trayItems[slot] = null;
-                _this.trayItemTypes[slot] = null;
-                _this.updateArms();
-                machine.cooking(chicken);
-                _this.chicken = false;
-                _this.idle();
-                _this.localId = 2;
-                _this.gamePlay.isMoving = false;
-            })
-                .start();
-            return;
-        }
-        if (this.localId == 2 && machine.chicken != null) {
-            if (!this.canPickItemType("chicken")) {
-                this.gamePlay.isMoving = false;
-                return;
+        var moveId = this.beginMove();
+        this.setInFrontOfTable();
+        if (this.localId == 1 || this.localId == 2) {
+            if (!this.handleMachineAction(moveId, machine, function (id, cb) { return _this.walkToMachineOrAct(id, cb); })) {
+                this.finishMove();
             }
-            this.anim.setAnimation(0, "Walk", true);
-            this.updateArms();
-            var chicken = machine.getChicken();
-            chicken.getComponent("chicken").chin2();
-            var slot = this.preparePickupSlot("chicken");
-            if (slot < 0) {
-                this.gamePlay.isMoving = false;
-                return;
-            }
-            this.putTrayItem(chicken, "chicken", slot);
-            this.localId = 2;
-            this.anim.setAnimation(0, "Idle", true);
-            this.gamePlay.isMoving = false;
             return;
-        }
-        if (this.localId == 3 && machine.chicken != null) {
-            this.anim.setAnimation(0, "Walk", true);
-            cc.tween(this.node)
-                .to(0.4, { position: this.getPos(this.POS_MACHINE) })
-                .to(1, { position: this.getPos(this.POS_MACHINE) })
-                .call(function () {
-                _this.updateArms();
-                var chicken = machine.getChicken();
-                chicken.getComponent("chicken").chin2();
-                var slot = _this.preparePickupSlot("chicken");
-                if (slot < 0) {
-                    _this.gamePlay.isMoving = false;
-                    return;
-                }
-                _this.putTrayItem(chicken, "chicken", slot);
-                _this.localId = 2;
-                _this.anim.setAnimation(0, "Idle", true);
-                _this.gamePlay.isMoving = false;
-            })
-                .start();
-        }
-        if (this.localId == 4) {
-            this.anim.setAnimation(0, "Walk", true);
-            this.node.scaleX = 1;
-            cc.tween(this.node)
-                .to(0.6, { position: this.getPos(this.POS_SELL) })
-                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(function () {
-                _this.node.zIndex = 2;
-                _this.table.zIndex = 1;
-            })
-                .to(1, { position: this.getPos(this.POS_MACHINE) })
-                .call(function () {
-                _this.anim.setAnimation(0, "Idle", true);
-                _this.updateArms();
-                _this.localId = 2;
-                _this.gamePlay.isMoving = false;
-            })
-                .start();
         }
         if (this.localId == 3) {
-            this.anim.setAnimation(0, "Walk", true);
-            this.node.scaleX = 1;
-            cc.tween(this.node)
-                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(function () {
-                _this.node.zIndex = 2;
-                _this.table.zIndex = 1;
-            })
-                .to(1, { position: this.getPos(this.POS_MACHINE) })
-                .call(function () {
-                _this.anim.setAnimation(0, "Idle", true);
-                _this.updateArms();
+            if (machine.chicken != null && this.canPickItemType("chicken")) {
+                if (this.isAtPos(this.POS_MACHINE)) {
+                    this.pickupMachineChicken(machine);
+                    return;
+                }
+                this.startWalk(moveId, function () { }, function (t) { return t
+                    .to(0.4, { position: _this.getPos(_this.POS_CAKE) })
+                    .call(function () { return _this.setBehindTable(); })
+                    .to(1, { position: _this.getPos(_this.POS_MACHINE) }); }, function () { return _this.pickupMachineChicken(machine); });
+                return;
+            }
+            this.startWalk(moveId, function () {
+                _this.setBehindTable();
+                _this.node.scaleX = 1;
+            }, function (t) { return t
+                .to(0.6, { position: _this.getPos(_this.POS_CHICKEN) })
+                .call(function () { return _this.setInFrontOfTable(); })
+                .to(1, { position: _this.getPos(_this.POS_MACHINE) }); }, function () {
                 _this.localId = 2;
-                _this.gamePlay.isMoving = false;
-            })
-                .start();
+                _this.finishMove();
+            });
+            return;
         }
+        if (this.localId == 4) {
+            this.startWalk(moveId, function () {
+                _this.setBehindTable();
+                _this.node.scaleX = 1;
+            }, function (t) { return t
+                .to(0.6, { position: _this.getPos(_this.POS_SELL) })
+                .to(0.6, { position: _this.getPos(_this.POS_CHICKEN) })
+                .call(function () { return _this.setInFrontOfTable(); })
+                .to(1, { position: _this.getPos(_this.POS_MACHINE) }); }, function () {
+                _this.localId = 2;
+                _this.finishMove();
+            });
+            return;
+        }
+        if (this.localId == 5) {
+            if (!this.handleMachineAction(moveId, machine, function (id, cb) { return _this.walkFromCakeToMachine(id, cb); })) {
+                this.finishMove();
+            }
+            return;
+        }
+        this.finishMove();
     };
     NewClass.prototype.moveToSauce = function () {
         var _this = this;
         if (this.localId != 2 || !this.hasAnyItem()) {
-            this.gamePlay.isMoving = false;
+            this.finishMove();
             return;
         }
         var slot = this.findCookedTraySlot();
         if (slot < 0) {
-            this.gamePlay.isMoving = false;
+            this.finishMove();
             return;
         }
         var cookedItem = this.trayItems[slot];
-        this.node.zIndex = 2;
-        this.anim.setAnimation(0, "Walk", true);
-        this.updateArms();
-        this.node.scaleX = -1;
-        cc.tween(this.node)
-            .to(0.5, { position: this.getPos(this.POS_SAUCE) })
-            .call(function () {
+        var moveId = this.beginMove();
+        this.startWalk(moveId, function () {
+            _this.setInFrontOfTable();
+            _this.node.scaleX = -1;
+        }, function (t) { return t.to(0.5, { position: _this.getPos(_this.POS_SAUCE) }); }, function () {
             _this.getChickenComp(cookedItem).addSauce();
             _this.node.scaleX = 1;
-            _this.idle();
-            _this.gamePlay.isMoving = false;
-        })
-            .start();
+            _this.finishMove();
+        });
     };
     NewClass.prototype.moveToBuy = function () {
         var _this = this;
         if (!this.hasAnyItem()) {
-            this.gamePlay.isMoving = false;
+            this.finishMove();
             return;
         }
-        cc.Tween.stopAllByTarget(this.node);
-        this.gamePlay.isMoving = true;
+        var moveId = this.beginMove();
         this.node.scaleX = -1;
-        this.anim.setAnimation(0, "Walk", true);
-        this.updateArms();
-        this.table.zIndex = 1;
-        this.node.zIndex = 2;
+        this.setInFrontOfTable();
+        console.log(this.localId, "id game");
+        if (this.localId == 1) {
+            this.setBehindTable();
+            this.startWalk(moveId, function () { }, function (t) { return t.to(0.6, { position: _this.getPos(_this.POS_SELL) }); }, function () {
+                if (!_this.isMoveActive(moveId))
+                    return;
+                _this.arriveIdle();
+            });
+            this.scheduleOnMove(0.3, moveId, function () {
+                if (_this.gamePlay)
+                    _this.gamePlay.validateSellAtCounter();
+            });
+            this.localId = 3;
+            return;
+        }
         if (this.localId == 2 || this.localId == 3) {
-            var duration = this.localId == 3 ? 0.4 : 1.4;
+            var sellDelay = this.localId == 3 ? 0.4 : 1.2;
             var tween = this.localId == 3
-                ? cc.tween(this.node).call(function () {
-                    _this.node.zIndex = 1;
-                    _this.table.zIndex = 2;
-                }).to(0.4, { position: this.getPos(this.POS_SELL) })
+                ? cc.tween(this.node).call(function () { return _this.setBehindTable(); }).to(0.4, { position: this.getPos(this.POS_SELL) })
                 : cc.tween(this.node)
                     .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                    .call(function () {
-                    _this.node.zIndex = 1;
-                    _this.table.zIndex = 2;
-                })
+                    .call(function () { return _this.setBehindTable(); })
                     .to(0.4, { position: this.getPos(this.POS_SELL) });
-            tween
-                .call(function () {
-                _this.anim.setAnimation(0, "Idle", true);
-                _this.updateArms();
-            })
-                .start();
-            this.scheduleOnce(function () {
-                _this.gamePlay.validateSellAtCounter();
-            }, 1);
+            this.anim.setAnimation(0, "Walk", true);
+            this.updateArms();
+            tween.call(function () {
+                if (!_this.isMoveActive(moveId))
+                    return;
+                _this._isWalking = false;
+                _this.arriveIdle();
+            }).start();
+            this.scheduleOnMove(sellDelay, moveId, function () {
+                if (_this.gamePlay)
+                    _this.gamePlay.validateSellAtCounter();
+            });
             this.localId = 3;
+            return;
         }
-        else if (this.localId == 4) {
-            this.table.zIndex = 2;
-            this.node.zIndex = 1;
-            // console.log("moveToCocaBuy")
+        if (this.localId == 4) {
+            this.setBehindTable();
             this.node.scaleX = 1;
-            cc.tween(this.node)
-                .to(0.6, { position: this.getPos(this.POS_SELL) })
-                .call(function () {
-                _this.anim.setAnimation(0, "Idle", true);
-                _this.updateArms();
-            })
-                .start();
-            this.scheduleOnce(function () {
-                _this.gamePlay.validateSellAtCounter();
-            }, 0.3);
+            this.startWalk(moveId, function () { }, function (t) { return t.to(0.6, { position: _this.getPos(_this.POS_SELL) }); }, function () {
+                if (!_this.isMoveActive(moveId))
+                    return;
+                _this.arriveIdle();
+            });
+            this.scheduleOnMove(0.3, moveId, function () {
+                if (_this.gamePlay)
+                    _this.gamePlay.validateSellAtCounter();
+            });
             this.localId = 3;
+            return;
         }
-        else if (this.localId == 5) {
+        if (this.localId == 5) {
             this.node.scaleX = 1;
-            this.table.zIndex = 1;
-            this.node.zIndex = 2;
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_COCA) })
-                .call(function () {
-                _this.node.zIndex = 1;
-                _this.table.zIndex = 2;
-            })
-                .to(0.6, { position: this.getPos(this.POS_SELL) })
-                .call(function () {
-                _this.anim.setAnimation(0, "Idle", true);
-                _this.updateArms();
-            })
-                .start();
-            this.scheduleOnce(function () {
-                _this.gamePlay.validateSellAtCounter();
-            }, 1);
+            this.startWalk(moveId, function () { }, function (t) { return t
+                .to(1, { position: _this.getPos(_this.POS_COCA) })
+                .call(function () { return _this.setBehindTable(); })
+                .to(0.6, { position: _this.getPos(_this.POS_SELL) }); }, function () {
+                if (!_this.isMoveActive(moveId))
+                    return;
+                _this.arriveIdle();
+            });
+            this.scheduleOnMove(1, moveId, function () {
+                if (_this.gamePlay)
+                    _this.gamePlay.validateSellAtCounter();
+            });
             this.localId = 3;
+            return;
         }
-        else {
-            this.gamePlay.isMoving = false;
-        }
+        this.finishMove();
     };
     NewClass.prototype.moveToCoca = function () {
         var _this = this;
+        var moveId = this.beginMove();
         this.node.scaleX = -1;
         if (this.localId == 1 || this.localId == 3 || this.localId == 5) {
-            this.gamePlay.isMoving = true;
-            this.scheduleOnce(function () {
-                _this.node.zIndex = 2;
-            }, 0.4);
-            this.anim.setAnimation(0, "Walk", true);
-            this.updateArms();
-            cc.tween(this.node)
-                .to(0.8, { position: this.getPos(this.POS_COCA) })
-                .call(function () {
-                _this.idle();
+            this.scheduleOnMove(0.6, moveId, function () {
+                _this.setInFrontOfTable();
+            });
+            this.startWalk(moveId, function () { }, function (t) { return t.to(0.8, { position: _this.getPos(_this.POS_COCA) }); }, function () {
                 var coca = _this.gamePlay.btnCoca.getComponent("coca");
                 if (coca)
                     coca.cooking();
                 _this.localId = 4;
-            })
-                .start();
+                _this.finishMove();
+            });
+            return;
         }
-        else if (this.localId == 4 && this.gamePlay.btnCoca.getComponent("coca").isCoca) {
+        if (this.localId == 4 && this.gamePlay.btnCoca.getComponent("coca").isCoca) {
             this.gamePlay.btnCoca.getComponent("coca").getCoca();
             if (!this.canPickItemType("coca")) {
-                this.gamePlay.isMoving = false;
+                this.finishMove();
                 return;
             }
             var slot = this.preparePickupSlot("coca");
             if (slot < 0) {
-                this.gamePlay.isMoving = false;
+                this.finishMove();
                 return;
             }
             var coca = cc.instantiate(this.preCoca);
             this.putTrayItem(coca, "coca", slot);
             this.localId = 4;
-            this.gamePlay.isMoving = false;
+            this.finishMove();
+            return;
         }
-        else if (this.localId == 2) {
-            this.gamePlay.isMoving = true;
-            this.anim.setAnimation(0, "Walk", true);
-            this.node.scaleX = -1;
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                .call(function () {
-                _this.node.zIndex = 1;
-                _this.table.zIndex = 2;
-            })
-                .to(0.8, { position: this.getPos(this.POS_COCA) })
-                .call(function () {
-                _this.idle();
+        if (this.localId == 2) {
+            this.startWalk(moveId, function () { }, function (t) { return t
+                .to(1, { position: _this.getPos(_this.POS_CHICKEN) })
+                .call(function () { return _this.setBehindTable(); })
+                .to(0.8, { position: _this.getPos(_this.POS_COCA) }); }, function () {
                 var coca = _this.gamePlay.btnCoca.getComponent("coca");
                 if (coca)
                     coca.cooking();
                 _this.localId = 4;
-            })
-                .start();
+                _this.finishMove();
+            });
+            return;
         }
-        else {
-            this.gamePlay.isMoving = false;
-        }
+        this.finishMove();
     };
     NewClass.prototype.moveToCake = function () {
         var _this = this;
-        if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
-            this.gamePlay.isMoving = true;
-            this.anim.setAnimation(0, "Walk", true);
-            this.node.scaleX = -1;
-            this.node.zIndex = 2;
-            this.table.zIndex = 1;
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                .call(function () {
-                _this.node.zIndex = 1;
-                _this.table.zIndex = 2;
-            })
-                .to(0.8, { position: this.getPos(this.POS_COCA) })
-                .call(function () {
-                _this.node.zIndex = 2;
-                _this.table.zIndex = 1;
-            })
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(function () { return _this.getCake(); })
-                .start();
+        var moveId = this.beginMove();
+        if (this.isAtPos(this.POS_CAKE)) {
+            this.pickAtCakeCounterOrAct(function () { return _this.getCake(); });
+            return;
+        }
+        if (this.localId == 0 || this.localId == 1) {
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = -1;
+                _this.setInFrontOfTable();
+            }, function (t) { return t
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                .call(function () { return _this.setBehindTable(); })
+                .to(0.8, { position: _this.getPos(_this.POS_COCA) })
+                .call(function () { return _this.setInFrontOfTable(); })
+                .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getCake(); });
+            return;
+        }
+        if (this.localId == 2) {
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = -1;
+                _this.setInFrontOfTable();
+            }, function (t) { return t
+                .to(1, { position: _this.getPos(_this.POS_CHICKEN) })
+                .call(function () { return _this.setBehindTable(); })
+                .to(0.8, { position: _this.getPos(_this.POS_COCA) })
+                .call(function () { return _this.setInFrontOfTable(); })
+                .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getCake(); });
             return;
         }
         if (this.localId == 3 || this.localId == 5) {
-            this.gamePlay.isMoving = true;
-            this.anim.setAnimation(0, "Walk", true);
-            this.node.scaleX = -1;
-            cc.tween(this.node)
-                .to(0.4, { position: this.getPos(this.POS_COCA) })
-                .call(function () {
-                _this.node.zIndex = 2;
-                _this.table.zIndex = 1;
-            })
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(function () { return _this.getCake(); })
-                .start();
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = -1;
+            }, function (t) { return t
+                // t.to(1, { position: this.getPos(this.POS_CHICKEN) })
+                //     .call(() => this.setBehindTable())
+                .to(0.4, { position: _this.getPos(_this.POS_COCA) })
+                .call(function () { return _this.setInFrontOfTable(); })
+                .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getCake(); });
             return;
         }
         if (this.localId == 4) {
-            this.gamePlay.isMoving = true;
-            this.anim.setAnimation(0, "Walk", true);
-            this.node.scaleX = -1;
-            this.node.zIndex = 2;
-            this.table.zIndex = 1;
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(function () { return _this.getCake(); })
-                .start();
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = -1;
+                _this.setInFrontOfTable();
+            }, function (t) { return t.to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getCake(); });
             return;
         }
-        this.gamePlay.isMoving = false;
+        this.finishMove();
     };
     NewClass.prototype.getCake = function () {
         if (!this.canPickItemType("cake")) {
-            this.gamePlay.isMoving = false;
+            this.finishMove();
             return;
         }
         var slot = this.preparePickupSlot("cake");
         if (slot < 0) {
-            this.gamePlay.isMoving = false;
+            this.finishMove();
             return;
         }
         var cake = cc.instantiate(this.preCake);
         this.putTrayItem(cake, "cake", slot);
         this.localId = 5;
-        this.idle();
+        this.finishMove();
     };
     NewClass.prototype.getTomato = function () {
         if (!this.canPickItemType("tomato")) {
-            this.gamePlay.isMoving = false;
+            this.finishMove();
             return;
         }
         var slot = this.preparePickupSlot("tomato");
         if (slot < 0) {
-            this.gamePlay.isMoving = false;
+            this.finishMove();
             return;
         }
         var tomato = cc.instantiate(this.preTomato);
         this.putTrayItem(tomato, "tomato", slot);
         this.localId = 5;
-        this.idle();
+        this.finishMove();
     };
     NewClass.prototype.moveToTomato = function () {
         var _this = this;
-        if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
-            this.gamePlay.isMoving = true;
-            this.anim.setAnimation(0, "Walk", true);
-            this.node.scaleX = -1;
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                .to(0.8, { position: this.getPos(this.POS_COCA) })
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(function () { return _this.getTomato(); })
-                .start();
+        var moveId = this.beginMove();
+        if (this.isAtPos(this.POS_CAKE)) {
+            this.pickAtCakeCounterOrAct(function () { return _this.getTomato(); });
+            return;
+        }
+        if (this.localId == 0 || this.localId == 1) {
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = -1;
+            }, function (t) { return t
+                .call(function () { return _this.setBehindTable(); })
+                .to(0.8, { position: _this.getPos(_this.POS_COCA) })
+                .call(function () { return _this.setInFrontOfTable(); })
+                .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getTomato(); });
+            return;
+        }
+        if (this.localId == 2) {
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = -1;
+                _this.setInFrontOfTable();
+            }, function (t) { return t
+                .to(1, { position: _this.getPos(_this.POS_CHICKEN) })
+                .call(function () { return _this.setBehindTable(); })
+                .to(0.8, { position: _this.getPos(_this.POS_COCA) })
+                .call(function () { return _this.setInFrontOfTable(); })
+                .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getTomato(); });
             return;
         }
         if (this.localId == 3 || this.localId == 5) {
-            this.gamePlay.isMoving = true;
-            this.anim.setAnimation(0, "Walk", true);
-            this.node.scaleX = -1;
-            cc.tween(this.node)
-                .to(0.4, { position: this.getPos(this.POS_COCA) })
-                .call(function () {
-                _this.node.zIndex = 2;
-                _this.table.zIndex = 1;
-            })
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(function () { return _this.getTomato(); })
-                .start();
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = -1;
+            }, function (t) { return t
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                // .call(() => this.setBehindTable())
+                .to(0.4, { position: _this.getPos(_this.POS_COCA) })
+                .call(function () { return _this.setInFrontOfTable(); })
+                .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getTomato(); });
             return;
         }
         if (this.localId == 4) {
-            this.gamePlay.isMoving = true;
-            this.anim.setAnimation(0, "Walk", true);
-            this.node.scaleX = -1;
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(function () { return _this.getTomato(); })
-                .start();
+            this.startWalk(moveId, function () {
+                _this.node.scaleX = -1;
+            }, function (t) { return t.to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getTomato(); });
             return;
         }
-        this.gamePlay.isMoving = false;
+        this.finishMove();
     };
     // --- Reset ---
     NewClass.prototype.clearTray = function () {
@@ -795,15 +864,15 @@ var NewClass = /** @class */ (function (_super) {
         this.consumeTrayItem(1);
     };
     NewClass.prototype.resetToStart = function () {
-        cc.Tween.stopAllByTarget(this.node);
-        this.clearTray();
+        // this.cancelMove()
+        // this.clearTray()
         // this.localId = 0
-        this.node.scaleX = 1;
-        this.node.zIndex = 0;
-        this.table.zIndex = 0;
-        this.anim.setAnimation(0, "Idle", true);
-        this.anim.setAnimation(1, "Idle", false);
-        this.anim.setAnimation(2, "Idle", false);
+        // this.node.scaleX = 1
+        // this.node.zIndex = 0
+        // this.table.zIndex = 0
+        // this.anim.setAnimation(0, "Idle", true)
+        // this.anim.setAnimation(1, "Idle", false)
+        // this.anim.setAnimation(2, "Idle", false)
     };
     __decorate([
         property(cc.Prefab)

@@ -83,7 +83,6 @@ var NewClass = /** @class */ (function (_super) {
             _this.node.getChildByName("hind").active = true;
             _this.node.getChildByName("hind").zIndex = 2;
             _this.chicken = chicken;
-            _this.gamePlay.isMoving = false;
         }).start();
     };
     NewClass.prototype.getChicken = function () {

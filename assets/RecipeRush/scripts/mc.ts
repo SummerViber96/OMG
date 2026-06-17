@@ -55,6 +55,62 @@ export default class NewClass extends cc.Component {
         return this.arrPos[index]
     }
 
+    isAtPos(posIndex: number, threshold = 12) {
+        let target = this.getPos(posIndex)
+        let pos = this.node.position
+        return Math.abs(pos.x - target.x) <= threshold && Math.abs(pos.y - target.y) <= threshold
+    }
+
+    pickAtCakeCounterOrAct(onPick: () => void) {
+        this.setInFrontOfTable()
+        onPick()
+    }
+
+    walkToMachineOrAct(moveId: number, onArrive: () => void) {
+        if (this.isAtPos(this.POS_MACHINE)) {
+            this.setInFrontOfTable()
+            onArrive()
+            return
+        }
+        this.startWalk(moveId, () => { }, t => t
+            .call(() => this.setInFrontOfTable())
+            .to(1, { position: this.getPos(this.POS_MACHINE) }),
+            onArrive)
+    }
+
+    walkFromCakeToMachine(moveId: number, onArrive: () => void) {
+        if (this.isAtPos(this.POS_MACHINE)) {
+            this.setInFrontOfTable()
+            onArrive()
+            return
+        }
+        this.startWalk(moveId, () => {
+            this.node.scaleX = 1
+        }, t => {
+            let tween = t
+            if (this.isAtPos(this.POS_CAKE)) {
+                tween = tween.to(0.8, { position: this.getPos(this.POS_COCA) }).call(() => this.setBehindTable());
+            }
+            return tween
+                .call(() => this.setBehindTable())
+                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.setInFrontOfTable())
+                .to(1, { position: this.getPos(this.POS_MACHINE) })
+        }, onArrive)
+    }
+
+    handleMachineAction(moveId: number, machine, walkFn: (moveId: number, onArrive: () => void) => void) {
+        if (machine.chicken != null && this.canPickItemType("chicken")) {
+            walkFn(moveId, () => this.pickupMachineChicken(machine))
+            return true
+        }
+        if (this.getRawTraySlot() >= 0 && machine.chicken == null) {
+            walkFn(moveId, () => this.fryTrayChicken(machine))
+            return true
+        }
+        return false
+    }
+
     // --- Khay (2 tray) ---
 
     getTrayNode(slot: number) {
@@ -222,14 +278,24 @@ export default class NewClass extends cc.Component {
         }
     }
 
-    // Cùng loại hoặc khác loại: dùng khay trống, không xóa item đang có
-    // Chỉ chặn khi cả 2 khay đều đầy
+    // Có khay trống thì dùng khay trống; cả 2 khay đầy thì bỏ 1 món rồi thêm đồ mới
     canPickItemType(targetType: string) {
-        return !this.isTrayFull()
+        return true
+    }
+
+    findReplaceTraySlot(targetType: string) {
+        for (let i = 0; i < 2; i++) {
+            if (this.getItemType(i) !== targetType) return i
+        }
+        return 1
     }
 
     preparePickupSlot(targetType: string) {
-        return this.getFirstEmptyTraySlot()
+        let empty = this.getFirstEmptyTraySlot()
+        if (empty >= 0) return empty
+        let slot = this.findReplaceTraySlot(targetType)
+        this.consumeTrayItem(slot)
+        return slot
     }
 
     hideTrays() {
@@ -246,13 +312,12 @@ export default class NewClass extends cc.Component {
     }
 
     afterDeliver() {
-        this.anim.setAnimation(0, "Idle", true)
         if (this.hasAnyItem()) {
             this.updateArms()
         } else {
             this.hideTrays()
         }
-        this.gamePlay.isMoving = false
+        this.finishMove()
     }
 
     updateArms() {
@@ -282,499 +347,520 @@ export default class NewClass extends cc.Component {
         return this.localId >= 0 && this.localId <= 5
     }
 
-    // --- Di chuyển ---
+    // --- Di chuyển (chống tween/schedule chồng nhau) ---
+
+    private _moveId = 0
+    private _isWalking = false
+
+    isWalking() {
+        return this._isWalking
+    }
+
+    cancelMove() {
+        this._moveId++
+        this._isWalking = false
+        cc.Tween.stopAllByTarget(this.node)
+    }
+
+    beginMove(): number {
+        this.cancelMove()
+        this._isWalking = true
+        return this._moveId
+    }
+
+    isMoveActive(moveId: number) {
+        return moveId === this._moveId
+    }
+
+    finishMove() {
+        this._isWalking = false
+        this.anim.setAnimation(0, "Idle", true)
+        this.updateArms()
+        if (this.gamePlay) this.gamePlay.isMoving = false
+    }
+
+    arriveIdle() {
+        this.anim.setAnimation(0, "Idle", true)
+        this.updateArms()
+    }
+
+    scheduleOnMove(delay: number, moveId: number, fn: () => void) {
+        this.scheduleOnce(() => {
+            if (this.isMoveActive(moveId)) fn()
+        }, delay)
+    }
+
+    setInFrontOfTable() {
+        this.node.zIndex = 2
+        this.table.zIndex = 1
+    }
+
+    setBehindTable() {
+        this.node.zIndex = 1
+        this.table.zIndex = 2
+    }
+
+    startWalk(moveId: number, setup: () => void, build: (t: cc.Tween) => cc.Tween, onComplete?: () => void) {
+        if (!this.isMoveActive(moveId)) return
+        setup()
+        this.anim.setAnimation(0, "Walk", true)
+        this.updateArms()
+        build(cc.tween(this.node))
+            .call(() => {
+                if (!this.isMoveActive(moveId)) return
+                this._isWalking = false
+                if (onComplete) onComplete()
+            })
+            .start()
+    }
+
+    getChickenWalkDuration() {
+        if (this.localId == 0) return 1
+        if (this.localId == 1 || this.localId == 2) return 0.8
+        if (this.localId == 3) return 0.6
+        if (this.localId == 4) return 1.6
+        return 0.8
+    }
 
     moveToChicken() {
-        console.log(this.localId)
         if (!this.canPickMoreChicken()) {
-            this.gamePlay.isMoving = false
+            this.finishMove()
             return
         }
-
-        if (this.localId == 0) {
-            this.node.scaleX = 1
-            this.anim.setAnimation(0, "Walk", true)
-            this.updateArms()
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => this.spawChicken())
-                .start()
-        }
-        else if (this.localId == 1 || this.localId == 2) {
-            this.node.scaleX = 1
-            this.anim.setAnimation(0, "Walk", true)
-            this.updateArms()
-            cc.tween(this.node)
-                .to(0.8, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => this.spawChicken())
-                .start()
-        }
-        else if (this.localId == 3) {
-            this.node.scaleX = 1
-            this.anim.setAnimation(0, "Walk", true)
-            this.updateArms()
-            cc.tween(this.node)
-                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => this.spawChicken())
-                .start()
-        }
-        else if (this.localId == 4) {
-            this.node.scaleX = 1
-            this.node.zIndex = 1
-            this.table.zIndex = 2
-            this.anim.setAnimation(0, "Walk", true)
-            this.updateArms()
-            cc.tween(this.node)
-                .to(1.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => this.spawChicken())
-                .start()
-        }
-        else if (this.localId == 5) {
-            this.node.scaleX = 1
-            this.node.zIndex = 1
-            this.table.zIndex = 2
-            this.anim.setAnimation(0, "Walk", true)
-            this.updateArms()
-            cc.tween(this.node)
+        let moveId = this.beginMove()
+        if (this.localId == 5) {
+            this.startWalk(moveId, () => {
+                this.node.scaleX = 1
+                this.setInFrontOfTable()
+            }, t => t
                 .to(1, { position: this.getPos(this.POS_COCA) })
-                .to(1.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => this.spawChicken())
-                .start()
+                .call(() => this.setBehindTable())
+
+                .to(1.6, { position: this.getPos(this.POS_CHICKEN) }),
+                () => this.spawChicken())
+            return
         }
-        else {
-            this.gamePlay.isMoving = false
+        if (this.localId >= 0 && this.localId <= 4) {
+            this.startWalk(moveId, () => {
+                this.node.scaleX = 1
+                if (this.localId == 4) this.setBehindTable()
+            }, t => t.to(this.getChickenWalkDuration(), { position: this.getPos(this.POS_CHICKEN) }),
+                () => this.spawChicken())
+            return
         }
+        this.finishMove()
     }
 
     spawChicken() {
         let slot = this.preparePickupSlot("chicken")
         if (slot < 0) {
-            this.gamePlay.isMoving = false
+            this.finishMove()
             return
         }
         this.gamePlay.btnChicken.children[0].getComponent(sp.Skeleton).setAnimation(0, "lv1-tap", false)
         let chicken = cc.instantiate(this.preChicken)
         this.putTrayItem(chicken, "chicken", slot)
-        if (this.localId == 0 || this.localId == 3 || this.localId == 4 || this.localId == 5) {
+        // if (this.localId == 0 || this.localId == 3 || this.localId == 4 || this.localId == 5) {
             this.localId = 1
-        }
-        this.anim.setAnimation(0, "Idle", true)
-        this.gamePlay.isMoving = false
+        // }
+        this.finishMove()
     }
 
     idle() {
-        this.anim.setAnimation(0, "Idle", true)
+        this.finishMove()
+    }
+
+    pickupMachineChicken(machine) {
+        let chicken = machine.getChicken()
+        chicken.getComponent("chicken").chin2()
+        let slot = this.preparePickupSlot("chicken")
+        if (slot < 0) {
+            this.finishMove()
+            return false
+        }
+        this.putTrayItem(chicken, "chicken", slot)
+        this.localId = 2
+        this.finishMove()
+        return true
+    }
+
+    fryTrayChicken(machine) {
+        let slot = this.getRawTraySlot()
+        if (slot < 0) {
+            this.finishMove()
+            return
+        }
+        let chicken = this.trayItems[slot]
+        this.trayItems[slot] = null
+        this.trayItemTypes[slot] = null
+        if (this.isTrayEmpty()) {
+            this.chicken = false
+            this.targetChicken = null
+        }
         this.updateArms()
-        this.gamePlay.isMoving = false
+        machine.cooking(chicken)
+        this.localId = 2
+        this.finishMove()
     }
 
     moveToMachine() {
-        this.node.zIndex = 2
         let machine = this.gamePlay.btnMachine.getComponent("machine")
-        let rawSlot = this.getRawTraySlot()
-        if ((this.localId == 1 || this.localId == 2) && rawSlot >= 0 && machine.chicken == null) {
-            this.anim.setAnimation(0, "Walk", true)
-            this.updateArms()
-            cc.tween(this.node)
-                .call(() => {
-                    this.node.zIndex = 2
-                    this.table.zIndex = 1
-                })
-                .to(1, { position: this.getPos(this.POS_MACHINE) })
-                .call(() => {
-                    let slot = this.getRawTraySlot()
-                    let chicken = this.trayItems[slot]
-                    this.trayItems[slot] = null
-                    this.trayItemTypes[slot] = null
-                    this.updateArms()
-                    machine.cooking(chicken)
-                    this.chicken = false
-                    this.idle()
-                    this.localId = 2
-                    this.gamePlay.isMoving = false
-                })
-                .start()
+        let moveId = this.beginMove()
+        this.setInFrontOfTable()
+
+        if (this.localId == 1 || this.localId == 2) {
+            if (!this.handleMachineAction(moveId, machine, (id, cb) => this.walkToMachineOrAct(id, cb))) {
+                this.finishMove()
+            }
             return
         }
 
-        if (this.localId == 2 && machine.chicken != null) {
-            if (!this.canPickItemType("chicken")) {
-                this.gamePlay.isMoving = false
-                return
-            }
-            this.anim.setAnimation(0, "Walk", true)
-            this.updateArms()
-            let chicken = machine.getChicken()
-            chicken.getComponent("chicken").chin2()
-            let slot = this.preparePickupSlot("chicken")
-            if (slot < 0) {
-                this.gamePlay.isMoving = false
-                return
-            }
-            this.putTrayItem(chicken, "chicken", slot)
-            this.localId = 2
-            this.anim.setAnimation(0, "Idle", true)
-            this.gamePlay.isMoving = false
-            return
-        }
-        if (this.localId == 3 && machine.chicken != null) {
-            this.anim.setAnimation(0, "Walk", true)
-
-            cc.tween(this.node)
-                .to(0.4, { position: this.getPos(this.POS_MACHINE) })
-                .to(1, { position: this.getPos(this.POS_MACHINE) })
-                .call(() => {
-                    this.updateArms()
-                    let chicken = machine.getChicken()
-                    chicken.getComponent("chicken").chin2()
-                    let slot = this.preparePickupSlot("chicken")
-                    if (slot < 0) {
-                        this.gamePlay.isMoving = false
-                        return
-                    }
-                    this.putTrayItem(chicken, "chicken", slot)
-                    this.localId = 2
-                    this.anim.setAnimation(0, "Idle", true)
-                    this.gamePlay.isMoving = false
-                })
-                .start()
-        }
-        if (this.localId == 4) {
-            this.anim.setAnimation(0, "Walk", true)
-            this.node.scaleX = 1
-            cc.tween(this.node)
-                .to(0.6, { position: this.getPos(this.POS_SELL) })
-
-                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => {
-                    this.node.zIndex = 2;
-                    this.table.zIndex = 1
-                })
-                .to(1, { position: this.getPos(this.POS_MACHINE) })
-                .call(() => {
-                    this.anim.setAnimation(0, "Idle", true)
-                    this.updateArms()
-                    this.localId = 2
-                    this.gamePlay.isMoving = false
-
-                })
-                .start()
-        }
         if (this.localId == 3) {
-            this.anim.setAnimation(0, "Walk", true)
-            this.node.scaleX = 1
-            cc.tween(this.node)
-
+            if (machine.chicken != null && this.canPickItemType("chicken")) {
+                if (this.isAtPos(this.POS_MACHINE)) {
+                    this.pickupMachineChicken(machine)
+                    return
+                }
+                this.startWalk(moveId, () => { }, t => t
+                    .to(0.4, { position: this.getPos(this.POS_CAKE) })
+                    .call(() => this.setBehindTable())
+                    .to(1, { position: this.getPos(this.POS_MACHINE) }),
+                    () => this.pickupMachineChicken(machine))
+                return
+            }
+            this.startWalk(moveId, () => {
+                this.setBehindTable()
+                this.node.scaleX = 1
+            }, t => t
                 .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => {
-                    this.node.zIndex = 2;
-                    this.table.zIndex = 1
-                })
-                .to(1, { position: this.getPos(this.POS_MACHINE) })
-                .call(() => {
-                    this.anim.setAnimation(0, "Idle", true)
-                    this.updateArms()
+                .call(() => this.setInFrontOfTable())
+                .to(1, { position: this.getPos(this.POS_MACHINE) }),
+                () => {
                     this.localId = 2
-                    this.gamePlay.isMoving = false
-
+                    this.finishMove()
                 })
-                .start()
+            return
         }
 
+        if (this.localId == 4) {
+            this.startWalk(moveId, () => {
+                this.setBehindTable()
+                this.node.scaleX = 1
+            }, t => t
+                .to(0.6, { position: this.getPos(this.POS_SELL) })
+                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.setInFrontOfTable())
+                .to(1, { position: this.getPos(this.POS_MACHINE) }),
+                () => {
+                    this.localId = 2
+                    this.finishMove()
+                })
+            return
+        }
+
+        if (this.localId == 5) {
+            if (!this.handleMachineAction(moveId, machine, (id, cb) => this.walkFromCakeToMachine(id, cb))) {
+                this.finishMove()
+            }
+            return
+        }
+
+        this.finishMove()
     }
 
     moveToSauce() {
         if (this.localId != 2 || !this.hasAnyItem()) {
-            this.gamePlay.isMoving = false
+            this.finishMove()
             return
         }
         let slot = this.findCookedTraySlot()
         if (slot < 0) {
-            this.gamePlay.isMoving = false
+            this.finishMove()
             return
         }
         let cookedItem = this.trayItems[slot]
-        this.node.zIndex = 2
-        this.anim.setAnimation(0, "Walk", true)
-        this.updateArms()
-        this.node.scaleX = -1
-        cc.tween(this.node)
-            .to(0.5, { position: this.getPos(this.POS_SAUCE) })
-            .call(() => {
-                this.getChickenComp(cookedItem).addSauce()
-                this.node.scaleX = 1
-                this.idle()
-                this.gamePlay.isMoving = false
-            })
-            .start()
+        let moveId = this.beginMove()
+        this.startWalk(moveId, () => {
+            this.setInFrontOfTable()
+            this.node.scaleX = -1
+        }, t => t.to(0.5, { position: this.getPos(this.POS_SAUCE) }), () => {
+            this.getChickenComp(cookedItem).addSauce()
+            this.node.scaleX = 1
+            this.finishMove()
+        })
     }
 
     moveToBuy() {
         if (!this.hasAnyItem()) {
-            this.gamePlay.isMoving = false
+            this.finishMove()
             return
         }
-        cc.Tween.stopAllByTarget(this.node)
-        this.gamePlay.isMoving = true
+        let moveId = this.beginMove()
         this.node.scaleX = -1
-        this.anim.setAnimation(0, "Walk", true)
-        this.updateArms()
-        this.table.zIndex = 1
-        this.node.zIndex = 2
+        this.setInFrontOfTable()
+        console.log(this.localId ,"id game");
+        if (this.localId == 1) {
+            this.setBehindTable()
+            this.startWalk(moveId, () => { }, t => t.to(0.6, { position: this.getPos(this.POS_SELL) }), () => {
+                if (!this.isMoveActive(moveId)) return
+                this.arriveIdle()
+            })
+            this.scheduleOnMove(0.3, moveId, () => {
+                if (this.gamePlay) this.gamePlay.validateSellAtCounter()
+            })
+            this.localId = 3
+            return
+        }
         if (this.localId == 2 || this.localId == 3) {
-            let duration = this.localId == 3 ? 0.4 : 1.4
+            let sellDelay = this.localId == 3 ? 0.4 : 1.2
             let tween = this.localId == 3
-                ? cc.tween(this.node).call(() => {
-                    this.node.zIndex = 1
-                    this.table.zIndex = 2
-                }).to(0.4, { position: this.getPos(this.POS_SELL) })
-
+                ? cc.tween(this.node).call(() => this.setBehindTable()).to(0.4, { position: this.getPos(this.POS_SELL) })
                 : cc.tween(this.node)
                     .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                    .call(() => {
-                        this.node.zIndex = 1
-                        this.table.zIndex = 2
-                    })
+                    .call(() => this.setBehindTable())
                     .to(0.4, { position: this.getPos(this.POS_SELL) })
-            tween
-                .call(() => {
-                    this.anim.setAnimation(0, "Idle", true)
-                    this.updateArms()
-                })
-                .start()
-            this.scheduleOnce(() => {
-                this.gamePlay.validateSellAtCounter()
-            }, 1)
-            this.localId = 3
-
-        }
-        else if (this.localId == 4) {
-            this.table.zIndex = 2
-            this.node.zIndex = 1
-            // console.log("moveToCocaBuy")
-            this.node.scaleX = 1
-            cc.tween(this.node)
-                .to(0.6, { position: this.getPos(this.POS_SELL) })
-                .call(() => {
-                    this.anim.setAnimation(0, "Idle", true)
-                    this.updateArms()
-                })
-                .start()
-            this.scheduleOnce(() => {
-                this.gamePlay.validateSellAtCounter()
-
-            }, 0.3)
-            this.localId = 3
-
-        }
-        else if (this.localId == 5) {
-            this.node.scaleX = 1
-            this.table.zIndex = 1
-            this.node.zIndex = 2
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_COCA) })
-                .call(() => {
-                    this.node.zIndex = 1
-                    this.table.zIndex = 2
-                })
-                .to(0.6, { position: this.getPos(this.POS_SELL) })
-                .call(() => {
-                    this.anim.setAnimation(0, "Idle", true)
-                    this.updateArms()
-                })
-                .start()
-            this.scheduleOnce(() => {
-                this.gamePlay.validateSellAtCounter()
-            }, 1)
-            this.localId = 3
-        }
-        else {
-            this.gamePlay.isMoving = false
-        }
-
-
-    }
-    moveToCoca() {
-        this.node.scaleX = -1
-        if (this.localId == 1 || this.localId == 3 || this.localId == 5) {
-            this.gamePlay.isMoving = true
-            this.scheduleOnce(() => {
-                this.node.zIndex = 2
-            }, 0.4)
             this.anim.setAnimation(0, "Walk", true)
             this.updateArms()
-            cc.tween(this.node)
-                .to(0.8, { position: this.getPos(this.POS_COCA) })
-                .call(() => {
-                    this.idle()
-                    let coca = this.gamePlay.btnCoca.getComponent("coca")
-                    if (coca) coca.cooking()
-                    this.localId = 4
-                })
-                .start()
+            tween.call(() => {
+                if (!this.isMoveActive(moveId)) return
+                this._isWalking = false
+                this.arriveIdle()
+            }).start()
+            this.scheduleOnMove(sellDelay, moveId, () => {
+                if (this.gamePlay) this.gamePlay.validateSellAtCounter()
+            })
+            this.localId = 3
+            return
         }
-        else if (this.localId == 4 && this.gamePlay.btnCoca.getComponent("coca").isCoca) {
+
+        if (this.localId == 4) {
+            this.setBehindTable()
+            this.node.scaleX = 1
+            this.startWalk(moveId, () => { }, t => t.to(0.6, { position: this.getPos(this.POS_SELL) }), () => {
+                if (!this.isMoveActive(moveId)) return
+                this.arriveIdle()
+            })
+            this.scheduleOnMove(0.3, moveId, () => {
+                if (this.gamePlay) this.gamePlay.validateSellAtCounter()
+            })
+            this.localId = 3
+            return
+        }
+
+        if (this.localId == 5) {
+            this.node.scaleX = 1
+            this.startWalk(moveId, () => { }, t => t
+                .to(1, { position: this.getPos(this.POS_COCA) })
+                .call(() => this.setBehindTable())
+                .to(0.6, { position: this.getPos(this.POS_SELL) }), () => {
+                    if (!this.isMoveActive(moveId)) return
+                    this.arriveIdle()
+                })
+            this.scheduleOnMove(1, moveId, () => {
+                if (this.gamePlay) this.gamePlay.validateSellAtCounter()
+            })
+            this.localId = 3
+            return
+        }
+
+        this.finishMove()
+    }
+    moveToCoca() {
+        let moveId = this.beginMove()
+        this.node.scaleX = -1
+
+        if (this.localId == 1 || this.localId == 3 || this.localId == 5) {
+            this.scheduleOnMove(0.6, moveId, () => {
+                this.setInFrontOfTable()
+            })
+            this.startWalk(moveId, () => { }, t => t.to(0.8, { position: this.getPos(this.POS_COCA) }), () => {
+                let coca = this.gamePlay.btnCoca.getComponent("coca")
+                if (coca) coca.cooking()
+                this.localId = 4
+                this.finishMove()
+            })
+            return
+        }
+
+        if (this.localId == 4 && this.gamePlay.btnCoca.getComponent("coca").isCoca) {
             this.gamePlay.btnCoca.getComponent("coca").getCoca()
             if (!this.canPickItemType("coca")) {
-                this.gamePlay.isMoving = false
+                this.finishMove()
                 return
             }
             let slot = this.preparePickupSlot("coca")
             if (slot < 0) {
-                this.gamePlay.isMoving = false
+                this.finishMove()
                 return
             }
             let coca = cc.instantiate(this.preCoca)
             this.putTrayItem(coca, "coca", slot)
             this.localId = 4
-            this.gamePlay.isMoving = false
+            this.finishMove()
+            return
         }
-        else if (this.localId == 2) {
-            this.gamePlay.isMoving = true
-            this.anim.setAnimation(0, "Walk", true)
-            this.node.scaleX = -1
-            cc.tween(this.node)
+
+        if (this.localId == 2) {
+            this.startWalk(moveId, () => { }, t => t
                 .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => {
-                    this.node.zIndex = 1
-                    this.table.zIndex = 2
-                })
-                .to(0.8, { position: this.getPos(this.POS_COCA) })
-                .call(() => {
-                    this.idle()
+                .call(() => this.setBehindTable())
+                .to(0.8, { position: this.getPos(this.POS_COCA) }), () => {
                     let coca = this.gamePlay.btnCoca.getComponent("coca")
                     if (coca) coca.cooking()
                     this.localId = 4
+                    this.finishMove()
                 })
-                .start()
+            return
+        }
 
-        }
-        else {
-            this.gamePlay.isMoving = false
-        }
+        this.finishMove()
     }
+
     moveToCake() {
+        let moveId = this.beginMove()
+        if (this.isAtPos(this.POS_CAKE)) {
+            this.pickAtCakeCounterOrAct(() => this.getCake())
+            return
+        }
 
-        if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
-            this.gamePlay.isMoving = true
-            this.anim.setAnimation(0, "Walk", true)
-            this.node.scaleX = -1
-            this.node.zIndex = 2;
-            this.table.zIndex = 1
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => {
-                    this.node.zIndex = 1;
-                    this.table.zIndex = 2
-                })
+        if (this.localId == 0 || this.localId == 1) {
+            this.startWalk(moveId, () => {
+                this.node.scaleX = -1
+                this.setInFrontOfTable()
+            }, t => t
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.setBehindTable())
                 .to(0.8, { position: this.getPos(this.POS_COCA) })
-                .call(() => {
-                    this.node.zIndex = 2;
-                    this.table.zIndex = 1
-                })
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(() => this.getCake())
-                .start()
+                .call(() => this.setInFrontOfTable())
+                .to(1, { position: this.getPos(this.POS_CAKE) }),
+                () => this.getCake())
             return
         }
+        if (this.localId == 2) {
+            this.startWalk(moveId, () => {
+                this.node.scaleX = -1
+                this.setInFrontOfTable()
+            }, t => t
+                .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.setBehindTable())
+                .to(0.8, { position: this.getPos(this.POS_COCA) })
+                .call(() => this.setInFrontOfTable())
+                .to(1, { position: this.getPos(this.POS_CAKE) }),
+                () => this.getCake())
+            return
+        }
+
         if (this.localId == 3 || this.localId == 5) {
-            this.gamePlay.isMoving = true
-            this.anim.setAnimation(0, "Walk", true)
-            this.node.scaleX = -1
-            cc.tween(this.node)
+            this.startWalk(moveId, () => {
+                this.node.scaleX = -1
+            }, t => t
+                // t.to(1, { position: this.getPos(this.POS_CHICKEN) })
+                //     .call(() => this.setBehindTable())
                 .to(0.4, { position: this.getPos(this.POS_COCA) })
-                .call(() => {
-                    this.node.zIndex = 2
-                    this.table.zIndex = 1
-                })
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(() => this.getCake())
-                .start()
+                .call(() => this.setInFrontOfTable())
+                .to(1, { position: this.getPos(this.POS_CAKE) }),
+                () => this.getCake())
             return
         }
+
         if (this.localId == 4) {
-            this.gamePlay.isMoving = true
-            this.anim.setAnimation(0, "Walk", true)
-            this.node.scaleX = -1
-            this.node.zIndex = 2
-            this.table.zIndex = 1
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(() => this.getCake())
-                .start()
+            this.startWalk(moveId, () => {
+                this.node.scaleX = -1
+                this.setInFrontOfTable()
+            }, t => t.to(1, { position: this.getPos(this.POS_CAKE) }),
+                () => this.getCake())
             return
         }
-        this.gamePlay.isMoving = false
+
+        this.finishMove()
     }
+
     getCake() {
         if (!this.canPickItemType("cake")) {
-            this.gamePlay.isMoving = false
+            this.finishMove()
             return
         }
         let slot = this.preparePickupSlot("cake")
         if (slot < 0) {
-            this.gamePlay.isMoving = false
+            this.finishMove()
             return
         }
         let cake = cc.instantiate(this.preCake)
         this.putTrayItem(cake, "cake", slot)
         this.localId = 5
-        this.idle()
+        this.finishMove()
     }
+
     getTomato() {
         if (!this.canPickItemType("tomato")) {
-            this.gamePlay.isMoving = false
+            this.finishMove()
             return
         }
         let slot = this.preparePickupSlot("tomato")
         if (slot < 0) {
-            this.gamePlay.isMoving = false
+            this.finishMove()
             return
         }
         let tomato = cc.instantiate(this.preTomato)
         this.putTrayItem(tomato, "tomato", slot)
         this.localId = 5
-        this.idle()
+        this.finishMove()
     }
+
     moveToTomato() {
-        if (this.localId == 0 || this.localId == 1 || this.localId == 2) {
-            this.gamePlay.isMoving = true
-            this.anim.setAnimation(0, "Walk", true)
-            this.node.scaleX = -1
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
+        let moveId = this.beginMove()
+        if (this.isAtPos(this.POS_CAKE)) {
+            this.pickAtCakeCounterOrAct(() => this.getTomato())
+            return
+        }
+
+        if (this.localId == 0 || this.localId == 1) {
+            this.startWalk(moveId, () => {
+                this.node.scaleX = -1
+            }, t => t
+                .call(() => this.setBehindTable())
+
                 .to(0.8, { position: this.getPos(this.POS_COCA) })
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(() => this.getTomato())
-                .start()
+                .call(() => this.setInFrontOfTable())
+                .to(1, { position: this.getPos(this.POS_CAKE) }),
+                () => this.getTomato())
+            return
+        }
+        if (this.localId == 2) {
+            this.startWalk(moveId, () => {
+                this.node.scaleX = -1
+                this.setInFrontOfTable()
+            }, t => t
+                .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                .call(() => this.setBehindTable())
+                .to(0.8, { position: this.getPos(this.POS_COCA) })
+                .call(() => this.setInFrontOfTable())
+                .to(1, { position: this.getPos(this.POS_CAKE) }),
+                () => this.getTomato())
             return
         }
         if (this.localId == 3 || this.localId == 5) {
-            this.gamePlay.isMoving = true
-            this.anim.setAnimation(0, "Walk", true)
-            this.node.scaleX = -1
-            cc.tween(this.node)
+            this.startWalk(moveId, () => {
+                this.node.scaleX = -1
+            }, t => t
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                // .call(() => this.setBehindTable())
                 .to(0.4, { position: this.getPos(this.POS_COCA) })
-                .call(() => {
-                    this.node.zIndex = 2
-                    this.table.zIndex = 1
-                })
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(() => this.getTomato())
-                .start()
+                .call(() => this.setInFrontOfTable())
+                .to(1, { position: this.getPos(this.POS_CAKE) }),
+                () => this.getTomato())
             return
         }
+
         if (this.localId == 4) {
-            this.gamePlay.isMoving = true
-            this.anim.setAnimation(0, "Walk", true)
-            this.node.scaleX = -1
-            cc.tween(this.node)
-                .to(1, { position: this.getPos(this.POS_CAKE) })
-                .call(() => this.getTomato())
-                .start()
+            this.startWalk(moveId, () => {
+                this.node.scaleX = -1
+            }, t => t.to(1, { position: this.getPos(this.POS_CAKE) }),
+                () => this.getTomato())
             return
         }
-        this.gamePlay.isMoving = false
+
+        this.finishMove()
     }
     // --- Reset ---
 
@@ -784,14 +870,14 @@ export default class NewClass extends cc.Component {
     }
 
     resetToStart() {
-        cc.Tween.stopAllByTarget(this.node)
-        this.clearTray()
+        // this.cancelMove()
+        // this.clearTray()
         // this.localId = 0
-        this.node.scaleX = 1
-        this.node.zIndex = 0
-        this.table.zIndex = 0
-        this.anim.setAnimation(0, "Idle", true)
-        this.anim.setAnimation(1, "Idle", false)
-        this.anim.setAnimation(2, "Idle", false)
+        // this.node.scaleX = 1
+        // this.node.zIndex = 0
+        // this.table.zIndex = 0
+        // this.anim.setAnimation(0, "Idle", true)
+        // this.anim.setAnimation(1, "Idle", false)
+        // this.anim.setAnimation(2, "Idle", false)
     }
 }

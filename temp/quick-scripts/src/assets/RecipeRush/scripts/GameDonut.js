@@ -179,7 +179,8 @@ var NewClass = /** @class */ (function (_super) {
         });
         this.scheduleOnce(function () {
             cc.tween(_this.notiMission).by(0.4, { opacity: -255, position: cc.v3(0, 200) }).call(function () {
-                _this.notiMission.active = false;
+                _this.notiMission.active =
+                    _this.barMission.getComponent("barTime").countDown();
                 _this.startGame();
             }).start();
         }, 1.5);
@@ -311,12 +312,14 @@ var NewClass = /** @class */ (function (_super) {
             }
         }, 3);
     };
+    NewClass.prototype.isMcBusy = function () {
+        return this.isMoving || (this.mcComp && this.mcComp.isWalking());
+    };
     NewClass.prototype.btn_chicken = function () {
         var _this = this;
-        if (this.isMoving)
+        if (this.isMcBusy())
             return;
         if (!this.isFistClickChicken) {
-            this.barMission.getComponent("barTime").countDown();
             this.isFistClickChicken = true;
             this.scheduleOnce(function () {
                 _this.btnMachine.getChildByName("hind").active = true;
@@ -329,11 +332,11 @@ var NewClass = /** @class */ (function (_super) {
         this.mcComp.moveToChicken();
     };
     NewClass.prototype.btn_mayChien = function () {
-        if (this.isMoving)
+        if (this.isMcBusy())
             return;
         var machineComp = this.btnMachine.getComponent("machine");
         var canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null;
-        var canPickup = (this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4) && machineComp.chicken != null && this.mcComp.canPickItemType("chicken");
+        var canPickup = (this.mcComp.localId == 1 || this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4 || this.mcComp.localId == 5) && machineComp.chicken != null && this.mcComp.canPickItemType("chicken");
         if (!canFry && !canPickup)
             return;
         this.isMoving = true;
@@ -342,13 +345,13 @@ var NewClass = /** @class */ (function (_super) {
         this.mcComp.moveToMachine();
     };
     NewClass.prototype.btn_cola = function () {
-        if (this.isMoving)
+        if (this.isMcBusy())
             return;
         this.isMoving = true;
         this.mcComp.moveToCoca();
     };
     NewClass.prototype.btn_sauce = function () {
-        if (this.isMoving)
+        if (this.isMcBusy())
             return;
         if (!this.mcComp.hasAnyItem() || this.mcComp.findCookedTraySlot() < 0)
             return;
@@ -357,13 +360,13 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_cake = function () {
         console.log(this.isMoving);
-        if (this.isMoving)
+        if (this.isMcBusy())
             return;
         this.isMoving = true;
         this.mcComp.moveToCake();
     };
     NewClass.prototype.btn_tomato = function () {
-        if (this.isMoving)
+        if (this.isMcBusy())
             return;
         this.isMoving = true;
         this.mcComp.moveToTomato();
@@ -374,7 +377,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.checkSell = function (targetCus) {
         console.log("check sell Main");
         var cus = targetCus || this.sellTargetCus || this.isTargetCus || this.arrCus[0];
-        if (this.isMoving || !cus)
+        if (this.isMcBusy() || !cus)
             return false;
         var cusComp = cus.getComponent("cusMission");
         if (!cusComp || cusComp.isSuccess || !cusComp.isReadyForSell)
@@ -986,6 +989,7 @@ var NewClass = /** @class */ (function (_super) {
         this.amazing.scale = (logic) ? 1 : 1.4;
         this.endCardDoc.scale = 1.5;
         this.notiMission.scale = (logic) ? 2 : 1;
+        this.barMission2.scale = (logic) ? 2 : 1;
         // this.tutMision.scale = (logic) ? 2 : 1
         this.barMission.scale = (logic) ? 1.7 : 1;
         this.barMission.scale = (logic) ? 1.8 : 1;
