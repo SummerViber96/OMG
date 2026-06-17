@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1781298670939,
+    "meta": 1781670122673,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1781298670933,
+    "meta": 1781670122681,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -2855,8 +2855,8 @@
     "relativePath": "Donut\\anim\\char6.png"
   },
   "6304630e-6031-484a-82de-7187fbcad55b": {
-    "asset": 1781298359194,
-    "meta": 1781298670920,
+    "asset": 1781300007859,
+    "meta": 1781670122663,
     "relativePath": "Donut\\prefab"
   },
   "ce74c16f-cceb-4a13-9801-010b5a422a88": {
