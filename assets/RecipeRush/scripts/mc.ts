@@ -93,7 +93,7 @@ export default class NewClass extends cc.Component {
             }
             return tween
                 .call(() => this.setBehindTable())
-                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(() => this.setInFrontOfTable())
                 .to(1, { position: this.getPos(this.POS_MACHINE) })
         }, onArrive)
@@ -612,7 +612,7 @@ export default class NewClass extends cc.Component {
             return
         }
         if (this.localId == 2 || this.localId == 3) {
-            let sellDelay = this.localId == 3 ? 0.4 : 1.2
+            let sellDelay = this.localId == 3 ? 0.4 : 1
             let tween = this.localId == 3
                 ? cc.tween(this.node).call(() => this.setBehindTable()).to(0.4, { position: this.getPos(this.POS_SELL) })
                 : cc.tween(this.node)

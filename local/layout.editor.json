@@ -8,7 +8,7 @@
       "x": 0,
       "y": 0,
       "width": 2560,
-      "height": 1400,
+      "height": 1407,
       "layout": {
         "type": "dock-h",
         "children": [
@@ -103,7 +103,9 @@
         "inspector",
         "cocos-services"
       ]
-    }
+    },
+    "window-1781681938243": {},
+    "worker": {}
   },
   "panels": {
     "builder": {

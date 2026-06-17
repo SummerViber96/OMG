@@ -110,7 +110,7 @@ var NewClass = /** @class */ (function (_super) {
             }
             return tween
                 .call(function () { return _this.setBehindTable(); })
-                .to(0.6, { position: _this.getPos(_this.POS_CHICKEN) })
+                .to(1, { position: _this.getPos(_this.POS_CHICKEN) })
                 .call(function () { return _this.setInFrontOfTable(); })
                 .to(1, { position: _this.getPos(_this.POS_MACHINE) });
         }, onArrive);
@@ -624,7 +624,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         if (this.localId == 2 || this.localId == 3) {
-            var sellDelay = this.localId == 3 ? 0.4 : 1.2;
+            var sellDelay = this.localId == 3 ? 0.4 : 1;
             var tween = this.localId == 3
                 ? cc.tween(this.node).call(function () { return _this.setBehindTable(); }).to(0.4, { position: this.getPos(this.POS_SELL) })
                 : cc.tween(this.node)

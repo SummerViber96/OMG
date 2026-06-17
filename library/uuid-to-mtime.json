@@ -12530,8 +12530,8 @@
     "relativePath": "RecipeRush\\prefab\\prePotato.prefab"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1781681100313,
-    "meta": 1781681100363,
+    "asset": 1781681935940,
+    "meta": 1781681935960,
     "relativePath": "scenes\\Donut1.fire"
   },
   "0549bd95-a906-4ef2-a0bb-71372ccd1bc5": {
@@ -12660,8 +12660,8 @@
     "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
   },
   "57915beb-7cae-42a5-8af6-5a90b22a2187": {
-    "asset": 1781681687964,
-    "meta": 1781681688844,
+    "asset": 1781682295399,
+    "meta": 1781682297168,
     "relativePath": "RecipeRush\\scripts\\mc.ts"
   }
 }
