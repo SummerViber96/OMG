@@ -26455,7 +26455,7 @@
     "entryDetectRadius": 110,
     "pathSampleSpacing": 12,
     "segmentRadius": 14,
-    "slideGravity": 320,
+    "slideGravity": 800,
     "maxSlideSpeed": 280,
     "pathPullStrength": 420,
     "pathPullDamping": 16,
