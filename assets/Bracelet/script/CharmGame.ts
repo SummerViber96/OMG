@@ -20,6 +20,8 @@ export default class NewClass extends cc.Component {
     btnOk: cc.Node = null
     @property(cc.Node)
     hand3: cc.Node = null;
+    @property(cc.Node)
+    charmHind: cc.Node = null;
     @property(cc.AudioClip)
     soundXuc: cc.AudioClip = null
     @property(cc.AudioClip)
@@ -68,8 +70,11 @@ export default class NewClass extends cc.Component {
             this.spoon.getComponent("Spoon").setCharms(boxComp.tag)
             this.hand3.active = false;
             cc.audioEngine.play(this.soundXuc, false, 1)
+            // this.setHind(boxComp.tag)
+
         }
     }
+
     getBox(pos) {
         for (let i = 0; i < this.charms.length; i++) {
             let posCharm = this.charms[i].position;
@@ -155,7 +160,7 @@ export default class NewClass extends cc.Component {
         const charm = cc.instantiate(this.listCharms[tag]);
         charm.parent = this.plate;
         charm.getComponent("CharmItem").loadIMG(index);
-
+        charm.getComponent("CharmItem").tag = tag
         const targetPos = this.getTargetPosition(index);
         const spread = cc.v3(
             (Math.random() - 0.5) * 24,

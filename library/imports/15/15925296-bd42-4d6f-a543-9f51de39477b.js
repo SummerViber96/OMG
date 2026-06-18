@@ -34,6 +34,7 @@ var StringGame = /** @class */ (function (_super) {
         _this.listStringBot = null;
         _this.btnOk = null;
         _this.hand = null;
+        _this.soundXoDay = null;
         _this.selectedString = null;
         _this.isDragging = false;
         _this.activeTouchId = -1;
@@ -262,6 +263,7 @@ var StringGame = /** @class */ (function (_super) {
         this.touchStartPos = null;
     };
     StringGame.prototype.onStringSelected = function (stringNode) {
+        cc.audioEngine.play(this.soundXoDay, false, 1);
         var index = this.strings.indexOf(stringNode);
         for (var i = 0; i < this.listStringBot.children.length; i++) {
             this.listStringBot.children[i].active = false;
@@ -322,6 +324,9 @@ var StringGame = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], StringGame.prototype, "hand", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], StringGame.prototype, "soundXoDay", void 0);
     StringGame = __decorate([
         ccclass
     ], StringGame);

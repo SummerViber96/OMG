@@ -17,6 +17,8 @@ export default class StringGame extends cc.Component {
     btnOk: cc.Node = null
     @property(cc.Node)
     hand: cc.Node = null
+    @property(cc.AudioClip)
+    soundXoDay: cc.AudioClip = null
 
     private selectedString: cc.Node = null;
     private isDragging: boolean = false;
@@ -26,7 +28,7 @@ export default class StringGame extends cc.Component {
     private originSiblingIndex: number = 0;
     private touchStartPos: cc.Vec2 = null;
     private plateOriginPos: cc.Vec3 = null;
-arrString=[]
+    arrString = []
     onLoad() {
         this.resolveReferences();
         this.initStrings();
@@ -275,6 +277,7 @@ arrString=[]
     }
     isOldStringBot = null
     onStringSelected(stringNode: cc.Node) {
+        cc.audioEngine.play(this.soundXoDay, false, 1)
         const index = this.strings.indexOf(stringNode);
         for (let i = 0; i < this.listStringBot.children.length; i++) {
 
@@ -312,15 +315,15 @@ arrString=[]
         this.node.emit('select-string', stringNode);
     }
     isFirst = false
-    OffTOuch(){
+    OffTOuch() {
         const touchNode = cc.Canvas.instance.node;
         touchNode.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         touchNode.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         touchNode.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
-        touchNode.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);   
+        touchNode.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
     }
-    offString(){
-        for(let i=0;i<this.strings.length;i++){
+    offString() {
+        for (let i = 0; i < this.strings.length; i++) {
             this.strings[i].active = false;
             this.strings[i].opacity = 0;
         }

@@ -30,6 +30,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.CordRoundList = null;
         _this.plate = null;
+        _this.charmHind = null;
         _this.entryDetectRadius = 110;
         _this.pathSampleSpacing = 12;
         _this.segmentRadius = 14;
@@ -54,6 +55,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.touchBound = false;
         _this.btnOk = null;
         _this.hand3 = null;
+        _this.isTargetHind = null;
         return _this;
     }
     CordRoundGame.prototype.liftBracelet = function (targetPos, duration) {
@@ -91,6 +93,17 @@ var CordRoundGame = /** @class */ (function (_super) {
             syncBodies();
         })
             .start();
+    };
+    CordRoundGame.prototype.setHind = function (charm) {
+        var tag = charm.getComponent("CharmItem").tag;
+        if (this.isTargetHind) {
+            this.isTargetHind.active = false;
+        }
+        this.charmHind.children[tag].active = true;
+        this.isTargetHind = this.charmHind.children[tag];
+        var colorIMG = charm.getComponent("CharmItem").getColor();
+        this.charmHind.children[tag].children[0].getComponent(cc.Sprite).spriteFrame = colorIMG;
+        this.charmHind.children[tag].children[1].getComponent(cc.Sprite).spriteFrame = colorIMG;
     };
     CordRoundGame.prototype.startBraceletMode = function () {
         if (!this.CordRoundList)
@@ -229,6 +242,7 @@ var CordRoundGame = /** @class */ (function (_super) {
             return;
         this.activeTouchId = event.getID();
         this.startDrag(charm, event.getLocation());
+        this.setHind(charm);
     };
     CordRoundGame.prototype.onTouchMove = function (event) {
         if (!this.isActive || event.getID() !== this.activeTouchId || !this.draggingCharm)
@@ -251,6 +265,10 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         this.draggingCharm = null;
         this.activeTouchId = -1;
+        if (this.isTargetHind) {
+            this.isTargetHind.active = false;
+            this.isTargetHind = null;
+        }
     };
     CordRoundGame.prototype.startDrag = function (charm, screenPos) {
         this.draggingCharm = charm;
@@ -634,6 +652,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], CordRoundGame.prototype, "plate", void 0);
+    __decorate([
+        property(cc.Node)
+    ], CordRoundGame.prototype, "charmHind", void 0);
     __decorate([
         property
     ], CordRoundGame.prototype, "entryDetectRadius", void 0);

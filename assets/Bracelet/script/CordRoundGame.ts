@@ -31,6 +31,8 @@ export default class CordRoundGame extends cc.Component {
 
     @property(cc.Node)
     plate: cc.Node = null;
+    @property(cc.Node)
+    charmHind: cc.Node = null
 
     @property
     entryDetectRadius: number = 110;
@@ -114,7 +116,22 @@ export default class CordRoundGame extends cc.Component {
             })
             .start();
     }
+    isTargetHind = null
 
+    setHind(charm) {
+        let tag = charm.getComponent("CharmItem").tag
+
+
+        if (this.isTargetHind) {
+            this.isTargetHind.active = false
+        }
+        this.charmHind.children[tag].active = true
+        this.isTargetHind = this.charmHind.children[tag]
+        let colorIMG=charm.getComponent("CharmItem").getColor();
+         this.charmHind.children[tag].children[0].getComponent(cc.Sprite).spriteFrame=colorIMG
+                  this.charmHind.children[tag].children[1].getComponent(cc.Sprite).spriteFrame=colorIMG
+
+    }
     startBraceletMode() {
         if (!this.CordRoundList) return;
         this.resolveReferences();
@@ -271,6 +288,7 @@ export default class CordRoundGame extends cc.Component {
 
         this.activeTouchId = event.getID();
         this.startDrag(charm, event.getLocation());
+        this.setHind(charm)
     }
 
     private onTouchMove(event: cc.Event.EventTouch) {
@@ -294,6 +312,10 @@ export default class CordRoundGame extends cc.Component {
 
         this.draggingCharm = null;
         this.activeTouchId = -1;
+        if (this.isTargetHind) {
+            this.isTargetHind.active = false;
+            this.isTargetHind=null
+        }
     }
 
     private startDrag(charm: cc.Node, screenPos: cc.Vec2) {

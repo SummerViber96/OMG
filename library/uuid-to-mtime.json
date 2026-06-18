@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1781682671079,
+    "meta": 1781744055747,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1781682671471,
+    "meta": 1781744055748,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -12810,8 +12810,8 @@
     "relativePath": "Bracelet\\script\\ItemString.ts"
   },
   "7b359a0c-48f3-48f0-8331-7accee719220": {
-    "asset": 1781682596319,
-    "meta": 1781682642555,
+    "asset": 1781695446627,
+    "meta": 1781744055460,
     "relativePath": "Bracelet\\anim"
   },
   "3c02f13d-599b-4cde-8aca-93eaf777ceef": {
@@ -14359,19 +14359,14 @@
     "meta": 1781682646085,
     "relativePath": "Bracelet\\prefab\\preCharm8.prefab"
   },
-  "df87c12d-9eb3-4a2b-a256-16bbd0291665": {
-    "asset": 1781682596663,
-    "meta": 1781682646301,
-    "relativePath": "Bracelet\\script\\CharmItem.ts"
-  },
   "ccbd547d-e510-4997-8e18-d9204d79b8fc": {
     "asset": 1781682596588,
     "meta": 1781682646037,
     "relativePath": "Bracelet\\prefab\\preCharm1.prefab"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1781687606078,
-    "meta": 1781687606093,
+    "asset": 1781745569385,
+    "meta": 1781745569402,
     "relativePath": "scenes\\Bracelet.fire"
   },
   "bd4ba15f-30c4-40bd-9e74-625948abb041": {
@@ -14519,20 +14514,10 @@
     "meta": 1781682642643,
     "relativePath": "Bracelet\\anim\\pet_idle.anim"
   },
-  "15925296-bd42-4d6f-a543-9f51de39477b": {
-    "asset": 1781682596678,
-    "meta": 1781682646646,
-    "relativePath": "Bracelet\\script\\StringGame.ts"
-  },
   "857d47d5-e421-47b7-9459-fef1142f37b6": {
     "asset": 1781682597083,
     "meta": 1781682640928,
     "relativePath": "anim\\bang\\hand_move2.anim"
-  },
-  "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
-    "asset": 1781682596671,
-    "meta": 1781682646517,
-    "relativePath": "Bracelet\\script\\CordRoundGame.ts"
   },
   "44b4cbfd-f30e-4d02-90f9-6aa2e43064ef": {
     "asset": 1781682597038,
@@ -14899,9 +14884,29 @@
     "meta": 1781686917563,
     "relativePath": "Bracelet\\script\\Bracelet.ts"
   },
+  "15925296-bd42-4d6f-a543-9f51de39477b": {
+    "asset": 1781694916218,
+    "meta": 1781694917566,
+    "relativePath": "Bracelet\\script\\StringGame.ts"
+  },
+  "56bd8996-5ae1-4d12-8f30-5b783eea8fae": {
+    "asset": 1781695551985,
+    "meta": 1781695551995,
+    "relativePath": "Bracelet\\anim\\charm_hind.anim"
+  },
   "e7e59199-64c4-409e-8c96-5a74e5533e47": {
-    "asset": 1781687597093,
-    "meta": 1781687598080,
+    "asset": 1781745149885,
+    "meta": 1781745219213,
     "relativePath": "Bracelet\\script\\CharmGame.ts"
+  },
+  "df87c12d-9eb3-4a2b-a256-16bbd0291665": {
+    "asset": 1781745335679,
+    "meta": 1781745428059,
+    "relativePath": "Bracelet\\script\\CharmItem.ts"
+  },
+  "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
+    "asset": 1781745427290,
+    "meta": 1781745428213,
+    "relativePath": "Bracelet\\script\\CordRoundGame.ts"
   }
 }

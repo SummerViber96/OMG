@@ -6,15 +6,19 @@ export default class CharmItem extends cc.Component {
 
     @property(cc.SpriteFrame)
     listImg: cc.SpriteFrame[] = [];
-
+    tag = 0
+    colorIMG = 0
     /** Điểm neo treo lên dây — đặt node con tên hangPoint ở đỉnh charm. */
     @property(cc.Node)
     hangPoint: cc.Node = null;
 
-    loadIMG(id: number) {
+    loadIMG(id: number, tag) {
+        this.colorIMG = this.listImg[id]
         this.node.children[0].getComponent(cc.Sprite).spriteFrame = this.listImg[id];
     }
-
+    getColor() {
+        return this.colorIMG
+    }
     getHangLocalOffset(): cc.Vec2 {
         const hang = this.hangPoint
             || this.node.getChildByName('hangPoint')
