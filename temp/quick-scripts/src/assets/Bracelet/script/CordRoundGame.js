@@ -308,7 +308,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         var path = this.cordPaths.get(this.activeCord);
         if (!path)
             return;
-        var anchorPos = cc.v2(dropAnchor.node.x, dropAnchor.node.y);
+        var anchorPos = dropAnchor.cordPos;
         var startIndex = this.findNearestPathIndex(path.points, anchorPos);
         var pathDir = this.pickPathDirection(path.points, startIndex, dropAnchor.side);
         var startPose = this.getPoseOnPath(path.points, startIndex, pathDir, 0);
@@ -569,12 +569,37 @@ var CordRoundGame = /** @class */ (function (_super) {
         dist += cc.v2(pos.x - segA.x, pos.y - segA.y).mag();
         return dist;
     };
+    CordRoundGame.prototype.getLocalBoxAnchorPositions = function () {
+        if (!this.localBox || this.localBox.childrenCount < 2 || !this.activeCord)
+            return null;
+        var childA = this.localBox.children[0];
+        var childB = this.localBox.children[1];
+        var posA = this.activeCord.convertToNodeSpaceAR(childA.convertToWorldSpaceAR(cc.v2(0, 0)));
+        var posB = this.activeCord.convertToNodeSpaceAR(childB.convertToWorldSpaceAR(cc.v2(0, 0)));
+        return posA.x <= posB.x
+            ? { left: posA, right: posB }
+            : { left: posB, right: posA };
+    };
+    CordRoundGame.prototype.getCordAnchorPositions = function () {
+        var localBoxAnchors = this.getLocalBoxAnchorPositions();
+        if (localBoxAnchors)
+            return localBoxAnchors;
+        if (!this.leftAnchor || !this.rightAnchor)
+            return null;
+        return {
+            left: cc.v2(this.leftAnchor.x, this.leftAnchor.y),
+            right: cc.v2(this.rightAnchor.x, this.rightAnchor.y),
+        };
+    };
     CordRoundGame.prototype.getDropAnchor = function (worldPos) {
-        if (!this.activeCord || !this.leftAnchor || !this.rightAnchor)
+        if (!this.activeCord)
+            return null;
+        var anchors = this.getCordAnchorPositions();
+        if (!anchors)
             return null;
         var local = this.activeCord.convertToNodeSpaceAR(worldPos);
-        var leftPos = this.leftAnchor.position;
-        var rightPos = this.rightAnchor.position;
+        var leftPos = anchors.left;
+        var rightPos = anchors.right;
         var distLeft = cc.v2(local.x - leftPos.x, local.y - leftPos.y).mag();
         var distRight = cc.v2(local.x - rightPos.x, local.y - rightPos.y).mag();
         var nearLeft = distLeft <= this.entryDetectRadius;
@@ -582,12 +607,12 @@ var CordRoundGame = /** @class */ (function (_super) {
         if (nearLeft || nearRight) {
             if (nearLeft && nearRight) {
                 return distLeft <= distRight
-                    ? { node: this.leftAnchor, side: 'left' }
-                    : { node: this.rightAnchor, side: 'right' };
+                    ? { side: 'left', cordPos: leftPos }
+                    : { side: 'right', cordPos: rightPos };
             }
             return nearLeft
-                ? { node: this.leftAnchor, side: 'left' }
-                : { node: this.rightAnchor, side: 'right' };
+                ? { side: 'left', cordPos: leftPos }
+                : { side: 'right', cordPos: rightPos };
         }
         var topY = Math.max(leftPos.y, rightPos.y) - 20;
         var minX = Math.min(leftPos.x, rightPos.x) - 30;
@@ -599,8 +624,8 @@ var CordRoundGame = /** @class */ (function (_super) {
             return null;
         var useLeft = local.x < (leftPos.x + rightPos.x) * 0.5;
         return useLeft
-            ? { node: this.leftAnchor, side: 'left' }
-            : { node: this.rightAnchor, side: 'right' };
+            ? { side: 'left', cordPos: leftPos }
+            : { side: 'right', cordPos: rightPos };
     };
     CordRoundGame.prototype.getPlateCharmAt = function (screenPos) {
         if (!this.plate)

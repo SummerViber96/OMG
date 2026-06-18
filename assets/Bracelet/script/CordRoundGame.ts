@@ -19,8 +19,8 @@ interface CordCharmState {
 }
 
 interface DropAnchor {
-    node: cc.Node;
     side: CordSide;
+    cordPos: cc.Vec2;
 }
 
 @ccclass
@@ -360,7 +360,7 @@ export default class CordRoundGame extends cc.Component {
         const path = this.cordPaths.get(this.activeCord);
         if (!path) return;
 
-        const anchorPos = cc.v2(dropAnchor.node.x, dropAnchor.node.y);
+        const anchorPos = dropAnchor.cordPos;
         const startIndex = this.findNearestPathIndex(path.points, anchorPos);
         const pathDir = this.pickPathDirection(path.points, startIndex, dropAnchor.side);
         const startPose = this.getPoseOnPath(path.points, startIndex, pathDir, 0);
@@ -674,12 +674,43 @@ export default class CordRoundGame extends cc.Component {
         return dist;
     }
 
+    private getLocalBoxAnchorPositions(): { left: cc.Vec2; right: cc.Vec2 } | null {
+        if (!this.localBox || this.localBox.childrenCount < 2 || !this.activeCord) return null;
+
+        const childA = this.localBox.children[0];
+        const childB = this.localBox.children[1];
+        const posA = this.activeCord.convertToNodeSpaceAR(
+            childA.convertToWorldSpaceAR(cc.v2(0, 0))
+        );
+        const posB = this.activeCord.convertToNodeSpaceAR(
+            childB.convertToWorldSpaceAR(cc.v2(0, 0))
+        );
+
+        return posA.x <= posB.x
+            ? { left: posA, right: posB }
+            : { left: posB, right: posA };
+    }
+
+    private getCordAnchorPositions(): { left: cc.Vec2; right: cc.Vec2 } | null {
+        const localBoxAnchors = this.getLocalBoxAnchorPositions();
+        if (localBoxAnchors) return localBoxAnchors;
+
+        if (!this.leftAnchor || !this.rightAnchor) return null;
+        return {
+            left: cc.v2(this.leftAnchor.x, this.leftAnchor.y),
+            right: cc.v2(this.rightAnchor.x, this.rightAnchor.y),
+        };
+    }
+
     private getDropAnchor(worldPos: cc.Vec2): DropAnchor | null {
-        if (!this.activeCord || !this.leftAnchor || !this.rightAnchor) return null;
+        if (!this.activeCord) return null;
+
+        const anchors = this.getCordAnchorPositions();
+        if (!anchors) return null;
 
         const local = this.activeCord.convertToNodeSpaceAR(worldPos);
-        const leftPos = this.leftAnchor.position;
-        const rightPos = this.rightAnchor.position;
+        const leftPos = anchors.left;
+        const rightPos = anchors.right;
 
         const distLeft = cc.v2(local.x - leftPos.x, local.y - leftPos.y).mag();
         const distRight = cc.v2(local.x - rightPos.x, local.y - rightPos.y).mag();
@@ -689,12 +720,12 @@ export default class CordRoundGame extends cc.Component {
         if (nearLeft || nearRight) {
             if (nearLeft && nearRight) {
                 return distLeft <= distRight
-                    ? { node: this.leftAnchor, side: 'left' }
-                    : { node: this.rightAnchor, side: 'right' };
+                    ? { side: 'left', cordPos: leftPos }
+                    : { side: 'right', cordPos: rightPos };
             }
             return nearLeft
-                ? { node: this.leftAnchor, side: 'left' }
-                : { node: this.rightAnchor, side: 'right' };
+                ? { side: 'left', cordPos: leftPos }
+                : { side: 'right', cordPos: rightPos };
         }
 
         const topY = Math.max(leftPos.y, rightPos.y) - 20;
@@ -708,8 +739,8 @@ export default class CordRoundGame extends cc.Component {
 
         const useLeft = local.x < (leftPos.x + rightPos.x) * 0.5;
         return useLeft
-            ? { node: this.leftAnchor, side: 'left' }
-            : { node: this.rightAnchor, side: 'right' };
+            ? { side: 'left', cordPos: leftPos }
+            : { side: 'right', cordPos: rightPos };
     }
 
     private getPlateCharmAt(screenPos: cc.Vec2): cc.Node {
