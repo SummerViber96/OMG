@@ -14860,8 +14860,8 @@
     "relativePath": "Bracelet\\script\\CharmGame.ts"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1781772570856,
-    "meta": 1781772570874,
+    "asset": 1781773543274,
+    "meta": 1781773543299,
     "relativePath": "scenes\\Bracelet.fire"
   },
   "df87c12d-9eb3-4a2b-a256-16bbd0291665": {
@@ -14870,13 +14870,13 @@
     "relativePath": "Bracelet\\script\\CharmItem.ts"
   },
   "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
-    "asset": 1781772306468,
-    "meta": 1781772319343,
+    "asset": 1781773451767,
+    "meta": 1781773471716,
     "relativePath": "Bracelet\\script\\CordRoundGame.ts"
   },
   "d1cd0f07-9e7c-46b4-8be9-ded12fe9bd91": {
-    "asset": 1781772562856,
-    "meta": 1781772565386,
+    "asset": 1781773540917,
+    "meta": 1781773542880,
     "relativePath": "Bracelet\\script\\Bracelet.ts"
   }
 }

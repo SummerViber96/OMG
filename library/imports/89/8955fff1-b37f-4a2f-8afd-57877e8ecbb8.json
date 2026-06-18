@@ -26461,6 +26461,7 @@
     "pathPullDamping": 16,
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
+    "charmSlotSpacing": 165,
     "btnOk": {
       "__id__": 629
     },
@@ -33208,6 +33209,7 @@
     "pathPullDamping": 16,
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
+    "charmSlotSpacing": 165,
     "btnOk": {
       "__id__": 629
     },

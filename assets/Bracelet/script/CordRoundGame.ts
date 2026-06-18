@@ -61,6 +61,9 @@ export default class CordRoundGame extends cc.Component {
     @property
     pivotColliderRadius: number = 8;
 
+    @property
+    charmSlotSpacing: number = 130;
+
     private activeCord: cc.Node = null;
     private cordPaths: Map<cc.Node, CordPathData> = new Map();
     private preparedCords: cc.Node[] = [];
@@ -317,9 +320,7 @@ export default class CordRoundGame extends cc.Component {
 
         const charm = this.draggingCharm;
         const charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
-        const dropAnchor = this.dragSnapSide
-            ? this.getDropAnchorForSide(this.dragSnapSide)
-            : this.getDropAnchor(charmWorld);
+        const dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide);
         if (dropAnchor) {
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
@@ -385,6 +386,8 @@ export default class CordRoundGame extends cc.Component {
     }
 
     private threadCharmOntoCord(charm: cc.Node, dropAnchor: DropAnchor) {
+        if (!this.canDropOnSide(dropAnchor.side)) return;
+
         const path = this.cordPaths.get(this.activeCord);
         if (!path) return;
 
@@ -740,6 +743,155 @@ export default class CordRoundGame extends cc.Component {
         return angle;
     }
 
+    private getSideMaxSlideDistance(): number {
+        const path = this.cordPaths.get(this.activeCord);
+        if (!path) return 0;
+        return path.totalLength * 0.52;
+    }
+
+    private measurePathDistanceFromEntry(side: CordSide, pos: cc.Vec2, pathDir?: number): number {
+        const path = this.cordPaths.get(this.activeCord);
+        const anchors = this.getCordAnchorPositions();
+        if (!path || !anchors) return 0;
+
+        const entry = side === 'left' ? anchors.left : anchors.right;
+        const entryIndex = this.findNearestPathIndex(path.points, entry);
+        const dir = pathDir !== undefined
+            ? pathDir
+            : this.pickPathDirection(path.points, entryIndex, side);
+
+        return this.getDistanceAlongPath(path.points, entryIndex, dir, pos);
+    }
+
+    private getCharmPathDistance(state: CordCharmState): number {
+        if (!state.pivot) return state.pathDistance;
+        const pos = cc.v2(state.pivot.x, state.pivot.y);
+        return this.measurePathDistanceFromEntry(state.side, pos, state.pathDir);
+    }
+
+    private getCharmsOnSide(side: CordSide): CordCharmState[] {
+        const result: CordCharmState[] = [];
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            if (this.cordCharms[i].side === side) {
+                result.push(this.cordCharms[i]);
+            }
+        }
+        return result;
+    }
+
+    private getMinPathDistanceOnSide(side: CordSide): number {
+        const onSide = this.getCharmsOnSide(side);
+        if (onSide.length === 0) return Number.MAX_VALUE;
+
+        let minDist = Number.MAX_VALUE;
+        for (let i = 0; i < onSide.length; i++) {
+            const d = this.getCharmPathDistance(onSide[i]);
+            if (d < minDist) {
+                minDist = d;
+            }
+        }
+        return minDist;
+    }
+
+    private canDropOnSide(side: CordSide): boolean {
+        const onSide = this.getCharmsOnSide(side);
+        if (onSide.length === 0) return true;
+
+        return this.getMinPathDistanceOnSide(side) >= this.charmSlotSpacing;
+    }
+
+    private pickAvailableSide(
+        nearLeft: boolean,
+        nearRight: boolean,
+        distLeft: number,
+        distRight: number,
+        preferLeft?: boolean
+    ): CordSide | null {
+        const candidates: { side: CordSide; dist: number }[] = [];
+        if (nearLeft) candidates.push({ side: 'left', dist: distLeft });
+        if (nearRight) candidates.push({ side: 'right', dist: distRight });
+
+        if (candidates.length === 0) return null;
+
+        candidates.sort((a, b) => {
+            if (preferLeft !== undefined) {
+                const aPref = (a.side === 'left') === preferLeft ? 0 : 1;
+                const bPref = (b.side === 'left') === preferLeft ? 0 : 1;
+                if (aPref !== bPref) return aPref - bPref;
+            }
+            return a.dist - b.dist;
+        });
+
+        for (let i = 0; i < candidates.length; i++) {
+            if (this.canDropOnSide(candidates[i].side)) {
+                return candidates[i].side;
+            }
+        }
+        return null;
+    }
+
+    private resolveDropAnchor(worldPos: cc.Vec2, preferredSide: CordSide = null): DropAnchor | null {
+        if (!this.activeCord) return null;
+
+        const anchors = this.getCordAnchorPositions();
+        if (!anchors) return null;
+
+        const local = this.activeCord.convertToNodeSpaceAR(worldPos);
+        const leftPos = anchors.left;
+        const rightPos = anchors.right;
+
+        const distLeft = cc.v2(local.x - leftPos.x, local.y - leftPos.y).mag();
+        const distRight = cc.v2(local.x - rightPos.x, local.y - rightPos.y).mag();
+        const nearLeft = distLeft <= this.entryDetectRadius;
+        const nearRight = distRight <= this.entryDetectRadius;
+        const preferLeft = local.x < (leftPos.x + rightPos.x) * 0.5;
+        const preferSide: CordSide = preferLeft ? 'left' : 'right';
+
+        if (preferredSide && this.canDropOnSide(preferredSide)) {
+            return {
+                side: preferredSide,
+                cordPos: preferredSide === 'left' ? leftPos : rightPos,
+            };
+        }
+
+        if (preferredSide && !this.canDropOnSide(preferredSide)) {
+            const alt: CordSide = preferSide;
+            if (alt !== preferredSide && this.canDropOnSide(alt)) {
+                return {
+                    side: alt,
+                    cordPos: alt === 'left' ? leftPos : rightPos,
+                };
+            }
+        }
+
+        if (nearLeft || nearRight) {
+            const side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight);
+            if (side) {
+                return {
+                    side,
+                    cordPos: side === 'left' ? leftPos : rightPos,
+                };
+            }
+        }
+
+        const topY = Math.max(leftPos.y, rightPos.y) - 20;
+        const minX = Math.min(leftPos.x, rightPos.x) - 30;
+        const maxX = Math.max(leftPos.x, rightPos.x) + 30;
+        const inTopZone = local.y >= topY - this.entryDetectRadius
+            && local.x >= minX
+            && local.x <= maxX;
+
+        if (!inTopZone) return null;
+
+        const side = this.pickAvailableSide(true, true, distLeft, distRight, preferLeft);
+        if (!side) return null;
+
+        return {
+            side,
+            cordPos: side === 'left' ? leftPos : rightPos,
+        };
+    }
+
     private getLocalBoxSnapPose(side: CordSide): { pos: cc.Vec3; angle: number } | null {
         const children = this.getLocalBoxSideChildren();
         if (!children) return null;
@@ -770,14 +922,33 @@ export default class CordRoundGame extends cc.Component {
         const nearLeft = distLeft <= this.entryDetectRadius;
         const nearRight = distRight <= this.entryDetectRadius;
 
+        let side: CordSide = null;
         if (nearLeft || nearRight) {
-            const side: CordSide = nearLeft && nearRight
-                ? (distLeft <= distRight ? 'left' : 'right')
-                : (nearLeft ? 'left' : 'right');
-            const snap = this.getLocalBoxSnapPose(side);
-            if (snap) {
-                return { pos: snap.pos, angle: snap.angle, side };
+            side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight);
+        } else {
+            const cordLocal = this.activeCord.convertToNodeSpaceAR(
+                main.convertToWorldSpaceAR(cc.v2(mainPos.x, mainPos.y))
+            );
+            const leftPos = anchors.left;
+            const rightPos = anchors.right;
+            const topY = Math.max(leftPos.y, rightPos.y) - 20;
+            const minX = Math.min(leftPos.x, rightPos.x) - 30;
+            const maxX = Math.max(leftPos.x, rightPos.x) + 30;
+            const inTopZone = cordLocal.y >= topY - this.entryDetectRadius
+                && cordLocal.x >= minX
+                && cordLocal.x <= maxX;
+
+            if (inTopZone) {
+                const preferLeft = cordLocal.x < (leftPos.x + rightPos.x) * 0.5;
+                side = this.pickAvailableSide(true, true, distLeft, distRight, preferLeft);
             }
+        }
+
+        if (!side) return null;
+
+        const snap = this.getLocalBoxSnapPose(side);
+        if (snap) {
+            return { pos: snap.pos, angle: snap.angle, side };
         }
         return null;
     }
@@ -829,53 +1000,14 @@ export default class CordRoundGame extends cc.Component {
     }
 
     private getDropAnchorForSide(side: CordSide): DropAnchor | null {
+        if (!this.canDropOnSide(side)) return null;
+
         const anchors = this.getCordAnchorPositions();
         if (!anchors) return null;
         return {
             side,
             cordPos: side === 'left' ? anchors.left : anchors.right,
         };
-    }
-
-    private getDropAnchor(worldPos: cc.Vec2): DropAnchor | null {
-        if (!this.activeCord) return null;
-
-        const anchors = this.getCordAnchorPositions();
-        if (!anchors) return null;
-
-        const local = this.activeCord.convertToNodeSpaceAR(worldPos);
-        const leftPos = anchors.left;
-        const rightPos = anchors.right;
-
-        const distLeft = cc.v2(local.x - leftPos.x, local.y - leftPos.y).mag();
-        const distRight = cc.v2(local.x - rightPos.x, local.y - rightPos.y).mag();
-        const nearLeft = distLeft <= this.entryDetectRadius;
-        const nearRight = distRight <= this.entryDetectRadius;
-
-        if (nearLeft || nearRight) {
-            if (nearLeft && nearRight) {
-                return distLeft <= distRight
-                    ? { side: 'left', cordPos: leftPos }
-                    : { side: 'right', cordPos: rightPos };
-            }
-            return nearLeft
-                ? { side: 'left', cordPos: leftPos }
-                : { side: 'right', cordPos: rightPos };
-        }
-
-        const topY = Math.max(leftPos.y, rightPos.y) - 20;
-        const minX = Math.min(leftPos.x, rightPos.x) - 30;
-        const maxX = Math.max(leftPos.x, rightPos.x) + 30;
-        const inTopZone = local.y >= topY - this.entryDetectRadius
-            && local.x >= minX
-            && local.x <= maxX;
-
-        if (!inTopZone) return null;
-
-        const useLeft = local.x < (leftPos.x + rightPos.x) * 0.5;
-        return useLeft
-            ? { side: 'left', cordPos: leftPos }
-            : { side: 'right', cordPos: rightPos };
     }
 
     private getPlateCharmAt(screenPos: cc.Vec2): cc.Node {
