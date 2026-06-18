@@ -26457,6 +26457,7 @@
     "slideGravity": 320,
     "maxSlideSpeed": 280,
     "pathPullStrength": 420,
+    "pathPullDamping": 16,
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
     "btnOk": {
@@ -33203,6 +33204,7 @@
     "slideGravity": 320,
     "maxSlideSpeed": 280,
     "pathPullStrength": 420,
+    "pathPullDamping": 16,
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
     "btnOk": {
@@ -36068,6 +36070,9 @@
       "__id__": 2
     },
     "_enabled": true,
+    "soundWin": {
+      "__uuid__": "b4c68f96-0f67-48b9-8429-14bb5865926c"
+    },
     "scene1": {
       "__id__": 735
     },

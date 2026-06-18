@@ -37,6 +37,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.slideGravity = 320;
         _this.maxSlideSpeed = 280;
         _this.pathPullStrength = 420;
+        _this.pathPullDamping = 16;
         _this.settleSpeed = 22;
         _this.pivotColliderRadius = 8;
         _this.activeCord = null;
@@ -287,19 +288,34 @@ var CordRoundGame = /** @class */ (function (_super) {
             this.isTargetHind = null;
         }
     };
+    CordRoundGame.prototype.setCharmPlatePhysics = function (charm, enabled) {
+        var body = charm.getComponent(cc.RigidBody);
+        if (body) {
+            body.linearVelocity = cc.v2(0, 0);
+            body.angularVelocity = 0;
+            if (enabled) {
+                body.enabled = true;
+                body.active = true;
+                body.type = cc.RigidBodyType.Dynamic;
+                body.gravityScale = 0;
+                body.awake = true;
+            }
+            else {
+                body.enabled = false;
+                body.active = false;
+            }
+        }
+        var collider = charm.getComponent(cc.PhysicsPolygonCollider);
+        if (collider) {
+            collider.enabled = enabled;
+        }
+    };
     CordRoundGame.prototype.startDrag = function (charm, screenPos) {
         this.draggingCharm = charm;
         this.dragOriginParent = charm.parent;
         this.dragOriginPos = charm.position.clone();
         this.dragOriginSiblingIndex = charm.getSiblingIndex();
-        var body = charm.getComponent(cc.RigidBody);
-        if (body) {
-            body.linearVelocity = cc.v2(0, 0);
-            body.angularVelocity = 0;
-            body.gravityScale = 0;
-            body.type = cc.RigidBodyType.Kinematic;
-            body.awake = true;
-        }
+        this.setCharmPlatePhysics(charm, false);
         var worldPos = charm.parent.convertToWorldSpaceAR(charm.position);
         var main = this.getMainNode();
         charm.parent = main;
@@ -311,13 +327,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         charm.parent = this.dragOriginParent;
         charm.setPosition(this.dragOriginPos);
         charm.setSiblingIndex(this.dragOriginSiblingIndex);
-        var body = charm.getComponent(cc.RigidBody);
-        if (body) {
-            body.type = cc.RigidBodyType.Dynamic;
-            body.gravityScale = 0;
-            body.linearVelocity = cc.v2(0, 0);
-            body.angularVelocity = 0;
-        }
+        this.setCharmPlatePhysics(charm, true);
     };
     CordRoundGame.prototype.threadCharmOntoCord = function (charm, dropAnchor) {
         var path = this.cordPaths.get(this.activeCord);
@@ -332,16 +342,21 @@ var CordRoundGame = /** @class */ (function (_super) {
         charm.angle = this.getLocalBoxHangAngle(dropAnchor.side);
         charm.children[0].scale = 0.8;
         var pivotBody = pivot.getComponent(cc.RigidBody);
+        var charmBody = charm.getComponent(cc.RigidBody);
         if (pivotBody) {
+            pivotBody.syncPosition(true);
+            pivotBody.linearVelocity = cc.v2(0, 0);
+            pivotBody.angularVelocity = 0;
             pivotBody.gravityScale = 1;
             pivotBody.allowSleep = false;
             pivotBody.awake = true;
             pivotBody.active = true;
             var tangent = this.getTangentAtIndex(path.points, startIndex, pathDir);
-            pivotBody.linearVelocity = tangent.mul(90);
+            pivotBody.linearVelocity = tangent.mul(75);
         }
-        var charmBody = charm.getComponent(cc.RigidBody);
         if (charmBody) {
+            charmBody.syncPosition(true);
+            charmBody.linearVelocity = cc.v2(0, 0);
             charmBody.angularVelocity = 0;
         }
         this.cordCharms.push({
@@ -375,7 +390,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         pivotBody.type = cc.RigidBodyType.Dynamic;
         pivotBody.gravityScale = 1;
-        pivotBody.linearDamping = 0.12;
+        pivotBody.linearDamping = 0.22;
         pivotBody.angularDamping = 1;
         pivotBody.fixedRotation = true;
         pivotBody.allowSleep = false;
@@ -391,10 +406,12 @@ var CordRoundGame = /** @class */ (function (_super) {
         if (!charmBody) {
             charmBody = charm.addComponent(cc.RigidBody);
         }
+        charmBody.enabled = true;
+        charmBody.active = true;
         charmBody.type = cc.RigidBodyType.Dynamic;
-        charmBody.gravityScale = 1;
-        charmBody.linearDamping = 0.05;
-        charmBody.angularDamping = 0.12;
+        charmBody.gravityScale = 0.85;
+        charmBody.linearDamping = 0.2;
+        charmBody.angularDamping = 0.45;
         charmBody.fixedRotation = false;
         charmBody.allowSleep = false;
         this.enableCharmPhysicsCollider(charm);
@@ -530,10 +547,20 @@ var CordRoundGame = /** @class */ (function (_super) {
         if (!state.settled) {
             var toPathX = onPath.nearest.x - pos.x;
             var toPathY = onPath.nearest.y - pos.y;
-            var vx = body.linearVelocity.x + toPathX * this.pathPullStrength * dt;
-            var vy = body.linearVelocity.y + toPathY * this.pathPullStrength * dt;
-            vx += tangent.x * this.slideGravity * dt;
-            vy += tangent.y * this.slideGravity * dt;
+            var tx = tangent.x;
+            var ty = tangent.y;
+            var nx = -ty;
+            var ny = tx;
+            var vel = body.linearVelocity;
+            var vTangent = vel.x * tx + vel.y * ty;
+            var vNormal = vel.x * nx + vel.y * ny;
+            var offsetNormal = toPathX * nx + toPathY * ny;
+            var newVTangent = vTangent + this.slideGravity * dt;
+            var newVNormal = vNormal
+                + offsetNormal * this.pathPullStrength * dt
+                - vNormal * this.pathPullDamping * dt;
+            var vx = tx * newVTangent + nx * newVNormal;
+            var vy = ty * newVTangent + ny * newVNormal;
             var speed_1 = Math.sqrt(vx * vx + vy * vy);
             if (speed_1 > this.maxSlideSpeed) {
                 var scale = this.maxSlideSpeed / speed_1;
@@ -546,9 +573,10 @@ var CordRoundGame = /** @class */ (function (_super) {
             }
         }
         var speed = body.linearVelocity.mag();
-        if (speed < this.settleSpeed) {
+        var minSlide = Math.min(24, this.getMaxSlideDistance(state) * 0.12);
+        if (speed < this.settleSpeed && state.pathDistance >= minSlide) {
             state.stillTime += dt;
-            if (state.stillTime >= 0.4) {
+            if (state.stillTime >= 0.35) {
                 state.settled = true;
             }
         }
@@ -557,12 +585,19 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         if (state.settled) {
             body.gravityScale = 0;
-            body.linearDamping = 1.2;
-            body.angularDamping = 0.8;
+            body.linearDamping = 1.8;
+            body.angularDamping = 1.2;
             body.allowSleep = true;
-            var holdX = (onPath.nearest.x - pos.x) * this.pathPullStrength * dt * 0.35;
-            var holdY = (onPath.nearest.y - pos.y) * this.pathPullStrength * dt * 0.35;
-            body.linearVelocity = cc.v2(body.linearVelocity.x + holdX, body.linearVelocity.y + holdY);
+            var toPathX = onPath.nearest.x - pos.x;
+            var toPathY = onPath.nearest.y - pos.y;
+            var holdDamp = this.pathPullDamping * 1.5;
+            body.linearVelocity = cc.v2(body.linearVelocity.x + toPathX * this.pathPullStrength * dt * 0.35 - body.linearVelocity.x * holdDamp * dt, body.linearVelocity.y + toPathY * this.pathPullStrength * dt * 0.35 - body.linearVelocity.y * holdDamp * dt);
+            var offset = Math.sqrt(toPathX * toPathX + toPathY * toPathY);
+            if (offset < 1.5 && body.linearVelocity.mag() < 8) {
+                body.linearVelocity = cc.v2(0, 0);
+                state.pivot.setPosition(cc.v3(onPath.nearest.x, onPath.nearest.y, 0));
+                body.syncPosition(true);
+            }
         }
     };
     CordRoundGame.prototype.getDistanceAlongPath = function (points, startIndex, dir, pos) {
@@ -783,6 +818,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property
     ], CordRoundGame.prototype, "pathPullStrength", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "pathPullDamping", void 0);
     __decorate([
         property
     ], CordRoundGame.prototype, "settleSpeed", void 0);

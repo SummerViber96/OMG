@@ -26457,6 +26457,7 @@
     "slideGravity": 320,
     "maxSlideSpeed": 280,
     "pathPullStrength": 420,
+    "pathPullDamping": 16,
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
     "btnOk": {
@@ -33203,6 +33204,7 @@
     "slideGravity": 320,
     "maxSlideSpeed": 280,
     "pathPullStrength": 420,
+    "pathPullDamping": 16,
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
     "btnOk": {

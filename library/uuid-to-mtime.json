@@ -14335,14 +14335,9 @@
     "relativePath": "Bracelet\\prefab\\preCharm8.prefab"
   },
   "ccbd547d-e510-4997-8e18-d9204d79b8fc": {
-    "asset": 1781764499686,
-    "meta": 1781764557485,
+    "asset": 1781769338879,
+    "meta": 1781769338888,
     "relativePath": "Bracelet\\prefab\\preCharm1.prefab"
-  },
-  "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1781765342536,
-    "meta": 1781765342555,
-    "relativePath": "scenes\\Bracelet.fire"
   },
   "8f4f83bb-1293-4557-bbed-9339181fcbf9": {
     "asset": 1781764498111,
@@ -14864,19 +14859,24 @@
     "meta": 1781764557728,
     "relativePath": "Bracelet\\script\\CharmGame.ts"
   },
+  "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
+    "asset": 1781772320060,
+    "meta": 1781772320078,
+    "relativePath": "scenes\\Bracelet.fire"
+  },
   "df87c12d-9eb3-4a2b-a256-16bbd0291665": {
-    "asset": 1781764499725,
-    "meta": 1781764557756,
+    "asset": 1781769248171,
+    "meta": 1781769250473,
     "relativePath": "Bracelet\\script\\CharmItem.ts"
   },
-  "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
-    "asset": 1781764499754,
-    "meta": 1781764558028,
-    "relativePath": "Bracelet\\script\\CordRoundGame.ts"
-  },
   "d1cd0f07-9e7c-46b4-8be9-ded12fe9bd91": {
-    "asset": 1781765383610,
-    "meta": 1781765385112,
+    "asset": 1781772316811,
+    "meta": 1781772319131,
     "relativePath": "Bracelet\\script\\Bracelet.ts"
+  },
+  "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
+    "asset": 1781772306468,
+    "meta": 1781772319343,
+    "relativePath": "Bracelet\\script\\CordRoundGame.ts"
   }
 }
