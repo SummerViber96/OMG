@@ -315,7 +315,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         var pivot = this.setupCharmHangRig(charm);
         pivot.parent = this.charmLayer;
         pivot.setPosition(cc.v3(startPose.x, startPose.y, 0));
-        charm.angle = 0;
+        charm.angle = this.getLocalBoxHangAngle(dropAnchor.side);
         charm.children[0].scale = 0.8;
         var pivotBody = pivot.getComponent(cc.RigidBody);
         if (pivotBody) {
@@ -328,7 +328,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         var charmBody = charm.getComponent(cc.RigidBody);
         if (charmBody) {
-            charmBody.angularVelocity = (Math.random() - 0.5) * 4;
+            charmBody.angularVelocity = 0;
         }
         this.cordCharms.push({
             pivot: pivot,
@@ -569,16 +569,33 @@ var CordRoundGame = /** @class */ (function (_super) {
         dist += cc.v2(pos.x - segA.x, pos.y - segA.y).mag();
         return dist;
     };
-    CordRoundGame.prototype.getLocalBoxAnchorPositions = function () {
-        if (!this.localBox || this.localBox.childrenCount < 2 || !this.activeCord)
+    CordRoundGame.prototype.getLocalBoxSideChildren = function () {
+        if (!this.localBox || this.localBox.childrenCount < 2)
             return null;
+        var leftByName = this.localBox.getChildByName('left');
+        var rightByName = this.localBox.getChildByName('right');
+        if (leftByName && rightByName) {
+            return { left: leftByName, right: rightByName };
+        }
         var childA = this.localBox.children[0];
         var childB = this.localBox.children[1];
-        var posA = this.activeCord.convertToNodeSpaceAR(childA.convertToWorldSpaceAR(cc.v2(0, 0)));
-        var posB = this.activeCord.convertToNodeSpaceAR(childB.convertToWorldSpaceAR(cc.v2(0, 0)));
-        return posA.x <= posB.x
-            ? { left: posA, right: posB }
-            : { left: posB, right: posA };
+        return childA.x <= childB.x
+            ? { left: childA, right: childB }
+            : { left: childB, right: childA };
+    };
+    CordRoundGame.prototype.getLocalBoxHangAngle = function (side) {
+        var children = this.getLocalBoxSideChildren();
+        if (!children)
+            return 0;
+        return side === 'left' ? children.left.angle : children.right.angle;
+    };
+    CordRoundGame.prototype.getLocalBoxAnchorPositions = function () {
+        var children = this.getLocalBoxSideChildren();
+        if (!children || !this.activeCord)
+            return null;
+        var posLeft = this.activeCord.convertToNodeSpaceAR(children.left.convertToWorldSpaceAR(cc.v2(0, 0)));
+        var posRight = this.activeCord.convertToNodeSpaceAR(children.right.convertToWorldSpaceAR(cc.v2(0, 0)));
+        return { left: posLeft, right: posRight };
     };
     CordRoundGame.prototype.getCordAnchorPositions = function () {
         var localBoxAnchors = this.getLocalBoxAnchorPositions();
