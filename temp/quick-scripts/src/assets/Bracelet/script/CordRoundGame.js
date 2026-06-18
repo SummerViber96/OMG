@@ -58,6 +58,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.activeTouchId = -1;
         _this.isActive = false;
         _this.touchBound = false;
+        _this.soundDrop = null;
         _this.btnOk = null;
         _this.hand3 = null;
         _this.localBox = null;
@@ -256,16 +257,15 @@ var CordRoundGame = /** @class */ (function (_super) {
             return;
         var touchPos = this.getMainLocalPos(event.getLocation());
         var snap = this.getDragSnapPose(touchPos);
-        if (snap) {
-            this.draggingCharm.setPosition(snap.pos);
-            this.draggingCharm.angle = snap.angle;
-            this.dragSnapSide = snap.side;
-        }
-        else {
-            this.draggingCharm.setPosition(touchPos);
-            this.draggingCharm.angle = 0;
-            this.dragSnapSide = null;
-        }
+        // if (snap) {
+        //     this.draggingCharm.setPosition(snap.pos);
+        //     this.draggingCharm.angle = snap.angle;
+        //     this.dragSnapSide = snap.side;
+        // } else {
+        this.draggingCharm.setPosition(touchPos);
+        this.draggingCharm.angle = 0;
+        this.dragSnapSide = null;
+        // }
     };
     CordRoundGame.prototype.onTouchEnd = function (event) {
         if (!this.isActive || event.getID() !== this.activeTouchId || !this.draggingCharm)
@@ -274,6 +274,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         var charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
         var dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide);
         if (dropAnchor) {
+            ccclass.audioEngine.play(this.soundDrop, false, 1);
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
             this.hand3.active = false;
@@ -1053,6 +1054,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property
     ], CordRoundGame.prototype, "hangOutwardStiffness", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], CordRoundGame.prototype, "soundDrop", void 0);
     __decorate([
         property(cc.Node)
     ], CordRoundGame.prototype, "btnOk", void 0);

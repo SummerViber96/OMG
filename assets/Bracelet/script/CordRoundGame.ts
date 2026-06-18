@@ -85,6 +85,8 @@ export default class CordRoundGame extends cc.Component {
     private activeTouchId: number = -1;
     private isActive: boolean = false;
     private touchBound: boolean = false;
+    @property(cc.AudioClip)
+    soundDrop: cc.AudioClip = null
     @property(cc.Node)
     btnOk: cc.Node = null;
     @property(cc.Node)
@@ -310,15 +312,15 @@ export default class CordRoundGame extends cc.Component {
 
         const touchPos = this.getMainLocalPos(event.getLocation());
         const snap = this.getDragSnapPose(touchPos);
-        if (snap) {
-            this.draggingCharm.setPosition(snap.pos);
-            this.draggingCharm.angle = snap.angle;
-            this.dragSnapSide = snap.side;
-        } else {
+        // if (snap) {
+        //     this.draggingCharm.setPosition(snap.pos);
+        //     this.draggingCharm.angle = snap.angle;
+        //     this.dragSnapSide = snap.side;
+        // } else {
             this.draggingCharm.setPosition(touchPos);
             this.draggingCharm.angle = 0;
             this.dragSnapSide = null;
-        }
+        // }
     }
 
     private onTouchEnd(event: cc.Event.EventTouch) {
@@ -328,6 +330,7 @@ export default class CordRoundGame extends cc.Component {
         const charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
         const dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide);
         if (dropAnchor) {
+            ccclass.audioEngine.play(this.soundDrop, false, 1)
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
             this.hand3.active = false;

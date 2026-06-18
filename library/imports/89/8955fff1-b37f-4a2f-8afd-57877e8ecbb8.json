@@ -6467,7 +6467,7 @@
       "ctor": "Float64Array",
       "array": [
         353.864,
-        -769.914,
+        -267.834,
         0,
         0,
         0,
@@ -21335,7 +21335,7 @@
       "ctor": "Float64Array",
       "array": [
         353.864,
-        -769.914,
+        -267.834,
         0,
         0,
         0,
@@ -26462,8 +26462,11 @@
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
     "charmSlotSpacing": 120,
-    "hangSwingLimit": 35,
+    "hangSwingLimit": 40,
     "hangOutwardStiffness": 14,
+    "soundDrop": {
+      "__uuid__": "442789a6-482d-4dad-86ad-bab6d3eb533f"
+    },
     "btnOk": {
       "__id__": 629
     },
@@ -33214,6 +33217,7 @@
     "charmSlotSpacing": 165,
     "hangSwingLimit": 32,
     "hangOutwardStiffness": 14,
+    "soundDrop": null,
     "btnOk": {
       "__id__": 629
     },

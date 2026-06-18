@@ -14864,19 +14864,19 @@
     "meta": 1781769250473,
     "relativePath": "Bracelet\\script\\CharmItem.ts"
   },
-  "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
-    "asset": 1781773869573,
-    "meta": 1781773888628,
-    "relativePath": "Bracelet\\script\\CordRoundGame.ts"
-  },
   "d1cd0f07-9e7c-46b4-8be9-ded12fe9bd91": {
     "asset": 1781774004481,
     "meta": 1781774006458,
     "relativePath": "Bracelet\\script\\Bracelet.ts"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1781776104016,
-    "meta": 1781776104033,
+    "asset": 1781778141394,
+    "meta": 1781778141435,
     "relativePath": "scenes\\Bracelet.fire"
+  },
+  "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
+    "asset": 1781778010916,
+    "meta": 1781778013432,
+    "relativePath": "Bracelet\\script\\CordRoundGame.ts"
   }
 }
