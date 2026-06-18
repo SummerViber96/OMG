@@ -67,13 +67,13 @@ var NewClass = /** @class */ (function (_super) {
         }
         this.addEndEventSpine();
     };
-    NewClass.prototype.showMission = function () {
+    NewClass.prototype.showMission = function (value) {
         this.isEnd = false;
         this.isSuccess = false;
         this.isAngry = false;
         this.isReadyForSell = true;
         cc.Tween.stopAllByTarget(this.pop);
-        this.pop.scale = 1;
+        this.pop.scale = 0;
         if (this.doneNode) {
             for (var i = 0; i < this.doneNode.childrenCount; i++) {
                 this.doneNode.children[i].active = false;
@@ -84,7 +84,9 @@ var NewClass = /** @class */ (function (_super) {
         if (this.soundHello) {
             cc.audioEngine.play(this.soundHello, false, this.volumHello);
         }
-        this.loadTime();
+        if (!value) {
+            this.loadTime();
+        }
     };
     NewClass.prototype.updateItem = function (id) {
         console.log("update item " + id);

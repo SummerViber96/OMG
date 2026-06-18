@@ -142,7 +142,7 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     hind1: cc.Node = null;
     @property(cc.Prefab)
-    listPreCUs:cc.Prefab[]=[]
+    listPreCUs: cc.Prefab[] = []
     mcComp = null
 
     // @property(cc.Node)
@@ -200,8 +200,8 @@ export default class NewClass extends cc.Component {
         });
         this.scheduleOnce(() => {
             cc.tween(this.notiMission).by(0.4, { opacity: -255, position: cc.v3(0, 200) }).call(() => {
-                this.notiMission.active = 
-                this.barMission.getComponent("barTime").countDown()
+                this.notiMission.active = true
+                // this.barMission.getComponent("barTime").countDown()
 
                 this.startGame()
             }).start()
@@ -223,13 +223,13 @@ export default class NewClass extends cc.Component {
         return this.cusCounterPos.clone().add(cc.v3(offsetX, 0, 0))
     }
 
-    showCounterMissions(count: number) {
+    showCounterMissions(count: number,value) {
         for (let i = 0; i < count && i < this.arrCus.length; i++) {
-            this.arrCus[i].getComponent("cusMission").showMission()
+            this.arrCus[i].getComponent("cusMission").showMission(value)
         }
     }
 
-    enterCustomers(count: number) {
+    enterCustomers(count: number, value) {
         this.counterCusCount = count
         let arrPos = [cc.v3(0, 0, 0)]
         if (count == 2) {
@@ -259,7 +259,10 @@ export default class NewClass extends cc.Component {
         }
 
         this.scheduleOnce(() => {
-            this.showCounterMissions(count)
+            // if (value != true) {
+                this.showCounterMissions(count,value)
+
+            // }
             if (count === 1 && this.arrCus.length > 0) {
                 this.isTargetCus = this.arrCus[0]
             }
@@ -283,11 +286,13 @@ export default class NewClass extends cc.Component {
     }
 
     replaceCustomer(departedCus: cc.Node, counterPos: cc.Vec3) {
+        if (this.isEndGame) return;
         let idx = this.arrCus.indexOf(departedCus)
 
         let newCus = this.spawnCustomerFromPrefab()
         if (!newCus) return
-
+        this.btnCake.getComponent(cc.Button).enabled = true;
+        this.btnPotato.getComponent(cc.Button).enabled = true;
         let newCusComp = newCus.getComponent("cusMission")
         if (newCusComp) {
             newCusComp.gamePlay = this
@@ -334,7 +339,7 @@ export default class NewClass extends cc.Component {
         for (let i = 1; i < this.arrCus.length; i++) {
             this.arrCus[i].active = false
         }
-        this.enterCustomers(1)
+        this.enterCustomers(1, true)
         this.scheduleOnce(() => {
             if (!this.isFirstClick) {
                 this.isFirstClick = true
@@ -354,6 +359,9 @@ export default class NewClass extends cc.Component {
         if (this.isMcBusy()) return;
         if (!this.isFistClickChicken) {
             this.isFistClickChicken = true
+            this.barMission.getComponent("barTime").countDown()
+            this.arrCus[0].getComponent("cusMission").loadTime()
+
             this.scheduleOnce(() => {
                 this.btnMachine.getChildByName("hind").active = true
             }, 2)
@@ -1075,7 +1083,7 @@ export default class NewClass extends cc.Component {
 
         }, 0.5)
         if (value == true) {
-            this.barTime.getComponent("barTime").endGame()
+            this.barMission.getComponent("barTime").endGame()
             this.amazing.active = true;
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
@@ -1084,7 +1092,7 @@ export default class NewClass extends cc.Component {
 
         }
         else {
-            this.barTime.getComponent("barTime").endGame()
+            this.barMission.getComponent("barTime").endGame()
             for (let child of this.arrCus) {
                 child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true)
             }

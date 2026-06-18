@@ -452,6 +452,12 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         var moveId = this.beginMove();
+        if (this.isAtPos(this.POS_CHICKEN)) {
+            this.node.scaleX = 1;
+            this.setInFrontOfTable();
+            this.spawChicken();
+            return;
+        }
         if (this.localId == 5) {
             this.startWalk(moveId, function () {
                 _this.node.scaleX = 1;
@@ -536,6 +542,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.moveToMachine = function () {
         var _this = this;
+        console.log(this.localId, "id game");
         var machine = this.gamePlay.btnMachine.getComponent("machine");
         var moveId = this.beginMove();
         this.setInFrontOfTable();
@@ -552,8 +559,9 @@ var NewClass = /** @class */ (function (_super) {
                     return;
                 }
                 this.startWalk(moveId, function () { }, function (t) { return t
-                    .to(0.4, { position: _this.getPos(_this.POS_CAKE) })
                     .call(function () { return _this.setBehindTable(); })
+                    .to(0.4, { position: _this.getPos(_this.POS_CHICKEN) })
+                    .call(function () { return _this.setInFrontOfTable(); })
                     .to(1, { position: _this.getPos(_this.POS_MACHINE) }); }, function () { return _this.pickupMachineChicken(machine); });
                 return;
             }

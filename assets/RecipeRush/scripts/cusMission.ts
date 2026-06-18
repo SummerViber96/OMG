@@ -65,14 +65,14 @@ export default class NewClass extends cc.Component {
         this.addEndEventSpine();
 
     }
-    showMission() {
+    showMission(value) {
         this.isEnd = false
         this.isSuccess = false
         this.isAngry = false
         this.isReadyForSell = true
 
         cc.Tween.stopAllByTarget(this.pop)
-        this.pop.scale = 1
+        this.pop.scale = 0
         if (this.doneNode) {
             for (let i = 0; i < this.doneNode.childrenCount; i++) {
                 this.doneNode.children[i].active = false
@@ -85,7 +85,10 @@ export default class NewClass extends cc.Component {
         if (this.soundHello) {
             cc.audioEngine.play(this.soundHello, false, this.volumHello)
         }
-        this.loadTime()
+        if(!value){
+            this.loadTime()
+
+        }
     }
     updateItem(id) {
         console.log("update item " + id)

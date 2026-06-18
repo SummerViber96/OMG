@@ -179,8 +179,8 @@ var NewClass = /** @class */ (function (_super) {
         });
         this.scheduleOnce(function () {
             cc.tween(_this.notiMission).by(0.4, { opacity: -255, position: cc.v3(0, 200) }).call(function () {
-                _this.notiMission.active =
-                    _this.barMission.getComponent("barTime").countDown();
+                _this.notiMission.active = true;
+                // this.barMission.getComponent("barTime").countDown()
                 _this.startGame();
             }).start();
         }, 1.5);
@@ -198,12 +198,12 @@ var NewClass = /** @class */ (function (_super) {
         var offsetX = (slot - (total - 1) / 2) * this.cusSlotGap;
         return this.cusCounterPos.clone().add(cc.v3(offsetX, 0, 0));
     };
-    NewClass.prototype.showCounterMissions = function (count) {
+    NewClass.prototype.showCounterMissions = function (count, value) {
         for (var i = 0; i < count && i < this.arrCus.length; i++) {
-            this.arrCus[i].getComponent("cusMission").showMission();
+            this.arrCus[i].getComponent("cusMission").showMission(value);
         }
     };
-    NewClass.prototype.enterCustomers = function (count) {
+    NewClass.prototype.enterCustomers = function (count, value) {
         var _this = this;
         this.counterCusCount = count;
         var arrPos = [cc.v3(0, 0, 0)];
@@ -231,7 +231,9 @@ var NewClass = /** @class */ (function (_super) {
                 .start();
         }
         this.scheduleOnce(function () {
-            _this.showCounterMissions(count);
+            // if (value != true) {
+            _this.showCounterMissions(count, value);
+            // }
             if (count === 1 && _this.arrCus.length > 0) {
                 _this.isTargetCus = _this.arrCus[0];
             }
@@ -256,10 +258,14 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.replaceCustomer = function (departedCus, counterPos) {
         var _this = this;
+        if (this.isEndGame)
+            return;
         var idx = this.arrCus.indexOf(departedCus);
         var newCus = this.spawnCustomerFromPrefab();
         if (!newCus)
             return;
+        this.btnCake.getComponent(cc.Button).enabled = true;
+        this.btnPotato.getComponent(cc.Button).enabled = true;
         var newCusComp = newCus.getComponent("cusMission");
         if (newCusComp) {
             newCusComp.gamePlay = this;
@@ -304,7 +310,7 @@ var NewClass = /** @class */ (function (_super) {
         for (var i = 1; i < this.arrCus.length; i++) {
             this.arrCus[i].active = false;
         }
-        this.enterCustomers(1);
+        this.enterCustomers(1, true);
         this.scheduleOnce(function () {
             if (!_this.isFirstClick) {
                 _this.isFirstClick = true;
@@ -321,6 +327,8 @@ var NewClass = /** @class */ (function (_super) {
             return;
         if (!this.isFistClickChicken) {
             this.isFistClickChicken = true;
+            this.barMission.getComponent("barTime").countDown();
+            this.arrCus[0].getComponent("cusMission").loadTime();
             this.scheduleOnce(function () {
                 _this.btnMachine.getChildByName("hind").active = true;
             }, 2);
@@ -934,14 +942,14 @@ var NewClass = /** @class */ (function (_super) {
             _this.updateResponsive();
         }, 0.5);
         if (value == true) {
-            this.barTime.getComponent("barTime").endGame();
+            this.barMission.getComponent("barTime").endGame();
             this.amazing.active = true;
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
         }
         else {
-            this.barTime.getComponent("barTime").endGame();
+            this.barMission.getComponent("barTime").endGame();
             for (var _i = 0, _a = this.arrCus; _i < _a.length; _i++) {
                 var child = _a[_i];
                 child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true);

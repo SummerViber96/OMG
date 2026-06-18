@@ -428,6 +428,12 @@ export default class NewClass extends cc.Component {
             return
         }
         let moveId = this.beginMove()
+        if (this.isAtPos(this.POS_CHICKEN)) {
+            this.node.scaleX = 1
+            this.setInFrontOfTable()
+            this.spawChicken()
+            return
+        }
         if (this.localId == 5) {
             this.startWalk(moveId, () => {
                 this.node.scaleX = 1
@@ -461,7 +467,7 @@ export default class NewClass extends cc.Component {
         let chicken = cc.instantiate(this.preChicken)
         this.putTrayItem(chicken, "chicken", slot)
         // if (this.localId == 0 || this.localId == 3 || this.localId == 4 || this.localId == 5) {
-            this.localId = 1
+        this.localId = 1
         // }
         this.finishMove()
     }
@@ -516,6 +522,7 @@ export default class NewClass extends cc.Component {
     }
 
     moveToMachine() {
+        console.log(this.localId, "id game");
         let machine = this.gamePlay.btnMachine.getComponent("machine")
         let moveId = this.beginMove()
         this.setInFrontOfTable()
@@ -534,8 +541,10 @@ export default class NewClass extends cc.Component {
                     return
                 }
                 this.startWalk(moveId, () => { }, t => t
-                    .to(0.4, { position: this.getPos(this.POS_CAKE) })
                     .call(() => this.setBehindTable())
+                    .to(0.4, { position: this.getPos(this.POS_CHICKEN) })
+                    .call(() => this.setInFrontOfTable())
+
                     .to(1, { position: this.getPos(this.POS_MACHINE) }),
                     () => this.pickupMachineChicken(machine))
                 return
@@ -610,7 +619,7 @@ export default class NewClass extends cc.Component {
         let moveId = this.beginMove()
         this.node.scaleX = -1
         this.setInFrontOfTable()
-        console.log(this.localId ,"id game");
+        console.log(this.localId, "id game");
         if (this.localId == 1) {
             this.setBehindTable()
             this.startWalk(moveId, () => { }, t => t.to(0.6, { position: this.getPos(this.POS_SELL) }), () => {
