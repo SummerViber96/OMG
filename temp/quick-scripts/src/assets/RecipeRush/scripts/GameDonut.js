@@ -347,6 +347,11 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_cola = function () {
         if (this.isMcBusy())
             return;
+        var cocaComp = this.btnCoca.getComponent("coca");
+        var canCook = !cocaComp.isBusy();
+        var canPickup = cocaComp.isCoca && this.mcComp.canPickItemType("coca");
+        if (!canCook && !canPickup)
+            return;
         this.isMoving = true;
         this.mcComp.moveToCoca();
     };

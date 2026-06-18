@@ -484,6 +484,18 @@ export default class NewClass extends cc.Component {
         return true
     }
 
+    pickupCoca(coca) {
+        if (!coca || !coca.isCoca) return false
+        coca.getCoca()
+        if (!this.canPickItemType("coca")) return false
+        let slot = this.preparePickupSlot("coca")
+        if (slot < 0) return false
+        let cocaItem = cc.instantiate(this.preCoca)
+        this.putTrayItem(cocaItem, "coca", slot)
+        this.localId = 4
+        return true
+    }
+
     fryTrayChicken(machine) {
         let slot = this.getRawTraySlot()
         if (slot < 0) {
@@ -668,34 +680,26 @@ export default class NewClass extends cc.Component {
     moveToCoca() {
         let moveId = this.beginMove()
         this.node.scaleX = -1
+        let cocaComp = this.gamePlay.btnCoca.getComponent("coca")
+
+        let onArriveAtCoca = () => {
+            if (!this.pickupCoca(cocaComp) && cocaComp && !cocaComp.isBusy()) {
+                cocaComp.cooking()
+            }
+            this.localId = 4
+            this.finishMove()
+        }
 
         if (this.localId == 1 || this.localId == 3 || this.localId == 5) {
             this.scheduleOnMove(0.6, moveId, () => {
                 this.setInFrontOfTable()
             })
-            this.startWalk(moveId, () => { }, t => t.to(0.8, { position: this.getPos(this.POS_COCA) }), () => {
-                let coca = this.gamePlay.btnCoca.getComponent("coca")
-                if (coca) coca.cooking()
-                this.localId = 4
-                this.finishMove()
-            })
+            this.startWalk(moveId, () => { }, t => t.to(0.8, { position: this.getPos(this.POS_COCA) }), onArriveAtCoca)
             return
         }
 
-        if (this.localId == 4 && this.gamePlay.btnCoca.getComponent("coca").isCoca) {
-            this.gamePlay.btnCoca.getComponent("coca").getCoca()
-            if (!this.canPickItemType("coca")) {
-                this.finishMove()
-                return
-            }
-            let slot = this.preparePickupSlot("coca")
-            if (slot < 0) {
-                this.finishMove()
-                return
-            }
-            let coca = cc.instantiate(this.preCoca)
-            this.putTrayItem(coca, "coca", slot)
-            this.localId = 4
+        if (this.localId == 4 && cocaComp.isCoca) {
+            this.pickupCoca(cocaComp)
             this.finishMove()
             return
         }
@@ -704,12 +708,7 @@ export default class NewClass extends cc.Component {
             this.startWalk(moveId, () => { }, t => t
                 .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(() => this.setBehindTable())
-                .to(0.8, { position: this.getPos(this.POS_COCA) }), () => {
-                    let coca = this.gamePlay.btnCoca.getComponent("coca")
-                    if (coca) coca.cooking()
-                    this.localId = 4
-                    this.finishMove()
-                })
+                .to(0.8, { position: this.getPos(this.POS_COCA) }), onArriveAtCoca)
             return
         }
 

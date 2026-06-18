@@ -379,6 +379,10 @@ export default class NewClass extends cc.Component {
     }
     btn_cola() {
         if (this.isMcBusy()) return;
+        let cocaComp = this.btnCoca.getComponent("coca")
+        let canCook = !cocaComp.isBusy()
+        let canPickup = cocaComp.isCoca && this.mcComp.canPickItemType("coca")
+        if (!canCook && !canPickup) return;
         this.isMoving = true
         this.mcComp.moveToCoca()
     }

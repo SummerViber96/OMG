@@ -12,12 +12,20 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     clock: cc.Node = null
     isCoca = false;
+    isCooking = false
+    isChin = false
     time = 0.8
 
     start() {
 
     }
+    isBusy() {
+        return this.isCooking || this.isCoca
+    }
     cooking() {
+        if (this.isBusy()) return
+        this.isCooking = true
+        this.isChin = false
         this.anim.setAnimation(0, "lv2-active", false);
    
 
@@ -25,6 +33,7 @@ export default class NewClass extends cc.Component {
         this.fillTime.fillRange = 0
         cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(() => {
             this.clock.active = false
+            this.isCooking = false
             this.isChin = true
             this.readyCoca()
         }).start();
@@ -37,6 +46,7 @@ export default class NewClass extends cc.Component {
     getCoca() {
         this.anim.setAnimation(0, "lv2-idle", false);
 
+        this.isChin = false
         this.isCoca = false
     }
     // update (dt) {}

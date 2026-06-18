@@ -502,6 +502,20 @@ var NewClass = /** @class */ (function (_super) {
         this.finishMove();
         return true;
     };
+    NewClass.prototype.pickupCoca = function (coca) {
+        if (!coca || !coca.isCoca)
+            return false;
+        coca.getCoca();
+        if (!this.canPickItemType("coca"))
+            return false;
+        var slot = this.preparePickupSlot("coca");
+        if (slot < 0)
+            return false;
+        var cocaItem = cc.instantiate(this.preCoca);
+        this.putTrayItem(cocaItem, "coca", slot);
+        this.localId = 4;
+        return true;
+    };
     NewClass.prototype.fryTrayChicken = function (machine) {
         var slot = this.getRawTraySlot();
         if (slot < 0) {
@@ -684,33 +698,23 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         var moveId = this.beginMove();
         this.node.scaleX = -1;
+        var cocaComp = this.gamePlay.btnCoca.getComponent("coca");
+        var onArriveAtCoca = function () {
+            if (!_this.pickupCoca(cocaComp) && cocaComp && !cocaComp.isBusy()) {
+                cocaComp.cooking();
+            }
+            _this.localId = 4;
+            _this.finishMove();
+        };
         if (this.localId == 1 || this.localId == 3 || this.localId == 5) {
             this.scheduleOnMove(0.6, moveId, function () {
                 _this.setInFrontOfTable();
             });
-            this.startWalk(moveId, function () { }, function (t) { return t.to(0.8, { position: _this.getPos(_this.POS_COCA) }); }, function () {
-                var coca = _this.gamePlay.btnCoca.getComponent("coca");
-                if (coca)
-                    coca.cooking();
-                _this.localId = 4;
-                _this.finishMove();
-            });
+            this.startWalk(moveId, function () { }, function (t) { return t.to(0.8, { position: _this.getPos(_this.POS_COCA) }); }, onArriveAtCoca);
             return;
         }
-        if (this.localId == 4 && this.gamePlay.btnCoca.getComponent("coca").isCoca) {
-            this.gamePlay.btnCoca.getComponent("coca").getCoca();
-            if (!this.canPickItemType("coca")) {
-                this.finishMove();
-                return;
-            }
-            var slot = this.preparePickupSlot("coca");
-            if (slot < 0) {
-                this.finishMove();
-                return;
-            }
-            var coca = cc.instantiate(this.preCoca);
-            this.putTrayItem(coca, "coca", slot);
-            this.localId = 4;
+        if (this.localId == 4 && cocaComp.isCoca) {
+            this.pickupCoca(cocaComp);
             this.finishMove();
             return;
         }
@@ -718,13 +722,7 @@ var NewClass = /** @class */ (function (_super) {
             this.startWalk(moveId, function () { }, function (t) { return t
                 .to(1, { position: _this.getPos(_this.POS_CHICKEN) })
                 .call(function () { return _this.setBehindTable(); })
-                .to(0.8, { position: _this.getPos(_this.POS_COCA) }); }, function () {
-                var coca = _this.gamePlay.btnCoca.getComponent("coca");
-                if (coca)
-                    coca.cooking();
-                _this.localId = 4;
-                _this.finishMove();
-            });
+                .to(0.8, { position: _this.getPos(_this.POS_COCA) }); }, onArriveAtCoca);
             return;
         }
         this.finishMove();

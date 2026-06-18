@@ -12534,11 +12534,6 @@
     "meta": 1781761078151,
     "relativePath": "scenes\\Donut1.fire"
   },
-  "0549bd95-a906-4ef2-a0bb-71372ccd1bc5": {
-    "asset": 1781058250993,
-    "meta": 1781761074938,
-    "relativePath": "RecipeRush\\scripts\\coca.ts"
-  },
   "7cd54691-d131-4805-b66f-9f5ded80502c": {
     "asset": 1781059390050,
     "meta": 1781761078040,
@@ -12619,19 +12614,24 @@
     "meta": 1781761075022,
     "relativePath": "RecipeRush\\scripts\\cusMission.ts"
   },
-  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1781761290529,
-    "meta": 1781761309497,
-    "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
-  },
   "c384d263-b1dc-4837-a1fb-1c44810ce336": {
     "asset": 1781761286409,
     "meta": 1781761309531,
     "relativePath": "RecipeRush\\scripts\\machine.ts"
   },
+  "0549bd95-a906-4ef2-a0bb-71372ccd1bc5": {
+    "asset": 1781761518994,
+    "meta": 1781761539566,
+    "relativePath": "RecipeRush\\scripts\\coca.ts"
+  },
+  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
+    "asset": 1781761658293,
+    "meta": 1781761681250,
+    "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
+  },
   "57915beb-7cae-42a5-8af6-5a90b22a2187": {
-    "asset": 1781761307406,
-    "meta": 1781761309698,
+    "asset": 1781761679413,
+    "meta": 1781761681392,
     "relativePath": "RecipeRush\\scripts\\mc.ts"
   }
 }

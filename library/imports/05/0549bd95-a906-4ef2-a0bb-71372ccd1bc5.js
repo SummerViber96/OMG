@@ -32,19 +32,29 @@ var NewClass = /** @class */ (function (_super) {
         _this.fillTime = null;
         _this.clock = null;
         _this.isCoca = false;
+        _this.isCooking = false;
+        _this.isChin = false;
         _this.time = 0.8;
         return _this;
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
     };
+    NewClass.prototype.isBusy = function () {
+        return this.isCooking || this.isCoca;
+    };
     NewClass.prototype.cooking = function () {
         var _this = this;
+        if (this.isBusy())
+            return;
+        this.isCooking = true;
+        this.isChin = false;
         this.anim.setAnimation(0, "lv2-active", false);
         this.clock.active = true;
         this.fillTime.fillRange = 0;
         cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(function () {
             _this.clock.active = false;
+            _this.isCooking = false;
             _this.isChin = true;
             _this.readyCoca();
         }).start();
@@ -55,6 +65,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.getCoca = function () {
         this.anim.setAnimation(0, "lv2-idle", false);
+        this.isChin = false;
         this.isCoca = false;
     };
     __decorate([
