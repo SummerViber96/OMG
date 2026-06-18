@@ -4,6 +4,8 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
+    @property(cc.AudioClip)
+    soundWin: cc.AudioClip = null
 
     @property(cc.Node)
     scene1: cc.Node = null
@@ -41,7 +43,7 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     phaoho: cc.Node = null
     @property(cc.AudioClip)
-    soundClick:cc.AudioClip=null
+    soundClick: cc.AudioClip = null
     @property(cc.Node)
     handCard: cc.Node = null
     // @property(cc.Node)
@@ -51,7 +53,7 @@ export default class NewClass extends cc.Component {
         cc.director.getPhysicsManager().gravity = cc.v2();
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;
-            cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
+        cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
 
     }
     start() {
@@ -62,7 +64,7 @@ export default class NewClass extends cc.Component {
 
     btn_startGame() {
         this.scene2.active = true
-        cc.audioEngine.play(this.soundClick,false,1)
+        cc.audioEngine.play(this.soundClick, false, 1)
         cc.tween(this.scene1).to(0.4, { opacity: 0 }).call(() => {
             this.scene1.active = false
             this.hand2.active = true
@@ -70,7 +72,7 @@ export default class NewClass extends cc.Component {
     }
     btn_cord(event) {
         let btn = event.currentTarget;
-                cc.audioEngine.play(this.soundClick,false,1)
+        cc.audioEngine.play(this.soundClick, false, 1)
 
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
@@ -83,7 +85,7 @@ export default class NewClass extends cc.Component {
     }
     btn_cord2(event) {
         let btn = event.currentTarget;
-                cc.audioEngine.play(this.soundClick,false,1)
+        cc.audioEngine.play(this.soundClick, false, 1)
 
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
@@ -121,7 +123,7 @@ export default class NewClass extends cc.Component {
     }
     btn_cord3(event) {
         let btn = event.currentTarget;
-                cc.audioEngine.play(this.soundClick,false,1)
+        cc.audioEngine.play(this.soundClick, false, 1)
 
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
@@ -145,7 +147,7 @@ export default class NewClass extends cc.Component {
     }
     btn_choseCard(event, value) {
         this.btnOk4.active = true;
-                cc.audioEngine.play(this.soundClick,false,1)
+        cc.audioEngine.play(this.soundClick, false, 1)
 
         for (let child of this.listPet.children) {
             child.active = false;
@@ -170,7 +172,7 @@ export default class NewClass extends cc.Component {
     }
     btn_ok4(event) {
         let btn = event.currentTarget;
-                cc.audioEngine.play(this.soundClick,false,1)
+        cc.audioEngine.play(this.soundClick, false, 1)
 
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
@@ -181,6 +183,7 @@ export default class NewClass extends cc.Component {
         }, 1)
     }
     endGame() {
+        cc.audioEngine.play(this.soundWin, false, 1)
         this.endGameNode.active = true;
         this.linkToStore.active = true;
     }

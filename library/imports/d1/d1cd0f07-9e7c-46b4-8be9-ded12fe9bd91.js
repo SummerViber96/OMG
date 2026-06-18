@@ -30,6 +30,7 @@ var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.soundWin = null;
         _this.scene1 = null;
         _this.scene2 = null;
         _this.stringNode = null;
@@ -180,9 +181,13 @@ var NewClass = /** @class */ (function (_super) {
         }, 1);
     };
     NewClass.prototype.endGame = function () {
+        cc.audioEngine.play(this.soundWin, false, 1);
         this.endGameNode.active = true;
         this.linkToStore.active = true;
     };
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundWin", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "scene1", void 0);
