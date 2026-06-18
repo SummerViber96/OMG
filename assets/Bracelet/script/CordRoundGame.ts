@@ -66,6 +66,7 @@ export default class CordRoundGame extends cc.Component {
     private charmLayer: cc.Node = null;
     private cordCharms: CordCharmState[] = [];
     private draggingCharm: cc.Node = null;
+    private dragSnapSide: CordSide = null;
     private dragOriginParent: cc.Node = null;
     private dragOriginPos: cc.Vec3 = null;
     private dragOriginSiblingIndex: number = 0;
@@ -294,7 +295,18 @@ export default class CordRoundGame extends cc.Component {
 
     private onTouchMove(event: cc.Event.EventTouch) {
         if (!this.isActive || event.getID() !== this.activeTouchId || !this.draggingCharm) return;
-        this.draggingCharm.setPosition(this.getMainLocalPos(event.getLocation()));
+
+        const touchPos = this.getMainLocalPos(event.getLocation());
+        const snap = this.getDragSnapPose(touchPos);
+        if (snap) {
+            this.draggingCharm.setPosition(snap.pos);
+            this.draggingCharm.angle = snap.angle;
+            this.dragSnapSide = snap.side;
+        } else {
+            this.draggingCharm.setPosition(touchPos);
+            this.draggingCharm.angle = 0;
+            this.dragSnapSide = null;
+        }
     }
 
     private onTouchEnd(event: cc.Event.EventTouch) {
@@ -302,7 +314,9 @@ export default class CordRoundGame extends cc.Component {
 
         const charm = this.draggingCharm;
         const charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
-        const dropAnchor = this.getDropAnchor(charmWorld);
+        const dropAnchor = this.dragSnapSide
+            ? this.getDropAnchorForSide(this.dragSnapSide)
+            : this.getDropAnchor(charmWorld);
         if (dropAnchor) {
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
@@ -312,6 +326,7 @@ export default class CordRoundGame extends cc.Component {
         }
 
         this.draggingCharm = null;
+        this.dragSnapSide = null;
         this.activeTouchId = -1;
         if (this.isTargetHind) {
             this.isTargetHind.active = false;
@@ -363,11 +378,10 @@ export default class CordRoundGame extends cc.Component {
         const anchorPos = dropAnchor.cordPos;
         const startIndex = this.findNearestPathIndex(path.points, anchorPos);
         const pathDir = this.pickPathDirection(path.points, startIndex, dropAnchor.side);
-        const startPose = this.getPoseOnPath(path.points, startIndex, pathDir, 0);
 
         const pivot = this.setupCharmHangRig(charm);
         pivot.parent = this.charmLayer;
-        pivot.setPosition(cc.v3(startPose.x, startPose.y, 0));
+        pivot.setPosition(cc.v3(anchorPos.x, anchorPos.y, 0));
         charm.angle = this.getLocalBoxHangAngle(dropAnchor.side);
         charm.children[0].scale = 0.8;
         const pivotBody = pivot.getComponent(cc.RigidBody);
@@ -674,6 +688,58 @@ export default class CordRoundGame extends cc.Component {
         return dist;
     }
 
+    private getAngleInNodeSpace(node: cc.Node, root: cc.Node): number {
+        let angle = node.angle;
+        let parent = node.parent;
+        while (parent && parent !== root) {
+            angle += parent.angle;
+            parent = parent.parent;
+        }
+        return angle;
+    }
+
+    private getLocalBoxSnapPose(side: CordSide): { pos: cc.Vec3; angle: number } | null {
+        const children = this.getLocalBoxSideChildren();
+        if (!children) return null;
+
+        const target = side === 'left' ? children.left : children.right;
+        const main = this.getMainNode();
+        const local = main.convertToNodeSpaceAR(target.convertToWorldSpaceAR(cc.v2(0, 0)));
+        return {
+            pos: cc.v3(local.x, local.y, 0),
+            angle: this.getAngleInNodeSpace(target, main),
+        };
+    }
+
+    private getDragSnapPose(mainPos: cc.Vec3): { pos: cc.Vec3; angle: number; side: CordSide } | null {
+        const anchors = this.getCordAnchorPositions();
+        if (!anchors || !this.activeCord) return null;
+
+        const main = this.getMainNode();
+        const leftMain = main.convertToNodeSpaceAR(
+            this.activeCord.convertToWorldSpaceAR(anchors.left)
+        );
+        const rightMain = main.convertToNodeSpaceAR(
+            this.activeCord.convertToWorldSpaceAR(anchors.right)
+        );
+
+        const distLeft = cc.v2(mainPos.x - leftMain.x, mainPos.y - leftMain.y).mag();
+        const distRight = cc.v2(mainPos.x - rightMain.x, mainPos.y - rightMain.y).mag();
+        const nearLeft = distLeft <= this.entryDetectRadius;
+        const nearRight = distRight <= this.entryDetectRadius;
+
+        if (nearLeft || nearRight) {
+            const side: CordSide = nearLeft && nearRight
+                ? (distLeft <= distRight ? 'left' : 'right')
+                : (nearLeft ? 'left' : 'right');
+            const snap = this.getLocalBoxSnapPose(side);
+            if (snap) {
+                return { pos: snap.pos, angle: snap.angle, side };
+            }
+        }
+        return null;
+    }
+
     private getLocalBoxSideChildren(): { left: cc.Node; right: cc.Node } | null {
         if (!this.localBox || this.localBox.childrenCount < 2) return null;
 
@@ -717,6 +783,15 @@ export default class CordRoundGame extends cc.Component {
         return {
             left: cc.v2(this.leftAnchor.x, this.leftAnchor.y),
             right: cc.v2(this.rightAnchor.x, this.rightAnchor.y),
+        };
+    }
+
+    private getDropAnchorForSide(side: CordSide): DropAnchor | null {
+        const anchors = this.getCordAnchorPositions();
+        if (!anchors) return null;
+        return {
+            side,
+            cordPos: side === 'left' ? anchors.left : anchors.right,
         };
     }
 

@@ -47,6 +47,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.charmLayer = null;
         _this.cordCharms = [];
         _this.draggingCharm = null;
+        _this.dragSnapSide = null;
         _this.dragOriginParent = null;
         _this.dragOriginPos = null;
         _this.dragOriginSiblingIndex = 0;
@@ -249,14 +250,27 @@ var CordRoundGame = /** @class */ (function (_super) {
     CordRoundGame.prototype.onTouchMove = function (event) {
         if (!this.isActive || event.getID() !== this.activeTouchId || !this.draggingCharm)
             return;
-        this.draggingCharm.setPosition(this.getMainLocalPos(event.getLocation()));
+        var touchPos = this.getMainLocalPos(event.getLocation());
+        var snap = this.getDragSnapPose(touchPos);
+        if (snap) {
+            this.draggingCharm.setPosition(snap.pos);
+            this.draggingCharm.angle = snap.angle;
+            this.dragSnapSide = snap.side;
+        }
+        else {
+            this.draggingCharm.setPosition(touchPos);
+            this.draggingCharm.angle = 0;
+            this.dragSnapSide = null;
+        }
     };
     CordRoundGame.prototype.onTouchEnd = function (event) {
         if (!this.isActive || event.getID() !== this.activeTouchId || !this.draggingCharm)
             return;
         var charm = this.draggingCharm;
         var charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
-        var dropAnchor = this.getDropAnchor(charmWorld);
+        var dropAnchor = this.dragSnapSide
+            ? this.getDropAnchorForSide(this.dragSnapSide)
+            : this.getDropAnchor(charmWorld);
         if (dropAnchor) {
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
@@ -266,6 +280,7 @@ var CordRoundGame = /** @class */ (function (_super) {
             this.resetDraggedCharm(charm);
         }
         this.draggingCharm = null;
+        this.dragSnapSide = null;
         this.activeTouchId = -1;
         if (this.isTargetHind) {
             this.isTargetHind.active = false;
@@ -311,10 +326,9 @@ var CordRoundGame = /** @class */ (function (_super) {
         var anchorPos = dropAnchor.cordPos;
         var startIndex = this.findNearestPathIndex(path.points, anchorPos);
         var pathDir = this.pickPathDirection(path.points, startIndex, dropAnchor.side);
-        var startPose = this.getPoseOnPath(path.points, startIndex, pathDir, 0);
         var pivot = this.setupCharmHangRig(charm);
         pivot.parent = this.charmLayer;
-        pivot.setPosition(cc.v3(startPose.x, startPose.y, 0));
+        pivot.setPosition(cc.v3(anchorPos.x, anchorPos.y, 0));
         charm.angle = this.getLocalBoxHangAngle(dropAnchor.side);
         charm.children[0].scale = 0.8;
         var pivotBody = pivot.getComponent(cc.RigidBody);
@@ -569,6 +583,49 @@ var CordRoundGame = /** @class */ (function (_super) {
         dist += cc.v2(pos.x - segA.x, pos.y - segA.y).mag();
         return dist;
     };
+    CordRoundGame.prototype.getAngleInNodeSpace = function (node, root) {
+        var angle = node.angle;
+        var parent = node.parent;
+        while (parent && parent !== root) {
+            angle += parent.angle;
+            parent = parent.parent;
+        }
+        return angle;
+    };
+    CordRoundGame.prototype.getLocalBoxSnapPose = function (side) {
+        var children = this.getLocalBoxSideChildren();
+        if (!children)
+            return null;
+        var target = side === 'left' ? children.left : children.right;
+        var main = this.getMainNode();
+        var local = main.convertToNodeSpaceAR(target.convertToWorldSpaceAR(cc.v2(0, 0)));
+        return {
+            pos: cc.v3(local.x, local.y, 0),
+            angle: this.getAngleInNodeSpace(target, main),
+        };
+    };
+    CordRoundGame.prototype.getDragSnapPose = function (mainPos) {
+        var anchors = this.getCordAnchorPositions();
+        if (!anchors || !this.activeCord)
+            return null;
+        var main = this.getMainNode();
+        var leftMain = main.convertToNodeSpaceAR(this.activeCord.convertToWorldSpaceAR(anchors.left));
+        var rightMain = main.convertToNodeSpaceAR(this.activeCord.convertToWorldSpaceAR(anchors.right));
+        var distLeft = cc.v2(mainPos.x - leftMain.x, mainPos.y - leftMain.y).mag();
+        var distRight = cc.v2(mainPos.x - rightMain.x, mainPos.y - rightMain.y).mag();
+        var nearLeft = distLeft <= this.entryDetectRadius;
+        var nearRight = distRight <= this.entryDetectRadius;
+        if (nearLeft || nearRight) {
+            var side = nearLeft && nearRight
+                ? (distLeft <= distRight ? 'left' : 'right')
+                : (nearLeft ? 'left' : 'right');
+            var snap = this.getLocalBoxSnapPose(side);
+            if (snap) {
+                return { pos: snap.pos, angle: snap.angle, side: side };
+            }
+        }
+        return null;
+    };
     CordRoundGame.prototype.getLocalBoxSideChildren = function () {
         if (!this.localBox || this.localBox.childrenCount < 2)
             return null;
@@ -606,6 +663,15 @@ var CordRoundGame = /** @class */ (function (_super) {
         return {
             left: cc.v2(this.leftAnchor.x, this.leftAnchor.y),
             right: cc.v2(this.rightAnchor.x, this.rightAnchor.y),
+        };
+    };
+    CordRoundGame.prototype.getDropAnchorForSide = function (side) {
+        var anchors = this.getCordAnchorPositions();
+        if (!anchors)
+            return null;
+        return {
+            side: side,
+            cordPos: side === 'left' ? anchors.left : anchors.right,
         };
     };
     CordRoundGame.prototype.getDropAnchor = function (worldPos) {
