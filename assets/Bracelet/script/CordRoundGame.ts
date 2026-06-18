@@ -64,6 +64,12 @@ export default class CordRoundGame extends cc.Component {
     @property
     charmSlotSpacing: number = 130;
 
+    @property
+    hangSwingLimit: number = 32;
+
+    @property
+    hangOutwardStiffness: number = 14;
+
     private activeCord: cc.Node = null;
     private cordPaths: Map<cc.Node, CordPathData> = new Map();
     private preparedCords: cc.Node[] = [];
@@ -398,7 +404,9 @@ export default class CordRoundGame extends cc.Component {
         const pivot = this.setupCharmHangRig(charm);
         pivot.parent = this.charmLayer;
         pivot.setPosition(cc.v3(anchorPos.x, anchorPos.y, 0));
-        charm.angle = this.getLocalBoxHangAngle(dropAnchor.side);
+        const hangLocal = this.getHangLocalOffset(charm);
+        const outward = this.getOutwardFromCenter(cc.v2(anchorPos.x, anchorPos.y));
+        charm.angle = this.angleForOutwardHang(outward, hangLocal);
         charm.children[0].scale = 0.8;
 
         const pivotBody = pivot.getComponent(cc.RigidBody);
@@ -417,6 +425,7 @@ export default class CordRoundGame extends cc.Component {
         }
         if (charmBody) {
             charmBody.syncPosition(true);
+            charmBody.syncRotation(true);
             charmBody.linearVelocity = cc.v2(0, 0);
             charmBody.angularVelocity = 0;
         }
@@ -480,7 +489,7 @@ export default class CordRoundGame extends cc.Component {
         charmBody.type = cc.RigidBodyType.Dynamic;
         charmBody.gravityScale = 0.85;
         charmBody.linearDamping = 0.2;
-        charmBody.angularDamping = 0.45;
+        charmBody.angularDamping = 0.65;
         charmBody.fixedRotation = false;
         charmBody.allowSleep = false;
 
@@ -496,6 +505,106 @@ export default class CordRoundGame extends cc.Component {
         joint.collideConnected = false;
 
         return pivot;
+    }
+
+    private getCordCenterLocal(): cc.Vec2 {
+        const path = this.cordPaths.get(this.activeCord);
+        if (!path || path.points.length === 0) {
+            return cc.v2(0, 0);
+        }
+
+        let cx = 0;
+        let cy = 0;
+        for (let i = 0; i < path.points.length; i++) {
+            cx += path.points[i].x;
+            cy += path.points[i].y;
+        }
+        const n = path.points.length;
+        return cc.v2(cx / n, cy / n);
+    }
+
+    private getOutwardFromCenter(pos: cc.Vec2): cc.Vec2 {
+        const center = this.getCordCenterLocal();
+        const outward = cc.v2(pos.x - center.x, pos.y - center.y);
+        if (outward.magSqr() < 1) {
+            return cc.v2(0, -1);
+        }
+        outward.normalizeSelf();
+        return outward;
+    }
+
+    private wrapAngleDeg(angle: number): number {
+        let a = angle;
+        while (a > 180) a -= 360;
+        while (a < -180) a += 360;
+        return a;
+    }
+
+    private getCharmBodyDir(hangLocal: cc.Vec2, angleDeg: number): cc.Vec2 {
+        const localBase = cc.v2(-hangLocal.x, -hangLocal.y);
+        const rad = angleDeg * Math.PI / 180;
+        const c = Math.cos(rad);
+        const s = Math.sin(rad);
+        const dir = cc.v2(
+            localBase.x * c - localBase.y * s,
+            localBase.x * s + localBase.y * c
+        );
+        if (dir.magSqr() < 0.0001) {
+            return cc.v2(0, -1);
+        }
+        dir.normalizeSelf();
+        return dir;
+    }
+
+    private angleForOutwardHang(outward: cc.Vec2, hangLocal: cc.Vec2): number {
+        const localBase = cc.v2(-hangLocal.x, -hangLocal.y);
+        const baseAngle = Math.atan2(localBase.y, localBase.x);
+        const outAngle = Math.atan2(outward.y, outward.x);
+        return this.wrapAngleDeg((outAngle - baseAngle) * 180 / Math.PI);
+    }
+
+    private constrainCharmHang(state: CordCharmState, dt: number) {
+        const charm = state.charm;
+        const pivot = state.pivot;
+        if (!charm || !pivot) return;
+
+        const hangLocal = this.getHangLocalOffset(charm);
+        const outward = this.getOutwardFromCenter(cc.v2(pivot.x, pivot.y));
+        const targetAngle = this.angleForOutwardHang(outward, hangLocal);
+        const body = charm.getComponent(cc.RigidBody);
+
+        let angle = charm.angle;
+        const offset = this.wrapAngleDeg(angle - targetAngle);
+        const bodyDir = this.getCharmBodyDir(hangLocal, angle);
+        const outwardDot = bodyDir.x * outward.x + bodyDir.y * outward.y;
+
+        if (outwardDot < 0.02) {
+            angle = targetAngle;
+            charm.angle = angle;
+            if (body) {
+                body.angularVelocity = 0;
+                body.syncRotation(true);
+            }
+            return;
+        }
+
+        if (offset > this.hangSwingLimit) {
+            angle = targetAngle + this.hangSwingLimit;
+        } else if (offset < -this.hangSwingLimit) {
+            angle = targetAngle - this.hangSwingLimit;
+        } else if (body) {
+            const pull = this.wrapAngleDeg(targetAngle - angle);
+            body.angularVelocity += pull * this.hangOutwardStiffness * dt;
+            return;
+        }
+
+        if (Math.abs(angle - charm.angle) > 0.05) {
+            charm.angle = angle;
+            if (body) {
+                body.angularVelocity *= 0.25;
+                body.syncRotation(true);
+            }
+        }
     }
 
     private getHangLocalOffset(charm: cc.Node): cc.Vec2 {
@@ -1055,6 +1164,14 @@ export default class CordRoundGame extends cc.Component {
 
         for (let i = 0; i < this.cordCharms.length; i++) {
             this.updateCharmSlide(this.cordCharms[i], dt);
+        }
+    }
+
+    lateUpdate(dt: number) {
+        if (!this.isActive) return;
+
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            this.constrainCharmHang(this.cordCharms[i], dt);
         }
     }
 }

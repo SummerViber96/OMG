@@ -15957,7 +15957,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        919.369,
+        934.346,
         0,
         0,
         0,
@@ -16564,7 +16564,7 @@
     "_alignFlags": 1,
     "_left": 20.677999999999997,
     "_right": 45.48000000000002,
-    "_top": 40.63099999999997,
+    "_top": 25.653999999999996,
     "_bottom": 1803.585,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -26451,7 +26451,7 @@
     "charmHind": {
       "__id__": 572
     },
-    "entryDetectRadius": 110,
+    "entryDetectRadius": 50,
     "pathSampleSpacing": 12,
     "segmentRadius": 14,
     "slideGravity": 800,
@@ -26460,7 +26460,9 @@
     "pathPullDamping": 16,
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
-    "charmSlotSpacing": 165,
+    "charmSlotSpacing": 120,
+    "hangSwingLimit": 35,
+    "hangOutwardStiffness": 14,
     "btnOk": {
       "__id__": 629
     },
@@ -33209,6 +33211,8 @@
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
     "charmSlotSpacing": 165,
+    "hangSwingLimit": 32,
+    "hangOutwardStiffness": 14,
     "btnOk": {
       "__id__": 629
     },
@@ -34893,7 +34897,7 @@
         "__id__": 756
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,

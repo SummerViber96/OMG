@@ -41,6 +41,8 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.settleSpeed = 22;
         _this.pivotColliderRadius = 8;
         _this.charmSlotSpacing = 130;
+        _this.hangSwingLimit = 32;
+        _this.hangOutwardStiffness = 14;
         _this.activeCord = null;
         _this.cordPaths = new Map();
         _this.preparedCords = [];
@@ -340,7 +342,9 @@ var CordRoundGame = /** @class */ (function (_super) {
         var pivot = this.setupCharmHangRig(charm);
         pivot.parent = this.charmLayer;
         pivot.setPosition(cc.v3(anchorPos.x, anchorPos.y, 0));
-        charm.angle = this.getLocalBoxHangAngle(dropAnchor.side);
+        var hangLocal = this.getHangLocalOffset(charm);
+        var outward = this.getOutwardFromCenter(cc.v2(anchorPos.x, anchorPos.y));
+        charm.angle = this.angleForOutwardHang(outward, hangLocal);
         charm.children[0].scale = 0.8;
         var pivotBody = pivot.getComponent(cc.RigidBody);
         var charmBody = charm.getComponent(cc.RigidBody);
@@ -357,6 +361,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         if (charmBody) {
             charmBody.syncPosition(true);
+            charmBody.syncRotation(true);
             charmBody.linearVelocity = cc.v2(0, 0);
             charmBody.angularVelocity = 0;
         }
@@ -412,7 +417,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         charmBody.type = cc.RigidBodyType.Dynamic;
         charmBody.gravityScale = 0.85;
         charmBody.linearDamping = 0.2;
-        charmBody.angularDamping = 0.45;
+        charmBody.angularDamping = 0.65;
         charmBody.fixedRotation = false;
         charmBody.allowSleep = false;
         this.enableCharmPhysicsCollider(charm);
@@ -425,6 +430,96 @@ var CordRoundGame = /** @class */ (function (_super) {
         joint.connectedAnchor = hangLocal;
         joint.collideConnected = false;
         return pivot;
+    };
+    CordRoundGame.prototype.getCordCenterLocal = function () {
+        var path = this.cordPaths.get(this.activeCord);
+        if (!path || path.points.length === 0) {
+            return cc.v2(0, 0);
+        }
+        var cx = 0;
+        var cy = 0;
+        for (var i = 0; i < path.points.length; i++) {
+            cx += path.points[i].x;
+            cy += path.points[i].y;
+        }
+        var n = path.points.length;
+        return cc.v2(cx / n, cy / n);
+    };
+    CordRoundGame.prototype.getOutwardFromCenter = function (pos) {
+        var center = this.getCordCenterLocal();
+        var outward = cc.v2(pos.x - center.x, pos.y - center.y);
+        if (outward.magSqr() < 1) {
+            return cc.v2(0, -1);
+        }
+        outward.normalizeSelf();
+        return outward;
+    };
+    CordRoundGame.prototype.wrapAngleDeg = function (angle) {
+        var a = angle;
+        while (a > 180)
+            a -= 360;
+        while (a < -180)
+            a += 360;
+        return a;
+    };
+    CordRoundGame.prototype.getCharmBodyDir = function (hangLocal, angleDeg) {
+        var localBase = cc.v2(-hangLocal.x, -hangLocal.y);
+        var rad = angleDeg * Math.PI / 180;
+        var c = Math.cos(rad);
+        var s = Math.sin(rad);
+        var dir = cc.v2(localBase.x * c - localBase.y * s, localBase.x * s + localBase.y * c);
+        if (dir.magSqr() < 0.0001) {
+            return cc.v2(0, -1);
+        }
+        dir.normalizeSelf();
+        return dir;
+    };
+    CordRoundGame.prototype.angleForOutwardHang = function (outward, hangLocal) {
+        var localBase = cc.v2(-hangLocal.x, -hangLocal.y);
+        var baseAngle = Math.atan2(localBase.y, localBase.x);
+        var outAngle = Math.atan2(outward.y, outward.x);
+        return this.wrapAngleDeg((outAngle - baseAngle) * 180 / Math.PI);
+    };
+    CordRoundGame.prototype.constrainCharmHang = function (state, dt) {
+        var charm = state.charm;
+        var pivot = state.pivot;
+        if (!charm || !pivot)
+            return;
+        var hangLocal = this.getHangLocalOffset(charm);
+        var outward = this.getOutwardFromCenter(cc.v2(pivot.x, pivot.y));
+        var targetAngle = this.angleForOutwardHang(outward, hangLocal);
+        var body = charm.getComponent(cc.RigidBody);
+        var angle = charm.angle;
+        var offset = this.wrapAngleDeg(angle - targetAngle);
+        var bodyDir = this.getCharmBodyDir(hangLocal, angle);
+        var outwardDot = bodyDir.x * outward.x + bodyDir.y * outward.y;
+        if (outwardDot < 0.02) {
+            angle = targetAngle;
+            charm.angle = angle;
+            if (body) {
+                body.angularVelocity = 0;
+                body.syncRotation(true);
+            }
+            return;
+        }
+        if (offset > this.hangSwingLimit) {
+            angle = targetAngle + this.hangSwingLimit;
+        }
+        else if (offset < -this.hangSwingLimit) {
+            angle = targetAngle - this.hangSwingLimit;
+        }
+        else if (body) {
+            var pull = this.wrapAngleDeg(targetAngle - angle);
+            body.angularVelocity += pull * this.hangOutwardStiffness * dt;
+            return;
+        }
+        if (Math.abs(angle - charm.angle) > 0.05) {
+            charm.angle = angle;
+            if (body) {
+                body.angularVelocity *= 0.25;
+                body.syncRotation(true);
+            }
+        }
     };
     CordRoundGame.prototype.getHangLocalOffset = function (charm) {
         var item = charm.getComponent('CharmItem');
@@ -906,6 +1001,13 @@ var CordRoundGame = /** @class */ (function (_super) {
             this.updateCharmSlide(this.cordCharms[i], dt);
         }
     };
+    CordRoundGame.prototype.lateUpdate = function (dt) {
+        if (!this.isActive)
+            return;
+        for (var i = 0; i < this.cordCharms.length; i++) {
+            this.constrainCharmHang(this.cordCharms[i], dt);
+        }
+    };
     __decorate([
         property(cc.Node)
     ], CordRoundGame.prototype, "CordRoundList", void 0);
@@ -945,6 +1047,12 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property
     ], CordRoundGame.prototype, "charmSlotSpacing", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "hangSwingLimit", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "hangOutwardStiffness", void 0);
     __decorate([
         property(cc.Node)
     ], CordRoundGame.prototype, "btnOk", void 0);
