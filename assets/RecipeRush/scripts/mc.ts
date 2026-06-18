@@ -100,7 +100,7 @@ export default class NewClass extends cc.Component {
     }
 
     handleMachineAction(moveId: number, machine, walkFn: (moveId: number, onArrive: () => void) => void) {
-        if (machine.chicken != null && this.canPickItemType("chicken")) {
+        if (machine.chicken != null && machine.isChin && this.canPickItemType("chicken")) {
             walkFn(moveId, () => this.pickupMachineChicken(machine))
             return true
         }
@@ -516,7 +516,7 @@ export default class NewClass extends cc.Component {
         }
 
         if (this.localId == 3) {
-            if (machine.chicken != null && this.canPickItemType("chicken")) {
+            if (machine.chicken != null && machine.isChin && this.canPickItemType("chicken")) {
                 if (this.isAtPos(this.POS_MACHINE)) {
                     this.pickupMachineChicken(machine)
                     return

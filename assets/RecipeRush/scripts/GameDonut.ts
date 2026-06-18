@@ -369,7 +369,7 @@ export default class NewClass extends cc.Component {
         if (this.isMcBusy()) return;
         let machineComp = this.btnMachine.getComponent("machine")
         let canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null
-        let canPickup = (this.mcComp.localId == 1 || this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4 || this.mcComp.localId == 5) && machineComp.chicken != null && this.mcComp.canPickItemType("chicken")
+        let canPickup = (this.mcComp.localId == 1 || this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4 || this.mcComp.localId == 5) && machineComp.chicken != null && machineComp.isChin && this.mcComp.canPickItemType("chicken")
         if (!canFry && !canPickup) return;
 
         this.isMoving = true

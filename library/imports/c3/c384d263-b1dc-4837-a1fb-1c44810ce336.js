@@ -66,7 +66,10 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.cooking = function (chicken) {
         var _this = this;
-        // this.setOn()
+        if (this.chicken != null)
+            return;
+        this.isChin = false;
+        this.chicken = chicken;
         this.isSoundCooking = cc.audioEngine.play(this.soundChien, false, 1);
         chicken.parent = this.node;
         chicken.position = cc.v3(0.5, 17);
@@ -82,7 +85,6 @@ var NewClass = /** @class */ (function (_super) {
             _this.node.getChildByName("hind").opacity = 255;
             _this.node.getChildByName("hind").active = true;
             _this.node.getChildByName("hind").zIndex = 2;
-            _this.chicken = chicken;
         }).start();
     };
     NewClass.prototype.getChicken = function () {

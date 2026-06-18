@@ -336,7 +336,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         var machineComp = this.btnMachine.getComponent("machine");
         var canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null;
-        var canPickup = (this.mcComp.localId == 1 || this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4 || this.mcComp.localId == 5) && machineComp.chicken != null && this.mcComp.canPickItemType("chicken");
+        var canPickup = (this.mcComp.localId == 1 || this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4 || this.mcComp.localId == 5) && machineComp.chicken != null && machineComp.isChin && this.mcComp.canPickItemType("chicken");
         if (!canFry && !canPickup)
             return;
         this.isMoving = true;

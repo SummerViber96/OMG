@@ -46,7 +46,9 @@ export default class NewClass extends cc.Component {
 
     }
     cooking(chicken) {
-        // this.setOn()
+        if (this.chicken != null) return
+        this.isChin = false
+        this.chicken = chicken
         this.isSoundCooking = cc.audioEngine.play(this.soundChien, false, 1)
         chicken.parent = this.node;
         chicken.position = cc.v3(0.5, 17)
@@ -62,7 +64,6 @@ export default class NewClass extends cc.Component {
             this.node.getChildByName("hind").opacity = 255;
             this.node.getChildByName("hind").active = true
             this.node.getChildByName("hind").zIndex = 2
-            this.chicken = chicken;
         }).start();
     }
     getChicken() {

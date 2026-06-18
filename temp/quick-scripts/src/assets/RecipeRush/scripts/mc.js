@@ -117,7 +117,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.handleMachineAction = function (moveId, machine, walkFn) {
         var _this = this;
-        if (machine.chicken != null && this.canPickItemType("chicken")) {
+        if (machine.chicken != null && machine.isChin && this.canPickItemType("chicken")) {
             walkFn(moveId, function () { return _this.pickupMachineChicken(machine); });
             return true;
         }
@@ -532,7 +532,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         if (this.localId == 3) {
-            if (machine.chicken != null && this.canPickItemType("chicken")) {
+            if (machine.chicken != null && machine.isChin && this.canPickItemType("chicken")) {
                 if (this.isAtPos(this.POS_MACHINE)) {
                     this.pickupMachineChicken(machine);
                     return;
