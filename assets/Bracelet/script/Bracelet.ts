@@ -42,6 +42,8 @@ export default class NewClass extends cc.Component {
     phaoho: cc.Node = null
     @property(cc.AudioClip)
     soundClick:cc.AudioClip=null
+    @property(cc.Node)
+    handCard: cc.Node = null
     // @property(cc.Node)
     // listCard
     onLoad() {
@@ -148,6 +150,7 @@ export default class NewClass extends cc.Component {
         for (let child of this.listPet.children) {
             child.active = false;
         }
+        this.handCard.active = false;
         switch (value) {
             case "0":
                 this.listPet.children[0].active = true;

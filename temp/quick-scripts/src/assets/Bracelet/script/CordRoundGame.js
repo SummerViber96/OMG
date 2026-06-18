@@ -55,6 +55,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.touchBound = false;
         _this.btnOk = null;
         _this.hand3 = null;
+        _this.localBox = null;
         _this.isTargetHind = null;
         return _this;
     }
@@ -104,6 +105,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         var colorIMG = charm.getComponent("CharmItem").getColor();
         this.charmHind.children[tag].children[0].getComponent(cc.Sprite).spriteFrame = colorIMG;
         this.charmHind.children[tag].children[1].getComponent(cc.Sprite).spriteFrame = colorIMG;
+        this.localBox = this.charmHind.children[tag];
     };
     CordRoundGame.prototype.startBraceletMode = function () {
         if (!this.CordRoundList)

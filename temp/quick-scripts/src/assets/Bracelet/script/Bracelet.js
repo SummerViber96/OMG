@@ -48,6 +48,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.btnOk4 = null;
         _this.phaoho = null;
         _this.soundClick = null;
+        _this.handCard = null;
         return _this;
         // update (dt) {}
     }
@@ -151,6 +152,7 @@ var NewClass = /** @class */ (function (_super) {
             var child = _a[_i];
             child.active = false;
         }
+        this.handCard.active = false;
         switch (value) {
             case "0":
                 this.listPet.children[0].active = true;
@@ -235,6 +237,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundClick", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "handCard", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

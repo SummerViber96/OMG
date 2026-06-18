@@ -22250,7 +22250,7 @@
         "__id__": 510
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 512
@@ -35823,6 +35823,9 @@
     },
     "soundClick": {
       "__uuid__": "eb138b7f-7534-489d-bd8b-0218512a59c7"
+    },
+    "handCard": {
+      "__id__": 709
     },
     "_id": "1eq/x+PfpFkIw1fhtTE5dF"
   }

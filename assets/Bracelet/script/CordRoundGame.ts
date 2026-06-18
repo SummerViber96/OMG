@@ -77,6 +77,7 @@ export default class CordRoundGame extends cc.Component {
     @property(cc.Node)
     hand3: cc.Node = null;
 
+    localBox = null
     liftBracelet(targetPos: cc.Vec3, duration: number = 0.4) {
         if (!this.CordRoundList) return;
 
@@ -123,14 +124,14 @@ export default class CordRoundGame extends cc.Component {
 
 
         if (this.isTargetHind) {
-            this.isTargetHind.active = false
+            this.isTargetHind.active = false;
         }
-        this.charmHind.children[tag].active = true
-        this.isTargetHind = this.charmHind.children[tag]
-        let colorIMG=charm.getComponent("CharmItem").getColor();
-         this.charmHind.children[tag].children[0].getComponent(cc.Sprite).spriteFrame=colorIMG
-                  this.charmHind.children[tag].children[1].getComponent(cc.Sprite).spriteFrame=colorIMG
-
+        this.charmHind.children[tag].active = true;
+        this.isTargetHind = this.charmHind.children[tag];
+        let colorIMG = charm.getComponent("CharmItem").getColor();
+        this.charmHind.children[tag].children[0].getComponent(cc.Sprite).spriteFrame = colorIMG;
+        this.charmHind.children[tag].children[1].getComponent(cc.Sprite).spriteFrame = colorIMG;
+        this.localBox = this.charmHind.children[tag];
     }
     startBraceletMode() {
         if (!this.CordRoundList) return;
@@ -314,7 +315,7 @@ export default class CordRoundGame extends cc.Component {
         this.activeTouchId = -1;
         if (this.isTargetHind) {
             this.isTargetHind.active = false;
-            this.isTargetHind=null
+            this.isTargetHind = null
         }
     }
 
