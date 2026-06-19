@@ -1150,12 +1150,12 @@ export default class NewClass extends cc.Component {
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.barCoin.scale = (logic) ? 2.5 : 1.4
-        this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 100
+        this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 140
         this.phaoHoa.scale = (logic) ? 9 : 5
         this.guild.scale = (logic) ? 2 : 1.2
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
         this.listCus.scale = (logic) ? 1 : 1
-        this.listKhay.scale = (logic) ? 1.1 : 1
+        // this.listKhay.scale = (logic) ? 1.1 : 1
         this.timeup.scale = (logic) ? 1 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
         this.endCardDoc.scale = 1.5
@@ -1163,8 +1163,9 @@ export default class NewClass extends cc.Component {
         this.barMission2.scale = (logic) ? 2 : 1
         // this.tutMision.scale = (logic) ? 2 : 1
         this.barMission.scale = (logic) ? 1.7 : 1
-        this.barMission.scale = (logic) ? 1.8 : 1
+        // this.barMission2.scale = (logic) ? 2 : 1
         this.mainCamera.node.position = (logic) ? cc.v3(0, 0, 0) : cc.v3(0, 110, 0)
+        this.barMission.getComponent(cc.Widget).top = 50
 
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false
@@ -1179,25 +1180,21 @@ export default class NewClass extends cc.Component {
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
 
-            // Gần đúng tỷ lệ màn hình iPhone X
-            const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
+            const TALL_PHONE_MIN_RATIO = 2.0;        // iPhone X ~2.16, 20:9 Android ~2.22
             this.camera.zoomRatio = 1.7
-
-            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                this.barCoin.getComponent(cc.Widget).top = 200
-
-
+            if (aspectRatio >= TALL_PHONE_MIN_RATIO) {
+                this.barCoin.getComponent(cc.Widget).top = 300+30
+                this.barMission.getComponent(cc.Widget).top = 150+30
+                if (aspectRatio > 2.2) {
+                    this.camera.zoomRatio = 1.75
+                }
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 1.5
-
                 this.endCardDoc.scale = 1.2
-
-            }
-            else {
-
+                this.barCoin.scale = 2
             }
         }
         else {

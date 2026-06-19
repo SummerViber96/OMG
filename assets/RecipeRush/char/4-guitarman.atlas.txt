@@ -1,271 +1,271 @@
 
 4-guitarman.png
-size: 592,560
+size: 1216, 272
 format: RGBA8888
-filter: Linear,Linear
+filter: Linear, Linear
 repeat: none
 L-forearm
-  rotate: false
-  xy: 493, 195
+  rotate: true
+  xy: 556, 14
   size: 65, 75
   orig: 65, 75
   offset: 0, 0
   index: -1
 L-forearm2
-  rotate: false
-  xy: 361, 59
+  rotate: true
+  xy: 342, 48
   size: 73, 94
   orig: 73, 94
   offset: 0, 0
   index: -1
 L-forearm3
-  rotate: false
-  xy: 361, 8
+  rotate: true
+  xy: 438, 11
   size: 110, 49
   orig: 110, 49
   offset: 0, 0
   index: -1
 L-forearm4
   rotate: false
-  xy: 361, 155
+  xy: 769, 37
   size: 69, 107
   orig: 69, 107
   offset: 0, 0
   index: -1
 L-forearm5
-  rotate: false
-  xy: 443, 272
+  rotate: true
+  xy: 251, 38
   size: 83, 89
   orig: 83, 89
   offset: 0, 0
   index: -1
 L-forearm6
   rotate: false
-  xy: 2, 6
+  xy: 1115, 173
   size: 89, 97
   orig: 89, 97
   offset: 0, 0
   index: -1
 L-leg
-  rotate: false
-  xy: 133, 92
-  size: 82, 161
+  rotate: true
+  xy: 840, 5
+  size: 82, 150
   orig: 82, 161
-  offset: 0, 0
+  offset: 0, 11
   index: -1
 L-shoe
   rotate: false
-  xy: 504, 111
+  xy: 662, 37
   size: 41, 46
   orig: 41, 46
   offset: 0, 0
   index: -1
 L-upperarm
   rotate: false
-  xy: 154, 9
+  xy: 992, 6
   size: 47, 81
   orig: 47, 81
   offset: 0, 0
   index: -1
 Layer 8
   rotate: false
-  xy: 151, 368
+  xy: 2, 80
   size: 247, 190
   orig: 247, 190
   offset: 0, 0
   index: -1
 R-forearm1
   rotate: false
-  xy: 93, 2
+  xy: 1151, 4
   size: 59, 80
   orig: 59, 80
   offset: 0, 0
   index: -1
 R-forearm2
-  rotate: false
-  xy: 313, 36
+  rotate: true
+  xy: 92, 32
   size: 46, 65
   orig: 46, 65
   offset: 0, 0
   index: -1
 R-forearm3
   rotate: false
-  xy: 436, 60
-  size: 66, 96
+  xy: 489, 25
+  size: 65, 96
   orig: 66, 96
   offset: 0, 0
   index: -1
 R-forearm4
-  rotate: false
-  xy: 432, 158
+  rotate: true
+  xy: 556, 81
   size: 59, 104
   orig: 59, 104
   offset: 0, 0
   index: -1
 R-forearm5
-  rotate: false
-  xy: 355, 264
-  size: 86, 97
+  rotate: true
+  xy: 1115, 86
+  size: 85, 97
   orig: 86, 97
   offset: 0, 0
   index: -1
 R-hand
-  rotate: false
-  xy: 504, 65
+  rotate: true
+  xy: 342, 5
   size: 41, 44
   orig: 41, 44
   offset: 0, 0
   index: -1
 R-hand2
-  rotate: false
-  xy: 473, 15
+  rotate: true
+  xy: 388, 5
   size: 41, 43
   orig: 41, 43
   offset: 0, 0
   index: -1
 R-leg
   rotate: false
-  xy: 297, 103
-  size: 62, 159
+  xy: 706, 5
+  size: 61, 139
   orig: 62, 159
-  offset: 0, 0
+  offset: 0, 20
   index: -1
 R-shoe
   rotate: false
-  xy: 528, 316
+  xy: 159, 21
   size: 60, 38
   orig: 60, 38
   offset: 0, 0
   index: -1
 R-upperarm
-  rotate: false
-  xy: 534, 399
+  rotate: true
+  xy: 2, 22
   size: 56, 88
   orig: 56, 88
   offset: 0, 0
   index: -1
 body
-  rotate: false
-  xy: 2, 105
-  size: 129, 148
+  rotate: true
+  xy: 556, 142
+  size: 128, 148
   orig: 129, 148
   offset: 0, 0
   index: -1
 brows
-  rotate: false
-  xy: 203, 3
+  rotate: true
+  xy: 1020, 94
   size: 73, 18
   orig: 73, 18
   offset: 0, 0
   index: -1
 brows2
   rotate: false
-  xy: 278, 4
+  xy: 159, 61
   size: 71, 17
   orig: 71, 17
   offset: 0, 0
   index: -1
 brows3
-  rotate: false
-  xy: 516, 40
+  rotate: true
+  xy: 633, 9
   size: 70, 23
   orig: 70, 23
   offset: 0, 0
   index: -1
 bung
   rotate: false
-  xy: 203, 23
+  xy: 1041, 20
   size: 108, 59
   orig: 108, 59
   offset: 0, 0
   index: -1
 eyes
   rotate: false
-  xy: 516, 24
+  xy: 769, 21
   size: 66, 14
   orig: 66, 14
   offset: 0, 0
   index: -1
 guitar
-  rotate: false
-  xy: 2, 255
+  rotate: true
+  xy: 251, 123
   size: 147, 303
   orig: 147, 303
   offset: 0, 0
   index: -1
 hat1
   rotate: false
-  xy: 151, 264
-  size: 202, 102
+  xy: 840, 169
+  size: 202, 101
   orig: 202, 102
   offset: 0, 0
   index: -1
 hat2
-  rotate: false
-  xy: 400, 489
+  rotate: true
+  xy: 1044, 81
   size: 189, 69
   orig: 189, 69
   offset: 0, 0
   index: -1
 head
   rotate: false
-  xy: 400, 363
+  xy: 706, 146
   size: 132, 124
   orig: 132, 124
   offset: 0, 0
   index: -1
 iris
   rotate: false
-  xy: 528, 297
+  xy: 769, 2
   size: 59, 17
   orig: 59, 17
   offset: 0, 0
   index: -1
 mouth
   rotate: false
-  xy: 528, 272
-  size: 44, 23
+  xy: 489, 2
+  size: 42, 21
   orig: 44, 23
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 mouth2
   rotate: false
-  xy: 547, 136
-  size: 39, 21
+  xy: 92, 11
+  size: 38, 19
   orig: 39, 21
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 mouth3
   rotate: false
-  xy: 554, 164
-  size: 36, 29
+  xy: 658, 6
+  size: 35, 29
   orig: 36, 29
   offset: 0, 0
   index: -1
 mouth4
-  rotate: false
-  xy: 560, 242
+  rotate: true
+  xy: 221, 29
   size: 30, 28
   orig: 30, 28
   offset: 0, 0
   index: -1
 nose
   rotate: false
-  xy: 493, 159
+  xy: 251, 2
   size: 59, 34
   orig: 59, 34
   offset: 0, 0
   index: -1
 nose2
-  rotate: false
-  xy: 534, 356
+  rotate: true
+  xy: 662, 85
   size: 55, 41
   orig: 55, 41
   offset: 0, 0
   index: -1
 strap
-  rotate: false
-  xy: 217, 84
+  rotate: true
+  xy: 840, 89
   size: 78, 178
   orig: 78, 178
   offset: 0, 0

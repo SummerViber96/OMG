@@ -1,271 +1,271 @@
 
 5-rapper.png
-size: 220,1056
+size: 1548, 144
 format: RGBA8888
-filter: Linear,Linear
+filter: Linear, Linear
 repeat: none
 L-baptay
   rotate: false
-  xy: 175, 52
+  xy: 1503, 76
   size: 42, 66
   orig: 42, 66
   offset: 0, 0
   index: -1
 L-cangtay
-  rotate: false
-  xy: 149, 182
+  rotate: true
+  xy: 1467, 8
   size: 58, 67
   orig: 58, 67
   offset: 0, 0
   index: -1
 L-cangtay2
-  rotate: false
-  xy: 2, 346
+  rotate: true
+  xy: 1371, 66
   size: 76, 70
   orig: 76, 70
   offset: 0, 0
   index: -1
 L-cangtay3
-  rotate: false
-  xy: 132, 737
+  rotate: true
+  xy: 1170, 58
   size: 84, 69
   orig: 84, 69
   offset: 0, 0
   index: -1
 L-chan
-  rotate: false
-  xy: 150, 251
-  size: 65, 99
+  rotate: true
+  xy: 1057, 4
+  size: 43, 93
   orig: 65, 99
-  offset: 0, 0
+  offset: 0, 6
   index: -1
 L-dui
   rotate: false
-  xy: 80, 319
+  xy: 1241, 58
   size: 68, 84
   orig: 68, 84
   offset: 0, 0
   index: -1
 L-shoe
   rotate: false
-  xy: 175, 120
+  xy: 1422, 4
   size: 43, 60
   orig: 43, 60
   offset: 0, 0
   index: -1
 L-tayao
-  rotate: false
-  xy: 62, 183
+  rotate: true
+  xy: 1152, 5
   size: 47, 56
   orig: 47, 56
   offset: 0, 0
   index: -1
 R-baptay
-  rotate: false
-  xy: 2, 117
+  rotate: true
+  xy: 598, 2
   size: 31, 64
   orig: 31, 64
   offset: 0, 0
   index: -1
 R-cangtay
-  rotate: false
-  xy: 122, 246
+  rotate: true
+  xy: 664, 8
   size: 25, 71
   orig: 25, 71
   offset: 0, 0
   index: -1
 R-cangtay2
   rotate: false
-  xy: 41, 4
+  xy: 504, 32
   size: 42, 110
   orig: 42, 110
   offset: 0, 0
   index: -1
 R-cangtay3
   rotate: false
-  xy: 85, 15
+  xy: 897, 43
   size: 43, 99
   orig: 43, 99
   offset: 0, 0
   index: -1
 R-cangtay4
-  rotate: false
-  xy: 62, 241
+  rotate: true
+  xy: 1344, 3
   size: 58, 76
   orig: 58, 76
   offset: 0, 0
   index: -1
 R-chan
-  rotate: false
-  xy: 111, 116
+  rotate: true
+  xy: 821, 7
   size: 33, 99
   orig: 33, 99
   offset: 0, 0
   index: -1
 R-dui
   rotate: false
-  xy: 2, 265
+  xy: 1311, 63
   size: 58, 79
   orig: 58, 79
   offset: 0, 0
   index: -1
 R-shoe
   rotate: false
-  xy: 150, 352
+  xy: 1210, 5
   size: 67, 51
   orig: 67, 51
   offset: 0, 0
   index: -1
 R-tayao
-  rotate: false
-  xy: 35, 118
+  rotate: true
+  xy: 1279, 10
   size: 46, 63
   orig: 46, 63
   offset: 0, 0
   index: -1
 bag
   rotate: false
-  xy: 111, 500
+  xy: 131, 4
   size: 101, 138
   orig: 101, 138
   offset: 0, 0
   index: -1
 body
-  rotate: false
-  xy: 2, 510
+  rotate: true
+  xy: 548, 35
   size: 107, 149
   orig: 107, 149
   offset: 0, 0
   index: -1
 bung
-  rotate: false
-  xy: 101, 449
+  rotate: true
+  xy: 1034, 49
   size: 93, 49
   orig: 93, 49
   offset: 0, 0
   index: -1
 dau
-  rotate: false
-  xy: 2, 661
+  rotate: true
+  xy: 234, 14
   size: 128, 154
   orig: 128, 154
   offset: 0, 0
   index: -1
 eyes
   rotate: false
-  xy: 132, 640
+  xy: 516, 5
   size: 80, 25
   orig: 80, 25
   offset: 0, 0
   index: -1
 iris
   rotate: false
-  xy: 144, 808
+  xy: 986, 19
   size: 69, 24
   orig: 69, 24
   offset: 0, 0
   index: -1
 longmay
-  rotate: false
-  xy: 101, 425
-  size: 91, 22
+  rotate: true
+  xy: 1085, 53
+  size: 89, 20
   orig: 91, 22
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 longmay copy
-  rotate: false
-  xy: 101, 405
-  size: 91, 18
+  rotate: true
+  xy: 1107, 53
+  size: 89, 16
   orig: 91, 18
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 longmay2
   rotate: false
-  xy: 132, 667
-  size: 83, 28
+  xy: 390, 2
+  size: 82, 26
   orig: 83, 28
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 longmay3
   rotate: false
-  xy: 132, 697
-  size: 84, 38
+  xy: 737, 4
+  size: 82, 36
   orig: 84, 38
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 mom
-  rotate: false
-  xy: 111, 217
-  size: 35, 22
+  rotate: true
+  xy: 922, 8
+  size: 33, 21
   orig: 35, 22
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 mom2
-  rotate: false
-  xy: 164, 4
+  rotate: true
+  xy: 966, 11
   size: 32, 18
   orig: 32, 18
   offset: 0, 0
   index: -1
 mom3
-  rotate: false
-  xy: 130, 2
-  size: 32, 20
+  rotate: true
+  xy: 945, 11
+  size: 32, 19
   orig: 32, 20
   offset: 0, 0
   index: -1
 mom4
   rotate: false
-  xy: 175, 24
+  xy: 474, 4
   size: 40, 26
   orig: 40, 26
   offset: 0, 0
   index: -1
 strap
   rotate: false
-  xy: 2, 2
+  xy: 390, 30
   size: 37, 112
   orig: 37, 112
   offset: 0, 0
   index: -1
 toc
-  rotate: false
-  xy: 2, 817
+  rotate: true
+  xy: 2, 2
   size: 140, 127
   orig: 140, 127
   offset: 0, 0
   index: -1
 toc1
   rotate: false
-  xy: 2, 946
-  size: 209, 105
+  xy: 699, 42
+  size: 196, 100
   orig: 209, 105
-  offset: 0, 0
+  offset: 9, 0
   index: -1
 toc2
   rotate: false
-  xy: 2, 189
+  xy: 1443, 68
   size: 58, 74
   orig: 58, 74
   offset: 0, 0
   index: -1
 toc3
-  rotate: false
-  xy: 2, 418
+  rotate: true
+  xy: 942, 45
   size: 97, 90
   orig: 97, 90
   offset: 0, 0
   index: -1
 toc4
   rotate: false
-  xy: 144, 834
+  xy: 429, 32
   size: 73, 110
   orig: 73, 110
   offset: 0, 0
   index: -1
 toc5
   rotate: false
-  xy: 130, 26
+  xy: 1125, 54
   size: 43, 88
   orig: 43, 88
   offset: 0, 0

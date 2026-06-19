@@ -1,236 +1,236 @@
 
 3-travelgirl.png
-size: 992,312
+size: 292, 1028
 format: RGBA8888
-filter: Linear,Linear
+filter: Linear, Linear
 repeat: none
 L-baptay
-  rotate: false
-  xy: 55, 8
-  size: 39, 77
+  rotate: true
+  xy: 212, 89
+  size: 39, 71
   orig: 39, 77
-  offset: 0, 0
+  offset: 0, 6
   index: -1
 L-cangtay
-  rotate: false
-  xy: 917, 51
-  size: 56, 66
+  rotate: true
+  xy: 55, 22
+  size: 56, 65
   orig: 56, 66
   offset: 0, 0
   index: -1
 L-cangtay2
   rotate: false
-  xy: 133, 16
-  size: 48, 69
+  xy: 241, 869
+  size: 48, 64
   orig: 48, 69
   offset: 0, 0
   index: -1
 L-chan
   rotate: false
-  xy: 215, 136
+  xy: 241, 693
   size: 45, 174
   orig: 45, 174
   offset: 0, 0
   index: -1
 L-chan2
-  rotate: false
-  xy: 325, 139
+  rotate: true
+  xy: 2, 528
   size: 61, 171
   orig: 61, 171
   offset: 0, 0
   index: -1
 Layer 16
   rotate: false
-  xy: 560, 3
+  xy: 139, 328
   size: 25, 22
   orig: 25, 22
   offset: 0, 0
   index: -1
 R-baptay
   rotate: false
-  xy: 96, 11
+  xy: 172, 429
   size: 35, 74
   orig: 35, 74
   offset: 0, 0
   index: -1
 R-cangtay
   rotate: false
-  xy: 875, 33
+  xy: 175, 505
   size: 40, 84
   orig: 40, 84
   offset: 0, 0
   index: -1
 R-cangtay2
-  rotate: false
-  xy: 183, 16
+  rotate: true
+  xy: 212, 54
   size: 33, 69
   orig: 33, 69
   offset: 0, 0
   index: -1
 R-cangtay3
   rotate: false
-  xy: 825, 7
+  xy: 241, 935
   size: 48, 88
   orig: 48, 88
   offset: 0, 0
   index: -1
 R-cangtay4
   rotate: false
-  xy: 750, 7
+  xy: 217, 429
   size: 73, 88
   orig: 73, 88
   offset: 0, 0
   index: -1
 R-chan
   rotate: false
-  xy: 262, 138
+  xy: 227, 519
   size: 61, 172
   orig: 61, 172
   offset: 0, 0
   index: -1
 bag
-  rotate: false
-  xy: 457, 9
+  rotate: true
+  xy: 2, 181
   size: 101, 131
   orig: 101, 131
   offset: 0, 0
   index: -1
 body
-  rotate: false
-  xy: 750, 97
-  size: 87, 91
+  rotate: true
+  xy: 195, 130
+  size: 87, 90
   orig: 87, 91
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 brows1
-  rotate: false
-  xy: 217, 3
-  size: 79, 11
+  rotate: true
+  xy: 123, 102
+  size: 77, 9
   orig: 79, 11
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 brows2
-  rotate: false
-  xy: 587, 6
-  size: 79, 19
+  rotate: true
+  xy: 135, 156
+  size: 77, 17
   orig: 79, 19
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 brows3
   rotate: false
-  xy: 354, 5
-  size: 67, 13
+  xy: 55, 7
+  size: 65, 13
   orig: 67, 13
-  offset: 0, 0
+  offset: 1, 0
   index: -1
 dress
-  rotate: false
-  xy: 388, 142
+  rotate: true
+  xy: 2, 369
   size: 157, 168
   orig: 157, 168
   offset: 0, 0
   index: -1
 eye
-  rotate: false
-  xy: 662, 164
-  size: 76, 24
+  rotate: true
+  xy: 139, 235
+  size: 74, 22
   orig: 76, 24
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 eye2
-  rotate: false
-  xy: 133, 2
+  rotate: true
+  xy: 227, 720
   size: 82, 12
   orig: 82, 12
   offset: 0, 0
   index: -1
 glass
-  rotate: false
-  xy: 547, 148
+  rotate: true
+  xy: 154, 104
   size: 113, 39
   orig: 113, 39
   offset: 0, 0
   index: -1
 hat
   rotate: false
-  xy: 753, 205
-  size: 237, 105
+  xy: 2, 804
+  size: 237, 104
   orig: 237, 105
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 hat2
   rotate: false
-  xy: 218, 20
-  size: 237, 114
+  xy: 2, 910
+  size: 237, 113
   orig: 237, 114
   offset: 0, 0
   index: -1
 head
   rotate: false
-  xy: 635, 190
+  xy: 172, 307
   size: 116, 120
   orig: 116, 120
   offset: 0, 0
   index: -1
 mouth1
   rotate: false
-  xy: 298, 2
-  size: 27, 16
+  xy: 139, 352
+  size: 27, 15
   orig: 27, 16
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 mouth2
   rotate: false
-  xy: 327, 2
-  size: 25, 16
+  xy: 139, 311
+  size: 23, 15
   orig: 25, 16
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 mouth3
-  rotate: false
-  xy: 423, 5
-  size: 24, 13
+  rotate: true
+  xy: 227, 694
+  size: 24, 12
   orig: 24, 13
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 toc1
   rotate: false
-  xy: 661, 49
+  xy: 123, 3
   size: 87, 97
   orig: 87, 97
   offset: 0, 0
   index: -1
 toc2
   rotate: false
-  xy: 839, 119
-  size: 135, 84
+  xy: 2, 284
+  size: 135, 83
   orig: 135, 84
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 toc3
-  rotate: false
-  xy: 547, 189
+  rotate: true
+  xy: 163, 219
   size: 86, 121
   orig: 86, 121
   offset: 0, 0
   index: -1
 toc4
-  rotate: false
-  xy: 560, 27
+  rotate: true
+  xy: 2, 80
   size: 99, 119
   orig: 99, 119
   offset: 0, 0
   index: -1
 toc5
   rotate: false
-  xy: 2, 8
-  size: 51, 77
+  xy: 2, 2
+  size: 51, 76
   orig: 51, 77
   offset: 0, 0
   index: -1
 toc6
-  rotate: false
-  xy: 2, 87
+  rotate: true
+  xy: 2, 591
   size: 211, 223
   orig: 211, 223
   offset: 0, 0

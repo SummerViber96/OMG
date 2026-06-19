@@ -161,8 +161,8 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "default",
-    "defaultAnimation": "lv2_Base_t2",
+    "defaultSkin": "",
+    "defaultAnimation": "",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -178,9 +178,7 @@
     "_headAniInfo": null,
     "_playTimes": 0,
     "_isAniComplete": true,
-    "_N$skeletonData": {
-      "__uuid__": "42a2d9a9-17ab-46cd-93e2-6da1c747b1fc"
-    },
+    "_N$skeletonData": null,
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
     "_N$debugBones": false,
