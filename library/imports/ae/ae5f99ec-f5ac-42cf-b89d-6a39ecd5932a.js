@@ -274,7 +274,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         var charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
         var dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide);
         if (dropAnchor) {
-            ccclass.audioEngine.play(this.soundDrop, false, 1);
+            cc.audioEngine.play(this.soundDrop, false, 1);
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
             this.hand3.active = false;
