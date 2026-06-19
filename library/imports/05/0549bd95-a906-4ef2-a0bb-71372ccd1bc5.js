@@ -31,6 +31,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.anim = null;
         _this.fillTime = null;
         _this.clock = null;
+        _this.soundDrink = null;
         _this.isCoca = false;
         _this.isCooking = false;
         _this.isChin = false;
@@ -47,6 +48,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         if (this.isBusy())
             return;
+        cc.audioEngine.play(this.soundDrink, false, 1);
         this.isCooking = true;
         this.isChin = false;
         this.anim.setAnimation(0, "lv2-active", false);
@@ -77,6 +79,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "clock", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundDrink", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

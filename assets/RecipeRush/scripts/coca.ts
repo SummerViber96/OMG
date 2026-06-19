@@ -11,6 +11,8 @@ export default class NewClass extends cc.Component {
     fillTime: cc.Sprite = null
     @property(cc.Node)
     clock: cc.Node = null
+    @property(cc.AudioClip)
+    soundDrink:cc.AudioClip=null
     isCoca = false;
     isCooking = false
     isChin = false
@@ -24,6 +26,7 @@ export default class NewClass extends cc.Component {
     }
     cooking() {
         if (this.isBusy()) return
+        cc.audioEngine.play(this.soundDrink,false,1)
         this.isCooking = true
         this.isChin = false
         this.anim.setAnimation(0, "lv2-active", false);

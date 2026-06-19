@@ -47,6 +47,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundCreamMini = null;
         _this.soundThinkWin = null;
         _this.soundBanh = null;
+        _this.soundThinkLose = null;
+        _this.soundThinkWin = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -185,6 +187,7 @@ var NewClass = /** @class */ (function (_super) {
             }).start();
         }, 1.5);
         this.mcComp = this.mc.getComponent("mc");
+        // this.onEndGame(false)
     };
     NewClass.prototype.initCusQueue = function () {
         if (!this.cusCounterPos && this.arrCus.length > 0) {
@@ -944,6 +947,10 @@ var NewClass = /** @class */ (function (_super) {
         if (value == true) {
             this.barMission.getComponent("barTime").endGame();
             this.amazing.active = true;
+            this.scheduleOnce(function () {
+                cc.audioEngine.play(_this.soundThinkWin, false, 0.5);
+            }, 0.5);
+            cc.audioEngine.play(this.soundWin, false, 1);
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
@@ -958,7 +965,7 @@ var NewClass = /** @class */ (function (_super) {
             this.timeup.active = true;
             this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.soundThinking, false, 1);
-                cc.audioEngine.play(_this.soundLose, false, 1);
+                cc.audioEngine.play(_this.soundThinkLose, false, 0.5);
                 // this.endCard.active = true;
             }, 0.5);
         }
@@ -1102,6 +1109,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundBanh", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundThinkLose", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundThinkWin", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);

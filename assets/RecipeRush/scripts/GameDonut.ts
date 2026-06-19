@@ -40,6 +40,10 @@ export default class NewClass extends cc.Component {
     soundThinkWin: cc.AudioClip = null
     @property(cc.AudioClip)
     soundBanh: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundThinkLose:cc.AudioClip=null;
+    @property(cc.AudioClip)
+    soundThinkWin:cc.AudioClip=null
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -207,6 +211,7 @@ export default class NewClass extends cc.Component {
             }).start()
         }, 1.5)
         this.mcComp = this.mc.getComponent("mc")
+        // this.onEndGame(false)
     }
     isHand = null
 
@@ -1085,6 +1090,12 @@ export default class NewClass extends cc.Component {
         if (value == true) {
             this.barMission.getComponent("barTime").endGame()
             this.amazing.active = true;
+            this.scheduleOnce(()=>{
+            cc.audioEngine.play(this.soundThinkWin,false,0.5)
+
+            },0.5)
+
+            cc.audioEngine.play(this.soundWin,false,1)
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
@@ -1100,7 +1111,7 @@ export default class NewClass extends cc.Component {
             this.timeup.active = true;
             this.scheduleOnce(() => {
                 cc.audioEngine.play(this.soundThinking, false, 1)
-                cc.audioEngine.play(this.soundLose, false, 1)
+                cc.audioEngine.play(this.soundThinkLose, false, 0.5)
                 // this.endCard.active = true;
             }, 0.5)
 
