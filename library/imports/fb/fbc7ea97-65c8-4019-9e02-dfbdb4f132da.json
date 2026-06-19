@@ -33265,8 +33265,8 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "default",
-    "defaultAnimation": "",
+    "defaultSkin": 1,
+    "defaultAnimation": "Idle",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
