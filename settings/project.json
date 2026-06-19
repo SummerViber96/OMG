@@ -13,6 +13,15 @@
     ]
   ],
   "excluded-modules": [
+    "DragonBones",
+    "EditBox",
+    "ParticleSystem",
+    "Slider",
+    "ScrollBar",
+    "ScrollView",
+    "TiledMap",
+    "VideoPlayer",
+    "WebView",
     "3D",
     "3D Primitive",
     "3D Physics/cannon.js",

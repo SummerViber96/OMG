@@ -1,0 +1,517 @@
+
+Jelly_Character.png
+size: 1056, 524
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+Ear
+  rotate: false
+  xy: 1033, 96
+  size: 16, 20
+  orig: 16, 20
+  offset: 0, 0
+  index: -1
+Face
+  rotate: true
+  xy: 860, 70
+  size: 132, 103
+  orig: 132, 103
+  offset: 0, 0
+  index: -1
+Fire1
+  rotate: false
+  xy: 706, 2
+  size: 25, 12
+  orig: 25, 12
+  offset: 0, 0
+  index: -1
+Fire2
+  rotate: true
+  xy: 763, 65
+  size: 137, 95
+  orig: 137, 95
+  offset: 0, 0
+  index: -1
+Fire3
+  rotate: true
+  xy: 263, 53
+  size: 149, 96
+  orig: 149, 96
+  offset: 0, 0
+  index: -1
+Fire4
+  rotate: true
+  xy: 610, 62
+  size: 140, 89
+  orig: 140, 89
+  offset: 0, 0
+  index: -1
+Fire5
+  rotate: true
+  xy: 701, 63
+  size: 139, 60
+  orig: 139, 60
+  offset: 0, 0
+  index: -1
+Fire6
+  rotate: false
+  xy: 395, 2
+  size: 126, 51
+  orig: 126, 51
+  offset: 0, 0
+  index: -1
+Fire7
+  rotate: true
+  xy: 939, 280
+  size: 108, 79
+  orig: 108, 79
+  offset: 0, 0
+  index: -1
+RED EAR
+  rotate: false
+  xy: 1038, 123
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+RED FACE
+  rotate: true
+  xy: 939, 390
+  size: 132, 103
+  orig: 132, 103
+  offset: 0, 0
+  index: -1
+bling
+  rotate: true
+  xy: 632, 2
+  size: 58, 72
+  orig: 60, 74
+  offset: 1, 1
+  index: -1
+cold_sign
+  rotate: false
+  xy: 983, 120
+  size: 15, 82
+  orig: 15, 82
+  offset: 0, 0
+  index: -1
+heart
+  rotate: true
+  xy: 983, 235
+  size: 43, 36
+  orig: 43, 36
+  offset: 0, 0
+  index: -1
+skin_default/Body
+  rotate: false
+  xy: 896, 2
+  size: 87, 66
+  orig: 87, 66
+  offset: 0, 0
+  index: -1
+skin_default/Custom
+  rotate: true
+  xy: 2, 26
+  size: 176, 170
+  orig: 176, 170
+  offset: 0, 0
+  index: -1
+skin_default/Eating_Mouth_3
+  rotate: true
+  xy: 1000, 121
+  size: 20, 18
+  orig: 25, 21
+  offset: 2, 2
+  index: -1
+skin_default/Eye Ahh
+  rotate: true
+  xy: 1020, 293
+  size: 95, 17
+  orig: 95, 21
+  offset: 0, 0
+  index: -1
+skin_default/Eye Brown Hungry
+  rotate: true
+  xy: 939, 207
+  size: 71, 10
+  orig: 71, 10
+  offset: 0, 0
+  index: -1
+skin_default/Eye Brown L
+  rotate: false
+  xy: 190, 15
+  size: 15, 9
+  orig: 15, 9
+  offset: 0, 0
+  index: -1
+skin_default/Eye Brown R
+  rotate: false
+  xy: 190, 4
+  size: 15, 9
+  orig: 15, 9
+  offset: 0, 0
+  index: -1
+skin_default/Eye Hungry
+  rotate: false
+  xy: 801, 2
+  size: 93, 15
+  orig: 93, 15
+  offset: 0, 0
+  index: -1
+skin_default/Eye Sour L
+  rotate: true
+  xy: 1000, 143
+  size: 26, 18
+  orig: 26, 18
+  offset: 0, 0
+  index: -1
+skin_default/Eye Sour L 2
+  rotate: false
+  xy: 1021, 252
+  size: 25, 26
+  orig: 25, 26
+  offset: 0, 0
+  index: -1
+skin_default/Eye Sour_R 2
+  rotate: false
+  xy: 1021, 252
+  size: 25, 26
+  orig: 25, 26
+  offset: 0, 0
+  index: -1
+skin_default/Eye Sour_R
+  rotate: true
+  xy: 1020, 143
+  size: 26, 18
+  orig: 26, 18
+  offset: 0, 0
+  index: -1
+skin_default/Eye Spicy L
+  rotate: false
+  xy: 951, 204
+  size: 33, 28
+  orig: 33, 28
+  offset: 0, 0
+  index: -1
+skin_default/Eye Spicy R
+  rotate: true
+  xy: 965, 72
+  size: 33, 28
+  orig: 33, 28
+  offset: 0, 0
+  index: -1
+skin_default/Eye_Yummy_L
+  rotate: false
+  xy: 169, 4
+  size: 19, 20
+  orig: 19, 20
+  offset: 0, 0
+  index: -1
+skin_default/Eye_Yummy_R
+  rotate: false
+  xy: 65, 2
+  size: 20, 22
+  orig: 20, 22
+  offset: 0, 0
+  index: -1
+skin_default/Eyebrown Spicy L
+  rotate: true
+  xy: 1021, 235
+  size: 15, 9
+  orig: 15, 13
+  offset: 0, 4
+  index: -1
+skin_default/Eyebrown Spicy R
+  rotate: true
+  xy: 1032, 235
+  size: 15, 9
+  orig: 15, 13
+  offset: 0, 4
+  index: -1
+skin_default/Flashes L
+  rotate: false
+  xy: 995, 73
+  size: 36, 32
+  orig: 36, 32
+  offset: 0, 0
+  index: -1
+skin_default/Flashes R
+  rotate: true
+  xy: 985, 31
+  size: 39, 32
+  orig: 39, 32
+  offset: 0, 0
+  index: -1
+skin_default/Hair
+  rotate: true
+  xy: 174, 51
+  size: 151, 87
+  orig: 151, 87
+  offset: 0, 0
+  index: -1
+skin_default/Hand Down L
+  rotate: false
+  xy: 272, 2
+  size: 59, 49
+  orig: 59, 49
+  offset: 0, 0
+  index: -1
+skin_default/Hand Down R
+  rotate: false
+  xy: 333, 3
+  size: 60, 48
+  orig: 60, 48
+  offset: 0, 0
+  index: -1
+skin_default/Hand Up L
+  rotate: false
+  xy: 706, 16
+  size: 25, 45
+  orig: 25, 45
+  offset: 0, 0
+  index: -1
+skin_default/Hand Up R
+  rotate: false
+  xy: 951, 234
+  size: 30, 44
+  orig: 30, 44
+  offset: 0, 0
+  index: -1
+skin_default/Highligth L
+  rotate: true
+  xy: 785, 2
+  size: 13, 14
+  orig: 13, 14
+  offset: 0, 0
+  index: -1
+skin_default/Highligth R
+  rotate: true
+  xy: 785, 2
+  size: 13, 14
+  orig: 13, 14
+  offset: 0, 0
+  index: -1
+skin_default/Iris L
+  rotate: false
+  xy: 109, 3
+  size: 19, 21
+  orig: 19, 21
+  offset: 0, 0
+  index: -1
+skin_default/Iris R
+  rotate: false
+  xy: 87, 2
+  size: 20, 22
+  orig: 20, 22
+  offset: 0, 0
+  index: -1
+skin_default/Iris Spicy L
+  rotate: false
+  xy: 1020, 280
+  size: 11, 11
+  orig: 11, 11
+  offset: 0, 0
+  index: -1
+skin_default/Iris Spicy R
+  rotate: false
+  xy: 983, 107
+  size: 11, 11
+  orig: 11, 11
+  offset: 0, 0
+  index: -1
+skin_default/Leg L
+  rotate: true
+  xy: 733, 17
+  size: 44, 61
+  orig: 44, 61
+  offset: 0, 0
+  index: -1
+skin_default/Leg R
+  rotate: true
+  xy: 207, 3
+  size: 46, 63
+  orig: 46, 63
+  offset: 0, 0
+  index: -1
+skin_default/Mouth
+  rotate: true
+  xy: 1020, 118
+  size: 23, 16
+  orig: 23, 16
+  offset: 0, 0
+  index: -1
+skin_default/Mouth 3
+  rotate: true
+  xy: 1017, 205
+  size: 28, 18
+  orig: 28, 18
+  offset: 0, 0
+  index: -1
+skin_default/Mouth Ahh
+  rotate: false
+  xy: 2, 2
+  size: 34, 22
+  orig: 34, 22
+  offset: 0, 0
+  index: -1
+skin_default/Mouth Eat
+  rotate: false
+  xy: 733, 2
+  size: 30, 13
+  orig: 30, 13
+  offset: 0, 0
+  index: -1
+skin_default/Mouth Happy
+  rotate: false
+  xy: 174, 26
+  size: 31, 23
+  orig: 31, 23
+  offset: 0, 0
+  index: -1
+skin_default/Mouth Hungry
+  rotate: false
+  xy: 130, 4
+  size: 37, 20
+  orig: 37, 20
+  offset: 0, 0
+  index: -1
+skin_default/Mouth Oh
+  rotate: true
+  xy: 765, 2
+  size: 13, 18
+  orig: 13, 18
+  offset: 0, 0
+  index: -1
+skin_default/Mouth Sour 1
+  rotate: true
+  xy: 1037, 210
+  size: 23, 16
+  orig: 23, 16
+  offset: 0, 0
+  index: -1
+skin_default/Mouth Sour 2
+  rotate: true
+  xy: 1030, 177
+  size: 26, 17
+  orig: 26, 17
+  offset: 0, 0
+  index: -1
+skin_default/Mouth Spicy 1
+  rotate: false
+  xy: 38, 2
+  size: 25, 22
+  orig: 25, 22
+  offset: 0, 0
+  index: -1
+skin_default/Mouth Spicy 2
+  rotate: false
+  xy: 986, 204
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1
+skin_default/Mouth_eating
+  rotate: false
+  xy: 1033, 76
+  size: 18, 18
+  orig: 25, 21
+  offset: 3, 1
+  index: -1
+skin_default/Shoulder L
+  rotate: true
+  xy: 1013, 3
+  size: 26, 29
+  orig: 27, 29
+  offset: 1, 0
+  index: -1
+skin_default/Shoulder R
+  rotate: false
+  xy: 985, 2
+  size: 26, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+skin_default/Sigh Hot
+  rotate: true
+  xy: 1019, 33
+  size: 38, 16
+  orig: 38, 16
+  offset: 0, 0
+  index: -1
+skin_default/Tail Hair L
+  rotate: false
+  xy: 842, 19
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1
+skin_default/Tail Hair R
+  rotate: false
+  xy: 796, 19
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+skin_default/blush
+  rotate: true
+  xy: 965, 107
+  size: 95, 16
+  orig: 95, 16
+  offset: 0, 0
+  index: -1
+skin_default/eye Heart L
+  rotate: true
+  xy: 1000, 171
+  size: 31, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+skin_default/eye Heart R
+  rotate: true
+  xy: 1000, 171
+  size: 31, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+skin_default/mouth_drink
+  rotate: false
+  xy: 996, 108
+  size: 8, 10
+  orig: 8, 10
+  offset: 0, 0
+  index: -1
+skin_default/nose
+  rotate: true
+  xy: 887, 57
+  size: 11, 6
+  orig: 11, 6
+  offset: 0, 0
+  index: -1
+skin_default/saliva
+  rotate: true
+  xy: 1033, 283
+  size: 8, 13
+  orig: 8, 13
+  offset: 0, 0
+  index: -1
+skin_default/sweat
+  rotate: false
+  xy: 523, 8
+  size: 107, 45
+  orig: 107, 45
+  offset: 0, 0
+  index: -1
+table
+  rotate: false
+  xy: 2, 204
+  size: 935, 318
+  orig: 935, 318
+  offset: 0, 0
+  index: -1
+tray
+  rotate: false
+  xy: 361, 55
+  size: 247, 147
+  orig: 247, 147
+  offset: 0, 0
+  index: -1

@@ -50,17 +50,21 @@ var NewClass = /** @class */ (function (_super) {
         _this.phaoho = null;
         _this.soundClick = null;
         _this.handCard = null;
+        // @property(cc.Node)
+        // listCard
+        _this.adChanel = '{{__adv_channels_adapter__}}';
         return _this;
         // update (dt) {}
     }
-    // @property(cc.Node)
-    // listCard
     NewClass.prototype.onLoad = function () {
         cc.director.getPhysicsManager().enabled = true;
         cc.director.getPhysicsManager().gravity = cc.v2();
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
         cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
     };
     NewClass.prototype.start = function () {
         cc.audioEngine.play(this.soundBg, true, 0.5);
@@ -176,12 +180,12 @@ var NewClass = /** @class */ (function (_super) {
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
         this.phaoho.active = true;
+        cc.audioEngine.play(this.soundWin, false, 1);
         this.scheduleOnce(function () {
             _this.endGame();
         }, 1);
     };
     NewClass.prototype.endGame = function () {
-        cc.audioEngine.play(this.soundWin, false, 1);
         this.endGameNode.active = true;
         this.linkToStore.active = true;
     };
