@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Screenshot_2026-06-17-18-47-03-405_com.instagram",
+    "texture": "6acce752-199a-4495-9041-3b6b858a505b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1054,
+      1058
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1054,
+      1058
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

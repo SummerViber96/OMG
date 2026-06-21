@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "6acce752-199a-4495-9041-3b6b858a505b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1054,
+  "height": 1058,
+  "platformSettings": {},
+  "subMetas": {
+    "Screenshot_2026-06-17-18-47-03-405_com.instagram.android": {
+      "ver": "1.0.4",
+      "uuid": "3b9e019e-3b98-41e0-b1dd-65b3b30b303d",
+      "rawTextureUuid": "6acce752-199a-4495-9041-3b6b858a505b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1054,
+      "height": 1058,
+      "rawWidth": 1054,
+      "rawHeight": 1058,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

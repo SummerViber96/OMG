@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg-done",
+    "texture": "7fc51b87-16d1-4c12-83ea-7309c0c8c346",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      421,
+      227
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      421,
+      227
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

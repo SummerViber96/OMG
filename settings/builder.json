@@ -1,11 +1,12 @@
 {
   "title": "Code",
   "packageName": "org.cocos2d.demo",
-  "startScene": "fbc7ea97-65c8-4019-9e02-dfbdb4f132da",
+  "startScene": "72ecc280-02ff-4643-ba84-44d93890cff3",
   "excludeScenes": [
     "b9e511d6-faa1-4404-a5de-77104d031665",
     "2276c920-7893-4a2d-b279-b15dd4bfc20e",
-    "d1bdb4d7-6733-45ff-ac52-7727a157b2b4"
+    "d1bdb4d7-6733-45ff-ac52-7727a157b2b4",
+    "fbc7ea97-65c8-4019-9e02-dfbdb4f132da"
   ],
   "orientation": {
     "landscapeRight": true,
@@ -13,7 +14,7 @@
     "portrait": false,
     "upsideDown": false
   },
-  "webOrientation": "auto",
+  "webOrientation": "portrait",
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
   "mainCompressionType": "default",

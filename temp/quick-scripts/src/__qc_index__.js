@@ -18,6 +18,7 @@ require('./assets/cooking/ietm/cake');
 require('./assets/cooking/ietm/donut');
 require('./assets/cooking/ietm/meat');
 require('./assets/cooking/ietm/preBread');
+require('./assets/forChangg/GameChangg');
 require('./assets/scripts/APP/CC2');
 require('./assets/scripts/APP/GameApp');
 require('./assets/scripts/APP/guildText');

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg-pr-sort",
+    "texture": "973e9ebf-26a7-4e84-a512-e61c5f74e856",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      727,
+      84
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      727,
+      84
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

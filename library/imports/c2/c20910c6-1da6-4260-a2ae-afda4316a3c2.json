@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tt-reward",
+    "texture": "3451a5ba-9ddb-4564-afea-62ccd13ca243",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      250,
+      103
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      250,
+      103
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
