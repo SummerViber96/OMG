@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1781886599743,
+    "meta": 1782059017832,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1781886600087,
+    "meta": 1782059017829,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -3035,8 +3035,8 @@
     "relativePath": "Donut\\vfx\\smoke\\KK_Donut_Resource_00037.png"
   },
   "b14965dc-667c-4c0c-a8bc-818ab23da78f": {
-    "asset": 1779030052499,
-    "meta": 1781886579037,
+    "asset": 1781890638810,
+    "meta": 1782059017812,
     "relativePath": "font"
   },
   "cf3da404-31ff-4c1a-baae-7a66a45e5a4b": {
@@ -4300,8 +4300,8 @@
     "relativePath": "prefab\\vfx\\vfx_smoke.prefab"
   },
   "5ac3afaa-e931-4ba4-a643-89d66b4157f7": {
-    "asset": 1781886489485,
-    "meta": 1781886585100,
+    "asset": 1781896698226,
+    "meta": 1782059017829,
     "relativePath": "scenes"
   },
   "e36e27a3-29e3-4284-b879-a39eb6ec879e": {
@@ -10240,8 +10240,8 @@
     "relativePath": "logo\\CookingCrush_Logo (2) (1).png"
   },
   "14d26e6d-83d5-416d-85fe-6cf2c4f7e5ad": {
-    "asset": 1780590496479,
-    "meta": 1781886581475,
+    "asset": 1781888053505,
+    "meta": 1782059017825,
     "relativePath": "New Folder"
   },
   "9ffc84e0-94bc-4953-a887-4cf6c2f8dc59": {
@@ -10845,8 +10845,8 @@
     "relativePath": "TapToKitchen\\Группа 11Red.png"
   },
   "3b7bfa29-8f5e-493a-95be-6983fd07f5f8": {
-    "asset": 1781886489431,
-    "meta": 1781886582423,
+    "asset": 1781896756141,
+    "meta": 1782059017826,
     "relativePath": "RecipeRush\\char"
   },
   "f9f886ec-51de-4589-93c6-0387e2715812": {
@@ -10865,8 +10865,8 @@
     "relativePath": "scenes\\Donut1 - 002.fire"
   },
   "ff1bc1ee-8ba9-48ab-b588-ef9aa3f5162b": {
-    "asset": 1781886489474,
-    "meta": 1781886584941,
+    "asset": 1781889141161,
+    "meta": 1782059017827,
     "relativePath": "RecipeRush\\ui"
   },
   "3548e51c-87a7-4cb7-a179-43e4a1e2c459": {
@@ -12740,8 +12740,8 @@
     "relativePath": "scenes\\Donut1 - 003.fire"
   },
   "d4e694b4-1b69-4b8f-abc3-04d9ed713f74": {
-    "asset": 1781886752138,
-    "meta": 1781886752139,
+    "asset": 1781894728445,
+    "meta": 1782059017815,
     "relativePath": "forChangg"
   },
   "8d344981-bf11-4456-9de3-a4b104397bc3": {
@@ -12750,8 +12750,8 @@
     "relativePath": "New Folder\\466409974_1098998435346455_5542626866493318961_n.jpg"
   },
   "b139709c-a10a-47e9-bd63-9ca2cb02fe0a": {
-    "asset": 1781889141160,
-    "meta": 1781889141162,
+    "asset": 1781889176190,
+    "meta": 1782059017828,
     "relativePath": "RecipeRush\\ui\\New Folder"
   },
   "567a62af-ef95-4f26-8b6e-4bd4e9efc817": {
