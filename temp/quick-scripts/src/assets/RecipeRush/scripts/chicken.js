@@ -48,6 +48,7 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(0, "lv1-chin", true);
     };
     NewClass.prototype.chin2 = function () {
+        this.node.children[0].children[0].active = false;
         this.chinIdle.active = true;
         this.anim.node.active = false;
         this.isChin = true;

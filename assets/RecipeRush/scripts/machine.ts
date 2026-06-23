@@ -20,6 +20,8 @@ export default class NewClass extends cc.Component {
     fillTime: cc.Sprite = null
     @property(cc.Node)
     clock: cc.Node = null
+    @property(sp.Skeleton)
+    anim: sp.Skeleton = null
     isChin = false
     gamePlay = null
     chicken = null
@@ -34,13 +36,14 @@ export default class NewClass extends cc.Component {
         cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(() => {
             this.clock.active = false
         }).start();
+
     }
 
     setChin() {
         this.isChin = true
-        this.anim.setAnimation(0, "lv1-chin", true)
         this.node.getComponent(cc.Button).enabled = true
         cc.audioEngine.play(this.gamePlay.soundBanh, false, 0.7)
+
     }
     btn_click() {
 
@@ -49,18 +52,22 @@ export default class NewClass extends cc.Component {
         if (this.chicken != null) return
         this.isChin = false
         this.chicken = chicken
+        this.anim.setAnimation(0, "lv1-song", false)
+
         this.isSoundCooking = cc.audioEngine.play(this.soundChien, false, 1)
-        chicken.parent = this.node;
-        chicken.position = cc.v3(0.5, 17)
-        chicken.getComponent("chicken").song()
+        // chicken.parent = this.node;
+        // chicken.position = cc.v3(0.5, 17)
+        // chicken.getComponent("chicken").song()
         this.clock.active = true
         this.fillTime.fillRange = 0
         cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(() => {
             this.clock.active = false
             this.isChin = true
+            this.anim.setAnimation(0, "lv1-chin", false)
+
             cc.audioEngine.stop(this.isSoundCooking)
             cc.audioEngine.play(this.soundDone, false, 1)
-            chicken.getComponent("chicken").chin()
+            // chicken.getComponent("chicken").chin()
             this.node.getChildByName("hind").opacity = 255;
             this.node.getChildByName("hind").active = true
             this.node.getChildByName("hind").zIndex = 2

@@ -29,6 +29,7 @@ export default class NewClass extends cc.Component {
 
     }
     chin2() {
+        this.node.children[0].children[0].active = false;
         this.chinIdle.active = true;
         this.anim.node.active = false;
         this.isChin = true;
