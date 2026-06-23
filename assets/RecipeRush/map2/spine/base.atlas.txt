@@ -1,0 +1,244 @@
+
+base.png
+size: 1532, 412
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+lv1-1
+  rotate: true
+  xy: 1278, 53
+  size: 76, 79
+  orig: 79, 81
+  offset: 1, 1
+  index: -1
+lv1-2
+  rotate: false
+  xy: 2, 4
+  size: 144, 144
+  orig: 146, 146
+  offset: 1, 1
+  index: -1
+lv1-3
+  rotate: false
+  xy: 1359, 90
+  size: 158, 155
+  orig: 160, 157
+  offset: 1, 1
+  index: -1
+lv1-4
+  rotate: true
+  xy: 431, 18
+  size: 47, 142
+  orig: 49, 144
+  offset: 1, 1
+  index: -1
+lv1-5
+  rotate: true
+  xy: 281, 8
+  size: 57, 148
+  orig: 59, 150
+  offset: 1, 1
+  index: -1
+lv1-6a
+  rotate: false
+  xy: 941, 187
+  size: 171, 36
+  orig: 173, 38
+  offset: 1, 1
+  index: -1
+lv1-6b
+  rotate: true
+  xy: 1278, 7
+  size: 44, 57
+  orig: 46, 60
+  offset: 1, 1
+  index: -1
+lv1-6c
+  rotate: false
+  xy: 454, 85
+  size: 171, 68
+  orig: 173, 70
+  offset: 1, 1
+  index: -1
+lv1-6d
+  rotate: false
+  xy: 281, 67
+  size: 171, 86
+  orig: 173, 88
+  offset: 1, 1
+  index: -1
+lv1-bong
+  rotate: true
+  xy: 727, 179
+  size: 231, 212
+  orig: 235, 216
+  offset: 2, 2
+  index: -1
+lv2-1
+  rotate: true
+  xy: 819, 11
+  size: 82, 102
+  orig: 84, 104
+  offset: 1, 1
+  index: -1
+lv2-2
+  rotate: true
+  xy: 750, 95
+  size: 82, 105
+  orig: 84, 107
+  offset: 1, 1
+  index: -1
+lv2-3
+  rotate: false
+  xy: 1359, 7
+  size: 88, 81
+  orig: 90, 83
+  offset: 1, 1
+  index: -1
+lv2-4
+  rotate: false
+  xy: 148, 17
+  size: 131, 131
+  orig: 133, 133
+  offset: 1, 1
+  index: -1
+lv2-5
+  rotate: false
+  xy: 1291, 247
+  size: 160, 163
+  orig: 162, 165
+  offset: 1, 1
+  index: -1
+lv2-6
+  rotate: true
+  xy: 1453, 312
+  size: 98, 51
+  orig: 100, 53
+  offset: 1, 1
+  index: -1
+lv2-7
+  rotate: true
+  xy: 1273, 131
+  size: 95, 84
+  orig: 97, 86
+  offset: 1, 1
+  index: -1
+lv2-bong
+  rotate: true
+  xy: 499, 159
+  size: 251, 226
+  orig: 254, 229
+  offset: 1, 1
+  index: -1
+lv3-1
+  rotate: true
+  xy: 627, 88
+  size: 69, 121
+  orig: 71, 123
+  offset: 1, 1
+  index: -1
+lv3-2
+  rotate: true
+  xy: 857, 108
+  size: 69, 121
+  orig: 71, 123
+  offset: 1, 1
+  index: -1
+lv3-3
+  rotate: true
+  xy: 1185, 129
+  size: 97, 86
+  orig: 100, 89
+  offset: 2, 2
+  index: -1
+lv3-4
+  rotate: true
+  xy: 1122, 228
+  size: 182, 167
+  orig: 184, 169
+  offset: 1, 1
+  index: -1
+lv3-5
+  rotate: true
+  xy: 1453, 257
+  size: 53, 77
+  orig: 55, 79
+  offset: 1, 1
+  index: -1
+lv3-6
+  rotate: true
+  xy: 1449, 35
+  size: 53, 77
+  orig: 55, 79
+  offset: 1, 1
+  index: -1
+lv3-7
+  rotate: false
+  xy: 923, 4
+  size: 113, 102
+  orig: 115, 104
+  offset: 1, 1
+  index: -1
+lv3-bong
+  rotate: true
+  xy: 257, 155
+  size: 255, 240
+  orig: 258, 244
+  offset: 1, 2
+  index: -1
+lv4-1
+  rotate: true
+  xy: 575, 4
+  size: 79, 123
+  orig: 81, 125
+  offset: 1, 1
+  index: -1
+lv4-2
+  rotate: false
+  xy: 1160, 16
+  size: 116, 97
+  orig: 118, 99
+  offset: 1, 1
+  index: -1
+lv4-3
+  rotate: true
+  xy: 941, 225
+  size: 185, 179
+  orig: 187, 181
+  offset: 1, 1
+  index: -1
+lv4-4
+  rotate: true
+  xy: 700, 12
+  size: 74, 117
+  orig: 76, 119
+  offset: 1, 1
+  index: -1
+lv4-5
+  rotate: false
+  xy: 1038, 2
+  size: 120, 109
+  orig: 122, 111
+  offset: 1, 1
+  index: -1
+lv4-6
+  rotate: true
+  xy: 980, 113
+  size: 72, 103
+  orig: 74, 105
+  offset: 1, 1
+  index: -1
+lv4-7
+  rotate: true
+  xy: 1085, 115
+  size: 70, 98
+  orig: 72, 100
+  offset: 1, 1
+  index: -1
+lv4-bong
+  rotate: true
+  xy: 2, 150
+  size: 260, 253
+  orig: 262, 256
+  offset: 1, 1
+  index: -1

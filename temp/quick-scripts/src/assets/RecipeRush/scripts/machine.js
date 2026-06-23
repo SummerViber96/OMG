@@ -39,6 +39,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.tag = 0;
         _this.fillTime = null;
         _this.clock = null;
+        _this.anim = null;
         _this.isChin = false;
         _this.gamePlay = null;
         _this.chicken = null;
@@ -58,7 +59,6 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.setChin = function () {
         this.isChin = true;
-        this.anim.setAnimation(0, "lv1-chin", true);
         this.node.getComponent(cc.Button).enabled = true;
         cc.audioEngine.play(this.gamePlay.soundBanh, false, 0.7);
     };
@@ -70,18 +70,20 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.isChin = false;
         this.chicken = chicken;
+        this.anim.setAnimation(0, "lv1-song", false);
         this.isSoundCooking = cc.audioEngine.play(this.soundChien, false, 1);
-        chicken.parent = this.node;
-        chicken.position = cc.v3(0.5, 17);
-        chicken.getComponent("chicken").song();
+        // chicken.parent = this.node;
+        // chicken.position = cc.v3(0.5, 17)
+        // chicken.getComponent("chicken").song()
         this.clock.active = true;
         this.fillTime.fillRange = 0;
         cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(function () {
             _this.clock.active = false;
             _this.isChin = true;
+            _this.anim.setAnimation(0, "lv1-chin", false);
             cc.audioEngine.stop(_this.isSoundCooking);
             cc.audioEngine.play(_this.soundDone, false, 1);
-            chicken.getComponent("chicken").chin();
+            // chicken.getComponent("chicken").chin()
             _this.node.getChildByName("hind").opacity = 255;
             _this.node.getChildByName("hind").active = true;
             _this.node.getChildByName("hind").zIndex = 2;
@@ -109,6 +111,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "clock", void 0);
+    __decorate([
+        property(sp.Skeleton)
+    ], NewClass.prototype, "anim", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

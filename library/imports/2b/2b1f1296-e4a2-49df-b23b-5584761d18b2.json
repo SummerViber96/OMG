@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "base3-burnt",
+    "texture": "eef2cd01-5e4c-4b15-a2e3-867fcf162a44",
+    "atlas": "",
+    "rect": [
+      11,
+      26,
+      126,
+      132
+    ],
+    "offset": [
+      0,
+      -9
+    ],
+    "originalSize": [
+      148,
+      166
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

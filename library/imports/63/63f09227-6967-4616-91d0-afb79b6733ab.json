@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tray",
+    "texture": "e9735100-0384-4b02-b8bc-c050acdf0812",
+    "atlas": "",
+    "rect": [
+      6,
+      53,
+      136,
+      110
+    ],
+    "offset": [
+      0,
+      -25
+    ],
+    "originalSize": [
+      148,
+      166
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

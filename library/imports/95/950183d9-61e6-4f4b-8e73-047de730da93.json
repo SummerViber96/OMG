@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cake-t3-lv1",
+    "texture": "f8384b89-eb6d-43c1-ac43-e89db7a553cb",
+    "atlas": "",
+    "rect": [
+      21,
+      8,
+      107,
+      73
+    ],
+    "offset": [
+      0.5,
+      38.5
+    ],
+    "originalSize": [
+      148,
+      166
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

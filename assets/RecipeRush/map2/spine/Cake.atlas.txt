@@ -1,0 +1,188 @@
+
+Cake.png
+size: 1752, 396
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+light
+  rotate: false
+  xy: 476, 9
+  size: 234, 191
+  orig: 236, 194
+  offset: 1, 2
+  index: -1
+lv1-cake1
+  rotate: false
+  xy: 1578, 22
+  size: 158, 96
+  orig: 160, 98
+  offset: 1, 1
+  index: -1
+lv1-cake2
+  rotate: false
+  xy: 1605, 258
+  size: 144, 136
+  orig: 146, 138
+  offset: 1, 1
+  index: -1
+lv1-cake3
+  rotate: true
+  xy: 1392, 98
+  size: 166, 170
+  orig: 172, 174
+  offset: 3, 3
+  index: -1
+lv1-cake4
+  rotate: false
+  xy: 1564, 120
+  size: 144, 136
+  orig: 146, 138
+  offset: 1, 1
+  index: -1
+lv1-hand1
+  rotate: false
+  xy: 712, 35
+  size: 212, 27
+  orig: 216, 30
+  offset: 2, 2
+  index: -1
+lv1-hand2
+  rotate: false
+  xy: 1387, 38
+  size: 178, 27
+  orig: 180, 28
+  offset: 1, 0
+  index: -1
+lv1-may1
+  rotate: false
+  xy: 240, 202
+  size: 234, 192
+  orig: 236, 194
+  offset: 1, 1
+  index: -1
+lv1-may2
+  rotate: false
+  xy: 712, 230
+  size: 236, 164
+  orig: 236, 164
+  offset: 0, 0
+  index: -1
+lv1-may2b
+  rotate: false
+  xy: 712, 64
+  size: 236, 164
+  orig: 236, 164
+  offset: 0, 0
+  index: -1
+lv2-hand1
+  rotate: false
+  xy: 950, 84
+  size: 200, 30
+  orig: 200, 30
+  offset: 0, 0
+  index: -1
+lv2-hand2
+  rotate: false
+  xy: 712, 3
+  size: 200, 30
+  orig: 204, 34
+  offset: 2, 2
+  index: -1
+lv2-may1
+  rotate: false
+  xy: 240, 8
+  size: 234, 192
+  orig: 236, 194
+  offset: 1, 1
+  index: -1
+lv2-may2
+  rotate: false
+  xy: 1174, 260
+  size: 216, 134
+  orig: 216, 134
+  offset: 0, 0
+  index: -1
+lv2-may2b
+  rotate: false
+  xy: 1174, 124
+  size: 216, 134
+  orig: 216, 134
+  offset: 0, 0
+  index: -1
+lv3-hand1
+  rotate: false
+  xy: 950, 64
+  size: 200, 18
+  orig: 202, 20
+  offset: 1, 1
+  index: -1
+lv3-hand2
+  rotate: false
+  xy: 1387, 25
+  size: 156, 11
+  orig: 158, 11
+  offset: 1, 0
+  index: -1
+lv3-hand3
+  rotate: false
+  xy: 926, 42
+  size: 200, 20
+  orig: 202, 23
+  offset: 1, 1
+  index: -1
+lv3-may1
+  rotate: false
+  xy: 2, 201
+  size: 236, 193
+  orig: 238, 195
+  offset: 1, 1
+  index: -1
+lv3-may2
+  rotate: false
+  xy: 950, 256
+  size: 222, 138
+  orig: 222, 138
+  offset: 0, 0
+  index: -1
+lv3-may2b
+  rotate: false
+  xy: 950, 116
+  size: 222, 138
+  orig: 222, 138
+  offset: 0, 0
+  index: -1
+lv4-hand1
+  rotate: false
+  xy: 1387, 67
+  size: 189, 29
+  orig: 190, 29
+  offset: 1, 0
+  index: -1
+lv4-may1
+  rotate: false
+  xy: 2, 6
+  size: 236, 193
+  orig: 236, 193
+  offset: 0, 0
+  index: -1
+lv4-may2
+  rotate: false
+  xy: 1392, 266
+  size: 211, 128
+  orig: 211, 128
+  offset: 0, 0
+  index: -1
+lv4-may2b
+  rotate: false
+  xy: 1174, 2
+  size: 211, 120
+  orig: 211, 120
+  offset: 0, 0
+  index: -1
+nen
+  rotate: false
+  xy: 476, 202
+  size: 234, 192
+  orig: 236, 194
+  offset: 1, 1
+  index: -1

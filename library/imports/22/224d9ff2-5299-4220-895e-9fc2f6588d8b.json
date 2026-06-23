@@ -1,0 +1,1401 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "base",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "3BjqN8hoCBw",
+      "spine": "3.8-from-4.0-from-4.1-from-4.2.43"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "lv1-4",
+        "parent": "root",
+        "length": 84.97,
+        "rotation": 90,
+        "x": -100.1,
+        "y": 16.02
+      },
+      {
+        "name": "lv1-5",
+        "parent": "root",
+        "length": 98.26,
+        "rotation": 90.13,
+        "x": -100.26,
+        "y": 55.69
+      },
+      {
+        "name": "lv1-3",
+        "parent": "root",
+        "length": 80.5,
+        "rotation": 90,
+        "x": 24.29,
+        "y": -28.44
+      },
+      {
+        "name": "lv1-1",
+        "parent": "lv1-3",
+        "length": 50.29,
+        "rotation": -38.78,
+        "x": 108.5,
+        "y": -22.4
+      },
+      {
+        "name": "lv1-2",
+        "parent": "lv1-3",
+        "x": 79.1,
+        "y": -145.95,
+        "scaleX": 0.694
+      },
+      {
+        "name": "lv1-7",
+        "parent": "lv1-2",
+        "x": 2.1,
+        "y": 149.8
+      },
+      {
+        "name": "lv1-6d",
+        "parent": "root",
+        "length": 81.47,
+        "rotation": 90.67,
+        "x": 13.57,
+        "y": 94.28
+      },
+      {
+        "name": "lv1-6b",
+        "parent": "lv1-6d",
+        "length": 28.85,
+        "rotation": -0.67,
+        "x": 31.01,
+        "y": 49.41
+      },
+      {
+        "name": "lv1-6b2",
+        "parent": "lv1-6d",
+        "length": 28.85,
+        "rotation": -0.67,
+        "x": 30.42,
+        "y": -0.88
+      },
+      {
+        "name": "lv1-6b3",
+        "parent": "lv1-6d",
+        "length": 28.85,
+        "rotation": -0.67,
+        "x": 29.86,
+        "y": -49.38
+      },
+      {
+        "name": "lv1-6b4",
+        "parent": "lv1-6d",
+        "length": 28.85,
+        "rotation": -0.67,
+        "x": 56.83,
+        "y": -49.7
+      },
+      {
+        "name": "lv1-6b5",
+        "parent": "lv1-6d",
+        "length": 28.85,
+        "rotation": -0.67,
+        "x": 57.4,
+        "y": -1.19
+      },
+      {
+        "name": "lv1-6b6",
+        "parent": "lv1-6d",
+        "length": 28.85,
+        "rotation": -0.67,
+        "x": 57.98,
+        "y": 49.1
+      },
+      {
+        "name": "lv2-1",
+        "parent": "root",
+        "length": 59.68,
+        "rotation": 90,
+        "x": -90.71,
+        "y": 8.05
+      },
+      {
+        "name": "lv2-2",
+        "parent": "root",
+        "length": 53.13,
+        "rotation": 89.26,
+        "x": -100.03,
+        "y": 71.19
+      },
+      {
+        "name": "lv2-7",
+        "parent": "root",
+        "length": 32.43,
+        "rotation": 89.39,
+        "x": -36.55,
+        "y": 128.46
+      },
+      {
+        "name": "lv2-6",
+        "parent": "root",
+        "length": 23.12,
+        "rotation": 89.14,
+        "x": 56.26,
+        "y": 136.39
+      },
+      {
+        "name": "lv2-5",
+        "parent": "root",
+        "length": 46.13,
+        "rotation": 89.38,
+        "x": 27.63,
+        "y": -34.35
+      },
+      {
+        "name": "lv2-3",
+        "parent": "lv2-5",
+        "length": 53.28,
+        "rotation": -43.15,
+        "x": 118.17,
+        "y": -40.13
+      },
+      {
+        "name": "lv2-4",
+        "parent": "lv2-5",
+        "x": 91.54,
+        "y": -121.87,
+        "scaleX": 0.7042
+      },
+      {
+        "name": "lv2-9",
+        "parent": "lv2-4",
+        "x": -0.1,
+        "y": 122.72
+      },
+      {
+        "name": "lv3-4",
+        "parent": "root",
+        "length": 40.33,
+        "rotation": 87.51,
+        "x": 25.98,
+        "y": -18.25
+      },
+      {
+        "name": "lv3-3",
+        "parent": "lv3-4",
+        "length": 51.63,
+        "rotation": -43.89,
+        "x": 99.08,
+        "y": -33.69
+      },
+      {
+        "name": "lv3-1",
+        "parent": "root",
+        "length": 63.66,
+        "rotation": 89.47,
+        "x": -97.25,
+        "y": -21.17
+      },
+      {
+        "name": "lv3-2",
+        "parent": "root",
+        "length": 73.01,
+        "rotation": 90.92,
+        "x": -104.25,
+        "y": 44.23
+      },
+      {
+        "name": "lv3-7",
+        "parent": "root",
+        "length": 53.16,
+        "rotation": 91.26,
+        "x": -47.61,
+        "y": 99.71
+      },
+      {
+        "name": "lv3-5",
+        "parent": "root",
+        "length": 40.3,
+        "rotation": 90,
+        "x": 31.23,
+        "y": 129.5
+      },
+      {
+        "name": "lv3-6",
+        "parent": "root",
+        "length": 40.3,
+        "rotation": 90,
+        "x": 83.79,
+        "y": 121.32
+      },
+      {
+        "name": "lv4-3",
+        "parent": "root",
+        "length": 54.9,
+        "rotation": 89.39,
+        "x": 27.15,
+        "y": 0.43
+      },
+      {
+        "name": "lv4-2",
+        "parent": "lv4-3",
+        "length": 54.52,
+        "rotation": -43.52,
+        "x": 83.97,
+        "y": -42.33
+      },
+      {
+        "name": "lv4-1",
+        "parent": "root",
+        "length": 63.08,
+        "rotation": 88.94,
+        "x": -94.91,
+        "y": -11.25
+      },
+      {
+        "name": "lv4-4",
+        "parent": "root",
+        "length": 57.23,
+        "rotation": 90.58,
+        "x": -101.33,
+        "y": 43.07
+      },
+      {
+        "name": "lv4-5",
+        "parent": "root",
+        "length": 56.06,
+        "rotation": 90,
+        "x": -64.54,
+        "y": 103.8
+      },
+      {
+        "name": "lv4-7",
+        "parent": "root",
+        "length": 60.75,
+        "rotation": 88.9,
+        "x": 23.06,
+        "y": 117.82
+      },
+      {
+        "name": "lv4-6",
+        "parent": "root",
+        "length": 64.82,
+        "rotation": 90,
+        "x": 78.54,
+        "y": 104.97
+      }
+    ],
+    "slots": [
+      {
+        "name": "lv4-bong",
+        "bone": "root"
+      },
+      {
+        "name": "lv1-6d",
+        "bone": "lv1-6d"
+      },
+      {
+        "name": "lv1-6b6",
+        "bone": "lv1-6b6"
+      },
+      {
+        "name": "lv1-6b5",
+        "bone": "lv1-6b5"
+      },
+      {
+        "name": "lv1-6b4",
+        "bone": "lv1-6b4"
+      },
+      {
+        "name": "lv1-6c",
+        "bone": "lv1-6d"
+      },
+      {
+        "name": "lv1-6b",
+        "bone": "lv1-6b"
+      },
+      {
+        "name": "lv1-6b2",
+        "bone": "lv1-6b2"
+      },
+      {
+        "name": "lv1-6b3",
+        "bone": "lv1-6b3"
+      },
+      {
+        "name": "lv1-6a",
+        "bone": "lv1-6d"
+      },
+      {
+        "name": "lv1-5",
+        "bone": "lv1-5"
+      },
+      {
+        "name": "lv1-4",
+        "bone": "lv1-4"
+      },
+      {
+        "name": "lv1-3",
+        "bone": "lv1-3"
+      },
+      {
+        "name": "lv1-2",
+        "bone": "lv1-7"
+      },
+      {
+        "name": "lv1-1",
+        "bone": "lv1-1"
+      },
+      {
+        "name": "lv2-7",
+        "bone": "lv2-7"
+      },
+      {
+        "name": "lv2-6",
+        "bone": "lv2-6"
+      },
+      {
+        "name": "lv2-5",
+        "bone": "lv2-5"
+      },
+      {
+        "name": "lv2-4",
+        "bone": "lv2-9"
+      },
+      {
+        "name": "lv2-3",
+        "bone": "lv2-3"
+      },
+      {
+        "name": "lv2-2",
+        "bone": "lv2-2"
+      },
+      {
+        "name": "lv2-1",
+        "bone": "lv2-1"
+      },
+      {
+        "name": "lv3-7",
+        "bone": "lv3-7"
+      },
+      {
+        "name": "lv3-6",
+        "bone": "lv3-6"
+      },
+      {
+        "name": "lv3-5",
+        "bone": "lv3-5"
+      },
+      {
+        "name": "lv3-4",
+        "bone": "lv3-4"
+      },
+      {
+        "name": "lv3-3",
+        "bone": "lv3-3"
+      },
+      {
+        "name": "lv3-2",
+        "bone": "lv3-2"
+      },
+      {
+        "name": "lv3-1",
+        "bone": "lv3-1"
+      },
+      {
+        "name": "lv4-7",
+        "bone": "lv4-7"
+      },
+      {
+        "name": "lv4-6",
+        "bone": "lv4-6"
+      },
+      {
+        "name": "lv4-5",
+        "bone": "lv4-5"
+      },
+      {
+        "name": "lv4-4",
+        "bone": "lv4-4"
+      },
+      {
+        "name": "lv4-3",
+        "bone": "lv4-3"
+      },
+      {
+        "name": "lv4-2",
+        "bone": "lv4-2"
+      },
+      {
+        "name": "lv4-1",
+        "bone": "lv4-1"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "lv1-1": {
+            "lv1-1": {
+              "x": 16.99,
+              "y": 1.96,
+              "rotation": -51.22,
+              "width": 79,
+              "height": 81
+            }
+          },
+          "lv1-2": {
+            "lv1-2": {
+              "x": 4.82,
+              "y": -1.86,
+              "rotation": -90,
+              "width": 146,
+              "height": 146
+            }
+          },
+          "lv1-3": {
+            "lv1-3": {
+              "x": 68.97,
+              "y": 1.99,
+              "rotation": -90,
+              "width": 160,
+              "height": 157
+            }
+          },
+          "lv1-4": {
+            "lv1-4": {
+              "x": 59.01,
+              "y": 0.1,
+              "rotation": -90,
+              "width": 49,
+              "height": 144
+            }
+          },
+          "lv1-5": {
+            "lv1-5": {
+              "x": 60.34,
+              "y": -1.2,
+              "rotation": -90.13,
+              "width": 59,
+              "height": 150
+            }
+          },
+          "lv1-6a": {
+            "lv1-6a": {
+              "x": 14.75,
+              "y": -0.4,
+              "rotation": -90.67,
+              "width": 173,
+              "height": 38
+            }
+          },
+          "lv1-6b": {
+            "lv1-6b": {
+              "x": 15.32,
+              "y": 0.5,
+              "rotation": -90,
+              "width": 46,
+              "height": 60
+            }
+          },
+          "lv1-6b2": {
+            "lv1-6b": {
+              "x": 15.32,
+              "y": 0.5,
+              "rotation": -90,
+              "width": 46,
+              "height": 60
+            }
+          },
+          "lv1-6b3": {
+            "lv1-6b": {
+              "x": 15.32,
+              "y": 0.5,
+              "rotation": -90,
+              "width": 46,
+              "height": 60
+            }
+          },
+          "lv1-6b4": {
+            "lv1-6b": {
+              "x": 15.32,
+              "y": 0.5,
+              "rotation": -90,
+              "width": 46,
+              "height": 60
+            }
+          },
+          "lv1-6b5": {
+            "lv1-6b": {
+              "x": 15.32,
+              "y": 0.5,
+              "rotation": -90,
+              "width": 46,
+              "height": 60
+            }
+          },
+          "lv1-6b6": {
+            "lv1-6b": {
+              "x": 15.32,
+              "y": 0.5,
+              "rotation": -90,
+              "width": 46,
+              "height": 60
+            }
+          },
+          "lv1-6c": {
+            "lv1-6c": {
+              "x": 30.75,
+              "y": -0.59,
+              "rotation": -90.67,
+              "width": 173,
+              "height": 70
+            }
+          },
+          "lv1-6d": {
+            "lv1-6d": {
+              "x": 39.75,
+              "y": -0.7,
+              "rotation": -90.67,
+              "width": 173,
+              "height": 88
+            }
+          },
+          "lv2-1": {
+            "lv2-1": {
+              "x": 41.98,
+              "y": -2.02,
+              "rotation": -90,
+              "width": 84,
+              "height": 104
+            }
+          },
+          "lv2-2": {
+            "lv2-2": {
+              "x": 36.38,
+              "y": -2.86,
+              "rotation": -89.26,
+              "width": 84,
+              "height": 107
+            }
+          },
+          "lv2-3": {
+            "lv2-3": {
+              "x": 16.46,
+              "y": 3.04,
+              "rotation": -46.23,
+              "width": 90,
+              "height": 83
+            }
+          },
+          "lv2-4": {
+            "lv2-4": {
+              "x": 1.76,
+              "y": -2.57,
+              "rotation": -89.38,
+              "width": 133,
+              "height": 133
+            }
+          },
+          "lv2-5": {
+            "lv2-5": {
+              "x": 78.91,
+              "y": -2.82,
+              "rotation": -89.38,
+              "width": 162,
+              "height": 165
+            }
+          },
+          "lv2-6": {
+            "lv2-6": {
+              "x": 17.15,
+              "y": -0.79,
+              "rotation": -89.14,
+              "width": 100,
+              "height": 53
+            }
+          },
+          "lv2-7": {
+            "lv2-7": {
+              "x": 28.56,
+              "y": 0.95,
+              "rotation": -89.39,
+              "width": 97,
+              "height": 86
+            }
+          },
+          "lv3-1": {
+            "lv3-1": {
+              "x": 45.71,
+              "y": -0.63,
+              "rotation": -89.47,
+              "width": 71,
+              "height": 123
+            }
+          },
+          "lv3-2": {
+            "lv3-2": {
+              "x": 47.27,
+              "y": -1.82,
+              "rotation": -90.92,
+              "width": 71,
+              "height": 123
+            }
+          },
+          "lv3-3": {
+            "lv3-3": {
+              "x": 13.79,
+              "y": 3.79,
+              "rotation": -43.63,
+              "width": 100,
+              "height": 89
+            }
+          },
+          "lv3-4": {
+            "lv3-4": {
+              "x": 64.65,
+              "y": 4.49,
+              "rotation": -87.51,
+              "width": 184,
+              "height": 169
+            }
+          },
+          "lv3-5": {
+            "lv3-5": {
+              "x": 32.03,
+              "y": 0.43,
+              "rotation": -90,
+              "width": 55,
+              "height": 79
+            }
+          },
+          "lv3-6": {
+            "lv3-6": {
+              "x": 32.21,
+              "y": 0.99,
+              "rotation": -90,
+              "width": 55,
+              "height": 79
+            }
+          },
+          "lv3-7": {
+            "lv3-7": {
+              "x": 43.34,
+              "y": 0.64,
+              "rotation": -91.26,
+              "width": 115,
+              "height": 104
+            }
+          },
+          "lv4-1": {
+            "lv4-1": {
+              "x": 41.8,
+              "y": -0.94,
+              "rotation": -88.94,
+              "width": 81,
+              "height": 125
+            }
+          },
+          "lv4-2": {
+            "lv4-2": {
+              "x": 8.25,
+              "y": 6.69,
+              "rotation": -45.87,
+              "width": 118,
+              "height": 99
+            }
+          },
+          "lv4-3": {
+            "lv4-3": {
+              "x": 46.09,
+              "y": 0.83,
+              "rotation": -89.39,
+              "width": 187,
+              "height": 181
+            }
+          },
+          "lv4-4": {
+            "lv4-4": {
+              "x": 39.48,
+              "y": 0.96,
+              "rotation": -90.58,
+              "width": 76,
+              "height": 119
+            }
+          },
+          "lv4-5": {
+            "lv4-5": {
+              "x": 46.73,
+              "y": 1.15,
+              "rotation": -90,
+              "width": 122,
+              "height": 111
+            }
+          },
+          "lv4-6": {
+            "lv4-6": {
+              "x": 45.56,
+              "y": -4.77,
+              "rotation": -90,
+              "width": 74,
+              "height": 105
+            }
+          },
+          "lv4-7": {
+            "lv4-7": {
+              "x": 45.29,
+              "y": -3.38,
+              "rotation": -88.9,
+              "width": 72,
+              "height": 100
+            }
+          },
+          "lv4-bong": {
+            "lv1-bong": {
+              "x": -13.19,
+              "y": 38.03,
+              "width": 235,
+              "height": 216
+            },
+            "lv2-bong": {
+              "x": -12.69,
+              "y": 54.53,
+              "width": 254,
+              "height": 229
+            },
+            "lv3-bong": {
+              "x": -10.69,
+              "y": 36.03,
+              "width": 258,
+              "height": 244
+            },
+            "lv4-bong": {
+              "x": -10.69,
+              "y": 55.03,
+              "width": 262,
+              "height": 256
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "lv1-idle": {
+        "slots": {
+          "lv1-1": {
+            "attachment": [
+              {
+                "name": "lv1-1"
+              }
+            ]
+          },
+          "lv1-2": {
+            "attachment": [
+              {
+                "name": "lv1-2"
+              }
+            ]
+          },
+          "lv1-3": {
+            "attachment": [
+              {
+                "name": "lv1-3"
+              }
+            ]
+          },
+          "lv1-4": {
+            "attachment": [
+              {
+                "name": "lv1-4"
+              }
+            ]
+          },
+          "lv1-5": {
+            "attachment": [
+              {
+                "name": "lv1-5"
+              }
+            ]
+          },
+          "lv1-6a": {
+            "attachment": [
+              {
+                "name": "lv1-6a"
+              }
+            ]
+          },
+          "lv1-6b": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b2": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b3": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b4": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b5": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b6": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6c": {
+            "attachment": [
+              {
+                "name": "lv1-6c"
+              }
+            ]
+          },
+          "lv1-6d": {
+            "attachment": [
+              {
+                "name": "lv1-6d"
+              }
+            ]
+          },
+          "lv4-bong": {
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          }
+        }
+      },
+      "lv1-tap": {
+        "slots": {
+          "lv1-1": {
+            "attachment": [
+              {
+                "name": "lv1-1"
+              }
+            ]
+          },
+          "lv1-2": {
+            "attachment": [
+              {
+                "name": "lv1-2"
+              }
+            ]
+          },
+          "lv1-3": {
+            "attachment": [
+              {
+                "name": "lv1-3"
+              }
+            ]
+          },
+          "lv1-4": {
+            "attachment": [
+              {
+                "name": "lv1-4"
+              }
+            ]
+          },
+          "lv1-5": {
+            "attachment": [
+              {
+                "name": "lv1-5"
+              }
+            ]
+          },
+          "lv1-6a": {
+            "attachment": [
+              {
+                "name": "lv1-6a"
+              }
+            ]
+          },
+          "lv1-6b": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b2": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b3": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b4": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b5": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6b6": {
+            "attachment": [
+              {
+                "name": "lv1-6b"
+              }
+            ]
+          },
+          "lv1-6c": {
+            "attachment": [
+              {
+                "name": "lv1-6c"
+              }
+            ]
+          },
+          "lv1-6d": {
+            "attachment": [
+              {
+                "name": "lv1-6d"
+              }
+            ]
+          },
+          "lv4-bong": {
+            "color": [
+              {
+                "time": 0.2667,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.5,
+                "color": "ffffff5f"
+              },
+              {
+                "time": 0.6667,
+                "color": "ffffffff"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "lv1-bong"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "lv1-3": {
+            "translate": [
+              {},
+              {
+                "time": 0.1667,
+                "y": -3.44
+              },
+              {
+                "time": 0.3333,
+                "y": 16.76
+              },
+              {
+                "time": 0.6667,
+                "y": -3.44
+              },
+              {
+                "time": 0.8333
+              }
+            ],
+            "scale": [
+              {},
+              {
+                "time": 0.1667,
+                "x": 0.874,
+                "y": 1.092
+              },
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.6667,
+                "x": 0.874,
+                "y": 1.092
+              },
+              {
+                "time": 0.8333
+              }
+            ]
+          },
+          "lv1-1": {
+            "rotate": [
+              {},
+              {
+                "time": 0.1667,
+                "angle": 43.68
+              },
+              {
+                "time": 0.8333
+              }
+            ],
+            "translate": [
+              {},
+              {
+                "time": 0.1667,
+                "x": 13.13,
+                "y": 19.85
+              },
+              {
+                "time": 0.2667,
+                "x": 9.76,
+                "y": 28.51
+              },
+              {
+                "time": 0.3333,
+                "x": 6.06,
+                "y": 37.12
+              },
+              {
+                "time": 0.4333,
+                "x": -8.69,
+                "y": 37.49
+              },
+              {
+                "time": 0.5,
+                "x": -13.65,
+                "y": 25.27
+              },
+              {
+                "time": 0.6,
+                "x": -19.41,
+                "y": 11.43
+              },
+              {
+                "time": 0.6667,
+                "x": -13.72,
+                "y": -0.79
+              },
+              {
+                "time": 0.7667,
+                "x": -0.83,
+                "y": -3.74
+              },
+              {
+                "time": 0.8333
+              }
+            ]
+          },
+          "lv1-7": {
+            "rotate": [
+              {
+                "time": 0.1667
+              },
+              {
+                "time": 0.3333,
+                "angle": 90
+              },
+              {
+                "time": 0.5,
+                "angle": 180
+              },
+              {
+                "time": 0.6667,
+                "angle": 270
+              },
+              {
+                "time": 0.8333,
+                "angle": 360
+              }
+            ],
+            "translate": [
+              {
+                "time": 0.1667
+              },
+              {
+                "time": 0.3333,
+                "x": 3.06,
+                "y": -5.45
+              },
+              {
+                "time": 0.5,
+                "x": 8.64,
+                "y": -3.27
+              },
+              {
+                "time": 0.6667,
+                "x": 6.89,
+                "y": 1.94
+              },
+              {
+                "time": 0.8333
+              }
+            ]
+          },
+          "lv1-4": {
+            "translate": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "y": -2.88
+              },
+              {
+                "time": 0.4333,
+                "y": 36.86
+              },
+              {
+                "time": 0.6,
+                "y": -2.88
+              },
+              {
+                "time": 0.7667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.1
+              },
+              {
+                "time": 0.2667,
+                "x": 0.816,
+                "y": 1.109
+              },
+              {
+                "time": 0.4333,
+                "x": 1.107,
+                "y": 0.956
+              },
+              {
+                "time": 0.6,
+                "x": 0.816,
+                "y": 1.109
+              },
+              {
+                "time": 0.7667
+              }
+            ]
+          },
+          "lv1-5": {
+            "translate": [
+              {
+                "time": 0.2
+              },
+              {
+                "time": 0.3667,
+                "x": 0.01,
+                "y": -2.88
+              },
+              {
+                "time": 0.5333,
+                "x": -0.08,
+                "y": 36.86
+              },
+              {
+                "time": 0.7,
+                "x": 0.01,
+                "y": -2.88
+              },
+              {
+                "time": 0.8667
+              }
+            ],
+            "scale": [
+              {
+                "time": 0.2
+              },
+              {
+                "time": 0.3667,
+                "x": 0.816,
+                "y": 1.109
+              },
+              {
+                "time": 0.5333,
+                "x": 1.107,
+                "y": 0.956
+              },
+              {
+                "time": 0.7,
+                "x": 0.816,
+                "y": 1.109
+              },
+              {
+                "time": 0.8667
+              }
+            ]
+          },
+          "lv1-6d": {
+            "translate": [
+              {},
+              {
+                "time": 0.1667,
+                "x": 0.03,
+                "y": -2.88
+              },
+              {
+                "time": 0.3333,
+                "x": -0.28,
+                "y": 23.6
+              },
+              {
+                "time": 0.6667,
+                "x": 0.03,
+                "y": -2.88
+              },
+              {
+                "time": 0.8333
+              }
+            ],
+            "scale": [
+              {},
+              {
+                "time": 0.1667,
+                "x": 0.816,
+                "y": 1.109
+              },
+              {
+                "time": 0.3333,
+                "x": 1.107,
+                "y": 0.956
+              },
+              {
+                "time": 0.6667,
+                "x": 0.816,
+                "y": 1.109
+              },
+              {
+                "time": 0.8333
+              }
+            ]
+          },
+          "lv1-6b": {
+            "translate": [
+              {
+                "time": 0.1667
+              },
+              {
+                "time": 0.3333,
+                "x": 15.97,
+                "y": -0.19
+              },
+              {
+                "time": 0.5
+              }
+            ]
+          },
+          "lv1-6b2": {
+            "translate": [
+              {
+                "time": 0.2
+              },
+              {
+                "time": 0.3667,
+                "x": 15.97,
+                "y": -0.19
+              },
+              {
+                "time": 0.5333
+              }
+            ]
+          },
+          "lv1-6b3": {
+            "translate": [
+              {
+                "time": 0.2333
+              },
+              {
+                "time": 0.4,
+                "x": 15.97,
+                "y": -0.19
+              },
+              {
+                "time": 0.5667
+              }
+            ]
+          },
+          "lv1-6b4": {
+            "translate": [
+              {
+                "time": 0.2667
+              },
+              {
+                "time": 0.4333,
+                "x": 15.97,
+                "y": -0.19
+              },
+              {
+                "time": 0.6
+              }
+            ]
+          },
+          "lv1-6b5": {
+            "translate": [
+              {
+                "time": 0.3
+              },
+              {
+                "time": 0.4667,
+                "x": 15.97,
+                "y": -0.19
+              },
+              {
+                "time": 0.6333
+              }
+            ]
+          },
+          "lv1-6b6": {
+            "translate": [
+              {
+                "time": 0.3333
+              },
+              {
+                "time": 0.5,
+                "x": 15.97,
+                "y": -0.19
+              },
+              {
+                "time": 0.6667
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nbase.png\nsize: 1532, 412\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nlv1-1\n  rotate: true\n  xy: 1278, 53\n  size: 76, 79\n  orig: 79, 81\n  offset: 1, 1\n  index: -1\nlv1-2\n  rotate: false\n  xy: 2, 4\n  size: 144, 144\n  orig: 146, 146\n  offset: 1, 1\n  index: -1\nlv1-3\n  rotate: false\n  xy: 1359, 90\n  size: 158, 155\n  orig: 160, 157\n  offset: 1, 1\n  index: -1\nlv1-4\n  rotate: true\n  xy: 431, 18\n  size: 47, 142\n  orig: 49, 144\n  offset: 1, 1\n  index: -1\nlv1-5\n  rotate: true\n  xy: 281, 8\n  size: 57, 148\n  orig: 59, 150\n  offset: 1, 1\n  index: -1\nlv1-6a\n  rotate: false\n  xy: 941, 187\n  size: 171, 36\n  orig: 173, 38\n  offset: 1, 1\n  index: -1\nlv1-6b\n  rotate: true\n  xy: 1278, 7\n  size: 44, 57\n  orig: 46, 60\n  offset: 1, 1\n  index: -1\nlv1-6c\n  rotate: false\n  xy: 454, 85\n  size: 171, 68\n  orig: 173, 70\n  offset: 1, 1\n  index: -1\nlv1-6d\n  rotate: false\n  xy: 281, 67\n  size: 171, 86\n  orig: 173, 88\n  offset: 1, 1\n  index: -1\nlv1-bong\n  rotate: true\n  xy: 727, 179\n  size: 231, 212\n  orig: 235, 216\n  offset: 2, 2\n  index: -1\nlv2-1\n  rotate: true\n  xy: 819, 11\n  size: 82, 102\n  orig: 84, 104\n  offset: 1, 1\n  index: -1\nlv2-2\n  rotate: true\n  xy: 750, 95\n  size: 82, 105\n  orig: 84, 107\n  offset: 1, 1\n  index: -1\nlv2-3\n  rotate: false\n  xy: 1359, 7\n  size: 88, 81\n  orig: 90, 83\n  offset: 1, 1\n  index: -1\nlv2-4\n  rotate: false\n  xy: 148, 17\n  size: 131, 131\n  orig: 133, 133\n  offset: 1, 1\n  index: -1\nlv2-5\n  rotate: false\n  xy: 1291, 247\n  size: 160, 163\n  orig: 162, 165\n  offset: 1, 1\n  index: -1\nlv2-6\n  rotate: true\n  xy: 1453, 312\n  size: 98, 51\n  orig: 100, 53\n  offset: 1, 1\n  index: -1\nlv2-7\n  rotate: true\n  xy: 1273, 131\n  size: 95, 84\n  orig: 97, 86\n  offset: 1, 1\n  index: -1\nlv2-bong\n  rotate: true\n  xy: 499, 159\n  size: 251, 226\n  orig: 254, 229\n  offset: 1, 1\n  index: -1\nlv3-1\n  rotate: true\n  xy: 627, 88\n  size: 69, 121\n  orig: 71, 123\n  offset: 1, 1\n  index: -1\nlv3-2\n  rotate: true\n  xy: 857, 108\n  size: 69, 121\n  orig: 71, 123\n  offset: 1, 1\n  index: -1\nlv3-3\n  rotate: true\n  xy: 1185, 129\n  size: 97, 86\n  orig: 100, 89\n  offset: 2, 2\n  index: -1\nlv3-4\n  rotate: true\n  xy: 1122, 228\n  size: 182, 167\n  orig: 184, 169\n  offset: 1, 1\n  index: -1\nlv3-5\n  rotate: true\n  xy: 1453, 257\n  size: 53, 77\n  orig: 55, 79\n  offset: 1, 1\n  index: -1\nlv3-6\n  rotate: true\n  xy: 1449, 35\n  size: 53, 77\n  orig: 55, 79\n  offset: 1, 1\n  index: -1\nlv3-7\n  rotate: false\n  xy: 923, 4\n  size: 113, 102\n  orig: 115, 104\n  offset: 1, 1\n  index: -1\nlv3-bong\n  rotate: true\n  xy: 257, 155\n  size: 255, 240\n  orig: 258, 244\n  offset: 1, 2\n  index: -1\nlv4-1\n  rotate: true\n  xy: 575, 4\n  size: 79, 123\n  orig: 81, 125\n  offset: 1, 1\n  index: -1\nlv4-2\n  rotate: false\n  xy: 1160, 16\n  size: 116, 97\n  orig: 118, 99\n  offset: 1, 1\n  index: -1\nlv4-3\n  rotate: true\n  xy: 941, 225\n  size: 185, 179\n  orig: 187, 181\n  offset: 1, 1\n  index: -1\nlv4-4\n  rotate: true\n  xy: 700, 12\n  size: 74, 117\n  orig: 76, 119\n  offset: 1, 1\n  index: -1\nlv4-5\n  rotate: false\n  xy: 1038, 2\n  size: 120, 109\n  orig: 122, 111\n  offset: 1, 1\n  index: -1\nlv4-6\n  rotate: true\n  xy: 980, 113\n  size: 72, 103\n  orig: 74, 105\n  offset: 1, 1\n  index: -1\nlv4-7\n  rotate: true\n  xy: 1085, 115\n  size: 70, 98\n  orig: 72, 100\n  offset: 1, 1\n  index: -1\nlv4-bong\n  rotate: true\n  xy: 2, 150\n  size: 260, 253\n  orig: 262, 256\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "cb96b985-74b6-4084-9352-b6a56b2f6e04"
+    }
+  ],
+  "textureNames": [
+    "base.png"
+  ],
+  "scale": 1
+}

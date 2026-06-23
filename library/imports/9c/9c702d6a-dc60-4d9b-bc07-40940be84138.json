@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cafe1",
+    "texture": "c8ed684d-e294-46f6-b1aa-b864508f2a71",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      113,
+      106
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      113,
+      106
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
