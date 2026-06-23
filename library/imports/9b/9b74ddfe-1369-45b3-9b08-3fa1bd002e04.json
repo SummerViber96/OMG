@@ -415,7 +415,7 @@
       }
     }
   },
-  "_atlasText": "\r\npotatoes.png\r\nsize: 368, 192\r\nformat: RGBA8888\r\nfilter: Linear, Linear\r\nrepeat: none\r\nlv1-bo\r\n  rotate: false\r\n  xy: 228, 2\r\n  size: 98, 68\r\n  orig: 102, 71\r\n  offset: 2, 1\r\n  index: -1\r\nlv1-to\r\n  rotate: true\r\n  xy: 228, 72\r\n  size: 115, 137\r\n  orig: 117, 139\r\n  offset: 1, 1\r\n  index: -1\r\nlv1-tray\r\n  rotate: false\r\n  xy: 2, 16\r\n  size: 224, 171\r\n  orig: 226, 173\r\n  offset: 1, 1\r\n  index: -1\r\n",
+  "_atlasText": "\npotatoes.png\nsize: 368, 192\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nlv1-bo\n  rotate: false\n  xy: 228, 2\n  size: 98, 68\n  orig: 102, 71\n  offset: 2, 1\n  index: -1\nlv1-to\n  rotate: true\n  xy: 228, 72\n  size: 115, 137\n  orig: 117, 139\n  offset: 1, 1\n  index: -1\nlv1-tray\n  rotate: false\n  xy: 2, 16\n  size: 224, 171\n  orig: 226, 173\n  offset: 1, 1\n  index: -1\n",
   "textures": [
     {
       "__uuid__": "f662c3b0-199e-4ea5-b45c-ed072d350ff3"

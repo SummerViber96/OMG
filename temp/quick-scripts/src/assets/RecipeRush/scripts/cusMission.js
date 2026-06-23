@@ -62,6 +62,7 @@ var NewClass = /** @class */ (function (_super) {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
     };
     NewClass.prototype.start = function () {
+        this.pop.scale = 0;
         if (!this.gamePlay) {
             this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         }

@@ -36,12 +36,13 @@ var NewClass = /** @class */ (function (_super) {
         _this.khay2 = null;
         _this.anim = null;
         _this.table = null;
+        _this.machine2 = null;
         // arrPos = [cc.v3(-190, -39), cc.v3(-207, -323), cc.v3(-207, -468), cc.v3(11, -45),cc.v3(237,-122)]
-        _this.posStart = cc.v3(207, -58);
+        _this.posStart = cc.v3(207, -122);
         // arrPos[0]=vị trí 1 máy chiên | [1]=2 sốt | [2]=3 khay | [3]=4 quầy bán | [4]=thớt gà
         _this.arrPos = [
-            cc.v3(-190, -30),
-            cc.v3(-207, -323),
+            cc.v3(-190, -122),
+            cc.v3(-50, -122),
             cc.v3(-207, -468),
             cc.v3(11, -45),
             cc.v3(237, -122),
@@ -86,13 +87,13 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.walkToMachineOrAct = function (moveId, onArrive) {
         var _this = this;
         if (this.isAtPos(this.POS_MACHINE)) {
-            this.setInFrontOfTable();
+            this.setBehindTable();
             onArrive();
             return;
         }
         this.startWalk(moveId, function () { }, function (t) { return t
-            .call(function () { return _this.setInFrontOfTable(); })
-            .to(1, { position: _this.getPos(_this.POS_MACHINE) }); }, onArrive);
+            .call(function () { return _this.setBehindTable(); })
+            .to(0.6, { position: _this.getPos(_this.POS_MACHINE) }); }, onArrive);
     };
     NewClass.prototype.walkFromCakeToMachine = function (moveId, onArrive) {
         var _this = this;
@@ -542,10 +543,10 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.moveToMachine = function () {
         var _this = this;
-        console.log(this.localId, "id game");
         var machine = this.gamePlay.btnMachine.getComponent("machine");
         var moveId = this.beginMove();
-        this.setInFrontOfTable();
+        this.setBehindTable();
+        this.node.scaleX = -1;
         if (this.localId == 1 || this.localId == 2) {
             if (!this.handleMachineAction(moveId, machine, function (id, cb) { return _this.walkToMachineOrAct(id, cb); })) {
                 this.finishMove();
@@ -630,7 +631,6 @@ var NewClass = /** @class */ (function (_super) {
         var moveId = this.beginMove();
         this.node.scaleX = -1;
         this.setInFrontOfTable();
-        console.log(this.localId, "id game");
         if (this.localId == 1) {
             this.setBehindTable();
             this.startWalk(moveId, function () { }, function (t) { return t.to(0.6, { position: _this.getPos(_this.POS_SELL) }); }, function () {
@@ -646,11 +646,11 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         if (this.localId == 2 || this.localId == 3) {
-            var sellDelay = this.localId == 3 ? 0.4 : 1;
+            var sellDelay = this.localId == 3 ? 0.4 : 0.4;
             var tween = this.localId == 3
                 ? cc.tween(this.node).call(function () { return _this.setBehindTable(); }).to(0.4, { position: this.getPos(this.POS_SELL) })
                 : cc.tween(this.node)
-                    .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                    // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                     .call(function () { return _this.setBehindTable(); })
                     .to(0.4, { position: this.getPos(this.POS_SELL) });
             this.anim.setAnimation(0, "Walk", true);
@@ -904,6 +904,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "table", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "machine2", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -20,13 +20,15 @@ export default class NewClass extends cc.Component {
     anim: sp.Skeleton = null;
     @property(cc.Node)
     table: cc.Node = null;
+    @property(cc.Node)
+    machine2:cc.Node=null;
 
     // arrPos = [cc.v3(-190, -39), cc.v3(-207, -323), cc.v3(-207, -468), cc.v3(11, -45),cc.v3(237,-122)]
-    posStart = cc.v3(207, -58)
+    posStart = cc.v3(207, -122)
     // arrPos[0]=vị trí 1 máy chiên | [1]=2 sốt | [2]=3 khay | [3]=4 quầy bán | [4]=thớt gà
     arrPos = [
-        cc.v3(-190, -30),  // 1 - máy chiên
-        cc.v3(-207, -323),  // 2 - sốt
+        cc.v3(-190, -122),  // 1 - máy chiên
+        cc.v3(-50, -122),  // 2 - sốt
         cc.v3(-207, -468),   // 3 - khay
         cc.v3(11, -45),     // 4 - quầy bán
         cc.v3(237, -122),   // thớt gà
@@ -68,13 +70,13 @@ export default class NewClass extends cc.Component {
 
     walkToMachineOrAct(moveId: number, onArrive: () => void) {
         if (this.isAtPos(this.POS_MACHINE)) {
-            this.setInFrontOfTable()
+            this.setBehindTable()
             onArrive()
             return
         }
         this.startWalk(moveId, () => { }, t => t
-            .call(() => this.setInFrontOfTable())
-            .to(1, { position: this.getPos(this.POS_MACHINE) }),
+            .call(() => this.setBehindTable())
+            .to(0.6, { position: this.getPos(this.POS_MACHINE) }),
             onArrive)
     }
 
@@ -522,11 +524,10 @@ export default class NewClass extends cc.Component {
     }
 
     moveToMachine() {
-        console.log(this.localId, "id game");
         let machine = this.gamePlay.btnMachine.getComponent("machine")
         let moveId = this.beginMove()
-        this.setInFrontOfTable()
-
+        this.setBehindTable()
+        this.node.scaleX = -1
         if (this.localId == 1 || this.localId == 2) {
             if (!this.handleMachineAction(moveId, machine, (id, cb) => this.walkToMachineOrAct(id, cb))) {
                 this.finishMove()
@@ -619,7 +620,6 @@ export default class NewClass extends cc.Component {
         let moveId = this.beginMove()
         this.node.scaleX = -1
         this.setInFrontOfTable()
-        console.log(this.localId, "id game");
         if (this.localId == 1) {
             this.setBehindTable()
             this.startWalk(moveId, () => { }, t => t.to(0.6, { position: this.getPos(this.POS_SELL) }), () => {
@@ -633,11 +633,11 @@ export default class NewClass extends cc.Component {
             return
         }
         if (this.localId == 2 || this.localId == 3) {
-            let sellDelay = this.localId == 3 ? 0.4 : 1
+            let sellDelay = this.localId == 3 ? 0.4 : 0.4
             let tween = this.localId == 3
                 ? cc.tween(this.node).call(() => this.setBehindTable()).to(0.4, { position: this.getPos(this.POS_SELL) })
                 : cc.tween(this.node)
-                    .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                    // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                     .call(() => this.setBehindTable())
                     .to(0.4, { position: this.getPos(this.POS_SELL) })
             this.anim.setAnimation(0, "Walk", true)

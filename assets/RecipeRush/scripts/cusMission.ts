@@ -59,6 +59,7 @@ export default class NewClass extends cc.Component {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
     }
     start() {
+        this.pop.scale=0
         if (!this.gamePlay) {
             this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
         }

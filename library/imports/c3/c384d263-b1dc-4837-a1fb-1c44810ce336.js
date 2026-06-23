@@ -93,6 +93,7 @@ var NewClass = /** @class */ (function (_super) {
         this.isChin = false;
         var chicken = this.chicken;
         this.chicken = null;
+        this.anim.setAnimation(0, "lv1-idle", false);
         this.gamePlay.onHind();
         return chicken;
     };
