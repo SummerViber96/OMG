@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "f6d55412-5ec4-46e1-abf1-031e554d40c4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1164,
+  "height": 1351,
+  "platformSettings": {},
+  "subMetas": {
+    "ChatGPT Image 07_36_59 24 thg 6, 2026": {
+      "ver": "1.0.4",
+      "uuid": "793bb15f-e46c-4158-80f2-e6eab949caca",
+      "rawTextureUuid": "f6d55412-5ec4-46e1-abf1-031e554d40c4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1164,
+      "height": 1351,
+      "rawWidth": 1164,
+      "rawHeight": 1351,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

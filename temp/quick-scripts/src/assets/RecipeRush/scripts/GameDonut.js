@@ -345,10 +345,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_mayChien = function () {
         if (this.isMcBusy())
             return;
-        var machineComp = this.btnMachine.getComponent("machine");
-        var canFry = this.mcComp.getRawTraySlot() >= 0 && machineComp.chicken == null;
-        var canPickup = (this.mcComp.localId == 1 || this.mcComp.localId == 2 || this.mcComp.localId == 3 || this.mcComp.localId == 4 || this.mcComp.localId == 5) && machineComp.chicken != null && machineComp.isChin && this.mcComp.canPickItemType("chicken");
-        if (!canFry && !canPickup)
+        if (!this.mcComp.canDoAnyMachineAction())
             return;
         this.isMoving = true;
         this.btnMachine.getChildByName("hind").active = false;

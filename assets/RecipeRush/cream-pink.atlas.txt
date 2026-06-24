@@ -1,0 +1,153 @@
+
+cream-pink.png
+size: 1532,456
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lv1-bat
+  rotate: true
+  xy: 912, 74
+  size: 178, 170
+  orig: 180, 172
+  offset: 1, 1
+  index: -1
+lv1-bong
+  rotate: false
+  xy: 1385, 236
+  size: 143, 89
+  orig: 147, 93
+  offset: 2, 2
+  index: -1
+lv1-de
+  rotate: true
+  xy: 827, 254
+  size: 197, 175
+  orig: 201, 178
+  offset: 2, 2
+  index: -1
+lv1-white
+  rotate: false
+  xy: 1274, 24
+  size: 152, 112
+  orig: 152, 112
+  offset: 0, 0
+  index: -1
+lv2-battrang
+  rotate: true
+  xy: 534, 3
+  size: 218, 183
+  orig: 220, 185
+  offset: 1, 1
+  index: -1
+lv2-bong
+  rotate: false
+  xy: 1084, 9
+  size: 188, 87
+  orig: 192, 92
+  offset: 2, 2
+  index: -1
+lv2-de
+  rotate: true
+  xy: 651, 224
+  size: 227, 174
+  orig: 229, 176
+  offset: 1, 1
+  index: -1
+lv2-thia
+  rotate: true
+  xy: 1412, 338
+  size: 113, 109
+  orig: 115, 111
+  offset: 1, 1
+  index: -1
+lv2-white
+  rotate: false
+  xy: 1286, 327
+  size: 124, 124
+  orig: 126, 126
+  offset: 1, 1
+  index: -1
+lv3-battrang
+  rotate: true
+  xy: 719, 22
+  size: 200, 191
+  orig: 202, 193
+  offset: 1, 1
+  index: -1
+lv3-bong
+  rotate: true
+  xy: 1004, 259
+  size: 192, 146
+  orig: 196, 150
+  offset: 2, 2
+  index: -1
+lv3-de1
+  rotate: false
+  xy: 269, 5
+  size: 263, 177
+  orig: 265, 180
+  offset: 1, 2
+  index: -1
+lv3-de2
+  rotate: false
+  xy: 2, 2
+  size: 265, 179
+  orig: 267, 181
+  offset: 1, 1
+  index: -1
+lv3-thia
+  rotate: false
+  xy: 1385, 140
+  size: 94, 94
+  orig: 156, 124
+  offset: 1, 29
+  index: -1
+lv3-white
+  rotate: false
+  xy: 1245, 138
+  size: 138, 138
+  orig: 140, 140
+  offset: 1, 1
+  index: -1
+lv4-battrang
+  rotate: true
+  xy: 443, 223
+  size: 228, 206
+  orig: 230, 208
+  offset: 1, 1
+  index: -1
+lv4-bong
+  rotate: true
+  xy: 1152, 278
+  size: 173, 132
+  orig: 177, 135
+  offset: 2, 1
+  index: -1
+lv4-de1
+  rotate: true
+  xy: 223, 184
+  size: 267, 218
+  orig: 270, 220
+  offset: 1, 1
+  index: -1
+lv4-de2
+  rotate: true
+  xy: 2, 183
+  size: 268, 219
+  orig: 270, 221
+  offset: 1, 1
+  index: -1
+lv4-thia
+  rotate: true
+  xy: 1428, 48
+  size: 90, 97
+  orig: 92, 99
+  offset: 1, 1
+  index: -1
+lv4-white
+  rotate: false
+  xy: 1084, 98
+  size: 159, 159
+  orig: 161, 161
+  offset: 1, 1
+  index: -1

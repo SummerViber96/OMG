@@ -181,7 +181,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 130,
-      "height": 136
+      "height": 135
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -338,8 +338,8 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "default",
-    "defaultAnimation": "lv1-song",
+    "defaultSkin": "",
+    "defaultAnimation": "",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -355,9 +355,7 @@
     "_headAniInfo": null,
     "_playTimes": 0,
     "_isAniComplete": true,
-    "_N$skeletonData": {
-      "__uuid__": "a1a0dc61-2cf9-46e4-ae4d-8b672e13ee5b"
-    },
+    "_N$skeletonData": null,
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
     "_N$debugBones": false,

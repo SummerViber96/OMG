@@ -107,26 +107,199 @@ var NewClass = /** @class */ (function (_super) {
         }, function (t) {
             var tween = t;
             if (_this.isAtPos(_this.POS_CAKE)) {
+                _this.setInFrontOfTable();
                 tween = tween.to(0.8, { position: _this.getPos(_this.POS_COCA) }).call(function () { return _this.setBehindTable(); });
             }
             return tween
+                // .call(() => this.setBehindTable())
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(function () { return _this.setBehindTable(); })
-                .to(1, { position: _this.getPos(_this.POS_CHICKEN) })
-                .call(function () { return _this.setInFrontOfTable(); })
-                .to(1, { position: _this.getPos(_this.POS_MACHINE) });
+                .to(0.6, { position: _this.getPos(_this.POS_MACHINE) });
         }, onArrive);
     };
-    NewClass.prototype.handleMachineAction = function (moveId, machine, walkFn) {
+    // --- Máy chiên (machine + machine2) ---
+    NewClass.prototype.getMachine2Comp = function () {
+        return this.machine2 ? this.machine2.getComponent("machine") : null;
+    };
+    NewClass.prototype.getMachines = function () {
+        var list = [];
+        if (this.gamePlay && this.gamePlay.btnMachine) {
+            var m = this.gamePlay.btnMachine.getComponent("machine");
+            if (m)
+                list.push(m);
+        }
+        var m2 = this.getMachine2Comp();
+        if (m2 && list.indexOf(m2) < 0)
+            list.push(m2);
+        return list;
+    };
+    NewClass.prototype.getItemTypeAtSlot = function (slot) {
+        if (slot < 0 || slot > 1)
+            return null;
+        if (this.trayItemTypes[slot])
+            return this.trayItemTypes[slot];
+        var item = this.trayItems[slot];
+        if (!item)
+            return null;
+        if (this.getChickenComp(item))
+            return "chicken";
+        return null;
+    };
+    NewClass.prototype.findRawChickenTraySlots = function () {
+        var slots = [];
+        for (var i = 0; i < 2; i++) {
+            var comp = this.getChickenComp(this.trayItems[i]);
+            if (comp && !comp.isChin)
+                slots.push(i);
+        }
+        return slots;
+    };
+    NewClass.prototype.findCakeTraySlots = function () {
+        var slots = [];
+        for (var i = 0; i < 2; i++) {
+            if (this.getItemTypeAtSlot(i) === "cake")
+                slots.push(i);
+        }
+        return slots;
+    };
+    NewClass.prototype.getMachineItemType = function (item) {
+        return this.getChickenComp(item) ? "chicken" : "cake";
+    };
+    NewClass.prototype.checkMachine = function (machine) {
+        if (!machine)
+            return null;
+        if (machine.isReady()) {
+            var itemType = this.getMachineItemType(machine.chicken);
+            if (this.canPickItemType(itemType)) {
+                return { action: "pickup", machine: machine, itemType: itemType };
+            }
+            return null;
+        }
+        if (machine.isCooking())
+            return { action: "busy", machine: machine };
+        if (machine.canAcceptFood())
+            return { action: "accept", machine: machine };
+        return null;
+    };
+    NewClass.prototype.assignTrayItemsToMachines = function (machines, slots, action) {
+        var plan = [];
+        var usedMachines = [];
+        for (var _i = 0, slots_1 = slots; _i < slots_1.length; _i++) {
+            var slot = slots_1[_i];
+            var target = machines.find(function (m) { return m.canAcceptFood() && usedMachines.indexOf(m) < 0; });
+            if (!target)
+                break;
+            usedMachines.push(target);
+            plan.push({ action: action, machine: target, slot: slot });
+        }
+        return plan;
+    };
+    NewClass.prototype.buildMachinePlan = function () {
+        var machines = this.getMachines();
+        var plan = [];
+        for (var _i = 0, machines_1 = machines; _i < machines_1.length; _i++) {
+            var m = machines_1[_i];
+            var state = this.checkMachine(m);
+            if (state && state.action === "pickup") {
+                plan.push({ action: "pickup", machine: m });
+                return plan;
+            }
+        }
+        var rawSlots = this.findRawChickenTraySlots();
+        if (rawSlots.length > 0) {
+            plan = this.assignTrayItemsToMachines(machines, rawSlots, "fry_chicken");
+            if (plan.length > 0)
+                return plan;
+        }
+        var cakeSlots = this.findCakeTraySlots();
+        return this.assignTrayItemsToMachines(machines, cakeSlots, "fry_cake");
+    };
+    NewClass.prototype.canDoAnyMachineAction = function () {
+        return this.buildMachinePlan().length > 0;
+    };
+    NewClass.prototype.canFryCakeAtMachine = function () {
+        return this.buildMachinePlan().some(function (a) { return a.action === "fry_cake"; });
+    };
+    NewClass.prototype.findPickupMachine = function () {
+        for (var _i = 0, _a = this.getMachines(); _i < _a.length; _i++) {
+            var m = _a[_i];
+            var state = this.checkMachine(m);
+            if (state && state.action === "pickup")
+                return m;
+        }
+        return null;
+    };
+    NewClass.prototype.executeMachinePlan = function (plan) {
+        if (!plan || plan.length === 0) {
+            this.finishMove();
+            return;
+        }
+        if (plan[0].action === "pickup") {
+            this.pickupFromMachine(plan[0].machine);
+            return;
+        }
+        var chickenActions = plan.filter(function (a) { return a.action === "fry_chicken"; });
+        if (chickenActions.length > 0) {
+            for (var _i = 0, chickenActions_1 = chickenActions; _i < chickenActions_1.length; _i++) {
+                var a = chickenActions_1[_i];
+                this.fryTrayChicken(a.machine, a.slot, false);
+            }
+            if (this.isTrayEmpty()) {
+                this.chicken = false;
+                this.targetChicken = null;
+            }
+            this.updateArms();
+            this.localId = 2;
+            this.finishMove();
+            return;
+        }
+        var cakeActions = plan.filter(function (a) { return a.action === "fry_cake"; });
+        if (cakeActions.length > 0) {
+            for (var _a = 0, cakeActions_1 = cakeActions; _a < cakeActions_1.length; _a++) {
+                var a = cakeActions_1[_a];
+                this.fryTrayCake(a.machine, a.slot, false);
+            }
+            if (this.isTrayEmpty()) {
+                this.chicken = false;
+                this.targetChicken = null;
+            }
+            this.updateArms();
+            this.localId = 5;
+            this.finishMove();
+            return;
+        }
+        this.finishMove();
+    };
+    NewClass.prototype.runMachineStation = function (moveId, walkFn) {
         var _this = this;
-        if (machine.chicken != null && machine.isChin && this.canPickItemType("chicken")) {
-            walkFn(moveId, function () { return _this.pickupMachineChicken(machine); });
-            return true;
+        var plan = this.buildMachinePlan();
+        if (plan.length === 0)
+            return false;
+        walkFn(moveId, function () { return _this.executeMachinePlan(plan); });
+        return true;
+    };
+    NewClass.prototype.getWalkToMachineFn = function (localId) {
+        var _this = this;
+        if (localId == 5)
+            return function (id, cb) { return _this.walkFromCakeToMachine(id, cb); };
+        if (localId == 4) {
+            return function (id, cb) { return _this.startWalk(id, function () {
+                _this.setBehindTable();
+                _this.node.scaleX = 1;
+            }, function (t) { return t
+                // .to(0.6, { position: this.getPos(this.POS_SELL) })
+                // .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                // .call(() => this.setInFrontOfTable())
+                .to(0.6, { position: _this.getPos(_this.POS_MACHINE) }); }, cb); };
         }
-        if (this.getRawTraySlot() >= 0 && machine.chicken == null) {
-            walkFn(moveId, function () { return _this.fryTrayChicken(machine); });
-            return true;
+        if (localId == 3) {
+            return function (id, cb) { return _this.startWalk(id, function () { }, function (t) { return t
+                .call(function () { return _this.setBehindTable(); })
+                // .to(0.4, { position: this.getPos(this.POS_CHICKEN) })
+                // .call(() => this.setInFrontOfTable())
+                .to(0.2, { position: _this.getPos(_this.POS_MACHINE) }); }, cb); };
         }
-        return false;
+        return function (id, cb) { return _this.walkToMachineOrAct(id, cb); };
     };
     // --- Khay (2 tray) ---
     NewClass.prototype.getTrayNode = function (slot) {
@@ -496,18 +669,27 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.idle = function () {
         this.finishMove();
     };
-    NewClass.prototype.pickupMachineChicken = function (machine) {
-        var chicken = machine.getChicken();
-        chicken.getComponent("chicken").chin2();
-        var slot = this.preparePickupSlot("chicken");
+    NewClass.prototype.pickupFromMachine = function (machine) {
+        var item = machine.getChicken();
+        if (!item) {
+            this.finishMove();
+            return false;
+        }
+        var type = this.getMachineItemType(item);
+        if (type === "chicken")
+            item.getComponent("chicken").chin2();
+        var slot = this.preparePickupSlot(type);
         if (slot < 0) {
             this.finishMove();
             return false;
         }
-        this.putTrayItem(chicken, "chicken", slot);
-        this.localId = 2;
+        this.putTrayItem(item, type, slot);
+        this.localId = type === "chicken" ? 2 : 5;
         this.finishMove();
         return true;
+    };
+    NewClass.prototype.pickupMachineChicken = function (machine) {
+        return this.pickupFromMachine(machine);
     };
     NewClass.prototype.pickupCoca = function (coca) {
         if (!coca || !coca.isCoca)
@@ -523,82 +705,53 @@ var NewClass = /** @class */ (function (_super) {
         this.localId = 4;
         return true;
     };
-    NewClass.prototype.fryTrayChicken = function (machine) {
-        var slot = this.getRawTraySlot();
-        if (slot < 0) {
-            this.finishMove();
-            return;
-        }
+    NewClass.prototype.fryTrayChicken = function (machine, slot, finish) {
+        if (finish === void 0) { finish = true; }
         var chicken = this.trayItems[slot];
+        if (!chicken || !machine.cooking(chicken)) {
+            if (finish)
+                this.finishMove();
+            return false;
+        }
         this.trayItems[slot] = null;
         this.trayItemTypes[slot] = null;
+        if (!finish)
+            return true;
         if (this.isTrayEmpty()) {
             this.chicken = false;
             this.targetChicken = null;
         }
         this.updateArms();
-        machine.cooking(chicken);
         this.localId = 2;
         this.finishMove();
+        return true;
+    };
+    NewClass.prototype.fryTrayCake = function (machine, slot, finish) {
+        if (finish === void 0) { finish = true; }
+        var cake = this.trayItems[slot];
+        if (!cake || !machine.cooking(cake))
+            return false;
+        this.trayItems[slot] = null;
+        this.trayItemTypes[slot] = null;
+        if (!finish)
+            return true;
+        if (this.isTrayEmpty()) {
+            this.chicken = false;
+            this.targetChicken = null;
+        }
+        this.updateArms();
+        this.localId = 5;
+        this.finishMove();
+        return true;
     };
     NewClass.prototype.moveToMachine = function () {
-        var _this = this;
-        var machine = this.gamePlay.btnMachine.getComponent("machine");
         var moveId = this.beginMove();
         this.setBehindTable();
         this.node.scaleX = -1;
-        if (this.localId == 1 || this.localId == 2) {
-            if (!this.handleMachineAction(moveId, machine, function (id, cb) { return _this.walkToMachineOrAct(id, cb); })) {
-                this.finishMove();
-            }
-            return;
+        var walkFn = this.getWalkToMachineFn(this.localId);
+        if (!this.runMachineStation(moveId, walkFn)) {
+            this.finishMove();
         }
-        if (this.localId == 3) {
-            if (machine.chicken != null && machine.isChin && this.canPickItemType("chicken")) {
-                if (this.isAtPos(this.POS_MACHINE)) {
-                    this.pickupMachineChicken(machine);
-                    return;
-                }
-                this.startWalk(moveId, function () { }, function (t) { return t
-                    .call(function () { return _this.setBehindTable(); })
-                    .to(0.4, { position: _this.getPos(_this.POS_CHICKEN) })
-                    .call(function () { return _this.setInFrontOfTable(); })
-                    .to(1, { position: _this.getPos(_this.POS_MACHINE) }); }, function () { return _this.pickupMachineChicken(machine); });
-                return;
-            }
-            this.startWalk(moveId, function () {
-                _this.setBehindTable();
-                _this.node.scaleX = 1;
-            }, function (t) { return t
-                .to(0.6, { position: _this.getPos(_this.POS_CHICKEN) })
-                .call(function () { return _this.setInFrontOfTable(); })
-                .to(1, { position: _this.getPos(_this.POS_MACHINE) }); }, function () {
-                _this.localId = 2;
-                _this.finishMove();
-            });
-            return;
-        }
-        if (this.localId == 4) {
-            this.startWalk(moveId, function () {
-                _this.setBehindTable();
-                _this.node.scaleX = 1;
-            }, function (t) { return t
-                .to(0.6, { position: _this.getPos(_this.POS_SELL) })
-                .to(0.6, { position: _this.getPos(_this.POS_CHICKEN) })
-                .call(function () { return _this.setInFrontOfTable(); })
-                .to(1, { position: _this.getPos(_this.POS_MACHINE) }); }, function () {
-                _this.localId = 2;
-                _this.finishMove();
-            });
-            return;
-        }
-        if (this.localId == 5) {
-            if (!this.handleMachineAction(moveId, machine, function (id, cb) { return _this.walkFromCakeToMachine(id, cb); })) {
-                this.finishMove();
-            }
-            return;
-        }
-        this.finishMove();
     };
     NewClass.prototype.moveToSauce = function () {
         var _this = this;
@@ -646,7 +799,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         if (this.localId == 2 || this.localId == 3) {
-            var sellDelay = this.localId == 3 ? 0.4 : 0.4;
+            var sellDelay = this.localId == 3 ? 0.1 : 0.1;
             var tween = this.localId == 3
                 ? cc.tween(this.node).call(function () { return _this.setBehindTable(); }).to(0.4, { position: this.getPos(this.POS_SELL) })
                 : cc.tween(this.node)
@@ -728,9 +881,9 @@ var NewClass = /** @class */ (function (_super) {
         }
         if (this.localId == 2) {
             this.startWalk(moveId, function () { }, function (t) { return t
-                .to(1, { position: _this.getPos(_this.POS_CHICKEN) })
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(function () { return _this.setBehindTable(); })
-                .to(0.8, { position: _this.getPos(_this.POS_COCA) }); }, onArriveAtCoca);
+                .to(0.6, { position: _this.getPos(_this.POS_COCA) }); }, onArriveAtCoca);
             return;
         }
         this.finishMove();
@@ -759,9 +912,9 @@ var NewClass = /** @class */ (function (_super) {
                 _this.node.scaleX = -1;
                 _this.setInFrontOfTable();
             }, function (t) { return t
-                .to(1, { position: _this.getPos(_this.POS_CHICKEN) })
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(function () { return _this.setBehindTable(); })
-                .to(0.8, { position: _this.getPos(_this.POS_COCA) })
+                .to(0.6, { position: _this.getPos(_this.POS_COCA) })
                 .call(function () { return _this.setInFrontOfTable(); })
                 .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getCake(); });
             return;
@@ -772,7 +925,7 @@ var NewClass = /** @class */ (function (_super) {
             }, function (t) { return t
                 // t.to(1, { position: this.getPos(this.POS_CHICKEN) })
                 //     .call(() => this.setBehindTable())
-                .to(0.4, { position: _this.getPos(_this.POS_COCA) })
+                .to(0.6, { position: _this.getPos(_this.POS_COCA) })
                 .call(function () { return _this.setInFrontOfTable(); })
                 .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getCake(); });
             return;
@@ -838,9 +991,9 @@ var NewClass = /** @class */ (function (_super) {
                 _this.node.scaleX = -1;
                 _this.setInFrontOfTable();
             }, function (t) { return t
-                .to(1, { position: _this.getPos(_this.POS_CHICKEN) })
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(function () { return _this.setBehindTable(); })
-                .to(0.8, { position: _this.getPos(_this.POS_COCA) })
+                .to(0.6, { position: _this.getPos(_this.POS_COCA) })
                 .call(function () { return _this.setInFrontOfTable(); })
                 .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getTomato(); });
             return;
@@ -851,7 +1004,7 @@ var NewClass = /** @class */ (function (_super) {
             }, function (t) { return t
                 // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 // .call(() => this.setBehindTable())
-                .to(0.4, { position: _this.getPos(_this.POS_COCA) })
+                .to(0.6, { position: _this.getPos(_this.POS_COCA) })
                 .call(function () { return _this.setInFrontOfTable(); })
                 .to(1, { position: _this.getPos(_this.POS_CAKE) }); }, function () { return _this.getTomato(); });
             return;

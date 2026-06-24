@@ -3,12 +3,6 @@ cc._RF.push(module, 'c384dJjsdxIN6H7HESBDOM2', 'machine');
 // RecipeRush/scripts/machine.ts
 
 "use strict";
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -29,6 +23,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Learn TypeScript:
+//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
+// Learn Attribute:
+//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
+// Learn life-cycle callbacks:
+//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+globalThis.machine = false;
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
@@ -62,19 +63,33 @@ var NewClass = /** @class */ (function (_super) {
         this.node.getComponent(cc.Button).enabled = true;
         cc.audioEngine.play(this.gamePlay.soundBanh, false, 0.7);
     };
+    NewClass.prototype.isEmpty = function () {
+        return this.chicken == null;
+    };
+    NewClass.prototype.isCooking = function () {
+        return this.chicken != null && !this.isChin;
+    };
+    NewClass.prototype.isReady = function () {
+        return this.chicken != null && this.isChin;
+    };
+    NewClass.prototype.canAcceptFood = function () {
+        return this.isEmpty();
+    };
     NewClass.prototype.btn_click = function () {
     };
     NewClass.prototype.cooking = function (chicken) {
         var _this = this;
-        if (this.chicken != null)
-            return;
+        if (!this.canAcceptFood())
+            return false;
         this.isChin = false;
         this.chicken = chicken;
+        if (chicken && chicken.parent !== this.node) {
+            chicken.parent = this.node;
+            chicken.setPosition(0.5, 17);
+            chicken.opacity = 0;
+        }
         this.anim.setAnimation(0, "lv1-song", false);
         this.isSoundCooking = cc.audioEngine.play(this.soundChien, false, 1);
-        // chicken.parent = this.node;
-        // chicken.position = cc.v3(0.5, 17)
-        // chicken.getComponent("chicken").song()
         this.clock.active = true;
         this.fillTime.fillRange = 0;
         cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(function () {
@@ -83,17 +98,24 @@ var NewClass = /** @class */ (function (_super) {
             _this.anim.setAnimation(0, "lv1-chin", false);
             cc.audioEngine.stop(_this.isSoundCooking);
             cc.audioEngine.play(_this.soundDone, false, 1);
-            // chicken.getComponent("chicken").chin()
-            _this.node.getChildByName("hind").opacity = 255;
-            _this.node.getChildByName("hind").active = true;
-            _this.node.getChildByName("hind").zIndex = 2;
+            if (globalThis.machine == false) {
+                globalThis.machine = true;
+                _this.node.getChildByName("hind").opacity = 255;
+                _this.node.getChildByName("hind").active = true;
+                _this.node.getChildByName("hind").zIndex = 2;
+            }
+            // this.node.getChildByName("hind").opacity = 255;
+            // this.node.getChildByName("hind").active = true
+            // this.node.getChildByName("hind").zIndex = 2
         }).start();
+        return true;
     };
     NewClass.prototype.getChicken = function () {
         this.isChin = false;
         var chicken = this.chicken;
         this.chicken = null;
         this.anim.setAnimation(0, "lv1-idle", false);
+        chicken.opacity = 255;
         this.gamePlay.onHind();
         return chicken;
     };

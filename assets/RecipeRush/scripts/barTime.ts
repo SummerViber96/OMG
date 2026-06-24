@@ -19,6 +19,8 @@ export default class NewClass extends cc.Component {
         // this.countDown()
     }
     countDown() {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
+
         this.unscheduleAllCallbacks()
         this.isTime = 80
         this.lbTime.string = this.isTime.toString()

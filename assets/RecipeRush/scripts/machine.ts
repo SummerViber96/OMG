@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+globalThis.machine = false
 
 const { ccclass, property } = cc._decorator;
 
@@ -45,19 +46,37 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.gamePlay.soundBanh, false, 0.7)
 
     }
+    isEmpty() {
+        return this.chicken == null
+    }
+
+    isCooking() {
+        return this.chicken != null && !this.isChin
+    }
+
+    isReady() {
+        return this.chicken != null && this.isChin
+    }
+
+    canAcceptFood() {
+        return this.isEmpty()
+    }
+
     btn_click() {
 
     }
     cooking(chicken) {
-        if (this.chicken != null) return
+        if (!this.canAcceptFood()) return false
         this.isChin = false
         this.chicken = chicken
+        if (chicken && chicken.parent !== this.node) {
+            chicken.parent = this.node
+            chicken.setPosition(0.5, 17)
+            chicken.opacity = 0
+        }
         this.anim.setAnimation(0, "lv1-song", false)
 
         this.isSoundCooking = cc.audioEngine.play(this.soundChien, false, 1)
-        // chicken.parent = this.node;
-        // chicken.position = cc.v3(0.5, 17)
-        // chicken.getComponent("chicken").song()
         this.clock.active = true
         this.fillTime.fillRange = 0
         cc.tween(this.fillTime).to(this.time, { fillRange: 1 }).call(() => {
@@ -67,18 +86,24 @@ export default class NewClass extends cc.Component {
 
             cc.audioEngine.stop(this.isSoundCooking)
             cc.audioEngine.play(this.soundDone, false, 1)
-            // chicken.getComponent("chicken").chin()
-            this.node.getChildByName("hind").opacity = 255;
-            this.node.getChildByName("hind").active = true
-            this.node.getChildByName("hind").zIndex = 2
+            if (globalThis.machine == false) {
+                globalThis.machine = true
+                this.node.getChildByName("hind").opacity = 255;
+                this.node.getChildByName("hind").active = true
+                this.node.getChildByName("hind").zIndex = 2
+            }
+            // this.node.getChildByName("hind").opacity = 255;
+            // this.node.getChildByName("hind").active = true
+            // this.node.getChildByName("hind").zIndex = 2
         }).start();
+        return true
     }
     getChicken() {
         this.isChin = false;
         let chicken = this.chicken
         this.chicken = null
-                this.anim.setAnimation(0, "lv1-idle", false)
-
+        this.anim.setAnimation(0, "lv1-idle", false)
+        chicken.opacity = 255
         this.gamePlay.onHind()
         return chicken
     }

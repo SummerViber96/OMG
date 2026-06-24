@@ -43,6 +43,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.countDown = function () {
         var _this = this;
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
         this.unscheduleAllCallbacks();
         this.isTime = 80;
         this.lbTime.string = this.isTime.toString();

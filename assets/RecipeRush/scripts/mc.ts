@@ -91,26 +91,200 @@ export default class NewClass extends cc.Component {
         }, t => {
             let tween = t
             if (this.isAtPos(this.POS_CAKE)) {
+                this.setInFrontOfTable()
+
                 tween = tween.to(0.8, { position: this.getPos(this.POS_COCA) }).call(() => this.setBehindTable());
             }
             return tween
+                // .call(() => this.setBehindTable())
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(() => this.setBehindTable())
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => this.setInFrontOfTable())
-                .to(1, { position: this.getPos(this.POS_MACHINE) })
+                .to(0.6, { position: this.getPos(this.POS_MACHINE) })
         }, onArrive)
     }
 
-    handleMachineAction(moveId: number, machine, walkFn: (moveId: number, onArrive: () => void) => void) {
-        if (machine.chicken != null && machine.isChin && this.canPickItemType("chicken")) {
-            walkFn(moveId, () => this.pickupMachineChicken(machine))
-            return true
+    // --- Máy chiên (machine + machine2) ---
+
+    getMachine2Comp() {
+        return this.machine2 ? this.machine2.getComponent("machine") : null
+    }
+
+    getMachines() {
+        let list = []
+        if (this.gamePlay && this.gamePlay.btnMachine) {
+            let m = this.gamePlay.btnMachine.getComponent("machine")
+            if (m) list.push(m)
         }
-        if (this.getRawTraySlot() >= 0 && machine.chicken == null) {
-            walkFn(moveId, () => this.fryTrayChicken(machine))
-            return true
+        let m2 = this.getMachine2Comp()
+        if (m2 && list.indexOf(m2) < 0) list.push(m2)
+        return list
+    }
+
+    getItemTypeAtSlot(slot: number) {
+        if (slot < 0 || slot > 1) return null
+        if (this.trayItemTypes[slot]) return this.trayItemTypes[slot]
+        let item = this.trayItems[slot]
+        if (!item) return null
+        if (this.getChickenComp(item)) return "chicken"
+        return null
+    }
+
+    findRawChickenTraySlots() {
+        let slots = []
+        for (let i = 0; i < 2; i++) {
+            let comp = this.getChickenComp(this.trayItems[i])
+            if (comp && !comp.isChin) slots.push(i)
         }
-        return false
+        return slots
+    }
+
+    findCakeTraySlots() {
+        let slots = []
+        for (let i = 0; i < 2; i++) {
+            if (this.getItemTypeAtSlot(i) === "cake") slots.push(i)
+        }
+        return slots
+    }
+
+    getMachineItemType(item: cc.Node) {
+        return this.getChickenComp(item) ? "chicken" : "cake"
+    }
+
+    checkMachine(machine) {
+        if (!machine) return null
+        if (machine.isReady()) {
+            let itemType = this.getMachineItemType(machine.chicken)
+            if (this.canPickItemType(itemType)) {
+                return { action: "pickup", machine, itemType }
+            }
+            return null
+        }
+        if (machine.isCooking()) return { action: "busy", machine }
+        if (machine.canAcceptFood()) return { action: "accept", machine }
+        return null
+    }
+
+    assignTrayItemsToMachines(machines, slots: number[], action: string) {
+        let plan = []
+        let usedMachines = []
+        for (let slot of slots) {
+            let target = machines.find(m => m.canAcceptFood() && usedMachines.indexOf(m) < 0)
+            if (!target) break
+            usedMachines.push(target)
+            plan.push({ action, machine: target, slot })
+        }
+        return plan
+    }
+
+    buildMachinePlan() {
+        let machines = this.getMachines()
+        let plan = []
+
+        for (let m of machines) {
+            let state = this.checkMachine(m)
+            if (state && state.action === "pickup") {
+                plan.push({ action: "pickup", machine: m })
+                return plan
+            }
+        }
+
+        let rawSlots = this.findRawChickenTraySlots()
+        if (rawSlots.length > 0) {
+            plan = this.assignTrayItemsToMachines(machines, rawSlots, "fry_chicken")
+            if (plan.length > 0) return plan
+        }
+
+        let cakeSlots = this.findCakeTraySlots()
+        return this.assignTrayItemsToMachines(machines, cakeSlots, "fry_cake")
+    }
+
+    canDoAnyMachineAction() {
+        return this.buildMachinePlan().length > 0
+    }
+
+    canFryCakeAtMachine() {
+        return this.buildMachinePlan().some(a => a.action === "fry_cake")
+    }
+
+    findPickupMachine() {
+        for (let m of this.getMachines()) {
+            let state = this.checkMachine(m)
+            if (state && state.action === "pickup") return m
+        }
+        return null
+    }
+
+    executeMachinePlan(plan) {
+        if (!plan || plan.length === 0) {
+            this.finishMove()
+            return
+        }
+
+        if (plan[0].action === "pickup") {
+            this.pickupFromMachine(plan[0].machine)
+            return
+        }
+
+        let chickenActions = plan.filter(a => a.action === "fry_chicken")
+        if (chickenActions.length > 0) {
+            for (let a of chickenActions) {
+                this.fryTrayChicken(a.machine, a.slot, false)
+            }
+            if (this.isTrayEmpty()) {
+                this.chicken = false
+                this.targetChicken = null
+            }
+            this.updateArms()
+            this.localId = 2
+            this.finishMove()
+            return
+        }
+
+        let cakeActions = plan.filter(a => a.action === "fry_cake")
+        if (cakeActions.length > 0) {
+            for (let a of cakeActions) {
+                this.fryTrayCake(a.machine, a.slot, false)
+            }
+            if (this.isTrayEmpty()) {
+                this.chicken = false
+                this.targetChicken = null
+            }
+            this.updateArms()
+            this.localId = 5
+            this.finishMove()
+            return
+        }
+
+        this.finishMove()
+    }
+
+    runMachineStation(moveId: number, walkFn: (moveId: number, onArrive: () => void) => void) {
+        let plan = this.buildMachinePlan()
+        if (plan.length === 0) return false
+        walkFn(moveId, () => this.executeMachinePlan(plan))
+        return true
+    }
+
+    getWalkToMachineFn(localId: number) {
+        if (localId == 5) return (id, cb) => this.walkFromCakeToMachine(id, cb)
+        if (localId == 4) {
+            return (id, cb) => this.startWalk(id, () => {
+                this.setBehindTable()
+                this.node.scaleX = 1
+            }, t => t
+                // .to(0.6, { position: this.getPos(this.POS_SELL) })
+                // .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
+                // .call(() => this.setInFrontOfTable())
+                .to(0.6, { position: this.getPos(this.POS_MACHINE) }), cb)
+        }
+        if (localId == 3) {
+            return (id, cb) => this.startWalk(id, () => { }, t => t
+                .call(() => this.setBehindTable())
+                // .to(0.4, { position: this.getPos(this.POS_CHICKEN) })
+                // .call(() => this.setInFrontOfTable())
+                .to(0.2, { position: this.getPos(this.POS_MACHINE) }), cb)
+        }
+        return (id, cb) => this.walkToMachineOrAct(id, cb)
     }
 
     // --- Khay (2 tray) ---
@@ -478,18 +652,27 @@ export default class NewClass extends cc.Component {
         this.finishMove()
     }
 
-    pickupMachineChicken(machine) {
-        let chicken = machine.getChicken()
-        chicken.getComponent("chicken").chin2()
-        let slot = this.preparePickupSlot("chicken")
+    pickupFromMachine(machine) {
+        let item = machine.getChicken()
+        if (!item) {
+            this.finishMove()
+            return false
+        }
+        let type = this.getMachineItemType(item)
+        if (type === "chicken") item.getComponent("chicken").chin2()
+        let slot = this.preparePickupSlot(type)
         if (slot < 0) {
             this.finishMove()
             return false
         }
-        this.putTrayItem(chicken, "chicken", slot)
-        this.localId = 2
+        this.putTrayItem(item, type, slot)
+        this.localId = type === "chicken" ? 2 : 5
         this.finishMove()
         return true
+    }
+
+    pickupMachineChicken(machine) {
+        return this.pickupFromMachine(machine)
     }
 
     pickupCoca(coca) {
@@ -504,90 +687,49 @@ export default class NewClass extends cc.Component {
         return true
     }
 
-    fryTrayChicken(machine) {
-        let slot = this.getRawTraySlot()
-        if (slot < 0) {
-            this.finishMove()
-            return
-        }
+    fryTrayChicken(machine, slot: number, finish = true) {
         let chicken = this.trayItems[slot]
+        if (!chicken || !machine.cooking(chicken)) {
+            if (finish) this.finishMove()
+            return false
+        }
         this.trayItems[slot] = null
         this.trayItemTypes[slot] = null
+        if (!finish) return true
         if (this.isTrayEmpty()) {
             this.chicken = false
             this.targetChicken = null
         }
         this.updateArms()
-        machine.cooking(chicken)
         this.localId = 2
         this.finishMove()
+        return true
+    }
+
+    fryTrayCake(machine, slot: number, finish = true) {
+        let cake = this.trayItems[slot]
+        if (!cake || !machine.cooking(cake)) return false
+        this.trayItems[slot] = null
+        this.trayItemTypes[slot] = null
+        if (!finish) return true
+        if (this.isTrayEmpty()) {
+            this.chicken = false
+            this.targetChicken = null
+        }
+        this.updateArms()
+        this.localId = 5
+        this.finishMove()
+        return true
     }
 
     moveToMachine() {
-        let machine = this.gamePlay.btnMachine.getComponent("machine")
         let moveId = this.beginMove()
         this.setBehindTable()
         this.node.scaleX = -1
-        if (this.localId == 1 || this.localId == 2) {
-            if (!this.handleMachineAction(moveId, machine, (id, cb) => this.walkToMachineOrAct(id, cb))) {
-                this.finishMove()
-            }
-            return
+        let walkFn = this.getWalkToMachineFn(this.localId)
+        if (!this.runMachineStation(moveId, walkFn)) {
+            this.finishMove()
         }
-
-        if (this.localId == 3) {
-            if (machine.chicken != null && machine.isChin && this.canPickItemType("chicken")) {
-                if (this.isAtPos(this.POS_MACHINE)) {
-                    this.pickupMachineChicken(machine)
-                    return
-                }
-                this.startWalk(moveId, () => { }, t => t
-                    .call(() => this.setBehindTable())
-                    .to(0.4, { position: this.getPos(this.POS_CHICKEN) })
-                    .call(() => this.setInFrontOfTable())
-
-                    .to(1, { position: this.getPos(this.POS_MACHINE) }),
-                    () => this.pickupMachineChicken(machine))
-                return
-            }
-            this.startWalk(moveId, () => {
-                this.setBehindTable()
-                this.node.scaleX = 1
-            }, t => t
-                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => this.setInFrontOfTable())
-                .to(1, { position: this.getPos(this.POS_MACHINE) }),
-                () => {
-                    this.localId = 2
-                    this.finishMove()
-                })
-            return
-        }
-
-        if (this.localId == 4) {
-            this.startWalk(moveId, () => {
-                this.setBehindTable()
-                this.node.scaleX = 1
-            }, t => t
-                .to(0.6, { position: this.getPos(this.POS_SELL) })
-                .to(0.6, { position: this.getPos(this.POS_CHICKEN) })
-                .call(() => this.setInFrontOfTable())
-                .to(1, { position: this.getPos(this.POS_MACHINE) }),
-                () => {
-                    this.localId = 2
-                    this.finishMove()
-                })
-            return
-        }
-
-        if (this.localId == 5) {
-            if (!this.handleMachineAction(moveId, machine, (id, cb) => this.walkFromCakeToMachine(id, cb))) {
-                this.finishMove()
-            }
-            return
-        }
-
-        this.finishMove()
     }
 
     moveToSauce() {
@@ -633,7 +775,7 @@ export default class NewClass extends cc.Component {
             return
         }
         if (this.localId == 2 || this.localId == 3) {
-            let sellDelay = this.localId == 3 ? 0.4 : 0.4
+            let sellDelay = this.localId == 3 ? 0.1 : 0.1
             let tween = this.localId == 3
                 ? cc.tween(this.node).call(() => this.setBehindTable()).to(0.4, { position: this.getPos(this.POS_SELL) })
                 : cc.tween(this.node)
@@ -715,9 +857,9 @@ export default class NewClass extends cc.Component {
 
         if (this.localId == 2) {
             this.startWalk(moveId, () => { }, t => t
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(() => this.setBehindTable())
-                .to(0.8, { position: this.getPos(this.POS_COCA) }), onArriveAtCoca)
+                .to(0.6, { position: this.getPos(this.POS_COCA) }), onArriveAtCoca)
             return
         }
 
@@ -749,9 +891,9 @@ export default class NewClass extends cc.Component {
                 this.node.scaleX = -1
                 this.setInFrontOfTable()
             }, t => t
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(() => this.setBehindTable())
-                .to(0.8, { position: this.getPos(this.POS_COCA) })
+                .to(0.6, { position: this.getPos(this.POS_COCA) })
                 .call(() => this.setInFrontOfTable())
                 .to(1, { position: this.getPos(this.POS_CAKE) }),
                 () => this.getCake())
@@ -764,7 +906,7 @@ export default class NewClass extends cc.Component {
             }, t => t
                 // t.to(1, { position: this.getPos(this.POS_CHICKEN) })
                 //     .call(() => this.setBehindTable())
-                .to(0.4, { position: this.getPos(this.POS_COCA) })
+                .to(0.6, { position: this.getPos(this.POS_COCA) })
                 .call(() => this.setInFrontOfTable())
                 .to(1, { position: this.getPos(this.POS_CAKE) }),
                 () => this.getCake())
@@ -839,9 +981,9 @@ export default class NewClass extends cc.Component {
                 this.node.scaleX = -1
                 this.setInFrontOfTable()
             }, t => t
-                .to(1, { position: this.getPos(this.POS_CHICKEN) })
+                // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 .call(() => this.setBehindTable())
-                .to(0.8, { position: this.getPos(this.POS_COCA) })
+                .to(0.6, { position: this.getPos(this.POS_COCA) })
                 .call(() => this.setInFrontOfTable())
                 .to(1, { position: this.getPos(this.POS_CAKE) }),
                 () => this.getTomato())
@@ -853,7 +995,7 @@ export default class NewClass extends cc.Component {
             }, t => t
                 // .to(1, { position: this.getPos(this.POS_CHICKEN) })
                 // .call(() => this.setBehindTable())
-                .to(0.4, { position: this.getPos(this.POS_COCA) })
+                .to(0.6, { position: this.getPos(this.POS_COCA) })
                 .call(() => this.setInFrontOfTable())
                 .to(1, { position: this.getPos(this.POS_CAKE) }),
                 () => this.getTomato())
