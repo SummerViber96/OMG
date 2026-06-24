@@ -81,6 +81,9 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         if (!this.canAcceptFood())
             return false;
+        var comp = chicken ? chicken.getComponent("chicken") : null;
+        if (!comp || comp.isChin)
+            return false;
         this.isChin = false;
         this.chicken = chicken;
         if (chicken && chicken.parent !== this.node) {

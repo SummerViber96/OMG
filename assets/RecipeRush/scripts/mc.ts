@@ -129,19 +129,16 @@ export default class NewClass extends cc.Component {
         return null
     }
 
+    isRawChickenItem(item: cc.Node) {
+        let comp = this.getChickenComp(item)
+        return comp != null && !comp.isChin
+    }
+
     findRawChickenTraySlots() {
         let slots = []
         for (let i = 0; i < 2; i++) {
-            let comp = this.getChickenComp(this.trayItems[i])
-            if (comp && !comp.isChin) slots.push(i)
-        }
-        return slots
-    }
-
-    findCakeTraySlots() {
-        let slots = []
-        for (let i = 0; i < 2; i++) {
-            if (this.getItemTypeAtSlot(i) === "cake") slots.push(i)
+            if (this.getItemTypeAtSlot(i) !== "chicken") continue
+            if (this.isRawChickenItem(this.trayItems[i])) slots.push(i)
         }
         return slots
     }
@@ -160,7 +157,6 @@ export default class NewClass extends cc.Component {
             return null
         }
         if (machine.isCooking()) return { action: "busy", machine }
-        if (machine.canAcceptFood()) return { action: "accept", machine }
         return null
     }
 
@@ -189,21 +185,11 @@ export default class NewClass extends cc.Component {
         }
 
         let rawSlots = this.findRawChickenTraySlots()
-        if (rawSlots.length > 0) {
-            plan = this.assignTrayItemsToMachines(machines, rawSlots, "fry_chicken")
-            if (plan.length > 0) return plan
-        }
-
-        let cakeSlots = this.findCakeTraySlots()
-        return this.assignTrayItemsToMachines(machines, cakeSlots, "fry_cake")
+        return this.assignTrayItemsToMachines(machines, rawSlots, "fry_chicken")
     }
 
     canDoAnyMachineAction() {
         return this.buildMachinePlan().length > 0
-    }
-
-    canFryCakeAtMachine() {
-        return this.buildMachinePlan().some(a => a.action === "fry_cake")
     }
 
     findPickupMachine() {
@@ -236,21 +222,6 @@ export default class NewClass extends cc.Component {
             }
             this.updateArms()
             this.localId = 2
-            this.finishMove()
-            return
-        }
-
-        let cakeActions = plan.filter(a => a.action === "fry_cake")
-        if (cakeActions.length > 0) {
-            for (let a of cakeActions) {
-                this.fryTrayCake(a.machine, a.slot, false)
-            }
-            if (this.isTrayEmpty()) {
-                this.chicken = false
-                this.targetChicken = null
-            }
-            this.updateArms()
-            this.localId = 5
             this.finishMove()
             return
         }
@@ -689,7 +660,7 @@ export default class NewClass extends cc.Component {
 
     fryTrayChicken(machine, slot: number, finish = true) {
         let chicken = this.trayItems[slot]
-        if (!chicken || !machine.cooking(chicken)) {
+        if (!this.isRawChickenItem(chicken) || !machine.cooking(chicken)) {
             if (finish) this.finishMove()
             return false
         }
@@ -702,22 +673,6 @@ export default class NewClass extends cc.Component {
         }
         this.updateArms()
         this.localId = 2
-        this.finishMove()
-        return true
-    }
-
-    fryTrayCake(machine, slot: number, finish = true) {
-        let cake = this.trayItems[slot]
-        if (!cake || !machine.cooking(cake)) return false
-        this.trayItems[slot] = null
-        this.trayItemTypes[slot] = null
-        if (!finish) return true
-        if (this.isTrayEmpty()) {
-            this.chicken = false
-            this.targetChicken = null
-        }
-        this.updateArms()
-        this.localId = 5
         this.finishMove()
         return true
     }

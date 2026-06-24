@@ -67,6 +67,8 @@ export default class NewClass extends cc.Component {
     }
     cooking(chicken) {
         if (!this.canAcceptFood()) return false
+        let comp = chicken ? chicken.getComponent("chicken") : null
+        if (!comp || comp.isChin) return false
         this.isChin = false
         this.chicken = chicken
         if (chicken && chicken.parent !== this.node) {

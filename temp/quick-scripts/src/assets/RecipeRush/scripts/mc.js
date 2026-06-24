@@ -145,19 +145,16 @@ var NewClass = /** @class */ (function (_super) {
             return "chicken";
         return null;
     };
+    NewClass.prototype.isRawChickenItem = function (item) {
+        var comp = this.getChickenComp(item);
+        return comp != null && !comp.isChin;
+    };
     NewClass.prototype.findRawChickenTraySlots = function () {
         var slots = [];
         for (var i = 0; i < 2; i++) {
-            var comp = this.getChickenComp(this.trayItems[i]);
-            if (comp && !comp.isChin)
-                slots.push(i);
-        }
-        return slots;
-    };
-    NewClass.prototype.findCakeTraySlots = function () {
-        var slots = [];
-        for (var i = 0; i < 2; i++) {
-            if (this.getItemTypeAtSlot(i) === "cake")
+            if (this.getItemTypeAtSlot(i) !== "chicken")
+                continue;
+            if (this.isRawChickenItem(this.trayItems[i]))
                 slots.push(i);
         }
         return slots;
@@ -177,8 +174,6 @@ var NewClass = /** @class */ (function (_super) {
         }
         if (machine.isCooking())
             return { action: "busy", machine: machine };
-        if (machine.canAcceptFood())
-            return { action: "accept", machine: machine };
         return null;
     };
     NewClass.prototype.assignTrayItemsToMachines = function (machines, slots, action) {
@@ -206,19 +201,10 @@ var NewClass = /** @class */ (function (_super) {
             }
         }
         var rawSlots = this.findRawChickenTraySlots();
-        if (rawSlots.length > 0) {
-            plan = this.assignTrayItemsToMachines(machines, rawSlots, "fry_chicken");
-            if (plan.length > 0)
-                return plan;
-        }
-        var cakeSlots = this.findCakeTraySlots();
-        return this.assignTrayItemsToMachines(machines, cakeSlots, "fry_cake");
+        return this.assignTrayItemsToMachines(machines, rawSlots, "fry_chicken");
     };
     NewClass.prototype.canDoAnyMachineAction = function () {
         return this.buildMachinePlan().length > 0;
-    };
-    NewClass.prototype.canFryCakeAtMachine = function () {
-        return this.buildMachinePlan().some(function (a) { return a.action === "fry_cake"; });
     };
     NewClass.prototype.findPickupMachine = function () {
         for (var _i = 0, _a = this.getMachines(); _i < _a.length; _i++) {
@@ -250,21 +236,6 @@ var NewClass = /** @class */ (function (_super) {
             }
             this.updateArms();
             this.localId = 2;
-            this.finishMove();
-            return;
-        }
-        var cakeActions = plan.filter(function (a) { return a.action === "fry_cake"; });
-        if (cakeActions.length > 0) {
-            for (var _a = 0, cakeActions_1 = cakeActions; _a < cakeActions_1.length; _a++) {
-                var a = cakeActions_1[_a];
-                this.fryTrayCake(a.machine, a.slot, false);
-            }
-            if (this.isTrayEmpty()) {
-                this.chicken = false;
-                this.targetChicken = null;
-            }
-            this.updateArms();
-            this.localId = 5;
             this.finishMove();
             return;
         }
@@ -708,7 +679,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.fryTrayChicken = function (machine, slot, finish) {
         if (finish === void 0) { finish = true; }
         var chicken = this.trayItems[slot];
-        if (!chicken || !machine.cooking(chicken)) {
+        if (!this.isRawChickenItem(chicken) || !machine.cooking(chicken)) {
             if (finish)
                 this.finishMove();
             return false;
@@ -723,24 +694,6 @@ var NewClass = /** @class */ (function (_super) {
         }
         this.updateArms();
         this.localId = 2;
-        this.finishMove();
-        return true;
-    };
-    NewClass.prototype.fryTrayCake = function (machine, slot, finish) {
-        if (finish === void 0) { finish = true; }
-        var cake = this.trayItems[slot];
-        if (!cake || !machine.cooking(cake))
-            return false;
-        this.trayItems[slot] = null;
-        this.trayItemTypes[slot] = null;
-        if (!finish)
-            return true;
-        if (this.isTrayEmpty()) {
-            this.chicken = false;
-            this.targetChicken = null;
-        }
-        this.updateArms();
-        this.localId = 5;
         this.finishMove();
         return true;
     };
