@@ -6,13 +6,16 @@ export default class CharmItem extends cc.Component {
 
     @property(cc.SpriteFrame)
     listImg: cc.SpriteFrame[] = [];
+    @property(cc.Integer)
     tag = 0
+    colorIndex = 0
     colorIMG = 0
     /** Điểm neo treo lên dây — đặt node con tên hangPoint ở đỉnh charm. */
     @property(cc.Node)
     hangPoint: cc.Node = null;
 
     loadIMG(id: number, tag) {
+        this.colorIndex = id
         this.colorIMG = this.listImg[id]
         this.node.children[0].getComponent(cc.Sprite).spriteFrame = this.listImg[id];
     }

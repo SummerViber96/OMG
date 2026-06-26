@@ -1,3 +1,5 @@
+import { calcCharmMatchPercent, calcFullScore, CharmSlotData, MatchScoreBreakdown } from './BraceletMatcher';
+
 const { ccclass, property } = cc._decorator;
 
 type CordSide = 'left' | 'right';
@@ -92,7 +94,39 @@ export default class CordRoundGame extends cc.Component {
     @property(cc.Node)
     hand3: cc.Node = null;
 
+    /** Node tham chiếu vòng mẫu (vd: defaultCharm trong scene). */
+    @property(cc.Node)
+    defaultBraceletRef: cc.Node = null;
+
+    /** Vòng mẫu theo từng loại dây (index = idString). Ưu tiên hơn defaultBraceletRef. */
+    @property([cc.Node])
+    defaultBraceletByCord: cc.Node[] = [];
+
+    @property(cc.Label)
+    matchResultLabel: cc.Label = null;
+
+    @property
+    matchPositionTolerance: number = 80;
+
+    @property
+    showDefaultPreview: boolean = true;
+
+    /** Dây mẫu đúng (vd: 2 = green). Đúng màu dây được +30%. -1 = đoán từ tên cord (không tin cậy). */
+    @property
+    defaultCordId: number = 2;
+
+    /** Keychain đúng (fallback khi chưa gắn BraceletDefaultMeta). */
+    @property
+    defaultKeychainIndex: number = 0;
+
     localBox = null
+    private cachedDefaultLayout: CharmSlotData[] = [];
+    private cachedDefaultCordId: number = 0;
+    private cachedDefaultKeychainIndex: number = 0;
+    private defaultConfigCached: boolean = false;
+    private defaultPreviewNode: cc.Node = null;
+    private lastMatchPercent: number = 0;
+    private lastScoreBreakdown: MatchScoreBreakdown = null;
     liftBracelet(targetPos: cc.Vec3, duration: number = 0.4) {
         if (!this.CordRoundList) return;
 
@@ -168,7 +202,16 @@ export default class CordRoundGame extends cc.Component {
             this.prepareCord(this.CordRoundList.children[i]);
         }
         this.ensureCharmLayer();
+        this.cacheDefaultConfig(this.activeCord);
+        if (this.showDefaultPreview) {
+            this.showDefaultBraceletPreview();
+        }
         this.bindTouch();
+    }
+
+    onLoad() {
+        // Chỉ đọc meta sớm; layout charm sẽ build lại khi vào game với activeCord.
+        this.cacheDefaultMetaOnly();
     }
 
     private prepareCord(cord: cc.Node) {
@@ -331,6 +374,7 @@ export default class CordRoundGame extends cc.Component {
         const dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide);
         if (dropAnchor) {
             cc.audioEngine.play(this.soundDrop, false, 1)
+            this.hideDefaultBraceletPreview();
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
             this.hand3.active = false;
@@ -1160,6 +1204,418 @@ export default class CordRoundGame extends cc.Component {
             node = node.parent;
         }
         return this.CordRoundList.parent || this.node;
+    }
+
+    private getDefaultBraceletRef(): cc.Node {
+        const cordId = globalThis.idString || 0;
+        if (this.defaultBraceletByCord.length > cordId && this.defaultBraceletByCord[cordId]) {
+            return this.defaultBraceletByCord[cordId];
+        }
+        return this.defaultBraceletRef;
+    }
+
+    private getCharmItemComp(charm: cc.Node): any {
+        const item = charm.getComponent('CharmItem');
+        if (item) return item;
+
+        const comps = charm.getComponents(cc.Component);
+        for (let i = 0; i < comps.length; i++) {
+            const c = comps[i] as any;
+            if (c && typeof c.tag === 'number' && typeof c.loadIMG === 'function') {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    private inferCordIdFromRef(ref: cc.Node): number {
+        const cord = this.getRefCordNode(ref);
+        const name = cord.name.toLowerCase();
+        const colorIds: { key: string; id: number }[] = [
+            { key: 'black', id: 0 },
+            { key: 'blue', id: 1 },
+            { key: 'green', id: 2 },
+            { key: 'pink', id: 3 },
+            { key: 'purple', id: 4 },
+            { key: 'yellow', id: 5 },
+            { key: 'white', id: 6 },
+        ];
+        for (let i = 0; i < colorIds.length; i++) {
+            if (name.indexOf(colorIds[i].key) >= 0) {
+                return colorIds[i].id;
+            }
+        }
+        return this.defaultCordId >= 0 ? this.defaultCordId : 0;
+    }
+
+    private readDefaultMeta(ref: cc.Node): { cordId: number; keychainIndex: number } {
+        const meta = ref && ref.getComponent('BraceletDefaultMeta') as any;
+        if (meta) {
+            return {
+                cordId: meta.cordId,
+                keychainIndex: meta.keychainIndex,
+            };
+        }
+
+        if (this.defaultCordId >= 0) {
+            return {
+                cordId: this.defaultCordId,
+                keychainIndex: this.defaultKeychainIndex,
+            };
+        }
+
+        return {
+            cordId: this.inferCordIdFromRef(ref),
+            keychainIndex: this.defaultKeychainIndex,
+        };
+    }
+
+    private cacheDefaultMetaOnly() {
+        const ref = this.getDefaultBraceletRefForCache();
+        if (!ref) return;
+
+        const meta = this.readDefaultMeta(ref);
+        this.cachedDefaultCordId = meta.cordId;
+        this.cachedDefaultKeychainIndex = meta.keychainIndex;
+    }
+
+    private cacheDefaultConfig(activeCord?: cc.Node) {
+        const ref = this.getDefaultBraceletRefForCache();
+        if (!ref) {
+            cc.warn('[CordRoundGame] Chưa gán defaultBraceletRef — không thể so sánh vòng mẫu.');
+            this.cachedDefaultLayout = [];
+            this.cachedDefaultCordId = this.defaultCordId >= 0 ? this.defaultCordId : 0;
+            this.cachedDefaultKeychainIndex = this.defaultKeychainIndex;
+            this.defaultConfigCached = false;
+            return;
+        }
+
+        const meta = this.readDefaultMeta(ref);
+        this.cachedDefaultCordId = meta.cordId;
+        this.cachedDefaultKeychainIndex = meta.keychainIndex;
+        this.cachedDefaultLayout = this.buildDefaultLayoutFromRef(ref, activeCord);
+        this.defaultConfigCached = this.cachedDefaultLayout.length > 0;
+
+        cc.log('[CordRoundGame] Default config: cordId=' + this.cachedDefaultCordId
+            + ' (player=' + (globalThis.idString || 0) + ')'
+            + ' keychain=' + this.cachedDefaultKeychainIndex
+            + ' charms=' + this.cachedDefaultLayout.length);
+    }
+
+    /** Luôn trả ref mẫu cố định — không phụ thuộc dây người chơi đang chọn. */
+    private getDefaultBraceletRefForCache(): cc.Node {
+        if (this.defaultBraceletRef) {
+            return this.defaultBraceletRef;
+        }
+        for (let i = 0; i < this.defaultBraceletByCord.length; i++) {
+            if (this.defaultBraceletByCord[i]) {
+                return this.defaultBraceletByCord[i];
+            }
+        }
+        return null;
+    }
+
+    getDefaultCordId(): number {
+        return this.cachedDefaultCordId;
+    }
+
+    getDefaultKeychainIndex(): number {
+        return this.cachedDefaultKeychainIndex;
+    }
+
+    getLastScoreBreakdown(): MatchScoreBreakdown {
+        return this.lastScoreBreakdown;
+    }
+
+    private getRefCordNode(ref: cc.Node): cc.Node {
+        if (ref.getComponent(cc.PolygonCollider)) return ref;
+        for (let i = 0; i < ref.childrenCount; i++) {
+            const child = ref.children[i];
+            if (child.getComponent(cc.PolygonCollider)) return child;
+        }
+        return ref;
+    }
+
+    private getRefCordAnchors(refCord: cc.Node): { left: cc.Vec2; right: cc.Vec2 } | null {
+        const left = refCord.getChildByName('left');
+        const right = refCord.getChildByName('right');
+        if (!left || !right) return null;
+        return {
+            left: cc.v2(left.x, left.y),
+            right: cc.v2(right.x, right.y),
+        };
+    }
+
+    private getPathDataForCord(cord: cc.Node): CordPathData | null {
+        const existing = this.cordPaths.get(cord);
+        if (existing) return existing;
+
+        const rawPoints = this.getPolygonColliderPoints(cord);
+        if (rawPoints.length < 2) return null;
+
+        const samples = this.sampleAlongPath(rawPoints, this.pathSampleSpacing);
+        return {
+            points: samples,
+            totalLength: this.calcPathLength(samples),
+        };
+    }
+
+    private getCordAnchors(cord: cc.Node): { left: cc.Vec2; right: cc.Vec2 } | null {
+        const left = cord.getChildByName('left');
+        const right = cord.getChildByName('right');
+        if (!left || !right) return null;
+        return {
+            left: cc.v2(left.x, left.y),
+            right: cc.v2(right.x, right.y),
+        };
+    }
+
+    private getTemplateCord(cordId?: number): cc.Node | null {
+        const id = cordId !== undefined ? cordId : this.cachedDefaultCordId;
+        if (!this.CordRoundList || id < 0) return null;
+        return this.CordRoundList.children[id] || null;
+    }
+
+    private measurePathDistanceOnCord(
+        cord: cc.Node,
+        path: CordPathData,
+        anchors: { left: cc.Vec2; right: cc.Vec2 },
+        side: CordSide,
+        pos: cc.Vec2
+    ): number {
+        const entry = side === 'left' ? anchors.left : anchors.right;
+        const entryIndex = this.findNearestPathIndex(path.points, entry);
+        const pathDir = this.pickPathDirection(path.points, entryIndex, side);
+        return this.getDistanceAlongPath(path.points, entryIndex, pathDir, pos);
+    }
+
+    private buildDefaultLayout(): CharmSlotData[] {
+        const ref = this.getDefaultBraceletRefForCache() || this.getDefaultBraceletRef();
+        if (!ref) return [];
+        return this.buildDefaultLayoutFromRef(ref, this.activeCord);
+    }
+
+    private buildDefaultLayoutFromRef(ref: cc.Node, activeCord?: cc.Node): CharmSlotData[] {
+        if (!ref) return [];
+
+        const refCord = this.getRefCordNode(ref);
+        const templateCord = activeCord || this.getTemplateCord();
+        if (!templateCord) {
+            cc.warn('[CordRoundGame] Không tìm thấy dây game để đọc layout mẫu.');
+            return [];
+        }
+
+        const path = this.getPathDataForCord(templateCord);
+        const anchors = this.getCordAnchors(templateCord);
+        if (!path || !anchors) {
+            cc.warn('[CordRoundGame] Dây game thiếu PolygonCollider hoặc anchor left/right.');
+            return [];
+        }
+
+        const charmRoot = ref.getChildByName('charm') || ref;
+        const slots: CharmSlotData[] = [];
+
+        for (let i = 0; i < charmRoot.childrenCount; i++) {
+            const charm = charmRoot.children[i];
+            const item = this.getCharmItemComp(charm);
+            if (!item) continue;
+
+            const posOnCord = refCord.convertToNodeSpaceAR(
+                charm.convertToWorldSpaceAR(cc.v2(0, 0))
+            );
+            const side = this.resolveSideForPosition(posOnCord, anchors);
+            const pathDistance = this.measurePathDistanceOnCord(
+                templateCord,
+                path,
+                anchors,
+                side,
+                posOnCord
+            );
+
+            slots.push({
+                tag: item.tag,
+                colorIndex: item.colorIndex || 0,
+                side,
+                pathDistance,
+            });
+        }
+        return slots;
+    }
+
+    private resolveSideForPosition(
+        cordLocal: cc.Vec2,
+        anchors: { left: cc.Vec2; right: cc.Vec2 }
+    ): CordSide {
+        const distLeft = cc.v2(cordLocal.x - anchors.left.x, cordLocal.y - anchors.left.y).mag();
+        const distRight = cc.v2(cordLocal.x - anchors.right.x, cordLocal.y - anchors.right.y).mag();
+        return distLeft <= distRight ? 'left' : 'right';
+    }
+
+    private buildPlayerLayout(): CharmSlotData[] {
+        const slots: CharmSlotData[] = [];
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            const state = this.cordCharms[i];
+            const item = state.charm.getComponent('CharmItem') as any;
+            if (!item) continue;
+
+            slots.push({
+                tag: item.tag,
+                colorIndex: item.colorIndex || 0,
+                side: state.side,
+                pathDistance: this.getCharmPathDistance(state),
+            });
+        }
+        return slots;
+    }
+
+    private getSlotPose(slot: CharmSlotData): { x: number; y: number; angle: number } {
+        const path = this.cordPaths.get(this.activeCord);
+        const anchors = this.getCordAnchorPositions();
+        if (!path || !anchors) {
+            return { x: 0, y: 0, angle: 0 };
+        }
+
+        const entry = slot.side === 'left' ? anchors.left : anchors.right;
+        const entryIndex = this.findNearestPathIndex(path.points, entry);
+        const pathDir = this.pickPathDirection(path.points, entryIndex, slot.side);
+        return this.getPoseOnPath(path.points, entryIndex, pathDir, slot.pathDistance);
+    }
+
+    private showDefaultBraceletPreview() {
+        this.hideDefaultBraceletPreview();
+        if (!this.cachedDefaultLayout.length || !this.charmLayer) return;
+
+        const ref = this.getDefaultBraceletRef();
+        const charmRoot = ref && (ref.getChildByName('charm') || ref);
+        if (!charmRoot) return;
+
+        const preview = new cc.Node('defaultBraceletPreview');
+        preview.parent = this.charmLayer;
+        preview.setSiblingIndex(0);
+
+        let srcIndex = 0;
+        for (let i = 0; i < charmRoot.childrenCount; i++) {
+            const src = charmRoot.children[i];
+            if (!src.getComponent('CharmItem')) continue;
+            if (srcIndex >= this.cachedDefaultLayout.length) break;
+
+            const slot = this.cachedDefaultLayout[srcIndex];
+            srcIndex++;
+
+            const clone = cc.instantiate(src);
+            const pose = this.getSlotPose(slot);
+            clone.parent = preview;
+            clone.setPosition(cc.v3(pose.x, pose.y, 0));
+            clone.angle = pose.angle;
+            clone.opacity = 150;
+
+            const body = clone.getComponent(cc.RigidBody);
+            if (body) body.enabled = false;
+            const colliders = clone.getComponents(cc.PhysicsCollider);
+            for (let c = 0; c < colliders.length; c++) {
+                colliders[c].enabled = false;
+            }
+        }
+
+        this.defaultPreviewNode = preview;
+    }
+
+    private hideDefaultBraceletPreview() {
+        if (this.defaultPreviewNode) {
+            this.defaultPreviewNode.destroy();
+            this.defaultPreviewNode = null;
+        }
+    }
+
+    /** So sánh charm (0–100%, chưa gồm dây và keychain). */
+    compareCharmsOnly(): number {
+        const expected = this.cachedDefaultLayout.length > 0
+            ? this.cachedDefaultLayout
+            : this.buildDefaultLayout();
+
+        if (expected.length === 0) return 0;
+
+        const actual = this.buildPlayerLayout();
+        return calcCharmMatchPercent(expected, actual, this.matchPositionTolerance);
+    }
+
+    /**
+     * So sánh đầy đủ: dây (30%) + charm (50%) + keychain (20%).
+     * Gọi khi đã có lựa chọn keychain của người chơi.
+     */
+    compareFull(playerKeychainIndex: number): MatchScoreBreakdown {
+        const ref = this.getDefaultBraceletRefForCache();
+        if (ref) {
+            this.cachedDefaultLayout = this.buildDefaultLayoutFromRef(ref, this.activeCord);
+        }
+
+        const expected = this.cachedDefaultLayout;
+        const actual = this.buildPlayerLayout();
+        const actualCordId = globalThis.idString || 0;
+
+        this.lastScoreBreakdown = calcFullScore(
+            this.cachedDefaultCordId,
+            actualCordId,
+            expected,
+            actual,
+            this.cachedDefaultKeychainIndex,
+            playerKeychainIndex,
+            this.matchPositionTolerance
+        );
+        this.lastMatchPercent = this.lastScoreBreakdown.total;
+
+        cc.log('[CordRoundGame] Compare: expectedCord=' + this.cachedDefaultCordId
+            + ' playerCord=' + actualCordId
+            + ' expectedCharms=' + expected.length
+            + ' playerCharms=' + actual.length
+            + ' keychain=' + playerKeychainIndex
+            + ' => ' + this.lastMatchPercent + '%'
+            + ' (dây ' + this.lastScoreBreakdown.cordScore
+            + ' charm ' + this.lastScoreBreakdown.charmScore
+            + ' key ' + this.lastScoreBreakdown.keychainScore + ')');
+
+        return this.lastScoreBreakdown;
+    }
+
+    /** @deprecated dùng compareFull */
+    compareWithDefault(): number {
+        return this.compareCharmsOnly();
+    }
+
+    getLastMatchPercent(): number {
+        return this.lastMatchPercent;
+    }
+
+    showMatchResult(percent?: number, breakdown?: MatchScoreBreakdown) {
+        const bd = breakdown || this.lastScoreBreakdown;
+        const value = percent !== undefined ? percent : this.lastMatchPercent;
+
+        if (this.matchResultLabel) {
+            this.matchResultLabel.node.active = true;
+            this.matchResultLabel.string = value + '%';
+        }
+
+        if (bd) {
+            cc.log('[CordRoundGame] Score: ' + value + '%'
+                + ' | cord=' + bd.cordScore
+                + ' charm=' + bd.charmScore
+                + ' keychain=' + bd.keychainScore);
+        } else {
+            cc.log('[CordRoundGame] Match: ' + value + '%');
+        }
+    }
+
+    /** Gọi khi xong xếp charm — chỉ ẩn preview, chưa tính % cuối. */
+    finishBraceletPhase(): void {
+        this.hideDefaultBraceletPreview();
+    }
+
+    /** Gọi khi kết thúc game — tính % đầy đủ và hiển thị. */
+    finishAndCompare(playerKeychainIndex: number): number {
+        this.hideDefaultBraceletPreview();
+        const breakdown = this.compareFull(playerKeychainIndex);
+        this.showMatchResult(breakdown.total, breakdown);
+        return breakdown.total;
     }
 
     update(dt: number) {

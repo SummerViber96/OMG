@@ -1,6 +1,8 @@
 
 require('./assets/Bracelet/script/BoxCharm');
 require('./assets/Bracelet/script/Bracelet');
+require('./assets/Bracelet/script/BraceletDefaultMeta');
+require('./assets/Bracelet/script/BraceletMatcher');
 require('./assets/Bracelet/script/CharmGame');
 require('./assets/Bracelet/script/CharmItem');
 require('./assets/Bracelet/script/CordRoundGame');

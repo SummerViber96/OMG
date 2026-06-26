@@ -50,6 +50,9 @@ export default class NewClass extends cc.Component {
     // listCard
     adChanel = '{{__adv_channels_adapter__}}'
 
+    selectedKeychainIndex: number = -1;
+    lastMatchPercent: number = 0;
+
     onLoad() {
         cc.director.getPhysicsManager().enabled = true;
         cc.director.getPhysicsManager().gravity = cc.v2();
@@ -132,16 +135,16 @@ export default class NewClass extends cc.Component {
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
         this.plate.active = false;
+
         const cordGame = this.listCordRound.getComponent("CordRoundGame");
         if (cordGame) {
+            cordGame.finishBraceletPhase();
             cordGame.liftBracelet(cc.v3(0, 230, 0), 0.4);
         } else {
-            cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).call(() => {
-
-            }).start();
+            cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).start();
         }
         this.scheduleOnce(() => {
-            this.title.string = "KEY CHAIN"
+            this.title.string = "KEY CHAIN";
             let lock = this.listCordRound.children[globalThis.idString].children[2]
             lock.opacity = 0;
             lock.active = true;
@@ -150,6 +153,7 @@ export default class NewClass extends cc.Component {
         }, 0.8)
     }
     btn_choseCard(event, value) {
+        this.selectedKeychainIndex = parseInt(value, 10);
         this.btnOk4.active = true;
         cc.audioEngine.play(this.soundClick, false, 1)
 
@@ -180,6 +184,12 @@ export default class NewClass extends cc.Component {
 
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
+
+        const cordGame = this.listCordRound.getComponent("CordRoundGame");
+        if (cordGame) {
+            this.lastMatchPercent = cordGame.finishAndCompare(this.selectedKeychainIndex);
+        }
+
         this.phaoho.active = true;
         cc.audioEngine.play(this.soundWin, false, 1)
 
@@ -190,6 +200,9 @@ export default class NewClass extends cc.Component {
     endGame() {
         this.endGameNode.active = true;
         this.linkToStore.active = true;
+        if (this.title) {
+            this.title.string = "COMPLETE  •  " + this.lastMatchPercent + "%";
+        }
     }
 
     // update (dt) {}

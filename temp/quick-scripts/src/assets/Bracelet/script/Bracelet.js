@@ -53,6 +53,8 @@ var NewClass = /** @class */ (function (_super) {
         // @property(cc.Node)
         // listCard
         _this.adChanel = '{{__adv_channels_adapter__}}';
+        _this.selectedKeychainIndex = -1;
+        _this.lastMatchPercent = 0;
         return _this;
         // update (dt) {}
     }
@@ -135,11 +137,11 @@ var NewClass = /** @class */ (function (_super) {
         this.plate.active = false;
         var cordGame = this.listCordRound.getComponent("CordRoundGame");
         if (cordGame) {
+            cordGame.finishBraceletPhase();
             cordGame.liftBracelet(cc.v3(0, 230, 0), 0.4);
         }
         else {
-            cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).call(function () {
-            }).start();
+            cc.tween(this.listCordRound).to(0.4, { position: cc.v3(0, 230, 0) }).start();
         }
         this.scheduleOnce(function () {
             _this.title.string = "KEY CHAIN";
@@ -151,6 +153,7 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.8);
     };
     NewClass.prototype.btn_choseCard = function (event, value) {
+        this.selectedKeychainIndex = parseInt(value, 10);
         this.btnOk4.active = true;
         cc.audioEngine.play(this.soundClick, false, 1);
         for (var _i = 0, _a = this.listPet.children; _i < _a.length; _i++) {
@@ -179,6 +182,10 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundClick, false, 1);
         btn.getComponent(cc.Button).enabled = false;
         btn.active = false;
+        var cordGame = this.listCordRound.getComponent("CordRoundGame");
+        if (cordGame) {
+            this.lastMatchPercent = cordGame.finishAndCompare(this.selectedKeychainIndex);
+        }
         this.phaoho.active = true;
         cc.audioEngine.play(this.soundWin, false, 1);
         this.scheduleOnce(function () {
@@ -188,6 +195,9 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.endGame = function () {
         this.endGameNode.active = true;
         this.linkToStore.active = true;
+        if (this.title) {
+            this.title.string = "COMPLETE  •  " + this.lastMatchPercent + "%";
+        }
     };
     __decorate([
         property(cc.AudioClip)

@@ -30,12 +30,14 @@ var CharmItem = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.listImg = [];
         _this.tag = 0;
+        _this.colorIndex = 0;
         _this.colorIMG = 0;
         /** Điểm neo treo lên dây — đặt node con tên hangPoint ở đỉnh charm. */
         _this.hangPoint = null;
         return _this;
     }
     CharmItem.prototype.loadIMG = function (id, tag) {
+        this.colorIndex = id;
         this.colorIMG = this.listImg[id];
         this.node.children[0].getComponent(cc.Sprite).spriteFrame = this.listImg[id];
     };
@@ -60,6 +62,9 @@ var CharmItem = /** @class */ (function (_super) {
     __decorate([
         property(cc.SpriteFrame)
     ], CharmItem.prototype, "listImg", void 0);
+    __decorate([
+        property(cc.Integer)
+    ], CharmItem.prototype, "tag", void 0);
     __decorate([
         property(cc.Node)
     ], CharmItem.prototype, "hangPoint", void 0);

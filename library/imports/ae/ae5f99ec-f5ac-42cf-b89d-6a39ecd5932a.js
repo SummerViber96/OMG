@@ -23,6 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var BraceletMatcher_1 = require("./BraceletMatcher");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var CordRoundGame = /** @class */ (function (_super) {
     __extends(CordRoundGame, _super);
@@ -61,7 +62,25 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.soundDrop = null;
         _this.btnOk = null;
         _this.hand3 = null;
+        /** Node tham chiếu vòng mẫu (vd: defaultCharm trong scene). */
+        _this.defaultBraceletRef = null;
+        /** Vòng mẫu theo từng loại dây (index = idString). Ưu tiên hơn defaultBraceletRef. */
+        _this.defaultBraceletByCord = [];
+        _this.matchResultLabel = null;
+        _this.matchPositionTolerance = 80;
+        _this.showDefaultPreview = true;
+        /** Dây mẫu đúng (vd: 2 = green). Đúng màu dây được +30%. -1 = đoán từ tên cord (không tin cậy). */
+        _this.defaultCordId = 2;
+        /** Keychain đúng (fallback khi chưa gắn BraceletDefaultMeta). */
+        _this.defaultKeychainIndex = 0;
         _this.localBox = null;
+        _this.cachedDefaultLayout = [];
+        _this.cachedDefaultCordId = 0;
+        _this.cachedDefaultKeychainIndex = 0;
+        _this.defaultConfigCached = false;
+        _this.defaultPreviewNode = null;
+        _this.lastMatchPercent = 0;
+        _this.lastScoreBreakdown = null;
         _this.isTargetHind = null;
         return _this;
     }
@@ -132,7 +151,15 @@ var CordRoundGame = /** @class */ (function (_super) {
             this.prepareCord(this.CordRoundList.children[i]);
         }
         this.ensureCharmLayer();
+        this.cacheDefaultConfig(this.activeCord);
+        if (this.showDefaultPreview) {
+            this.showDefaultBraceletPreview();
+        }
         this.bindTouch();
+    };
+    CordRoundGame.prototype.onLoad = function () {
+        // Chỉ đọc meta sớm; layout charm sẽ build lại khi vào game với activeCord.
+        this.cacheDefaultMetaOnly();
     };
     CordRoundGame.prototype.prepareCord = function (cord) {
         if (this.preparedCords.indexOf(cord) >= 0)
@@ -275,6 +302,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         var dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide);
         if (dropAnchor) {
             cc.audioEngine.play(this.soundDrop, false, 1);
+            this.hideDefaultBraceletPreview();
             this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
             this.hand3.active = false;
@@ -995,6 +1023,352 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         return this.CordRoundList.parent || this.node;
     };
+    CordRoundGame.prototype.getDefaultBraceletRef = function () {
+        var cordId = globalThis.idString || 0;
+        if (this.defaultBraceletByCord.length > cordId && this.defaultBraceletByCord[cordId]) {
+            return this.defaultBraceletByCord[cordId];
+        }
+        return this.defaultBraceletRef;
+    };
+    CordRoundGame.prototype.getCharmItemComp = function (charm) {
+        var item = charm.getComponent('CharmItem');
+        if (item)
+            return item;
+        var comps = charm.getComponents(cc.Component);
+        for (var i = 0; i < comps.length; i++) {
+            var c = comps[i];
+            if (c && typeof c.tag === 'number' && typeof c.loadIMG === 'function') {
+                return c;
+            }
+        }
+        return null;
+    };
+    CordRoundGame.prototype.inferCordIdFromRef = function (ref) {
+        var cord = this.getRefCordNode(ref);
+        var name = cord.name.toLowerCase();
+        var colorIds = [
+            { key: 'black', id: 0 },
+            { key: 'blue', id: 1 },
+            { key: 'green', id: 2 },
+            { key: 'pink', id: 3 },
+            { key: 'purple', id: 4 },
+            { key: 'yellow', id: 5 },
+            { key: 'white', id: 6 },
+        ];
+        for (var i = 0; i < colorIds.length; i++) {
+            if (name.indexOf(colorIds[i].key) >= 0) {
+                return colorIds[i].id;
+            }
+        }
+        return this.defaultCordId >= 0 ? this.defaultCordId : 0;
+    };
+    CordRoundGame.prototype.readDefaultMeta = function (ref) {
+        var meta = ref && ref.getComponent('BraceletDefaultMeta');
+        if (meta) {
+            return {
+                cordId: meta.cordId,
+                keychainIndex: meta.keychainIndex,
+            };
+        }
+        if (this.defaultCordId >= 0) {
+            return {
+                cordId: this.defaultCordId,
+                keychainIndex: this.defaultKeychainIndex,
+            };
+        }
+        return {
+            cordId: this.inferCordIdFromRef(ref),
+            keychainIndex: this.defaultKeychainIndex,
+        };
+    };
+    CordRoundGame.prototype.cacheDefaultMetaOnly = function () {
+        var ref = this.getDefaultBraceletRefForCache();
+        if (!ref)
+            return;
+        var meta = this.readDefaultMeta(ref);
+        this.cachedDefaultCordId = meta.cordId;
+        this.cachedDefaultKeychainIndex = meta.keychainIndex;
+    };
+    CordRoundGame.prototype.cacheDefaultConfig = function (activeCord) {
+        var ref = this.getDefaultBraceletRefForCache();
+        if (!ref) {
+            cc.warn('[CordRoundGame] Chưa gán defaultBraceletRef — không thể so sánh vòng mẫu.');
+            this.cachedDefaultLayout = [];
+            this.cachedDefaultCordId = this.defaultCordId >= 0 ? this.defaultCordId : 0;
+            this.cachedDefaultKeychainIndex = this.defaultKeychainIndex;
+            this.defaultConfigCached = false;
+            return;
+        }
+        var meta = this.readDefaultMeta(ref);
+        this.cachedDefaultCordId = meta.cordId;
+        this.cachedDefaultKeychainIndex = meta.keychainIndex;
+        this.cachedDefaultLayout = this.buildDefaultLayoutFromRef(ref, activeCord);
+        this.defaultConfigCached = this.cachedDefaultLayout.length > 0;
+        cc.log('[CordRoundGame] Default config: cordId=' + this.cachedDefaultCordId
+            + ' (player=' + (globalThis.idString || 0) + ')'
+            + ' keychain=' + this.cachedDefaultKeychainIndex
+            + ' charms=' + this.cachedDefaultLayout.length);
+    };
+    /** Luôn trả ref mẫu cố định — không phụ thuộc dây người chơi đang chọn. */
+    CordRoundGame.prototype.getDefaultBraceletRefForCache = function () {
+        if (this.defaultBraceletRef) {
+            return this.defaultBraceletRef;
+        }
+        for (var i = 0; i < this.defaultBraceletByCord.length; i++) {
+            if (this.defaultBraceletByCord[i]) {
+                return this.defaultBraceletByCord[i];
+            }
+        }
+        return null;
+    };
+    CordRoundGame.prototype.getDefaultCordId = function () {
+        return this.cachedDefaultCordId;
+    };
+    CordRoundGame.prototype.getDefaultKeychainIndex = function () {
+        return this.cachedDefaultKeychainIndex;
+    };
+    CordRoundGame.prototype.getLastScoreBreakdown = function () {
+        return this.lastScoreBreakdown;
+    };
+    CordRoundGame.prototype.getRefCordNode = function (ref) {
+        if (ref.getComponent(cc.PolygonCollider))
+            return ref;
+        for (var i = 0; i < ref.childrenCount; i++) {
+            var child = ref.children[i];
+            if (child.getComponent(cc.PolygonCollider))
+                return child;
+        }
+        return ref;
+    };
+    CordRoundGame.prototype.getRefCordAnchors = function (refCord) {
+        var left = refCord.getChildByName('left');
+        var right = refCord.getChildByName('right');
+        if (!left || !right)
+            return null;
+        return {
+            left: cc.v2(left.x, left.y),
+            right: cc.v2(right.x, right.y),
+        };
+    };
+    CordRoundGame.prototype.getPathDataForCord = function (cord) {
+        var existing = this.cordPaths.get(cord);
+        if (existing)
+            return existing;
+        var rawPoints = this.getPolygonColliderPoints(cord);
+        if (rawPoints.length < 2)
+            return null;
+        var samples = this.sampleAlongPath(rawPoints, this.pathSampleSpacing);
+        return {
+            points: samples,
+            totalLength: this.calcPathLength(samples),
+        };
+    };
+    CordRoundGame.prototype.getCordAnchors = function (cord) {
+        var left = cord.getChildByName('left');
+        var right = cord.getChildByName('right');
+        if (!left || !right)
+            return null;
+        return {
+            left: cc.v2(left.x, left.y),
+            right: cc.v2(right.x, right.y),
+        };
+    };
+    CordRoundGame.prototype.getTemplateCord = function (cordId) {
+        var id = cordId !== undefined ? cordId : this.cachedDefaultCordId;
+        if (!this.CordRoundList || id < 0)
+            return null;
+        return this.CordRoundList.children[id] || null;
+    };
+    CordRoundGame.prototype.measurePathDistanceOnCord = function (cord, path, anchors, side, pos) {
+        var entry = side === 'left' ? anchors.left : anchors.right;
+        var entryIndex = this.findNearestPathIndex(path.points, entry);
+        var pathDir = this.pickPathDirection(path.points, entryIndex, side);
+        return this.getDistanceAlongPath(path.points, entryIndex, pathDir, pos);
+    };
+    CordRoundGame.prototype.buildDefaultLayout = function () {
+        var ref = this.getDefaultBraceletRefForCache() || this.getDefaultBraceletRef();
+        if (!ref)
+            return [];
+        return this.buildDefaultLayoutFromRef(ref, this.activeCord);
+    };
+    CordRoundGame.prototype.buildDefaultLayoutFromRef = function (ref, activeCord) {
+        if (!ref)
+            return [];
+        var refCord = this.getRefCordNode(ref);
+        var templateCord = activeCord || this.getTemplateCord();
+        if (!templateCord) {
+            cc.warn('[CordRoundGame] Không tìm thấy dây game để đọc layout mẫu.');
+            return [];
+        }
+        var path = this.getPathDataForCord(templateCord);
+        var anchors = this.getCordAnchors(templateCord);
+        if (!path || !anchors) {
+            cc.warn('[CordRoundGame] Dây game thiếu PolygonCollider hoặc anchor left/right.');
+            return [];
+        }
+        var charmRoot = ref.getChildByName('charm') || ref;
+        var slots = [];
+        for (var i = 0; i < charmRoot.childrenCount; i++) {
+            var charm = charmRoot.children[i];
+            var item = this.getCharmItemComp(charm);
+            if (!item)
+                continue;
+            var posOnCord = refCord.convertToNodeSpaceAR(charm.convertToWorldSpaceAR(cc.v2(0, 0)));
+            var side = this.resolveSideForPosition(posOnCord, anchors);
+            var pathDistance = this.measurePathDistanceOnCord(templateCord, path, anchors, side, posOnCord);
+            slots.push({
+                tag: item.tag,
+                colorIndex: item.colorIndex || 0,
+                side: side,
+                pathDistance: pathDistance,
+            });
+        }
+        return slots;
+    };
+    CordRoundGame.prototype.resolveSideForPosition = function (cordLocal, anchors) {
+        var distLeft = cc.v2(cordLocal.x - anchors.left.x, cordLocal.y - anchors.left.y).mag();
+        var distRight = cc.v2(cordLocal.x - anchors.right.x, cordLocal.y - anchors.right.y).mag();
+        return distLeft <= distRight ? 'left' : 'right';
+    };
+    CordRoundGame.prototype.buildPlayerLayout = function () {
+        var slots = [];
+        for (var i = 0; i < this.cordCharms.length; i++) {
+            var state = this.cordCharms[i];
+            var item = state.charm.getComponent('CharmItem');
+            if (!item)
+                continue;
+            slots.push({
+                tag: item.tag,
+                colorIndex: item.colorIndex || 0,
+                side: state.side,
+                pathDistance: this.getCharmPathDistance(state),
+            });
+        }
+        return slots;
+    };
+    CordRoundGame.prototype.getSlotPose = function (slot) {
+        var path = this.cordPaths.get(this.activeCord);
+        var anchors = this.getCordAnchorPositions();
+        if (!path || !anchors) {
+            return { x: 0, y: 0, angle: 0 };
+        }
+        var entry = slot.side === 'left' ? anchors.left : anchors.right;
+        var entryIndex = this.findNearestPathIndex(path.points, entry);
+        var pathDir = this.pickPathDirection(path.points, entryIndex, slot.side);
+        return this.getPoseOnPath(path.points, entryIndex, pathDir, slot.pathDistance);
+    };
+    CordRoundGame.prototype.showDefaultBraceletPreview = function () {
+        this.hideDefaultBraceletPreview();
+        if (!this.cachedDefaultLayout.length || !this.charmLayer)
+            return;
+        var ref = this.getDefaultBraceletRef();
+        var charmRoot = ref && (ref.getChildByName('charm') || ref);
+        if (!charmRoot)
+            return;
+        var preview = new cc.Node('defaultBraceletPreview');
+        preview.parent = this.charmLayer;
+        preview.setSiblingIndex(0);
+        var srcIndex = 0;
+        for (var i = 0; i < charmRoot.childrenCount; i++) {
+            var src = charmRoot.children[i];
+            if (!src.getComponent('CharmItem'))
+                continue;
+            if (srcIndex >= this.cachedDefaultLayout.length)
+                break;
+            var slot = this.cachedDefaultLayout[srcIndex];
+            srcIndex++;
+            var clone = cc.instantiate(src);
+            var pose = this.getSlotPose(slot);
+            clone.parent = preview;
+            clone.setPosition(cc.v3(pose.x, pose.y, 0));
+            clone.angle = pose.angle;
+            clone.opacity = 150;
+            var body = clone.getComponent(cc.RigidBody);
+            if (body)
+                body.enabled = false;
+            var colliders = clone.getComponents(cc.PhysicsCollider);
+            for (var c = 0; c < colliders.length; c++) {
+                colliders[c].enabled = false;
+            }
+        }
+        this.defaultPreviewNode = preview;
+    };
+    CordRoundGame.prototype.hideDefaultBraceletPreview = function () {
+        if (this.defaultPreviewNode) {
+            this.defaultPreviewNode.destroy();
+            this.defaultPreviewNode = null;
+        }
+    };
+    /** So sánh charm (0–100%, chưa gồm dây và keychain). */
+    CordRoundGame.prototype.compareCharmsOnly = function () {
+        var expected = this.cachedDefaultLayout.length > 0
+            ? this.cachedDefaultLayout
+            : this.buildDefaultLayout();
+        if (expected.length === 0)
+            return 0;
+        var actual = this.buildPlayerLayout();
+        return BraceletMatcher_1.calcCharmMatchPercent(expected, actual, this.matchPositionTolerance);
+    };
+    /**
+     * So sánh đầy đủ: dây (30%) + charm (50%) + keychain (20%).
+     * Gọi khi đã có lựa chọn keychain của người chơi.
+     */
+    CordRoundGame.prototype.compareFull = function (playerKeychainIndex) {
+        var ref = this.getDefaultBraceletRefForCache();
+        if (ref) {
+            this.cachedDefaultLayout = this.buildDefaultLayoutFromRef(ref, this.activeCord);
+        }
+        var expected = this.cachedDefaultLayout;
+        var actual = this.buildPlayerLayout();
+        var actualCordId = globalThis.idString || 0;
+        this.lastScoreBreakdown = BraceletMatcher_1.calcFullScore(this.cachedDefaultCordId, actualCordId, expected, actual, this.cachedDefaultKeychainIndex, playerKeychainIndex, this.matchPositionTolerance);
+        this.lastMatchPercent = this.lastScoreBreakdown.total;
+        cc.log('[CordRoundGame] Compare: expectedCord=' + this.cachedDefaultCordId
+            + ' playerCord=' + actualCordId
+            + ' expectedCharms=' + expected.length
+            + ' playerCharms=' + actual.length
+            + ' keychain=' + playerKeychainIndex
+            + ' => ' + this.lastMatchPercent + '%'
+            + ' (dây ' + this.lastScoreBreakdown.cordScore
+            + ' charm ' + this.lastScoreBreakdown.charmScore
+            + ' key ' + this.lastScoreBreakdown.keychainScore + ')');
+        return this.lastScoreBreakdown;
+    };
+    /** @deprecated dùng compareFull */
+    CordRoundGame.prototype.compareWithDefault = function () {
+        return this.compareCharmsOnly();
+    };
+    CordRoundGame.prototype.getLastMatchPercent = function () {
+        return this.lastMatchPercent;
+    };
+    CordRoundGame.prototype.showMatchResult = function (percent, breakdown) {
+        var bd = breakdown || this.lastScoreBreakdown;
+        var value = percent !== undefined ? percent : this.lastMatchPercent;
+        if (this.matchResultLabel) {
+            this.matchResultLabel.node.active = true;
+            this.matchResultLabel.string = value + '%';
+        }
+        if (bd) {
+            cc.log('[CordRoundGame] Score: ' + value + '%'
+                + ' | cord=' + bd.cordScore
+                + ' charm=' + bd.charmScore
+                + ' keychain=' + bd.keychainScore);
+        }
+        else {
+            cc.log('[CordRoundGame] Match: ' + value + '%');
+        }
+    };
+    /** Gọi khi xong xếp charm — chỉ ẩn preview, chưa tính % cuối. */
+    CordRoundGame.prototype.finishBraceletPhase = function () {
+        this.hideDefaultBraceletPreview();
+    };
+    /** Gọi khi kết thúc game — tính % đầy đủ và hiển thị. */
+    CordRoundGame.prototype.finishAndCompare = function (playerKeychainIndex) {
+        this.hideDefaultBraceletPreview();
+        var breakdown = this.compareFull(playerKeychainIndex);
+        this.showMatchResult(breakdown.total, breakdown);
+        return breakdown.total;
+    };
     CordRoundGame.prototype.update = function (dt) {
         if (!this.isActive)
             return;
@@ -1063,6 +1437,27 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], CordRoundGame.prototype, "hand3", void 0);
+    __decorate([
+        property(cc.Node)
+    ], CordRoundGame.prototype, "defaultBraceletRef", void 0);
+    __decorate([
+        property([cc.Node])
+    ], CordRoundGame.prototype, "defaultBraceletByCord", void 0);
+    __decorate([
+        property(cc.Label)
+    ], CordRoundGame.prototype, "matchResultLabel", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "matchPositionTolerance", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "showDefaultPreview", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "defaultCordId", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "defaultKeychainIndex", void 0);
     CordRoundGame = __decorate([
         ccclass
     ], CordRoundGame);
