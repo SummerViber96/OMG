@@ -42,6 +42,8 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.settleSpeed = 22;
         _this.pivotColliderRadius = 8;
         _this.charmSlotSpacing = 130;
+        /** Khoảng trống tối thiểu gần neo để cho phép thả charm. */
+        _this.minAnchorDropGap = 60;
         _this.hangSwingLimit = 32;
         _this.hangOutwardStiffness = 14;
         _this.activeCord = null;
@@ -300,10 +302,9 @@ var CordRoundGame = /** @class */ (function (_super) {
         var charm = this.draggingCharm;
         var charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
         var dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide, charm);
-        if (dropAnchor) {
+        if (dropAnchor && this.threadCharmOntoCord(charm, dropAnchor)) {
             cc.audioEngine.play(this.soundDrop, false, 1);
             this.hideDefaultBraceletPreview();
-            this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
             this.hand3.active = false;
         }
@@ -361,10 +362,10 @@ var CordRoundGame = /** @class */ (function (_super) {
     };
     CordRoundGame.prototype.threadCharmOntoCord = function (charm, dropAnchor) {
         if (!this.canDropOnSide(dropAnchor.side, charm))
-            return;
+            return false;
         var path = this.cordPaths.get(this.activeCord);
         if (!path)
-            return;
+            return false;
         var anchorPos = dropAnchor.cordPos;
         var startIndex = this.findNearestPathIndex(path.points, anchorPos);
         var pathDir = this.pickPathDirection(path.points, startIndex, dropAnchor.side);
@@ -404,6 +405,7 @@ var CordRoundGame = /** @class */ (function (_super) {
             pathDir: pathDir,
             pathDistance: 0,
         });
+        return true;
     };
     /** Tạo pivot (điểm neo trên dây) + RevoluteJoint; phần dưới charm lung lay theo physics. */
     CordRoundGame.prototype.setupCharmHangRig = function (charm) {
@@ -654,11 +656,55 @@ var CordRoundGame = /** @class */ (function (_super) {
             return index - length;
         return index;
     };
-    CordRoundGame.prototype.getMaxSlideDistance = function (state) {
+    CordRoundGame.prototype.getAnchorSlideDistance = function () {
         var path = this.cordPaths.get(this.activeCord);
-        if (!path)
+        var anchors = this.getCordAnchorPositions();
+        if (!path || !anchors)
             return 0;
-        return path.totalLength * 0.52;
+        var leftIndex = this.findNearestPathIndex(path.points, anchors.left);
+        var pathDir = this.pickPathDirection(path.points, leftIndex, 'left');
+        return this.getDistanceAlongPath(path.points, leftIndex, pathDir, anchors.right);
+    };
+    CordRoundGame.prototype.getSideSlideDistance = function (side) {
+        var path = this.cordPaths.get(this.activeCord);
+        var anchors = this.getCordAnchorPositions();
+        if (!path || !anchors)
+            return 0;
+        var entry = side === 'left' ? anchors.left : anchors.right;
+        var entryIndex = this.findNearestPathIndex(path.points, entry);
+        var pathDir = this.pickPathDirection(path.points, entryIndex, side);
+        var opposite = side === 'left' ? anchors.right : anchors.left;
+        var toOpposite = this.getDistanceAlongPath(path.points, entryIndex, pathDir, opposite);
+        if (toOpposite <= 0)
+            return 0;
+        // Dừng ở đáy vòng (~giữa cung trái/phải), không tính khe hở giữa 2 neo.
+        var idx = entryIndex;
+        var dist = 0;
+        var lowestY = entry.y;
+        var distAtLowest = 0;
+        var maxSteps = path.points.length + 2;
+        for (var step = 0; step < maxSteps; step++) {
+            var nextIdx = this.wrapIndex(idx + pathDir, path.points.length);
+            var a = path.points[idx];
+            var b = path.points[nextIdx];
+            var segLen = cc.v2(b.x - a.x, b.y - a.y).mag();
+            if (segLen <= 0) {
+                idx = nextIdx;
+                continue;
+            }
+            dist += segLen;
+            if (b.y < lowestY) {
+                lowestY = b.y;
+                distAtLowest = dist;
+            }
+            if (dist >= toOpposite * 0.5)
+                break;
+            idx = nextIdx;
+        }
+        return Math.max(distAtLowest, toOpposite * 0.5);
+    };
+    CordRoundGame.prototype.getMaxSlideDistance = function (state) {
+        return this.getSideSlideDistance(state.side);
     };
     CordRoundGame.prototype.updateCharmSlide = function (state, dt) {
         var body = state.pivot.getComponent(cc.RigidBody);
@@ -752,12 +798,6 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         return angle;
     };
-    CordRoundGame.prototype.getSideMaxSlideDistance = function () {
-        var path = this.cordPaths.get(this.activeCord);
-        if (!path)
-            return 0;
-        return path.totalLength * 0.52;
-    };
     CordRoundGame.prototype.measurePathDistanceFromEntry = function (side, pos, pathDir) {
         var path = this.cordPaths.get(this.activeCord);
         var anchors = this.getCordAnchorPositions();
@@ -785,31 +825,40 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         return result;
     };
-    CordRoundGame.prototype.getMinPathDistanceOnSide = function (side) {
+    CordRoundGame.prototype.getOccupiedDistancesOnSide = function (side) {
         var onSide = this.getCharmsOnSide(side);
-        if (onSide.length === 0)
-            return Number.MAX_VALUE;
-        var minDist = Number.MAX_VALUE;
+        var distances = [];
         for (var i = 0; i < onSide.length; i++) {
-            var d = this.getCharmPathDistance(onSide[i]);
-            if (d < minDist) {
-                minDist = d;
-            }
+            distances.push(this.getDistanceFromAnchor(side, onSide[i]));
         }
-        return minDist;
+        distances.sort(function (a, b) { return a - b; });
+        return distances;
+    };
+    CordRoundGame.prototype.getDistanceFromAnchor = function (side, state) {
+        var path = this.cordPaths.get(this.activeCord);
+        if (!path || !state.pivot) {
+            return state.pathDistance;
+        }
+        var pos = cc.v2(state.pivot.x, state.pivot.y);
+        return this.measurePathDistanceFromEntry(side, pos, state.pathDir);
+    };
+    CordRoundGame.prototype.getRequiredAnchorGap = function (charm) {
+        return this.minAnchorDropGap;
     };
     CordRoundGame.prototype.getCharmSlotSpacing = function (charm) {
         var item = this.getCharmItemComp(charm);
-        if (item && typeof item.slotSpacing === 'number') {
+        if (item && typeof item.slotSpacing === 'number' && item.slotSpacing > 0) {
             return item.slotSpacing;
         }
         return this.charmSlotSpacing;
     };
+    /** Chỉ kiểm tra khoảng trống gần neo của bên thả (≥ minAnchorDropGap). */
     CordRoundGame.prototype.canDropOnSide = function (side, charm) {
-        var onSide = this.getCharmsOnSide(side);
-        if (onSide.length === 0)
+        var gap = this.getRequiredAnchorGap(charm);
+        var occupied = this.getOccupiedDistancesOnSide(side);
+        if (occupied.length === 0)
             return true;
-        return this.getMinPathDistanceOnSide(side) >= this.getCharmSlotSpacing(charm);
+        return occupied[0] >= gap;
     };
     CordRoundGame.prototype.pickAvailableSide = function (nearLeft, nearRight, distLeft, distRight, charm, preferLeft) {
         var candidates = [];
@@ -842,47 +891,25 @@ var CordRoundGame = /** @class */ (function (_super) {
         if (!anchors)
             return null;
         var local = this.activeCord.convertToNodeSpaceAR(worldPos);
+        if (this.isInAnchorGap(local))
+            return null;
         var leftPos = anchors.left;
         var rightPos = anchors.right;
         var distLeft = cc.v2(local.x - leftPos.x, local.y - leftPos.y).mag();
         var distRight = cc.v2(local.x - rightPos.x, local.y - rightPos.y).mag();
         var nearLeft = distLeft <= this.entryDetectRadius;
         var nearRight = distRight <= this.entryDetectRadius;
-        var preferLeft = local.x < (leftPos.x + rightPos.x) * 0.5;
-        var preferSide = preferLeft ? 'left' : 'right';
-        if (preferredSide && this.canDropOnSide(preferredSide, charm)) {
-            return {
-                side: preferredSide,
-                cordPos: preferredSide === 'left' ? leftPos : rightPos,
-            };
-        }
-        if (preferredSide && !this.canDropOnSide(preferredSide, charm)) {
-            var alt = preferSide;
-            if (alt !== preferredSide && this.canDropOnSide(alt, charm)) {
-                return {
-                    side: alt,
-                    cordPos: alt === 'left' ? leftPos : rightPos,
-                };
-            }
-        }
-        if (nearLeft || nearRight) {
-            var side_1 = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm);
-            if (side_1) {
-                return {
-                    side: side_1,
-                    cordPos: side_1 === 'left' ? leftPos : rightPos,
-                };
-            }
-        }
-        var topY = Math.max(leftPos.y, rightPos.y) - 20;
-        var minX = Math.min(leftPos.x, rightPos.x) - 30;
-        var maxX = Math.max(leftPos.x, rightPos.x) + 30;
-        var inTopZone = local.y >= topY - this.entryDetectRadius
-            && local.x >= minX
-            && local.x <= maxX;
-        if (!inTopZone)
+        // Chỉ thả khi sát neo trái/phải — không thả trong khe hở giữa 2 neo.
+        if (!nearLeft && !nearRight)
             return null;
-        var side = this.pickAvailableSide(true, true, distLeft, distRight, charm, preferLeft);
+        var preferLeft = distLeft <= distRight;
+        if (preferredSide === 'left' && nearLeft && this.canDropOnSide('left', charm)) {
+            return { side: 'left', cordPos: leftPos };
+        }
+        if (preferredSide === 'right' && nearRight && this.canDropOnSide('right', charm)) {
+            return { side: 'right', cordPos: rightPos };
+        }
+        var side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm, preferLeft);
         if (!side)
             return null;
         return {
@@ -917,23 +944,12 @@ var CordRoundGame = /** @class */ (function (_super) {
         var charm = this.draggingCharm;
         if (!charm)
             return null;
+        var cordLocal = this.activeCord.convertToNodeSpaceAR(main.convertToWorldSpaceAR(cc.v2(mainPos.x, mainPos.y)));
+        if (this.isInAnchorGap(cordLocal))
+            return null;
         if (nearLeft || nearRight) {
-            side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm);
-        }
-        else {
-            var cordLocal = this.activeCord.convertToNodeSpaceAR(main.convertToWorldSpaceAR(cc.v2(mainPos.x, mainPos.y)));
-            var leftPos = anchors.left;
-            var rightPos = anchors.right;
-            var topY = Math.max(leftPos.y, rightPos.y) - 20;
-            var minX = Math.min(leftPos.x, rightPos.x) - 30;
-            var maxX = Math.max(leftPos.x, rightPos.x) + 30;
-            var inTopZone = cordLocal.y >= topY - this.entryDetectRadius
-                && cordLocal.x >= minX
-                && cordLocal.x <= maxX;
-            if (inTopZone) {
-                var preferLeft = cordLocal.x < (leftPos.x + rightPos.x) * 0.5;
-                side = this.pickAvailableSide(true, true, distLeft, distRight, charm, preferLeft);
-            }
+            var preferLeft = distLeft <= distRight;
+            side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm, preferLeft);
         }
         if (!side)
             return null;
@@ -981,6 +997,25 @@ var CordRoundGame = /** @class */ (function (_super) {
             left: cc.v2(this.leftAnchor.x, this.leftAnchor.y),
             right: cc.v2(this.rightAnchor.x, this.rightAnchor.y),
         };
+    };
+    /** Khe hở giữa 2 neo — không phải vùng thả charm. */
+    CordRoundGame.prototype.isInAnchorGap = function (local) {
+        var anchors = this.getCordAnchorPositions();
+        if (!anchors)
+            return false;
+        var left = anchors.left;
+        var right = anchors.right;
+        var anchorReach = this.entryDetectRadius * 0.4;
+        var distLeft = cc.v2(local.x - left.x, local.y - left.y).mag();
+        var distRight = cc.v2(local.x - right.x, local.y - right.y).mag();
+        if (distLeft <= anchorReach || distRight <= anchorReach) {
+            return false;
+        }
+        var gapMinX = Math.min(left.x, right.x) + anchorReach;
+        var gapMaxX = Math.max(left.x, right.x) - anchorReach;
+        var topY = Math.max(left.y, right.y);
+        var inTopBand = local.y >= topY - this.entryDetectRadius;
+        return inTopBand && local.x >= gapMinX && local.x <= gapMaxX;
     };
     CordRoundGame.prototype.getDropAnchorForSide = function (side, charm) {
         if (!this.canDropOnSide(side, charm))
@@ -1431,6 +1466,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property
     ], CordRoundGame.prototype, "charmSlotSpacing", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "minAnchorDropGap", void 0);
     __decorate([
         property
     ], CordRoundGame.prototype, "hangSwingLimit", void 0);

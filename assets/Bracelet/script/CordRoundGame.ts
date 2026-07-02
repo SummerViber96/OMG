@@ -66,6 +66,10 @@ export default class CordRoundGame extends cc.Component {
     @property
     charmSlotSpacing: number = 130;
 
+    /** Khoảng trống tối thiểu gần neo để cho phép thả charm. */
+    @property
+    minAnchorDropGap: number = 60;
+
     @property
     hangSwingLimit: number = 32;
 
@@ -372,10 +376,9 @@ export default class CordRoundGame extends cc.Component {
         const charm = this.draggingCharm;
         const charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
         const dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide, charm);
-        if (dropAnchor) {
+        if (dropAnchor && this.threadCharmOntoCord(charm, dropAnchor)) {
             cc.audioEngine.play(this.soundDrop, false, 1)
             this.hideDefaultBraceletPreview();
-            this.threadCharmOntoCord(charm, dropAnchor);
             this.btnOk.active = true;
             this.hand3.active = false;
         } else {
@@ -438,11 +441,11 @@ export default class CordRoundGame extends cc.Component {
         this.setCharmPlatePhysics(charm, true);
     }
 
-    private threadCharmOntoCord(charm: cc.Node, dropAnchor: DropAnchor) {
-        if (!this.canDropOnSide(dropAnchor.side, charm)) return;
+    private threadCharmOntoCord(charm: cc.Node, dropAnchor: DropAnchor): boolean {
+        if (!this.canDropOnSide(dropAnchor.side, charm)) return false;
 
         const path = this.cordPaths.get(this.activeCord);
-        if (!path) return;
+        if (!path) return false;
 
         const anchorPos = dropAnchor.cordPos;
         const startIndex = this.findNearestPathIndex(path.points, anchorPos);
@@ -487,6 +490,7 @@ export default class CordRoundGame extends cc.Component {
             pathDir,
             pathDistance: 0,
         });
+        return true;
     }
 
     /** Tạo pivot (điểm neo trên dây) + RevoluteJoint; phần dưới charm lung lay theo physics. */
@@ -773,10 +777,60 @@ export default class CordRoundGame extends cc.Component {
         return index;
     }
 
-    private getMaxSlideDistance(state: CordCharmState): number {
+    private getAnchorSlideDistance(): number {
         const path = this.cordPaths.get(this.activeCord);
-        if (!path) return 0;
-        return path.totalLength * 0.52;
+        const anchors = this.getCordAnchorPositions();
+        if (!path || !anchors) return 0;
+
+        const leftIndex = this.findNearestPathIndex(path.points, anchors.left);
+        const pathDir = this.pickPathDirection(path.points, leftIndex, 'left');
+        return this.getDistanceAlongPath(path.points, leftIndex, pathDir, anchors.right);
+    }
+
+    private getSideSlideDistance(side: CordSide): number {
+        const path = this.cordPaths.get(this.activeCord);
+        const anchors = this.getCordAnchorPositions();
+        if (!path || !anchors) return 0;
+
+        const entry = side === 'left' ? anchors.left : anchors.right;
+        const entryIndex = this.findNearestPathIndex(path.points, entry);
+        const pathDir = this.pickPathDirection(path.points, entryIndex, side);
+        const opposite = side === 'left' ? anchors.right : anchors.left;
+        const toOpposite = this.getDistanceAlongPath(path.points, entryIndex, pathDir, opposite);
+        if (toOpposite <= 0) return 0;
+
+        // Dừng ở đáy vòng (~giữa cung trái/phải), không tính khe hở giữa 2 neo.
+        let idx = entryIndex;
+        let dist = 0;
+        let lowestY = entry.y;
+        let distAtLowest = 0;
+        const maxSteps = path.points.length + 2;
+
+        for (let step = 0; step < maxSteps; step++) {
+            const nextIdx = this.wrapIndex(idx + pathDir, path.points.length);
+            const a = path.points[idx];
+            const b = path.points[nextIdx];
+            const segLen = cc.v2(b.x - a.x, b.y - a.y).mag();
+            if (segLen <= 0) {
+                idx = nextIdx;
+                continue;
+            }
+
+            dist += segLen;
+            if (b.y < lowestY) {
+                lowestY = b.y;
+                distAtLowest = dist;
+            }
+
+            if (dist >= toOpposite * 0.5) break;
+            idx = nextIdx;
+        }
+
+        return Math.max(distAtLowest, toOpposite * 0.5);
+    }
+
+    private getMaxSlideDistance(state: CordCharmState): number {
+        return this.getSideSlideDistance(state.side);
     }
 
     private updateCharmSlide(state: CordCharmState, dt: number) {
@@ -899,12 +953,6 @@ export default class CordRoundGame extends cc.Component {
         return angle;
     }
 
-    private getSideMaxSlideDistance(): number {
-        const path = this.cordPaths.get(this.activeCord);
-        if (!path) return 0;
-        return path.totalLength * 0.52;
-    }
-
     private measurePathDistanceFromEntry(side: CordSide, pos: cc.Vec2, pathDir?: number): number {
         const path = this.cordPaths.get(this.activeCord);
         const anchors = this.getCordAnchorPositions();
@@ -935,33 +983,46 @@ export default class CordRoundGame extends cc.Component {
         return result;
     }
 
-    private getMinPathDistanceOnSide(side: CordSide): number {
+    private getOccupiedDistancesOnSide(side: CordSide): number[] {
         const onSide = this.getCharmsOnSide(side);
-        if (onSide.length === 0) return Number.MAX_VALUE;
+        const distances: number[] = [];
 
-        let minDist = Number.MAX_VALUE;
         for (let i = 0; i < onSide.length; i++) {
-            const d = this.getCharmPathDistance(onSide[i]);
-            if (d < minDist) {
-                minDist = d;
-            }
+            distances.push(this.getDistanceFromAnchor(side, onSide[i]));
         }
-        return minDist;
+
+        distances.sort((a, b) => a - b);
+        return distances;
+    }
+
+    private getDistanceFromAnchor(side: CordSide, state: CordCharmState): number {
+        const path = this.cordPaths.get(this.activeCord);
+        if (!path || !state.pivot) {
+            return state.pathDistance;
+        }
+
+        const pos = cc.v2(state.pivot.x, state.pivot.y);
+        return this.measurePathDistanceFromEntry(side, pos, state.pathDir);
+    }
+
+    private getRequiredAnchorGap(charm: cc.Node): number {
+        return this.minAnchorDropGap;
     }
 
     private getCharmSlotSpacing(charm: cc.Node): number {
         const item = this.getCharmItemComp(charm);
-        if (item && typeof item.slotSpacing === 'number') {
+        if (item && typeof item.slotSpacing === 'number' && item.slotSpacing > 0) {
             return item.slotSpacing;
         }
         return this.charmSlotSpacing;
     }
 
+    /** Chỉ kiểm tra khoảng trống gần neo của bên thả (≥ minAnchorDropGap). */
     private canDropOnSide(side: CordSide, charm: cc.Node): boolean {
-        const onSide = this.getCharmsOnSide(side);
-        if (onSide.length === 0) return true;
-
-        return this.getMinPathDistanceOnSide(side) >= this.getCharmSlotSpacing(charm);
+        const gap = this.getRequiredAnchorGap(charm);
+        const occupied = this.getOccupiedDistancesOnSide(side);
+        if (occupied.length === 0) return true;
+        return occupied[0] >= gap;
     }
 
     private pickAvailableSide(
@@ -1002,6 +1063,8 @@ export default class CordRoundGame extends cc.Component {
         if (!anchors) return null;
 
         const local = this.activeCord.convertToNodeSpaceAR(worldPos);
+        if (this.isInAnchorGap(local)) return null;
+
         const leftPos = anchors.left;
         const rightPos = anchors.right;
 
@@ -1009,46 +1072,20 @@ export default class CordRoundGame extends cc.Component {
         const distRight = cc.v2(local.x - rightPos.x, local.y - rightPos.y).mag();
         const nearLeft = distLeft <= this.entryDetectRadius;
         const nearRight = distRight <= this.entryDetectRadius;
-        const preferLeft = local.x < (leftPos.x + rightPos.x) * 0.5;
-        const preferSide: CordSide = preferLeft ? 'left' : 'right';
 
-        if (preferredSide && this.canDropOnSide(preferredSide, charm)) {
-            return {
-                side: preferredSide,
-                cordPos: preferredSide === 'left' ? leftPos : rightPos,
-            };
+        // Chỉ thả khi sát neo trái/phải — không thả trong khe hở giữa 2 neo.
+        if (!nearLeft && !nearRight) return null;
+
+        const preferLeft = distLeft <= distRight;
+
+        if (preferredSide === 'left' && nearLeft && this.canDropOnSide('left', charm)) {
+            return { side: 'left', cordPos: leftPos };
+        }
+        if (preferredSide === 'right' && nearRight && this.canDropOnSide('right', charm)) {
+            return { side: 'right', cordPos: rightPos };
         }
 
-        if (preferredSide && !this.canDropOnSide(preferredSide, charm)) {
-            const alt: CordSide = preferSide;
-            if (alt !== preferredSide && this.canDropOnSide(alt, charm)) {
-                return {
-                    side: alt,
-                    cordPos: alt === 'left' ? leftPos : rightPos,
-                };
-            }
-        }
-
-        if (nearLeft || nearRight) {
-            const side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm);
-            if (side) {
-                return {
-                    side,
-                    cordPos: side === 'left' ? leftPos : rightPos,
-                };
-            }
-        }
-
-        const topY = Math.max(leftPos.y, rightPos.y) - 20;
-        const minX = Math.min(leftPos.x, rightPos.x) - 30;
-        const maxX = Math.max(leftPos.x, rightPos.x) + 30;
-        const inTopZone = local.y >= topY - this.entryDetectRadius
-            && local.x >= minX
-            && local.x <= maxX;
-
-        if (!inTopZone) return null;
-
-        const side = this.pickAvailableSide(true, true, distLeft, distRight, charm, preferLeft);
+        const side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm, preferLeft);
         if (!side) return null;
 
         return {
@@ -1091,25 +1128,14 @@ export default class CordRoundGame extends cc.Component {
         const charm = this.draggingCharm;
         if (!charm) return null;
 
-        if (nearLeft || nearRight) {
-            side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm);
-        } else {
-            const cordLocal = this.activeCord.convertToNodeSpaceAR(
-                main.convertToWorldSpaceAR(cc.v2(mainPos.x, mainPos.y))
-            );
-            const leftPos = anchors.left;
-            const rightPos = anchors.right;
-            const topY = Math.max(leftPos.y, rightPos.y) - 20;
-            const minX = Math.min(leftPos.x, rightPos.x) - 30;
-            const maxX = Math.max(leftPos.x, rightPos.x) + 30;
-            const inTopZone = cordLocal.y >= topY - this.entryDetectRadius
-                && cordLocal.x >= minX
-                && cordLocal.x <= maxX;
+        const cordLocal = this.activeCord.convertToNodeSpaceAR(
+            main.convertToWorldSpaceAR(cc.v2(mainPos.x, mainPos.y))
+        );
+        if (this.isInAnchorGap(cordLocal)) return null;
 
-            if (inTopZone) {
-                const preferLeft = cordLocal.x < (leftPos.x + rightPos.x) * 0.5;
-                side = this.pickAvailableSide(true, true, distLeft, distRight, charm, preferLeft);
-            }
+        if (nearLeft || nearRight) {
+            const preferLeft = distLeft <= distRight;
+            side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm, preferLeft);
         }
 
         if (!side) return null;
@@ -1165,6 +1191,29 @@ export default class CordRoundGame extends cc.Component {
             left: cc.v2(this.leftAnchor.x, this.leftAnchor.y),
             right: cc.v2(this.rightAnchor.x, this.rightAnchor.y),
         };
+    }
+
+    /** Khe hở giữa 2 neo — không phải vùng thả charm. */
+    private isInAnchorGap(local: cc.Vec2): boolean {
+        const anchors = this.getCordAnchorPositions();
+        if (!anchors) return false;
+
+        const left = anchors.left;
+        const right = anchors.right;
+        const anchorReach = this.entryDetectRadius * 0.4;
+        const distLeft = cc.v2(local.x - left.x, local.y - left.y).mag();
+        const distRight = cc.v2(local.x - right.x, local.y - right.y).mag();
+
+        if (distLeft <= anchorReach || distRight <= anchorReach) {
+            return false;
+        }
+
+        const gapMinX = Math.min(left.x, right.x) + anchorReach;
+        const gapMaxX = Math.max(left.x, right.x) - anchorReach;
+        const topY = Math.max(left.y, right.y);
+        const inTopBand = local.y >= topY - this.entryDetectRadius;
+
+        return inTopBand && local.x >= gapMinX && local.x <= gapMaxX;
     }
 
     private getDropAnchorForSide(side: CordSide, charm: cc.Node): DropAnchor | null {
