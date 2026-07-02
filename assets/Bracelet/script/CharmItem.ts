@@ -14,6 +14,10 @@ export default class CharmItem extends cc.Component {
     @property(cc.Node)
     hangPoint: cc.Node = null;
 
+    /** Khoảng cách tối thiểu trên dây khi thả charm này (theo path). */
+    @property
+    slotSpacing: number = 130;
+
     loadIMG(id: number, tag) {
         this.colorIndex = id
         this.colorIMG = this.listImg[id]

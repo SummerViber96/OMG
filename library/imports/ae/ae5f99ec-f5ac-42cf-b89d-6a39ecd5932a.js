@@ -299,7 +299,7 @@ var CordRoundGame = /** @class */ (function (_super) {
             return;
         var charm = this.draggingCharm;
         var charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
-        var dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide);
+        var dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide, charm);
         if (dropAnchor) {
             cc.audioEngine.play(this.soundDrop, false, 1);
             this.hideDefaultBraceletPreview();
@@ -360,7 +360,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         this.setCharmPlatePhysics(charm, true);
     };
     CordRoundGame.prototype.threadCharmOntoCord = function (charm, dropAnchor) {
-        if (!this.canDropOnSide(dropAnchor.side))
+        if (!this.canDropOnSide(dropAnchor.side, charm))
             return;
         var path = this.cordPaths.get(this.activeCord);
         if (!path)
@@ -798,13 +798,20 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         return minDist;
     };
-    CordRoundGame.prototype.canDropOnSide = function (side) {
+    CordRoundGame.prototype.getCharmSlotSpacing = function (charm) {
+        var item = this.getCharmItemComp(charm);
+        if (item && typeof item.slotSpacing === 'number') {
+            return item.slotSpacing;
+        }
+        return this.charmSlotSpacing;
+    };
+    CordRoundGame.prototype.canDropOnSide = function (side, charm) {
         var onSide = this.getCharmsOnSide(side);
         if (onSide.length === 0)
             return true;
-        return this.getMinPathDistanceOnSide(side) >= this.charmSlotSpacing;
+        return this.getMinPathDistanceOnSide(side) >= this.getCharmSlotSpacing(charm);
     };
-    CordRoundGame.prototype.pickAvailableSide = function (nearLeft, nearRight, distLeft, distRight, preferLeft) {
+    CordRoundGame.prototype.pickAvailableSide = function (nearLeft, nearRight, distLeft, distRight, charm, preferLeft) {
         var candidates = [];
         if (nearLeft)
             candidates.push({ side: 'left', dist: distLeft });
@@ -822,14 +829,13 @@ var CordRoundGame = /** @class */ (function (_super) {
             return a.dist - b.dist;
         });
         for (var i = 0; i < candidates.length; i++) {
-            if (this.canDropOnSide(candidates[i].side)) {
+            if (this.canDropOnSide(candidates[i].side, charm)) {
                 return candidates[i].side;
             }
         }
         return null;
     };
-    CordRoundGame.prototype.resolveDropAnchor = function (worldPos, preferredSide) {
-        if (preferredSide === void 0) { preferredSide = null; }
+    CordRoundGame.prototype.resolveDropAnchor = function (worldPos, preferredSide, charm) {
         if (!this.activeCord)
             return null;
         var anchors = this.getCordAnchorPositions();
@@ -844,15 +850,15 @@ var CordRoundGame = /** @class */ (function (_super) {
         var nearRight = distRight <= this.entryDetectRadius;
         var preferLeft = local.x < (leftPos.x + rightPos.x) * 0.5;
         var preferSide = preferLeft ? 'left' : 'right';
-        if (preferredSide && this.canDropOnSide(preferredSide)) {
+        if (preferredSide && this.canDropOnSide(preferredSide, charm)) {
             return {
                 side: preferredSide,
                 cordPos: preferredSide === 'left' ? leftPos : rightPos,
             };
         }
-        if (preferredSide && !this.canDropOnSide(preferredSide)) {
+        if (preferredSide && !this.canDropOnSide(preferredSide, charm)) {
             var alt = preferSide;
-            if (alt !== preferredSide && this.canDropOnSide(alt)) {
+            if (alt !== preferredSide && this.canDropOnSide(alt, charm)) {
                 return {
                     side: alt,
                     cordPos: alt === 'left' ? leftPos : rightPos,
@@ -860,7 +866,7 @@ var CordRoundGame = /** @class */ (function (_super) {
             }
         }
         if (nearLeft || nearRight) {
-            var side_1 = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight);
+            var side_1 = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm);
             if (side_1) {
                 return {
                     side: side_1,
@@ -876,7 +882,7 @@ var CordRoundGame = /** @class */ (function (_super) {
             && local.x <= maxX;
         if (!inTopZone)
             return null;
-        var side = this.pickAvailableSide(true, true, distLeft, distRight, preferLeft);
+        var side = this.pickAvailableSide(true, true, distLeft, distRight, charm, preferLeft);
         if (!side)
             return null;
         return {
@@ -908,8 +914,11 @@ var CordRoundGame = /** @class */ (function (_super) {
         var nearLeft = distLeft <= this.entryDetectRadius;
         var nearRight = distRight <= this.entryDetectRadius;
         var side = null;
+        var charm = this.draggingCharm;
+        if (!charm)
+            return null;
         if (nearLeft || nearRight) {
-            side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight);
+            side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm);
         }
         else {
             var cordLocal = this.activeCord.convertToNodeSpaceAR(main.convertToWorldSpaceAR(cc.v2(mainPos.x, mainPos.y)));
@@ -923,7 +932,7 @@ var CordRoundGame = /** @class */ (function (_super) {
                 && cordLocal.x <= maxX;
             if (inTopZone) {
                 var preferLeft = cordLocal.x < (leftPos.x + rightPos.x) * 0.5;
-                side = this.pickAvailableSide(true, true, distLeft, distRight, preferLeft);
+                side = this.pickAvailableSide(true, true, distLeft, distRight, charm, preferLeft);
             }
         }
         if (!side)
@@ -973,8 +982,8 @@ var CordRoundGame = /** @class */ (function (_super) {
             right: cc.v2(this.rightAnchor.x, this.rightAnchor.y),
         };
     };
-    CordRoundGame.prototype.getDropAnchorForSide = function (side) {
-        if (!this.canDropOnSide(side))
+    CordRoundGame.prototype.getDropAnchorForSide = function (side, charm) {
+        if (!this.canDropOnSide(side, charm))
             return null;
         var anchors = this.getCordAnchorPositions();
         if (!anchors)

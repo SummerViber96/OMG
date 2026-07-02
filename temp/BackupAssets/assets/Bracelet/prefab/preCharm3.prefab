@@ -330,9 +330,11 @@
         "__uuid__": "b1560ae5-c9ad-4ec2-b4dd-c9785a787bcc"
       }
     ],
+    "tag": 0,
     "hangPoint": {
       "__id__": 5
     },
+    "slotSpacing": 35,
     "_id": ""
   },
   {

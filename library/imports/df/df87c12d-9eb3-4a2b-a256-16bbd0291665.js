@@ -34,6 +34,8 @@ var CharmItem = /** @class */ (function (_super) {
         _this.colorIMG = 0;
         /** Điểm neo treo lên dây — đặt node con tên hangPoint ở đỉnh charm. */
         _this.hangPoint = null;
+        /** Khoảng cách tối thiểu trên dây khi thả charm này (theo path). */
+        _this.slotSpacing = 130;
         return _this;
     }
     CharmItem.prototype.loadIMG = function (id, tag) {
@@ -68,6 +70,9 @@ var CharmItem = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], CharmItem.prototype, "hangPoint", void 0);
+    __decorate([
+        property
+    ], CharmItem.prototype, "slotSpacing", void 0);
     CharmItem = __decorate([
         ccclass('CharmItem')
     ], CharmItem);

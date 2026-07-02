@@ -371,7 +371,7 @@ export default class CordRoundGame extends cc.Component {
 
         const charm = this.draggingCharm;
         const charmWorld = charm.parent.convertToWorldSpaceAR(charm.position);
-        const dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide);
+        const dropAnchor = this.resolveDropAnchor(charmWorld, this.dragSnapSide, charm);
         if (dropAnchor) {
             cc.audioEngine.play(this.soundDrop, false, 1)
             this.hideDefaultBraceletPreview();
@@ -439,7 +439,7 @@ export default class CordRoundGame extends cc.Component {
     }
 
     private threadCharmOntoCord(charm: cc.Node, dropAnchor: DropAnchor) {
-        if (!this.canDropOnSide(dropAnchor.side)) return;
+        if (!this.canDropOnSide(dropAnchor.side, charm)) return;
 
         const path = this.cordPaths.get(this.activeCord);
         if (!path) return;
@@ -949,11 +949,19 @@ export default class CordRoundGame extends cc.Component {
         return minDist;
     }
 
-    private canDropOnSide(side: CordSide): boolean {
+    private getCharmSlotSpacing(charm: cc.Node): number {
+        const item = this.getCharmItemComp(charm);
+        if (item && typeof item.slotSpacing === 'number') {
+            return item.slotSpacing;
+        }
+        return this.charmSlotSpacing;
+    }
+
+    private canDropOnSide(side: CordSide, charm: cc.Node): boolean {
         const onSide = this.getCharmsOnSide(side);
         if (onSide.length === 0) return true;
 
-        return this.getMinPathDistanceOnSide(side) >= this.charmSlotSpacing;
+        return this.getMinPathDistanceOnSide(side) >= this.getCharmSlotSpacing(charm);
     }
 
     private pickAvailableSide(
@@ -961,6 +969,7 @@ export default class CordRoundGame extends cc.Component {
         nearRight: boolean,
         distLeft: number,
         distRight: number,
+        charm: cc.Node,
         preferLeft?: boolean
     ): CordSide | null {
         const candidates: { side: CordSide; dist: number }[] = [];
@@ -979,14 +988,14 @@ export default class CordRoundGame extends cc.Component {
         });
 
         for (let i = 0; i < candidates.length; i++) {
-            if (this.canDropOnSide(candidates[i].side)) {
+            if (this.canDropOnSide(candidates[i].side, charm)) {
                 return candidates[i].side;
             }
         }
         return null;
     }
 
-    private resolveDropAnchor(worldPos: cc.Vec2, preferredSide: CordSide = null): DropAnchor | null {
+    private resolveDropAnchor(worldPos: cc.Vec2, preferredSide: CordSide, charm: cc.Node): DropAnchor | null {
         if (!this.activeCord) return null;
 
         const anchors = this.getCordAnchorPositions();
@@ -1003,16 +1012,16 @@ export default class CordRoundGame extends cc.Component {
         const preferLeft = local.x < (leftPos.x + rightPos.x) * 0.5;
         const preferSide: CordSide = preferLeft ? 'left' : 'right';
 
-        if (preferredSide && this.canDropOnSide(preferredSide)) {
+        if (preferredSide && this.canDropOnSide(preferredSide, charm)) {
             return {
                 side: preferredSide,
                 cordPos: preferredSide === 'left' ? leftPos : rightPos,
             };
         }
 
-        if (preferredSide && !this.canDropOnSide(preferredSide)) {
+        if (preferredSide && !this.canDropOnSide(preferredSide, charm)) {
             const alt: CordSide = preferSide;
-            if (alt !== preferredSide && this.canDropOnSide(alt)) {
+            if (alt !== preferredSide && this.canDropOnSide(alt, charm)) {
                 return {
                     side: alt,
                     cordPos: alt === 'left' ? leftPos : rightPos,
@@ -1021,7 +1030,7 @@ export default class CordRoundGame extends cc.Component {
         }
 
         if (nearLeft || nearRight) {
-            const side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight);
+            const side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm);
             if (side) {
                 return {
                     side,
@@ -1039,7 +1048,7 @@ export default class CordRoundGame extends cc.Component {
 
         if (!inTopZone) return null;
 
-        const side = this.pickAvailableSide(true, true, distLeft, distRight, preferLeft);
+        const side = this.pickAvailableSide(true, true, distLeft, distRight, charm, preferLeft);
         if (!side) return null;
 
         return {
@@ -1079,8 +1088,11 @@ export default class CordRoundGame extends cc.Component {
         const nearRight = distRight <= this.entryDetectRadius;
 
         let side: CordSide = null;
+        const charm = this.draggingCharm;
+        if (!charm) return null;
+
         if (nearLeft || nearRight) {
-            side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight);
+            side = this.pickAvailableSide(nearLeft, nearRight, distLeft, distRight, charm);
         } else {
             const cordLocal = this.activeCord.convertToNodeSpaceAR(
                 main.convertToWorldSpaceAR(cc.v2(mainPos.x, mainPos.y))
@@ -1096,7 +1108,7 @@ export default class CordRoundGame extends cc.Component {
 
             if (inTopZone) {
                 const preferLeft = cordLocal.x < (leftPos.x + rightPos.x) * 0.5;
-                side = this.pickAvailableSide(true, true, distLeft, distRight, preferLeft);
+                side = this.pickAvailableSide(true, true, distLeft, distRight, charm, preferLeft);
             }
         }
 
@@ -1155,8 +1167,8 @@ export default class CordRoundGame extends cc.Component {
         };
     }
 
-    private getDropAnchorForSide(side: CordSide): DropAnchor | null {
-        if (!this.canDropOnSide(side)) return null;
+    private getDropAnchorForSide(side: CordSide, charm: cc.Node): DropAnchor | null {
+        if (!this.canDropOnSide(side, charm)) return null;
 
         const anchors = this.getCordAnchorPositions();
         if (!anchors) return null;
