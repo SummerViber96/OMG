@@ -46,6 +46,10 @@ export default class NewClass extends cc.Component {
     soundClick: cc.AudioClip = null
     @property(cc.Node)
     handCard: cc.Node = null
+    @property(cc.Node)
+    bgNen: cc.Node = null
+    @property(cc.Node)
+    vongDefault: cc.Node = null
     // @property(cc.Node)
     // listCard
     adChanel = '{{__adv_channels_adapter__}}'
@@ -72,9 +76,15 @@ export default class NewClass extends cc.Component {
     btn_startGame() {
         this.scene2.active = true
         cc.audioEngine.play(this.soundClick, false, 1)
+        this.bgNen.active = true;
+        this.bgNen.opacity = 0;
+        cc.tween(this.bgNen).to(0.4, { opacity: 255 }).start()
+        this.vongDefault.parent = this.node
+        cc.tween(this.vongDefault).to(0.4, { position: cc.v3(330, 820, 0), scale: 0.28 }).start()
         cc.tween(this.scene1).to(0.4, { opacity: 0 }).call(() => {
             this.scene1.active = false
             this.hand2.active = true
+            this.vongDefault.getComponent(cc.Button).enabled = true;
         }).start()
     }
     btn_cord(event) {
@@ -195,14 +205,32 @@ export default class NewClass extends cc.Component {
 
         this.scheduleOnce(() => {
             this.endGame();
-        }, 1)
+        }, 2)
     }
-    endGame() {
-        this.endGameNode.active = true;
-        this.linkToStore.active = true;
-        if (this.title) {
-            this.title.string = "COMPLETE  •  " + this.lastMatchPercent + "%";
+    private animateMatchPercent(targetPercent: number, duration: number = 1) {
+        if (!this.title) {
+            return;
         }
+        const counter = { value: 0 };
+        cc.tween(counter)
+            .to(duration, { value: targetPercent }, {
+                onUpdate: () => {
+                    this.title.string = "COMPLETE  •  " + Math.round(counter.value) + "%";
+                }
+            })
+            .start();
+    }
+
+    endGame() {
+        if (this.selectedKeychainIndex == 1) {
+            this.lastMatchPercent += 30
+        }
+        this.animateMatchPercent(this.lastMatchPercent);
+
+        this.scheduleOnce(() => {
+            this.endGameNode.active = true;
+            this.linkToStore.active = true;
+        }, 1)
     }
 
     // update (dt) {}

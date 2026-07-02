@@ -50,6 +50,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.phaoho = null;
         _this.soundClick = null;
         _this.handCard = null;
+        _this.bgNen = null;
+        _this.vongDefault = null;
         // @property(cc.Node)
         // listCard
         _this.adChanel = '{{__adv_channels_adapter__}}';
@@ -76,9 +78,15 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         this.scene2.active = true;
         cc.audioEngine.play(this.soundClick, false, 1);
+        this.bgNen.active = true;
+        this.bgNen.opacity = 0;
+        cc.tween(this.bgNen).to(0.4, { opacity: 255 }).start();
+        this.vongDefault.parent = this.node;
+        cc.tween(this.vongDefault).to(0.4, { position: cc.v3(330, 820, 0), scale: 0.28 }).start();
         cc.tween(this.scene1).to(0.4, { opacity: 0 }).call(function () {
             _this.scene1.active = false;
             _this.hand2.active = true;
+            _this.vongDefault.getComponent(cc.Button).enabled = true;
         }).start();
     };
     NewClass.prototype.btn_cord = function (event) {
@@ -190,14 +198,33 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundWin, false, 1);
         this.scheduleOnce(function () {
             _this.endGame();
-        }, 1);
+        }, 2);
+    };
+    NewClass.prototype.animateMatchPercent = function (targetPercent, duration) {
+        var _this = this;
+        if (duration === void 0) { duration = 1; }
+        if (!this.title) {
+            return;
+        }
+        var counter = { value: 0 };
+        cc.tween(counter)
+            .to(duration, { value: targetPercent }, {
+            onUpdate: function () {
+                _this.title.string = "COMPLETE  •  " + Math.round(counter.value) + "%";
+            }
+        })
+            .start();
     };
     NewClass.prototype.endGame = function () {
-        this.endGameNode.active = true;
-        this.linkToStore.active = true;
-        if (this.title) {
-            this.title.string = "COMPLETE  •  " + this.lastMatchPercent + "%";
+        var _this = this;
+        if (this.selectedKeychainIndex == 1) {
+            this.lastMatchPercent += 30;
         }
+        this.animateMatchPercent(this.lastMatchPercent);
+        this.scheduleOnce(function () {
+            _this.endGameNode.active = true;
+            _this.linkToStore.active = true;
+        }, 1);
     };
     __decorate([
         property(cc.AudioClip)
@@ -259,6 +286,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "handCard", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "bgNen", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "vongDefault", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

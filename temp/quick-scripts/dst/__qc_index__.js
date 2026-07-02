@@ -17,6 +17,7 @@ require('./assets/Bracelet/script/BraceletMatcher');
 require('./assets/Bracelet/script/CharmGame');
 require('./assets/Bracelet/script/CharmItem');
 require('./assets/Bracelet/script/CordRoundGame');
+require('./assets/Bracelet/script/DefaultCharm');
 require('./assets/Bracelet/script/ItemString');
 require('./assets/Bracelet/script/Spoon');
 require('./assets/Bracelet/script/StringGame');
