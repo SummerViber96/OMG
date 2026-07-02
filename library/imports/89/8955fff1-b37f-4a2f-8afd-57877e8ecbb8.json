@@ -26450,7 +26450,7 @@
     "entryDetectRadius": 110,
     "pathSampleSpacing": 12,
     "segmentRadius": 14,
-    "slideGravity": 800,
+    "slideGravity": 300,
     "maxSlideSpeed": 280,
     "pathPullStrength": 420,
     "pathPullDamping": 16,
@@ -26460,6 +26460,9 @@
     "minAnchorDropGap": 100,
     "hangSwingLimit": 40,
     "hangOutwardStiffness": 18,
+    "charmCrowdDampingStrength": 580,
+    "charmCrowdPushRetention": 0.01,
+    "charmCrowdFullCancelCount": 6,
     "soundDrop": {
       "__uuid__": "442789a6-482d-4dad-86ad-bab6d3eb533f"
     },
@@ -40065,6 +40068,9 @@
     "minAnchorDropGap": 60,
     "hangSwingLimit": 32,
     "hangOutwardStiffness": 18,
+    "charmCrowdDampingStrength": 16,
+    "charmCrowdPushRetention": 0.06,
+    "charmCrowdFullCancelCount": 6,
     "soundDrop": null,
     "btnOk": {
       "__id__": 629

@@ -46,6 +46,12 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.minAnchorDropGap = 60;
         _this.hangSwingLimit = 32;
         _this.hangOutwardStiffness = 14;
+        /** Hãm tốc khi charm chen nhau (càng cao càng ít nẩy). */
+        _this.charmCrowdDampingStrength = 16;
+        /** Phần vận tốc còn lại khi rất đông (0.05 = gần như không đẩy nhau). */
+        _this.charmCrowdPushRetention = 0.06;
+        /** Số charm sát nhau (kể cả bản thân) để triệt tiêu lực trượt/va chạm. */
+        _this.charmCrowdFullCancelCount = 6;
         _this.activeCord = null;
         _this.cordPaths = new Map();
         _this.preparedCords = [];
@@ -427,7 +433,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         pivotBody.type = cc.RigidBodyType.Dynamic;
         pivotBody.gravityScale = 1;
-        pivotBody.linearDamping = 0.22;
+        pivotBody.linearDamping = 0.32;
         pivotBody.angularDamping = 1;
         pivotBody.fixedRotation = true;
         pivotBody.allowSleep = false;
@@ -436,8 +442,8 @@ var CordRoundGame = /** @class */ (function (_super) {
             pivotCol = pivot.addComponent(cc.PhysicsCircleCollider);
         }
         pivotCol.radius = this.pivotColliderRadius;
-        pivotCol.friction = 0.3;
-        pivotCol.restitution = 0.05;
+        pivotCol.friction = 0.65;
+        pivotCol.restitution = 0;
         pivotCol.enabled = true;
         var charmBody = charm.getComponent(cc.RigidBody);
         if (!charmBody) {
@@ -447,8 +453,8 @@ var CordRoundGame = /** @class */ (function (_super) {
         charmBody.active = true;
         charmBody.type = cc.RigidBodyType.Dynamic;
         charmBody.gravityScale = 0.85;
-        charmBody.linearDamping = 0.2;
-        charmBody.angularDamping = 0.65;
+        charmBody.linearDamping = 0.45;
+        charmBody.angularDamping = 0.75;
         charmBody.fixedRotation = false;
         charmBody.allowSleep = false;
         this.enableCharmPhysicsCollider(charm);
@@ -564,8 +570,11 @@ var CordRoundGame = /** @class */ (function (_super) {
         if (collider) {
             collider.enabled = true;
             collider.sensor = false;
-            collider.friction = 0.25;
-            collider.restitution = 0.08;
+            collider.friction = 0.85;
+            collider.restitution = 0;
+            if (typeof collider.density === 'number') {
+                collider.density = 0.35;
+            }
         }
     };
     CordRoundGame.prototype.getTangentAtIndex = function (points, index, dir) {
@@ -677,31 +686,9 @@ var CordRoundGame = /** @class */ (function (_super) {
         var toOpposite = this.getDistanceAlongPath(path.points, entryIndex, pathDir, opposite);
         if (toOpposite <= 0)
             return 0;
-        // Dừng ở đáy vòng (~giữa cung trái/phải), không tính khe hở giữa 2 neo.
-        var idx = entryIndex;
-        var dist = 0;
-        var lowestY = entry.y;
-        var distAtLowest = 0;
-        var maxSteps = path.points.length + 2;
-        for (var step = 0; step < maxSteps; step++) {
-            var nextIdx = this.wrapIndex(idx + pathDir, path.points.length);
-            var a = path.points[idx];
-            var b = path.points[nextIdx];
-            var segLen = cc.v2(b.x - a.x, b.y - a.y).mag();
-            if (segLen <= 0) {
-                idx = nextIdx;
-                continue;
-            }
-            dist += segLen;
-            if (b.y < lowestY) {
-                lowestY = b.y;
-                distAtLowest = dist;
-            }
-            if (dist >= toOpposite * 0.5)
-                break;
-            idx = nextIdx;
-        }
-        return Math.max(distAtLowest, toOpposite * 0.5);
+        // Trượt hết cung xuống đáy, dừng trước neo đối diện (không qua khe hở).
+        var stopMargin = Math.max(this.pivotColliderRadius * 2, this.minAnchorDropGap * 0.45);
+        return Math.max(0, toOpposite - stopMargin);
     };
     CordRoundGame.prototype.getMaxSlideDistance = function (state) {
         return this.getSideSlideDistance(state.side);
@@ -760,6 +747,164 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         return { index: bestIndex, nearest: bestNearest, pathDistance: bestPathDist };
     };
+    CordRoundGame.prototype.getCharmNeighborCount = function (state) {
+        if (!state.pivot)
+            return 0;
+        var pos = cc.v2(state.pivot.x, state.pivot.y);
+        var spacing = this.getCharmSlotSpacing(state.charm) * 0.6;
+        var neighbors = 0;
+        for (var i = 0; i < this.cordCharms.length; i++) {
+            var other = this.cordCharms[i];
+            if (other === state || !other.pivot)
+                continue;
+            var d = cc.v2(other.pivot.x - pos.x, other.pivot.y - pos.y).mag();
+            if (d < spacing)
+                neighbors++;
+        }
+        return neighbors;
+    };
+    CordRoundGame.prototype.getCharmCrowdInfo = function (state) {
+        if (!state.pivot) {
+            return { crowd: 0, neighbors: 0, packed: false, slideBlocked: false };
+        }
+        var pos = cc.v2(state.pivot.x, state.pivot.y);
+        var spacing = this.getCharmSlotSpacing(state.charm) * 0.6;
+        var packThreshold = Math.max(2, this.charmCrowdFullCancelCount - 1);
+        var neighbors = 0;
+        var overlapCrowd = 0;
+        var maxNeighborPack = 0;
+        for (var i = 0; i < this.cordCharms.length; i++) {
+            var other = this.cordCharms[i];
+            if (other === state || !other.pivot)
+                continue;
+            var d = cc.v2(other.pivot.x - pos.x, other.pivot.y - pos.y).mag();
+            if (d >= spacing)
+                continue;
+            neighbors++;
+            var overlap = 1 - d / spacing;
+            overlapCrowd += overlap * overlap;
+            maxNeighborPack = Math.max(maxNeighborPack, this.getCharmNeighborCount(other));
+        }
+        var countCrowd = Math.min(1, neighbors / packThreshold);
+        var crowd = Math.max(countCrowd, Math.min(1, overlapCrowd));
+        var packed = neighbors >= packThreshold;
+        var slideBlocked = packed || maxNeighborPack >= packThreshold;
+        return { crowd: crowd, neighbors: neighbors, packed: packed, slideBlocked: slideBlocked };
+    };
+    CordRoundGame.prototype.getCharmCrowdFactor = function (state) {
+        return this.getCharmCrowdInfo(state).crowd;
+    };
+    CordRoundGame.prototype.getCrowdPushScale = function (crowd, slideBlocked) {
+        if (slideBlocked === void 0) { slideBlocked = false; }
+        if (slideBlocked)
+            return 0;
+        if (crowd <= 0)
+            return 1;
+        return this.charmCrowdPushRetention
+            + (1 - this.charmCrowdPushRetention) * (1 - crowd);
+    };
+    CordRoundGame.prototype.correctCharmPivotOnPath = function (state, onAllowed, dt) {
+        var body = state.pivot.getComponent(cc.RigidBody);
+        if (!body)
+            return;
+        var pos = cc.v2(state.pivot.x, state.pivot.y);
+        var dx = onAllowed.nearest.x - pos.x;
+        var dy = onAllowed.nearest.y - pos.y;
+        var offDist = Math.sqrt(dx * dx + dy * dy);
+        var softLimit = this.segmentRadius * 1.2;
+        var hardLimit = this.segmentRadius * 3.2;
+        if (offDist <= softLimit)
+            return;
+        if (offDist >= hardLimit) {
+            state.pivot.setPosition(cc.v3(onAllowed.nearest.x, onAllowed.nearest.y, 0));
+            body.syncPosition(true);
+            body.linearVelocity = cc.v2(0, 0);
+            return;
+        }
+        var strength = state.settled ? 12 : 8;
+        var t = Math.min(1, strength * dt);
+        state.pivot.setPosition(cc.v3(pos.x + dx * t, pos.y + dy * t, 0));
+        body.syncPosition(true);
+    };
+    CordRoundGame.prototype.dampCharmPivotCrowding = function (state, dt) {
+        var pivotBody = state.pivot.getComponent(cc.RigidBody);
+        if (!pivotBody)
+            return;
+        var crowdInfo = this.getCharmCrowdInfo(state);
+        if (crowdInfo.crowd <= 0 && !crowdInfo.slideBlocked)
+            return;
+        if (crowdInfo.slideBlocked) {
+            pivotBody.linearVelocity = cc.v2(0, 0);
+            var charmBody_1 = state.charm.getComponent(cc.RigidBody);
+            if (charmBody_1) {
+                charmBody_1.linearVelocity = cc.v2(0, 0);
+                charmBody_1.angularVelocity = 0;
+            }
+            if (!state.settled) {
+                state.settled = true;
+            }
+            return;
+        }
+        var pushScale = this.getCrowdPushScale(crowdInfo.crowd, crowdInfo.slideBlocked);
+        pivotBody.linearVelocity = pivotBody.linearVelocity.mul(pushScale);
+        var charmBody = state.charm.getComponent(cc.RigidBody);
+        if (charmBody) {
+            charmBody.linearVelocity = charmBody.linearVelocity.mul(pushScale * 0.75);
+            charmBody.angularVelocity *= pushScale;
+        }
+        var damp = Math.min(0.92, crowdInfo.crowd * this.charmCrowdDampingStrength * dt);
+        pivotBody.linearVelocity = pivotBody.linearVelocity.mul(1 - damp);
+        if (charmBody) {
+            charmBody.linearVelocity = charmBody.linearVelocity.mul(1 - damp * 0.85);
+        }
+        this.cancelMutualPushVelocity(state, crowdInfo.crowd, crowdInfo.slideBlocked);
+        if (state.settled && pivotBody.linearVelocity.mag() > 28) {
+            pivotBody.linearVelocity = pivotBody.linearVelocity.mul(0.4);
+        }
+    };
+    /** Triệt tiêu vận tốc đẩy vào nhau khi chen chúc. */
+    CordRoundGame.prototype.cancelMutualPushVelocity = function (state, crowd, slideBlocked) {
+        if (slideBlocked === void 0) { slideBlocked = false; }
+        var pivotBody = state.pivot.getComponent(cc.RigidBody);
+        if (!pivotBody || (crowd <= 0 && !slideBlocked))
+            return;
+        if (slideBlocked) {
+            pivotBody.linearVelocity = cc.v2(0, 0);
+            return;
+        }
+        var pos = cc.v2(state.pivot.x, state.pivot.y);
+        var spacing = this.getCharmSlotSpacing(state.charm) * 0.6;
+        var cancelX = 0;
+        var cancelY = 0;
+        var weight = 0;
+        for (var i = 0; i < this.cordCharms.length; i++) {
+            var other = this.cordCharms[i];
+            if (other === state || !other.pivot)
+                continue;
+            var otherBody = other.pivot.getComponent(cc.RigidBody);
+            if (!otherBody)
+                continue;
+            var offset = cc.v2(other.pivot.x - pos.x, other.pivot.y - pos.y);
+            var dist = offset.mag();
+            if (dist >= spacing || dist < 0.5)
+                continue;
+            var towardX = offset.x / dist;
+            var towardY = offset.y / dist;
+            var relVx = pivotBody.linearVelocity.x - otherBody.linearVelocity.x;
+            var relVy = pivotBody.linearVelocity.y - otherBody.linearVelocity.y;
+            var pushAlong = relVx * towardX + relVy * towardY;
+            if (pushAlong <= 0)
+                continue;
+            var overlap = 1 - dist / spacing;
+            var strength = overlap * overlap * crowd;
+            cancelX += towardX * pushAlong * strength;
+            cancelY += towardY * pushAlong * strength;
+            weight += strength;
+        }
+        if (weight > 0) {
+            pivotBody.linearVelocity = cc.v2(pivotBody.linearVelocity.x - cancelX, pivotBody.linearVelocity.y - cancelY);
+        }
+    };
     /** Không cho charm trượt qua neo hoặc lọt vào khe hở giữa 2 neo. */
     CordRoundGame.prototype.enforceCharmSlideBounds = function (state, onAllowed, tangent, maxDist) {
         var body = state.pivot.getComponent(cc.RigidBody);
@@ -773,12 +918,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         var inGap = this.isInAnchorGap(pos);
         var atMin = pathDist <= margin;
         var atMax = pathDist >= maxDist - margin;
-        // Chỉ snap cứng khi lọt khe hở — không snap mỗi frame khi đang trượt bình thường.
         if (inGap) {
-            var entry = this.getSlideEntryAnchor(state.side);
-            var clampPos = entry || onAllowed.nearest;
-            state.pivot.setPosition(cc.v3(clampPos.x, clampPos.y, 0));
-            body.syncPosition(true);
             body.linearVelocity = cc.v2(0, 0);
             return;
         }
@@ -806,12 +946,14 @@ var CordRoundGame = /** @class */ (function (_super) {
         var pos = cc.v2(state.pivot.x, state.pivot.y);
         var maxDist = this.getMaxSlideDistance(state);
         var onAllowed = this.getNearestOnAllowedSlidePath(state, pos);
-        var onPath = this.getNearestOnPath(path.points, pos);
         var tangent = this.getTangentAtIndex(path.points, onAllowed.index, state.pathDir);
+        var crowdInfo = this.getCharmCrowdInfo(state);
+        var crowd = crowdInfo.crowd;
+        var slideBlocked = crowdInfo.slideBlocked;
         state.pathDistance = Math.max(0, Math.min(maxDist, onAllowed.pathDistance));
         if (!state.settled) {
-            var toPathX = onPath.nearest.x - pos.x;
-            var toPathY = onPath.nearest.y - pos.y;
+            var toPathX = onAllowed.nearest.x - pos.x;
+            var toPathY = onAllowed.nearest.y - pos.y;
             var tx = tangent.x;
             var ty = tangent.y;
             var nx = -ty;
@@ -820,21 +962,36 @@ var CordRoundGame = /** @class */ (function (_super) {
             var vTangent = vel.x * tx + vel.y * ty;
             var vNormal = vel.x * nx + vel.y * ny;
             var offsetNormal = toPathX * nx + toPathY * ny;
-            var newVTangent = vTangent + this.slideGravity * dt;
-            var newVNormal = vNormal
-                + offsetNormal * this.pathPullStrength * dt
-                - vNormal * this.pathPullDamping * dt;
-            if (state.pathDistance <= this.pivotColliderRadius && newVTangent < 0) {
-                newVTangent = 0;
+            if (slideBlocked) {
+                vTangent = 0;
+                vNormal = 0;
+                state.settled = true;
             }
-            if (state.pathDistance >= maxDist - this.pivotColliderRadius && newVTangent > 0) {
-                newVTangent = 0;
+            else {
+                var newVTangent = vTangent + this.slideGravity * dt * (1 - crowd * 0.92);
+                var newVNormal = vNormal
+                    + offsetNormal * this.pathPullStrength * dt * (1 - crowd * 0.5)
+                    - vNormal * this.pathPullDamping * dt;
+                if (crowd > 0) {
+                    var pushScale = this.getCrowdPushScale(crowd, slideBlocked);
+                    newVNormal *= Math.max(0.05, pushScale * 0.35);
+                    newVTangent *= Math.max(0.08, pushScale * 0.5);
+                }
+                vTangent = newVTangent;
+                vNormal = newVNormal;
             }
-            var vx = tx * newVTangent + nx * newVNormal;
-            var vy = ty * newVTangent + ny * newVNormal;
+            if (state.pathDistance <= this.pivotColliderRadius && vTangent < 0) {
+                vTangent = 0;
+            }
+            if (state.pathDistance >= maxDist - this.pivotColliderRadius && vTangent > 0) {
+                vTangent = 0;
+            }
+            var vx = tx * vTangent + nx * vNormal;
+            var vy = ty * vTangent + ny * vNormal;
             var speed_1 = Math.sqrt(vx * vx + vy * vy);
-            if (speed_1 > this.maxSlideSpeed) {
-                var scale = this.maxSlideSpeed / speed_1;
+            var crowdSpeedCap = slideBlocked ? 0 : this.maxSlideSpeed * (1 - crowd * 0.75);
+            if (speed_1 > crowdSpeedCap && crowdSpeedCap >= 0) {
+                var scale = crowdSpeedCap / speed_1;
                 vx *= scale;
                 vy *= scale;
             }
@@ -859,18 +1016,38 @@ var CordRoundGame = /** @class */ (function (_super) {
             body.linearDamping = 1.8;
             body.angularDamping = 1.2;
             body.allowSleep = true;
-            var toPathX = onPath.nearest.x - pos.x;
-            var toPathY = onPath.nearest.y - pos.y;
-            var holdDamp = this.pathPullDamping * 1.5;
+            var toPathX = onAllowed.nearest.x - pos.x;
+            var toPathY = onAllowed.nearest.y - pos.y;
+            var holdDamp = this.pathPullDamping * (1.5 + crowd);
             body.linearVelocity = cc.v2(body.linearVelocity.x + toPathX * this.pathPullStrength * dt * 0.35 - body.linearVelocity.x * holdDamp * dt, body.linearVelocity.y + toPathY * this.pathPullStrength * dt * 0.35 - body.linearVelocity.y * holdDamp * dt);
             var offset = Math.sqrt(toPathX * toPathX + toPathY * toPathY);
             if (offset < 1.5 && body.linearVelocity.mag() < 8) {
                 body.linearVelocity = cc.v2(0, 0);
-                state.pivot.setPosition(cc.v3(onPath.nearest.x, onPath.nearest.y, 0));
+                state.pivot.setPosition(cc.v3(onAllowed.nearest.x, onAllowed.nearest.y, 0));
                 body.syncPosition(true);
             }
         }
         this.enforceCharmSlideBounds(state, onAllowed, tangent, maxDist);
+    };
+    CordRoundGame.prototype.postPhysicsCharmSlideFix = function (state, dt) {
+        var body = state.pivot.getComponent(cc.RigidBody);
+        var path = this.cordPaths.get(this.activeCord);
+        if (!body || !path)
+            return;
+        var pos = cc.v2(state.pivot.x, state.pivot.y);
+        var maxDist = this.getMaxSlideDistance(state);
+        var onAllowed = this.getNearestOnAllowedSlidePath(state, pos);
+        state.pathDistance = Math.max(0, Math.min(maxDist, onAllowed.pathDistance));
+        if (this.isInAnchorGap(pos)) {
+            var entry = this.getSlideEntryAnchor(state.side);
+            var clampPos = entry || onAllowed.nearest;
+            state.pivot.setPosition(cc.v3(clampPos.x, clampPos.y, 0));
+            body.syncPosition(true);
+            body.linearVelocity = cc.v2(0, 0);
+            return;
+        }
+        this.correctCharmPivotOnPath(state, onAllowed, dt);
+        this.dampCharmPivotCrowding(state, dt);
     };
     CordRoundGame.prototype.getDistanceAlongPath = function (points, startIndex, dir, pos) {
         var nearest = this.getNearestOnPath(points, pos);
@@ -954,7 +1131,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         return this.charmSlotSpacing;
     };
-    /** Chỉ thả được khi vùng neo (khoanh đỏ) đủ trống — không có charm nào chiếm gần neo. */
+    /** Chỉ thả được khi vùng neo đủ trống — kiểm tra charm nào đang chiếm gần neo đó. */
     CordRoundGame.prototype.canDropOnSide = function (side, charm) {
         var anchors = this.getCordAnchorPositions();
         if (!anchors)
@@ -962,22 +1139,24 @@ var CordRoundGame = /** @class */ (function (_super) {
         var anchorPos = side === 'left' ? anchors.left : anchors.right;
         var requiredGap = this.getRequiredAnchorGap(charm);
         var zoneRadius = this.getAnchorDropZoneRadius();
-        var onSide = this.getCharmsOnSide(side);
-        for (var i = 0; i < onSide.length; i++) {
-            var state = onSide[i];
-            var pathDist = this.getCharmPathDistance(state);
-            if (pathDist < requiredGap) {
+        var closestPathDist = Number.MAX_VALUE;
+        for (var i = 0; i < this.cordCharms.length; i++) {
+            var state = this.cordCharms[i];
+            if (!state.pivot)
+                continue;
+            var pos = cc.v2(state.pivot.x, state.pivot.y);
+            var distToAnchor = cc.v2(pos.x - anchorPos.x, pos.y - anchorPos.y).mag();
+            if (distToAnchor < zoneRadius) {
                 return false;
             }
-            if (state.pivot) {
-                var pos = cc.v2(state.pivot.x, state.pivot.y);
-                var distToAnchor = cc.v2(pos.x - anchorPos.x, pos.y - anchorPos.y).mag();
-                if (distToAnchor < zoneRadius) {
-                    return false;
+            if (distToAnchor < this.entryDetectRadius) {
+                var pathDist = this.measurePathDistanceFromEntry(side, pos);
+                if (pathDist < closestPathDist) {
+                    closestPathDist = pathDist;
                 }
             }
         }
-        return true;
+        return closestPathDist >= requiredGap;
     };
     CordRoundGame.prototype.pickAvailableSide = function (nearLeft, nearRight, distLeft, distRight, charm, preferLeft) {
         var candidates = [];
@@ -1543,6 +1722,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         if (!this.isActive)
             return;
         for (var i = 0; i < this.cordCharms.length; i++) {
+            this.postPhysicsCharmSlideFix(this.cordCharms[i], dt);
             this.constrainCharmHang(this.cordCharms[i], dt);
         }
     };
@@ -1594,6 +1774,15 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property
     ], CordRoundGame.prototype, "hangOutwardStiffness", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "charmCrowdDampingStrength", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "charmCrowdPushRetention", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "charmCrowdFullCancelCount", void 0);
     __decorate([
         property(cc.AudioClip)
     ], CordRoundGame.prototype, "soundDrop", void 0);

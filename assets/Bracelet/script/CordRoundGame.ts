@@ -76,6 +76,18 @@ export default class CordRoundGame extends cc.Component {
     @property
     hangOutwardStiffness: number = 14;
 
+    /** Hãm tốc khi charm chen nhau (càng cao càng ít nẩy). */
+    @property
+    charmCrowdDampingStrength: number = 16;
+
+    /** Phần vận tốc còn lại khi rất đông (0.05 = gần như không đẩy nhau). */
+    @property
+    charmCrowdPushRetention: number = 0.06;
+
+    /** Số charm sát nhau (kể cả bản thân) để triệt tiêu lực trượt/va chạm. */
+    @property
+    charmCrowdFullCancelCount: number = 6;
+
     private activeCord: cc.Node = null;
     private cordPaths: Map<cc.Node, CordPathData> = new Map();
     private preparedCords: cc.Node[] = [];
@@ -517,7 +529,7 @@ export default class CordRoundGame extends cc.Component {
         }
         pivotBody.type = cc.RigidBodyType.Dynamic;
         pivotBody.gravityScale = 1;
-        pivotBody.linearDamping = 0.22;
+        pivotBody.linearDamping = 0.32;
         pivotBody.angularDamping = 1;
         pivotBody.fixedRotation = true;
         pivotBody.allowSleep = false;
@@ -527,8 +539,8 @@ export default class CordRoundGame extends cc.Component {
             pivotCol = pivot.addComponent(cc.PhysicsCircleCollider);
         }
         pivotCol.radius = this.pivotColliderRadius;
-        pivotCol.friction = 0.3;
-        pivotCol.restitution = 0.05;
+        pivotCol.friction = 0.65;
+        pivotCol.restitution = 0;
         pivotCol.enabled = true;
 
         let charmBody = charm.getComponent(cc.RigidBody);
@@ -539,8 +551,8 @@ export default class CordRoundGame extends cc.Component {
         charmBody.active = true;
         charmBody.type = cc.RigidBodyType.Dynamic;
         charmBody.gravityScale = 0.85;
-        charmBody.linearDamping = 0.2;
-        charmBody.angularDamping = 0.65;
+        charmBody.linearDamping = 0.45;
+        charmBody.angularDamping = 0.75;
         charmBody.fixedRotation = false;
         charmBody.allowSleep = false;
 
@@ -671,8 +683,11 @@ export default class CordRoundGame extends cc.Component {
         if (collider) {
             collider.enabled = true;
             collider.sensor = false;
-            collider.friction = 0.25;
-            collider.restitution = 0.08;
+            collider.friction = 0.85;
+            collider.restitution = 0;
+            if (typeof collider.density === 'number') {
+                collider.density = 0.35;
+            }
         }
     }
 
@@ -799,34 +814,9 @@ export default class CordRoundGame extends cc.Component {
         const toOpposite = this.getDistanceAlongPath(path.points, entryIndex, pathDir, opposite);
         if (toOpposite <= 0) return 0;
 
-        // Dừng ở đáy vòng (~giữa cung trái/phải), không tính khe hở giữa 2 neo.
-        let idx = entryIndex;
-        let dist = 0;
-        let lowestY = entry.y;
-        let distAtLowest = 0;
-        const maxSteps = path.points.length + 2;
-
-        for (let step = 0; step < maxSteps; step++) {
-            const nextIdx = this.wrapIndex(idx + pathDir, path.points.length);
-            const a = path.points[idx];
-            const b = path.points[nextIdx];
-            const segLen = cc.v2(b.x - a.x, b.y - a.y).mag();
-            if (segLen <= 0) {
-                idx = nextIdx;
-                continue;
-            }
-
-            dist += segLen;
-            if (b.y < lowestY) {
-                lowestY = b.y;
-                distAtLowest = dist;
-            }
-
-            if (dist >= toOpposite * 0.5) break;
-            idx = nextIdx;
-        }
-
-        return Math.max(distAtLowest, toOpposite * 0.5);
+        // Trượt hết cung xuống đáy, dừng trước neo đối diện (không qua khe hở).
+        const stopMargin = Math.max(this.pivotColliderRadius * 2, this.minAnchorDropGap * 0.45);
+        return Math.max(0, toOpposite - stopMargin);
     }
 
     private getMaxSlideDistance(state: CordCharmState): number {
@@ -897,6 +887,195 @@ export default class CordRoundGame extends cc.Component {
         return { index: bestIndex, nearest: bestNearest, pathDistance: bestPathDist };
     }
 
+    private getCharmNeighborCount(state: CordCharmState): number {
+        if (!state.pivot) return 0;
+        const pos = cc.v2(state.pivot.x, state.pivot.y);
+        const spacing = this.getCharmSlotSpacing(state.charm) * 0.6;
+        let neighbors = 0;
+
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            const other = this.cordCharms[i];
+            if (other === state || !other.pivot) continue;
+            const d = cc.v2(other.pivot.x - pos.x, other.pivot.y - pos.y).mag();
+            if (d < spacing) neighbors++;
+        }
+
+        return neighbors;
+    }
+
+    private getCharmCrowdInfo(state: CordCharmState): {
+        crowd: number;
+        neighbors: number;
+        packed: boolean;
+        slideBlocked: boolean;
+    } {
+        if (!state.pivot) {
+            return { crowd: 0, neighbors: 0, packed: false, slideBlocked: false };
+        }
+
+        const pos = cc.v2(state.pivot.x, state.pivot.y);
+        const spacing = this.getCharmSlotSpacing(state.charm) * 0.6;
+        const packThreshold = Math.max(2, this.charmCrowdFullCancelCount - 1);
+        let neighbors = 0;
+        let overlapCrowd = 0;
+        let maxNeighborPack = 0;
+
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            const other = this.cordCharms[i];
+            if (other === state || !other.pivot) continue;
+            const d = cc.v2(other.pivot.x - pos.x, other.pivot.y - pos.y).mag();
+            if (d >= spacing) continue;
+
+            neighbors++;
+            const overlap = 1 - d / spacing;
+            overlapCrowd += overlap * overlap;
+            maxNeighborPack = Math.max(maxNeighborPack, this.getCharmNeighborCount(other));
+        }
+
+        const countCrowd = Math.min(1, neighbors / packThreshold);
+        const crowd = Math.max(countCrowd, Math.min(1, overlapCrowd));
+        const packed = neighbors >= packThreshold;
+        const slideBlocked = packed || maxNeighborPack >= packThreshold;
+
+        return { crowd, neighbors, packed, slideBlocked };
+    }
+
+    private getCharmCrowdFactor(state: CordCharmState): number {
+        return this.getCharmCrowdInfo(state).crowd;
+    }
+
+    private getCrowdPushScale(crowd: number, slideBlocked: boolean = false): number {
+        if (slideBlocked) return 0;
+        if (crowd <= 0) return 1;
+        return this.charmCrowdPushRetention
+            + (1 - this.charmCrowdPushRetention) * (1 - crowd);
+    }
+
+    private correctCharmPivotOnPath(
+        state: CordCharmState,
+        onAllowed: { nearest: cc.Vec2 },
+        dt: number
+    ) {
+        const body = state.pivot.getComponent(cc.RigidBody);
+        if (!body) return;
+
+        const pos = cc.v2(state.pivot.x, state.pivot.y);
+        const dx = onAllowed.nearest.x - pos.x;
+        const dy = onAllowed.nearest.y - pos.y;
+        const offDist = Math.sqrt(dx * dx + dy * dy);
+        const softLimit = this.segmentRadius * 1.2;
+        const hardLimit = this.segmentRadius * 3.2;
+
+        if (offDist <= softLimit) return;
+
+        if (offDist >= hardLimit) {
+            state.pivot.setPosition(cc.v3(onAllowed.nearest.x, onAllowed.nearest.y, 0));
+            body.syncPosition(true);
+            body.linearVelocity = cc.v2(0, 0);
+            return;
+        }
+
+        const strength = state.settled ? 12 : 8;
+        const t = Math.min(1, strength * dt);
+        state.pivot.setPosition(cc.v3(pos.x + dx * t, pos.y + dy * t, 0));
+        body.syncPosition(true);
+    }
+
+    private dampCharmPivotCrowding(state: CordCharmState, dt: number) {
+        const pivotBody = state.pivot.getComponent(cc.RigidBody);
+        if (!pivotBody) return;
+
+        const crowdInfo = this.getCharmCrowdInfo(state);
+        if (crowdInfo.crowd <= 0 && !crowdInfo.slideBlocked) return;
+
+        if (crowdInfo.slideBlocked) {
+            pivotBody.linearVelocity = cc.v2(0, 0);
+            const charmBody = state.charm.getComponent(cc.RigidBody);
+            if (charmBody) {
+                charmBody.linearVelocity = cc.v2(0, 0);
+                charmBody.angularVelocity = 0;
+            }
+            if (!state.settled) {
+                state.settled = true;
+            }
+            return;
+        }
+
+        const pushScale = this.getCrowdPushScale(crowdInfo.crowd, crowdInfo.slideBlocked);
+        pivotBody.linearVelocity = pivotBody.linearVelocity.mul(pushScale);
+
+        const charmBody = state.charm.getComponent(cc.RigidBody);
+        if (charmBody) {
+            charmBody.linearVelocity = charmBody.linearVelocity.mul(pushScale * 0.75);
+            charmBody.angularVelocity *= pushScale;
+        }
+
+        const damp = Math.min(0.92, crowdInfo.crowd * this.charmCrowdDampingStrength * dt);
+        pivotBody.linearVelocity = pivotBody.linearVelocity.mul(1 - damp);
+        if (charmBody) {
+            charmBody.linearVelocity = charmBody.linearVelocity.mul(1 - damp * 0.85);
+        }
+
+        this.cancelMutualPushVelocity(state, crowdInfo.crowd, crowdInfo.slideBlocked);
+
+        if (state.settled && pivotBody.linearVelocity.mag() > 28) {
+            pivotBody.linearVelocity = pivotBody.linearVelocity.mul(0.4);
+        }
+    }
+
+    /** Triệt tiêu vận tốc đẩy vào nhau khi chen chúc. */
+    private cancelMutualPushVelocity(
+        state: CordCharmState,
+        crowd: number,
+        slideBlocked: boolean = false
+    ) {
+        const pivotBody = state.pivot.getComponent(cc.RigidBody);
+        if (!pivotBody || (crowd <= 0 && !slideBlocked)) return;
+
+        if (slideBlocked) {
+            pivotBody.linearVelocity = cc.v2(0, 0);
+            return;
+        }
+
+        const pos = cc.v2(state.pivot.x, state.pivot.y);
+        const spacing = this.getCharmSlotSpacing(state.charm) * 0.6;
+        let cancelX = 0;
+        let cancelY = 0;
+        let weight = 0;
+
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            const other = this.cordCharms[i];
+            if (other === state || !other.pivot) continue;
+
+            const otherBody = other.pivot.getComponent(cc.RigidBody);
+            if (!otherBody) continue;
+
+            const offset = cc.v2(other.pivot.x - pos.x, other.pivot.y - pos.y);
+            const dist = offset.mag();
+            if (dist >= spacing || dist < 0.5) continue;
+
+            const towardX = offset.x / dist;
+            const towardY = offset.y / dist;
+            const relVx = pivotBody.linearVelocity.x - otherBody.linearVelocity.x;
+            const relVy = pivotBody.linearVelocity.y - otherBody.linearVelocity.y;
+            const pushAlong = relVx * towardX + relVy * towardY;
+            if (pushAlong <= 0) continue;
+
+            const overlap = 1 - dist / spacing;
+            const strength = overlap * overlap * crowd;
+            cancelX += towardX * pushAlong * strength;
+            cancelY += towardY * pushAlong * strength;
+            weight += strength;
+        }
+
+        if (weight > 0) {
+            pivotBody.linearVelocity = cc.v2(
+                pivotBody.linearVelocity.x - cancelX,
+                pivotBody.linearVelocity.y - cancelY
+            );
+        }
+    }
+
     /** Không cho charm trượt qua neo hoặc lọt vào khe hở giữa 2 neo. */
     private enforceCharmSlideBounds(
         state: CordCharmState,
@@ -917,12 +1096,7 @@ export default class CordRoundGame extends cc.Component {
         const atMin = pathDist <= margin;
         const atMax = pathDist >= maxDist - margin;
 
-        // Chỉ snap cứng khi lọt khe hở — không snap mỗi frame khi đang trượt bình thường.
         if (inGap) {
-            const entry = this.getSlideEntryAnchor(state.side);
-            const clampPos = entry || onAllowed.nearest;
-            state.pivot.setPosition(cc.v3(clampPos.x, clampPos.y, 0));
-            body.syncPosition(true);
             body.linearVelocity = cc.v2(0, 0);
             return;
         }
@@ -957,42 +1131,60 @@ export default class CordRoundGame extends cc.Component {
         const pos = cc.v2(state.pivot.x, state.pivot.y);
         const maxDist = this.getMaxSlideDistance(state);
         const onAllowed = this.getNearestOnAllowedSlidePath(state, pos);
-        const onPath = this.getNearestOnPath(path.points, pos);
         const tangent = this.getTangentAtIndex(path.points, onAllowed.index, state.pathDir);
+        const crowdInfo = this.getCharmCrowdInfo(state);
+        const crowd = crowdInfo.crowd;
+        const slideBlocked = crowdInfo.slideBlocked;
 
         state.pathDistance = Math.max(0, Math.min(maxDist, onAllowed.pathDistance));
 
         if (!state.settled) {
-            const toPathX = onPath.nearest.x - pos.x;
-            const toPathY = onPath.nearest.y - pos.y;
+            const toPathX = onAllowed.nearest.x - pos.x;
+            const toPathY = onAllowed.nearest.y - pos.y;
             const tx = tangent.x;
             const ty = tangent.y;
             const nx = -ty;
             const ny = tx;
 
             const vel = body.linearVelocity;
-            const vTangent = vel.x * tx + vel.y * ty;
-            const vNormal = vel.x * nx + vel.y * ny;
+            let vTangent = vel.x * tx + vel.y * ty;
+            let vNormal = vel.x * nx + vel.y * ny;
             const offsetNormal = toPathX * nx + toPathY * ny;
 
-            let newVTangent = vTangent + this.slideGravity * dt;
-            let newVNormal = vNormal
-                + offsetNormal * this.pathPullStrength * dt
-                - vNormal * this.pathPullDamping * dt;
+            if (slideBlocked) {
+                vTangent = 0;
+                vNormal = 0;
+                state.settled = true;
+            } else {
+                let newVTangent = vTangent + this.slideGravity * dt * (1 - crowd * 0.92);
+                let newVNormal = vNormal
+                    + offsetNormal * this.pathPullStrength * dt * (1 - crowd * 0.5)
+                    - vNormal * this.pathPullDamping * dt;
 
-            if (state.pathDistance <= this.pivotColliderRadius && newVTangent < 0) {
-                newVTangent = 0;
-            }
-            if (state.pathDistance >= maxDist - this.pivotColliderRadius && newVTangent > 0) {
-                newVTangent = 0;
+                if (crowd > 0) {
+                    const pushScale = this.getCrowdPushScale(crowd, slideBlocked);
+                    newVNormal *= Math.max(0.05, pushScale * 0.35);
+                    newVTangent *= Math.max(0.08, pushScale * 0.5);
+                }
+
+                vTangent = newVTangent;
+                vNormal = newVNormal;
             }
 
-            let vx = tx * newVTangent + nx * newVNormal;
-            let vy = ty * newVTangent + ny * newVNormal;
+            if (state.pathDistance <= this.pivotColliderRadius && vTangent < 0) {
+                vTangent = 0;
+            }
+            if (state.pathDistance >= maxDist - this.pivotColliderRadius && vTangent > 0) {
+                vTangent = 0;
+            }
+
+            let vx = tx * vTangent + nx * vNormal;
+            let vy = ty * vTangent + ny * vNormal;
 
             const speed = Math.sqrt(vx * vx + vy * vy);
-            if (speed > this.maxSlideSpeed) {
-                const scale = this.maxSlideSpeed / speed;
+            const crowdSpeedCap = slideBlocked ? 0 : this.maxSlideSpeed * (1 - crowd * 0.75);
+            if (speed > crowdSpeedCap && crowdSpeedCap >= 0) {
+                const scale = crowdSpeedCap / speed;
                 vx *= scale;
                 vy *= scale;
             }
@@ -1020,9 +1212,9 @@ export default class CordRoundGame extends cc.Component {
             body.angularDamping = 1.2;
             body.allowSleep = true;
 
-            const toPathX = onPath.nearest.x - pos.x;
-            const toPathY = onPath.nearest.y - pos.y;
-            const holdDamp = this.pathPullDamping * 1.5;
+            const toPathX = onAllowed.nearest.x - pos.x;
+            const toPathY = onAllowed.nearest.y - pos.y;
+            const holdDamp = this.pathPullDamping * (1.5 + crowd);
             body.linearVelocity = cc.v2(
                 body.linearVelocity.x + toPathX * this.pathPullStrength * dt * 0.35 - body.linearVelocity.x * holdDamp * dt,
                 body.linearVelocity.y + toPathY * this.pathPullStrength * dt * 0.35 - body.linearVelocity.y * holdDamp * dt
@@ -1031,12 +1223,35 @@ export default class CordRoundGame extends cc.Component {
             const offset = Math.sqrt(toPathX * toPathX + toPathY * toPathY);
             if (offset < 1.5 && body.linearVelocity.mag() < 8) {
                 body.linearVelocity = cc.v2(0, 0);
-                state.pivot.setPosition(cc.v3(onPath.nearest.x, onPath.nearest.y, 0));
+                state.pivot.setPosition(cc.v3(onAllowed.nearest.x, onAllowed.nearest.y, 0));
                 body.syncPosition(true);
             }
         }
 
         this.enforceCharmSlideBounds(state, onAllowed, tangent, maxDist);
+    }
+
+    private postPhysicsCharmSlideFix(state: CordCharmState, dt: number) {
+        const body = state.pivot.getComponent(cc.RigidBody);
+        const path = this.cordPaths.get(this.activeCord);
+        if (!body || !path) return;
+
+        const pos = cc.v2(state.pivot.x, state.pivot.y);
+        const maxDist = this.getMaxSlideDistance(state);
+        const onAllowed = this.getNearestOnAllowedSlidePath(state, pos);
+        state.pathDistance = Math.max(0, Math.min(maxDist, onAllowed.pathDistance));
+
+        if (this.isInAnchorGap(pos)) {
+            const entry = this.getSlideEntryAnchor(state.side);
+            const clampPos = entry || onAllowed.nearest;
+            state.pivot.setPosition(cc.v3(clampPos.x, clampPos.y, 0));
+            body.syncPosition(true);
+            body.linearVelocity = cc.v2(0, 0);
+            return;
+        }
+
+        this.correctCharmPivotOnPath(state, onAllowed, dt);
+        this.dampCharmPivotCrowding(state, dt);
     }
 
     private getDistanceAlongPath(
@@ -1140,7 +1355,7 @@ export default class CordRoundGame extends cc.Component {
         return this.charmSlotSpacing;
     }
 
-    /** Chỉ thả được khi vùng neo (khoanh đỏ) đủ trống — không có charm nào chiếm gần neo. */
+    /** Chỉ thả được khi vùng neo đủ trống — kiểm tra charm nào đang chiếm gần neo đó. */
     private canDropOnSide(side: CordSide, charm: cc.Node): boolean {
         const anchors = this.getCordAnchorPositions();
         if (!anchors) return false;
@@ -1148,25 +1363,27 @@ export default class CordRoundGame extends cc.Component {
         const anchorPos = side === 'left' ? anchors.left : anchors.right;
         const requiredGap = this.getRequiredAnchorGap(charm);
         const zoneRadius = this.getAnchorDropZoneRadius();
-        const onSide = this.getCharmsOnSide(side);
+        let closestPathDist = Number.MAX_VALUE;
 
-        for (let i = 0; i < onSide.length; i++) {
-            const state = onSide[i];
-            const pathDist = this.getCharmPathDistance(state);
-            if (pathDist < requiredGap) {
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            const state = this.cordCharms[i];
+            if (!state.pivot) continue;
+
+            const pos = cc.v2(state.pivot.x, state.pivot.y);
+            const distToAnchor = cc.v2(pos.x - anchorPos.x, pos.y - anchorPos.y).mag();
+            if (distToAnchor < zoneRadius) {
                 return false;
             }
 
-            if (state.pivot) {
-                const pos = cc.v2(state.pivot.x, state.pivot.y);
-                const distToAnchor = cc.v2(pos.x - anchorPos.x, pos.y - anchorPos.y).mag();
-                if (distToAnchor < zoneRadius) {
-                    return false;
+            if (distToAnchor < this.entryDetectRadius) {
+                const pathDist = this.measurePathDistanceFromEntry(side, pos);
+                if (pathDist < closestPathDist) {
+                    closestPathDist = pathDist;
                 }
             }
         }
 
-        return true;
+        return closestPathDist >= requiredGap;
     }
 
     private pickAvailableSide(
@@ -1835,6 +2052,7 @@ export default class CordRoundGame extends cc.Component {
         if (!this.isActive) return;
 
         for (let i = 0; i < this.cordCharms.length; i++) {
+            this.postPhysicsCharmSlideFix(this.cordCharms[i], dt);
             this.constrainCharmHang(this.cordCharms[i], dt);
         }
     }
