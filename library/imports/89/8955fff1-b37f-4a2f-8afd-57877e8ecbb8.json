@@ -26457,7 +26457,7 @@
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
     "charmSlotSpacing": 50,
-    "minAnchorDropGap": 80,
+    "minAnchorDropGap": 100,
     "hangSwingLimit": 40,
     "hangOutwardStiffness": 18,
     "soundDrop": {

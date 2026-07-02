@@ -706,15 +706,109 @@ var CordRoundGame = /** @class */ (function (_super) {
     CordRoundGame.prototype.getMaxSlideDistance = function (state) {
         return this.getSideSlideDistance(state.side);
     };
+    CordRoundGame.prototype.getSlideEntryAnchor = function (side) {
+        var anchors = this.getCordAnchorPositions();
+        if (!anchors)
+            return null;
+        return side === 'left' ? anchors.left : anchors.right;
+    };
+    /** Chỉ tìm điểm gần nhất trên cung dây hợp lệ (neo → đáy), bỏ qua khe hở giữa 2 neo. */
+    CordRoundGame.prototype.getNearestOnAllowedSlidePath = function (state, pos) {
+        var path = this.cordPaths.get(this.activeCord);
+        if (!path) {
+            return { index: state.pathStartIndex, nearest: pos, pathDistance: 0 };
+        }
+        var maxDistance = this.getMaxSlideDistance(state);
+        var points = path.points;
+        var bestDistSqr = Number.MAX_VALUE;
+        var bestNearest = points[state.pathStartIndex];
+        var bestIndex = state.pathStartIndex;
+        var bestPathDist = 0;
+        var idx = state.pathStartIndex;
+        var traversed = 0;
+        var maxSteps = points.length + 2;
+        for (var step = 0; step < maxSteps; step++) {
+            var nextIdx = this.wrapIndex(idx + state.pathDir, points.length);
+            var a = points[idx];
+            var b = points[nextIdx];
+            var dx = b.x - a.x;
+            var dy = b.y - a.y;
+            var segLen = Math.sqrt(dx * dx + dy * dy);
+            if (segLen <= 0) {
+                idx = nextIdx;
+                continue;
+            }
+            var remain = maxDistance - traversed;
+            var segUse = Math.min(segLen, remain);
+            var tMax = segUse / segLen;
+            var tRaw = ((pos.x - a.x) * dx + (pos.y - a.y) * dy) / (segLen * segLen);
+            var t = Math.max(0, Math.min(tMax, tRaw));
+            var nx = a.x + dx * t;
+            var ny = a.y + dy * t;
+            var dSqr = (pos.x - nx) * (pos.x - nx) + (pos.y - ny) * (pos.y - ny);
+            var pathDist = traversed + t * segLen;
+            if (dSqr < bestDistSqr) {
+                bestDistSqr = dSqr;
+                bestNearest = cc.v2(nx, ny);
+                bestIndex = idx;
+                bestPathDist = pathDist;
+            }
+            traversed += segLen;
+            idx = nextIdx;
+            if (traversed >= maxDistance)
+                break;
+        }
+        return { index: bestIndex, nearest: bestNearest, pathDistance: bestPathDist };
+    };
+    /** Không cho charm trượt qua neo hoặc lọt vào khe hở giữa 2 neo. */
+    CordRoundGame.prototype.enforceCharmSlideBounds = function (state, onAllowed, tangent, maxDist) {
+        var body = state.pivot.getComponent(cc.RigidBody);
+        var path = this.cordPaths.get(this.activeCord);
+        if (!body || !path)
+            return;
+        var margin = this.pivotColliderRadius;
+        var pos = cc.v2(state.pivot.x, state.pivot.y);
+        var pathDist = Math.max(0, Math.min(maxDist, onAllowed.pathDistance));
+        state.pathDistance = pathDist;
+        var inGap = this.isInAnchorGap(pos);
+        var atMin = pathDist <= margin;
+        var atMax = pathDist >= maxDist - margin;
+        // Chỉ snap cứng khi lọt khe hở — không snap mỗi frame khi đang trượt bình thường.
+        if (inGap) {
+            var entry = this.getSlideEntryAnchor(state.side);
+            var clampPos = entry || onAllowed.nearest;
+            state.pivot.setPosition(cc.v3(clampPos.x, clampPos.y, 0));
+            body.syncPosition(true);
+            body.linearVelocity = cc.v2(0, 0);
+            return;
+        }
+        var vel = body.linearVelocity;
+        var vTangent = vel.x * tangent.x + vel.y * tangent.y;
+        var changed = false;
+        if (atMin && vTangent < 0) {
+            vTangent = 0;
+            changed = true;
+        }
+        if (atMax && vTangent > 0) {
+            vTangent = 0;
+            changed = true;
+        }
+        if (changed) {
+            var vNormal = vel.x * (-tangent.y) + vel.y * tangent.x;
+            body.linearVelocity = cc.v2(tangent.x * vTangent + (-tangent.y) * vNormal, tangent.y * vTangent + tangent.x * vNormal);
+        }
+    };
     CordRoundGame.prototype.updateCharmSlide = function (state, dt) {
         var body = state.pivot.getComponent(cc.RigidBody);
         var path = this.cordPaths.get(this.activeCord);
         if (!body || !path)
             return;
         var pos = cc.v2(state.pivot.x, state.pivot.y);
+        var maxDist = this.getMaxSlideDistance(state);
+        var onAllowed = this.getNearestOnAllowedSlidePath(state, pos);
         var onPath = this.getNearestOnPath(path.points, pos);
-        var tangent = this.getTangentAtIndex(path.points, onPath.index, state.pathDir);
-        state.pathDistance = this.getDistanceAlongPath(path.points, state.pathStartIndex, state.pathDir, pos);
+        var tangent = this.getTangentAtIndex(path.points, onAllowed.index, state.pathDir);
+        state.pathDistance = Math.max(0, Math.min(maxDist, onAllowed.pathDistance));
         if (!state.settled) {
             var toPathX = onPath.nearest.x - pos.x;
             var toPathY = onPath.nearest.y - pos.y;
@@ -730,6 +824,12 @@ var CordRoundGame = /** @class */ (function (_super) {
             var newVNormal = vNormal
                 + offsetNormal * this.pathPullStrength * dt
                 - vNormal * this.pathPullDamping * dt;
+            if (state.pathDistance <= this.pivotColliderRadius && newVTangent < 0) {
+                newVTangent = 0;
+            }
+            if (state.pathDistance >= maxDist - this.pivotColliderRadius && newVTangent > 0) {
+                newVTangent = 0;
+            }
             var vx = tx * newVTangent + nx * newVNormal;
             var vy = ty * newVTangent + ny * newVNormal;
             var speed_1 = Math.sqrt(vx * vx + vy * vy);
@@ -739,12 +839,12 @@ var CordRoundGame = /** @class */ (function (_super) {
                 vy *= scale;
             }
             body.linearVelocity = cc.v2(vx, vy);
-            if (state.pathDistance >= this.getMaxSlideDistance(state) - 2) {
+            if (state.pathDistance >= maxDist - 2) {
                 state.settled = true;
             }
         }
         var speed = body.linearVelocity.mag();
-        var minSlide = Math.min(24, this.getMaxSlideDistance(state) * 0.12);
+        var minSlide = Math.min(24, maxDist * 0.12);
         if (speed < this.settleSpeed && state.pathDistance >= minSlide) {
             state.stillTime += dt;
             if (state.stillTime >= 0.35) {
@@ -770,6 +870,7 @@ var CordRoundGame = /** @class */ (function (_super) {
                 body.syncPosition(true);
             }
         }
+        this.enforceCharmSlideBounds(state, onAllowed, tangent, maxDist);
     };
     CordRoundGame.prototype.getDistanceAlongPath = function (points, startIndex, dir, pos) {
         var nearest = this.getNearestOnPath(points, pos);
@@ -814,7 +915,9 @@ var CordRoundGame = /** @class */ (function (_super) {
         if (!state.pivot)
             return state.pathDistance;
         var pos = cc.v2(state.pivot.x, state.pivot.y);
-        return this.measurePathDistanceFromEntry(state.side, pos, state.pathDir);
+        var onPath = this.getNearestOnAllowedSlidePath(state, pos);
+        var maxDist = this.getMaxSlideDistance(state);
+        return Math.max(0, Math.min(maxDist, onPath.pathDistance));
     };
     CordRoundGame.prototype.getCharmsOnSide = function (side) {
         var result = [];
@@ -835,15 +938,14 @@ var CordRoundGame = /** @class */ (function (_super) {
         return distances;
     };
     CordRoundGame.prototype.getDistanceFromAnchor = function (side, state) {
-        var path = this.cordPaths.get(this.activeCord);
-        if (!path || !state.pivot) {
-            return state.pathDistance;
-        }
-        var pos = cc.v2(state.pivot.x, state.pivot.y);
-        return this.measurePathDistanceFromEntry(side, pos, state.pathDir);
+        return this.getCharmPathDistance(state);
+    };
+    /** Bán kính vùng neo (khoanh đỏ) — charm trong vùng này thì bên đó không thả thêm. */
+    CordRoundGame.prototype.getAnchorDropZoneRadius = function () {
+        return this.entryDetectRadius * 0.5;
     };
     CordRoundGame.prototype.getRequiredAnchorGap = function (charm) {
-        return this.minAnchorDropGap;
+        return Math.max(this.minAnchorDropGap, this.getAnchorDropZoneRadius());
     };
     CordRoundGame.prototype.getCharmSlotSpacing = function (charm) {
         var item = this.getCharmItemComp(charm);
@@ -852,13 +954,30 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         return this.charmSlotSpacing;
     };
-    /** Chỉ kiểm tra khoảng trống gần neo của bên thả (≥ minAnchorDropGap). */
+    /** Chỉ thả được khi vùng neo (khoanh đỏ) đủ trống — không có charm nào chiếm gần neo. */
     CordRoundGame.prototype.canDropOnSide = function (side, charm) {
-        var gap = this.getRequiredAnchorGap(charm);
-        var occupied = this.getOccupiedDistancesOnSide(side);
-        if (occupied.length === 0)
-            return true;
-        return occupied[0] >= gap;
+        var anchors = this.getCordAnchorPositions();
+        if (!anchors)
+            return false;
+        var anchorPos = side === 'left' ? anchors.left : anchors.right;
+        var requiredGap = this.getRequiredAnchorGap(charm);
+        var zoneRadius = this.getAnchorDropZoneRadius();
+        var onSide = this.getCharmsOnSide(side);
+        for (var i = 0; i < onSide.length; i++) {
+            var state = onSide[i];
+            var pathDist = this.getCharmPathDistance(state);
+            if (pathDist < requiredGap) {
+                return false;
+            }
+            if (state.pivot) {
+                var pos = cc.v2(state.pivot.x, state.pivot.y);
+                var distToAnchor = cc.v2(pos.x - anchorPos.x, pos.y - anchorPos.y).mag();
+                if (distToAnchor < zoneRadius) {
+                    return false;
+                }
+            }
+        }
+        return true;
     };
     CordRoundGame.prototype.pickAvailableSide = function (nearLeft, nearRight, distLeft, distRight, charm, preferLeft) {
         var candidates = [];
