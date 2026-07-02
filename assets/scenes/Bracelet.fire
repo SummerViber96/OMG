@@ -26471,6 +26471,9 @@
     "hand3": {
       "__id__": 490
     },
+    "notiFull": {
+      "__id__": 297
+    },
     "defaultBraceletRef": {
       "__id__": 635
     },
@@ -40077,6 +40080,7 @@
     "hand3": {
       "__id__": 490
     },
+    "notiFull": null,
     "defaultBraceletRef": null,
     "defaultBraceletByCord": [],
     "matchResultLabel": null,

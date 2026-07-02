@@ -109,6 +109,8 @@ export default class CordRoundGame extends cc.Component {
     btnOk: cc.Node = null;
     @property(cc.Node)
     hand3: cc.Node = null;
+    @property(cc.Node)
+    notiFull: cc.Node = null;
 
     /** Node tham chiếu vòng mẫu (vd: defaultCharm trong scene). */
     @property(cc.Node)
@@ -143,6 +145,17 @@ export default class CordRoundGame extends cc.Component {
     private defaultPreviewNode: cc.Node = null;
     private lastMatchPercent: number = 0;
     private lastScoreBreakdown: MatchScoreBreakdown = null;
+    isDelay=false
+    showNotiFull() {
+        if (this.isDelay || !this.notiFull) return;
+        this.isDelay = true;
+        this.scheduleOnce(() => {
+            this.isDelay = false;
+        }, 1)
+        this.notiFull.active = true;
+        const anim = this.notiFull.getComponent(cc.Animation);
+        if (anim) anim.play();
+    }
     liftBracelet(targetPos: cc.Vec3, duration: number = 0.4) {
         if (!this.CordRoundList) return;
 
@@ -395,6 +408,9 @@ export default class CordRoundGame extends cc.Component {
             this.hand3.active = false;
         } else {
             this.resetDraggedCharm(charm);
+            if (this.shouldShowCordFullNoti(event.getLocation(), charmWorld, charm)) {
+                this.showNotiFull();
+            }
         }
 
         this.draggingCharm = null;
@@ -1384,6 +1400,45 @@ export default class CordRoundGame extends cc.Component {
         }
 
         return closestPathDist >= requiredGap;
+    }
+
+    private screenToWorldOnMain(screenPos: cc.Vec2): cc.Vec2 {
+        const main = this.getMainNode();
+        const local = main.convertToNodeSpaceAR(screenPos);
+        return main.convertToWorldSpaceAR(local);
+    }
+
+    private getCordAnchorAttempt(worldPos: cc.Vec2): { nearLeft: boolean; nearRight: boolean } | null {
+        const anchors = this.getCordAnchorPositions();
+        if (!anchors || !this.activeCord) return null;
+
+        const local = this.activeCord.convertToNodeSpaceAR(worldPos);
+        if (this.isInAnchorGap(local)) return null;
+
+        const distLeft = cc.v2(local.x - anchors.left.x, local.y - anchors.left.y).mag();
+        const distRight = cc.v2(local.x - anchors.right.x, local.y - anchors.right.y).mag();
+        const nearLeft = distLeft <= this.entryDetectRadius;
+        const nearRight = distRight <= this.entryDetectRadius;
+        if (!nearLeft && !nearRight) return null;
+
+        return { nearLeft, nearRight };
+    }
+
+    /** Không còn chỗ thả ở neo trái/phải. */
+    private isCordFullForCharm(charm: cc.Node): boolean {
+        return !this.canDropOnSide('left', charm) && !this.canDropOnSide('right', charm);
+    }
+
+    private shouldShowCordFullNoti(screenPos: cc.Vec2, charmWorld: cc.Vec2, charm: cc.Node): boolean {
+        const touchWorld = this.screenToWorldOnMain(screenPos);
+        const attempt = this.getCordAnchorAttempt(charmWorld)
+            || this.getCordAnchorAttempt(touchWorld);
+        if (!attempt) return false;
+
+        if (this.isCordFullForCharm(charm)) return true;
+        if (attempt.nearLeft && !this.canDropOnSide('left', charm)) return true;
+        if (attempt.nearRight && !this.canDropOnSide('right', charm)) return true;
+        return false;
     }
 
     private pickAvailableSide(

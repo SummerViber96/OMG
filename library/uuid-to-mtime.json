@@ -13265,8 +13265,8 @@
     "relativePath": "Bracelet\\prefab\\preCharm3.prefab"
   },
   "a748eac8-436e-492c-adf7-b5873f9e4a41": {
-    "asset": 1782986702359,
-    "meta": 1782986702367,
+    "asset": 1782987211043,
+    "meta": 1782987211053,
     "relativePath": "Bracelet\\prefab\\preCharm4.prefab"
   },
   "f84b25c3-5c51-478d-ac04-e1e563cbd565": {
@@ -14455,8 +14455,8 @@
     "relativePath": "Bracelet\\script\\Bracelet.ts"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1782986596046,
-    "meta": 1782986596066,
+    "asset": 1782987675619,
+    "meta": 1782987675641,
     "relativePath": "scenes\\Bracelet.fire"
   },
   "df87c12d-9eb3-4a2b-a256-16bbd0291665": {
@@ -14965,8 +14965,8 @@
     "relativePath": "model\\primitives.fbx"
   },
   "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
-    "asset": 1782986889036,
-    "meta": 1782986890524,
+    "asset": 1782987540867,
+    "meta": 1782987542728,
     "relativePath": "Bracelet\\script\\CordRoundGame.ts"
   }
 }

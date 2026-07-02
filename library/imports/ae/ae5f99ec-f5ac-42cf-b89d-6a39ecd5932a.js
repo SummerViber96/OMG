@@ -70,6 +70,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.soundDrop = null;
         _this.btnOk = null;
         _this.hand3 = null;
+        _this.notiFull = null;
         /** Node tham chiếu vòng mẫu (vd: defaultCharm trong scene). */
         _this.defaultBraceletRef = null;
         /** Vòng mẫu theo từng loại dây (index = idString). Ưu tiên hơn defaultBraceletRef. */
@@ -89,9 +90,23 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.defaultPreviewNode = null;
         _this.lastMatchPercent = 0;
         _this.lastScoreBreakdown = null;
+        _this.isDelay = false;
         _this.isTargetHind = null;
         return _this;
     }
+    CordRoundGame.prototype.showNotiFull = function () {
+        var _this = this;
+        if (this.isDelay || !this.notiFull)
+            return;
+        this.isDelay = true;
+        this.scheduleOnce(function () {
+            _this.isDelay = false;
+        }, 1);
+        this.notiFull.active = true;
+        var anim = this.notiFull.getComponent(cc.Animation);
+        if (anim)
+            anim.play();
+    };
     CordRoundGame.prototype.liftBracelet = function (targetPos, duration) {
         if (duration === void 0) { duration = 0.4; }
         if (!this.CordRoundList)
@@ -316,6 +331,9 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         else {
             this.resetDraggedCharm(charm);
+            if (this.shouldShowCordFullNoti(event.getLocation(), charmWorld, charm)) {
+                this.showNotiFull();
+            }
         }
         this.draggingCharm = null;
         this.dragSnapSide = null;
@@ -1158,6 +1176,44 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         return closestPathDist >= requiredGap;
     };
+    CordRoundGame.prototype.screenToWorldOnMain = function (screenPos) {
+        var main = this.getMainNode();
+        var local = main.convertToNodeSpaceAR(screenPos);
+        return main.convertToWorldSpaceAR(local);
+    };
+    CordRoundGame.prototype.getCordAnchorAttempt = function (worldPos) {
+        var anchors = this.getCordAnchorPositions();
+        if (!anchors || !this.activeCord)
+            return null;
+        var local = this.activeCord.convertToNodeSpaceAR(worldPos);
+        if (this.isInAnchorGap(local))
+            return null;
+        var distLeft = cc.v2(local.x - anchors.left.x, local.y - anchors.left.y).mag();
+        var distRight = cc.v2(local.x - anchors.right.x, local.y - anchors.right.y).mag();
+        var nearLeft = distLeft <= this.entryDetectRadius;
+        var nearRight = distRight <= this.entryDetectRadius;
+        if (!nearLeft && !nearRight)
+            return null;
+        return { nearLeft: nearLeft, nearRight: nearRight };
+    };
+    /** Không còn chỗ thả ở neo trái/phải. */
+    CordRoundGame.prototype.isCordFullForCharm = function (charm) {
+        return !this.canDropOnSide('left', charm) && !this.canDropOnSide('right', charm);
+    };
+    CordRoundGame.prototype.shouldShowCordFullNoti = function (screenPos, charmWorld, charm) {
+        var touchWorld = this.screenToWorldOnMain(screenPos);
+        var attempt = this.getCordAnchorAttempt(charmWorld)
+            || this.getCordAnchorAttempt(touchWorld);
+        if (!attempt)
+            return false;
+        if (this.isCordFullForCharm(charm))
+            return true;
+        if (attempt.nearLeft && !this.canDropOnSide('left', charm))
+            return true;
+        if (attempt.nearRight && !this.canDropOnSide('right', charm))
+            return true;
+        return false;
+    };
     CordRoundGame.prototype.pickAvailableSide = function (nearLeft, nearRight, distLeft, distRight, charm, preferLeft) {
         var candidates = [];
         if (nearLeft)
@@ -1792,6 +1848,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], CordRoundGame.prototype, "hand3", void 0);
+    __decorate([
+        property(cc.Node)
+    ], CordRoundGame.prototype, "notiFull", void 0);
     __decorate([
         property(cc.Node)
     ], CordRoundGame.prototype, "defaultBraceletRef", void 0);

@@ -26455,7 +26455,7 @@
     "pathPullDamping": 16,
     "settleSpeed": 5,
     "pivotColliderRadius": 8,
-    "charmSlotSpacing": 20,
+    "charmSlotSpacing": 50,
     "minAnchorDropGap": 100,
     "hangSwingLimit": 40,
     "hangOutwardStiffness": 18,
@@ -26471,6 +26471,7 @@
     "hand3": {
       "__id__": 490
     },
+    "notiFull": null,
     "defaultBraceletRef": {
       "__id__": 635
     },
@@ -40077,6 +40078,7 @@
     "hand3": {
       "__id__": 490
     },
+    "notiFull": null,
     "defaultBraceletRef": null,
     "defaultBraceletByCord": [],
     "matchResultLabel": null,
