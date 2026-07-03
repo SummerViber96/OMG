@@ -46,10 +46,14 @@ export default class CordRoundGame extends cc.Component {
     segmentRadius: number = 14;
 
     @property
-    slideGravity: number = 320;
+    slideGravity: number = 150;
 
     @property
-    maxSlideSpeed: number = 280;
+    maxSlideSpeed: number = 130;
+
+    /** Vận tốc ban đầu khi vừa thả charm lên dây. */
+    @property
+    dropSlideSpeed: number = 35;
 
     @property
     pathPullStrength: number = 420;
@@ -499,7 +503,7 @@ export default class CordRoundGame extends cc.Component {
             pivotBody.active = true;
 
             const tangent = this.getTangentAtIndex(path.points, startIndex, pathDir);
-            pivotBody.linearVelocity = tangent.mul(75);
+            pivotBody.linearVelocity = tangent.mul(this.dropSlideSpeed);
         }
         if (charmBody) {
             charmBody.syncPosition(true);
@@ -545,7 +549,7 @@ export default class CordRoundGame extends cc.Component {
         }
         pivotBody.type = cc.RigidBodyType.Dynamic;
         pivotBody.gravityScale = 1;
-        pivotBody.linearDamping = 0.32;
+        pivotBody.linearDamping = 0.45;
         pivotBody.angularDamping = 1;
         pivotBody.fixedRotation = true;
         pivotBody.allowSleep = false;

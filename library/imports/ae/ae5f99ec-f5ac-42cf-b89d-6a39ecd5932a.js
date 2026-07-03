@@ -35,8 +35,10 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.entryDetectRadius = 110;
         _this.pathSampleSpacing = 12;
         _this.segmentRadius = 14;
-        _this.slideGravity = 320;
-        _this.maxSlideSpeed = 280;
+        _this.slideGravity = 150;
+        _this.maxSlideSpeed = 130;
+        /** Vận tốc ban đầu khi vừa thả charm lên dây. */
+        _this.dropSlideSpeed = 35;
         _this.pathPullStrength = 420;
         _this.pathPullDamping = 16;
         _this.settleSpeed = 22;
@@ -411,7 +413,7 @@ var CordRoundGame = /** @class */ (function (_super) {
             pivotBody.awake = true;
             pivotBody.active = true;
             var tangent = this.getTangentAtIndex(path.points, startIndex, pathDir);
-            pivotBody.linearVelocity = tangent.mul(75);
+            pivotBody.linearVelocity = tangent.mul(this.dropSlideSpeed);
         }
         if (charmBody) {
             charmBody.syncPosition(true);
@@ -451,7 +453,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         }
         pivotBody.type = cc.RigidBodyType.Dynamic;
         pivotBody.gravityScale = 1;
-        pivotBody.linearDamping = 0.32;
+        pivotBody.linearDamping = 0.45;
         pivotBody.angularDamping = 1;
         pivotBody.fixedRotation = true;
         pivotBody.allowSleep = false;
@@ -1806,6 +1808,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property
     ], CordRoundGame.prototype, "maxSlideSpeed", void 0);
+    __decorate([
+        property
+    ], CordRoundGame.prototype, "dropSlideSpeed", void 0);
     __decorate([
         property
     ], CordRoundGame.prototype, "pathPullStrength", void 0);

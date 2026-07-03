@@ -14455,8 +14455,8 @@
     "relativePath": "Bracelet\\script\\Bracelet.ts"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1782987675619,
-    "meta": 1782987675641,
+    "asset": 1782988290444,
+    "meta": 1782988290464,
     "relativePath": "scenes\\Bracelet.fire"
   },
   "df87c12d-9eb3-4a2b-a256-16bbd0291665": {
@@ -14965,8 +14965,8 @@
     "relativePath": "model\\primitives.fbx"
   },
   "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
-    "asset": 1782987540867,
-    "meta": 1782987542728,
+    "asset": 1782987867905,
+    "meta": 1782987902178,
     "relativePath": "Bracelet\\script\\CordRoundGame.ts"
   }
 }
