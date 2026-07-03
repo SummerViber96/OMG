@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Plate_slot",
+    "texture": "1325e63d-678e-4241-ba17-34925f2c5d82",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      23,
+      29
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      24,
+      32
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

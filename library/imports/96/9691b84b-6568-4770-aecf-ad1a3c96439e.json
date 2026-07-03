@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boxingRed",
+    "texture": "faae7ba5-efbd-42cb-bbb3-8ff1c76d5388",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      71,
+      86
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      71,
+      86
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Layer 410",
+    "texture": "5a0ee77b-e6d2-4ee7-9b9c-08da65510144",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      324,
+      230
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      324,
+      230
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

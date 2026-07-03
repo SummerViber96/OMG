@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icon_nutri",
+    "texture": "576ce670-1750-4fcb-9b4f-837d5079487c",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      63,
+      63
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      64,
+      64
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

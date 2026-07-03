@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ChainuocRed",
+    "texture": "e2b64f15-5459-43b6-ae4c-dc7dd6c331ff",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      50,
+      85
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      50,
+      85
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

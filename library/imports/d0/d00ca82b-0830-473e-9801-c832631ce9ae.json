@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Layer 410hind",
+    "texture": "e6f6b683-238e-4ea9-a9d3-ef23755948ac",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      334,
+      248
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      334,
+      248
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

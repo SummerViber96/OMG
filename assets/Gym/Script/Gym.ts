@@ -55,25 +55,45 @@ export default class NewClass extends cc.Component {
     coinBar: cc.Node
     @property(cc.Node)
     logo: cc.Node = null
+    @property(cc.Node)
+    listTaDon: cc.Node[] = []
+    @property(cc.Node)
+    listTaTo: cc.Node[] = []
+    @property(cc.Node)
+    listItem: cc.Node = null;
+    @property(cc.Node)
+    listKhan: cc.Node = null;
+    @property(cc.Node)
+    listNuoc: cc.Node = null
+    @property(cc.Node)
+    giaTaNho: cc.Node = null;
+    @property(cc.Node)
+    giaTaLon: cc.Node = null
+    @property(cc.SpriteFrame)
+    imgtaDo: cc.SpriteFrame = null
+    @property(cc.Node)
+    charTut1: cc.Node = null
+    @property(cc.Label)
+    lbGuild: cc.Label = null
+    @property(cc.Node)
+    tuNuoc: cc.Node = null
+    @property
     arrPosCus = []
     arrCus = []
     arrCrunch = []
     isHind = false
     adChanel = '{{__adv_channels_adapter__}}'
-
+    isFristClick = false;
+    isTargetCus = null
     start() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
         cc.audioEngine.play(this.soundBG, true, 0.5)
-        this.scheduleOnce(() => {
-            this.npc.active = true
-        }, 1)
-        this.scheduleOnce(() => {
-            cc.tween(this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
-                this.npc.active = false
-            }).start()
-        }, 4)
+        // this.scheduleOnce(() => {
+        //     this.npc.active = true
+        // }, 1)
+        this.camera.node.position = cc.v3(250, -216)
         for (let i = 0; i < this.listCusNode.childrenCount; i++) {
             this.arrCus.push(this.listCusNode.children[i])
         }
@@ -83,8 +103,180 @@ export default class NewClass extends cc.Component {
         for (let i = 0; i < this.listCrunch.childrenCount; i++) {
             this.arrCrunch.push(this.listCrunch.children[i])
         }
-        this.spawFistCustomer()
+        // cc.tween(this.camera.node).delay(0.5).to(0.5,{position:cc.v3(0,100)}).start()
+        this.scheduleOnce(() => {
+            this.camera.node.getComponent(cc.Animation).play()
+            this.arrCus[0].getComponent("cusGym").moveToWait()
+            for (let i = 1; i < this.arrCus.length; i++) {
+                this.arrCus[i].getComponent("cusGym").move(this.arrPosCus[i - 1], 1)
+            }
+            this.isTargetCus = this.arrCus[0];
+        }, 0.5)
+        this.scheduleOnce(() => {
+            this.npc.active = true
+        }, 3)
+        this.scheduleOnce(() => {
+            cc.tween(this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
+                this.npc.active = false
+                this.scheduleOnce(() => {
+                    this.listItem.children[5].getChildByName("hand").active = true;
+                    this.listItem.children[5].getComponent(cc.Button).enabled = true;
+                    this.giaTaNho.children[0].active = true
+                    this.listItem.children[5].children[0].active = true
+                    this.npc2.active = true
+                }, 0.1)
+
+            }).start()
+        }, 5)
+        // this.spawFistCustomer()
     }
+    isCountTaNho = 0
+    isCountTaTo = 0
+    isCountCus = 0
+    isCountKhan = 0;
+    isCountNuoc = 2;
+    clickItem(item) {
+        this.npc2.active = false
+
+        if (!this.isFristClick) {
+            this.isFristClick = true;
+            this.giaTaNho.children[0].active = false
+            // this.scheduleOnce(() => {
+
+            // }, 0.8)
+        }
+        if (item.getChildByName("hand")) {
+            item.getChildByName("hand").active = false
+
+        }
+        item.getChildByName("red").active = false;
+        let pos = item.parent.convertToWorldSpaceAR(item.position);
+        pos = this.node.convertToNodeSpaceAR(pos)
+        let itemComp = item.getComponent("itemGym")
+        if (itemComp.tag == 0) {
+            let itemTarget = this.listTaDon[this.isCountTaNho]
+            this.isCountTaNho++
+            let posEnd = itemTarget.position;
+            if (itemComp.colorG == 1) {
+                itemTarget.children[1].getComponent(cc.Sprite).spriteFrame = this.imgtaDo
+            }
+            posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
+            posEnd = this.node.convertToNodeSpaceAR(posEnd);
+            let mag = 100;
+            let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
+                item.active = false;
+                itemTarget.active = true
+                if (this.isCountCus == 0) {
+                    this.isTargetCus.getComponent("cusGym").happy();
+                    for (let child of this.listItem.children) {
+                        if (child.active) {
+                            child.getChildByName("red").active = true
+                            child.getComponent(cc.Button).enabled = true
+                        }
+                    }
+                    this.lbGuild.string = "Nice! Keep cleaning!"
+                    this.npc2.active = true
+                    this.npc2.getComponent(cc.Animation).play()
+                    this.listItem.children[4].getChildByName("hand").active = true
+                    this.scheduleOnce(() => {
+                        this.npc2.active = false
+
+                    }, 2)
+                }
+                this.checkStep()
+
+            }).start()
+        }
+        else if (itemComp.tag == 1) {
+            let itemTarget = this.listTaTo[this.isCountTaTo]
+            this.isCountTaTo++
+            let posEnd = itemTarget.position;
+
+            posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
+            posEnd = this.node.convertToNodeSpaceAR(posEnd);
+            let mag = 100;
+            let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
+                item.active = false;
+                itemTarget.active = true
+                this.isTargetCus.getComponent("cusGym").happy();
+                // this.isCountCus++
+                this.checkStep()
+
+
+            }).start()
+
+        }
+        else if (itemComp.tag == 2) {
+            let itemTarget = this.listKhan.children[this.isCountKhan]
+            this.isCountKhan++
+            let posEnd = itemTarget.position;
+
+            posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
+            posEnd = this.node.convertToNodeSpaceAR(posEnd);
+            let mag = 100;
+            let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
+                item.active = false;
+                itemTarget.active = true
+                this.isTargetCus.getComponent("cusGym").happy();
+                // this.isCountCus++
+                this.checkStep()
+
+
+            }).start()
+        }
+        else if (itemComp.tag == 3) {
+            let itemTarget = this.listNuoc.children[this.isCountNuoc]
+            this.isCountNuoc++
+            let posEnd = itemTarget.position;
+
+            posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
+            posEnd = this.node.convertToNodeSpaceAR(posEnd);
+            let mag = 100;
+            let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
+                item.active = false;
+                itemTarget.active = true
+
+                this.isTargetCus.getComponent("cusGym").happy();
+
+                this.checkStep()
+
+            }).start()
+        }
+    }
+    checkStep() {
+        this.isCountCus++
+        if (this.isCountCus == 6) {
+            let finalPos = cc.v3(-227, -60);
+            this.isTargetCus.getComponent("cusGym").move3(finalPos, 2)
+            this.scheduleOnce(() => {
+                this.isTargetCus.active = false;
+                this.charTut1.active = true;
+
+            }, 2)
+            this.scheduleOnce(() => {
+                cc.tween(this.camera.node).to(0.8, { position: cc.v3(-20, 130) }).to(0.8, { position: cc.v3(-220, 130) }).start()
+                this.arrCus[1].getComponent("cusGym").moveToWait2()
+
+            }, 1.4)
+            this.scheduleOnce(() => {
+                this.arrCus[1].getChildByName("pop").active = true
+                this.tuNuoc.children[0].active = true
+                this.tuNuoc.getChildByName("hand").active = true;
+                this.tuNuoc.getComponent(cc.Button).enabled = true
+            }, 3.4)
+        }
+
+    }
+    btn_tuNuoc(event) {
+        event.currentTarget.getComponent(cc.Button).enabled = false;
+        this.tuNuoc.children[0].active = false
+        this.tuNuoc.getChildByName("hand").active = false;
+    }
+
     spawFistCustomer() {
         let arr = [cc.v3(438, -159), cc.v3(577, -256)];
         for (let i = 0; i < this.arrCus.length; i++) {
@@ -445,14 +637,14 @@ export default class NewClass extends cc.Component {
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1
+        this.camera.zoomRatio = 1.5
 
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.guildUpgrade.scale = (logic) ? 2.4 : 1
         this.guildUpgrade2.scale = (logic) ? 1.6 : 1
 
-        this.camera.node.position = cc.v3(0, 0)
+        // this.camera.node.position = cc.v3(0, 0)
         this.lbCoin.string = globalThis.gold.toString()
         this.npc.scale = (logic) ? 1.7 : 1
         this.npc2.scale = (logic) ? 1.7 : 1
@@ -478,8 +670,8 @@ export default class NewClass extends cc.Component {
             const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
-            this.camera.zoomRatio = 1.7
-            this.camera.node.position = cc.v3(150, 0)
+            this.camera.zoomRatio = 2
+            // this.camera.node.position = cc.v3(150, 0)
             this.phaohoa.scale = (logic) ? 7 : 3
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
@@ -487,7 +679,7 @@ export default class NewClass extends cc.Component {
                 this.logo.getComponent(cc.Widget).top = 48 + 30
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.4
+                // this.camera.zoomRatio = 1.4
                 this.guildUpgrade.scale = 1.8
 
             }
@@ -509,7 +701,7 @@ export default class NewClass extends cc.Component {
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.8
+                this.camera.zoomRatio = 1
             }
         }
 

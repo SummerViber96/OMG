@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icon_Speedbag",
+    "texture": "70987a67-4258-4cb8-a8b2-e6b9df40103d",
+    "atlas": "",
+    "rect": [
+      13,
+      0,
+      77,
+      104
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      104,
+      104
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

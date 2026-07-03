@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Nutri-red",
+    "texture": "917bea22-31d5-4124-a5bb-fc7adf372165",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      46,
+      65
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      48,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

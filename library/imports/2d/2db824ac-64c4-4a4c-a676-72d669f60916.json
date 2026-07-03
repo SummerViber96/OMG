@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "IconGreenPT",
+    "texture": "d273b8e6-e6b0-4f5a-95f7-929a8e42504c",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      61,
+      72
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      64,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

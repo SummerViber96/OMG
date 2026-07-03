@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "437d297f-5a7d-4138-accf-e819bd907251",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 64,
+  "height": 64,
+  "platformSettings": {},
+  "subMetas": {
+    "Icon_Gymnastics": {
+      "ver": "1.0.4",
+      "uuid": "d46eb7c3-7b38-405e-9809-01fde8c221d1",
+      "rawTextureUuid": "437d297f-5a7d-4138-accf-e819bd907251",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0.5,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 63,
+      "height": 63,
+      "rawWidth": 64,
+      "rawHeight": 64,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

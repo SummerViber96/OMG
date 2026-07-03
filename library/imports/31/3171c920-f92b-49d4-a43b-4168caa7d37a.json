@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Nutri-blue",
+    "texture": "d41c710e-9405-4cdd-b2fe-430326a4be66",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      37,
+      67
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      40,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

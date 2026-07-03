@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Nutri-yellow",
+    "texture": "efa3b997-c2b7-4b35-b537-c8c979130d33",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      47,
+      62
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      48,
+      64
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

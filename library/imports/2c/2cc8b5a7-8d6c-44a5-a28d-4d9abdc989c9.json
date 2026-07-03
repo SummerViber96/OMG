@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "DumbBell",
+    "texture": "10f064e7-27f2-48de-82d8-3ce1366e0187",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      58,
+      51
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      60,
+      52
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

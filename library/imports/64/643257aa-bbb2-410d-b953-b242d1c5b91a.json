@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Daynhay",
+    "texture": "3941a2ae-2209-4b7b-88ae-af9ac3f56ef4",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      66,
+      60
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      68,
+      60
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

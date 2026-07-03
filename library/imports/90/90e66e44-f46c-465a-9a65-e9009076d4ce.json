@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "IconPurplePT",
+    "texture": "ea7e1d73-8950-48aa-bdb9-c21feaf27353",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      61,
+      72
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      64,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

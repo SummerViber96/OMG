@@ -49,6 +49,19 @@ var NewClass = /** @class */ (function (_super) {
             _this.anim.setAnimation(0, "IdleBL", true);
         }).start();
     };
+    NewClass.prototype.move3 = function (pos, time) {
+        var _this = this;
+        this.anim.setAnimation(0, "WalkOutR", true);
+        cc.tween(this.node).to(time, { position: pos }).call(function () {
+            _this.anim.setAnimation(0, "IdleBL", true);
+        }).start();
+    };
+    NewClass.prototype.move2 = function (pos, time) {
+        // this.anim.setAnimation(0, "WalkInR", true);
+        cc.tween(this.node).to(time, { position: pos }).call(function () {
+            // this.anim.setAnimation(0, "Waiting3", true);
+        }).start();
+    };
     NewClass.prototype.sit = function () {
         this.node.scaleX = 1;
         this.anim.setAnimation(0, "Sit_Waiting", true);
@@ -82,6 +95,30 @@ var NewClass = /** @class */ (function (_super) {
             cc.audioEngine.play(this.soundHappy, false, 1);
         }
         this.anim.setAnimation(0, "HappyOut", true);
+    };
+    NewClass.prototype.moveToWait = function () {
+        var _this = this;
+        this.anim.setAnimation(0, "WalkInR", true);
+        this.move2(cc.v3(324, -8), 1);
+        this.scheduleOnce(function () {
+            _this.anim.setAnimation(0, "WalkOutR", true);
+            _this.move2(cc.v3(157, 29), 1);
+        }, 1);
+        this.scheduleOnce(function () {
+            _this.anim.setAnimation(0, "Waiting3", true);
+        }, 2);
+    };
+    NewClass.prototype.moveToWait2 = function () {
+        var _this = this;
+        this.anim.setAnimation(0, "WalkInR", true);
+        this.move2(cc.v3(324, -8), 1);
+        this.scheduleOnce(function () {
+            _this.anim.setAnimation(0, "WalkOutR", true);
+            _this.move2(cc.v3(60, 29), 1);
+        }, 1);
+        this.scheduleOnce(function () {
+            _this.anim.setAnimation(0, "Waiting3", true);
+        }, 2);
     };
     __decorate([
         property(cc.Node)

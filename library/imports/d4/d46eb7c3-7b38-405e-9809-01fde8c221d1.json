@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icon_Gymnastics",
+    "texture": "437d297f-5a7d-4138-accf-e819bd907251",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      63,
+      63
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      64,
+      64
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

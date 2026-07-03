@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "IconRedPT",
+    "texture": "f4594c74-d4bd-43c1-b7d9-b9ec24cc6b9a",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      62,
+      72
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      64,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

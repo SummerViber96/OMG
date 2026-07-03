@@ -9,7 +9,7 @@ export default class NewClass extends cc.Component {
     @property(sp.Skeleton)
     anim: sp.Skeleton = null
     @property(cc.AudioClip)
-    soundHappy:cc.AudioClip=null
+    soundHappy: cc.AudioClip = null
     @property(cc.Integer)
     tag = 0
     gamePlay = null
@@ -23,6 +23,20 @@ export default class NewClass extends cc.Component {
         this.anim.setAnimation(0, "WalkInL", true);
         cc.tween(this.node).to(time, { position: pos }).call(() => {
             this.anim.setAnimation(0, "IdleBL", true);
+
+        }).start()
+    }
+    move3(pos, time) {
+        this.anim.setAnimation(0, "WalkOutR", true);
+        cc.tween(this.node).to(time, { position: pos }).call(() => {
+            this.anim.setAnimation(0, "IdleBL", true);
+
+        }).start()
+    }
+    move2(pos, time) {
+        // this.anim.setAnimation(0, "WalkInR", true);
+        cc.tween(this.node).to(time, { position: pos }).call(() => {
+            // this.anim.setAnimation(0, "Waiting3", true);
 
         }).start()
     }
@@ -48,8 +62,8 @@ export default class NewClass extends cc.Component {
     gapBung() {
         this.anim.setAnimation(0, "Abdominal", true)
     }
-    dayTa(){
-                this.anim.setAnimation(0, "AbCrunch", true)
+    dayTa() {
+        this.anim.setAnimation(0, "AbCrunch", true)
 
     }
     tucGian() {
@@ -58,12 +72,42 @@ export default class NewClass extends cc.Component {
 
     }
     happy() {
-        if(this.soundHappy){
-            cc.audioEngine.play(this.soundHappy,false,1)
+        if (this.soundHappy) {
+            cc.audioEngine.play(this.soundHappy, false, 1)
         }
         this.anim.setAnimation(0, "HappyOut", true);
-        
 
+
+    }
+    moveToWait() {
+        this.anim.setAnimation(0, "WalkInR", true);
+
+        this.move2(cc.v3(324, -8), 1)
+        this.scheduleOnce(() => {
+            this.anim.setAnimation(0, "WalkOutR", true);
+
+            this.move2(cc.v3(157, 29), 1)
+
+        }, 1)
+        this.scheduleOnce(() => {
+            this.anim.setAnimation(0, "Waiting3", true);
+
+        }, 2)
+    }
+      moveToWait2() {
+        this.anim.setAnimation(0, "WalkInR", true);
+
+        this.move2(cc.v3(324, -8), 1)
+        this.scheduleOnce(() => {
+            this.anim.setAnimation(0, "WalkOutR", true);
+
+            this.move2(cc.v3(60, 29), 1)
+
+        }, 1)
+        this.scheduleOnce(() => {
+            this.anim.setAnimation(0, "Waiting3", true);
+
+        }, 2)
     }
     // update (dt) {}
 }

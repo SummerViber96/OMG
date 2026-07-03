@@ -4361,7 +4361,7 @@
         "__id__": 194
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 202
@@ -10260,7 +10260,7 @@
         "__id__": 315
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 323
@@ -15373,7 +15373,7 @@
     ],
     "paused": false,
     "defaultSkin": "Skin1",
-    "defaultAnimation": "Sit_Waiting",
+    "defaultAnimation": "G3_BP",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -15384,7 +15384,7 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "Sit_Waiting",
+    "_animationName": "G3_BP",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 0,
@@ -36851,6 +36851,13 @@
     "logo": {
       "__id__": 616
     },
+    "listTaDon": [],
+    "listTaTo": [],
+    "listItem": null,
+    "giaTaNho": null,
+    "giaTaLon": null,
+    "imgtaDo": null,
+    "arrPosCus": [],
     "_id": "7exwsUe0VKvJrd1gYYvjqJ"
   }
 ]

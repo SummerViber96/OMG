@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icon_AbCrunch",
+    "texture": "76adac8a-240a-46bd-9c7e-c66fee13af78",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      59,
+      62
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      60,
+      64
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

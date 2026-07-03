@@ -54,11 +54,29 @@ var NewClass = /** @class */ (function (_super) {
         _this.fillBar = null;
         _this.endCard = null;
         _this.logo = null;
+        _this.listTaDon = [];
+        _this.listTaTo = [];
+        _this.listItem = null;
+        _this.listKhan = null;
+        _this.listNuoc = null;
+        _this.giaTaNho = null;
+        _this.giaTaLon = null;
+        _this.imgtaDo = null;
+        _this.charTut1 = null;
+        _this.lbGuild = null;
+        _this.tuNuoc = null;
         _this.arrPosCus = [];
         _this.arrCus = [];
         _this.arrCrunch = [];
         _this.isHind = false;
         _this.adChanel = '{{__adv_channels_adapter__}}';
+        _this.isFristClick = false;
+        _this.isTargetCus = null;
+        _this.isCountTaNho = 0;
+        _this.isCountTaTo = 0;
+        _this.isCountCus = 0;
+        _this.isCountKhan = 0;
+        _this.isCountNuoc = 2;
         _this.isCloseTut = false;
         _this.isCountAction = 0;
         _this.isCus = 0;
@@ -73,14 +91,10 @@ var NewClass = /** @class */ (function (_super) {
             window.gameReady && window.gameReady();
         }
         cc.audioEngine.play(this.soundBG, true, 0.5);
-        this.scheduleOnce(function () {
-            _this.npc.active = true;
-        }, 1);
-        this.scheduleOnce(function () {
-            cc.tween(_this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(function () {
-                _this.npc.active = false;
-            }).start();
-        }, 4);
+        // this.scheduleOnce(() => {
+        //     this.npc.active = true
+        // }, 1)
+        this.camera.node.position = cc.v3(250, -216);
         for (var i = 0; i < this.listCusNode.childrenCount; i++) {
             this.arrCus.push(this.listCusNode.children[i]);
         }
@@ -90,7 +104,156 @@ var NewClass = /** @class */ (function (_super) {
         for (var i = 0; i < this.listCrunch.childrenCount; i++) {
             this.arrCrunch.push(this.listCrunch.children[i]);
         }
-        this.spawFistCustomer();
+        // cc.tween(this.camera.node).delay(0.5).to(0.5,{position:cc.v3(0,100)}).start()
+        this.scheduleOnce(function () {
+            _this.camera.node.getComponent(cc.Animation).play();
+            _this.arrCus[0].getComponent("cusGym").moveToWait();
+            for (var i = 1; i < _this.arrCus.length; i++) {
+                _this.arrCus[i].getComponent("cusGym").move(_this.arrPosCus[i - 1], 1);
+            }
+            _this.isTargetCus = _this.arrCus[0];
+        }, 0.5);
+        this.scheduleOnce(function () {
+            _this.npc.active = true;
+        }, 3);
+        this.scheduleOnce(function () {
+            cc.tween(_this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(function () {
+                _this.npc.active = false;
+                _this.scheduleOnce(function () {
+                    _this.listItem.children[5].getChildByName("hand").active = true;
+                    _this.listItem.children[5].getComponent(cc.Button).enabled = true;
+                    _this.giaTaNho.children[0].active = true;
+                    _this.listItem.children[5].children[0].active = true;
+                    _this.npc2.active = true;
+                }, 0.1);
+            }).start();
+        }, 5);
+        // this.spawFistCustomer()
+    };
+    NewClass.prototype.clickItem = function (item) {
+        var _this = this;
+        this.npc2.active = false;
+        if (!this.isFristClick) {
+            this.isFristClick = true;
+            this.giaTaNho.children[0].active = false;
+            // this.scheduleOnce(() => {
+            // }, 0.8)
+        }
+        if (item.getChildByName("hand")) {
+            item.getChildByName("hand").active = false;
+        }
+        item.getChildByName("red").active = false;
+        var pos = item.parent.convertToWorldSpaceAR(item.position);
+        pos = this.node.convertToNodeSpaceAR(pos);
+        var itemComp = item.getComponent("itemGym");
+        if (itemComp.tag == 0) {
+            var itemTarget_1 = this.listTaDon[this.isCountTaNho];
+            this.isCountTaNho++;
+            var posEnd = itemTarget_1.position;
+            if (itemComp.colorG == 1) {
+                itemTarget_1.children[1].getComponent(cc.Sprite).spriteFrame = this.imgtaDo;
+            }
+            posEnd = itemTarget_1.parent.convertToWorldSpaceAR(posEnd);
+            posEnd = this.node.convertToNodeSpaceAR(posEnd);
+            var mag = 100;
+            var midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(function () {
+                item.active = false;
+                itemTarget_1.active = true;
+                if (_this.isCountCus == 0) {
+                    _this.isTargetCus.getComponent("cusGym").happy();
+                    for (var _i = 0, _a = _this.listItem.children; _i < _a.length; _i++) {
+                        var child = _a[_i];
+                        if (child.active) {
+                            child.getChildByName("red").active = true;
+                            child.getComponent(cc.Button).enabled = true;
+                        }
+                    }
+                    _this.lbGuild.string = "Nice! Keep cleaning!";
+                    _this.npc2.active = true;
+                    _this.npc2.getComponent(cc.Animation).play();
+                    _this.listItem.children[4].getChildByName("hand").active = true;
+                    _this.scheduleOnce(function () {
+                        _this.npc2.active = false;
+                    }, 2);
+                }
+                _this.checkStep();
+            }).start();
+        }
+        else if (itemComp.tag == 1) {
+            var itemTarget_2 = this.listTaTo[this.isCountTaTo];
+            this.isCountTaTo++;
+            var posEnd = itemTarget_2.position;
+            posEnd = itemTarget_2.parent.convertToWorldSpaceAR(posEnd);
+            posEnd = this.node.convertToNodeSpaceAR(posEnd);
+            var mag = 100;
+            var midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(function () {
+                item.active = false;
+                itemTarget_2.active = true;
+                _this.isTargetCus.getComponent("cusGym").happy();
+                // this.isCountCus++
+                _this.checkStep();
+            }).start();
+        }
+        else if (itemComp.tag == 2) {
+            var itemTarget_3 = this.listKhan.children[this.isCountKhan];
+            this.isCountKhan++;
+            var posEnd = itemTarget_3.position;
+            posEnd = itemTarget_3.parent.convertToWorldSpaceAR(posEnd);
+            posEnd = this.node.convertToNodeSpaceAR(posEnd);
+            var mag = 100;
+            var midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(function () {
+                item.active = false;
+                itemTarget_3.active = true;
+                _this.isTargetCus.getComponent("cusGym").happy();
+                // this.isCountCus++
+                _this.checkStep();
+            }).start();
+        }
+        else if (itemComp.tag == 3) {
+            var itemTarget_4 = this.listNuoc.children[this.isCountNuoc];
+            this.isCountNuoc++;
+            var posEnd = itemTarget_4.position;
+            posEnd = itemTarget_4.parent.convertToWorldSpaceAR(posEnd);
+            posEnd = this.node.convertToNodeSpaceAR(posEnd);
+            var mag = 100;
+            var midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(function () {
+                item.active = false;
+                itemTarget_4.active = true;
+                _this.isTargetCus.getComponent("cusGym").happy();
+                _this.checkStep();
+            }).start();
+        }
+    };
+    NewClass.prototype.checkStep = function () {
+        var _this = this;
+        this.isCountCus++;
+        if (this.isCountCus == 6) {
+            var finalPos = cc.v3(-227, -60);
+            this.isTargetCus.getComponent("cusGym").move3(finalPos, 2);
+            this.scheduleOnce(function () {
+                _this.isTargetCus.active = false;
+                _this.charTut1.active = true;
+            }, 2);
+            this.scheduleOnce(function () {
+                cc.tween(_this.camera.node).to(0.8, { position: cc.v3(-20, 130) }).to(0.8, { position: cc.v3(-220, 130) }).start();
+                _this.arrCus[1].getComponent("cusGym").moveToWait2();
+            }, 1.4);
+            this.scheduleOnce(function () {
+                _this.arrCus[1].getChildByName("pop").active = true;
+                _this.tuNuoc.children[0].active = true;
+                _this.tuNuoc.getChildByName("hand").active = true;
+                _this.tuNuoc.getComponent(cc.Button).enabled = true;
+            }, 3.4);
+        }
+    };
+    NewClass.prototype.btn_tuNuoc = function (event) {
+        event.currentTarget.getComponent(cc.Button).enabled = false;
+        this.tuNuoc.children[0].active = false;
+        this.tuNuoc.getChildByName("hand").active = false;
     };
     NewClass.prototype.spawFistCustomer = function () {
         var _this = this;
@@ -422,12 +585,12 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1;
+        this.camera.zoomRatio = 1.5;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.guildUpgrade.scale = (logic) ? 2.4 : 1;
         this.guildUpgrade2.scale = (logic) ? 1.6 : 1;
-        this.camera.node.position = cc.v3(0, 0);
+        // this.camera.node.position = cc.v3(0, 0)
         this.lbCoin.string = globalThis.gold.toString();
         this.npc.scale = (logic) ? 1.7 : 1;
         this.npc2.scale = (logic) ? 1.7 : 1;
@@ -450,8 +613,8 @@ var NewClass = /** @class */ (function (_super) {
             var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
-            this.camera.zoomRatio = 1.7;
-            this.camera.node.position = cc.v3(150, 0);
+            this.camera.zoomRatio = 2;
+            // this.camera.node.position = cc.v3(150, 0)
             this.phaohoa.scale = (logic) ? 7 : 3;
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
@@ -459,7 +622,7 @@ var NewClass = /** @class */ (function (_super) {
                 this.logo.getComponent(cc.Widget).top = 48 + 30;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.4;
+                // this.camera.zoomRatio = 1.4
                 this.guildUpgrade.scale = 1.8;
             }
         }
@@ -476,7 +639,7 @@ var NewClass = /** @class */ (function (_super) {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.8;
+                this.camera.zoomRatio = 1;
             }
         }
     };
@@ -558,6 +721,42 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "logo", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listTaDon", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listTaTo", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listItem", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listKhan", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listNuoc", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "giaTaNho", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "giaTaLon", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], NewClass.prototype, "imgtaDo", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "charTut1", void 0);
+    __decorate([
+        property(cc.Label)
+    ], NewClass.prototype, "lbGuild", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "tuNuoc", void 0);
+    __decorate([
+        property
+    ], NewClass.prototype, "arrPosCus", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

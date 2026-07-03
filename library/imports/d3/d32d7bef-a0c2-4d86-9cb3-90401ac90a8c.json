@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "DumbBellblue",
+    "texture": "0a0f641e-a256-4832-a9dd-3d02743ac105",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      57,
+      51
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      60,
+      52
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
