@@ -13850,8 +13850,8 @@
     "relativePath": "Gym\\Gym4\\Layer 410hind.png"
   },
   "0a12ee3b-9eca-46f3-8497-871c6a39e7ac": {
-    "asset": 1783041501575,
-    "meta": 1783041501594,
+    "asset": 1783055233585,
+    "meta": 1783055233615,
     "relativePath": "scenes\\Gym4.fire"
   },
   "35d47f93-f5ab-4866-8578-6cef7300f4b5": {
@@ -13864,19 +13864,44 @@
     "meta": 1783033067048,
     "relativePath": "Gym\\Script\\itemGym.ts"
   },
-  "02049483-f91e-45f8-a4e6-06d642d19c01": {
-    "asset": 1783040547244,
-    "meta": 1783040559582,
-    "relativePath": "Gym\\Script\\cusGym.ts"
-  },
   "59c55f40-a52c-4149-adb5-f2eaf9bb5c8c": {
     "asset": 1783040973771,
     "meta": 1783041054115,
     "relativePath": "Gym\\chair\\Tunuoclv3hind.png"
   },
+  "e6dd9563-5ebe-4b83-bacf-beeb45ba6c3f": {
+    "asset": 1783045779101,
+    "meta": 1783045779165,
+    "relativePath": "Gym\\Script\\Layer 2909.png"
+  },
+  "df22eb3c-120e-4c2b-be7c-fbf8aff1bd70": {
+    "asset": 1783045907263,
+    "meta": 1783045910966,
+    "relativePath": "Gym\\Script\\Layer 2909hind.png"
+  },
+  "7b286beb-ab25-4ed2-aaf6-ce26066d8d29": {
+    "asset": 1783050600128,
+    "meta": 1783050601908,
+    "relativePath": "Gym\\Script\\pt.ts"
+  },
+  "d1ffc221-b175-4e59-ad1d-f7c7069cbb52": {
+    "asset": 1783051042848,
+    "meta": 1783051042883,
+    "relativePath": "Gym\\pr.png"
+  },
+  "87217746-993f-4e7f-8b03-ec5dc4e8fb46": {
+    "asset": 1783051042847,
+    "meta": 1783051042884,
+    "relativePath": "Gym\\bg-pr.png"
+  },
+  "02049483-f91e-45f8-a4e6-06d642d19c01": {
+    "asset": 1783054091869,
+    "meta": 1783054093216,
+    "relativePath": "Gym\\Script\\cusGym.ts"
+  },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1783041485158,
-    "meta": 1783041486451,
+    "asset": 1783054984714,
+    "meta": 1783055033545,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

@@ -31,13 +31,25 @@ var NewClass = /** @class */ (function (_super) {
         _this.pop = null;
         _this.anim = null;
         _this.soundHappy = null;
+        _this.countTime = 0;
+        _this.fillBar = null;
         _this.tag = 0;
         _this.gamePlay = null;
+        _this.isSuccess = false;
         return _this;
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym");
+    };
+    NewClass.prototype.countDown = function () {
+        var _this = this;
+        this.fillBar.node.parent.active = true;
+        cc.tween(this.fillBar).to(this.countTime, { fillRange: 0 }).call(function () {
+            if (!_this.isSuccess) {
+                _this.gamePlay.cusOut(_this.node);
+            }
+        }).start();
     };
     NewClass.prototype.showMision = function () {
         this.pop.getComponent(cc.Animation).play();
@@ -91,10 +103,26 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(0, "Waiting3", true);
     };
     NewClass.prototype.happy = function () {
+        // if (this.soundHappy) {
+        //     cc.audioEngine.play(this.soundHappy, false, 1)
+        //     th
+        // }
+        this.anim.setAnimation(0, "HappyOut", true);
+        cc.tween(this.pop).to(0.2, { scale: 0 }).start();
+        this.node.getChildByName("notiBonusCoin2").active = true;
+    };
+    NewClass.prototype.smile = function () {
+        console.log("smile");
+        this.fillBar.node.parent.active = false;
+        this.isSuccess = true;
         if (this.soundHappy) {
             cc.audioEngine.play(this.soundHappy, false, 1);
         }
-        this.anim.setAnimation(0, "HappyOut", true);
+    };
+    NewClass.prototype.smile2 = function () {
+        if (this.soundHappy) {
+            cc.audioEngine.play(this.soundHappy, false, 1);
+        }
     };
     NewClass.prototype.moveToWait = function () {
         var _this = this;
@@ -120,6 +148,34 @@ var NewClass = /** @class */ (function (_super) {
             _this.anim.setAnimation(0, "Waiting3", true);
         }, 2);
     };
+    NewClass.prototype.moveToWait3 = function () {
+        var _this = this;
+        this.anim.setAnimation(0, "WalkInR", true);
+        this.move2(cc.v3(324, -8), 1);
+        this.scheduleOnce(function () {
+            _this.anim.setAnimation(0, "WalkOutR", true);
+            _this.move2(cc.v3(-150, -80), 2);
+        }, 1);
+        this.scheduleOnce(function () {
+            _this.anim.setAnimation(0, "Waiting3", true);
+            _this.pop.active = true;
+            _this.gamePlay.showMissionBoxing();
+            _this.countDown();
+        }, 3);
+    };
+    NewClass.prototype.boxing = function () {
+        this.anim.setAnimation(0, "Boxing", true);
+        this.node.scaleX = 1;
+    };
+    NewClass.prototype.moveOut = function () {
+        var _this = this;
+        this.isSuccess = true;
+        this.fillBar.node.parent.active = false;
+        this.anim.setAnimation(0, "WalkInL", true);
+        cc.tween(this.node).to(2.5, { position: cc.v3(392, 74) }).call(function () {
+            _this.node.active = false;
+        }).start();
+    };
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "pop", void 0);
@@ -129,6 +185,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundHappy", void 0);
+    __decorate([
+        property(cc.Integer)
+    ], NewClass.prototype, "countTime", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], NewClass.prototype, "fillBar", void 0);
     __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "tag", void 0);
