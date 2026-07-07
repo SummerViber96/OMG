@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Towel_messy",
+    "texture": "f6c89e95-ce4c-4521-bba6-cda4dde883cc",
+    "atlas": "",
+    "rect": [
+      131,
+      227,
+      1187,
+      700
+    ],
+    "offset": [
+      0.5,
+      -34
+    ],
+    "originalSize": [
+      1448,
+      1086
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
