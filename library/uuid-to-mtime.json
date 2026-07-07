@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1783360094204,
+    "meta": 1783459308790,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2631,7 +2631,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1783360094206,
+    "meta": 1783459308788,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -11610,8 +11610,8 @@
     "relativePath": "Gym\\chair\\deco4.png"
   },
   "95fa2cca-d034-4427-89b5-bba4f00ed222": {
-    "asset": 1782838692422,
-    "meta": 1782839651494,
+    "asset": 1783360116688,
+    "meta": 1783459308765,
     "relativePath": "Gym\\decore"
   },
   "b963a15a-6b7d-4c1c-bbb5-5131541d611e": {
@@ -13850,8 +13850,8 @@
     "relativePath": "Gym\\Gym4\\Layer 410hind.png"
   },
   "0a12ee3b-9eca-46f3-8497-871c6a39e7ac": {
-    "asset": 1783360421387,
-    "meta": 1783360421416,
+    "asset": 1783459697891,
+    "meta": 1783459697913,
     "relativePath": "scenes\\Gym4.fire"
   },
   "35d47f93-f5ab-4866-8578-6cef7300f4b5": {
@@ -13899,19 +13899,19 @@
     "meta": 1783054093216,
     "relativePath": "Gym\\Script\\cusGym.ts"
   },
-  "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1783054984714,
-    "meta": 1783055033545,
-    "relativePath": "Gym\\Script\\Gym.ts"
-  },
   "f30df09a-7cfd-4cfc-a90e-95a588a30d43": {
     "asset": 1783000944052,
-    "meta": 1783360094208,
+    "meta": 1783459308790,
     "relativePath": "Gym\\G1_WaterFridge.skel"
   },
   "f6c89e95-ce4c-4521-bba6-cda4dde883cc": {
     "asset": 1783360116686,
     "meta": 1783360116756,
     "relativePath": "Gym\\decore\\Towel_messy.webp"
+  },
+  "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
+    "asset": 1783459672936,
+    "meta": 1783459676176,
+    "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

@@ -13,12 +13,12 @@
         "type": "dock-h",
         "children": [
           {
-            "width": 512,
+            "width": 516,
             "height": 1284,
             "type": "dock-v",
             "children": [
               {
-                "width": 512,
+                "width": 516,
                 "height": 807,
                 "type": "panel",
                 "active": 0,
@@ -27,7 +27,7 @@
                 ]
               },
               {
-                "width": 512,
+                "width": 516,
                 "height": 474,
                 "type": "panel",
                 "active": 0,
@@ -38,17 +38,17 @@
             ]
           },
           {
-            "width": 1264,
+            "width": 1260,
             "height": 1284,
             "type": "dock-v",
             "children": [
               {
-                "width": 1264,
+                "width": 1260,
                 "height": 911,
                 "type": "dock-h",
                 "children": [
                   {
-                    "width": 907,
+                    "width": 904,
                     "height": 911,
                     "type": "panel",
                     "active": 0,
@@ -57,7 +57,7 @@
                     ]
                   },
                   {
-                    "width": 354,
+                    "width": 353,
                     "height": 911,
                     "type": "panel",
                     "active": 1,
@@ -69,7 +69,7 @@
                 ]
               },
               {
-                "width": 1264,
+                "width": 1260,
                 "height": 370,
                 "type": "panel",
                 "active": 1,
@@ -103,8 +103,7 @@
         "inspector",
         "cocos-services"
       ]
-    },
-    "worker": {}
+    }
   },
   "panels": {
     "builder": {

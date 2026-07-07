@@ -125,16 +125,16 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.npc.active = true;
         }, 3);
-        this.scheduleOnce(function () {
-            cc.tween(_this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(function () {
-                _this.npc.active = false;
-                _this.listItem.children[5].getChildByName("hand").active = true;
-                _this.listItem.children[5].getComponent(cc.Button).enabled = true;
-                _this.giaTaNho.children[0].active = true;
-                _this.listItem.children[5].children[0].active = true;
-                _this.npc2.active = true;
-            }).start();
-        }, 5);
+        // this.scheduleOnce(() => {
+        //     cc.tween(this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
+        //         this.npc.active = false
+        //         this.listItem.children[5].getChildByName("hand").active = true;
+        //         this.listItem.children[5].getComponent(cc.Button).enabled = true;
+        //         this.giaTaNho.children[0].active = true
+        //         this.listItem.children[5].children[0].active = true
+        //         this.npc2.active = true
+        //     }).start()
+        // }, 5)
         // this.spawFistCustomer()
     };
     NewClass.prototype.cusOut = function (node) {
@@ -442,6 +442,11 @@ var NewClass = /** @class */ (function (_super) {
         this.isCloseTut = true;
         cc.tween(this.npc).by(0.3, { opacity: -255, position: cc.v3(0, -80) }).call(function () {
             _this.npc.active = false;
+            _this.listItem.children[5].getChildByName("hand").active = true;
+            _this.listItem.children[5].getComponent(cc.Button).enabled = true;
+            _this.giaTaNho.children[0].active = true;
+            _this.listItem.children[5].children[0].active = true;
+            _this.npc2.active = true;
         }).start();
     };
     NewClass.prototype.doCus = function (tag) {

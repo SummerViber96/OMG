@@ -38594,8 +38594,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -221.445,
-        127.2,
+        -210.21,
+        160.281,
         0,
         0,
         0,
@@ -58501,8 +58501,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 494.01,
-      "height": 69.3
+      "width": 463.48,
+      "height": 124.3
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -58553,9 +58553,9 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "This gym is a MESS!",
-    "_N$string": "This gym is a MESS!",
-    "_fontSize": 55,
+    "_string": "This Gym is a Mess.\nCan you help to re-rack?",
+    "_N$string": "This Gym is a Mess.\nCan you help to re-rack?",
+    "_fontSize": 40,
     "_lineHeight": 55,
     "_enableWrapText": true,
     "_N$file": {
@@ -58566,7 +58566,7 @@
     "_batchAsBitmap": false,
     "_styleFlags": 0,
     "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
+    "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,

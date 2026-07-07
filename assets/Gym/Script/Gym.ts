@@ -128,17 +128,17 @@ export default class NewClass extends cc.Component {
             this.npc.active = true
 
         }, 3)
-        this.scheduleOnce(() => {
-            cc.tween(this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
-                this.npc.active = false
-                this.listItem.children[5].getChildByName("hand").active = true;
-                this.listItem.children[5].getComponent(cc.Button).enabled = true;
-                this.giaTaNho.children[0].active = true
-                this.listItem.children[5].children[0].active = true
-                this.npc2.active = true
+        // this.scheduleOnce(() => {
+        //     cc.tween(this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
+        //         this.npc.active = false
+        //         this.listItem.children[5].getChildByName("hand").active = true;
+        //         this.listItem.children[5].getComponent(cc.Button).enabled = true;
+        //         this.giaTaNho.children[0].active = true
+        //         this.listItem.children[5].children[0].active = true
+        //         this.npc2.active = true
 
-            }).start()
-        }, 5)
+        //     }).start()
+        // }, 5)
         // this.spawFistCustomer()
     }
     isCountOut = 0
@@ -334,7 +334,7 @@ export default class NewClass extends cc.Component {
         if (this.isCountCus == 11) {
             for (let child of this.listCus2.children) {
                 child.getComponent("cusGym").happy()
-                 child.getComponent("cusGym").isSuccess=true
+                child.getComponent("cusGym").isSuccess = true
                 // child.getComponent("cusGym").countDown()
             }
             this.onEndgame(true)
@@ -484,6 +484,11 @@ export default class NewClass extends cc.Component {
         this.isCloseTut = true
         cc.tween(this.npc).by(0.3, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
             this.npc.active = false
+                    this.listItem.children[5].getChildByName("hand").active = true;
+                    this.listItem.children[5].getComponent(cc.Button).enabled = true;
+                    this.giaTaNho.children[0].active = true
+                    this.listItem.children[5].children[0].active = true
+                    this.npc2.active = true
         }).start()
 
     }
