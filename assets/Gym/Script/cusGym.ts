@@ -118,6 +118,7 @@ export default class NewClass extends cc.Component {
         }, 1)
         this.scheduleOnce(() => {
             this.anim.setAnimation(0, "Waiting3", true);
+            this.pop.active = true
 
         }, 2)
     }

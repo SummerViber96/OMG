@@ -134,6 +134,7 @@ var NewClass = /** @class */ (function (_super) {
         }, 1);
         this.scheduleOnce(function () {
             _this.anim.setAnimation(0, "Waiting3", true);
+            _this.pop.active = true;
         }, 2);
     };
     NewClass.prototype.moveToWait2 = function () {

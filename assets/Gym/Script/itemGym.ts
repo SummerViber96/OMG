@@ -22,6 +22,11 @@ export default class NewClass extends cc.Component {
 
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym")
+        const touchNode = cc.Canvas.instance.node;
+        touchNode.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        touchNode.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        touchNode.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        touchNode.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
 
     }
     clickItem(event) {

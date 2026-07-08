@@ -71,6 +71,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.tutBoxing = null;
         _this.listCus2 = null;
         _this.listItem2 = null;
+        _this.mayDayTa = null;
         _this.arrPosCus = [];
         _this.arrCus = [];
         _this.arrCrunch = [];
@@ -244,6 +245,7 @@ var NewClass = /** @class */ (function (_super) {
             var itemTarget_3 = this.listKhan.children[this.isCountKhan];
             this.isCountKhan++;
             var posEnd = itemTarget_3.position;
+            item.children[2].active = false;
             posEnd = itemTarget_3.parent.convertToWorldSpaceAR(posEnd);
             posEnd = this.node.convertToNodeSpaceAR(posEnd);
             var mag = 100;
@@ -256,6 +258,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.checkStep();
                 cc.audioEngine.play(_this.soundCoin, false, 1);
             }).start();
+            cc.tween(item).to(0.6, { angle: 0 }).start();
         }
         else if (itemComp.tag == 3) {
             var itemTarget_4 = this.listNuoc.children[this.isCountNuoc];
@@ -277,29 +280,11 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.checkStep = function () {
         var _this = this;
         this.isCountCus++;
-        // console.log("dem", this.isCountCus)
         if (this.isCountCus == 6) {
-            // let finalPos = cc.v3(-227, -60);
-            // this.isTargetCus.getComponent("cusGym").move3(finalPos, 2)
-            // this.scheduleOnce(() => {
-            //     // if (!this.isMoveCus2) {
-            //     this.isTargetCus.active = false;
-            //     this.charTut1.active = true;
-            //     // }
-            // }, 2)
             this.isTargetCus.getComponent("cusGym").smile();
             this.scheduleOnce(function () {
-                // cc.tween(this.camera.node).to(0.8, { position: cc.v3(-20, 130) }).to(0.8, { position: cc.v3(-220, 130) }).start()
-                // this.arrCus[1].getComponent("cusGym").moveToWait2()
                 _this.moveCus2(true);
             }, 1);
-            // this.scheduleOnce(() => {
-            //     this.arrCus[1].getChildByName("pop").active = true
-            //     this.arrCus[1].getComponent("cusGym").countDown();
-            //     this.tuNuoc.children[0].active = true
-            //     this.tuNuoc.getChildByName("hand").active = true;
-            //     this.tuNuoc.getComponent(cc.Button).enabled = true
-            // }, 3)
         }
         if (this.isCountCus == 11) {
             for (var _i = 0, _a = this.listCus2.children; _i < _a.length; _i++) {
@@ -317,13 +302,22 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.isMoveCus2 = true;
         if (value == true) {
-            var finalPos = cc.v3(-227, -60);
+            var finalPos = cc.v3(-336, -99);
             this.isTargetCus.getComponent("cusGym").move3(finalPos, 2);
             this.scheduleOnce(function () {
-                // if (!this.isMoveCus2) {
                 _this.isTargetCus.active = false;
-                _this.charTut1.active = true;
-                // }
+                _this.mayDayTa.children[0].active = true;
+                _this.mayDayTa.getChildByName("char").getChildByName("notiBonusCoin").active = true;
+                _this.scheduleOnce(function () {
+                    _this.mayDayTa.getChildByName("char").getComponent("cusGym").dayTa();
+                    // this.dayTa1.getChildByName("char").position = cc.v3(1, -16)
+                    _this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                    _this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                    char.getComponent("cusGym").gapBung();
+                    char.position = cc.v3(1, -16);
+                    _this.arrCrunch[0].children[0].active = false;
+                    _this.arrCrunch[0].children[1].active = true;
+                }, 0.5);
             }, 1);
         }
         cc.tween(this.camera.node).to(0.8, { position: cc.v3(-20, 130) }).to(0.8, { position: cc.v3(-220, 130) }).start();
@@ -432,6 +426,11 @@ var NewClass = /** @class */ (function (_super) {
         }, 2.5);
         this.scheduleOnce(function () {
             _this.npc2.active = true;
+            //         this.npc.active = false
+            _this.listItem.children[5].getChildByName("hand").active = true;
+            _this.listItem.children[5].getComponent(cc.Button).enabled = true;
+            _this.giaTaNho.children[0].active = true;
+            _this.listItem.children[5].children[0].active = true;
         }, 4);
     };
     NewClass.prototype.btn_closeTut = function () {
@@ -930,6 +929,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listItem2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "mayDayTa", void 0);
     __decorate([
         property
     ], NewClass.prototype, "arrPosCus", void 0);

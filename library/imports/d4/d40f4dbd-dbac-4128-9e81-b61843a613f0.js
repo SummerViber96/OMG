@@ -44,6 +44,11 @@ var NewClass = /** @class */ (function (_super) {
     // onLoad () {}
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym");
+        var touchNode = cc.Canvas.instance.node;
+        touchNode.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        touchNode.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        touchNode.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        touchNode.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
     };
     NewClass.prototype.clickItem = function (event) {
         event.currentTarget.getComponent(cc.Button).enabled = false;
