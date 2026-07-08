@@ -33,11 +33,14 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundHappy = null;
         _this.countTime = 0;
         _this.fillBar = null;
+        _this.fillYellow = null;
+        _this.fillRed = null;
         _this.tag = 0;
         _this.gamePlay = null;
         _this.isSuccess = false;
+        _this.isCountingDown = false;
+        _this.fillBarColorState = 0;
         return _this;
-        // update (dt) {}
     }
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym");
@@ -45,11 +48,43 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.countDown = function () {
         var _this = this;
         this.fillBar.node.parent.active = true;
+        this.isCountingDown = true;
+        this.fillBarColorState = 0;
         cc.tween(this.fillBar).to(this.countTime, { fillRange: 0 }).call(function () {
+            _this.isCountingDown = false;
             if (!_this.isSuccess) {
                 _this.gamePlay.cusOut(_this.node);
+                _this.pop.active = false;
             }
         }).start();
+    };
+    NewClass.prototype.moveByEnd = function () {
+        var _this = this;
+        this.anim.setAnimation(0, "WalkOutR", true);
+        cc.tween(this.node).by(1, { position: cc.v3(-120, 50) }).call(function () {
+            _this.anim.setAnimation(0, "Waiting2", true);
+            _this.pop.active = true;
+        }).start();
+    };
+    NewClass.prototype.walk = function (time, pos) {
+        this.pop.active = false;
+        this.anim.setAnimation(0, "WalkOutR", true);
+        cc.tween(this.node).by(time, { position: pos }).call(function () {
+        }).start();
+    };
+    NewClass.prototype.updateFillBarColor = function () {
+        if (!this.isCountingDown)
+            return;
+        var range = this.fillBar.fillRange;
+        if (range < 0.2 && this.fillBarColorState < 2) {
+            this.fillBar.spriteFrame = this.fillRed;
+            this.fillBarColorState = 2;
+        }
+        else if (range < 0.5 && this.fillBarColorState < 1) {
+            this.fillBar.spriteFrame = this.fillYellow;
+            this.fillBarColorState = 1;
+            this.anim.setAnimation(0, "Waiting3", true);
+        }
     };
     NewClass.prototype.showMision = function () {
         this.pop.getComponent(cc.Animation).play();
@@ -81,7 +116,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.showPop = function () {
         this.pop.active = true;
         this.pop.getComponent(cc.Animation).play();
-        this.pop.getChildByName("hand").active = true;
+        // this.pop.getChildByName("hand").active = true
     };
     NewClass.prototype.clickPop = function (event, value) {
         console.log("clcik pop");
@@ -95,6 +130,9 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.gapBung = function () {
         this.anim.setAnimation(0, "Abdominal", true);
     };
+    NewClass.prototype.ngoiTho = function () {
+        this.anim.setAnimation(0, "Abdominal_Tired", true);
+    };
     NewClass.prototype.dayTa = function () {
         this.anim.setAnimation(0, "AbCrunch", true);
     };
@@ -107,12 +145,13 @@ var NewClass = /** @class */ (function (_super) {
         //     cc.audioEngine.play(this.soundHappy, false, 1)
         //     th
         // }
-        this.anim.setAnimation(0, "HappyOut", true);
+        this.anim.setAnimation(0, "HappyOut", false);
         cc.tween(this.pop).to(0.2, { scale: 0 }).start();
         this.node.getChildByName("notiBonusCoin2").active = true;
     };
     NewClass.prototype.smile = function () {
         console.log("smile");
+        this.isCountingDown = false;
         this.fillBar.node.parent.active = false;
         this.isSuccess = true;
         if (this.soundHappy) {
@@ -133,7 +172,7 @@ var NewClass = /** @class */ (function (_super) {
             _this.move2(cc.v3(157, 29), 1);
         }, 1);
         this.scheduleOnce(function () {
-            _this.anim.setAnimation(0, "Waiting3", true);
+            _this.anim.setAnimation(0, "Waiting2", true);
             _this.pop.active = true;
         }, 2);
     };
@@ -162,7 +201,7 @@ var NewClass = /** @class */ (function (_super) {
             _this.pop.active = true;
             _this.gamePlay.showMissionBoxing();
             _this.countDown();
-        }, 3);
+        }, 3.2);
     };
     NewClass.prototype.boxing = function () {
         this.anim.setAnimation(0, "Boxing", true);
@@ -171,11 +210,27 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveOut = function () {
         var _this = this;
         this.isSuccess = true;
+        this.isCountingDown = false;
         this.fillBar.node.parent.active = false;
         this.anim.setAnimation(0, "WalkInL", true);
         cc.tween(this.node).to(2.5, { position: cc.v3(392, 74) }).call(function () {
             _this.node.active = false;
         }).start();
+    };
+    NewClass.prototype.moveOut2 = function () {
+        var _this = this;
+        this.isSuccess = true;
+        this.isCountingDown = false;
+        this.fillBar.node.parent.active = false;
+        this.anim.setAnimation(0, "WalkOutR", true);
+        cc.tween(this.node).to(1, { position: cc.v3(101, -143) }).call(function () {
+            _this.anim.setAnimation(0, "WalkInR", true);
+        }).to(2, { position: cc.v3(392, 74) }).call(function () {
+            _this.node.active = false;
+        }).start();
+    };
+    NewClass.prototype.update = function () {
+        this.updateFillBarColor();
     };
     __decorate([
         property(cc.Node)
@@ -192,6 +247,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Sprite)
     ], NewClass.prototype, "fillBar", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], NewClass.prototype, "fillYellow", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], NewClass.prototype, "fillRed", void 0);
     __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "tag", void 0);

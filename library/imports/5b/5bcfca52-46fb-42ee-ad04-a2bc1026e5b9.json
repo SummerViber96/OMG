@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Dungcuhind2",
+    "texture": "38ce4737-a0a8-43e7-84f7-a033dab8b363",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      356,
+      404
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      356,
+      404
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

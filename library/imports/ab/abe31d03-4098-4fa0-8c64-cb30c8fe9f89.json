@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "DungcuGreen",
+    "texture": "21d75980-58e2-45cd-a49c-94731330a076",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      356,
+      601
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      356,
+      601
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

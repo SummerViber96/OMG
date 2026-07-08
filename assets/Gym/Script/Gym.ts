@@ -33,6 +33,10 @@ export default class NewClass extends cc.Component {
     soundWin: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundlose: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundThink: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundWrong: cc.AudioClip = null;
     @property(cc.Node)
     game: cc.Node = null
     @property(cc.Node)
@@ -82,6 +86,8 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     tuNuoc: cc.Node = null
     @property(cc.Node)
+    tuKhan: cc.Node = null
+    @property(cc.Node)
     bartender1: cc.Node = null
     @property(cc.Node)
     tutBoxing: cc.Node = null
@@ -90,7 +96,11 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     listItem2: cc.Node = null
     @property(cc.Node)
-    mayDayTa:cc.Node = null
+    mayDayTa: cc.Node = null
+    @property(cc.Node)
+    mayGapBung: cc.Node = null
+    @property(cc.Node)
+    mayDayTa2: cc.Node = null
 
     @property
     arrPosCus = []
@@ -144,21 +154,41 @@ export default class NewClass extends cc.Component {
         // }, 5)
         // this.spawFistCustomer()
     }
+    showMision2() {
+        let char = this.mayGapBung.getChildByName("char");
+        let charComp = char.getComponent("cusGym");
+        charComp.ngoiTho();
+        char.position = cc.v3(-14, -10);
+        this.scheduleOnce(() => {
+            charComp.showPop();
+
+            this.tuNuoc.children[0].active = true
+            this.tuNuoc.getChildByName("hand").active = true;
+            this.tuNuoc.getComponent(cc.Button).enabled = true
+
+        }, 0.3);
+    }
     isCountOut = 0
     cusOut(node) {
-        node.getComponent("cusGym").moveOut()
+        if (node.parent.name == "mayGapBung") {
+            node.getComponent("cusGym").moveOut2()
+        }
+        else {
+            node.getComponent("cusGym").moveOut()
+        }
+
         this.isCountOut++
         console.log("move out")
 
         if (this.isCountOut == 1 && this.arrCus[0].active == true) {
             this.moveCus2(false)
         }
-        else if (this.isCountOut == 1 && this.arrCus[1].active == true) {
+        else if (this.isCountOut == 1 && this.mayGapBung.getChildByName("char").active == true) {
             this.moveCus3()
         }
         else if (this.isCountOut == 1 && this.arrCus[2].active == true) {
             // this.moveCus3()
-            cc.tween(this.camera.node).to(0.5, { position: cc.v3(0, 100) }).start()
+            cc.tween(this.camera.node).to(0.5, { position: cc.v3(-100, 100) }).start()
             this.listCus2.active = true;
             for (let child of this.listCus2.children) {
                 // child.getComponent("cusGym").happy()
@@ -166,7 +196,7 @@ export default class NewClass extends cc.Component {
             }
             this.listItem2.active = true
             for (let child of this.listItem2.children) {
-                child.getComponent(cc.Button).enabled = true
+
                 child.children[0].active = true
 
             }
@@ -176,163 +206,313 @@ export default class NewClass extends cc.Component {
             this.onEndgame(false)
         }
     }
+    isCountWorkEnd = 0
+    btn_workEnd(event, value) {
+        event.currentTarget.getComponent(cc.Button).enabled = false;
+        let char = null;
+        if (value == "1") {
+            char = this.listCus2.children[1];
+            char.getComponent("cusGym").walk(1.2, cc.v3(-179, 10));
+            this.scheduleOnce(() => {
+                char.active = false;
+                this.mayGapBung.children[1].active = true;
+                this.mayGapBung.getChildByName("char2").active = true;
+                this.mayGapBung.getChildByName("char2").getComponent("cusGym").gapBung();
+
+            }, 1.2);
+
+        }
+        else if (value == "2") {
+            char = this.listCus2.children[0];
+            char.getComponent("cusGym").walk(2, cc.v3(-402, -217));
+            this.scheduleOnce(() => {
+                char.active = false;
+                this.mayDayTa2.getChildByName("char2").active = true;
+                this.mayDayTa2.getChildByName("char2").getComponent("cusGym").dayTa()
+                // this.dayTa1.getChildByName("char").position = cc.v3(1, -16)
+                this.mayDayTa2.getComponent(sp.Skeleton).setAnimation(0, "Action", true)
+                this.mayDayTa2.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true)
+            }, 2)
+        }
+        else if (value == "3") {
+            char = this.listCus2.children[2];
+            char.getComponent("cusGym").walk(3, cc.v3(-675, -144));
+            this.scheduleOnce(() => {
+                char.active = false;
+                this.boxing2.getChildByName("char2").active = true;
+                // this.boxing2.getChildByName("char2").getComponent("cusGym").boxing();
+            }, 3)
+        }
+        this.isCountWorkEnd++;
+        if (this.isCountWorkEnd == 3) {
+            cc.tween(this.camera.node).by(1, { position: cc.v3(-150, 0) }).start()
+            this.scheduleOnce(() => {
+                this.onEndgame(true)
+            }, 3.2)
+        }
+        // console.log("click pop")
+
+
+    }
     isCountTaNho = 0
     isCountTaTo = 0
     isCountCus = 0
     isCountKhan = 0;
     isCountNuoc = 2;
-    clickItem(item) {
+    isFirstItem = false;
+    checkItem(item, posTouch) {
+        let itemComp = item.getComponent("itemGym")
         cc.audioEngine.play(this.soundClick, false, 1)
-        this.npc2.active = false
-
+        this.isTargetCus.getChildByName("pop").active = false;
         if (!this.isFristClick) {
             this.isFristClick = true;
             this.giaTaNho.children[0].active = false
             // this.scheduleOnce(() => {
             this.arrCus[0].getComponent("cusGym").countDown();
+            this.npc2.active = false
             // }, 0.8)
         }
+        // if (itemComp.tag == 0) {
+        //     let itemTarget = this.listTaDon[this.isCountTaNho]
+        //     this.isCountTaNho++
+        // }
         if (item.getChildByName("hand")) {
             item.getChildByName("hand").active = false
-
         }
-        globalThis.gold += 10
+        let target = null;
+        // let hind=null;
+        switch (itemComp.tag) {
+            case 0://ta nho
+                target = this.giaTaNho
 
-        item.getChildByName("red").active = false;
-        let pos = item.parent.convertToWorldSpaceAR(item.position);
-        pos = this.node.convertToNodeSpaceAR(pos)
-        let itemComp = item.getComponent("itemGym")
-        if (itemComp.tag == 0) {
-            let itemTarget = this.listTaDon[this.isCountTaNho]
-            this.isCountTaNho++
-            let posEnd = itemTarget.position;
-            if (itemComp.colorG == 1) {
-                itemTarget.children[1].getComponent(cc.Sprite).spriteFrame = this.imgtaDo
-            }
-            posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
-            posEnd = this.node.convertToNodeSpaceAR(posEnd);
+                break;
+            case 1:
+                target = this.giaTaLon
+
+                break;
+            case 2:
+                target = this.tuKhan
+
+                break;
+            case 3:
+                target = this.tuNuoc
+
+                break;
+        }
+        if (target) {
+            let pos = target.parent.convertToWorldSpaceAR(target.position);
+            target.getChildByName("hind").active = false;
+            pos = item.parent.convertToNodeSpaceAR(pos)
             let mag = 100;
-            let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
-            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
+            console.log(item.position.sub(pos).mag())
+            if (item.position.sub(pos).mag() < 100) {
                 item.active = false;
-                itemTarget.active = true
-                cc.audioEngine.play(this.soundCoin, false, 1)
-                if (this.isCountCus == 0) {
-                    this.isTargetCus.getComponent("cusGym").happy();
-                    this.isTargetCus.getComponent("cusGym").smile2();
-                    for (let child of this.listItem.children) {
-                        if (child.active) {
-                            child.getChildByName("red").active = true
-                            child.getComponent(cc.Button).enabled = true
+                let itemTarget = null;
+                switch (itemComp.tag) {
+                    case 0://ta nho
+                        itemTarget = this.listTaDon[this.isCountTaNho]
+                        if (itemComp.colorG == 1) {
+                            itemTarget.children[1].getComponent(cc.Sprite).spriteFrame = this.imgtaDo
                         }
-                    }
-                    this.lbGuild.string = "Nice! Keep cleaning!"
-                    this.npc2.active = true
-                    this.npc2.getComponent(cc.Animation).play()
-                    this.listItem.children[4].getChildByName("hand").active = true
-                    this.scheduleOnce(() => {
-                        this.npc2.active = false
-
-                    }, 2)
+                        this.isCountTaNho++
+                        break;
+                    case 1:
+                        itemTarget = this.listTaTo[this.isCountTaTo]
+                        this.isCountTaTo++
+                        break;
+                    case 2:
+                        itemTarget = this.listKhan.children[this.isCountKhan]
+                        this.isCountKhan++
+                        break;
+                    case 3:
+                        itemTarget = this.listNuoc.children[this.isCountNuoc]
+                        this.isCountNuoc++
+                        console.log("isCountNuoc", this.isCountNuoc)
+                        break;
+                }
+                if (itemTarget) {
+                    itemTarget.active = true;
+                    cc.audioEngine.play(this.soundCoin, false, 1)
                 }
                 this.checkStep()
+                if (this.isFirstItem == false) {
+                    this.isFirstItem = true;
+                    for (let child of this.listItem.children)
 
-            }).start()
-        }
-        else if (itemComp.tag == 1) {
-            let itemTarget = this.listTaTo[this.isCountTaTo]
-            this.isCountTaTo++
-            let posEnd = itemTarget.position;
+                        child.children[0].active = true
+                }
+                return true;
 
-            posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
-            posEnd = this.node.convertToNodeSpaceAR(posEnd);
-            let mag = 100;
-            let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
-            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
-                item.active = false;
-                itemTarget.active = true
-                this.isTargetCus.getComponent("cusGym").happy();
-                // this.isCountCus++
-                this.checkStep()
-                cc.audioEngine.play(this.soundCoin, false, 1)
+            }
 
-
-            }).start()
 
         }
-        else if (itemComp.tag == 2) {
-            let itemTarget = this.listKhan.children[this.isCountKhan]
-            this.isCountKhan++
-            let posEnd = itemTarget.position;
-            item.children[2].active = false;
-            posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
-            posEnd = this.node.convertToNodeSpaceAR(posEnd);
-            let mag = 100;
-            let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
-            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
-                item.active = false;
-                itemTarget.active = true
-                this.isTargetCus.getComponent("cusGym").happy();
-
-                // this.isCountCus++
-                this.checkStep()
-                cc.audioEngine.play(this.soundCoin, false, 1)
-
-
-            }).start()
-            cc.tween(item).to(0.6,{angle:0}).start()
-        }
-        else if (itemComp.tag == 3) {
-            let itemTarget = this.listNuoc.children[this.isCountNuoc]
-            this.isCountNuoc++
-            let posEnd = itemTarget.position;
-
-            posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
-            posEnd = this.node.convertToNodeSpaceAR(posEnd);
-            let mag = 100;
-            let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
-            cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
-                item.active = false;
-                itemTarget.active = true
-
-                this.isTargetCus.getComponent("cusGym").happy();
-                cc.audioEngine.play(this.soundCoin, false, 1)
-
-                this.checkStep()
-
-            }).start()
-        }
+        return false;
     }
+    // clickItem(item) {
+    //     this.npc2.active = false
+
+    //     if (!this.isFristClick) {
+    //         this.isFristClick = true;
+    //         this.giaTaNho.children[0].active = false
+    //         // this.scheduleOnce(() => {
+    //         this.arrCus[0].getComponent("cusGym").countDown();
+    //         // }, 0.8)
+    //     }
+    //     if (item.getChildByName("hand")) {
+    //         item.getChildByName("hand").active = false
+
+    //     }
+    //     globalThis.gold += 10
+
+    //     item.getChildByName("red").active = false;
+    //     let pos = item.parent.convertToWorldSpaceAR(item.position);
+    //     pos = this.node.convertToNodeSpaceAR(pos)
+    //     let itemComp = item.getComponent("itemGym")
+    //     if (itemComp.tag == 0) {
+    //         let itemTarget = this.listTaDon[this.isCountTaNho]
+    //         this.isCountTaNho++
+    //         let posEnd = itemTarget.position;
+    //         if (itemComp.colorG == 1) {
+    //             itemTarget.children[1].getComponent(cc.Sprite).spriteFrame = this.imgtaDo
+    //         }
+    //         posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
+    //         posEnd = this.node.convertToNodeSpaceAR(posEnd);
+    //         let mag = 100;
+    //         let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+    //         cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
+    //             item.active = false;
+    //             itemTarget.active = true
+    //             cc.audioEngine.play(this.soundCoin, false, 1)
+    //             if (this.isCountCus == 0) {
+    //                 // this.isTargetCus.getComponent("cusGym").happy();
+    //                 // this.isTargetCus.getComponent("cusGym").smile2();
+    //                 for (let child of this.listItem.children) {
+    //                     if (child.active) {
+    //                         child.getChildByName("red").active = true
+    //                         child.getComponent(cc.Button).enabled = true
+    //                     }
+    //                 }
+    //                 this.lbGuild.string = "Nice! Keep cleaning!"
+    //                 this.npc2.active = true
+    //                 this.npc2.getComponent(cc.Animation).play()
+    //                 this.listItem.children[4].getChildByName("hand").active = true
+    //                 this.scheduleOnce(() => {
+    //                     this.npc2.active = false
+
+    //                 }, 2)
+    //             }
+    //             this.checkStep()
+
+    //         }).start()
+    //     }
+    //     else if (itemComp.tag == 1) {
+    //         let itemTarget = this.listTaTo[this.isCountTaTo]
+    //         this.isCountTaTo++
+    //         let posEnd = itemTarget.position;
+
+    //         posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
+    //         posEnd = this.node.convertToNodeSpaceAR(posEnd);
+    //         let mag = 100;
+    //         let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+    //         cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
+    //             item.active = false;
+    //             itemTarget.active = true
+    //             // this.isTargetCus.getComponent("cusGym").happy();
+    //             // this.isCountCus++
+    //             this.checkStep()
+    //             cc.audioEngine.play(this.soundCoin, false, 1)
+
+
+    //         }).start()
+
+    //     }
+    //     else if (itemComp.tag == 2) {
+    //         let itemTarget = this.listKhan.children[this.isCountKhan]
+    //         this.isCountKhan++
+    //         let posEnd = itemTarget.position;
+    //         item.children[2].active = false;
+    //         posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
+    //         posEnd = this.node.convertToNodeSpaceAR(posEnd);
+    //         let mag = 100;
+    //         let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+    //         cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
+    //             item.active = false;
+    //             itemTarget.active = true
+    //             // this.isTargetCus.getComponent("cusGym").happy();
+
+    //             // this.isCountCus++
+    //             this.checkStep()
+    //             cc.audioEngine.play(this.soundCoin, false, 1)
+
+
+    //         }).start()
+    //         cc.tween(item).to(0.6, { angle: 0 }).start()
+    //     }
+    //     else if (itemComp.tag == 3) {
+    //         let itemTarget = this.listNuoc.children[this.isCountNuoc]
+    //         this.isCountNuoc++
+    //         let posEnd = itemTarget.position;
+
+    //         posEnd = itemTarget.parent.convertToWorldSpaceAR(posEnd);
+    //         posEnd = this.node.convertToNodeSpaceAR(posEnd);
+    //         let mag = 100;
+    //         let midPos = cc.v2((pos.x + posEnd.x) / 2, posEnd.y + mag);
+    //         cc.tween(item).bezierTo(0.6, cc.v2(pos.x, pos.y), midPos, cc.v2(posEnd.x, posEnd.y)).call(() => {
+    //             item.active = false;
+    //             itemTarget.active = true
+
+    //             // this.isTargetCus.getComponent("cusGym").happy();
+    //             cc.audioEngine.play(this.soundCoin, false, 1)
+
+    //             this.checkStep()
+
+    //         }).start()
+    //     }
+    // }
     checkStep() {
         this.isCountCus++
-        if (this.isCountCus == 6) {
-          
+        if (this.isCountCus == 7) {
+            this.isTargetCus.getComponent("cusGym").happy();
+
             this.isTargetCus.getComponent("cusGym").smile()
 
             this.scheduleOnce(() => {
-              
+
                 this.moveCus2(true)
             }, 1)
-          
-        }
-        if (this.isCountCus == 11) {
-            for (let child of this.listCus2.children) {
-                child.getComponent("cusGym").happy()
-                child.getComponent("cusGym").isSuccess = true
-                // child.getComponent("cusGym").countDown()
-            }
-            this.onEndgame(true)
-        }
 
+        }
+        if (this.isCountCus == 13) {
+            this.showMissionEnd();
+
+        }
+        // if (this.isCountCus == 11) {
+        //     for (let child of this.listCus2.children) {
+        //         child.getComponent("cusGym").happy()
+        //         child.getComponent("cusGym").isSuccess = true
+        //         // child.getComponent("cusGym").countDown()
+        //     }
+        //     this.onEndgame(true)
+        // }
+
+    }
+    showMissionEnd() {
+        for (let child of this.listCus2.children) {
+            child.getComponent("cusGym").moveByEnd();
+        }
+        // this.onEndgame(true);
     }
     isMoveCus2 = false
     moveCus2(value) {
         if (this.isMoveCus2) return;
         this.isMoveCus2 = true
         if (value == true) {
-            let finalPos = cc.v3(-336, -99);
+            let finalPos = cc.v3(-297, -89);
+            cc.tween(this.camera.node).to(1.2, { position: cc.v3(-479, 30) }).start()
             this.isTargetCus.getComponent("cusGym").move3(finalPos, 2)
             this.scheduleOnce(() => {
+                globalThis.gold += 50;
                 this.isTargetCus.active = false;
                 this.mayDayTa.children[0].active = true;
                 this.mayDayTa.getChildByName("char").getChildByName("notiBonusCoin").active = true
@@ -340,28 +520,23 @@ export default class NewClass extends cc.Component {
                     this.mayDayTa.getChildByName("char").getComponent("cusGym").dayTa()
                     this.mayDayTa.getComponent(sp.Skeleton).setAnimation(0, "Action", true)
                     this.mayDayTa.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true)
-    
-    
-                    // char.getComponent("cusGym").gapBung()
-                    // char.position = cc.v3(1, -16)
-                    // this.arrCrunch[0].children[0].active = false
-                    // this.arrCrunch[0].children[1].active = true
-    
-                }, 0.5)
 
-            }, 1)
+                }, 0.8)
+
+            }, 2)
         }
 
-        cc.tween(this.camera.node).to(0.8, { position: cc.v3(-20, 130) }).to(0.8, { position: cc.v3(-220, 130) }).start()
-        this.arrCus[1].getComponent("cusGym").moveToWait2()
+        // cc.tween(this.camera.node).to(0.8, { position: cc.v3(-20, 130) }).to(0.8, { position: cc.v3(-220, 130) }).start()
+        // this.arrCus[1].getComponent("cusGym").moveToWait2()
         this.scheduleOnce(() => {
-            this.arrCus[1].getChildByName("pop").active = true
-            this.arrCus[1].getComponent("cusGym").countDown();
+            // this.arrCus[1].getChildByName("pop").active = true
+            // this.arrCus[1].getComponent("cusGym").countDown();
 
-            this.tuNuoc.children[0].active = true
-            this.tuNuoc.getChildByName("hand").active = true;
-            this.tuNuoc.getComponent(cc.Button).enabled = true
-        }, 2)
+            // this.tuNuoc.children[0].active = true
+            // this.tuNuoc.getChildByName("hand").active = true;
+            // this.tuNuoc.getComponent(cc.Button).enabled = 
+            this.showMision2()
+        }, 1.5)
     }
     isMoveCus3 = false
 
@@ -371,7 +546,7 @@ export default class NewClass extends cc.Component {
         this.tuNuoc.children[0].active = false
         this.tuNuoc.getChildByName("hand").active = false;
         this.tuNuoc.getComponent(cc.Button).enabled = false
-        cc.tween(this.camera.node).to(0.8, { position: cc.v3(-20, 130) }).to(0.8, { position: cc.v3(-500, 0) }).start()
+        cc.tween(this.camera.node).to(1, { position: cc.v3(-20, 130) }).to(1, { position: cc.v3(-500, 0) }).start()
         this.arrCus[2].getComponent("cusGym").moveToWait3()
     }
     btn_tuNuoc(event) {
@@ -379,28 +554,42 @@ export default class NewClass extends cc.Component {
         this.tuNuoc.children[0].active = false
         this.tuNuoc.getChildByName("hand").active = false;
         this.bartender1.getComponent("pt").moveGiveWater()
+        let char = this.mayGapBung.getChildByName("char");
+        let charComp = char.getComponent("cusGym");
+        this.isCountNuoc--
+        this.listNuoc.children[this.isCountNuoc].active = false;
+
+        // this.isCountOut--;
+        this.scheduleOnce(() => {
+            char.position = cc.v3(-21.5, -60)
+            charComp.pop.active = true;
+            charComp.happy();
+            charComp.smile2();
+
+        }, 1.5)
         this.scheduleOnce(() => {
             globalThis.gold += 50
-            // this.isTargetCus.getComponent("cusGym").smile();
 
-            this.arrCus[1].getComponent("cusGym").move3(cc.v3(-315, -116), 2)
             this.bartender1.getComponent("pt").moveBack()
 
-        }, 4.2)
+        }, 1.7)
         this.scheduleOnce(() => {
-            this.arrCus[1].active = false;
-            this.charTut2.active = true;
-            this.charTut2.getComponent("cusGym").gapBung()
+            this.cusOut(char)
+        }, 2.3)
+        // this.scheduleOnce(() => {
+        //     this.arrCus[1].active = false;
+        //     this.charTut2.active = true;
+        //     this.charTut2.getComponent("cusGym").gapBung()
 
-        }, 6.2)
+        // }, 6.2)
 
         this.scheduleOnce(() => {
 
-            cc.tween(this.camera.node).to(0.8, { position: cc.v3(-20, 130) }).to(0.8, { position: cc.v3(-500, 0) }).start()
+            cc.tween(this.camera.node).to(1, { position: cc.v3(-20, 130) }).to(1, { position: cc.v3(-500, 0) }).start()
             this.arrCus[2].getComponent("cusGym").moveToWait3()
 
 
-        }, 4)
+        }, 3)
 
         // this.scheduleOnce(())
     }
@@ -412,20 +601,22 @@ export default class NewClass extends cc.Component {
     }
     btn_boxing(event) {
         event.currentTarget.getComponent(cc.Button).enabled = false;
+        cc.tween(this.camera.node).to(0.6, { position: cc.v3(-600, -50) }).start()
+
         this.tutBoxing.active = false
         this.tutBoxing.children[0].active = false
         this.arrCus[2].getComponent("cusGym").happy()
         this.arrCus[2].getComponent("cusGym").smile();
         cc.audioEngine.play(this.soundCoin, false, 1)
 
-        this.arrCus[2].getComponent("cusGym").move3(cc.v3(-650, -154), 1.5)
+        this.arrCus[2].getComponent("cusGym").move3(cc.v3(-650, -154), 2)
         this.scheduleOnce(() => {
             this.arrCus[2].getComponent("cusGym").boxing()
             this.boxing2.getComponent(sp.Skeleton).setAnimation(0, "Action", true)
 
-        }, 1.6)
+        }, 2.1)
         this.scheduleOnce(() => {
-            cc.tween(this.camera.node).to(0.5, { position: cc.v3(0, 100) }).start()
+            cc.tween(this.camera.node).to(0.5, { position: cc.v3(-180, 100) }).start()
             this.listCus2.active = true;
             for (let child of this.listCus2.children) {
                 // child.getComponent("cusGym").happy()
@@ -433,11 +624,14 @@ export default class NewClass extends cc.Component {
             }
             this.listItem2.active = true
             for (let child of this.listItem2.children) {
-                child.getComponent(cc.Button).enabled = true
                 child.children[0].active = true
 
             }
-        }, 2.1)
+            globalThis.gold += 50;
+        }, 3.5)
+        this.scheduleOnce(() => {
+            this.arrCus[2].active = false;
+        }, 5)
 
 
     }
@@ -484,9 +678,9 @@ export default class NewClass extends cc.Component {
         cc.tween(this.npc).by(0.3, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
             this.npc.active = false
             this.listItem.children[5].getChildByName("hand").active = true;
-            this.listItem.children[5].getComponent(cc.Button).enabled = true;
+            // this.listItem.children[5].getComponent(cc.Button).enabled = true;
             this.giaTaNho.children[0].active = true
-            this.listItem.children[5].children[0].active = true
+            // this.listItem.children[5].children[0].active = true
             this.npc2.active = true
         }).start()
 
@@ -692,13 +886,23 @@ export default class NewClass extends cc.Component {
             // }
         }
     }
+    isEndgame = false;
+
     onEndgame(value) {
+        if (this.isEndgame == true) {
+            return;
+        }
+        this.isEndgame = true;
         if (value == true) {
             cc.audioEngine.play(this.soundWin, false, 1)
 
         }
         else {
             cc.audioEngine.play(this.soundlose, false, 1)
+            this.endCard.getChildByName("New Label").active = true
+            this.scheduleOnce(() => {
+                cc.audioEngine.play(this.soundThink, false, 1)
+            }, 0.5)
 
         }
         this.endCard.active = true;

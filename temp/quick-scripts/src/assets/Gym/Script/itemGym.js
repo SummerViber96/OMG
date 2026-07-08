@@ -36,19 +36,64 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.tag = 0;
         _this.colorG = 0;
+        _this.target = null;
         _this.gamePlay = null;
+        // LIFE-CYCLE CALLBACKS:
+        // onLoad () {}
+        _this.localPos = cc.v3(0, 0);
         return _this;
         // update (dt) {}
     }
-    // LIFE-CYCLE CALLBACKS:
-    // onLoad () {}
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym");
-        var touchNode = cc.Canvas.instance.node;
+        switch (this.tag) {
+            case 0:
+                this.target = this.gamePlay.giaTaNho;
+                break;
+            case 1:
+                this.target = this.gamePlay.giaTaLon;
+                break;
+            case 2:
+                this.target = this.gamePlay.tuKhan;
+                break;
+            case 3:
+                this.target = this.gamePlay.tuNuoc;
+                break;
+        }
+        var touchNode = this.node;
+        this.localPos = this.node.position;
         touchNode.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         touchNode.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         touchNode.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
         touchNode.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+    };
+    NewClass.prototype.getTouchPosInParent = function (event) {
+        var worldPos = this.gamePlay.camera.getScreenToWorldPoint(event.getLocation());
+        return this.node.parent.convertToNodeSpaceAR(worldPos);
+    };
+    NewClass.prototype.onTouchStart = function (event) {
+        var touchPos = this.getTouchPosInParent(event);
+        // this.localPos = this.node.position.sub(touchPos)
+    };
+    NewClass.prototype.onTouchMove = function (event) {
+        var touchPos = this.getTouchPosInParent(event);
+        this.node.setPosition(touchPos);
+        if (this.target && this.target.getChildByName("hind").active == false) {
+            this.target.getChildByName("hind").active = true;
+        }
+    };
+    NewClass.prototype.onTouchEnd = function (event) {
+        var _this = this;
+        var check = this.gamePlay.checkItem(this.node, event.getLocation());
+        console.log(check);
+        if (!check) {
+            cc.audioEngine.play(this.gamePlay.soundWrong, false, 1);
+            this.node.getChildByName("wrong").getComponent(cc.Animation).play();
+            this.scheduleOnce(function () {
+                _this.node.setPosition(_this.localPos);
+            }, 0.3);
+        }
+        this.target.getChildByName("hind").active = false;
     };
     NewClass.prototype.clickItem = function (event) {
         event.currentTarget.getComponent(cc.Button).enabled = false;
@@ -61,6 +106,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "colorG", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "target", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

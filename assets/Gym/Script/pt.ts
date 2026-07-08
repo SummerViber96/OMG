@@ -114,37 +114,36 @@ export default class NewClass extends cc.Component {
     moveGiveWater() {
         this.anim.setAnimation(0, "WalkOutR", true);
         this.water.active = true
-        this.move2(cc.v3(-361, 124), 1.5)
-        this.scheduleOnce(() => {
-            this.anim.setAnimation(0, "WalkOutR", true);
+        this.move2(cc.v3(-405,57), 1.5)
+        // this.scheduleOnce(() => {
+        //     this.anim.setAnimation(0, "WalkOutR", true);
 
-            this.move2(cc.v3(-41, 40), 2)
+        //     this.move2(cc.v3(-41, 40), 2)
 
-        }, 1)
+        // }, 1)
         this.scheduleOnce(() => {
             this.anim.setAnimation(0, "IdleFR", true);
             this.water.active = false;
-            this.gamePlay.arrCus[1].getComponent("cusGym").happy()
-            this.gamePlay.arrCus[1].getComponent("cusGym").smile();
-            cc.audioEngine.play(this.gamePlay.soundCoin, false, 1)
-        }, 3)
+            // this.gamePlay.arrCus[1].getComponent("cusGym").happy()
+            // this.gamePlay.arrCus[1].getComponent("cusGym").smile();
+            // cc.audioEngine.play(this.gamePlay.soundCoin, false, 1)
+        }, 1.5)
     }
     moveBack() {
         this.anim.setAnimation(0, "WalkInL", true);
         this.water.active = false
-        this.move2(cc.v3(-361, 124), 2)
+        this.move2(cc.v3(-654,40), 1.5)
 
-        this.scheduleOnce(() => {
-            this.anim.setAnimation(0, "WalkInL", true);
-            this.move2(cc.v3(-649, 21), 1.5)
+        // this.scheduleOnce(() => {
+        //     this.anim.setAnimation(0, "WalkInL", true);
+        //     this.move2(cc.v3(-649, 21), 1.5)
 
 
-        }, 2)
+        // }, 2)
         this.scheduleOnce(() => {
             this.anim.setAnimation(0, "IdleFR", true);
-            this.water.active = false;
-            this.gamePlay.arrCus[1].getComponent("cusGym").happy()
-        }, 3.5)
+          
+        }, 1.5)
     }
     // update (dt) {}
 }
