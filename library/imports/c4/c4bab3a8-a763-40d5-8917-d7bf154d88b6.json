@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "remind_hand_fix",
+    "texture": "562bbb2a-5043-4cf9-a91c-7646599e505d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      388,
+      416
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      388,
+      416
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
