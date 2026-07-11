@@ -5,10 +5,10 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": 582,
-      "y": 4,
-      "width": 1335,
-      "height": 1040,
+      "x": -8,
+      "y": -8,
+      "width": 2576,
+      "height": 1416,
       "layout": {
         "type": "dock-h",
         "children": [
@@ -105,14 +105,14 @@
       ]
     },
     "worker": {},
-    "window-1783590525753": {}
+    "window-1783750830072": {}
   },
   "panels": {
     "builder": {
-      "x": 733,
-      "y": 158,
-      "width": 516,
-      "height": 739
+      "x": -8,
+      "y": -8,
+      "width": 2576,
+      "height": 1416
     },
     "sprite-editor": {
       "x": 1022,

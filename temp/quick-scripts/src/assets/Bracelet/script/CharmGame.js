@@ -39,8 +39,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.charmHind = null;
         _this.soundXuc = null;
         _this.soundDo = null;
+        _this.linkToStore = null;
         _this.charms = [];
         _this.isTargetbox = null;
+        _this.isCountGame = 0;
         _this.totalCharm = 0;
         _this.isDelay = false;
         return _this;
@@ -115,6 +117,10 @@ var NewClass = /** @class */ (function (_super) {
         }
         else {
             this.dropCharms();
+            this.isCountGame++;
+            if (this.isCountGame == 2) {
+                this.linkToStore.active = true;
+            }
         }
     };
     NewClass.prototype.checkPlate = function (pos) {
@@ -238,6 +244,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundDo", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "linkToStore", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

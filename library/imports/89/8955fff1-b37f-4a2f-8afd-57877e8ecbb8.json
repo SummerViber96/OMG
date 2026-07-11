@@ -379,7 +379,7 @@
         "__id__": 904
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -4957,7 +4957,7 @@
         "__id__": 133
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 138
@@ -6909,7 +6909,7 @@
         "__id__": 154
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 209
@@ -9612,6 +9612,9 @@
     },
     "soundDo": {
       "__uuid__": "e48590fa-2208-456a-97cc-af990e6b328d"
+    },
+    "linkToStore": {
+      "__id__": 346
     },
     "_id": "75IbpxfyNHobIRwN1of/7H"
   },
@@ -21561,7 +21564,7 @@
         "__id__": 491
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 493
@@ -29320,7 +29323,7 @@
         "__id__": 656
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
