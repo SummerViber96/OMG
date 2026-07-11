@@ -108,11 +108,11 @@ export default class NewClass extends cc.Component {
         }
         else {
             this.dropCharms()
-                        this.isCountGame++
+            this.isCountGame++
 
-            if (this.isCountGame == 2) {
-                this.linkToStore.active = true
-            }
+            // if (this.isCountGame == 2) {
+            //     this.linkToStore.active = true
+            // }
         }
     }
     checkPlate(pos) {
@@ -132,13 +132,15 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundDo, false, 1)
         const tag = this.isTargetbox.getComponent("BoxCharm").tag;
         const count = this.getCharmCount(tag);
-        const centerPos = cc.v3(0, 80, 0);
+        const surface = this.getPlateSurface();
+        const centerPos = surface && surface !== this.plate
+            ? cc.v3(surface.x, surface.y + 80, 0)
+            : cc.v3(0, 80, 0);
         const dropDelay = 0.06;
 
         for (let i = 0; i < count; i++) {
             this.scheduleOnce(() => {
                 if (this.totalCharm <= 40) {
-                    this.totalCharm++;
                     this.spawnCharmWithDrop(i, tag, centerPos);
                 }
                 else {
@@ -154,22 +156,43 @@ export default class NewClass extends cc.Component {
     }
 
     private getCharmCount(tag: number): number {
-        const counts = [4, 5, 3, 5, 5, 3, 5, 5, 5];
+        const counts = [4, 5, 3, 5, 5, 3, 5, 5, 5, 2, 2, 1, 1, 4, 7, 7, 8, 8, 8, 8, 2, 2, 6, 6, 6, 6,1,1,2,2];
         return counts[tag] || 0;
     }
 
-    private getTargetPosition(index: number): cc.Vec3 {
+    /** Node sprite khay trắng (con của this.plate / khay). */
+    private getPlateSurface(): cc.Node {
+        if (!this.plate) return null;
+        return this.plate.getChildByName('plate') || this.plate;
+    }
+
+    /** Offset slot từ localPos. */
+    private getLocalPosOffset(index: number): cc.Vec3 {
+        if (!this.localPos || !this.localPos.children[index]) {
+            return cc.v3(0, 0, 0);
+        }
         const marker = this.localPos.children[index];
-        if (!marker) return cc.v3(0, 0, 0);
-        const worldPos = marker.convertToWorldSpaceAR(cc.v2(0, 0));
-        return this.plate.convertToNodeSpaceAR(worldPos);
+        return cc.v3(marker.x, marker.y, 0);
+    }
+
+    /** Vị trí trên mặt plate (local của khay). */
+    private getTargetPosition(index: number): cc.Vec3 {
+        const surface = this.getPlateSurface();
+        const offset = this.getLocalPosOffset(index);
+        if (surface && surface !== this.plate) {
+            return cc.v3(surface.x + offset.x, surface.y + offset.y, 0);
+        }
+        if (this.localPos && this.localPos.children[index]) {
+            const worldPos = this.localPos.children[index].convertToWorldSpaceAR(cc.v2(0, 0));
+            return this.plate.convertToNodeSpaceAR(worldPos);
+        }
+        return offset;
     }
 
     private spawnCharmWithDrop(index: number, tag: number, centerPos: cc.Vec3) {
-        const charm = cc.instantiate(this.listCharms[tag]);
-        charm.parent = this.plate;
-        charm.getComponent("CharmItem").loadIMG(index);
-        charm.getComponent("CharmItem").tag = tag
+        const charm = this.createCharmOnPlate(tag, index);
+        if (!charm) return;
+
         const targetPos = this.getTargetPosition(index);
         const spread = cc.v3(
             (Math.random() - 0.5) * 24,
@@ -181,9 +204,6 @@ export default class NewClass extends cc.Component {
         const rigidBody = charm.getComponent(cc.RigidBody);
         if (!rigidBody) return;
 
-        rigidBody.awake = true;
-        rigidBody.active = true;
-
         const dir = cc.v2(targetPos.x - charm.x, targetPos.y - charm.y);
         const dist = dir.mag();
         if (dist > 0) {
@@ -192,6 +212,116 @@ export default class NewClass extends cc.Component {
             rigidBody.linearVelocity = dir.mul(speed);
         }
         rigidBody.angularVelocity = (Math.random() - 0.5) * 18;
+    }
+
+    /**
+     * Spawn sẵn charm trên khay để kéo thả ngay (không cần xúc spoon).
+     * @param tags danh sách tag charm; null = vài loại mặc định
+     */
+    spawnCharmsOnPlate(tags: number[] = null) {
+        if (!this.plate || !this.listCharms || this.listCharms.length === 0) {
+            cc.warn('[CharmGame] Thiếu plate hoặc listCharms — không spawn được.');
+            return;
+        }
+
+        const list = tags && tags.length > 0
+            ? tags
+            : [0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 6, 6, 7, 8, 7, 5, 9, 5, 5,8,8];
+
+        const slotCount = this.localPos ? this.localPos.childrenCount : 0;
+        const surface = this.getPlateSurface();
+
+        for (let i = 0; i < list.length; i++) {
+            if (this.totalCharm > 40) break;
+            const tag = list[i];
+            if (tag == null || !this.listCharms[tag]) continue;
+
+            const colorIndex = slotCount > 0 ? (i % slotCount) : i;
+            const charm = this.createCharmOnPlate(tag, colorIndex);
+            if (!charm) continue;
+
+            let pos: cc.Vec3;
+            if (slotCount > 0) {
+                pos = this.getTargetPosition(i % slotCount);
+            } else if (surface && surface !== this.plate) {
+                const cols = 5;
+                pos = cc.v3(
+                    surface.x + (i % cols - 2) * 90,
+                    surface.y + 40 - Math.floor(i / cols) * 80,
+                    0
+                );
+            } else {
+                pos = cc.v3((i % 5 - 2) * 70, 40 - Math.floor(i / 5) * 70, 0);
+            }
+
+            const spread = cc.v3(
+                (Math.random() - 0.5) * 20,
+                (Math.random() - 0.5) * 20,
+                0
+            );
+            pos = pos.add(cc.v3(0, 0))
+            charm.setPosition(pos.add(spread));
+
+            const body = charm.getComponent(cc.RigidBody);
+            if (body) {
+                body.linearVelocity = cc.v2(0, 0);
+                body.angularVelocity = 0;
+                body.syncPosition(true);
+            }
+        }
+    }
+
+    /** Spawn 1 loại charm đủ số lượng như khi xúc box (theo tag). */
+    spawnCharmBoxOnPlate(tag: number) {
+        const count = this.getCharmCount(tag);
+        const tags: number[] = [];
+        for (let i = 0; i < count; i++) {
+            tags.push(tag);
+        }
+        this.spawnCharmsOnPlate(tags);
+    }
+
+    private createCharmOnPlate(tag: number, colorIndex: number): cc.Node {
+        const prefab = this.listCharms[tag];
+        if (!prefab) {
+            cc.warn('[CharmGame] Không có prefab charm tag=' + tag);
+            return null;
+        }
+
+        const charm = cc.instantiate(prefab);
+        charm.parent = this.plate;
+        charm.setSiblingIndex(this.plate.childrenCount - 1);
+
+        const item = charm.getComponent('CharmItem') as any;
+        if (item) {
+            const maxColor = item.listImg && item.listImg.length > 0
+                ? item.listImg.length
+                : 1;
+            item.loadIMG(colorIndex % maxColor);
+            item.tag = tag;
+        }
+
+        const rigidBody = charm.getComponent(cc.RigidBody);
+        if (rigidBody) {
+            rigidBody.enabled = true;
+            rigidBody.awake = true;
+            rigidBody.active = true;
+            rigidBody.type = cc.RigidBodyType.Dynamic;
+            rigidBody.gravityScale = 0;
+            rigidBody.linearVelocity = cc.v2(0, 0);
+            rigidBody.angularVelocity = 0;
+            rigidBody.syncPosition(true);
+            rigidBody.syncRotation(true);
+        }
+
+        // Collider bật để nằm trên khay; khi kéo CordRoundGame sẽ tắt.
+        const collider = charm.getComponent(cc.PhysicsPolygonCollider);
+        if (collider) {
+            collider.enabled = true;
+        }
+
+        this.totalCharm++;
+        return charm;
     }
     isDelay = false
     showNotiFull() {

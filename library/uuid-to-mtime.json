@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1783750168253,
+    "meta": 1783766003762,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1783750168668,
+    "meta": 1783766003763,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -14444,16 +14444,6 @@
     "meta": 1783750145234,
     "relativePath": "Bracelet\\script\\DefaultCharm.ts"
   },
-  "d1cd0f07-9e7c-46b4-8be9-ded12fe9bd91": {
-    "asset": 1783749744423,
-    "meta": 1783750144661,
-    "relativePath": "Bracelet\\script\\Bracelet.ts"
-  },
-  "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1783750828080,
-    "meta": 1783750828108,
-    "relativePath": "scenes\\Bracelet.fire"
-  },
   "df87c12d-9eb3-4a2b-a256-16bbd0291665": {
     "asset": 1783749744460,
     "meta": 1783750144820,
@@ -14959,11 +14949,6 @@
     "meta": 1783750118096,
     "relativePath": "model\\primitives.fbx"
   },
-  "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
-    "asset": 1783749744468,
-    "meta": 1783750145211,
-    "relativePath": "Bracelet\\script\\CordRoundGame.ts"
-  },
   "79d5275f-1ee6-44ea-bd93-10cea24f0fae": {
     "asset": 1781120011117,
     "meta": 1783750143475,
@@ -14989,9 +14974,24 @@
     "meta": 1783750157430,
     "relativePath": "scripts\\New Folder"
   },
+  "ae5f99ec-f5ac-42cf-b89d-6a39ecd5932a": {
+    "asset": 1783761981139,
+    "meta": 1783764032453,
+    "relativePath": "Bracelet\\script\\CordRoundGame.ts"
+  },
+  "d1cd0f07-9e7c-46b4-8be9-ded12fe9bd91": {
+    "asset": 1783764286431,
+    "meta": 1783764288112,
+    "relativePath": "Bracelet\\script\\Bracelet.ts"
+  },
+  "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
+    "asset": 1783766023796,
+    "meta": 1783766023819,
+    "relativePath": "scenes\\Bracelet.fire"
+  },
   "e7e59199-64c4-409e-8c96-5a74e5533e47": {
-    "asset": 1783750824521,
-    "meta": 1783750825573,
+    "asset": 1783764796785,
+    "meta": 1783764798764,
     "relativePath": "Bracelet\\script\\CharmGame.ts"
   }
 }

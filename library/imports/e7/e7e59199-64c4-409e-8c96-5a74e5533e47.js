@@ -118,9 +118,9 @@ var NewClass = /** @class */ (function (_super) {
         else {
             this.dropCharms();
             this.isCountGame++;
-            if (this.isCountGame == 2) {
-                this.linkToStore.active = true;
-            }
+            // if (this.isCountGame == 2) {
+            //     this.linkToStore.active = true
+            // }
         }
     };
     NewClass.prototype.checkPlate = function (pos) {
@@ -141,12 +141,14 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundDo, false, 1);
         var tag = this.isTargetbox.getComponent("BoxCharm").tag;
         var count = this.getCharmCount(tag);
-        var centerPos = cc.v3(0, 80, 0);
+        var surface = this.getPlateSurface();
+        var centerPos = surface && surface !== this.plate
+            ? cc.v3(surface.x, surface.y + 80, 0)
+            : cc.v3(0, 80, 0);
         var dropDelay = 0.06;
         var _loop_1 = function (i) {
             this_1.scheduleOnce(function () {
                 if (_this.totalCharm <= 40) {
-                    _this.totalCharm++;
                     _this.spawnCharmWithDrop(i, tag, centerPos);
                 }
                 else {
@@ -164,29 +166,46 @@ var NewClass = /** @class */ (function (_super) {
         // }, count * dropDelay + 0.1);
     };
     NewClass.prototype.getCharmCount = function (tag) {
-        var counts = [4, 5, 3, 5, 5, 3, 5, 5, 5];
+        var counts = [4, 5, 3, 5, 5, 3, 5, 5, 5, 2, 2, 1, 1, 4, 7, 7, 8, 8, 8, 8, 2, 2, 6, 6, 6, 6, 1, 1, 2, 2];
         return counts[tag] || 0;
     };
-    NewClass.prototype.getTargetPosition = function (index) {
-        var marker = this.localPos.children[index];
-        if (!marker)
+    /** Node sprite khay trắng (con của this.plate / khay). */
+    NewClass.prototype.getPlateSurface = function () {
+        if (!this.plate)
+            return null;
+        return this.plate.getChildByName('plate') || this.plate;
+    };
+    /** Offset slot từ localPos. */
+    NewClass.prototype.getLocalPosOffset = function (index) {
+        if (!this.localPos || !this.localPos.children[index]) {
             return cc.v3(0, 0, 0);
-        var worldPos = marker.convertToWorldSpaceAR(cc.v2(0, 0));
-        return this.plate.convertToNodeSpaceAR(worldPos);
+        }
+        var marker = this.localPos.children[index];
+        return cc.v3(marker.x, marker.y, 0);
+    };
+    /** Vị trí trên mặt plate (local của khay). */
+    NewClass.prototype.getTargetPosition = function (index) {
+        var surface = this.getPlateSurface();
+        var offset = this.getLocalPosOffset(index);
+        if (surface && surface !== this.plate) {
+            return cc.v3(surface.x + offset.x, surface.y + offset.y, 0);
+        }
+        if (this.localPos && this.localPos.children[index]) {
+            var worldPos = this.localPos.children[index].convertToWorldSpaceAR(cc.v2(0, 0));
+            return this.plate.convertToNodeSpaceAR(worldPos);
+        }
+        return offset;
     };
     NewClass.prototype.spawnCharmWithDrop = function (index, tag, centerPos) {
-        var charm = cc.instantiate(this.listCharms[tag]);
-        charm.parent = this.plate;
-        charm.getComponent("CharmItem").loadIMG(index);
-        charm.getComponent("CharmItem").tag = tag;
+        var charm = this.createCharmOnPlate(tag, index);
+        if (!charm)
+            return;
         var targetPos = this.getTargetPosition(index);
         var spread = cc.v3((Math.random() - 0.5) * 24, (Math.random() - 0.5) * 24, 0);
         charm.setPosition(centerPos.add(spread));
         var rigidBody = charm.getComponent(cc.RigidBody);
         if (!rigidBody)
             return;
-        rigidBody.awake = true;
-        rigidBody.active = true;
         var dir = cc.v2(targetPos.x - charm.x, targetPos.y - charm.y);
         var dist = dir.mag();
         if (dist > 0) {
@@ -195,6 +214,99 @@ var NewClass = /** @class */ (function (_super) {
             rigidBody.linearVelocity = dir.mul(speed);
         }
         rigidBody.angularVelocity = (Math.random() - 0.5) * 18;
+    };
+    /**
+     * Spawn sẵn charm trên khay để kéo thả ngay (không cần xúc spoon).
+     * @param tags danh sách tag charm; null = vài loại mặc định
+     */
+    NewClass.prototype.spawnCharmsOnPlate = function (tags) {
+        if (tags === void 0) { tags = null; }
+        if (!this.plate || !this.listCharms || this.listCharms.length === 0) {
+            cc.warn('[CharmGame] Thiếu plate hoặc listCharms — không spawn được.');
+            return;
+        }
+        var list = tags && tags.length > 0
+            ? tags
+            : [0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 6, 6, 7, 8, 7, 5, 9, 5, 5, 8, 8];
+        var slotCount = this.localPos ? this.localPos.childrenCount : 0;
+        var surface = this.getPlateSurface();
+        for (var i = 0; i < list.length; i++) {
+            if (this.totalCharm > 40)
+                break;
+            var tag = list[i];
+            if (tag == null || !this.listCharms[tag])
+                continue;
+            var colorIndex = slotCount > 0 ? (i % slotCount) : i;
+            var charm = this.createCharmOnPlate(tag, colorIndex);
+            if (!charm)
+                continue;
+            var pos = void 0;
+            if (slotCount > 0) {
+                pos = this.getTargetPosition(i % slotCount);
+            }
+            else if (surface && surface !== this.plate) {
+                var cols = 5;
+                pos = cc.v3(surface.x + (i % cols - 2) * 90, surface.y + 40 - Math.floor(i / cols) * 80, 0);
+            }
+            else {
+                pos = cc.v3((i % 5 - 2) * 70, 40 - Math.floor(i / 5) * 70, 0);
+            }
+            var spread = cc.v3((Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20, 0);
+            pos = pos.add(cc.v3(0, 0));
+            charm.setPosition(pos.add(spread));
+            var body = charm.getComponent(cc.RigidBody);
+            if (body) {
+                body.linearVelocity = cc.v2(0, 0);
+                body.angularVelocity = 0;
+                body.syncPosition(true);
+            }
+        }
+    };
+    /** Spawn 1 loại charm đủ số lượng như khi xúc box (theo tag). */
+    NewClass.prototype.spawnCharmBoxOnPlate = function (tag) {
+        var count = this.getCharmCount(tag);
+        var tags = [];
+        for (var i = 0; i < count; i++) {
+            tags.push(tag);
+        }
+        this.spawnCharmsOnPlate(tags);
+    };
+    NewClass.prototype.createCharmOnPlate = function (tag, colorIndex) {
+        var prefab = this.listCharms[tag];
+        if (!prefab) {
+            cc.warn('[CharmGame] Không có prefab charm tag=' + tag);
+            return null;
+        }
+        var charm = cc.instantiate(prefab);
+        charm.parent = this.plate;
+        charm.setSiblingIndex(this.plate.childrenCount - 1);
+        var item = charm.getComponent('CharmItem');
+        if (item) {
+            var maxColor = item.listImg && item.listImg.length > 0
+                ? item.listImg.length
+                : 1;
+            item.loadIMG(colorIndex % maxColor);
+            item.tag = tag;
+        }
+        var rigidBody = charm.getComponent(cc.RigidBody);
+        if (rigidBody) {
+            rigidBody.enabled = true;
+            rigidBody.awake = true;
+            rigidBody.active = true;
+            rigidBody.type = cc.RigidBodyType.Dynamic;
+            rigidBody.gravityScale = 0;
+            rigidBody.linearVelocity = cc.v2(0, 0);
+            rigidBody.angularVelocity = 0;
+            rigidBody.syncPosition(true);
+            rigidBody.syncRotation(true);
+        }
+        // Collider bật để nằm trên khay; khi kéo CordRoundGame sẽ tắt.
+        var collider = charm.getComponent(cc.PhysicsPolygonCollider);
+        if (collider) {
+            collider.enabled = true;
+        }
+        this.totalCharm++;
+        return charm;
     };
     NewClass.prototype.showNotiFull = function () {
         var _this = this;

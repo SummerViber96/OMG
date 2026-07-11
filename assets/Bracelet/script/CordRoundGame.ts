@@ -202,18 +202,33 @@ export default class CordRoundGame extends cc.Component {
     isTargetHind = null
 
     setHind(charm) {
-        let tag = charm.getComponent("CharmItem").tag
+        if (!this.charmHind || !charm) return;
+        const item = charm.getComponent('CharmItem') as any;
+        if (!item) return;
 
+        const tag = item.tag;
+        if (tag < 0 || tag >= this.charmHind.childrenCount) return;
 
         if (this.isTargetHind) {
             this.isTargetHind.active = false;
         }
-        this.charmHind.children[tag].active = true;
-        this.isTargetHind = this.charmHind.children[tag];
-        let colorIMG = charm.getComponent("CharmItem").getColor();
-        this.charmHind.children[tag].children[0].getComponent(cc.Sprite).spriteFrame = colorIMG;
-        this.charmHind.children[tag].children[1].getComponent(cc.Sprite).spriteFrame = colorIMG;
-        this.localBox = this.charmHind.children[tag];
+        const hind = this.charmHind.children[tag];
+        if (!hind) return;
+
+        hind.active = true;
+        this.isTargetHind = hind;
+        const colorIMG = item.getColor && item.getColor();
+        if (colorIMG) {
+            if (hind.children[0]) {
+                const sp0 = hind.children[0].getComponent(cc.Sprite);
+                if (sp0) sp0.spriteFrame = colorIMG;
+            }
+            if (hind.children[1]) {
+                const sp1 = hind.children[1].getComponent(cc.Sprite);
+                if (sp1) sp1.spriteFrame = colorIMG;
+            }
+        }
+        this.localBox = hind;
     }
     startBraceletMode() {
         if (!this.CordRoundList) return;
@@ -235,11 +250,42 @@ export default class CordRoundGame extends cc.Component {
             this.prepareCord(this.CordRoundList.children[i]);
         }
         this.ensureCharmLayer();
+        this.preparePlateForBraceletMode();
         this.cacheDefaultConfig(this.activeCord);
         if (this.showDefaultPreview) {
             this.showDefaultBraceletPreview();
         }
         this.bindTouch();
+    }
+
+    /**
+     * Khay có PhysicsPolygonCollider rất lớn — nếu còn bật sẽ đụng charm
+     * đang treo trên dây và đẩy chúng vào giữa vòng.
+     */
+    private preparePlateForBraceletMode() {
+        if (!this.plate) return;
+
+        for (let i = 0; i < this.plate.childrenCount; i++) {
+            const child = this.plate.children[i];
+            if (!child.getComponent('CharmItem')) continue;
+            const body = child.getComponent(cc.RigidBody);
+            if (!body) continue;
+            body.gravityScale = 0;
+            body.linearVelocity = cc.v2(0, 0);
+            body.angularVelocity = 0;
+            body.syncPosition(true);
+        }
+
+        const colliders = this.plate.getComponents(cc.PhysicsCollider);
+        for (let i = 0; i < colliders.length; i++) {
+            colliders[i].enabled = false;
+        }
+
+        const plateBody = this.plate.getComponent(cc.RigidBody);
+        if (plateBody) {
+            plateBody.active = false;
+            plateBody.enabled = false;
+        }
     }
 
     onLoad() {
@@ -484,28 +530,39 @@ export default class CordRoundGame extends cc.Component {
         const pathDir = this.pickPathDirection(path.points, startIndex, dropAnchor.side);
 
         const pivot = this.setupCharmHangRig(charm);
+        // Đưa pivot sang charmLayer bằng world pos để tránh nhảy tọa độ khi đổi parent.
+        const pivotWorld = pivot.parent
+            ? pivot.parent.convertToWorldSpaceAR(pivot.position)
+            : charm.convertToWorldSpaceAR(cc.v2(0, 0));
         pivot.parent = this.charmLayer;
+        pivot.setPosition(this.charmLayer.convertToNodeSpaceAR(pivotWorld));
         pivot.setPosition(cc.v3(anchorPos.x, anchorPos.y, 0));
         const hangLocal = this.getHangLocalOffset(charm);
         const outward = this.getOutwardFromCenter(cc.v2(anchorPos.x, anchorPos.y));
         charm.angle = this.angleForOutwardHang(outward, hangLocal);
-        charm.children[0].scale = 0.8;
+        if (charm.children[0]) {
+            charm.children[0].scale = 0.8;
+        }
 
         const pivotBody = pivot.getComponent(cc.RigidBody);
         const charmBody = charm.getComponent(cc.RigidBody);
         if (pivotBody) {
+            pivotBody.enabled = true;
+            pivotBody.active = true;
+            pivotBody.type = cc.RigidBodyType.Dynamic;
             pivotBody.syncPosition(true);
             pivotBody.linearVelocity = cc.v2(0, 0);
             pivotBody.angularVelocity = 0;
             pivotBody.gravityScale = 1;
             pivotBody.allowSleep = false;
             pivotBody.awake = true;
-            pivotBody.active = true;
 
             const tangent = this.getTangentAtIndex(path.points, startIndex, pathDir);
             pivotBody.linearVelocity = tangent.mul(this.dropSlideSpeed);
         }
         if (charmBody) {
+            charmBody.enabled = true;
+            charmBody.active = true;
             charmBody.syncPosition(true);
             charmBody.syncRotation(true);
             charmBody.linearVelocity = cc.v2(0, 0);
@@ -1654,13 +1711,33 @@ export default class CordRoundGame extends cc.Component {
             const child = this.plate.children[i];
             if (!child.active || !child.getComponent('CharmItem')) continue;
             if (this.isCharmOnCord(child)) continue;
-
-            const rect = child.getBoundingBoxToWorld();
-            if (rect.contains(screenPos)) {
+            if (this.isScreenPosOnCharm(child, screenPos)) {
                 return child;
             }
         }
         return null;
+    }
+
+    /** Prefab charm gốc size = 0 — phải hit theo icon / khoảng cách. */
+    private isScreenPosOnCharm(charm: cc.Node, screenPos: cc.Vec2): boolean {
+        const icon = charm.getChildByName('icon')
+            || (charm.childrenCount > 0 ? charm.children[0] : null);
+        if (icon) {
+            const rect = icon.getBoundingBoxToWorld();
+            const pad = 12;
+            const hit = cc.rect(
+                rect.x - pad,
+                rect.y - pad,
+                rect.width + pad * 2,
+                rect.height + pad * 2
+            );
+            if (hit.contains(screenPos)) return true;
+        }
+
+        const world = charm.convertToWorldSpaceAR(cc.v2(0, 0));
+        const dx = world.x - screenPos.x;
+        const dy = world.y - screenPos.y;
+        return (dx * dx + dy * dy) <= 95 * 95;
     }
 
     private isCharmOnCord(charm: cc.Node): boolean {

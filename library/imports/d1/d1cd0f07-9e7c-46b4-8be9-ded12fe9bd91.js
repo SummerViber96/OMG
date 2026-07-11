@@ -57,6 +57,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.selectedKeychainIndex = -1;
         _this.lastMatchPercent = 0;
+        /** true = vào game thẳng màn kéo charm thả vòng (có charm sẵn trên khay). */
+        _this.openAtCharmDrop = true;
+        /** id dây khi skip vào màn thả charm (0=đen … 4=green …). */
+        _this.skipCordId = 4;
         return _this;
         // update (dt) {}
     }
@@ -73,6 +77,89 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.start = function () {
         cc.audioEngine.play(this.soundBg, true, 0.5);
         cc.game.setFrameRate(60);
+        if (this.openAtCharmDrop) {
+            this.openCharmDropScreen(this.skipCordId);
+        }
+    };
+    /**
+     * Mở thẳng màn kéo charm thả vào vòng + spawn charm sẵn trên khay.
+     * @param cordId id dây (globalThis.idString)
+     * @param charmTags danh sách tag charm spawn; null = mặc định
+     */
+    NewClass.prototype.openCharmDropScreen = function (cordId, charmTags) {
+        var _this = this;
+        if (cordId === void 0) { cordId = 0; }
+        if (charmTags === void 0) { charmTags = null; }
+        globalThis.idString = cordId;
+        if (this.scene1) {
+            this.scene1.active = false;
+            this.scene1.opacity = 0;
+        }
+        if (this.stringNode) {
+            this.stringNode.active = false;
+        }
+        if (this.hand2) {
+            this.hand2.active = false;
+        }
+        // Tắt charmNode trước để tránh CharmGame.start() gắn touch spoon.
+        var charmGame = null;
+        if (this.charmNode) {
+            charmGame = this.charmNode.getComponent('CharmGame');
+            if (charmGame && typeof charmGame.OffEvent === 'function') {
+                charmGame.OffEvent();
+            }
+            this.charmNode.active = false;
+            this.charmNode.opacity = 0;
+        }
+        if (this.scene2) {
+            this.scene2.active = true;
+        }
+        if (this.bgNen) {
+            this.bgNen.active = true;
+            this.bgNen.opacity = 255;
+        }
+        if (this.vongDefault) {
+            this.vongDefault.parent = this.node;
+            this.vongDefault.setPosition(cc.v3(330, 820, 0));
+            this.vongDefault.scale = 0.28;
+            var btn = this.vongDefault.getComponent(cc.Button);
+            if (btn)
+                btn.enabled = true;
+        }
+        // if (this.plate) {
+        //     this.plate.active = true;
+        //     this.plate.setPosition(cc.v3(0, 100, 0));
+        //     this.bringPlateToFront();
+        // }
+        if (this.title) {
+            this.title.string = 'MAKE BRACELET';
+        }
+        if (this.stringBot) {
+            this.stringBot.active = false;
+        }
+        this.scheduleOnce(function () {
+            var id = globalThis.idString;
+            var stringAround = _this.listCordRound && _this.listCordRound.children[id];
+            if (stringAround) {
+                stringAround.active = true;
+                stringAround.opacity = 255;
+            }
+            var cordGame = _this.listCordRound && _this.listCordRound.getComponent('CordRoundGame');
+            if (cordGame && typeof cordGame.startBraceletMode === 'function') {
+                cordGame.startBraceletMode();
+            }
+            _this.bringPlateToFront();
+            // Spawn sau khi scene2 + bracelet mode đã sẵn sàng (physics/touch).
+            if (charmGame && typeof charmGame.spawnCharmsOnPlate === 'function') {
+                charmGame.spawnCharmsOnPlate(charmTags);
+            }
+            if (_this.hand3) {
+                _this.hand3.active = true;
+                if (_this.hand3.parent) {
+                    _this.hand3.setSiblingIndex(_this.hand3.parent.childrenCount - 1);
+                }
+            }
+        }, 0.05);
     };
     NewClass.prototype.btn_startGame = function () {
         var _this = this;
@@ -110,12 +197,22 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.charmNode).to(0.4, { opacity: 0 }).call(function () {
             _this.charmNode.active = false;
         }).start();
-        cc.tween(this.plate).to(0.4, { position: cc.v3(0, 230, 0) }).start();
+        cc.tween(this.plate).to(0.4, { position: cc.v3(0, 100, 0) }).start();
+        this.bringPlateToFront();
         this.title.string = "MAKE BRACELET";
         this.startGame2();
         this.scheduleOnce(function () {
             _this.hand3.active = true;
         }, 0.4);
+    };
+    /** Đưa khay (plate) + charm lên trên cùng để không bị vòng che. */
+    NewClass.prototype.bringPlateToFront = function () {
+        if (!this.plate)
+            return;
+        var parent = this.plate.parent;
+        if (!parent)
+            return;
+        this.plate.setSiblingIndex(parent.childrenCount - 1);
     };
     NewClass.prototype.startGame2 = function () {
         var _this = this;
@@ -292,6 +389,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "vongDefault", void 0);
+    __decorate([
+        property
+    ], NewClass.prototype, "openAtCharmDrop", void 0);
+    __decorate([
+        property
+    ], NewClass.prototype, "skipCordId", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
