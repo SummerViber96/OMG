@@ -32,18 +32,18 @@ export default class NewClass extends cc.Component {
     soundClick: cc.AudioClip = null
     start() {
         let self = this
-        this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
-            var name = trackEntry.animation ? trackEntry.animation.name : '';
-            // if (name == 'animation') {
-            // }
-            self.animCutShirt.node.active = false
+        // this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
+        //     var name = trackEntry.animation ? trackEntry.animation.name : '';
+        //     // if (name == 'animation') {
+        //     // }
+        //     self.animCutShirt.node.active = false
 
-        });
+        // });
 
-        this.scheduleOnce(() => {
-            if (this.isTab) return;
-            this.hand.active = true
-        }, 2)
+        // this.scheduleOnce(() => {
+        //     if (this.isTab) return;
+        //     this.hand.active = true
+        // }, 2)
     }
     isTab = false
     tap() {

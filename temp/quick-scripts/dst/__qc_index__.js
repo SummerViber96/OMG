@@ -18,6 +18,7 @@ require('./assets/cooking/ietm/cake2');
 require('./assets/cooking/ietm/cusMission');
 require('./assets/cooking/ietm/hotdog');
 require('./assets/cooking/ietm/preBread');
+require('./assets/scripts/APP/BangD');
 require('./assets/scripts/APP/CC2');
 require('./assets/scripts/APP/GameApp');
 require('./assets/scripts/APP/Scratch_ticket');

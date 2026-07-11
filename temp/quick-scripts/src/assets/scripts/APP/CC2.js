@@ -79,10 +79,23 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundCoin = null;
         _this.soundFail = null;
         _this.soundUnlock = null;
+        _this.soundPopUp = null;
+        _this.listCard = null;
+        _this.listCard2 = null;
+        _this.soap = null;
+        _this.tutSoap = null;
+        _this.bangD = null;
+        _this.tutBangD = null;
+        _this.vetThuong = null;
+        _this.lbVetThuong = null;
+        _this.hindCuoi = null;
+        _this.phaohoa = null;
         _this.selectedItem = null;
+        _this.isStep1 = false;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.arrBtn = [];
         _this.isStep = 0;
+        _this.isClickCard = false;
         _this.isunlock = false;
         _this.countStep = 0;
         _this.isClick = false;
@@ -96,6 +109,92 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundBg, true, 0.3);
         this.arrBtn = [this.itemShambo, this.itemVoiHoaSen, this.itemMaySay];
         // this.startScene()
+    };
+    NewClass.prototype.btn_clickPet = function () {
+        var _this = this;
+        console.log("btn_clickPet");
+        cc.audioEngine.play(this.soundClick, false, 1);
+        cc.tween(this.scene1).to(0.3, { opacity: 0 }).call(function () {
+            _this.scene1.active = false;
+        }).start();
+        this.scheduleOnce(function () {
+            _this.isStep1 = true;
+            _this.camera.node.position = cc.v3(0, 0);
+        }, 0.2);
+        this.scene2.active = true;
+        cc.audioEngine.play(this.soundTranscreen, false, 1);
+        this.handScene21.active = true;
+        this.scheduleOnce(function () {
+            _this.listCard.active = true;
+            _this.scheduleOnce(function () {
+                if (_this.isClickCard == false) {
+                    _this.listCard.getChildByName("hand").active = true;
+                }
+            }, 1);
+            cc.audioEngine.play(_this.soundPopUp, false, 1);
+        }, 0.5);
+    };
+    NewClass.prototype.step3 = function () {
+        var _this = this;
+        this.scheduleOnce(function () {
+            _this.listCard2.active = true;
+            _this.scheduleOnce(function () {
+                _this.listCard2.getChildByName("hand").active = true;
+                _this.vetThuong.active = true;
+                _this.hindCuoi.active = true;
+            }, 0.5);
+        }, 0.5);
+    };
+    NewClass.prototype.btn_chooseCard = function (event, value) {
+        console.log("btn_chooseCard", value);
+        this.isClickCard = true;
+        this.listCard.getChildByName("hand").active = false;
+        cc.audioEngine.play(this.soundClick, false, 1);
+        switch (value) {
+            case "0":
+                this.listCard.active = false;
+                this.tutSoap.active = true;
+                this.soap.active = true;
+                this.soap.getComponent("Scratch_ticket").addEvent();
+                this.lbVetThuong.string = "Heal Your Pet!";
+                // this.daoCao.active=true
+                break;
+            case "1":
+                var btn = event.currentTarget;
+                btn.getComponent(cc.Animation).play("cardWrong");
+                cc.audioEngine.play(this.soundWrong, false, 0.5);
+                break;
+            case "2":
+                var btn2 = event.currentTarget;
+                btn2.getComponent(cc.Animation).play("cardWrong");
+                cc.audioEngine.play(this.soundWrong, false, 0.5);
+                break;
+        }
+    };
+    NewClass.prototype.btn_chooseCard2 = function (event, value) {
+        this.isClickCard = true;
+        this.listCard2.getChildByName("hand").active = false;
+        cc.audioEngine.play(this.soundClick, false, 1);
+        switch (value) {
+            case "0":
+                this.listCard2.active = false;
+                this.tutBangD.active = true;
+                this.bangD.active = true;
+                this.bangD.getComponent("BangD").addEvent();
+                this.vetThuong.active = true;
+                // this.daoCao.active=true
+                break;
+            case "1":
+                var btn = event.currentTarget;
+                btn.getComponent(cc.Animation).play("cardWrong");
+                cc.audioEngine.play(this.soundWrong, false, 0.5);
+                break;
+            case "2":
+                var btn2 = event.currentTarget;
+                btn2.getComponent(cc.Animation).play("cardWrong");
+                cc.audioEngine.play(this.soundWrong, false, 0.5);
+                break;
+        }
     };
     NewClass.prototype.completeScene = function () {
         var _this = this;
@@ -471,19 +570,21 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.5);
     };
     NewClass.prototype.onEndGame = function () {
+        // this.scene2.active = true
+        // this.scheduleOnce(() => {
+        //     cc.audioEngine.play(this.soundTranscreen, false, 0.5)
+        //     cc.audioEngine.play(this.soundFail, false, 1)
         var _this = this;
-        this.scene2.active = true;
-        this.scheduleOnce(function () {
-            cc.audioEngine.play(_this.soundTranscreen, false, 0.5);
-            cc.audioEngine.play(_this.soundFail, false, 1);
-            _this.failUI.active = true;
-        }, 0.5);
+        //     this.failUI.active = true;
+        // }, 0.5)
+        this.hindCuoi.active = false;
+        this.phaohoa.active = true;
         this.scheduleOnce(function () {
             _this.failUI.active = false;
             cc.audioEngine.play(_this.soundLose, false, 1);
             _this.endCard.active = true;
             _this.linkToStore.active = true;
-        }, 1.2);
+        }, 1);
     };
     NewClass.prototype.update = function (dt) {
         this.lbCoin.string = globalThis.coin.toString();
@@ -503,7 +604,11 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.zoomRatio = (logic) ? 1 : 1.5;
-        this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 0);
+        this.listCard.scale = (logic) ? 1 : 1.4;
+        this.listCard2.scale = (logic) ? 1 : 1.4;
+        if (this.isStep1 == false) {
+            this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, -300);
+        }
         this.isIpad = false;
         // this.scene2.scale = 1
         if (logic == true) {
@@ -694,6 +799,39 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundUnlock", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundPopUp", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listCard", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listCard2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "soap", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "tutSoap", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "bangD", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "tutBangD", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "vetThuong", void 0);
+    __decorate([
+        property(cc.Label)
+    ], NewClass.prototype, "lbVetThuong", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "hindCuoi", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "phaohoa", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

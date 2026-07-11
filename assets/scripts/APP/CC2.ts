@@ -106,8 +106,30 @@ export default class NewClass extends cc.Component {
     soundFail: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundUnlock: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundPopUp: cc.AudioClip = null
+    @property(cc.Node)
+    listCard: cc.Node = null;
+    @property(cc.Node)
+    listCard2: cc.Node = null;
+    @property(cc.Node)
+    soap: cc.Node = null;
+    @property(cc.Node)
+    tutSoap: cc.Node = null;
+    @property(cc.Node)
+    bangD: cc.Node = null;
+    @property(cc.Node)
+    tutBangD: cc.Node = null;
+    @property(cc.Node)
+    vetThuong: cc.Node = null;
+    @property(cc.Label)
+    lbVetThuong: cc.Label = null;
+    @property(cc.Node)
+    hindCuoi: cc.Node = null;
+    @property(cc.Node)
+    phaohoa: cc.Node = null;
     private selectedItem: cc.Node = null;
-
+    isStep1 = false;
     adChanel = '{{__adv_channels_adapter__}}'
     arrBtn = []
     isStep = 0
@@ -119,6 +141,104 @@ export default class NewClass extends cc.Component {
         this.arrBtn = [this.itemShambo, this.itemVoiHoaSen, this.itemMaySay]
         // this.startScene()
     }
+    btn_clickPet() {
+        console.log("btn_clickPet")
+        cc.audioEngine.play(this.soundClick, false, 1);
+        cc.tween(this.scene1).to(0.3, { opacity: 0 }).call(() => {
+            this.scene1.active = false
+        
+        }).start()
+        this.scheduleOnce(() => {
+            this.isStep1=true;
+
+            this.camera.node.position = cc.v3(0, 0)        }, 0.2)
+        
+        this.scene2.active = true
+        cc.audioEngine.play(this.soundTranscreen, false, 1)
+        this.handScene21.active = true;
+        this.scheduleOnce(() => {
+            this.listCard.active = true;
+            this.scheduleOnce(() => {
+                if (this.isClickCard == false) {
+                    this.listCard.getChildByName("hand").active = true
+                }
+            }, 1)
+            cc.audioEngine.play(this.soundPopUp, false, 1)
+        }, 0.5)
+
+    }
+    isClickCard = false
+
+    step3() {
+        this.scheduleOnce(() => {
+            this.listCard2.active = true
+            this.scheduleOnce(() => {
+                this.listCard2.getChildByName("hand").active = true
+                this.vetThuong.active = true
+                this.hindCuoi.active = true
+
+            }, 0.5)
+        }, 0.5)
+    }
+    btn_chooseCard(event, value) {
+        console.log("btn_chooseCard", value)
+        this.isClickCard = true
+        this.listCard.getChildByName("hand").active = false
+
+        cc.audioEngine.play(this.soundClick, false, 1)
+        switch (value) {
+            case "0":
+                this.listCard.active = false;
+                this.tutSoap.active = true
+
+                this.soap.active = true
+                this.soap.getComponent("Scratch_ticket").addEvent()
+                this.lbVetThuong.string = "Heal Your Pet!"
+                // this.daoCao.active=true
+                break;
+            case "1":
+                let btn = event.currentTarget;
+                btn.getComponent(cc.Animation).play("cardWrong")
+                cc.audioEngine.play(this.soundWrong, false, 0.5)
+                break;
+            case "2":
+                let btn2 = event.currentTarget;
+                btn2.getComponent(cc.Animation).play("cardWrong")
+                cc.audioEngine.play(this.soundWrong, false, 0.5)
+                break;
+
+        }
+    }
+    btn_chooseCard2(event, value) {
+        this.isClickCard = true
+        this.listCard2.getChildByName("hand").active = false
+
+        cc.audioEngine.play(this.soundClick, false, 1)
+        switch (value) {
+            case "0":
+                this.listCard2.active = false;
+                this.tutBangD.active = true
+
+                this.bangD.active = true
+                this.bangD.getComponent("BangD").addEvent()
+                this.vetThuong.active = true
+                // this.daoCao.active=true
+                break;
+            case "1":
+                let btn = event.currentTarget;
+                btn.getComponent(cc.Animation).play("cardWrong")
+                cc.audioEngine.play(this.soundWrong, false, 0.5)
+                break;
+            case "2":
+                let btn2 = event.currentTarget;
+                btn2.getComponent(cc.Animation).play("cardWrong")
+                cc.audioEngine.play(this.soundWrong, false, 0.5)
+                break;
+
+        }
+    }
+
+
     completeScene() {
         // this.startScene()
         // this.scene1.active=false
@@ -537,20 +657,22 @@ export default class NewClass extends cc.Component {
 
     }
     onEndGame() {
-        this.scene2.active = true
-        this.scheduleOnce(() => {
-            cc.audioEngine.play(this.soundTranscreen, false, 0.5)
-            cc.audioEngine.play(this.soundFail, false, 1)
+        // this.scene2.active = true
+        // this.scheduleOnce(() => {
+        //     cc.audioEngine.play(this.soundTranscreen, false, 0.5)
+        //     cc.audioEngine.play(this.soundFail, false, 1)
 
-            this.failUI.active = true;
+        //     this.failUI.active = true;
 
-        }, 0.5)
+        // }, 0.5)
+        this.hindCuoi.active = false
+        this.phaohoa.active = true
         this.scheduleOnce(() => {
             this.failUI.active = false
             cc.audioEngine.play(this.soundLose, false, 1)
             this.endCard.active = true;
             this.linkToStore.active = true
-        }, 1.2)
+        }, 1)
 
     }
 
@@ -573,7 +695,13 @@ export default class NewClass extends cc.Component {
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.camera.zoomRatio = (logic) ? 1 : 1.5
-        this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 0)
+        this.listCard.scale= (logic) ? 1 : 1.4
+        this.listCard2.scale= (logic) ? 1 : 1.4
+
+        if(this.isStep1==false){
+            this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, -300)
+        }
+    
         this.isIpad = false
         // this.scene2.scale = 1
         if (logic == true) {

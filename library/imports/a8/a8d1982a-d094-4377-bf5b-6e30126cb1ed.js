@@ -38,40 +38,47 @@ var Scratch_ticket = /** @class */ (function (_super) {
         _this.ham = null;
         _this.tutHam = null;
         _this.soundCao = null;
+        _this.listBun = [];
+        _this.anim = null;
+        _this.listXaphong = [];
+        _this.text = null;
+        _this.egg = null;
         _this.progerss = 0;
         _this.gamePlay = null;
         _this.isDelaySound = false;
         _this.isIdCao = null;
+        _this.isCountStep = 0;
         _this.calcDebugger = false; // 辅助开关，开启则会绘制划开涂层所属的小格子
         _this.tempDrawPoints = [];
         _this.polygonPointsList = [];
         return _this;
     }
     Scratch_ticket.prototype.onLoad = function () {
-        this.reset();
+        // this.reset();
         this.gamePlay = cc.Canvas.instance.node.getComponent(CC2_1.default);
         // this.addEvent()
     };
     Scratch_ticket.prototype.addEvent = function () {
-        this.ticketNode.on(cc.Node.EventType.TOUCH_START, this.touchStartEvent, this);
-        this.ticketNode.on(cc.Node.EventType.TOUCH_MOVE, this.touchMoveEvent, this);
-        this.ticketNode.on(cc.Node.EventType.TOUCH_END, this.touchEndEvent, this);
-        this.ticketNode.on(cc.Node.EventType.TOUCH_CANCEL, this.touchEndEvent, this);
+        this.node.on(cc.Node.EventType.TOUCH_START, this.touchStartEvent, this);
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.touchMoveEvent, this);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.touchEndEvent, this);
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.touchEndEvent, this);
     };
     Scratch_ticket.prototype.beforeDestroy = function () {
-        this.ticketNode.off(cc.Node.EventType.TOUCH_START, this.touchStartEvent, this);
-        this.ticketNode.off(cc.Node.EventType.TOUCH_MOVE, this.touchMoveEvent, this);
-        this.ticketNode.off(cc.Node.EventType.TOUCH_END, this.touchEndEvent, this);
-        this.ticketNode.off(cc.Node.EventType.TOUCH_CANCEL, this.touchEndEvent, this);
+        this.node.off(cc.Node.EventType.TOUCH_START, this.touchStartEvent, this);
+        this.node.off(cc.Node.EventType.TOUCH_MOVE, this.touchMoveEvent, this);
+        this.node.off(cc.Node.EventType.TOUCH_END, this.touchEndEvent, this);
+        this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.touchEndEvent, this);
     };
     Scratch_ticket.prototype.touchStartEvent = function (event) {
         var _this = this;
         var pos = event.getLocation();
         pos = this.camera.getScreenToWorldPoint(pos);
-        var point = this.ticketNode.convertToNodeSpaceAR(pos);
-        var isNew = this.clearMask(point);
-        this.ham.active = true;
-        if (this.isIdCao && isNew) {
+        var point = this.node.parent.convertToNodeSpaceAR(pos);
+        // let isNew = this.clearMask(point);
+        this.node.opacity = 255;
+        this.tutHam.active = false;
+        if (this.isIdCao) {
             cc.audioEngine.stop(this.isIdCao);
             this.isIdCao = cc.audioEngine.play(this.soundCao, false, 2);
             this.isDelaySound = true;
@@ -81,8 +88,8 @@ var Scratch_ticket = /** @class */ (function (_super) {
         }
         var pos2 = event.getLocation();
         pos2 = this.camera.getScreenToWorldPoint(pos2);
-        var posHam = this.ham.parent.convertToNodeSpaceAR(pos2);
-        this.ham.position = posHam.add(cc.v3(0, -50));
+        var posHam = this.node.convertToNodeSpaceAR(pos2);
+        this.node.position = posHam.add(cc.v3(0, -50));
         // this.gamePlay.handSwipe.active = false;
         // this.gamePlay.handSwipe2.active = false;
     };
@@ -90,27 +97,68 @@ var Scratch_ticket = /** @class */ (function (_super) {
         var _this = this;
         var pos = event.getLocation();
         pos = this.camera.getScreenToWorldPoint(pos);
-        var posHam = this.ham.parent.convertToNodeSpaceAR(pos);
-        var point = this.ticketNode.convertToNodeSpaceAR(pos);
-        this.ham.position = posHam.add(cc.v3(0, -50));
-        var isNew = this.clearMask(point);
-        this.calcProgress();
-        if (isNew) {
-            if (!this.isDelaySound) {
-                this.isDelaySound = true;
-                cc.audioEngine.play(this.soundCao, false, 2);
-                this.scheduleOnce(function () {
-                    _this.isDelaySound = false;
-                }, 0.1);
+        var posHam = this.node.parent.convertToNodeSpaceAR(pos);
+        this.node.position = posHam.add(cc.v3(0, -50));
+        this.checkItem();
+        if (!this.isDelaySound) {
+            this.isDelaySound = true;
+            cc.audioEngine.play(this.soundCao, false, 2);
+            this.scheduleOnce(function () {
+                _this.isDelaySound = false;
+            }, 0.1);
+        }
+    };
+    Scratch_ticket.prototype.checkItem = function () {
+        for (var i = 0; i < this.listBun.length; i++) {
+            // console.log(this.node.position.sub(pos).mag())
+            if (this.listBun[i].active) {
+                var pos = this.listBun[i].position;
+                pos = this.listBun[i].parent.convertToWorldSpaceAR(pos);
+                pos = this.node.parent.convertToNodeSpaceAR(pos);
+                if (this.node.position.sub(pos).mag() < 50) {
+                    this.listBun[i].active = false;
+                    this.listXaphong[i].active = true;
+                    this.checkEndStep();
+                    return true;
+                }
             }
         }
+        return false;
+    };
+    Scratch_ticket.prototype.checkEndStep = function () {
+        this.isCountStep++;
+        console.log(this.isCountStep);
+        if (this.isCountStep == 4) {
+            this.endStep();
+        }
+        if (this.isCountStep == 2) {
+            // this.anim.setAnimation(0, "Pet_Caring", true)
+        }
+        if (this.isCountStep == 3) {
+            // this.text.string="Great!"
+            this.anim.node.parent.position = cc.v3(49, -17);
+            this.anim.setAnimation(0, "Pet_FurDrying", true);
+        }
+    };
+    Scratch_ticket.prototype.endStep = function () {
+        this.gamePlay.step3();
+        var _loop_1 = function (child) {
+            cc.tween(child).to(0.5, { opacity: 0 }).call(function () {
+                child.active = false;
+            }).start();
+        };
+        for (var _i = 0, _a = this.listXaphong; _i < _a.length; _i++) {
+            var child = _a[_i];
+            _loop_1(child);
+        }
+        this.node.active = false;
     };
     Scratch_ticket.prototype.touchEndEvent = function () {
         if (this.isIdCao) {
             cc.audioEngine.stop(this.isIdCao);
         }
-        this.tempDrawPoints = [];
-        this.calcProgress();
+        // this.tempDrawPoints = [];
+        // this.calcProgress();
     };
     Scratch_ticket.prototype.calcProgress = function () {
         var _this = this;
@@ -225,6 +273,21 @@ var Scratch_ticket = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], Scratch_ticket.prototype, "soundCao", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Scratch_ticket.prototype, "listBun", void 0);
+    __decorate([
+        property(sp.Skeleton)
+    ], Scratch_ticket.prototype, "anim", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Scratch_ticket.prototype, "listXaphong", void 0);
+    __decorate([
+        property(cc.Label)
+    ], Scratch_ticket.prototype, "text", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Scratch_ticket.prototype, "egg", void 0);
     Scratch_ticket = __decorate([
         ccclass
     ], Scratch_ticket);

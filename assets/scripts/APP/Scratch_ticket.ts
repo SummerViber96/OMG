@@ -19,37 +19,49 @@ export default class Scratch_ticket extends cc.Component {
   tutHam: cc.Node = null
   @property(cc.AudioClip)
   soundCao: cc.AudioClip = null
+  @property(cc.Node)
+  listBun: cc.Node[] = []
+  @property(sp.Skeleton)
+  anim: sp.Skeleton = null
+  @property(cc.Node)
+
+  listXaphong: cc.Node[] = []
+  @property(cc.Label)
+  text: cc.Label = null
+  @property(cc.Node)
+  egg: cc.Node = null
   progerss = 0;
 
   gamePlay = null;
 
   onLoad() {
-    this.reset();
+    // this.reset();
     this.gamePlay = cc.Canvas.instance.node.getComponent(GamePlay);
     // this.addEvent()
   }
 
   addEvent() {
-    this.ticketNode.on(cc.Node.EventType.TOUCH_START, this.touchStartEvent, this);
-    this.ticketNode.on(cc.Node.EventType.TOUCH_MOVE, this.touchMoveEvent, this);
-    this.ticketNode.on(cc.Node.EventType.TOUCH_END, this.touchEndEvent, this);
-    this.ticketNode.on(cc.Node.EventType.TOUCH_CANCEL, this.touchEndEvent, this);
+    this.node.on(cc.Node.EventType.TOUCH_START, this.touchStartEvent, this);
+    this.node.on(cc.Node.EventType.TOUCH_MOVE, this.touchMoveEvent, this);
+    this.node.on(cc.Node.EventType.TOUCH_END, this.touchEndEvent, this);
+    this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.touchEndEvent, this);
   }
 
   beforeDestroy() {
-    this.ticketNode.off(cc.Node.EventType.TOUCH_START, this.touchStartEvent, this);
-    this.ticketNode.off(cc.Node.EventType.TOUCH_MOVE, this.touchMoveEvent, this);
-    this.ticketNode.off(cc.Node.EventType.TOUCH_END, this.touchEndEvent, this);
-    this.ticketNode.off(cc.Node.EventType.TOUCH_CANCEL, this.touchEndEvent, this);
+    this.node.off(cc.Node.EventType.TOUCH_START, this.touchStartEvent, this);
+    this.node.off(cc.Node.EventType.TOUCH_MOVE, this.touchMoveEvent, this);
+    this.node.off(cc.Node.EventType.TOUCH_END, this.touchEndEvent, this);
+    this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.touchEndEvent, this);
   }
 
   touchStartEvent(event) {
     let pos = event.getLocation()
     pos = this.camera.getScreenToWorldPoint(pos);
-    let point = this.ticketNode.convertToNodeSpaceAR(pos);
-    let isNew = this.clearMask(point);
-    this.ham.active = true
-    if (this.isIdCao && isNew) {
+    let point = this.node.parent.convertToNodeSpaceAR(pos);
+    // let isNew = this.clearMask(point);
+    this.node.opacity = 255
+    this.tutHam.active = false
+    if (this.isIdCao) {
       cc.audioEngine.stop(this.isIdCao)
       this.isIdCao = cc.audioEngine.play(this.soundCao, false, 2)
       this.isDelaySound = true;
@@ -60,8 +72,8 @@ export default class Scratch_ticket extends cc.Component {
 
     let pos2 = event.getLocation()
     pos2 = this.camera.getScreenToWorldPoint(pos2);
-    let posHam = this.ham.parent.convertToNodeSpaceAR(pos2)
-    this.ham.position = posHam.add(cc.v3(0,-50))
+    let posHam = this.node.convertToNodeSpaceAR(pos2)
+    this.node.position = posHam.add(cc.v3(0, -50))
     // this.gamePlay.handSwipe.active = false;
     // this.gamePlay.handSwipe2.active = false;
   }
@@ -72,29 +84,75 @@ export default class Scratch_ticket extends cc.Component {
 
     let pos = event.getLocation()
     pos = this.camera.getScreenToWorldPoint(pos);
-    let posHam = this.ham.parent.convertToNodeSpaceAR(pos)
-    let point = this.ticketNode.convertToNodeSpaceAR(pos);
-    this.ham.position = posHam.add(cc.v3(0,-50))
-    let isNew = this.clearMask(point);
-    this.calcProgress();
-    if (isNew) {
-      if (!this.isDelaySound) {
-        this.isDelaySound = true;
-        cc.audioEngine.play(this.soundCao, false, 2)
-        this.scheduleOnce(() => {
-          this.isDelaySound = false
-        }, 0.1)
+    let posHam = this.node.parent.convertToNodeSpaceAR(pos)
+
+    this.node.position = posHam.add(cc.v3(0, -50))
+    this.checkItem()
+    if (!this.isDelaySound) {
+      this.isDelaySound = true;
+      cc.audioEngine.play(this.soundCao, false, 2)
+      this.scheduleOnce(() => {
+        this.isDelaySound = false
+      }, 0.1)
+    }
+
+  }
+  checkItem() {
+    for (let i = 0; i < this.listBun.length; i++) {
+      // console.log(this.node.position.sub(pos).mag())
+
+      if (this.listBun[i].active) {
+        let pos = this.listBun[i].position;
+        pos = this.listBun[i].parent.convertToWorldSpaceAR(pos);
+        pos = this.node.parent.convertToNodeSpaceAR(pos);
+        if (this.node.position.sub(pos).mag() < 50) {
+          this.listBun[i].active = false
+          this.listXaphong[i].active = true
+          this.checkEndStep()
+          return true
+        }
       }
     }
+    return false
   }
+  isCountStep = 0
+  checkEndStep() {
+    this.isCountStep++
+    console.log(this.isCountStep)
+    if (this.isCountStep == 4) {
+      this.endStep()
+    }
+    if (this.isCountStep == 2) {
+      // this.anim.setAnimation(0, "Pet_Caring", true)
 
+    }
+    if (this.isCountStep == 3) {
+      // this.text.string="Great!"
+      this.anim.node.parent.position=cc.v3(49,-17)
+
+      this.anim.setAnimation(0, "Pet_FurDrying", true)
+
+    }
+  }
+  endStep() {
+    this.gamePlay.step3()
+    
+      for (let child of this.listXaphong) {
+        cc.tween(child).to(0.5, { opacity: 0 }).call(() => {
+          child.active = false
+        }).start();
+      }
+  
+    this.node.active = false
+  
+  }
   touchEndEvent() {
     if (this.isIdCao) {
       cc.audioEngine.stop(this.isIdCao)
 
     }
-    this.tempDrawPoints = [];
-    this.calcProgress();
+    // this.tempDrawPoints = [];
+    // this.calcProgress();
   }
 
   calcDebugger: boolean = false; // 辅助开关，开启则会绘制划开涂层所属的小格子

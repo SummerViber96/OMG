@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ChatGPT Image 13_26_25 10 thg 7, 2026 (3)",
+    "texture": "c2353746-b1d7-414b-9fb1-a29379afe444",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      372,
+      370
+    ],
+    "offset": [
+      -4.5,
+      11
+    ],
+    "originalSize": [
+      381,
+      392
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

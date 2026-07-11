@@ -47,19 +47,17 @@ var NewClass = /** @class */ (function (_super) {
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
-        var _this = this;
         var self = this;
-        this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
-            var name = trackEntry.animation ? trackEntry.animation.name : '';
-            // if (name == 'animation') {
-            // }
-            self.animCutShirt.node.active = false;
-        });
-        this.scheduleOnce(function () {
-            if (_this.isTab)
-                return;
-            _this.hand.active = true;
-        }, 2);
+        // this.animCutShirt.setCompleteListener(function (trackEntry, loopCount) {
+        //     var name = trackEntry.animation ? trackEntry.animation.name : '';
+        //     // if (name == 'animation') {
+        //     // }
+        //     self.animCutShirt.node.active = false
+        // });
+        // this.scheduleOnce(() => {
+        //     if (this.isTab) return;
+        //     this.hand.active = true
+        // }, 2)
     };
     NewClass.prototype.tap = function () {
         if (this.isTab)
