@@ -13255,33 +13255,33 @@
     "relativePath": "Bracelet\\cord_round"
   },
   "0c299c2b-1650-494a-9280-509084bde910": {
-    "asset": 1783909420039,
-    "meta": 1783910662591,
+    "asset": 1783912325103,
+    "meta": 1783912325115,
     "relativePath": "Bracelet\\prefab\\preCharm2.prefab"
   },
   "ed604c34-af67-401a-9bdc-91560617465b": {
-    "asset": 1783909420122,
-    "meta": 1783910662603,
+    "asset": 1783912412903,
+    "meta": 1783912412912,
     "relativePath": "Bracelet\\prefab\\preCharm3.prefab"
   },
   "a748eac8-436e-492c-adf7-b5873f9e4a41": {
-    "asset": 1783909420433,
-    "meta": 1783910662613,
+    "asset": 1783912480734,
+    "meta": 1783912480748,
     "relativePath": "Bracelet\\prefab\\preCharm4.prefab"
   },
   "f84b25c3-5c51-478d-ac04-e1e563cbd565": {
-    "asset": 1783909420496,
-    "meta": 1783910662616,
+    "asset": 1783912633001,
+    "meta": 1783912633012,
     "relativePath": "Bracelet\\prefab\\preCharm5.prefab"
   },
   "3125074e-a556-4b96-8d6d-449b6511ffbb": {
-    "asset": 1783909420623,
-    "meta": 1783910662624,
+    "asset": 1783912748207,
+    "meta": 1783912748226,
     "relativePath": "Bracelet\\prefab\\preCharm6.prefab"
   },
   "d18b9042-a5f5-46f5-8f8e-b563821b18fd": {
-    "asset": 1783909420841,
-    "meta": 1783910662629,
+    "asset": 1783912978621,
+    "meta": 1783912978633,
     "relativePath": "Bracelet\\prefab\\preCharm7.prefab"
   },
   "ef46aa65-893d-432d-8b1b-aad05633d31d": {
@@ -14450,8 +14450,8 @@
     "relativePath": "Bracelet\\script\\Bracelet.ts"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1783911078896,
-    "meta": 1783911078918,
+    "asset": 1783913033969,
+    "meta": 1783913033997,
     "relativePath": "scenes\\Bracelet.fire"
   },
   "df87c12d-9eb3-4a2b-a256-16bbd0291665": {
@@ -14965,8 +14965,8 @@
     "relativePath": "Bracelet\\script\\CordRoundGame.ts"
   },
   "e7e59199-64c4-409e-8c96-5a74e5533e47": {
-    "asset": 1783911070701,
-    "meta": 1783911074463,
+    "asset": 1783912974983,
+    "meta": 1783912977522,
     "relativePath": "Bracelet\\script\\CharmGame.ts"
   }
 }

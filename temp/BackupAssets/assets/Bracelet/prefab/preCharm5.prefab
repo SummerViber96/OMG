@@ -334,13 +334,16 @@
       },
       {
         "__uuid__": "2f91a88d-18aa-4113-8578-8b5b8e23db34"
+      },
+      {
+        "__uuid__": "c4c968ea-2d82-4986-97ad-89b2d39af21d"
       }
     ],
     "tag": 0,
     "hangPoint": {
       "__id__": 5
     },
-    "slotSpacing": 20,
+    "slotSpacing": 17,
     "_id": ""
   },
   {

@@ -77,7 +77,7 @@ export default class NewClass extends cc.Component {
             let boxComp = box.getComponent("BoxCharm");
             this.spoon.getComponent("Spoon").setCharms(boxComp.tag)
             this.hand3.active = false;
-            cc.audioEngine.play(this.soundXuc, false, 1)
+            cc.audioEngine.play(this.soundXuc, false, 1.5)
             // this.setHind(boxComp.tag)
 
         }
@@ -129,7 +129,7 @@ export default class NewClass extends cc.Component {
     totalCharm = 0
     dropCharms() {
         if (!this.isTargetbox || !this.localPos) return;
-        cc.audioEngine.play(this.soundDo, false, 1)
+        cc.audioEngine.play(this.soundDo, false, 1.5)
         const tag = this.isTargetbox.getComponent("BoxCharm").tag;
         const count = this.getCharmCount(tag);
         const centerPos = cc.v3(0, 80, 0);
@@ -154,7 +154,7 @@ export default class NewClass extends cc.Component {
     }
 
     private getCharmCount(tag: number): number {
-        const counts = [4, 5, 3, 5, 5, 3, 5, 5, 5];
+        const counts = [4, 7, 6, 7, 6, 6, 10, 5, 5];
         return counts[tag] || 0;
     }
 

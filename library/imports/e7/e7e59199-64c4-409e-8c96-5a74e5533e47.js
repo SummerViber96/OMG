@@ -90,7 +90,7 @@ var NewClass = /** @class */ (function (_super) {
             var boxComp = box.getComponent("BoxCharm");
             this.spoon.getComponent("Spoon").setCharms(boxComp.tag);
             this.hand3.active = false;
-            cc.audioEngine.play(this.soundXuc, false, 1);
+            cc.audioEngine.play(this.soundXuc, false, 1.5);
             // this.setHind(boxComp.tag)
         }
     };
@@ -138,7 +138,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         if (!this.isTargetbox || !this.localPos)
             return;
-        cc.audioEngine.play(this.soundDo, false, 1);
+        cc.audioEngine.play(this.soundDo, false, 1.5);
         var tag = this.isTargetbox.getComponent("BoxCharm").tag;
         var count = this.getCharmCount(tag);
         var centerPos = cc.v3(0, 80, 0);
@@ -164,7 +164,7 @@ var NewClass = /** @class */ (function (_super) {
         // }, count * dropDelay + 0.1);
     };
     NewClass.prototype.getCharmCount = function (tag) {
-        var counts = [4, 5, 3, 5, 5, 3, 5, 5, 5];
+        var counts = [4, 7, 6, 7, 6, 6, 10, 5, 5];
         return counts[tag] || 0;
     };
     NewClass.prototype.getTargetPosition = function (index) {
