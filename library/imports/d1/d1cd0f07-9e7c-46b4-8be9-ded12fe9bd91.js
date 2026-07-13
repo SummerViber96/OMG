@@ -61,6 +61,7 @@ var NewClass = /** @class */ (function (_super) {
         // update (dt) {}
     }
     NewClass.prototype.onLoad = function () {
+        cc.view.setDesignResolutionSize(1080, 1920, cc.ResolutionPolicy.SHOW_ALL);
         cc.director.getPhysicsManager().enabled = true;
         cc.director.getPhysicsManager().gravity = cc.v2();
         var manager = cc.director.getCollisionManager();

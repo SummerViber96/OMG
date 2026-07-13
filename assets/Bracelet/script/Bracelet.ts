@@ -58,6 +58,11 @@ export default class NewClass extends cc.Component {
     lastMatchPercent: number = 0;
 
     onLoad() {
+         cc.view.setDesignResolutionSize(
+            1080,
+            1920,
+            cc.ResolutionPolicy.SHOW_ALL
+        );
         cc.director.getPhysicsManager().enabled = true;
         cc.director.getPhysicsManager().gravity = cc.v2();
         let manager = cc.director.getCollisionManager();
