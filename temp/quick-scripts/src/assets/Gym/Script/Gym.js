@@ -56,6 +56,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.dayTa1 = null;
         _this.fillBar = null;
         _this.endCard = null;
+        _this.coinBar = null;
         _this.logo = null;
         _this.listTaDon = [];
         _this.listTaTo = [];
@@ -157,7 +158,9 @@ var NewClass = /** @class */ (function (_super) {
         if (value == true) {
             this.isCountOut++;
         }
-        console.log("move out");
+        if (node.name == "CusBoxing") {
+            this.tutBoxing.active = false;
+        }
         if (this.isCountOut == 1 && this.arrCus[0].active == true) {
             this.moveCus2(false);
         }
@@ -833,28 +836,71 @@ var NewClass = /** @class */ (function (_super) {
         this.coinBar.getComponent(cc.Widget).top = 77;
         this.logo.getComponent(cc.Widget).top = 48;
         // this.barCoin.y=(logic)?400:470
+        // if (logic == true) {
+        //     const frameSize = cc.view.getFrameSize();
+        //     const width = frameSize.width;
+        //     const height = frameSize.height;
+        //     // this.camera.node.position = cc.v3(-70, 0)
+        //     // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
+        //     const aspectRatio = Math.max(width, height) / Math.min(width, height);
+        //     // Gần đúng tỷ lệ màn hình iPhone X
+        //     const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+        //     const TOLERANCE = 0.05;
+        //     const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
+        //     this.camera.zoomRatio = 2
+        //     // this.camera.node.position = cc.v3(150, 0)
+        //     this.phaohoa.scale = (logic) ? 7 : 3
+        //     if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+        //         // console.log("check iphonex")
+        //         this.coinBar.getComponent(cc.Widget).top = 77 + 30;
+        //         this.logo.getComponent(cc.Widget).top = 48 + 30
+        //     }
+        //     else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
+        //         // this.camera.zoomRatio = 1.4
+        //         this.guildUpgrade.scale = 1.8
+        //         this.npc.y = -400
+        //         this.npc2.y = -400
+        //     }
+        // }
+        // else {
+        //     const frameSize = cc.view.getFrameSize();
+        //     const width = frameSize.width;
+        //     const height = frameSize.height;
+        //     // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
+        //     const aspectRatio = Math.max(width, height) / Math.min(width, height);
+        //     // Gần đúng tỷ lệ màn hình iPhone X
+        //     const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+        //     const TOLERANCE = 0.05;
+        //     const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
+        //     if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+        //     }
+        //     else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
+        //         this.camera.zoomRatio = 1
+        //     }
+        // }
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
-            // this.camera.node.position = cc.v3(-70, 0)
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
-            // Gần đúng tỷ lệ màn hình iPhone X
-            var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
+            var TALL_PHONE_MIN_RATIO = 2.0; // iPhone X ~2.16, 20:9 Android ~2.22
             this.camera.zoomRatio = 2;
-            // this.camera.node.position = cc.v3(150, 0)
-            this.phaohoa.scale = (logic) ? 7 : 3;
-            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                // console.log("check iphonex")
-                this.coinBar.getComponent(cc.Widget).top = 77 + 30;
-                this.logo.getComponent(cc.Widget).top = 48 + 30;
+            if (aspectRatio >= TALL_PHONE_MIN_RATIO) {
+                this.coinBar.getComponent(cc.Widget).top = 77 + 50;
+                this.logo.getComponent(cc.Widget).top = 48 + 50;
+                if (aspectRatio > 2.2) {
+                    // this.camera.zoomRatio = 1.75
+                }
+                this.npc.y = -800;
+                this.npc2.y = -800;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                // this.camera.zoomRatio = 1.4
                 this.guildUpgrade.scale = 1.8;
+                this.npc.y = -400;
+                this.npc2.y = -400;
             }
         }
         else {

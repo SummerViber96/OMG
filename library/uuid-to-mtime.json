@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1783960926860,
+    "meta": 1783972789677,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2631,7 +2631,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1783960927125,
+    "meta": 1783972789676,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -4310,8 +4310,8 @@
     "relativePath": "prefab\\vfx\\vfx_smoke.prefab"
   },
   "5ac3afaa-e931-4ba4-a643-89d66b4157f7": {
-    "asset": 1783960862184,
-    "meta": 1783960914186,
+    "asset": 1783970887391,
+    "meta": 1783972789663,
     "relativePath": "scenes"
   },
   "e36e27a3-29e3-4284-b879-a39eb6ec879e": {
@@ -4420,8 +4420,8 @@
     "relativePath": "scripts\\card\\card.ts"
   },
   "08de680c-a2a9-4fe4-8103-c0b86ccddbf6": {
-    "asset": 1759342982173,
-    "meta": 1783960914944,
+    "asset": 1783971600125,
+    "meta": 1783972789674,
     "relativePath": "scripts\\card\\cardList.ts"
   },
   "b2daa726-bbf7-4c27-9319-27b47e6bdd6f": {
@@ -11619,11 +11619,6 @@
     "meta": 1783960908076,
     "relativePath": "Gym\\decore\\ghe.png"
   },
-  "7f8b2288-0277-4907-a09e-79ecf55f5749": {
-    "asset": 1783960861074,
-    "meta": 1783960908051,
-    "relativePath": "Gym\\decore\\Decor2.png"
-  },
   "24577ae4-3f4e-462f-ad5a-7fe31b4dce9b": {
     "asset": 1783960861080,
     "meta": 1783960908207,
@@ -11644,21 +11639,6 @@
     "meta": 1783960908049,
     "relativePath": "Gym\\decore\\decor1.png"
   },
-  "9949b93f-562f-454d-9bd1-e9d6b8a26032": {
-    "asset": 1783960861114,
-    "meta": 1783960908092,
-    "relativePath": "Gym\\decore\\hangrao2.png"
-  },
-  "2845d81b-e682-40b8-9a87-f06767855a42": {
-    "asset": 1783960861110,
-    "meta": 1783960907984,
-    "relativePath": "Gym\\decore\\cay1.png"
-  },
-  "c6c2d3da-c8b2-4dab-becf-a639c6d9a574": {
-    "asset": 1783960861116,
-    "meta": 1783960908125,
-    "relativePath": "Gym\\decore\\lobby1.png"
-  },
   "be2bcd60-9111-4416-84b3-e89af1467f35": {
     "asset": 1783960861114,
     "meta": 1783960908109,
@@ -11668,11 +11648,6 @@
     "asset": 1783960861117,
     "meta": 1783960908124,
     "relativePath": "Gym\\decore\\lobby2.png"
-  },
-  "236cfb07-e1bc-4fb9-aeb3-eeacc4a34306": {
-    "asset": 1783960861077,
-    "meta": 1783960908139,
-    "relativePath": "Gym\\decore\\PTdoor1.png"
   },
   "19faa4a0-876a-4da1-8575-f6d4db78449c": {
     "asset": 1783960861077,
@@ -11713,41 +11688,6 @@
     "asset": 1783960861079,
     "meta": 1783960908173,
     "relativePath": "Gym\\decore\\PTicon4.png"
-  },
-  "b659d7d5-c1aa-4486-9181-3361d01e4c9f": {
-    "asset": 1783960861109,
-    "meta": 1783960907971,
-    "relativePath": "Gym\\decore\\carpet.png"
-  },
-  "86e58264-f371-4dc2-8c44-2ae020927f09": {
-    "asset": 1783960861110,
-    "meta": 1783960908000,
-    "relativePath": "Gym\\decore\\cay2.png"
-  },
-  "e535ad90-d2c6-49e5-9343-d6afbdffeb8a": {
-    "asset": 1783960861115,
-    "meta": 1783960908108,
-    "relativePath": "Gym\\decore\\hangrao4.png"
-  },
-  "5609539e-c44d-4f45-b04d-1b3649e2a9af": {
-    "asset": 1783960861111,
-    "meta": 1783960908015,
-    "relativePath": "Gym\\decore\\cay3.png"
-  },
-  "321b559c-72a2-4375-abc1-9bb0b2029d40": {
-    "asset": 1783960861113,
-    "meta": 1783960908093,
-    "relativePath": "Gym\\decore\\hangrao1.png"
-  },
-  "6798c49e-3c54-443f-91ec-940d060182ef": {
-    "asset": 1783960861075,
-    "meta": 1783960908143,
-    "relativePath": "Gym\\decore\\PT.png"
-  },
-  "e578529e-1817-437f-8530-0395ac3c7eeb": {
-    "asset": 1783960861076,
-    "meta": 1783960908192,
-    "relativePath": "Gym\\decore\\PTRoom1.png"
   },
   "f92c5b58-d8d4-420b-8aa2-2447669e4537": {
     "asset": 1783960861108,
@@ -12030,8 +11970,8 @@
     "relativePath": "Gym\\anim\\pop_show.anim"
   },
   "e86ba0b1-baa8-45cb-a3b4-3e36d95d1746": {
-    "asset": 1783960860836,
-    "meta": 1783960909794,
+    "asset": 1783969355892,
+    "meta": 1783972789399,
     "relativePath": "Gym\\Script"
   },
   "466c21df-293a-43d3-96e9-778d8498aff0": {
@@ -12130,8 +12070,8 @@
     "relativePath": "Gym\\pop\\MapGym1.jpg"
   },
   "040ab129-54b5-4790-aeda-8a621c1ce0d3": {
-    "asset": 1783960861730,
-    "meta": 1783960910184,
+    "asset": 1783970494995,
+    "meta": 1783972789662,
     "relativePath": "Gym\\sound"
   },
   "81f3e186-399d-4aa2-9bc5-edb680ac4d17": {
@@ -12190,8 +12130,8 @@
     "relativePath": "HF\\phaohoa-0.png"
   },
   "ac7a24d2-1305-4e65-a8c1-88025a9df074": {
-    "asset": 1783960862154,
-    "meta": 1783960900115,
+    "asset": 1783973168295,
+    "meta": 1783973168302,
     "relativePath": "anim\\phaohoa.anim"
   },
   "461a6852-2206-41a1-9c67-e21976533d32": {
@@ -12218,11 +12158,6 @@
     "asset": 1783960860844,
     "meta": 1783960906850,
     "relativePath": "Gym\\anim\\IconBluePT.png"
-  },
-  "45831789-b410-4fb5-bb8b-0d46193020a0": {
-    "asset": 1783960862170,
-    "meta": 1783960914198,
-    "relativePath": "scenes\\Gym2.fire"
   },
   "0d2a2f6d-fd32-4540-aeed-4b8513a377eb": {
     "asset": 1783960860617,
@@ -12295,8 +12230,8 @@
     "relativePath": "Gym\\bar\\update_machine.plist"
   },
   "bbb594ac-8c31-40e5-ba13-15f4b5531aa4": {
-    "asset": 1783960862156,
-    "meta": 1783960900269,
+    "asset": 1783973028437,
+    "meta": 1783973028444,
     "relativePath": "anim\\vfx_set.anim"
   },
   "267cfdf8-e8aa-4fc6-968f-6e69fe6c05b0": {
@@ -12358,11 +12293,6 @@
     "asset": 1783960861066,
     "meta": 1783960907473,
     "relativePath": "Gym\\chair\\chaiii.png"
-  },
-  "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1783960862169,
-    "meta": 1783960914207,
-    "relativePath": "scenes\\Gym.fire"
   },
   "21e776b4-f860-4f9d-8410-51e514c3faa3": {
     "asset": 1783960860444,
@@ -13760,54 +13690,14 @@
     "relativePath": "Gym\\anim\\camera_move.anim"
   },
   "e605285b-8c78-44dc-8097-83d3783cf4aa": {
-    "asset": 1783960860744,
-    "meta": 1783960908563,
+    "asset": 1783969442466,
+    "meta": 1783972789398,
     "relativePath": "Gym\\Gym4"
-  },
-  "3d8d74e3-a3c5-42a0-9e40-13f668dcf752": {
-    "asset": 1783960860648,
-    "meta": 1783960908586,
-    "relativePath": "Gym\\Gym4\\DungcuLv5tren.png"
-  },
-  "5a0ee77b-e6d2-4ee7-9b9c-08da65510144": {
-    "asset": 1783960860664,
-    "meta": 1783960908597,
-    "relativePath": "Gym\\Gym4\\Layer 410.png"
-  },
-  "ad5facb8-fbd8-44d7-a1ad-e711082fdb07": {
-    "asset": 1783960860707,
-    "meta": 1783960908629,
-    "relativePath": "Gym\\Gym4\\Rectangle 528 copykinh.png"
-  },
-  "79069533-667b-4813-b4b8-bbd866c6356b": {
-    "asset": 1783960860633,
-    "meta": 1783960908581,
-    "relativePath": "Gym\\Gym4\\DungcuLv5duoi.png"
-  },
-  "cdda2284-8c4a-48e4-9143-ea49c1c99591": {
-    "asset": 1783960860693,
-    "meta": 1783960908612,
-    "relativePath": "Gym\\Gym4\\Plate.png"
-  },
-  "f477db47-9006-427a-a4b2-2fc0638646e4": {
-    "asset": 1783960860738,
-    "meta": 1783960908652,
-    "relativePath": "Gym\\Gym4\\Tunuoclv4.png"
-  },
-  "6c79ddf4-9304-415f-9743-7fdbf83bab41": {
-    "asset": 1783960860724,
-    "meta": 1783960908634,
-    "relativePath": "Gym\\Gym4\\ThietBiLv1-2.png"
   },
   "44bb4029-5250-4870-8949-621b2505067b": {
     "asset": 1783960860912,
     "meta": 1783960906875,
     "relativePath": "Gym\\anim\\ta_show.anim"
-  },
-  "e6f6b683-238e-4ea9-a9d3-ef23755948ac": {
-    "asset": 1783960860679,
-    "meta": 1783960908608,
-    "relativePath": "Gym\\Gym4\\Layer 410hind.png"
   },
   "35d47f93-f5ab-4866-8578-6cef7300f4b5": {
     "asset": 1783960860934,
@@ -13818,16 +13708,6 @@
     "asset": 1783960861034,
     "meta": 1783960907910,
     "relativePath": "Gym\\chair\\Tunuoclv3hind.png"
-  },
-  "e6dd9563-5ebe-4b83-bacf-beeb45ba6c3f": {
-    "asset": 1783960860773,
-    "meta": 1783960910114,
-    "relativePath": "Gym\\Script\\Layer 2909.png"
-  },
-  "df22eb3c-120e-4c2b-be7c-fbf8aff1bd70": {
-    "asset": 1783960860788,
-    "meta": 1783960910115,
-    "relativePath": "Gym\\Script\\Layer 2909hind.png"
   },
   "d1ffc221-b175-4e59-ad1d-f7c7069cbb52": {
     "asset": 1783960861625,
@@ -13841,13 +13721,8 @@
   },
   "f30df09a-7cfd-4cfc-a90e-95a588a30d43": {
     "asset": 1783960860540,
-    "meta": 1783960927445,
+    "meta": 1783972789681,
     "relativePath": "Gym\\G1_WaterFridge.skel"
-  },
-  "f6c89e95-ce4c-4521-bba6-cda4dde883cc": {
-    "asset": 1783960861092,
-    "meta": 1783960908254,
-    "relativePath": "Gym\\decore\\Towel_messy.webp"
   },
   "15f51df3-f6ae-4265-970f-1a60b4bf471b": {
     "asset": 1783960861701,
@@ -13939,29 +13814,149 @@
     "meta": 1783965555514,
     "relativePath": "Gym\\Script\\MC1-1.skel.atlas.txt"
   },
-  "9d406cb0-2534-4de7-896c-5192c2e2b2d3": {
-    "asset": 1783965555442,
-    "meta": 1783965555528,
-    "relativePath": "Gym\\Script\\MC1-1.skel.png"
-  },
   "c862805e-d051-4bec-a8f2-01d7f8515fdb": {
     "asset": 1783965555442,
     "meta": 1783965555536,
     "relativePath": "Gym\\Script\\MC1-1.skel.json"
   },
-  "02049483-f91e-45f8-a4e6-06d642d19c01": {
-    "asset": 1783966286741,
-    "meta": 1783966287568,
-    "relativePath": "Gym\\Script\\cusGym.ts"
-  },
   "0a12ee3b-9eca-46f3-8497-871c6a39e7ac": {
-    "asset": 1783969134045,
-    "meta": 1783969134089,
+    "asset": 1783974742225,
+    "meta": 1783974742252,
     "relativePath": "scenes\\Gym4.fire"
   },
+  "e6dd9563-5ebe-4b83-bacf-beeb45ba6c3f": {
+    "asset": 1783944112000,
+    "meta": 1783969360608,
+    "relativePath": "Gym\\Script\\Layer 2909.png"
+  },
+  "df22eb3c-120e-4c2b-be7c-fbf8aff1bd70": {
+    "asset": 1783944112000,
+    "meta": 1783969360612,
+    "relativePath": "Gym\\Script\\Layer 2909hind.png"
+  },
+  "9d406cb0-2534-4de7-896c-5192c2e2b2d3": {
+    "asset": 1783944112000,
+    "meta": 1783969360629,
+    "relativePath": "Gym\\Script\\MC1-1.skel.png"
+  },
+  "3d8d74e3-a3c5-42a0-9e40-13f668dcf752": {
+    "asset": 1783944206000,
+    "meta": 1783969445249,
+    "relativePath": "Gym\\Gym4\\DungcuLv5tren.png"
+  },
+  "79069533-667b-4813-b4b8-bbd866c6356b": {
+    "asset": 1783944206000,
+    "meta": 1783969445250,
+    "relativePath": "Gym\\Gym4\\DungcuLv5duoi.png"
+  },
+  "e6f6b683-238e-4ea9-a9d3-ef23755948ac": {
+    "asset": 1783944206000,
+    "meta": 1783969445270,
+    "relativePath": "Gym\\Gym4\\Layer 410hind.png"
+  },
+  "5a0ee77b-e6d2-4ee7-9b9c-08da65510144": {
+    "asset": 1783944206000,
+    "meta": 1783969445271,
+    "relativePath": "Gym\\Gym4\\Layer 410.png"
+  },
+  "ad5facb8-fbd8-44d7-a1ad-e711082fdb07": {
+    "asset": 1783944206000,
+    "meta": 1783969445283,
+    "relativePath": "Gym\\Gym4\\Rectangle 528 copykinh.png"
+  },
+  "cdda2284-8c4a-48e4-9143-ea49c1c99591": {
+    "asset": 1783944206000,
+    "meta": 1783969445285,
+    "relativePath": "Gym\\Gym4\\Plate.png"
+  },
+  "f477db47-9006-427a-a4b2-2fc0638646e4": {
+    "asset": 1783944206000,
+    "meta": 1783969445298,
+    "relativePath": "Gym\\Gym4\\Tunuoclv4.png"
+  },
+  "6c79ddf4-9304-415f-9743-7fdbf83bab41": {
+    "asset": 1783944206000,
+    "meta": 1783969445300,
+    "relativePath": "Gym\\Gym4\\ThietBiLv1-2.png"
+  },
+  "1adbc211-1094-411c-b354-4422f86b16d2": {
+    "asset": 1783970494991,
+    "meta": 1783970495566,
+    "relativePath": "Gym\\sound\\Gym-Mania-GP-Music-1-ver3-1-mp3c.mp3"
+  },
+  "02049483-f91e-45f8-a4e6-06d642d19c01": {
+    "asset": 1783972069341,
+    "meta": 1783972071109,
+    "relativePath": "Gym\\Script\\cusGym.ts"
+  },
+  "2845d81b-e682-40b8-9a87-f06767855a42": {
+    "asset": 1783947394000,
+    "meta": 1783972707868,
+    "relativePath": "Gym\\decore\\cay1.png"
+  },
+  "b659d7d5-c1aa-4486-9181-3361d01e4c9f": {
+    "asset": 1783947394000,
+    "meta": 1783972707869,
+    "relativePath": "Gym\\decore\\carpet.png"
+  },
+  "86e58264-f371-4dc2-8c44-2ae020927f09": {
+    "asset": 1783947394000,
+    "meta": 1783972707888,
+    "relativePath": "Gym\\decore\\cay2.png"
+  },
+  "5609539e-c44d-4f45-b04d-1b3649e2a9af": {
+    "asset": 1783947394000,
+    "meta": 1783972707889,
+    "relativePath": "Gym\\decore\\cay3.png"
+  },
+  "321b559c-72a2-4375-abc1-9bb0b2029d40": {
+    "asset": 1783947394000,
+    "meta": 1783972707900,
+    "relativePath": "Gym\\decore\\hangrao1.png"
+  },
+  "7f8b2288-0277-4907-a09e-79ecf55f5749": {
+    "asset": 1783947394000,
+    "meta": 1783972707902,
+    "relativePath": "Gym\\decore\\Decor2.png"
+  },
+  "9949b93f-562f-454d-9bd1-e9d6b8a26032": {
+    "asset": 1783947394000,
+    "meta": 1783972707913,
+    "relativePath": "Gym\\decore\\hangrao2.png"
+  },
+  "e535ad90-d2c6-49e5-9343-d6afbdffeb8a": {
+    "asset": 1783947394000,
+    "meta": 1783972707914,
+    "relativePath": "Gym\\decore\\hangrao4.png"
+  },
+  "c6c2d3da-c8b2-4dab-becf-a639c6d9a574": {
+    "asset": 1783947394000,
+    "meta": 1783972707925,
+    "relativePath": "Gym\\decore\\lobby1.png"
+  },
+  "236cfb07-e1bc-4fb9-aeb3-eeacc4a34306": {
+    "asset": 1783947394000,
+    "meta": 1783972707935,
+    "relativePath": "Gym\\decore\\PTdoor1.png"
+  },
+  "6798c49e-3c54-443f-91ec-940d060182ef": {
+    "asset": 1783947394000,
+    "meta": 1783972707936,
+    "relativePath": "Gym\\decore\\PT.png"
+  },
+  "e578529e-1817-437f-8530-0395ac3c7eeb": {
+    "asset": 1783947394000,
+    "meta": 1783972707947,
+    "relativePath": "Gym\\decore\\PTRoom1.png"
+  },
+  "f6c89e95-ce4c-4521-bba6-cda4dde883cc": {
+    "asset": 1783972818168,
+    "meta": 1783972818261,
+    "relativePath": "Gym\\decore\\Towel_messy.webp"
+  },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1783969129696,
-    "meta": 1783969131329,
+    "asset": 1783974371912,
+    "meta": 1783974373687,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

@@ -13,13 +13,8 @@
     ]
   ],
   "excluded-modules": [
-    "Collider",
     "DragonBones",
     "EditBox",
-    "Geom Utils",
-    "Intersection",
-    "Mesh",
-    "MotionStreak",
     "NodePool",
     "Native Socket",
     "Physics",
@@ -30,8 +25,6 @@
     "Slider",
     "ScrollBar",
     "ScrollView",
-    "StudioComponent",
-    "Toggle",
     "TiledMap",
     "VideoPlayer",
     "WebView",

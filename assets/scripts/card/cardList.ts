@@ -11,8 +11,7 @@ const { ccclass, property } = cc._decorator;
 export default class NewClass extends cc.Component {
 
     @property(sp.Skeleton)
-    hand: sp.Skeleton
-    start() {
+    hand: sp.Skeleton = null`n    start() {
         this.scheduleOnce(() => {
             this.node.getComponent(cc.Animation).play("card_tut")
         }, 0.6)

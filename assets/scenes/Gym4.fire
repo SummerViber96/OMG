@@ -84,13 +84,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 1749
+        "__id__": 1743
       },
       {
-        "__id__": 1750
+        "__id__": 1744
       },
       {
-        "__id__": 1751
+        "__id__": 1745
       }
     ],
     "_prefab": null,
@@ -2238,8 +2238,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 542,
-      "height": 559
+      "width": 532,
+      "height": 555
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -10372,8 +10372,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 324,
-      "height": 230
+      "width": 316,
+      "height": 227
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -12184,8 +12184,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 319,
-      "height": 236
+      "width": 312,
+      "height": 233
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -17286,7 +17286,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 294,
-      "height": 435
+      "height": 433
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -40620,7 +40620,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Cus1 copy",
+    "_name": "CusBoxing",
     "_objFlags": 0,
     "_parent": {
       "__id__": 771
@@ -79574,7 +79574,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 92,
-      "height": 133
+      "height": 132
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -79865,15 +79865,12 @@
       },
       {
         "__id__": 1603
-      },
-      {
-        "__id__": 1742
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 1748
+        "__id__": 1742
       }
     ],
     "_prefab": null,
@@ -81574,9 +81571,9 @@
       "__id__": 1603
     },
     "_enabled": true,
-    "androidLink": "",
-    "iosLink": "",
-    "defaultLink": "",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.gym.mania.simulator.games",
+    "iosLink": "https://apps.apple.com/us/app/gym-mania-time-management-game/id6762738738",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.gym.mania.simulator.games",
     "_id": "5etCHKrNxJsKforzQD2rC4"
   },
   {
@@ -82434,9 +82431,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "5f158205-f5b2-482b-ba8a-7547b7a35290"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -82528,9 +82523,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "b52a8e33-3743-45e8-8ba3-07d4d5a46b94"
-    },
+    "_spriteFrame": null,
     "_type": 3,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -82622,9 +82615,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "771e87ab-75cd-402f-a911-bedb7b95024d"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -87248,208 +87239,6 @@
     "sync": false
   },
   {
-    "__type__": "cc.Node",
-    "_name": "snow",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 1569
-    },
-    "_children": [
-      {
-        "__id__": 1743
-      }
-    ],
-    "_active": false,
-    "_components": [],
-    "_prefab": {
-      "__id__": 1747
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1.8,
-        1.8,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "33XQfKDrVBRb9zdoB02VU1"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "New Sprite",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 1742
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 1744
-      },
-      {
-        "__id__": 1745
-      }
-    ],
-    "_prefab": {
-      "__id__": 1746
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 78,
-      "g": 70,
-      "b": 70,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 512,
-      "height": 512
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        4,
-        4,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "817Sw3L2JIFrY/FVVUpNlI"
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1743
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": null,
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
-    "_id": "b6SZ8IPstE3LAJiynEZ0b1"
-  },
-  {
-    "__type__": "cc.Animation",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1743
-    },
-    "_enabled": true,
-    "_defaultClip": {
-      "__uuid__": "590a2758-fd82-45a3-8f37-9f341ea521cf"
-    },
-    "_clips": [
-      {
-        "__uuid__": "590a2758-fd82-45a3-8f37-9f341ea521cf"
-      }
-    ],
-    "playOnLoad": true,
-    "_id": "feYFE3CwRMoKQABaZGvP+g"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1742
-    },
-    "asset": {
-      "__uuid__": "59656660-8ec2-4def-96f9-339981bdd1eb"
-    },
-    "fileId": "21/V7GO3tFELvtbrwBfy33",
-    "sync": false
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1742
-    },
-    "asset": {
-      "__uuid__": "59656660-8ec2-4def-96f9-339981bdd1eb"
-    },
-    "fileId": "",
-    "sync": false
-  },
-  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -87553,7 +87342,7 @@
       "__id__": 127
     },
     "soundBG": {
-      "__uuid__": "1c1f7724-8ba0-4b85-8496-29fd01e71561"
+      "__uuid__": "1adbc211-1094-411c-b354-4422f86b16d2"
     },
     "soundShowPop": {
       "__uuid__": "f7b3fbaa-b150-42a5-a38f-438e57055cee"

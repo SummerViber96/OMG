@@ -22,6 +22,10 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -33,21 +37,10 @@ var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.hand = null(templateObject_1 || (templateObject_1 = __makeTemplateObject(["n    start() {\n        this.scheduleOnce(() => {\n            this.node.getComponent(cc.Animation).play(\"card_tut\")\n        }, 0.6)\n    }\n    click() {\n        this.hand.setAnimation(0, \"Hand\", false)\n        this.scheduleOnce(() => {\n        this.hand.setAnimation(0, \"HandIdle\", false)\n        }, 0.7)\n    }\n    // update (dt) {}\n}\n"], ["n    start() {\n        this.scheduleOnce(() => {\n            this.node.getComponent(cc.Animation).play(\"card_tut\")\n        }, 0.6)\n    }\n    click() {\n        this.hand.setAnimation(0, \"Hand\", false)\n        this.scheduleOnce(() => {\n        this.hand.setAnimation(0, \"HandIdle\", false)\n        }, 0.7)\n    }\n    // update (dt) {}\n}\n"])));
+        return _this;
     }
-    NewClass.prototype.start = function () {
-        var _this = this;
-        this.scheduleOnce(function () {
-            _this.node.getComponent(cc.Animation).play("card_tut");
-        }, 0.6);
-    };
-    NewClass.prototype.click = function () {
-        var _this = this;
-        this.hand.setAnimation(0, "Hand", false);
-        this.scheduleOnce(function () {
-            _this.hand.setAnimation(0, "HandIdle", false);
-        }, 0.7);
-    };
     __decorate([
         property(sp.Skeleton)
     ], NewClass.prototype, "hand", void 0);
@@ -57,5 +50,6 @@ var NewClass = /** @class */ (function (_super) {
     return NewClass;
 }(cc.Component));
 exports.default = NewClass;
+var templateObject_1;
 
 cc._RF.pop();
