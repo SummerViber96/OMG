@@ -27073,6 +27073,9 @@
     "matchResultLabel": {
       "__id__": 817
     },
+    "linkToStore": {
+      "__id__": 358
+    },
     "matchPositionTolerance": 80,
     "showDefaultPreview": true,
     "defaultCordId": -1,
@@ -40677,6 +40680,7 @@
     "defaultBraceletRef": null,
     "defaultBraceletByCord": [],
     "matchResultLabel": null,
+    "linkToStore": null,
     "matchPositionTolerance": 80,
     "showDefaultPreview": true,
     "defaultCordId": -1,

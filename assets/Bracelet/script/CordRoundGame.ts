@@ -126,6 +126,8 @@ export default class CordRoundGame extends cc.Component {
 
     @property(cc.Label)
     matchResultLabel: cc.Label = null;
+    @property(cc.Node)
+    linkToStore: cc.Node = null
 
     @property
     matchPositionTolerance: number = 80;
@@ -149,7 +151,7 @@ export default class CordRoundGame extends cc.Component {
     private defaultPreviewNode: cc.Node = null;
     private lastMatchPercent: number = 0;
     private lastScoreBreakdown: MatchScoreBreakdown = null;
-    isDelay=false
+    isDelay = false
     showNotiFull() {
         if (this.isDelay || !this.notiFull) return;
         this.isDelay = true;
@@ -439,12 +441,12 @@ export default class CordRoundGame extends cc.Component {
         //     this.draggingCharm.angle = snap.angle;
         //     this.dragSnapSide = snap.side;
         // } else {
-            this.draggingCharm.setPosition(touchPos);
-            this.draggingCharm.angle = 0;
-            this.dragSnapSide = null;
+        this.draggingCharm.setPosition(touchPos);
+        this.draggingCharm.angle = 0;
+        this.dragSnapSide = null;
         // }
     }
-
+    isCountGame = 0
     private onTouchEnd(event: cc.Event.EventTouch) {
         if (!this.isActive || event.getID() !== this.activeTouchId || !this.draggingCharm) return;
 
@@ -456,6 +458,10 @@ export default class CordRoundGame extends cc.Component {
             this.hideDefaultBraceletPreview();
             this.btnOk.active = true;
             this.hand3.active = false;
+            this.isCountGame++
+            if(this.isCountGame == 5){
+              this.linkToStore.active = true;
+            }
         } else {
             this.resetDraggedCharm(charm);
             if (this.shouldShowCordFullNoti(event.getLocation(), charmWorld, charm)) {

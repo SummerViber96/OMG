@@ -78,6 +78,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         /** Vòng mẫu theo từng loại dây (index = idString). Ưu tiên hơn defaultBraceletRef. */
         _this.defaultBraceletByCord = [];
         _this.matchResultLabel = null;
+        _this.linkToStore = null;
         _this.matchPositionTolerance = 80;
         _this.showDefaultPreview = true;
         /** Dây mẫu đúng (vd: 2 = green). Đúng màu dây được +30%. -1 = đoán từ tên cord (không tin cậy). */
@@ -94,6 +95,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.lastScoreBreakdown = null;
         _this.isDelay = false;
         _this.isTargetHind = null;
+        _this.isCountGame = 0;
         return _this;
     }
     CordRoundGame.prototype.showNotiFull = function () {
@@ -380,6 +382,10 @@ var CordRoundGame = /** @class */ (function (_super) {
             this.hideDefaultBraceletPreview();
             this.btnOk.active = true;
             this.hand3.active = false;
+            this.isCountGame++;
+            if (this.isCountGame == 5) {
+                this.linkToStore.active = true;
+            }
         }
         else {
             this.resetDraggedCharm(charm);
@@ -1941,6 +1947,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property(cc.Label)
     ], CordRoundGame.prototype, "matchResultLabel", void 0);
+    __decorate([
+        property(cc.Node)
+    ], CordRoundGame.prototype, "linkToStore", void 0);
     __decorate([
         property
     ], CordRoundGame.prototype, "matchPositionTolerance", void 0);
