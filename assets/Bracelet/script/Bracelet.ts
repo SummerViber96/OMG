@@ -66,6 +66,11 @@ export default class NewClass extends cc.Component {
     skipCordId: number = 4;
 
     onLoad() {
+        cc.view.setDesignResolutionSize(
+            1080,
+            1920,
+            cc.ResolutionPolicy.SHOW_ALL
+        );
         cc.director.getPhysicsManager().enabled = true;
         cc.director.getPhysicsManager().gravity = cc.v2();
         let manager = cc.director.getCollisionManager();
@@ -79,9 +84,9 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundBg, true, 0.5)
         cc.game.setFrameRate(60);
         if (this.openAtCharmDrop) {
-          
-                this.openCharmDropScreen(this.skipCordId);
-          
+
+            this.openCharmDropScreen(this.skipCordId);
+
         }
     }
 
