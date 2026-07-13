@@ -53,7 +53,7 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.fillBar).to(this.countTime, { fillRange: 0 }).call(function () {
             _this.isCountingDown = false;
             if (!_this.isSuccess) {
-                _this.gamePlay.cusOut(_this.node);
+                _this.gamePlay.cusOut(_this.node, true);
                 _this.pop.active = false;
             }
         }).start();
@@ -191,7 +191,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveToWait3 = function () {
         var _this = this;
         this.anim.setAnimation(0, "WalkInR", true);
-        this.move2(cc.v3(324, -8), 1);
+        this.move2(cc.v3(360, -18), 1);
         this.scheduleOnce(function () {
             _this.anim.setAnimation(0, "WalkOutR", true);
             _this.move2(cc.v3(-150, -80), 2);

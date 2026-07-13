@@ -34,7 +34,7 @@ export default class NewClass extends cc.Component {
         cc.tween(this.fillBar).to(this.countTime, { fillRange: 0 }).call(() => {
             this.isCountingDown = false
             if (!this.isSuccess) {
-                this.gamePlay.cusOut(this.node)
+                this.gamePlay.cusOut(this.node,true)
                 this.pop.active = false
             }
         }).start()
@@ -185,7 +185,7 @@ export default class NewClass extends cc.Component {
     moveToWait3() {
         this.anim.setAnimation(0, "WalkInR", true);
 
-        this.move2(cc.v3(324, -8), 1)
+        this.move2(cc.v3(360, -18), 1)
         this.scheduleOnce(() => {
             this.anim.setAnimation(0, "WalkOutR", true);
 
