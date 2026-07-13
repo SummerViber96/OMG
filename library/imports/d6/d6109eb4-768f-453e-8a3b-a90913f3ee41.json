@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ChatGPT_Image_Jul_13_2026_03_05_35_PM",
+    "texture": "75e2fa08-25e0-4e2c-84de-9c8c5c3c3483",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1672,
+      941
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1672,
+      941
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

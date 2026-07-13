@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BGFAKE",
+    "texture": "e59f599d-d286-4744-bfb1-7b5288c445d4",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1672,
+      941
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1672,
+      941
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

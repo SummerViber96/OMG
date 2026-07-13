@@ -90,6 +90,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.lbVetThuong = null;
         _this.hindCuoi = null;
         _this.phaohoa = null;
+        _this.endCard0 = null;
+        _this.endCard02 = null;
         _this.selectedItem = null;
         _this.isStep1 = false;
         _this.adChanel = '{{__adv_channels_adapter__}}';
@@ -99,6 +101,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isunlock = false;
         _this.countStep = 0;
         _this.isClick = false;
+        _this.isShowEnd = false;
         _this.isIpad = false;
         return _this;
     }
@@ -123,7 +126,7 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.2);
         this.scene2.active = true;
         cc.audioEngine.play(this.soundTranscreen, false, 1);
-        this.handScene21.active = true;
+        // this.handScene21.active = true;
         this.scheduleOnce(function () {
             _this.listCard.active = true;
             _this.scheduleOnce(function () {
@@ -570,42 +573,48 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.5);
     };
     NewClass.prototype.onEndGame = function () {
-        // this.scene2.active = true
-        // this.scheduleOnce(() => {
-        //     cc.audioEngine.play(this.soundTranscreen, false, 0.5)
-        //     cc.audioEngine.play(this.soundFail, false, 1)
         var _this = this;
-        //     this.failUI.active = true;
-        // }, 0.5)
         this.hindCuoi.active = false;
         this.phaohoa.active = true;
+        this.endCard0.active = true;
         this.scheduleOnce(function () {
+            _this.isShowEnd = true;
             _this.failUI.active = false;
             cc.audioEngine.play(_this.soundLose, false, 1);
-            _this.endCard.active = true;
+            // this.endCard.active = true;
             _this.linkToStore.active = true;
-        }, 1);
+        }, 1.6);
     };
     NewClass.prototype.update = function (dt) {
         this.lbCoin.string = globalThis.coin.toString();
         var deviceResolution = cc.view.getFrameSize();
         if (deviceResolution.width < deviceResolution.height) {
             this.reponsive(true);
+            if (this.isShowEnd == true) {
+                this.endCard.active = true;
+                this.endCard02.active = false;
+            }
         }
         else {
             this.reponsive(false);
+            if (this.isShowEnd == true) {
+                this.endCard02.active = true;
+                this.endCard.active = false;
+            }
         }
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
         // this.camera.zoomRatio = 1.05
-        this.endCard.scale = (logic) ? 0.7 : 1.2;
+        this.endCard.scale = (logic) ? 0.7 : 1;
+        // this.endCard0.scale = (logic) ? 0.7 : 1
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.zoomRatio = (logic) ? 1 : 1.5;
         this.listCard.scale = (logic) ? 1 : 1.4;
         this.listCard2.scale = (logic) ? 1 : 1.4;
+        this.endCard0.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 300);
         if (this.isStep1 == false) {
             this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, -300);
         }
@@ -832,6 +841,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "phaohoa", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "endCard0", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "endCard02", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

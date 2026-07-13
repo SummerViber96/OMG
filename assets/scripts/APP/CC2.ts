@@ -128,6 +128,10 @@ export default class NewClass extends cc.Component {
     hindCuoi: cc.Node = null;
     @property(cc.Node)
     phaohoa: cc.Node = null;
+    @property(cc.Node)
+    endCard0: cc.Node = null
+    @property(cc.Node)
+    endCard02: cc.Node = null
     private selectedItem: cc.Node = null;
     isStep1 = false;
     adChanel = '{{__adv_channels_adapter__}}'
@@ -146,16 +150,17 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundClick, false, 1);
         cc.tween(this.scene1).to(0.3, { opacity: 0 }).call(() => {
             this.scene1.active = false
-        
+
         }).start()
         this.scheduleOnce(() => {
-            this.isStep1=true;
+            this.isStep1 = true;
 
-            this.camera.node.position = cc.v3(0, 0)        }, 0.2)
-        
+            this.camera.node.position = cc.v3(0, 0)
+        }, 0.2)
+
         this.scene2.active = true
         cc.audioEngine.play(this.soundTranscreen, false, 1)
-        this.handScene21.active = true;
+        // this.handScene21.active = true;
         this.scheduleOnce(() => {
             this.listCard.active = true;
             this.scheduleOnce(() => {
@@ -171,7 +176,7 @@ export default class NewClass extends cc.Component {
 
     step3() {
         this.scheduleOnce(() => {
-                            this.lbVetThuong.string = "Heal Your Pet!"
+            this.lbVetThuong.string = "Heal Your Pet!"
 
             this.listCard2.active = true
             this.scheduleOnce(() => {
@@ -657,52 +662,61 @@ export default class NewClass extends cc.Component {
 
 
     }
+    isShowEnd = false
     onEndGame() {
-        // this.scene2.active = true
-        // this.scheduleOnce(() => {
-        //     cc.audioEngine.play(this.soundTranscreen, false, 0.5)
-        //     cc.audioEngine.play(this.soundFail, false, 1)
 
-        //     this.failUI.active = true;
-
-        // }, 0.5)
         this.hindCuoi.active = false
         this.phaohoa.active = true
+        this.endCard0.active = true
         this.scheduleOnce(() => {
+            this.isShowEnd = true
             this.failUI.active = false
             cc.audioEngine.play(this.soundLose, false, 1)
-            this.endCard.active = true;
+            // this.endCard.active = true;
             this.linkToStore.active = true
-        }, 1)
+        }, 1.6)
 
     }
 
     update(dt) {
+
         this.lbCoin.string = globalThis.coin.toString()
         let deviceResolution = cc.view.getFrameSize();
         if (deviceResolution.width < deviceResolution.height) {
             this.reponsive(true);
+            if (this.isShowEnd == true) {
+                this.endCard.active = true
+                this.endCard02.active = false
+
+            }
         }
         else {
             this.reponsive(false);
+            if (this.isShowEnd == true) {
+                this.endCard02.active = true
+                this.endCard.active = false
+
+            }
         }
     }
     isIpad = false
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
         // this.camera.zoomRatio = 1.05
-        this.endCard.scale = (logic) ? 0.7 : 1.2
+        this.endCard.scale = (logic) ? 0.7 : 1
+        // this.endCard0.scale = (logic) ? 0.7 : 1
+
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.camera.zoomRatio = (logic) ? 1 : 1.5
-        this.listCard.scale= (logic) ? 1 : 1.4
-        this.listCard2.scale= (logic) ? 1 : 1.4
-
-        if(this.isStep1==false){
+        this.listCard.scale = (logic) ? 1 : 1.4
+        this.listCard2.scale = (logic) ? 1 : 1.4
+        this.endCard0.position = (logic) ? cc.v3(0, 0) : cc.v3(0, 300)
+        if (this.isStep1 == false) {
             this.camera.node.position = (logic) ? cc.v3(0, 0) : cc.v3(0, -300)
         }
-    
+
         this.isIpad = false
         // this.scene2.scale = 1
         if (logic == true) {
