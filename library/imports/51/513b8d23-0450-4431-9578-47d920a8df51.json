@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "progressGreen",
+    "texture": "bb15b99e-d500-433e-8132-d759289fef67",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      20,
+      244
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      20,
+      244
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -28,6 +28,10 @@ export default class Scratch_ticket extends cc.Component {
   listXaphong: cc.Node[] = []
   @property(cc.Node)
   egg: cc.Node = null
+  @property(cc.Sprite)
+  fill: cc.Sprite = null
+  @property(cc.Node)
+  noti:cc.Node=null
   progerss = 0;
 
   gamePlay = null;
@@ -101,7 +105,7 @@ export default class Scratch_ticket extends cc.Component {
         let pos = this.listBun[i].position;
         pos = this.listBun[i].parent.convertToWorldSpaceAR(pos);
         pos = this.node.parent.convertToNodeSpaceAR(pos);
-        if (this.node.position.sub(pos).mag() < 50) {
+        if (this.node.position.sub(pos).mag() < 100) {
           this.listBun[i].active = false
           this.node.position = pos
           this.beforeDestroy()
@@ -117,8 +121,11 @@ export default class Scratch_ticket extends cc.Component {
     this.isCountStep++
     console.log(this.isCountStep)
     if (this.isCountStep == 1) {
+      this.noti.active=true
       this.anim.setAnimation(0, "Pet_Happy", true)
-
+      cc.tween(this.fill).to(0.3, { fillRange: 1 }).call(() => {
+        this.fill.node.parent.active = false
+      }).start()
       this.endStep()
     }
 

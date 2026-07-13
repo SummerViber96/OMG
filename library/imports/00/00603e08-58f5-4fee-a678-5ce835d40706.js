@@ -137,6 +137,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.step3 = function () {
         var _this = this;
         this.scheduleOnce(function () {
+            _this.lbVetThuong.string = "Heal Your Pet!";
             _this.listCard2.active = true;
             _this.scheduleOnce(function () {
                 _this.listCard2.getChildByName("hand").active = true;
@@ -156,7 +157,6 @@ var NewClass = /** @class */ (function (_super) {
                 this.tutSoap.active = true;
                 this.soap.active = true;
                 this.soap.getComponent("Scratch_ticket").addEvent();
-                this.lbVetThuong.string = "Heal Your Pet!";
                 // this.daoCao.active=true
                 break;
             case "1":

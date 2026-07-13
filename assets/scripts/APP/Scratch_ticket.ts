@@ -30,6 +30,20 @@ export default class Scratch_ticket extends cc.Component {
   text: cc.Label = null
   @property(cc.Node)
   egg: cc.Node = null
+  @property(cc.Node)
+  noti: cc.Node = null
+  @property(cc.Node)
+  noti2: cc.Node = null
+  @property(cc.Node)
+  progress: cc.Node = null;
+  @property(cc.SpriteFrame)
+  fillGreen: cc.SpriteFrame = null;
+  @property(cc.Sprite)
+  fill: cc.Sprite = null
+  @property(cc.Node)
+  itemVoiHoaSen: cc.Node = null
+  @property(cc.AudioClip)
+  water: cc.AudioClip = null
   progerss = 0;
 
   gamePlay = null;
@@ -81,7 +95,7 @@ export default class Scratch_ticket extends cc.Component {
   isIdCao = null
   touchMoveEvent(event) {
 
-
+    this.unschedule(this.showHind)
     let pos = event.getLocation()
     pos = this.camera.getScreenToWorldPoint(pos);
     let posHam = this.node.parent.convertToNodeSpaceAR(pos)
@@ -119,16 +133,36 @@ export default class Scratch_ticket extends cc.Component {
   checkEndStep() {
     this.isCountStep++
     console.log(this.isCountStep)
+    cc.tween(this.fill).to(0.2, { fillRange: this.isCountStep * 0.2 }).start()
+
     if (this.isCountStep == 4) {
-      this.endStep()
+      this.noti2.active = true
+      this.scheduleOnce(() => {
+        this.isEnd = true
+        // this.listHand.children[1].active = false
+        this.itemVoiHoaSen.active = true
+        this.itemVoiHoaSen.getComponent(cc.Animation).play();
+        this.scheduleOnce(() => {
+          cc.audioEngine.play(this.water, false, 1)
+          this.itemVoiHoaSen.children[1].children[0].active = true
+        }, 0.6)
+
+        this.scheduleOnce(() => {
+          this.endStep()
+          this.itemVoiHoaSen.active = false
+        }, 1.4)
+      }, 0.5)
+
     }
     if (this.isCountStep == 2) {
+      this.fill.spriteFrame = this.fillGreen
       // this.anim.setAnimation(0, "Pet_Caring", true)
 
     }
     if (this.isCountStep == 3) {
+      this.noti.active = true
       // this.text.string="Great!"
-      this.anim.node.parent.position=cc.v3(49,-17)
+      this.anim.node.parent.position = cc.v3(49, -17)
 
       this.anim.setAnimation(0, "Pet_FurDrying", true)
 
@@ -136,25 +170,31 @@ export default class Scratch_ticket extends cc.Component {
   }
   endStep() {
     this.gamePlay.step3()
-    
-      for (let child of this.listXaphong) {
-        cc.tween(child).to(0.5, { opacity: 0 }).call(() => {
-          child.active = false
-        }).start();
-      }
-  
+
+    for (let child of this.listXaphong) {
+      cc.tween(child).to(0.5, { opacity: 0 }).call(() => {
+        child.active = false
+      }).start();
+    }
+
     this.node.active = false
-  
+
   }
   touchEndEvent() {
     if (this.isIdCao) {
       cc.audioEngine.stop(this.isIdCao)
 
     }
+    this.scheduleOnce(this.showHind, 1)
     // this.tempDrawPoints = [];
     // this.calcProgress();
   }
-
+  showHind() {
+    if (this.isEnd == false) {
+      this.tutHam.active = true
+    }
+  }
+  isEnd = false
   calcDebugger: boolean = false; // 辅助开关，开启则会绘制划开涂层所属的小格子
   calcProgress() {
     let hitItemCount = 0;

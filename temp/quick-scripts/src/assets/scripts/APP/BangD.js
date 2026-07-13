@@ -42,6 +42,8 @@ var Scratch_ticket = /** @class */ (function (_super) {
         _this.anim = null;
         _this.listXaphong = [];
         _this.egg = null;
+        _this.fill = null;
+        _this.noti = null;
         _this.progerss = 0;
         _this.gamePlay = null;
         _this.isDelaySound = false;
@@ -110,7 +112,7 @@ var Scratch_ticket = /** @class */ (function (_super) {
                 var pos = this.listBun[i].position;
                 pos = this.listBun[i].parent.convertToWorldSpaceAR(pos);
                 pos = this.node.parent.convertToNodeSpaceAR(pos);
-                if (this.node.position.sub(pos).mag() < 50) {
+                if (this.node.position.sub(pos).mag() < 100) {
                     this.listBun[i].active = false;
                     this.node.position = pos;
                     this.beforeDestroy();
@@ -122,10 +124,15 @@ var Scratch_ticket = /** @class */ (function (_super) {
         return false;
     };
     Scratch_ticket.prototype.checkEndStep = function () {
+        var _this = this;
         this.isCountStep++;
         console.log(this.isCountStep);
         if (this.isCountStep == 1) {
+            this.noti.active = true;
             this.anim.setAnimation(0, "Pet_Happy", true);
+            cc.tween(this.fill).to(0.3, { fillRange: 1 }).call(function () {
+                _this.fill.node.parent.active = false;
+            }).start();
             this.endStep();
         }
     };
@@ -272,6 +279,12 @@ var Scratch_ticket = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], Scratch_ticket.prototype, "egg", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], Scratch_ticket.prototype, "fill", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Scratch_ticket.prototype, "noti", void 0);
     Scratch_ticket = __decorate([
         ccclass
     ], Scratch_ticket);

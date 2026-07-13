@@ -171,6 +171,8 @@ export default class NewClass extends cc.Component {
 
     step3() {
         this.scheduleOnce(() => {
+                            this.lbVetThuong.string = "Heal Your Pet!"
+
             this.listCard2.active = true
             this.scheduleOnce(() => {
                 this.listCard2.getChildByName("hand").active = true
@@ -193,7 +195,6 @@ export default class NewClass extends cc.Component {
 
                 this.soap.active = true
                 this.soap.getComponent("Scratch_ticket").addEvent()
-                this.lbVetThuong.string = "Heal Your Pet!"
                 // this.daoCao.active=true
                 break;
             case "1":

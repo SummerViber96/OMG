@@ -43,11 +43,19 @@ var Scratch_ticket = /** @class */ (function (_super) {
         _this.listXaphong = [];
         _this.text = null;
         _this.egg = null;
+        _this.noti = null;
+        _this.noti2 = null;
+        _this.progress = null;
+        _this.fillGreen = null;
+        _this.fill = null;
+        _this.itemVoiHoaSen = null;
+        _this.water = null;
         _this.progerss = 0;
         _this.gamePlay = null;
         _this.isDelaySound = false;
         _this.isIdCao = null;
         _this.isCountStep = 0;
+        _this.isEnd = false;
         _this.calcDebugger = false; // 辅助开关，开启则会绘制划开涂层所属的小格子
         _this.tempDrawPoints = [];
         _this.polygonPointsList = [];
@@ -95,6 +103,7 @@ var Scratch_ticket = /** @class */ (function (_super) {
     };
     Scratch_ticket.prototype.touchMoveEvent = function (event) {
         var _this = this;
+        this.unschedule(this.showHind);
         var pos = event.getLocation();
         pos = this.camera.getScreenToWorldPoint(pos);
         var posHam = this.node.parent.convertToNodeSpaceAR(pos);
@@ -126,15 +135,33 @@ var Scratch_ticket = /** @class */ (function (_super) {
         return false;
     };
     Scratch_ticket.prototype.checkEndStep = function () {
+        var _this = this;
         this.isCountStep++;
         console.log(this.isCountStep);
+        cc.tween(this.fill).to(0.2, { fillRange: this.isCountStep * 0.2 }).start();
         if (this.isCountStep == 4) {
-            this.endStep();
+            this.noti2.active = true;
+            this.scheduleOnce(function () {
+                _this.isEnd = true;
+                // this.listHand.children[1].active = false
+                _this.itemVoiHoaSen.active = true;
+                _this.itemVoiHoaSen.getComponent(cc.Animation).play();
+                _this.scheduleOnce(function () {
+                    cc.audioEngine.play(_this.water, false, 1);
+                    _this.itemVoiHoaSen.children[1].children[0].active = true;
+                }, 0.6);
+                _this.scheduleOnce(function () {
+                    _this.endStep();
+                    _this.itemVoiHoaSen.active = false;
+                }, 1.4);
+            }, 0.5);
         }
         if (this.isCountStep == 2) {
+            this.fill.spriteFrame = this.fillGreen;
             // this.anim.setAnimation(0, "Pet_Caring", true)
         }
         if (this.isCountStep == 3) {
+            this.noti.active = true;
             // this.text.string="Great!"
             this.anim.node.parent.position = cc.v3(49, -17);
             this.anim.setAnimation(0, "Pet_FurDrying", true);
@@ -157,8 +184,14 @@ var Scratch_ticket = /** @class */ (function (_super) {
         if (this.isIdCao) {
             cc.audioEngine.stop(this.isIdCao);
         }
+        this.scheduleOnce(this.showHind, 1);
         // this.tempDrawPoints = [];
         // this.calcProgress();
+    };
+    Scratch_ticket.prototype.showHind = function () {
+        if (this.isEnd == false) {
+            this.tutHam.active = true;
+        }
     };
     Scratch_ticket.prototype.calcProgress = function () {
         var _this = this;
@@ -288,6 +321,27 @@ var Scratch_ticket = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], Scratch_ticket.prototype, "egg", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Scratch_ticket.prototype, "noti", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Scratch_ticket.prototype, "noti2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Scratch_ticket.prototype, "progress", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], Scratch_ticket.prototype, "fillGreen", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], Scratch_ticket.prototype, "fill", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Scratch_ticket.prototype, "itemVoiHoaSen", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], Scratch_ticket.prototype, "water", void 0);
     Scratch_ticket = __decorate([
         ccclass
     ], Scratch_ticket);

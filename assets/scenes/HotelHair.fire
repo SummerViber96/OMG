@@ -469,7 +469,7 @@
         "__id__": 44
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 57
@@ -1429,6 +1429,16 @@
     "soundCao": {
       "__uuid__": "61b7bb66-a235-4d01-9d19-139e8284d949"
     },
+    "listBun": [],
+    "anim": null,
+    "listXaphong": [],
+    "text": null,
+    "egg": null,
+    "noti": null,
+    "noti2": null,
+    "progress": null,
+    "fillGreen": null,
+    "fill": null,
     "_id": "2bLjEWfFdCWbKVlCmGnhEg"
   },
   {
@@ -8992,7 +9002,7 @@
         "__id__": 568
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -29596,7 +29606,7 @@
       "__id__": 364
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 533
@@ -32122,6 +32132,17 @@
     "soundUnlock": {
       "__uuid__": "63799a60-94a5-4fcd-adad-8bd706fe6059"
     },
+    "soundPopUp": null,
+    "listCard": null,
+    "listCard2": null,
+    "soap": null,
+    "tutSoap": null,
+    "bangD": null,
+    "tutBangD": null,
+    "vetThuong": null,
+    "lbVetThuong": null,
+    "hindCuoi": null,
+    "phaohoa": null,
     "_id": "f5pITnvKBN5JJrruw8salh"
   }
 ]
