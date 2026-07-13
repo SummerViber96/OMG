@@ -26,6 +26,8 @@ export default class NewClass extends cc.Component {
     soundXuc: cc.AudioClip = null
     @property(cc.AudioClip)
     soundDo: cc.AudioClip = null
+    @property(cc.Node)
+    linkToGame: cc.Node = null
     charms = []
     isTargetbox = null;
     onLoad() {
@@ -57,10 +59,16 @@ export default class NewClass extends cc.Component {
         this.checkSpoon(pos)
 
     }
+    isCountGame = 0;
     checkSpoon(pos) {
         pos = this.listBoxNode.convertToNodeSpaceAR(pos)
         let box = this.getBox(pos)
         if (box) {
+            this.isCountGame++
+
+            if (this.isCountGame == 3) {
+                this.linkToGame.active = true;
+            }
             this.btnOk.active = true;
             this.isTargetbox = box
             this.spoon.active = true;
@@ -103,6 +111,7 @@ export default class NewClass extends cc.Component {
 
         }
         else {
+          
             this.dropCharms()
         }
     }
