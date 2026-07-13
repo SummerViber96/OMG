@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761829220486,
-    "meta": 1783910703172,
+    "meta": 1783913562067,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1773121698116,
-    "meta": 1783910703691,
+    "meta": 1783913562058,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -14450,8 +14450,8 @@
     "relativePath": "Bracelet\\script\\Bracelet.ts"
   },
   "8955fff1-b37f-4a2f-8afd-57877e8ecbb8": {
-    "asset": 1783913033969,
-    "meta": 1783913033997,
+    "asset": 1783913590396,
+    "meta": 1783913590431,
     "relativePath": "scenes\\Bracelet.fire"
   },
   "df87c12d-9eb3-4a2b-a256-16bbd0291665": {
