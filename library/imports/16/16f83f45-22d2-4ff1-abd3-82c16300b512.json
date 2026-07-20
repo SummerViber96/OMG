@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "trayGreen",
+    "texture": "78a324ba-bdc8-4574-8680-76a284663458",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      207,
+      175
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      207,
+      175
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

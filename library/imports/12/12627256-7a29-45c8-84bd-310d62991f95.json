@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "KC-Glass2",
+    "texture": "d8d27ab1-8a29-453e-86f5-dc7a9515eb2d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      564,
+      400
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      564,
+      400
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

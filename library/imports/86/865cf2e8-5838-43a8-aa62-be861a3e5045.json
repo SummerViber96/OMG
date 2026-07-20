@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Tofu_01",
+    "texture": "12cf4c78-5f8a-4083-b817-6a76f2831bd2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      226,
+      231
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      226,
+      231
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

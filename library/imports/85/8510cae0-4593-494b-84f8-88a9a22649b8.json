@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "noi",
+    "texture": "1b34a5ee-a706-4459-857b-b26dca100192",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      168,
+      156
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      168,
+      156
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

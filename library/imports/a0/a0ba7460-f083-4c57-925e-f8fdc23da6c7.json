@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Lettuce",
+    "texture": "355f6c7f-6ca8-45cf-a229-6cd2ceebaecb",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      80,
+      114
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      81,
+      114
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

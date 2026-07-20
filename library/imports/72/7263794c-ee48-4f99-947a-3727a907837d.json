@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Onion_Ring_01 copy",
+    "texture": "5536c8dc-123e-46a7-9d01-7e6b315bbf2b",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      52,
+      48
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      56,
+      52
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

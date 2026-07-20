@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "32104af1-7064-48b0-8b0f-01c5b3c90cd7",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1254,
+  "height": 1254,
+  "platformSettings": {},
+  "subMetas": {
+    "Tick-mark": {
+      "ver": "1.0.4",
+      "uuid": "8ca07ec0-4d98-47a8-9292-a3009785a92e",
+      "rawTextureUuid": "32104af1-7064-48b0-8b0f-01c5b3c90cd7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 6,
+      "offsetY": 0.5,
+      "trimX": 90,
+      "trimY": 93,
+      "width": 1086,
+      "height": 1067,
+      "rawWidth": 1254,
+      "rawHeight": 1254,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cooking_Pot",
+    "texture": "5f716fc4-60ed-4705-95c8-b1652f2fa935",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      403,
+      379
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      403,
+      379
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

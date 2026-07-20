@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Chicken_Leg",
+    "texture": "8205c660-58fb-4489-95c0-d770df16e26b",
+    "atlas": "",
+    "rect": [
+      133,
+      82,
+      553,
+      532
+    ],
+    "offset": [
+      -1.5,
+      3
+    ],
+    "originalSize": [
+      822,
+      702
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

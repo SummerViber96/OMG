@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Bottles",
+    "texture": "b16e3cfb-98e3-4540-ba26-81d6d9bead4e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      95,
+      81
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      96,
+      82
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tomchin",
+    "texture": "06673f9b-443e-4b8d-a584-1393ab6cb14f",
+    "atlas": "",
+    "rect": [
+      4,
+      17,
+      616,
+      572
+    ],
+    "offset": [
+      1.5,
+      -8.5
+    ],
+    "originalSize": [
+      621,
+      589
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

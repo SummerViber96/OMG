@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Soya-Sauce",
+    "texture": "f7cfc8ce-d8ec-4a7b-97f9-20f8cc47b1e9",
+    "atlas": "",
+    "rect": [
+      57,
+      77,
+      558,
+      458
+    ],
+    "offset": [
+      -0.5,
+      -13.5
+    ],
+    "originalSize": [
+      673,
+      585
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

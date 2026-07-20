@@ -1,0 +1,82 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "ticket_move",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.9,
+  "sample": 60,
+  "speed": 0.8,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            -30,
+            75
+          ],
+          "motionPath": [
+            [
+              889,
+              327,
+              437,
+              339,
+              1081,
+              322
+            ],
+            [
+              1430,
+              214,
+              1271,
+              272,
+              1663,
+              129
+            ]
+          ]
+        },
+        {
+          "frame": 0.8333333333333334,
+          "value": [
+            1696,
+            22
+          ],
+          "motionPath": []
+        }
+      ],
+      "scale": [
+        {
+          "frame": 0.3333333333333333,
+          "value": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "frame": 0.6666666666666666,
+          "value": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "frame": 0.8333333333333334,
+          "value": {
+            "__type__": "cc.Vec2",
+            "x": 2,
+            "y": 2
+          }
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 0.9,
+      "func": "showticket",
+      "params": []
+    }
+  ]
+}
