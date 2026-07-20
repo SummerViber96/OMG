@@ -16,10 +16,8 @@
     "Collider",
     "DragonBones",
     "EditBox",
-    "Graphics",
     "Geom Utils",
     "Intersection",
-    "Mask",
     "Mesh",
     "MotionStreak",
     "NodePool",
@@ -35,7 +33,6 @@
     "StudioComponent",
     "Toggle",
     "TiledMap",
-    "VideoPlayer",
     "WebView",
     "3D",
     "3D Primitive",
@@ -66,5 +63,5 @@
       "enable": false
     }
   },
-  "last-module-event-record-time": 1781681942551
+  "last-module-event-record-time": 1784511849139
 }

@@ -11910,8 +11910,8 @@
     "relativePath": "RecipeRush\\spine\\coca\\lv2-cup1.png"
   },
   "d1bdb4d7-6733-45ff-ac52-7727a157b2b4": {
-    "asset": 1784437481736,
-    "meta": 1784438448880,
+    "asset": 1784509012313,
+    "meta": 1784509012338,
     "relativePath": "scenes\\Donut1 - backup.fire"
   },
   "2cf3d4ce-f8aa-4edf-8a42-3830979c3075": {
@@ -13099,11 +13099,6 @@
     "meta": 1784438449995,
     "relativePath": "scripts\\New Folder"
   },
-  "139bdbd9-8899-4a17-ad88-0f89b9609239": {
-    "asset": 1784506833470,
-    "meta": 1784506833485,
-    "relativePath": "scenes\\Rp3.fire"
-  },
   "795f6d33-206c-4a9a-9c94-c5c44ea647f0": {
     "asset": 1784459291174,
     "meta": 1784459291200,
@@ -13399,11 +13394,6 @@
     "meta": 1784500197606,
     "relativePath": "RecipeRush\\anim\\guild_hind.anim"
   },
-  "653c4a0e-7621-45d6-89b2-1bb94dd57229": {
-    "asset": 1784465091940,
-    "meta": 1784465091951,
-    "relativePath": "RecipeRush\\map3\\Fail.png"
-  },
   "059357a2-08ba-4811-9624-72880ff5b6a5": {
     "asset": 1784501928293,
     "meta": 1784501928297,
@@ -13419,11 +13409,6 @@
     "meta": 1784506247866,
     "relativePath": "RecipeRush\\map3\\thanhmenuHind.png"
   },
-  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1784506539756,
-    "meta": 1784506541829,
-    "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
-  },
   "0e641f4e-dd7f-45e2-bb19-747bf671905e": {
     "asset": 1784506694735,
     "meta": 1784506816257,
@@ -13433,5 +13418,35 @@
     "asset": 1784506624333,
     "meta": 1784506816261,
     "relativePath": "RecipeRush\\map3\\Layer 1bantrc.png"
+  },
+  "390c870b-2829-4450-9eb2-703405d5a9c2": {
+    "asset": 1784508071860,
+    "meta": 1784508071876,
+    "relativePath": "RecipeRush\\map3\\Animate_this_scene_Make_sure.mp4"
+  },
+  "720998f7-6055-4719-8aac-08fe5c109e8b": {
+    "asset": 1784508698449,
+    "meta": 1784508698465,
+    "relativePath": "RecipeRush\\map3\\Animate_this_scene_Make_sure (online-video-cutter.com).mp4"
+  },
+  "653c4a0e-7621-45d6-89b2-1bb94dd57229": {
+    "asset": 1784510755179,
+    "meta": 1784510755266,
+    "relativePath": "RecipeRush\\map3\\Fail.png"
+  },
+  "9c94fade-6670-4dfc-a94e-d4fa8c8e1f88": {
+    "asset": 1784510836658,
+    "meta": 1784510836667,
+    "relativePath": "anim\\fail.anim"
+  },
+  "139bdbd9-8899-4a17-ad88-0f89b9609239": {
+    "asset": 1784512215161,
+    "meta": 1784512215179,
+    "relativePath": "scenes\\Rp3.fire"
+  },
+  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
+    "asset": 1784512126269,
+    "meta": 1784512128143,
+    "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
   }
 }

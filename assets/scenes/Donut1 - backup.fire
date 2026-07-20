@@ -58,7 +58,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "fbc7ea97-65c8-4019-9e02-dfbdb4f132da"
+    "_id": "d1bdb4d7-6733-45ff-ac52-7727a157b2b4"
   },
   {
     "__type__": "cc.Node",
@@ -27875,6 +27875,7 @@
     "clock": {
       "__id__": 689
     },
+    "anim": null,
     "_id": "2b+FeyeCpDRbT4127sPy2r"
   },
   {
@@ -43143,6 +43144,7 @@
     "table": {
       "__id__": 948
     },
+    "machine2": null,
     "_id": "cbdFdRB5FJcY/jKPwPgvNY"
   },
   {
@@ -55929,9 +55931,6 @@
     "logo": {
       "__id__": 1038
     },
-    "listCus": {
-      "__id__": 19
-    },
     "mainCamera": {
       "__id__": 4
     },
@@ -55947,7 +55946,6 @@
     "barCoin": {
       "__id__": 1012
     },
-    "listCheckItem": null,
     "phaoHoa": {
       "__id__": 1206
     },
@@ -55957,44 +55955,6 @@
     "guild": {
       "__id__": 1195
     },
-    "listItem": [
-      {
-        "__uuid__": "9262cd07-8b74-4e3c-9a9a-100e20e38919"
-      },
-      {
-        "__uuid__": "9ac5f61d-7d78-4c00-a05f-9cfd32054944"
-      },
-      {
-        "__uuid__": "97135614-4a5f-4aa5-89da-02fda3b0c491"
-      },
-      {
-        "__uuid__": "ce46671e-1f38-4b58-b904-3b9095039384"
-      },
-      {
-        "__uuid__": "97bc6379-a34f-49ea-ba13-d6c22d902e7a"
-      },
-      {
-        "__uuid__": "37f3c067-1092-46b1-bad9-145ba7aaa64d"
-      },
-      {
-        "__uuid__": "79fa1f74-bcdc-47b3-90b3-6a4bd42fc8e8"
-      },
-      {
-        "__uuid__": "fb59d707-6a18-4bff-bfee-3b1d10429793"
-      }
-    ],
-    "listRay": [
-      {
-        "__id__": 461
-      }
-    ],
-    "listKhay": {
-      "__id__": 469
-    },
-    "preKhay": {
-      "__uuid__": "d03ad05a-fd46-4308-a588-73346bf6d9e3"
-    },
-    "listRayNode": null,
     "timeup": {
       "__id__": 1210
     },
@@ -56007,54 +55967,14 @@
     "notiMission": {
       "__id__": 1224
     },
-    "listPreCus": [],
-    "listMenu": {
-      "__id__": 470
-    },
-    "handtut": {
-      "__id__": 637
-    },
-    "handtut2": {
-      "__id__": 591
-    },
-    "handtut3": {
-      "__id__": 651
-    },
-    "preCoin": {
-      "__uuid__": "a7169f9a-260c-4d36-a98c-2c9b24edef29"
-    },
     "endCardDoc": {
       "__id__": 1148
-    },
-    "listBep": {
-      "__id__": 546
-    },
-    "listDia": {
-      "__id__": 595
-    },
-    "preBanh": {
-      "__uuid__": "cce91f37-9550-43f6-bbb2-bfd5d32bffec"
     },
     "barMission": {
       "__id__": 1064
     },
     "barMission2": {
       "__id__": 1236
-    },
-    "btnChicken": {
-      "__id__": 666
-    },
-    "btnMachine": {
-      "__id__": 680
-    },
-    "btnCoca": {
-      "__id__": 958
-    },
-    "btnCake": {
-      "__id__": 982
-    },
-    "btnPotato": {
-      "__id__": 987
     },
     "mc": {
       "__id__": 710
@@ -56085,6 +56005,26 @@
         "__uuid__": "e01e0b90-3c38-4972-b950-fe3436174976"
       }
     ],
+    "ticket": null,
+    "chef1": null,
+    "chef2": null,
+    "listHand": null,
+    "preTom": null,
+    "preTofu": null,
+    "preHanh": null,
+    "preDau": null,
+    "preSauce": null,
+    "plate": null,
+    "plateList": null,
+    "btnTo": null,
+    "btnDau": null,
+    "btnHanh": null,
+    "btnDauPhu": null,
+    "btnSauce": null,
+    "listTick": null,
+    "listItemNoi": null,
+    "noiSup": null,
+    "video": null,
     "_id": "79O6kZ+2hENo3V8puWXJue"
   }
 ]
