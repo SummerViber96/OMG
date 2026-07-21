@@ -45,9 +45,9 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundThinkWin: cc.AudioClip = null
     @property(cc.AudioClip)
-    soundAngry1:cc.AudioClip=null;
+    soundAngry1: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundAngry2:cc.AudioClip=null
+    soundAngry2: cc.AudioClip = null
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -480,6 +480,15 @@ export default class NewClass extends cc.Component {
                 this.video.play()
             }).start()
             this.scheduleOnce(() => {
+                this.video.node.scale = 2
+                this.video.node.position=cc.v3(1400,-300)
+                // this.video.node.position=
+            }, 4)
+            this.scheduleOnce(()=>{
+                this.video.node.position=cc.v3(-700,-1200)
+
+            },5)
+            this.scheduleOnce(() => {
                 this.listCus2.active = true
                 this.camera.node.position = cc.v3(-40, 300 - 100, 0)
                 this.camera.zoomRatio = 0.8
@@ -497,85 +506,12 @@ export default class NewClass extends cc.Component {
                     }, 1.5)
                 }, 1.3)
 
-            }, 1.5 + 3.4)
+            }, 5.6)
 
         }, 3)
     }
     isSOundNau = null
-    // initCusQueue() {
-    //     if (!this.cusCounterPos && this.arrCus.length > 0) {
-    //         this.cusCounterPos = this.arrCus[0].position.clone().sub(this.cusEnterOffset)
-    //     }
-    // }
 
-    // getCusCounterPos(slot: number, total: number) {
-    //     this.initCusQueue()
-    //     if (total <= 1) return this.cusCounterPos.clone()
-    //     let offsetX = (slot - (total - 1) / 2) * this.cusSlotGap
-    //     return this.cusCounterPos.clone().add(cc.v3(offsetX, 0, 0))
-    // }
-
-    // showCounterMissions(count: number, value) {
-    //     for (let i = 0; i < count && i < this.arrCus.length; i++) {
-    //         this.arrCus[i].getComponent("cusMission").showMission(value)
-    //     }
-    // }
-
-    // enterCustomers(count: number, value) {
-    //     this.counterCusCount = count
-    //     let arrPos = [cc.v3(0, 0, 0)]
-    //     if (count == 2) {
-    //         arrPos = [cc.v3(-285, 0, 0), cc.v3(88, 0, 0)]
-    //     }
-    //     else if (count == 3) {
-    //         arrPos = [cc.v3(-443, 0, 0), cc.v3(-73, 0, 0), cc.v3(273, 0, 0)]
-    //     }
-    //     let maxDuration = 0
-    //     for (let i = 0; i < count && i < this.arrCus.length; i++) {
-    //         let cus = this.arrCus[i]
-    //         // let targetPos = this.getCusCounterPos(i, count)
-    //         let targetPos = arrPos[i]
-
-    //         let spawnPos = targetPos.clone().add(this.cusEnterOffset)
-    //         let distance = spawnPos.sub(targetPos).mag()
-    //         let duration = distance / this.cusWalkSpeed
-    //         maxDuration = Math.max(maxDuration, duration)
-
-    //         cc.Tween.stopAllByTarget(cus)
-    //         cus.position = spawnPos
-    //         cus.active = true
-    //         cus.getComponent("cusMission").move()
-    //         cc.tween(cus)
-    //             .to(duration, { position: targetPos })
-    //             .start()
-    //     }
-
-    //     this.scheduleOnce(() => {
-    //         // if (value != true) {
-    //         this.showCounterMissions(count, value)
-
-    //         // }
-    //         if (count === 1 && this.arrCus.length > 0) {
-    //             this.isTargetCus = this.arrCus[0]
-    //         }
-    //     }, maxDuration)
-    // }
-
-    // getEnterCountForWave() {
-    //     if (this.countCus === 1) return 2
-    //     if (this.countCus === 3) return 3
-    //     return 1
-    // }
-
-    // spawnCustomerFromPrefab(): cc.Node {
-    //     if (this.listPreCUs.length === 0) return null
-    //     let prefab = this.listPreCUs[this.preCusIndex % this.listPreCUs.length]
-    //     this.preCusIndex++
-    //     let newCus = cc.instantiate(prefab)
-    //     newCus.parent = this.listCus
-    //     newCus.active = false
-    //     return newCus
-    // }
 
     replaceCustomer(departedCus: cc.Node, counterPos: cc.Vec3) {
         if (this.isEndGame) return;

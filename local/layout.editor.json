@@ -86,9 +86,7 @@
         "inspector",
         "cocos-services"
       ]
-    },
-    "window-1784511842354": {},
-    "worker": {}
+    }
   },
   "panels": {
     "builder": {

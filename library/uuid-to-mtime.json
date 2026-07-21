@@ -1,7 +1,7 @@
 {
   "2c57eeae-95a7-4ca9-87d9-802977e12c2d": {
-    "asset": 1784437481716,
-    "meta": 1784438436800,
+    "asset": 1784510776812,
+    "meta": 1784593223754,
     "relativePath": "anim"
   },
   "8cb730ee-e6cf-48a7-9fca-7c696815ad76": {
@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1784506816261,
+    "meta": 1784593223794,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1784506816263,
+    "meta": 1784593223787,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -13115,8 +13115,8 @@
     "relativePath": "RecipeRush\\spine\\2.png"
   },
   "0312427f-c226-40ae-a6fd-5a96a4ee9684": {
-    "asset": 1784506814402,
-    "meta": 1784506816227,
+    "asset": 1784510755171,
+    "meta": 1784593223779,
     "relativePath": "RecipeRush\\map3"
   },
   "b16e3cfb-98e3-4540-ba26-81d6d9bead4e": {
@@ -13440,13 +13440,13 @@
     "relativePath": "anim\\fail.anim"
   },
   "139bdbd9-8899-4a17-ad88-0f89b9609239": {
-    "asset": 1784512215161,
-    "meta": 1784512215179,
+    "asset": 1784594226326,
+    "meta": 1784594226340,
     "relativePath": "scenes\\Rp3.fire"
   },
   "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1784512126269,
-    "meta": 1784512128143,
+    "asset": 1784594077341,
+    "meta": 1784594078490,
     "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
   }
 }
