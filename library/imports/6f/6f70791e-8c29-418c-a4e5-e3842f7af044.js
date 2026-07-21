@@ -221,10 +221,14 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.checkSuccess();
         }, 0.5 + 0.15 * 3);
+        this.scheduleOnce(function () {
+            _this.checkHind();
+        }, 1);
     };
     NewClass.prototype.btn_hanh = function () {
         var _this = this;
         cc.audioEngine.play(this.soundClick, false, 1);
+        this.unschedule(this.checkHind);
         this.msHanh = true;
         this.btnHanh.getComponent(cc.Button).enabled = false;
         this.listHand.children[2].active = false;
@@ -246,11 +250,15 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.checkSuccess();
         }, 0.5 + 0.15 * 3);
+        this.scheduleOnce(function () {
+            _this.checkHind();
+        }, 2);
     };
     NewClass.prototype.btn_dauPhu = function () {
         var _this = this;
         this.msTofu = true;
         cc.audioEngine.play(this.soundClick, false, 1);
+        this.unschedule(this.checkHind);
         this.btnDauPhu.getComponent(cc.Button).enabled = false;
         this.listHand.children[1].active = false;
         this.listTick.children[2].active = true;
@@ -271,10 +279,14 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.checkSuccess();
         }, 0.5 + 0.15 * 3);
+        this.scheduleOnce(function () {
+            _this.checkHind();
+        }, 2);
     };
     NewClass.prototype.btn_dau = function () {
         var _this = this;
         cc.audioEngine.play(this.soundClick, false, 1);
+        this.unschedule(this.checkHind);
         this.msDau = true;
         this.btnDau.getComponent(cc.Button).enabled = false;
         this.listHand.children[3].active = false;
@@ -298,10 +310,14 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.checkSuccess();
         }, 0.5 + 0.15 * 3);
+        this.scheduleOnce(function () {
+            _this.checkHind();
+        }, 2);
     };
     NewClass.prototype.btn_sauce = function () {
         var _this = this;
         cc.audioEngine.play(this.soundClick, false, 1);
+        this.unschedule(this.checkHind);
         this.btnSauce.getComponent(cc.Button).enabled = false;
         this.listHand.children[4].active = false;
         var startPos = cc.v2(300, 2);
@@ -315,6 +331,9 @@ var NewClass = /** @class */ (function (_super) {
             _this.msSauces = true;
             _this.checkSuccess();
         }, 0.8);
+        this.scheduleOnce(function () {
+            _this.checkHind();
+        }, 2);
     };
     NewClass.prototype.checkSuccess = function () {
         var _this = this;
@@ -326,6 +345,24 @@ var NewClass = /** @class */ (function (_super) {
                 _this.listHand.children[5].active = true;
                 _this.plate.getComponent(cc.Button).enabled = true;
             }, 0.5);
+        }
+    };
+    NewClass.prototype.checkHind = function () {
+        if (this.msTofu == false) {
+            this.listHand.children[1].active = true;
+            return;
+        }
+        if (this.msHanh == false) {
+            this.listHand.children[2].active = true;
+            return;
+        }
+        if (this.msDau == false) {
+            this.listHand.children[3].active = true;
+            return;
+        }
+        if (this.msSauces == false) {
+            this.listHand.children[4].active = true;
+            return;
         }
     };
     NewClass.prototype.btn_plate = function () {

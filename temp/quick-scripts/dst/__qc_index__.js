@@ -23,6 +23,7 @@ require('./assets/RecipeRush/scripts/chicken');
 require('./assets/RecipeRush/scripts/coca');
 require('./assets/RecipeRush/scripts/cooking');
 require('./assets/RecipeRush/scripts/cusMission');
+require('./assets/RecipeRush/scripts/listCus2');
 require('./assets/RecipeRush/scripts/machine');
 require('./assets/RecipeRush/scripts/mc');
 require('./assets/RecipeRush/scripts/ticket');

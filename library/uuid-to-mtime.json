@@ -13440,13 +13440,33 @@
     "relativePath": "anim\\fail.anim"
   },
   "139bdbd9-8899-4a17-ad88-0f89b9609239": {
-    "asset": 1784594226326,
-    "meta": 1784594226340,
+    "asset": 1784595738181,
+    "meta": 1784595738196,
     "relativePath": "scenes\\Rp3.fire"
   },
+  "fa5dd3f9-0c00-48a7-887b-099ab3a2d85f": {
+    "asset": 1784594424449,
+    "meta": 1784594425226,
+    "relativePath": "RecipeRush\\map3\\Bubble_Tap.mp3"
+  },
+  "f3802ac1-c8d2-4ef3-90ed-1554278ad519": {
+    "asset": 1784594536028,
+    "meta": 1784594536061,
+    "relativePath": "RecipeRush\\map3\\angry.png"
+  },
+  "e5ce6419-a520-43a2-bf7d-f61e22fed1a9": {
+    "asset": 1784595146355,
+    "meta": 1784595146365,
+    "relativePath": "RecipeRush\\prefab\\preEmoji.prefab"
+  },
+  "4cf7ec4b-7994-48c6-9a88-4884f7e56b8a": {
+    "asset": 1784595361179,
+    "meta": 1784595362130,
+    "relativePath": "RecipeRush\\scripts\\listCus2.ts"
+  },
   "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1784594077341,
-    "meta": 1784594078490,
+    "asset": 1784595640983,
+    "meta": 1784595643282,
     "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
   }
 }

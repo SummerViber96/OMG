@@ -274,10 +274,13 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.checkSuccess()
         }, 0.5 + 0.15 * 3)
-
+        this.scheduleOnce(() => {
+            this.checkHind()
+        }, 1)
     }
     btn_hanh() {
         cc.audioEngine.play(this.soundClick, false, 1)
+        this.unschedule(this.checkHind)
 
         this.msHanh = true;
         this.btnHanh.getComponent(cc.Button).enabled = false
@@ -299,10 +302,14 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.checkSuccess()
         }, 0.5 + 0.15 * 3)
+        this.scheduleOnce(() => {
+            this.checkHind()
+        }, 2)
     }
     btn_dauPhu() {
         this.msTofu = true;
         cc.audioEngine.play(this.soundClick, false, 1)
+        this.unschedule(this.checkHind)
 
         this.btnDauPhu.getComponent(cc.Button).enabled = false
         this.listHand.children[1].active = false
@@ -323,9 +330,13 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.checkSuccess()
         }, 0.5 + 0.15 * 3)
+        this.scheduleOnce(() => {
+            this.checkHind()
+        }, 2)
     }
     btn_dau() {
         cc.audioEngine.play(this.soundClick, false, 1)
+        this.unschedule(this.checkHind)
 
         this.msDau = true
         this.btnDau.getComponent(cc.Button).enabled = false;
@@ -348,11 +359,14 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.checkSuccess()
         }, 0.5 + 0.15 * 3)
+        this.scheduleOnce(() => {
+            this.checkHind()
+        }, 2)
     }
 
     btn_sauce() {
         cc.audioEngine.play(this.soundClick, false, 1)
-
+        this.unschedule(this.checkHind)
         this.btnSauce.getComponent(cc.Button).enabled = false;
         this.listHand.children[4].active = false
         let startPos = cc.v2(300, 2)
@@ -367,6 +381,9 @@ export default class NewClass extends cc.Component {
 
             this.checkSuccess()
         }, 0.8)
+        this.scheduleOnce(() => {
+            this.checkHind()
+        }, 2)
     }
     checkSuccess() {
         if (this.msDau == true && this.msHanh == true && this.msSauces == true && this.msTofu == true && this.msTom == true) {
@@ -380,7 +397,24 @@ export default class NewClass extends cc.Component {
 
         }
     }
-
+    checkHind() {
+        if (this.msTofu == false) {
+            this.listHand.children[1].active = true
+            return;
+        }
+        if (this.msHanh == false) {
+            this.listHand.children[2].active = true
+            return;
+        }
+        if (this.msDau == false) {
+            this.listHand.children[3].active = true
+            return;
+        }
+        if (this.msSauces == false) {
+            this.listHand.children[4].active = true
+            return;
+        }
+    }
     btn_plate() {
         this.plate.getComponent(cc.Button).enabled = false
         cc.audioEngine.play(this.soundClick, false, 1)
@@ -481,13 +515,13 @@ export default class NewClass extends cc.Component {
             }).start()
             this.scheduleOnce(() => {
                 this.video.node.scale = 2
-                this.video.node.position=cc.v3(1400,-300)
+                this.video.node.position = cc.v3(1400, -300)
                 // this.video.node.position=
             }, 4)
-            this.scheduleOnce(()=>{
-                this.video.node.position=cc.v3(-700,-1200)
+            this.scheduleOnce(() => {
+                this.video.node.position = cc.v3(-700, -1200)
 
-            },5)
+            }, 5)
             this.scheduleOnce(() => {
                 this.listCus2.active = true
                 this.camera.node.position = cc.v3(-40, 300 - 100, 0)
@@ -499,8 +533,8 @@ export default class NewClass extends cc.Component {
                     this.failUi.active = false
                     cc.tween(this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
                     this.chef1.children[0].getComponent(sp.Skeleton).setAnimation(0, "Fail", false)
-                    cc.audioEngine.play(this.soundAngry1,false,1)
-                    cc.audioEngine.play(this.soundAngry2,false,1)
+                    cc.audioEngine.play(this.soundAngry1, false, 1)
+                    cc.audioEngine.play(this.soundAngry2, false, 1)
                     this.scheduleOnce(() => {
                         this.onEndGame(false)
                     }, 1.5)
