@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "af740278-73c6-46e8-9c8f-a0090f18e0d6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1029,
+  "height": 355,
+  "platformSettings": {},
+  "subMetas": {
+    "App_Store_icon": {
+      "ver": "1.0.4",
+      "uuid": "685d6384-83b4-4dcc-a636-e423a067f2c3",
+      "rawTextureUuid": "af740278-73c6-46e8-9c8f-a0090f18e0d6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 0,
+      "trimX": 37,
+      "trimY": 36,
+      "width": 956,
+      "height": 283,
+      "rawWidth": 1029,
+      "rawHeight": 355,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

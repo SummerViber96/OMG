@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "21edb92c-a68b-40bb-a2c0-5a68e68549af",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1029,
+  "height": 355,
+  "platformSettings": {},
+  "subMetas": {
+    "Google_Play_icon": {
+      "ver": "1.0.4",
+      "uuid": "2e475d5c-21b9-4b2c-9a6a-1aa49a46696d",
+      "rawTextureUuid": "21edb92c-a68b-40bb-a2c0-5a68e68549af",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": 0,
+      "trimX": 26,
+      "trimY": 34,
+      "width": 979,
+      "height": 287,
+      "rawWidth": 1029,
+      "rawHeight": 355,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

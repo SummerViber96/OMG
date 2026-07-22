@@ -51,6 +51,12 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundThinkWin = null;
         _this.soundAngry1 = null;
         _this.soundAngry2 = null;
+        _this.soundFoot = null;
+        _this.soundFunny = null;
+        _this.soundOpenOrder = null;
+        _this.soundTicketFly = null;
+        _this.soundDO = null;
+        _this.soundFail = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -144,12 +150,17 @@ var NewClass = /** @class */ (function (_super) {
         _this.msDau = false;
         _this.msTofu = false;
         _this.msSauces = false;
+        //0:banh thuong 1:chocolate 2: strawberry 
+        _this.idFunny = null;
         _this.isHand = null;
+        _this.isShowMenu = false;
         _this.arrTom = [];
         _this.arrHanh = [];
         _this.arrDau = [];
         _this.arrTofu = [];
         _this.arrSauce = null;
+        _this.isSauceFinal = false;
+        _this.idFoot = null;
         _this.isSOundNau = null;
         _this.isMoving = false;
         _this.isFist = false;
@@ -161,7 +172,6 @@ var NewClass = /** @class */ (function (_super) {
         _this.arrPosDoc = [cc.v3(26, -337), cc.v3(336, -112), cc.v3(15.5, -121), cc.v3(-170, -525.7), cc.v3(-300, -352), cc.v3(186.96, -512), cc.v3(355, -335), cc.v3(-292, -116)];
         return _this;
     }
-    //0:banh thuong 1:chocolate 2: strawberry 
     NewClass.prototype.onLoad = function () {
         var _this = this;
         if (this.adChanel == 'Mintegral') {
@@ -179,13 +189,16 @@ var NewClass = /** @class */ (function (_super) {
         var animCheft1 = this.chef1.children[0];
         this.scheduleOnce(function () {
             animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Win", false);
+            _this.idFunny = cc.audioEngine.play(_this.soundFunny, false, 1);
         }, 0.5);
         this.scheduleOnce(function () {
+            cc.audioEngine.stop(_this.idFunny);
             animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true);
         }, 2);
     };
     NewClass.prototype.moveTicket = function () {
         this.ticket.active = true;
+        cc.audioEngine.play(this.soundTicketFly, false, 0.3);
         cc.tween(this.camera.node).to(1, { position: cc.v3(1750, -200.232) }).call(function () {
             // this.ticket.getComponent(cc.Animation).play("ticket_show")
         }).start();
@@ -194,13 +207,18 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.showTicket = function () {
         var _this = this;
         cc.audioEngine.play(this.soundClick, false, 1);
+        cc.audioEngine.play(this.soundOpenOrder, false, 1);
         this.scheduleOnce(function () {
             _this.listHand.children[0].active = true;
+            _this.isShowMenu = true;
         }, 0.4);
     };
     NewClass.prototype.btn_tom = function () {
         var _this = this;
+        if (this.isShowMenu == false)
+            return;
         cc.audioEngine.play(this.soundClick, false, 1);
+        this.unschedule(this.checkHind);
         this.msTom = true;
         this.btnTo.getComponent(cc.Button).enabled = false;
         this.listHand.children[0].active = false;
@@ -227,6 +245,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_hanh = function () {
         var _this = this;
+        if (this.isShowMenu == false)
+            return;
         cc.audioEngine.play(this.soundClick, false, 1);
         this.unschedule(this.checkHind);
         this.msHanh = true;
@@ -256,6 +276,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_dauPhu = function () {
         var _this = this;
+        if (this.isShowMenu == false)
+            return;
         this.msTofu = true;
         cc.audioEngine.play(this.soundClick, false, 1);
         this.unschedule(this.checkHind);
@@ -285,6 +307,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_dau = function () {
         var _this = this;
+        if (this.isShowMenu == false)
+            return;
         cc.audioEngine.play(this.soundClick, false, 1);
         this.unschedule(this.checkHind);
         this.msDau = true;
@@ -316,6 +340,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_sauce = function () {
         var _this = this;
+        if (this.isShowMenu == false)
+            return;
         cc.audioEngine.play(this.soundClick, false, 1);
         this.unschedule(this.checkHind);
         this.btnSauce.getComponent(cc.Button).enabled = false;
@@ -327,17 +353,18 @@ var NewClass = /** @class */ (function (_super) {
         preSauce.parent = this.plateList;
         this.arrSauce = preSauce;
         cc.tween(preSauce).bezierTo(0.5, startPos, cc.v2(startPos.x, startPos.y + 300), endpos).start();
+        this.msSauces = true;
         this.scheduleOnce(function () {
-            _this.msSauces = true;
+            _this.isSauceFinal = true;
             _this.checkSuccess();
-        }, 0.8);
+        }, 0.5);
         this.scheduleOnce(function () {
             _this.checkHind();
         }, 2);
     };
     NewClass.prototype.checkSuccess = function () {
         var _this = this;
-        if (this.msDau == true && this.msHanh == true && this.msSauces == true && this.msTofu == true && this.msTom == true) {
+        if (this.msDau == true && this.msHanh == true && this.msSauces == true && this.msTofu == true && this.msTom == true && this.isSauceFinal) {
             this.plate.getChildByName("phaohoa").active = true;
             cc.audioEngine.play(this.soundSellDone, false, 0.5);
             this.scheduleOnce(function () {
@@ -370,14 +397,17 @@ var NewClass = /** @class */ (function (_super) {
         this.plate.getComponent(cc.Button).enabled = false;
         cc.audioEngine.play(this.soundClick, false, 1);
         this.listHand.children[5].active = false;
+        this.listHand.children[5].opacity = 0;
         var chefANim = this.chef2.children[0].getComponent(sp.Skeleton);
         chefANim.setAnimation(0, "L-arm", true);
         this.plate.parent = this.chef2;
         this.plate.position = cc.v3(217, 482);
         this.plate.children[0].active = false;
+        cc.audioEngine.play(this.soundFoot, false, 0.5);
         cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start();
         cc.tween(this.chef2).to(1.5, { position: cc.v3(1231, -219) }).call(function () {
             chefANim.setAnimation(1, "Idle", true);
+            cc.audioEngine.stop(_this.idFoot);
             _this.transItem();
         }).start();
         chefANim.setAnimation(1, "Walk", true);
@@ -449,12 +479,14 @@ var NewClass = /** @class */ (function (_super) {
             var chefANim = _this.chef2.children[0].getComponent(sp.Skeleton);
             chefANim.setAnimation(1, "Walk", true);
             chefANim.setAnimation(0, "L-arm", true);
+            _this.idFoot = cc.audioEngine.play(_this.soundFoot, false, 0.5);
             _this.ticket.children[0].active = true;
             cc.tween(_this.ticket).to(0.3, { scale: 2.1 }).to(0.5, { opacity: 0 }).start();
             cc.tween(_this.camera.node).by(1, { position: cc.v3(0, -600) }).start();
             cc.tween(_this.chef2).to(1, { position: cc.v3(1392, -592) }).call(function () {
                 chefANim.setAnimation(1, "Idle", true);
                 chefANim.setAnimation(0, "Idle", true);
+                cc.audioEngine.stop(_this.idFoot);
                 plate2.parent = _this.node;
                 plate2.position = cc.v3(1236, -382);
             }).start();
@@ -463,19 +495,23 @@ var NewClass = /** @class */ (function (_super) {
                 _this.video.play();
             }).start();
             _this.scheduleOnce(function () {
+                cc.audioEngine.play(_this.soundDO, false, 1);
+            }, 3.5);
+            _this.scheduleOnce(function () {
                 _this.video.node.scale = 2;
-                _this.video.node.position = cc.v3(1400, -300);
+                _this.video.node.position = cc.v3(1700, -300);
                 // this.video.node.position=
             }, 4);
             _this.scheduleOnce(function () {
-                _this.video.node.position = cc.v3(-700, -1200);
-            }, 5);
+                _this.video.node.position = cc.v3(-900, -1000);
+            }, 5 - 0.3);
             _this.scheduleOnce(function () {
                 _this.listCus2.active = true;
                 _this.camera.node.position = cc.v3(-40, 300 - 100, 0);
                 _this.camera.zoomRatio = 0.8;
                 _this.video.node.active = false;
                 _this.failUi.active = true;
+                cc.audioEngine.play(_this.soundFail, false, 1);
                 _this.scheduleOnce(function () {
                     _this.failUi.active = false;
                     cc.tween(_this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start();
@@ -483,10 +519,13 @@ var NewClass = /** @class */ (function (_super) {
                     cc.audioEngine.play(_this.soundAngry1, false, 1);
                     cc.audioEngine.play(_this.soundAngry2, false, 1);
                     _this.scheduleOnce(function () {
+                        cc.audioEngine.play(_this.soundThinkLose, false, 1);
+                    }, 2);
+                    _this.scheduleOnce(function () {
                         _this.onEndGame(false);
-                    }, 1.5);
+                    }, 3);
                 }, 1.3);
-            }, 5.6);
+            }, 5.8);
         }, 3);
     };
     NewClass.prototype.replaceCustomer = function (departedCus, counterPos) {
@@ -726,10 +765,9 @@ var NewClass = /** @class */ (function (_super) {
             // cc.audioEngine.stop(this.idSound)
             // this.timeup.active = true;
             this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundThinking, false, 1);
-                cc.audioEngine.play(_this.soundThinkLose, false, 0.5);
+                cc.audioEngine.play(_this.soundThinking, false, 0.5);
                 // this.endCard.active = true;
-            }, 0.5);
+            }, 1);
         }
         this.linkToStore.active = true;
     };
@@ -886,6 +924,24 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundAngry2", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundFoot", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundFunny", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundOpenOrder", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundTicketFly", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundDO", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundFail", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);

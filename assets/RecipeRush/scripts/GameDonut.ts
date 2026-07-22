@@ -48,6 +48,20 @@ export default class NewClass extends cc.Component {
     soundAngry1: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundAngry2: cc.AudioClip = null
+
+    @property(cc.AudioClip)
+    soundFoot: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundFunny: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundOpenOrder: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundTicketFly: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundDO: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundFail:cc.AudioClip=null
+
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -208,6 +222,7 @@ export default class NewClass extends cc.Component {
     msTofu = false
     msSauces = false
     //0:banh thuong 1:chocolate 2: strawberry 
+    idFunny = null
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
@@ -225,16 +240,19 @@ export default class NewClass extends cc.Component {
         let animCheft1 = this.chef1.children[0]
         this.scheduleOnce(() => {
             animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Win", false)
-
+            this.idFunny = cc.audioEngine.play(this.soundFunny, false, 1)
         }, 0.5)
         this.scheduleOnce(() => {
+            cc.audioEngine.stop(this.idFunny)
             animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true)
 
         }, 2)
     }
     isHand = null
+    isShowMenu = false
     moveTicket() {
         this.ticket.active = true
+        cc.audioEngine.play(this.soundTicketFly, false, 0.3)
         cc.tween(this.camera.node).to(1, { position: cc.v3(1750, -200.232) }).call(() => {
             // this.ticket.getComponent(cc.Animation).play("ticket_show")
         }).start()
@@ -243,10 +261,10 @@ export default class NewClass extends cc.Component {
     }
     showTicket() {
         cc.audioEngine.play(this.soundClick, false, 1)
-
+        cc.audioEngine.play(this.soundOpenOrder, false, 1)
         this.scheduleOnce(() => {
             this.listHand.children[0].active = true
-
+            this.isShowMenu = true
         }, 0.4)
     }
     arrTom = [];
@@ -255,7 +273,9 @@ export default class NewClass extends cc.Component {
     arrTofu = [];
     arrSauce = null
     btn_tom() {
+        if (this.isShowMenu == false) return
         cc.audioEngine.play(this.soundClick, false, 1)
+        this.unschedule(this.checkHind)
 
         this.msTom = true
         this.btnTo.getComponent(cc.Button).enabled = false
@@ -279,6 +299,8 @@ export default class NewClass extends cc.Component {
         }, 1)
     }
     btn_hanh() {
+        if (this.isShowMenu == false) return
+
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
 
@@ -307,6 +329,8 @@ export default class NewClass extends cc.Component {
         }, 2)
     }
     btn_dauPhu() {
+        if (this.isShowMenu == false) return
+
         this.msTofu = true;
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
@@ -335,6 +359,8 @@ export default class NewClass extends cc.Component {
         }, 2)
     }
     btn_dau() {
+        if (this.isShowMenu == false) return
+
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
 
@@ -363,8 +389,10 @@ export default class NewClass extends cc.Component {
             this.checkHind()
         }, 2)
     }
-
+    isSauceFinal = false
     btn_sauce() {
+        if (this.isShowMenu == false) return
+
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
         this.btnSauce.getComponent(cc.Button).enabled = false;
@@ -376,17 +404,18 @@ export default class NewClass extends cc.Component {
         preSauce.parent = this.plateList
         this.arrSauce = preSauce;
         cc.tween(preSauce).bezierTo(0.5, startPos, cc.v2(startPos.x, startPos.y + 300), endpos).start()
-        this.scheduleOnce(() => {
-            this.msSauces = true
+        this.msSauces = true
 
+        this.scheduleOnce(() => {
+            this.isSauceFinal = true
             this.checkSuccess()
-        }, 0.8)
+        }, 0.5)
         this.scheduleOnce(() => {
             this.checkHind()
         }, 2)
     }
     checkSuccess() {
-        if (this.msDau == true && this.msHanh == true && this.msSauces == true && this.msTofu == true && this.msTom == true) {
+        if (this.msDau == true && this.msHanh == true && this.msSauces == true && this.msTofu == true && this.msTom == true && this.isSauceFinal) {
             this.plate.getChildByName("phaohoa").active = true;
             cc.audioEngine.play(this.soundSellDone, false, 0.5)
             this.scheduleOnce(() => {
@@ -415,19 +444,22 @@ export default class NewClass extends cc.Component {
             return;
         }
     }
+    idFoot = null
     btn_plate() {
         this.plate.getComponent(cc.Button).enabled = false
         cc.audioEngine.play(this.soundClick, false, 1)
         this.listHand.children[5].active = false
+        this.listHand.children[5].opacity = 0
         let chefANim = this.chef2.children[0].getComponent(sp.Skeleton)
         chefANim.setAnimation(0, "L-arm", true)
         this.plate.parent = this.chef2;
         this.plate.position = cc.v3(217, 482)
         this.plate.children[0].active = false
-
+        cc.audioEngine.play(this.soundFoot, false, 0.5)
         cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start()
         cc.tween(this.chef2).to(1.5, { position: cc.v3(1231, -219) }).call(() => {
             chefANim.setAnimation(1, "Idle", true);
+            cc.audioEngine.stop(this.idFoot)
             this.transItem()
         }).start()
         chefANim.setAnimation(1, "Walk", true);
@@ -500,12 +532,14 @@ export default class NewClass extends cc.Component {
             let chefANim = this.chef2.children[0].getComponent(sp.Skeleton)
             chefANim.setAnimation(1, "Walk", true);
             chefANim.setAnimation(0, "L-arm", true)
+            this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5)
             this.ticket.children[0].active = true;
             cc.tween(this.ticket).to(0.3, { scale: 2.1 }).to(0.5, { opacity: 0 }).start()
             cc.tween(this.camera.node).by(1, { position: cc.v3(0, -600) }).start()
             cc.tween(this.chef2).to(1, { position: cc.v3(1392, -592) }).call(() => {
                 chefANim.setAnimation(1, "Idle", true);
                 chefANim.setAnimation(0, "Idle", true);
+                cc.audioEngine.stop(this.idFoot)
                 plate2.parent = this.node
                 plate2.position = cc.v3(1236, -382)
             }).start()
@@ -514,14 +548,18 @@ export default class NewClass extends cc.Component {
                 this.video.play()
             }).start()
             this.scheduleOnce(() => {
+                cc.audioEngine.play(this.soundDO, false, 1)
+
+            }, 3.5)
+            this.scheduleOnce(() => {
                 this.video.node.scale = 2
-                this.video.node.position = cc.v3(1400, -300)
+                this.video.node.position = cc.v3(1700, -300)
                 // this.video.node.position=
             }, 4)
             this.scheduleOnce(() => {
-                this.video.node.position = cc.v3(-700, -1200)
+                this.video.node.position = cc.v3(-900, -1000)
 
-            }, 5)
+            }, 5 - 0.3)
             this.scheduleOnce(() => {
                 this.listCus2.active = true
                 this.camera.node.position = cc.v3(-40, 300 - 100, 0)
@@ -529,6 +567,7 @@ export default class NewClass extends cc.Component {
                 this.video.node.active = false
 
                 this.failUi.active = true;
+                cc.audioEngine.play(this.soundFail,false,1)
                 this.scheduleOnce(() => {
                     this.failUi.active = false
                     cc.tween(this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
@@ -536,11 +575,15 @@ export default class NewClass extends cc.Component {
                     cc.audioEngine.play(this.soundAngry1, false, 1)
                     cc.audioEngine.play(this.soundAngry2, false, 1)
                     this.scheduleOnce(() => {
+                        cc.audioEngine.play(this.soundThinkLose, false, 1)
+
+                    }, 2)
+                    this.scheduleOnce(() => {
                         this.onEndGame(false)
-                    }, 1.5)
+                    }, 3)
                 }, 1.3)
 
-            }, 5.6)
+            }, 5.8)
 
         }, 3)
     }
@@ -794,11 +837,11 @@ export default class NewClass extends cc.Component {
             // }
             // cc.audioEngine.stop(this.idSound)
             // this.timeup.active = true;
+
             this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundThinking, false, 1)
-                cc.audioEngine.play(this.soundThinkLose, false, 0.5)
+                cc.audioEngine.play(this.soundThinking, false, 0.5)
                 // this.endCard.active = true;
-            }, 0.5)
+            }, 1)
 
 
         }

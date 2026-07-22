@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "App_Store_icon",
+    "texture": "af740278-73c6-46e8-9c8f-a0090f18e0d6",
+    "atlas": "",
+    "rect": [
+      37,
+      36,
+      956,
+      283
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      1029,
+      355
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
