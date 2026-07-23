@@ -201,7 +201,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         this.preparePlateForBraceletMode();
         this.cacheDefaultConfig(this.activeCord);
         if (this.showDefaultPreview) {
-            this.showDefaultBraceletPreview();
+            // this.showDefaultBraceletPreview();
         }
         this.bindTouch();
     };

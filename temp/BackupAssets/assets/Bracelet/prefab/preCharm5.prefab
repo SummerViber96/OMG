@@ -166,7 +166,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "ef0bb5cd-1e46-4f45-9805-4d8170531518"
+      "__uuid__": "b263b7f3-bf46-4315-ad99-48e518efb421"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -321,7 +321,7 @@
     "_enabled": true,
     "listImg": [
       {
-        "__uuid__": "ef0bb5cd-1e46-4f45-9805-4d8170531518"
+        "__uuid__": "b263b7f3-bf46-4315-ad99-48e518efb421"
       },
       {
         "__uuid__": "c4c968ea-2d82-4986-97ad-89b2d39af21d"
@@ -340,7 +340,7 @@
     "hangPoint": {
       "__id__": 5
     },
-    "slotSpacing": 20,
+    "slotSpacing": 17,
     "_id": ""
   },
   {

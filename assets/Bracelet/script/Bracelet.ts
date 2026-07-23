@@ -141,7 +141,7 @@ export default class NewClass extends cc.Component {
         //     this.bringPlateToFront();
         // }
         if (this.title) {
-            this.title.string = 'MAKE BRACELET';
+            this.title.string = "Let's make a Pink Bracelets!";
         }
         if (this.stringBot) {
             this.stringBot.active = false;
@@ -214,7 +214,7 @@ export default class NewClass extends cc.Component {
         }).start()
         cc.tween(this.plate).to(0.4, { position: cc.v3(0, 100, 0) }).start()
         this.bringPlateToFront();
-        this.title.string = "MAKE BRACELET"
+        this.title.string = "Let's make a Pink Bracelets!"
         this.startGame2();
         this.scheduleOnce(() => {
             this.hand3.active = true;

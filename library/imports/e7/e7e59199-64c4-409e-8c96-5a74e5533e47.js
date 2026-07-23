@@ -166,7 +166,8 @@ var NewClass = /** @class */ (function (_super) {
         // }, count * dropDelay + 0.1);
     };
     NewClass.prototype.getCharmCount = function (tag) {
-        var counts = [4, 5, 3, 5, 5, 3, 5, 5, 5, 2, 2, 1, 1, 4, 7, 7, 8, 8, 8, 8, 2, 2, 6, 6, 6, 6, 1, 1, 2, 2];
+        // const counts = [4, 5, 3, 5, 5, 3, 5, 5, 5, 2, 2, 1, 1, 4, 7, 7, 8, 8, 8, 8, 2, 2, 6, 6, 6, 6,1,1,2,2];
+        var counts = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
         return counts[tag] || 0;
     };
     /** Node sprite khay trắng (con của this.plate / khay). */
@@ -227,12 +228,12 @@ var NewClass = /** @class */ (function (_super) {
         }
         var list = tags && tags.length > 0
             ? tags
-            : [0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 6, 6, 7, 8, 7, 5, 9, 5, 5, 8, 8];
+            : [7, 7, 7, 7, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 6, 6, 7, 3, 7, 5, 6, 5, 5, 4, 5, 6, 2, 5, 5, 1, 1, 6, 6, 4, 4, 3, 3, 1];
+        // const list=[7, 7, 7, 7, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 6, 6, 7, 8, 7, 5, 9, 5, 5,8,8,9,9,5,5,1,1,6,6,4,4,2,2];
         var slotCount = this.localPos ? this.localPos.childrenCount : 0;
         var surface = this.getPlateSurface();
         for (var i = 0; i < list.length; i++) {
-            if (this.totalCharm > 40)
-                break;
+            // if (this.totalCharm > 40) break;
             var tag = list[i];
             if (tag == null || !this.listCharms[tag])
                 continue;
@@ -241,6 +242,7 @@ var NewClass = /** @class */ (function (_super) {
             if (!charm)
                 continue;
             var pos = void 0;
+            // pos = this.getTargetPosition(i % slotCount);
             if (slotCount > 0) {
                 pos = this.getTargetPosition(i % slotCount);
             }
@@ -254,11 +256,14 @@ var NewClass = /** @class */ (function (_super) {
             var spread = cc.v3((Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20, 0);
             pos = pos.add(cc.v3(0, 0));
             charm.setPosition(pos.add(spread));
+            charm.angle = Math.random() * 360;
+            charm.getComponent("CharmItem").loadIMG(0);
             var body = charm.getComponent(cc.RigidBody);
             if (body) {
                 body.linearVelocity = cc.v2(0, 0);
                 body.angularVelocity = 0;
                 body.syncPosition(true);
+                body.syncRotation(true);
             }
         }
     };

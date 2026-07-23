@@ -255,7 +255,7 @@ export default class CordRoundGame extends cc.Component {
         this.preparePlateForBraceletMode();
         this.cacheDefaultConfig(this.activeCord);
         if (this.showDefaultPreview) {
-            this.showDefaultBraceletPreview();
+            // this.showDefaultBraceletPreview();
         }
         this.bindTouch();
     }
