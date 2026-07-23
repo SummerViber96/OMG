@@ -897,7 +897,8 @@ export default class NewClass extends cc.Component {
 
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false
-            this.endCardWin.active = (logic) ? false : true
+            this.endCardWin.active = (logic) ? false : 
+            this.endCardWin.active=true
         }
         if (logic == true) {
 

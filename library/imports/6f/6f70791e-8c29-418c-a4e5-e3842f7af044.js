@@ -817,7 +817,8 @@ var NewClass = /** @class */ (function (_super) {
         this.barMission.getComponent(cc.Widget).top = 50;
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false;
-            this.endCardWin.active = (logic) ? false : true;
+            this.endCardWin.active = (logic) ? false :
+                this.endCardWin.active = true;
         }
         if (logic == true) {
             this.isDoc = true;
