@@ -1,22 +1,22 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "New-hand-Pointer",
-    "texture": "83cbcecd-deea-42bc-83d9-ba147f54fd91",
+    "name": "RR_Convetor_BeltGameplay BG (2)",
+    "texture": "8392f10b-8fe4-46d7-855d-1ef2095a357a",
     "atlas": "",
     "rect": [
-      57,
-      56,
-      187,
-      203
+      0,
+      0,
+      1000,
+      1000
     ],
     "offset": [
-      -13,
-      -7
+      0,
+      0
     ],
     "originalSize": [
-      327,
-      301
+      1000,
+      1000
     ],
     "capInsets": [
       0,

@@ -1,22 +1,22 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "New-hand-Pointer",
-    "texture": "83cbcecd-deea-42bc-83d9-ba147f54fd91",
+    "name": "Layer 1 (1)",
+    "texture": "f0bf94e6-1367-4d52-beb4-c6397098f075",
     "atlas": "",
     "rect": [
-      57,
-      56,
-      187,
-      203
+      0,
+      0,
+      789,
+      565
     ],
     "offset": [
-      -13,
-      -7
+      -0.5,
+      0.5
     ],
     "originalSize": [
-      327,
-      301
+      790,
+      566
     ],
     "capInsets": [
       0,

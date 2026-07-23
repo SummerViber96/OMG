@@ -13,13 +13,13 @@
         "type": "dock-h",
         "children": [
           {
-            "width": 512,
-            "height": 1284,
+            "width": 515,
+            "height": 1300,
             "type": "dock-v",
             "children": [
               {
-                "width": 512,
-                "height": 518,
+                "width": 515,
+                "height": 524,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 512,
-                "height": 763,
+                "width": 515,
+                "height": 773,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 1264,
-            "height": 1284,
+            "width": 1272,
+            "height": 1300,
             "type": "dock-v",
             "children": [
               {
-                "width": 1264,
-                "height": 666,
+                "width": 1272,
+                "height": 674,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,10 +52,10 @@
                 ]
               },
               {
-                "width": 1264,
-                "height": 615,
+                "width": 1272,
+                "height": 623,
                 "type": "panel",
-                "active": 1,
+                "active": 0,
                 "children": [
                   "console",
                   "timeline",
@@ -65,8 +65,8 @@
             ]
           },
           {
-            "width": 762,
-            "height": 1284,
+            "width": 767,
+            "height": 1300,
             "type": "panel",
             "active": 0,
             "children": [

@@ -13240,8 +13240,8 @@
     "relativePath": "anim\\fail.anim"
   },
   "139bdbd9-8899-4a17-ad88-0f89b9609239": {
-    "asset": 1784768512692,
-    "meta": 1784768512711,
+    "asset": 1784769501012,
+    "meta": 1784769501043,
     "relativePath": "scenes\\Rp3.fire"
   },
   "fa5dd3f9-0c00-48a7-887b-099ab3a2d85f": {
@@ -13489,11 +13489,6 @@
     "meta": 1784681992742,
     "relativePath": "RecipeRush\\map3\\noi.png"
   },
-  "83cbcecd-deea-42bc-83d9-ba147f54fd91": {
-    "asset": 1784656764000,
-    "meta": 1784681992754,
-    "relativePath": "RecipeRush\\map3\\New-hand-Pointer.png"
-  },
   "5536c8dc-123e-46a7-9d01-7e6b315bbf2b": {
     "asset": 1784656764000,
     "meta": 1784681992768,
@@ -13603,5 +13598,20 @@
     "asset": 1784768327383,
     "meta": 1784768375697,
     "relativePath": "RecipeRush\\map3\\Ticket.png"
+  },
+  "83cbcecd-deea-42bc-83d9-ba147f54fd91": {
+    "asset": 1784768674351,
+    "meta": 1784769250475,
+    "relativePath": "RecipeRush\\map3\\New-hand-Pointer.png"
+  },
+  "8392f10b-8fe4-46d7-855d-1ef2095a357a": {
+    "asset": 1784769326912,
+    "meta": 1784769326937,
+    "relativePath": "RecipeRush\\map3\\RR_Convetor_BeltGameplay BG (2).jpg"
+  },
+  "f0bf94e6-1367-4d52-beb4-c6397098f075": {
+    "asset": 1784769485935,
+    "meta": 1784769485956,
+    "relativePath": "RecipeRush\\map3\\Layer 1 (1).png"
   }
 }
