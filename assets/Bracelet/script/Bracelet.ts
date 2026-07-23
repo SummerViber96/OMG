@@ -141,7 +141,7 @@ export default class NewClass extends cc.Component {
         //     this.bringPlateToFront();
         // }
         if (this.title) {
-            this.title.string = "Let's make a Pink Bracelets!";
+            this.title.string = "Let's make a Blue Bracelets!";
         }
         if (this.stringBot) {
             this.stringBot.active = false;
