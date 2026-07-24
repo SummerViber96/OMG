@@ -18,6 +18,8 @@ interface CordCharmState {
     pathStartIndex: number;
     pathDir: number;
     pathDistance: number;
+    /** Đã phát soundGetCharm khi va chạm charm trên vòng. */
+    getCharmSoundPlayed: boolean;
 }
 
 interface DropAnchor {
@@ -109,6 +111,8 @@ export default class CordRoundGame extends cc.Component {
     private touchBound: boolean = false;
     @property(cc.AudioClip)
     soundDrop: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundGetCharm: cc.AudioClip = null
     @property(cc.Node)
     btnOk: cc.Node = null;
     @property(cc.Node)
@@ -575,7 +579,7 @@ export default class CordRoundGame extends cc.Component {
             charmBody.angularVelocity = 0;
         }
 
-        this.cordCharms.push({
+        const state: CordCharmState = {
             pivot,
             charm,
             settled: false,
@@ -584,8 +588,61 @@ export default class CordRoundGame extends cc.Component {
             pathStartIndex: startIndex,
             pathDir,
             pathDistance: 0,
-        });
+            getCharmSoundPlayed: false,
+        };
+        this.cordCharms.push(state);
+        this.bindCharmHitSound(state);
         return true;
+    }
+
+    /** Lắng nghe va chạm với charm đã có trên vòng → phát soundGetCharm (1 lần). */
+    private bindCharmHitSound(state: CordCharmState) {
+        const bindBody = (node: cc.Node) => {
+            if (!node) return;
+            const body = node.getComponent(cc.RigidBody);
+            if (!body) return;
+            body.enabledContactListener = true;
+            const prev = (body as any).onBeginContact;
+            (body as any).onBeginContact = (
+                contact: any,
+                selfCollider: cc.PhysicsCollider,
+                otherCollider: cc.PhysicsCollider
+            ) => {
+                if (typeof prev === 'function') {
+                    prev.call(body, contact, selfCollider, otherCollider);
+                }
+                this.onCordCharmBeginContact(state, otherCollider);
+            };
+        };
+        bindBody(state.charm);
+        bindBody(state.pivot);
+    }
+
+    private onCordCharmBeginContact(state: CordCharmState, otherCollider: cc.PhysicsCollider) {
+        if (state.getCharmSoundPlayed || !this.soundGetCharm) return;
+        if (!otherCollider || !otherCollider.node) return;
+        if (!this.isOtherCordCharmNode(state, otherCollider.node)) return;
+
+        state.getCharmSoundPlayed = true;
+        cc.audioEngine.play(this.soundGetCharm, false, 1);
+    }
+
+    private isOtherCordCharmNode(state: CordCharmState, node: cc.Node): boolean {
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            const other = this.cordCharms[i];
+            if (other === state) continue;
+            if (other.charm === node || other.pivot === node) return true;
+            if (node.parent === other.pivot || node.parent === other.charm) return true;
+        }
+        return false;
+    }
+
+    /** Fallback khi charm mới chen sát charm đã có trên vòng (kể cả khi contact chưa kịp fire). */
+    private tryPlayGetCharmHitSound(state: CordCharmState, neighbors: number) {
+        if (state.getCharmSoundPlayed || state.settled || neighbors <= 0) return;
+        if (!this.soundGetCharm) return;
+        state.getCharmSoundPlayed = true;
+        cc.audioEngine.play(this.soundGetCharm, false, 1);
     }
 
     /** Tạo pivot (điểm neo trên dây) + RevoluteJoint; phần dưới charm lung lay theo physics. */
@@ -1069,6 +1126,8 @@ export default class CordRoundGame extends cc.Component {
         if (!pivotBody) return;
 
         const crowdInfo = this.getCharmCrowdInfo(state);
+        this.tryPlayGetCharmHitSound(state, crowdInfo.neighbors);
+
         if (crowdInfo.crowd <= 0 && !crowdInfo.slideBlocked) return;
 
         if (crowdInfo.slideBlocked) {

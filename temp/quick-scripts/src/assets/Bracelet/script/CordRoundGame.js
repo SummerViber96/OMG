@@ -70,6 +70,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         _this.isActive = false;
         _this.touchBound = false;
         _this.soundDrop = null;
+        _this.soundGetCharm = null;
         _this.btnOk = null;
         _this.hand3 = null;
         _this.notiFull = null;
@@ -488,7 +489,7 @@ var CordRoundGame = /** @class */ (function (_super) {
             charmBody.linearVelocity = cc.v2(0, 0);
             charmBody.angularVelocity = 0;
         }
-        this.cordCharms.push({
+        var state = {
             pivot: pivot,
             charm: charm,
             settled: false,
@@ -497,8 +498,63 @@ var CordRoundGame = /** @class */ (function (_super) {
             pathStartIndex: startIndex,
             pathDir: pathDir,
             pathDistance: 0,
-        });
+            getCharmSoundPlayed: false,
+        };
+        this.cordCharms.push(state);
+        this.bindCharmHitSound(state);
         return true;
+    };
+    /** Lắng nghe va chạm với charm đã có trên vòng → phát soundGetCharm (1 lần). */
+    CordRoundGame.prototype.bindCharmHitSound = function (state) {
+        var _this = this;
+        var bindBody = function (node) {
+            if (!node)
+                return;
+            var body = node.getComponent(cc.RigidBody);
+            if (!body)
+                return;
+            body.enabledContactListener = true;
+            var prev = body.onBeginContact;
+            body.onBeginContact = function (contact, selfCollider, otherCollider) {
+                if (typeof prev === 'function') {
+                    prev.call(body, contact, selfCollider, otherCollider);
+                }
+                _this.onCordCharmBeginContact(state, otherCollider);
+            };
+        };
+        bindBody(state.charm);
+        bindBody(state.pivot);
+    };
+    CordRoundGame.prototype.onCordCharmBeginContact = function (state, otherCollider) {
+        if (state.getCharmSoundPlayed || !this.soundGetCharm)
+            return;
+        if (!otherCollider || !otherCollider.node)
+            return;
+        if (!this.isOtherCordCharmNode(state, otherCollider.node))
+            return;
+        state.getCharmSoundPlayed = true;
+        cc.audioEngine.play(this.soundGetCharm, false, 1);
+    };
+    CordRoundGame.prototype.isOtherCordCharmNode = function (state, node) {
+        for (var i = 0; i < this.cordCharms.length; i++) {
+            var other = this.cordCharms[i];
+            if (other === state)
+                continue;
+            if (other.charm === node || other.pivot === node)
+                return true;
+            if (node.parent === other.pivot || node.parent === other.charm)
+                return true;
+        }
+        return false;
+    };
+    /** Fallback khi charm mới chen sát charm đã có trên vòng (kể cả khi contact chưa kịp fire). */
+    CordRoundGame.prototype.tryPlayGetCharmHitSound = function (state, neighbors) {
+        if (state.getCharmSoundPlayed || state.settled || neighbors <= 0)
+            return;
+        if (!this.soundGetCharm)
+            return;
+        state.getCharmSoundPlayed = true;
+        cc.audioEngine.play(this.soundGetCharm, false, 1);
     };
     /** Tạo pivot (điểm neo trên dây) + RevoluteJoint; phần dưới charm lung lay theo physics. */
     CordRoundGame.prototype.setupCharmHangRig = function (charm) {
@@ -918,6 +974,7 @@ var CordRoundGame = /** @class */ (function (_super) {
         if (!pivotBody)
             return;
         var crowdInfo = this.getCharmCrowdInfo(state);
+        this.tryPlayGetCharmHitSound(state, crowdInfo.neighbors);
         if (crowdInfo.crowd <= 0 && !crowdInfo.slideBlocked)
             return;
         if (crowdInfo.slideBlocked) {
@@ -1929,6 +1986,9 @@ var CordRoundGame = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], CordRoundGame.prototype, "soundDrop", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], CordRoundGame.prototype, "soundGetCharm", void 0);
     __decorate([
         property(cc.Node)
     ], CordRoundGame.prototype, "btnOk", void 0);
