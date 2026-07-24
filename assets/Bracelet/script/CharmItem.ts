@@ -18,6 +18,20 @@ export default class CharmItem extends cc.Component {
     @property
     slotSpacing: number = 130;
 
+    /** Callback va chạm khi charm đang treo trên vòng (CordRoundGame gắn). */
+    onCordBeginContact: ((otherCollider: cc.PhysicsCollider) => void) | null = null;
+
+    /** Cocos gọi khi RigidBody.enabledContactListener = true. */
+    onBeginContact(
+        _contact: any,
+        _selfCollider: cc.PhysicsCollider,
+        otherCollider: cc.PhysicsCollider
+    ) {
+        if (this.onCordBeginContact) {
+            this.onCordBeginContact(otherCollider);
+        }
+    }
+
     loadIMG(id: number, tag) {
         this.colorIndex = id
         this.colorIMG = this.listImg[id]

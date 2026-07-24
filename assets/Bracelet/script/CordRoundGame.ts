@@ -595,36 +595,25 @@ export default class CordRoundGame extends cc.Component {
         return true;
     }
 
-    /** Lắng nghe va chạm với charm đã có trên vòng → phát soundGetCharm (1 lần). */
+    /** Bật contact listener + callback CharmItem khi thả lên vòng. */
     private bindCharmHitSound(state: CordCharmState) {
-        const bindBody = (node: cc.Node) => {
-            if (!node) return;
-            const body = node.getComponent(cc.RigidBody);
-            if (!body) return;
-            body.enabledContactListener = true;
-            const prev = (body as any).onBeginContact;
-            (body as any).onBeginContact = (
-                contact: any,
-                selfCollider: cc.PhysicsCollider,
-                otherCollider: cc.PhysicsCollider
-            ) => {
-                if (typeof prev === 'function') {
-                    prev.call(body, contact, selfCollider, otherCollider);
-                }
+        const charmBody = state.charm && state.charm.getComponent(cc.RigidBody);
+        if (charmBody) {
+            charmBody.enabledContactListener = true;
+        }
+
+        const item = this.getCharmItemComp(state.charm) as any;
+        if (item) {
+            item.onCordBeginContact = (otherCollider: cc.PhysicsCollider) => {
                 this.onCordCharmBeginContact(state, otherCollider);
             };
-        };
-        bindBody(state.charm);
-        bindBody(state.pivot);
+        }
     }
 
     private onCordCharmBeginContact(state: CordCharmState, otherCollider: cc.PhysicsCollider) {
-        if (state.getCharmSoundPlayed || !this.soundGetCharm) return;
         if (!otherCollider || !otherCollider.node) return;
         if (!this.isOtherCordCharmNode(state, otherCollider.node)) return;
-
-        state.getCharmSoundPlayed = true;
-        cc.audioEngine.play(this.soundGetCharm, false, 1);
+        this.playGetCharmHitSound(state);
     }
 
     private isOtherCordCharmNode(state: CordCharmState, node: cc.Node): boolean {
@@ -637,9 +626,61 @@ export default class CordRoundGame extends cc.Component {
         return false;
     }
 
-    /** Fallback khi charm mới chen sát charm đã có trên vòng (kể cả khi contact chưa kịp fire). */
-    private tryPlayGetCharmHitSound(state: CordCharmState, neighbors: number) {
-        if (state.getCharmSoundPlayed || state.settled || neighbors <= 0) return;
+    /** Mỗi frame: chỉ phát khi thân charm thực sự chồng lên nhau. */
+    private updateGetCharmHitSounds() {
+        if (!this.soundGetCharm || this.cordCharms.length < 2) return;
+
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            const state = this.cordCharms[i];
+            if (state.getCharmSoundPlayed || !state.charm || !state.charm.isValid) continue;
+            if (this.isCharmBodiesTouching(state)) {
+                this.playGetCharmHitSound(state);
+            }
+        }
+    }
+
+    /** Hai thân charm (icon) trên vòng đang chạm / chồng lên nhau. */
+    private isCharmBodiesTouching(state: CordCharmState): boolean {
+        if (!state.charm) return false;
+
+        const a = this.getCharmHitWorldPos(state.charm);
+        const ra = this.getCharmHitRadius(state.charm);
+
+        for (let i = 0; i < this.cordCharms.length; i++) {
+            const other = this.cordCharms[i];
+            if (other === state || !other.charm || !other.charm.isValid) continue;
+
+            const b = this.getCharmHitWorldPos(other.charm);
+            const rb = this.getCharmHitRadius(other.charm);
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const touchDist = (ra + rb) * 0.92;
+            if (dx * dx + dy * dy <= touchDist * touchDist) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** Tâm visual charm (icon / body), không phải điểm treo. */
+    private getCharmHitWorldPos(charm: cc.Node): cc.Vec2 {
+        const visual = charm.childrenCount > 0 ? charm.children[0] : charm;
+        return visual.convertToWorldSpaceAR(cc.v2(0, 0));
+    }
+
+    /** Bán kính va chạm theo kích thước icon (world). */
+    private getCharmHitRadius(charm: cc.Node): number {
+        const visual = charm.childrenCount > 0 ? charm.children[0] : charm;
+        const sx = Math.abs(visual.scaleX || 1) * Math.abs(charm.scaleX || 1);
+        const sy = Math.abs(visual.scaleY || 1) * Math.abs(charm.scaleY || 1);
+        const w = (visual.width || 100) * sx;
+        const h = (visual.height || 100) * sy;
+        return Math.max(35, Math.max(w, h) * 0.42);
+    }
+
+    /** Phát soundGetCharm 1 lần mỗi charm khi chạm charm khác trên vòng. */
+    private playGetCharmHitSound(state: CordCharmState) {
+        if (!state || state.getCharmSoundPlayed) return;
         if (!this.soundGetCharm) return;
         state.getCharmSoundPlayed = true;
         cc.audioEngine.play(this.soundGetCharm, false, 1);
@@ -1126,8 +1167,6 @@ export default class CordRoundGame extends cc.Component {
         if (!pivotBody) return;
 
         const crowdInfo = this.getCharmCrowdInfo(state);
-        this.tryPlayGetCharmHitSound(state, crowdInfo.neighbors);
-
         if (crowdInfo.crowd <= 0 && !crowdInfo.slideBlocked) return;
 
         if (crowdInfo.slideBlocked) {
@@ -2247,6 +2286,7 @@ export default class CordRoundGame extends cc.Component {
         for (let i = 0; i < this.cordCharms.length; i++) {
             this.updateCharmSlide(this.cordCharms[i], dt);
         }
+        this.updateGetCharmHitSounds();
     }
 
     lateUpdate(dt: number) {
@@ -2256,5 +2296,6 @@ export default class CordRoundGame extends cc.Component {
             this.postPhysicsCharmSlideFix(this.cordCharms[i], dt);
             this.constrainCharmHang(this.cordCharms[i], dt);
         }
+        this.updateGetCharmHitSounds();
     }
 }

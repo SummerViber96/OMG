@@ -36,8 +36,16 @@ var CharmItem = /** @class */ (function (_super) {
         _this.hangPoint = null;
         /** Khoảng cách tối thiểu trên dây khi thả charm này (theo path). */
         _this.slotSpacing = 130;
+        /** Callback va chạm khi charm đang treo trên vòng (CordRoundGame gắn). */
+        _this.onCordBeginContact = null;
         return _this;
     }
+    /** Cocos gọi khi RigidBody.enabledContactListener = true. */
+    CharmItem.prototype.onBeginContact = function (_contact, _selfCollider, otherCollider) {
+        if (this.onCordBeginContact) {
+            this.onCordBeginContact(otherCollider);
+        }
+    };
     CharmItem.prototype.loadIMG = function (id, tag) {
         this.colorIndex = id;
         this.colorIMG = this.listImg[id];
