@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1785183173160,
+    "meta": 1785200267299,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1785183173161,
+    "meta": 1785200267301,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -11919,11 +11919,6 @@
     "meta": 1785172211767,
     "relativePath": "RecipeRush\\ui\\coin.png"
   },
-  "7cd54691-d131-4805-b66f-9f5ded80502c": {
-    "asset": 1785172165863,
-    "meta": 1785172211804,
-    "relativePath": "RecipeRush\\ui\\logo.png"
-  },
   "39305100-f262-439c-ab0c-47131cb9aa34": {
     "asset": 1785172165859,
     "meta": 1785172211682,
@@ -13119,11 +13114,6 @@
     "meta": 1785181276258,
     "relativePath": "RecipeRush\\map3"
   },
-  "525180ba-c3d2-4c4f-aa74-dd5324a0ff46": {
-    "asset": 1785172165762,
-    "meta": 1785172210265,
-    "relativePath": "RecipeRush\\map3\\tableArt2.png"
-  },
   "5a6229b2-4822-43e4-b25a-dbb3ffaae8dd": {
     "asset": 1785172165751,
     "meta": 1785172210136,
@@ -13240,8 +13230,8 @@
     "relativePath": "anim\\fail.anim"
   },
   "139bdbd9-8899-4a17-ad88-0f89b9609239": {
-    "asset": 1785184733726,
-    "meta": 1785184733755,
+    "asset": 1785201762580,
+    "meta": 1785201762597,
     "relativePath": "scenes\\Rp3.fire"
   },
   "fa5dd3f9-0c00-48a7-887b-099ab3a2d85f": {
@@ -13349,16 +13339,6 @@
     "meta": 1785172211698,
     "relativePath": "RecipeRush\\Splash_02.png"
   },
-  "21edb92c-a68b-40bb-a2c0-5a68e68549af": {
-    "asset": 1785172165315,
-    "meta": 1785172208283,
-    "relativePath": "RecipeRush\\Google_Play_icon.png"
-  },
-  "af740278-73c6-46e8-9c8f-a0090f18e0d6": {
-    "asset": 1785172165315,
-    "meta": 1785172207543,
-    "relativePath": "RecipeRush\\App_Store_icon.png"
-  },
   "76956785-a94e-4899-ac82-b72d51cd83ce": {
     "asset": 1785172165824,
     "meta": 1785172211186,
@@ -13393,11 +13373,6 @@
     "asset": 1785172165454,
     "meta": 1785172209749,
     "relativePath": "RecipeRush\\map3\\Cola machine2.png"
-  },
-  "5f716fc4-60ed-4705-95c8-b1652f2fa935": {
-    "asset": 1785172165455,
-    "meta": 1785172209755,
-    "relativePath": "RecipeRush\\map3\\Cooking_Pot.png"
   },
   "745e4c6e-0168-4028-82c3-901ebd8bf64b": {
     "asset": 1785172165755,
@@ -13453,11 +13428,6 @@
     "asset": 1785172165460,
     "meta": 1785172209890,
     "relativePath": "RecipeRush\\map3\\Layer 180.png"
-  },
-  "ed9aef09-1c98-43e8-a85d-be05e700d1dd": {
-    "asset": 1785172165461,
-    "meta": 1785172209907,
-    "relativePath": "RecipeRush\\map3\\Layer 1bantrc.png"
   },
   "0e641f4e-dd7f-45e2-bb19-747bf671905e": {
     "asset": 1785172165461,
@@ -13618,5 +13588,40 @@
     "asset": 1785184703623,
     "meta": 1785184705545,
     "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
+  },
+  "5f716fc4-60ed-4705-95c8-b1652f2fa935": {
+    "asset": 1785200570512,
+    "meta": 1785200570551,
+    "relativePath": "RecipeRush\\map3\\Cooking_Pot.png"
+  },
+  "08efc881-1dd7-4ae0-91b9-ad8e13c25798": {
+    "asset": 1785200678631,
+    "meta": 1785200678643,
+    "relativePath": "RecipeRush\\map3\\Animate-this-scene-Make-sure-onl (1).mp4"
+  },
+  "ed9aef09-1c98-43e8-a85d-be05e700d1dd": {
+    "asset": 1785200820657,
+    "meta": 1785200835232,
+    "relativePath": "RecipeRush\\map3\\Layer 1bantrc.png"
+  },
+  "7cd54691-d131-4805-b66f-9f5ded80502c": {
+    "asset": 1785200965341,
+    "meta": 1785200965383,
+    "relativePath": "RecipeRush\\ui\\logo.png"
+  },
+  "af740278-73c6-46e8-9c8f-a0090f18e0d6": {
+    "asset": 1785201266000,
+    "meta": 1785201336159,
+    "relativePath": "RecipeRush\\App_Store_icon.png"
+  },
+  "21edb92c-a68b-40bb-a2c0-5a68e68549af": {
+    "asset": 1785201266000,
+    "meta": 1785201336166,
+    "relativePath": "RecipeRush\\Google_Play_icon.png"
+  },
+  "525180ba-c3d2-4c4f-aa74-dd5324a0ff46": {
+    "asset": 1785201743716,
+    "meta": 1785201757457,
+    "relativePath": "RecipeRush\\map3\\tableArt2.png"
   }
 }
