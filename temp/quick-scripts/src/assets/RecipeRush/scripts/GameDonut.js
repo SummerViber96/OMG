@@ -129,6 +129,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.ray = null;
         _this.rayAnim = null;
         _this.btnMay1 = null;
+        _this.btnMay1Sub = null;
+        _this.pizzaNode = null;
+        _this.pizzaPrefab = null;
+        _this.btnMay2 = null;
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -204,6 +208,8 @@ var NewClass = /** @class */ (function (_super) {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
+        var manager = cc.director.getCollisionManager();
+        manager.enabled = true;
         // this.updateResponsive();
         // cc.view.setResizeCallback(() => {
         //     this.updateResponsive();
@@ -234,8 +240,9 @@ var NewClass = /** @class */ (function (_super) {
             }, 0.3);
         }, 2);
     };
-    NewClass.prototype.btn_addRay = function () {
+    NewClass.prototype.btn_addRay = function (evnt) {
         var _this = this;
+        this.firstCus.children[1].getComponent(cc.Button).enabled = false;
         cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start();
         this.scheduleOnce(function () {
             _this.firstCus.children[1].active = false;
@@ -244,7 +251,18 @@ var NewClass = /** @class */ (function (_super) {
             _this.rayAnim.active = true;
             _this.btnMay1.getComponent(cc.Button).enabled = true;
             _this.btnMay1.getChildByName("hand").active = true;
+            _this.spawPizza();
         }, 0.5);
+    };
+    NewClass.prototype.spawPizza = function () {
+        var _this = this;
+        console.log("spaw Pizza");
+        var pizza = cc.instantiate(this.pizzaPrefab);
+        pizza.parent = this.pizzaNode;
+        this.schedule(function () {
+            var pizza = cc.instantiate(_this.pizzaPrefab);
+            pizza.parent = _this.pizzaNode;
+        }, 1.4);
     };
     NewClass.prototype.btn_upgradeMay1 = function () {
         var _this = this;
@@ -254,13 +272,31 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isPlay)
             return;
         this.isPlay = true;
-        this.btnMay1.scale = 3.1;
+        this.btnMay1.scale = 1.54;
+        this.btnMay1Sub.scale = 3.1;
         this.isMay1++;
-        cc.tween(this.btnMay1).to(0.2, { scale: 1.6 }).call(function () {
+        cc.tween(this.btnMay1).to(0.2, { scale: 1.54 * 0.5 }).call(function () {
             _this.btnMay1.children[_this.isMay1 - 1].active = false;
             _this.btnMay1.children[_this.isMay1].active = true;
             _this.isPlay = false;
+        }).to(0.2, { scale: 1.54 }).start();
+        cc.tween(this.btnMay1Sub).to(0.2, { scale: 3.1 * 0.5 }).call(function () {
+            _this.btnMay1Sub.children[_this.isMay1 - 1].active = false;
+            _this.btnMay1Sub.children[_this.isMay1].active = true;
         }).to(0.2, { scale: 3.1 }).start();
+        if (this.isMay1 == 2) {
+            this.btnMay1.getChildByName("hand").active = false;
+            this.moveScene2();
+        }
+    };
+    NewClass.prototype.moveScene2 = function () {
+        var _this = this;
+        this.scheduleOnce(function () {
+            cc.tween(_this.camera.node).to(0.6, { position: cc.v3(3352.393 - 500, -1228.292) }).start();
+        }, 2);
+        this.scheduleOnce(function () {
+            _this.btnMay2.getComponent(cc.Button).enabled = true;
+        }, 2.6);
     };
     NewClass.prototype.moveTicket = function () {
         this.ticket.active = true;
@@ -1143,6 +1179,18 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnMay1", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnMay1Sub", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "pizzaNode", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "pizzaPrefab", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnMay2", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

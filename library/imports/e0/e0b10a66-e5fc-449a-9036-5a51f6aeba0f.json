@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Layer 101chim",
+    "texture": "d2eb087b-b10d-451a-8689-e18451af94fa",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      490,
+      689
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      490,
+      689
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

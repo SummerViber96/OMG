@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "pizze_move",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 8,
+  "sample": 60,
+  "speed": 0.7,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            4073.623,
+            -1035,
+            0
+          ]
+        },
+        {
+          "frame": 2,
+          "value": [
+            4073.623,
+            270.809,
+            0
+          ]
+        },
+        {
+          "frame": 6,
+          "value": [
+            1517.27,
+            270.809,
+            0
+          ]
+        },
+        {
+          "frame": 8,
+          "value": [
+            1517.27,
+            -1053.977,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "events": []
+}

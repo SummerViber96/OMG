@@ -183,7 +183,14 @@ export default class NewClass extends cc.Component {
     rayAnim: cc.Node = null
     @property(cc.Node)
     btnMay1: cc.Node = null;
-
+    @property(cc.Node)
+    btnMay1Sub: cc.Node = null;
+    @property(cc.Node)
+    pizzaNode: cc.Node = null;
+    @property(cc.Prefab)
+    pizzaPrefab: cc.Prefab = null;
+    @property(cc.Node)
+    btnMay2:cc.Node=null
     mcComp = null
 
     // @property(cc.Node)
@@ -240,7 +247,8 @@ export default class NewClass extends cc.Component {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-
+        let manager = cc.director.getCollisionManager();
+        manager.enabled = true;
 
         // this.updateResponsive();
         // cc.view.setResizeCallback(() => {
@@ -277,33 +285,64 @@ export default class NewClass extends cc.Component {
 
 
     }
-    btn_addRay() {
+    btn_addRay(evnt) {
+        this.firstCus.children[1].getComponent(cc.Button).enabled = false
         cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start()
         this.scheduleOnce(() => {
             this.firstCus.children[1].active = false;
             this.firstCus.children[2].active = false;
             this.ray.active = true;
             this.rayAnim.active = true;
-            this.btnMay1.getComponent(cc.Button).enabled=true;
-            this.btnMay1.getChildByName("hand").active=true
+            this.btnMay1.getComponent(cc.Button).enabled = true;
+            this.btnMay1.getChildByName("hand").active = true
+            this.spawPizza()
         }, 0.5)
     }
+    spawPizza() {
+        console.log("spaw Pizza")
+        let pizza = cc.instantiate(this.pizzaPrefab);
+        pizza.parent = this.pizzaNode;
+        this.schedule(() => {
+            let pizza = cc.instantiate(this.pizzaPrefab);
+            pizza.parent = this.pizzaNode;
+
+        }, 1.4)
+    }
     isMay1 = 0
-    isPlay=false
+    isPlay = false
     btn_upgradeMay1() {
         console.log(this.isMay1)
         if (this.isMay1 > 1) return;
-        if(this.isPlay)return;
-        this.isPlay=true
-        this.btnMay1.scale = 3.1
+        if (this.isPlay) return;
+        this.isPlay = true
+        this.btnMay1.scale = 1.54
+        this.btnMay1Sub.scale = 3.1
+
         this.isMay1++
 
-        cc.tween(this.btnMay1).to(0.2, { scale: 1.6 }).call(() => {
+        cc.tween(this.btnMay1).to(0.2, { scale: 1.54 * 0.5 }).call(() => {
             this.btnMay1.children[this.isMay1 - 1].active = false;
             this.btnMay1.children[this.isMay1].active = true;
-            this.isPlay=false
-        }).to(0.2, { scale: 3.1 }).start()
+            this.isPlay = false
+        }).to(0.2, { scale: 1.54 }).start()
+        cc.tween(this.btnMay1Sub).to(0.2, { scale: 3.1 * 0.5 }).call(() => {
+            this.btnMay1Sub.children[this.isMay1 - 1].active = false;
+            this.btnMay1Sub.children[this.isMay1].active = true;
 
+        }).to(0.2, { scale: 3.1 }).start()
+        if (this.isMay1 == 2) {
+            this.btnMay1.getChildByName("hand").active = false
+            this.moveScene2();
+        }
+
+    }
+    moveScene2() {
+        this.scheduleOnce(() => {
+            cc.tween(this.camera.node).to(0.6,{position:cc.v3(3352.393 - 500, -1228.292)}).start()
+        }, 2)
+        this.scheduleOnce(()=>{
+this.btnMay2.getComponent(cc.Button).enabled=true
+        },2.6)
     }
     isHand = null
     isShowMenu = false

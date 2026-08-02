@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Layer 141mini",
+    "texture": "014fe832-50b7-4236-9864-5275c1b20c83",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      494,
+      695
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      494,
+      695
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

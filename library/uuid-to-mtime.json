@@ -1,7 +1,7 @@
 {
   "2c57eeae-95a7-4ca9-87d9-802977e12c2d": {
-    "asset": 1785705558390,
-    "meta": 1785706467775,
+    "asset": 1785712156090,
+    "meta": 1785712369093,
     "relativePath": "anim"
   },
   "8cb730ee-e6cf-48a7-9fca-7c696815ad76": {
@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1785706468127,
+    "meta": 1785712369107,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1785706468129,
+    "meta": 1785712369109,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -11695,13 +11695,13 @@
     "relativePath": "RecipeRush\\prefab\\PreChicken.prefab"
   },
   "d4fdb943-afb7-4087-8320-2a152795b558": {
-    "asset": 1785701637075,
-    "meta": 1785706468094,
+    "asset": 1785711111373,
+    "meta": 1785712369104,
     "relativePath": "RecipeRush\\prefab"
   },
   "dfedc07f-1eb1-4eaf-ac05-9cd591f2cea1": {
-    "asset": 1785700151949,
-    "meta": 1785706468120,
+    "asset": 1785712303105,
+    "meta": 1785712369105,
     "relativePath": "RecipeRush\\scripts"
   },
   "b916947b-ccd6-448b-9471-fa9db3e21978": {
@@ -13625,13 +13625,13 @@
     "relativePath": "RecipeRush\\Pizza-Boy.png"
   },
   "bdea7cdb-27b8-49c6-bcb8-29ef839c87df": {
-    "asset": 1785708061194,
-    "meta": 1785708061212,
+    "asset": 1785713736667,
+    "meta": 1785713736685,
     "relativePath": "scenes\\Rp4.fire"
   },
   "737ea9b4-6aea-4268-9684-3c23c4ce3286": {
-    "asset": 1785704941828,
-    "meta": 1785706468092,
+    "asset": 1785710435276,
+    "meta": 1785712369103,
     "relativePath": "RecipeRush\\map4"
   },
   "2fc26794-fc1c-425a-b799-ac108a0fed15": {
@@ -14040,8 +14040,8 @@
     "relativePath": "RecipeRush\\map3\\ray\\Belt_Wheel_00055.png"
   },
   "9350f191-a162-445e-9a06-09f9fb0d0125": {
-    "asset": 1785706550269,
-    "meta": 1785706550280,
+    "asset": 1785711533458,
+    "meta": 1785711533470,
     "relativePath": "anim\\ray_chay.anim"
   },
   "b01335df-2d92-4a47-ad74-5df19244399a": {
@@ -14194,9 +14194,64 @@
     "meta": 1785706468119,
     "relativePath": "RecipeRush\\map3\\ray\\Belt_Wheel_00028.png"
   },
+  "7111bbff-b30f-4ce3-9709-3d16f62ddd53": {
+    "asset": 1785708630664,
+    "meta": 1785708630713,
+    "relativePath": "RecipeRush\\map4\\Layer 111chim.png"
+  },
+  "d2eb087b-b10d-451a-8689-e18451af94fa": {
+    "asset": 1785709026242,
+    "meta": 1785709026289,
+    "relativePath": "RecipeRush\\map4\\Layer 101chim.png"
+  },
+  "014fe832-50b7-4236-9864-5275c1b20c83": {
+    "asset": 1785709757543,
+    "meta": 1785709757589,
+    "relativePath": "RecipeRush\\map4\\Layer 141mini.png"
+  },
+  "e7ab2e59-6aec-4ed6-b23c-04d01acadf70": {
+    "asset": 1785710435269,
+    "meta": 1785710435311,
+    "relativePath": "RecipeRush\\map4\\Mushroom.png"
+  },
+  "86518fe5-4eac-4092-8341-793369932f65": {
+    "asset": 1785710435270,
+    "meta": 1785710435312,
+    "relativePath": "RecipeRush\\map4\\Layer 22.png"
+  },
+  "e0df9fd7-5c96-4f34-bd8f-c91f7fd164f6": {
+    "asset": 1785711694554,
+    "meta": 1785711694568,
+    "relativePath": "anim\\pizze_move.anim"
+  },
+  "d58cc18a-9e0d-4e69-a929-f102abde320e": {
+    "asset": 1785713273983,
+    "meta": 1785713273995,
+    "relativePath": "RecipeRush\\prefab\\prePizza.prefab"
+  },
+  "b7739b6f-e9a2-41f1-b279-2258f46bd90c": {
+    "asset": 1785712867688,
+    "meta": 1785712867702,
+    "relativePath": "anim\\sauces.anim"
+  },
+  "44863514-8abf-4263-af56-a885d00cd7b7": {
+    "asset": 1785712833764,
+    "meta": 1785712834673,
+    "relativePath": "RecipeRush\\scripts\\lonau1.ts"
+  },
+  "a92fc9a7-8209-4ca4-854d-30d74716cd9c": {
+    "asset": 1785713269968,
+    "meta": 1785713270931,
+    "relativePath": "RecipeRush\\scripts\\diaPhomai.ts"
+  },
+  "00269471-4514-4e26-ae28-543941dc89d8": {
+    "asset": 1785713237241,
+    "meta": 1785713270942,
+    "relativePath": "RecipeRush\\scripts\\pizza.ts"
+  },
   "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1785707922853,
-    "meta": 1785707924139,
+    "asset": 1785713691003,
+    "meta": 1785713692705,
     "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
   }
 }
