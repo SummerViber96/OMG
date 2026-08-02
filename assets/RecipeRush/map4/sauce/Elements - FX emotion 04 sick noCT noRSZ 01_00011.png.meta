@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "fbff3c91-089e-46b2-82cf-bf2e8af4d091",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 300,
+  "height": 188,
+  "platformSettings": {},
+  "subMetas": {
+    "Elements - FX emotion 04 sick noCT noRSZ 01_00011": {
+      "ver": "1.0.4",
+      "uuid": "a2ff978a-2ec8-446c-a793-1d3d500a8a78",
+      "rawTextureUuid": "fbff3c91-089e-46b2-82cf-bf2e8af4d091",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -3,
+      "offsetY": -7,
+      "trimX": 89,
+      "trimY": 30,
+      "width": 116,
+      "height": 142,
+      "rawWidth": 300,
+      "rawHeight": 188,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

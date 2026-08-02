@@ -18,6 +18,7 @@ require('./assets/HF/touch');
 require('./assets/New Folder/Scripts/Item');
 require('./assets/New Folder/Scripts/Ray');
 require('./assets/RecipeRush/scripts/GameDonut');
+require('./assets/RecipeRush/scripts/banhDefault');
 require('./assets/RecipeRush/scripts/barTime');
 require('./assets/RecipeRush/scripts/chicken');
 require('./assets/RecipeRush/scripts/coca');

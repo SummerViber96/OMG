@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Total_Coins",
+    "texture": "dfe82c77-f02d-4d8b-a277-32ea40ee9cae",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      955,
+      306
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      955,
+      306
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

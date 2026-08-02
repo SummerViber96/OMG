@@ -135,36 +135,36 @@ export default class NewClass extends cc.Component {
     chef3: cc.Node = null;
     @property(cc.Node)
     listHand: cc.Node = null
-    @property(cc.Prefab)
-    preTom: cc.Prefab = null
-    @property(cc.Prefab)
-    preTofu: cc.Prefab = null;
-    @property(cc.Prefab)
-    preHanh: cc.Prefab = null;
-    @property(cc.Prefab)
-    preDau: cc.Prefab = null;
-    @property(cc.Prefab)
-    preSauce: cc.Prefab = null
-    @property(cc.Node)
-    plate: cc.Node = null;
-    @property(cc.Node)
-    plateList: cc.Node = null
-    @property(cc.Node)
-    btnTo: cc.Node = null;
-    @property(cc.Node)
-    btnDau: cc.Node = null;
-    @property(cc.Node)
-    btnHanh: cc.Node = null
-    @property(cc.Node)
-    btnDauPhu: cc.Node = null;
-    @property(cc.Node)
-    btnSauce: cc.Node = null
-    @property(cc.Node)
-    listTick: cc.Node = null
-    @property(cc.Node)
-    listItemNoi: cc.Node = null
-    @property(cc.Node)
-    noiSup: cc.Node = null;
+    // @property(cc.Prefab)
+    // preTom: cc.Prefab = null
+    // @property(cc.Prefab)
+    // preTofu: cc.Prefab = null;
+    // @property(cc.Prefab)
+    // preHanh: cc.Prefab = null;
+    // @property(cc.Prefab)
+    // preDau: cc.Prefab = null;
+    // @property(cc.Prefab)
+    // preSauce: cc.Prefab = null
+    // @property(cc.Node)
+    // plate: cc.Node = null;
+    // @property(cc.Node)
+    // plateList: cc.Node = null
+    // @property(cc.Node)
+    // btnTo: cc.Node = null;
+    // @property(cc.Node)
+    // btnDau: cc.Node = null;
+    // @property(cc.Node)
+    // btnHanh: cc.Node = null
+    // @property(cc.Node)
+    // btnDauPhu: cc.Node = null;
+    // @property(cc.Node)
+    // btnSauce: cc.Node = null
+    // @property(cc.Node)
+    // listTick: cc.Node = null
+    // @property(cc.Node)
+    // listItemNoi: cc.Node = null
+    // @property(cc.Node)
+    // noiSup: cc.Node = null;
     @property(cc.VideoPlayer)
     video: cc.VideoPlayer = null;
     @property(cc.Node)
@@ -173,6 +173,12 @@ export default class NewClass extends cc.Component {
     listCus2: cc.Node = null
     @property(cc.Node)
     failUi: cc.Node = null
+
+    //new
+    @property(cc.Node)
+    firstCus: cc.Node = null
+
+
     mcComp = null
 
     // @property(cc.Node)
@@ -230,26 +236,41 @@ export default class NewClass extends cc.Component {
             window.gameReady && window.gameReady();
         }
 
-        this.updateResponsive();
-        cc.view.setResizeCallback(() => {
-            this.updateResponsive();
-        });
+
+        // this.updateResponsive();
+        // cc.view.setResizeCallback(() => {
+        //     this.updateResponsive();
+        // });
         cc.audioEngine.play(this.soundShowPop, false, 1)
         // this.camera.node.position = cc.v3(0, 0)
-        this.scheduleOnce(() => {
-            this.moveTicket()
-        }, 1.5)
-        let animCheft1 = this.chef1.children[0]
-        this.scheduleOnce(() => {
-            animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Win", false)
-            this.idFunny = cc.audioEngine.play(this.soundFunny, false, 1)
-        }, 0.5)
-        this.scheduleOnce(() => {
-            cc.audioEngine.stop(this.idFunny)
-            animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true)
+        // this.scheduleOnce(() => {
+        //     this.moveTicket()
+        // }, 1.5)
+        // let animCheft1 = this.chef1.children[0]
+        // this.scheduleOnce(() => {
+        //     animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Win", false)
+        //     this.idFunny = cc.audioEngine.play(this.soundFunny, false, 1)
+        // }, 0.5)
+        // this.scheduleOnce(() => {
+        //     cc.audioEngine.stop(this.idFunny)
+        //     animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true)
 
+        // }, 2)
+        // this.camera.node.position = cc.v3(0 + this.magfront, 120)
+        this.scheduleOnce(() => {
+            cc.tween(this.camera).to(0.5, { zoomRatio: 0.75 }).start()
+            cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292) }).start()
+
+        }, 1.5)
+        this.scheduleOnce(() => {
+            let btn = this.firstCus.children[1].active = true
+            this.scheduleOnce(()=>{
+this.firstCus.children[2].active=true
+            },0.3)
         }, 2)
-        this.camera.node.position = cc.v3(0 + this.magfront, 120)
+
+
+
     }
     isHand = null
     isShowMenu = false

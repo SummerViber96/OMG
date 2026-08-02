@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Layer 15",
+    "texture": "3413ccbb-c7a2-4b86-b299-d4c5ef052679",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      631,
+      687
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      631,
+      687
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

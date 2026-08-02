@@ -90,25 +90,42 @@ var NewClass = /** @class */ (function (_super) {
         _this.chef2 = null;
         _this.chef3 = null;
         _this.listHand = null;
-        _this.preTom = null;
-        _this.preTofu = null;
-        _this.preHanh = null;
-        _this.preDau = null;
-        _this.preSauce = null;
-        _this.plate = null;
-        _this.plateList = null;
-        _this.btnTo = null;
-        _this.btnDau = null;
-        _this.btnHanh = null;
-        _this.btnDauPhu = null;
-        _this.btnSauce = null;
-        _this.listTick = null;
-        _this.listItemNoi = null;
-        _this.noiSup = null;
+        // @property(cc.Prefab)
+        // preTom: cc.Prefab = null
+        // @property(cc.Prefab)
+        // preTofu: cc.Prefab = null;
+        // @property(cc.Prefab)
+        // preHanh: cc.Prefab = null;
+        // @property(cc.Prefab)
+        // preDau: cc.Prefab = null;
+        // @property(cc.Prefab)
+        // preSauce: cc.Prefab = null
+        // @property(cc.Node)
+        // plate: cc.Node = null;
+        // @property(cc.Node)
+        // plateList: cc.Node = null
+        // @property(cc.Node)
+        // btnTo: cc.Node = null;
+        // @property(cc.Node)
+        // btnDau: cc.Node = null;
+        // @property(cc.Node)
+        // btnHanh: cc.Node = null
+        // @property(cc.Node)
+        // btnDauPhu: cc.Node = null;
+        // @property(cc.Node)
+        // btnSauce: cc.Node = null
+        // @property(cc.Node)
+        // listTick: cc.Node = null
+        // @property(cc.Node)
+        // listItemNoi: cc.Node = null
+        // @property(cc.Node)
+        // noiSup: cc.Node = null;
         _this.video = null;
         _this.cus1 = null;
         _this.listCus2 = null;
         _this.failUi = null;
+        //new
+        _this.firstCus = null;
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -182,25 +199,35 @@ var NewClass = /** @class */ (function (_super) {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        this.updateResponsive();
-        cc.view.setResizeCallback(function () {
-            _this.updateResponsive();
-        });
+        // this.updateResponsive();
+        // cc.view.setResizeCallback(() => {
+        //     this.updateResponsive();
+        // });
         cc.audioEngine.play(this.soundShowPop, false, 1);
         // this.camera.node.position = cc.v3(0, 0)
+        // this.scheduleOnce(() => {
+        //     this.moveTicket()
+        // }, 1.5)
+        // let animCheft1 = this.chef1.children[0]
+        // this.scheduleOnce(() => {
+        //     animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Win", false)
+        //     this.idFunny = cc.audioEngine.play(this.soundFunny, false, 1)
+        // }, 0.5)
+        // this.scheduleOnce(() => {
+        //     cc.audioEngine.stop(this.idFunny)
+        //     animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true)
+        // }, 2)
+        // this.camera.node.position = cc.v3(0 + this.magfront, 120)
         this.scheduleOnce(function () {
-            _this.moveTicket();
+            cc.tween(_this.camera).to(0.5, { zoomRatio: 0.75 }).start();
+            cc.tween(_this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292) }).start();
         }, 1.5);
-        var animCheft1 = this.chef1.children[0];
         this.scheduleOnce(function () {
-            animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Win", false);
-            _this.idFunny = cc.audioEngine.play(_this.soundFunny, false, 1);
-        }, 0.5);
-        this.scheduleOnce(function () {
-            cc.audioEngine.stop(_this.idFunny);
-            animCheft1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true);
+            var btn = _this.firstCus.children[1].active = true;
+            _this.scheduleOnce(function () {
+                _this.firstCus.children[2].active = true;
+            }, 0.3);
         }, 2);
-        this.camera.node.position = cc.v3(0 + this.magfront, 120);
     };
     NewClass.prototype.moveTicket = function () {
         this.ticket.active = true;
@@ -1060,51 +1087,6 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.Node)
     ], NewClass.prototype, "listHand", void 0);
     __decorate([
-        property(cc.Prefab)
-    ], NewClass.prototype, "preTom", void 0);
-    __decorate([
-        property(cc.Prefab)
-    ], NewClass.prototype, "preTofu", void 0);
-    __decorate([
-        property(cc.Prefab)
-    ], NewClass.prototype, "preHanh", void 0);
-    __decorate([
-        property(cc.Prefab)
-    ], NewClass.prototype, "preDau", void 0);
-    __decorate([
-        property(cc.Prefab)
-    ], NewClass.prototype, "preSauce", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "plate", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "plateList", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "btnTo", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "btnDau", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "btnHanh", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "btnDauPhu", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "btnSauce", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listTick", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listItemNoi", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "noiSup", void 0);
-    __decorate([
         property(cc.VideoPlayer)
     ], NewClass.prototype, "video", void 0);
     __decorate([
@@ -1116,6 +1098,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "failUi", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "firstCus", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

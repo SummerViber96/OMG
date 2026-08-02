@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "4a8cadda-a090-42cd-b4c2-7e4ab1b7ef6d",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 500,
+  "height": 500,
+  "platformSettings": {},
+  "subMetas": {
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00011": {
+      "ver": "1.0.4",
+      "uuid": "4f286669-f667-46dd-ad41-bcd15c5c7789",
+      "rawTextureUuid": "4a8cadda-a090-42cd-b4c2-7e4ab1b7ef6d",
+      "trimType": "none",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 500,
+      "height": 500,
+      "rawWidth": 500,
+      "rawHeight": 500,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

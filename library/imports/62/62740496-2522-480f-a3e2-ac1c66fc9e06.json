@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Layer 13",
+    "texture": "31b178bf-a37c-40f1-8bdd-c45f392a5d2f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      557,
+      539
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      557,
+      539
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

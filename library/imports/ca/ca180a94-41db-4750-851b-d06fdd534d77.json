@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Elements - FX emotion 04 sick noCT noRSZ 01_00017",
+    "texture": "56453386-de46-4904-9c1c-b499b421a0d1",
+    "atlas": "",
+    "rect": [
+      119,
+      30,
+      51,
+      145
+    ],
+    "offset": [
+      -5.5,
+      -8.5
+    ],
+    "originalSize": [
+      300,
+      188
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
