@@ -126,6 +126,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.failUi = null;
         //new
         _this.firstCus = null;
+        _this.ray = null;
+        _this.rayAnim = null;
+        _this.btnMay1 = null;
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -171,6 +174,8 @@ var NewClass = /** @class */ (function (_super) {
         //0:banh thuong 1:chocolate 2: strawberry 
         _this.idFunny = null;
         _this.mag = 0;
+        _this.isMay1 = 0;
+        _this.isPlay = false;
         _this.isHand = null;
         _this.isShowMenu = false;
         _this.arrTom = [];
@@ -223,11 +228,39 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(_this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292) }).start();
         }, 1.5);
         this.scheduleOnce(function () {
-            var btn = _this.firstCus.children[1].active = true;
+            _this.firstCus.children[1].active = true;
             _this.scheduleOnce(function () {
                 _this.firstCus.children[2].active = true;
             }, 0.3);
         }, 2);
+    };
+    NewClass.prototype.btn_addRay = function () {
+        var _this = this;
+        cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start();
+        this.scheduleOnce(function () {
+            _this.firstCus.children[1].active = false;
+            _this.firstCus.children[2].active = false;
+            _this.ray.active = true;
+            _this.rayAnim.active = true;
+            _this.btnMay1.getComponent(cc.Button).enabled = true;
+            _this.btnMay1.getChildByName("hand").active = true;
+        }, 0.5);
+    };
+    NewClass.prototype.btn_upgradeMay1 = function () {
+        var _this = this;
+        console.log(this.isMay1);
+        if (this.isMay1 > 1)
+            return;
+        if (this.isPlay)
+            return;
+        this.isPlay = true;
+        this.btnMay1.scale = 3.1;
+        this.isMay1++;
+        cc.tween(this.btnMay1).to(0.2, { scale: 1.6 }).call(function () {
+            _this.btnMay1.children[_this.isMay1 - 1].active = false;
+            _this.btnMay1.children[_this.isMay1].active = true;
+            _this.isPlay = false;
+        }).to(0.2, { scale: 3.1 }).start();
     };
     NewClass.prototype.moveTicket = function () {
         this.ticket.active = true;
@@ -1101,6 +1134,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "firstCus", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "ray", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "rayAnim", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnMay1", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Belt_Wheel_00015",
+    "texture": "3d2bfc4f-892d-4aba-ac2d-c2e7e23ef61c",
+    "atlas": "",
+    "rect": [
+      2467,
+      576,
+      1345,
+      1321
+    ],
+    "offset": [
+      1112.5,
+      -236.5
+    ],
+    "originalSize": [
+      4054,
+      2000
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

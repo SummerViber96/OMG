@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bgnoshadow",
+    "texture": "ace81a3b-e54c-44cf-b30d-117288c7327d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      4054,
+      2000
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      4054,
+      2000
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -177,7 +177,12 @@ export default class NewClass extends cc.Component {
     //new
     @property(cc.Node)
     firstCus: cc.Node = null
-
+    @property(cc.Node)
+    ray: cc.Node = null
+    @property(cc.Node)
+    rayAnim: cc.Node = null
+    @property(cc.Node)
+    btnMay1: cc.Node = null;
 
     mcComp = null
 
@@ -263,13 +268,41 @@ export default class NewClass extends cc.Component {
 
         }, 1.5)
         this.scheduleOnce(() => {
-            let btn = this.firstCus.children[1].active = true
-            this.scheduleOnce(()=>{
-this.firstCus.children[2].active=true
-            },0.3)
+            this.firstCus.children[1].active = true
+            this.scheduleOnce(() => {
+                this.firstCus.children[2].active = true
+            }, 0.3)
         }, 2)
 
 
+
+    }
+    btn_addRay() {
+        cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start()
+        this.scheduleOnce(() => {
+            this.firstCus.children[1].active = false;
+            this.firstCus.children[2].active = false;
+            this.ray.active = true;
+            this.rayAnim.active = true;
+            this.btnMay1.getComponent(cc.Button).enabled=true;
+            this.btnMay1.getChildByName("hand").active=true
+        }, 0.5)
+    }
+    isMay1 = 0
+    isPlay=false
+    btn_upgradeMay1() {
+        console.log(this.isMay1)
+        if (this.isMay1 > 1) return;
+        if(this.isPlay)return;
+        this.isPlay=true
+        this.btnMay1.scale = 3.1
+        this.isMay1++
+
+        cc.tween(this.btnMay1).to(0.2, { scale: 1.6 }).call(() => {
+            this.btnMay1.children[this.isMay1 - 1].active = false;
+            this.btnMay1.children[this.isMay1].active = true;
+            this.isPlay=false
+        }).to(0.2, { scale: 3.1 }).start()
 
     }
     isHand = null
