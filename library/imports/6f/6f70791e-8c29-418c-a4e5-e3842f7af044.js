@@ -58,6 +58,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundDO = null;
         _this.soundFail = null;
         _this.soundSwoosh = null;
+        _this.arrVoice = [];
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -260,6 +261,7 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isF == false) {
             this.isF = true;
             anim.setAnimation(0, "Win", true);
+            cc.audioEngine.play(this.arrVoice[0], false, 1);
             this.scheduleOnce(function () {
                 anim.setAnimation(0, "Walk", true);
                 _this.chef2.scaleX = 1;
@@ -314,6 +316,7 @@ var NewClass = /** @class */ (function (_super) {
         }).to(0.2, { scale: 1 }).start();
         if (this.isMay2 == 2) {
             this.animChef3.setAnimation(0, "Win", true);
+            cc.audioEngine.play(this.arrVoice[1], false, 1);
             this.btnMay2.getChildByName("hand").active = false;
             // this.moveScene2();
             this.scheduleOnce(function () {
@@ -340,12 +343,15 @@ var NewClass = /** @class */ (function (_super) {
         var palete = this.chef3.children[1];
         var _loop_1 = function (i) {
             var pizza = this_1.pizzaTable.children[i];
-            var posEnd = this_1.chef3.children[1].convertToWorldSpaceAR(this_1.chef3.children[1].children[0].position);
-            posEnd = this_1.pizzaTable.convertToNodeSpaceAR(posEnd);
-            cc.tween(pizza).to(0.5, { position: posEnd }).call(function () {
-                pizza.active = false;
-                palete.children[i + 1].active = true;
-            }).start();
+            this_1.scheduleOnce(function () {
+                cc.audioEngine.play(_this.soundSwoosh, false, 0.5);
+                var posEnd = _this.chef3.children[1].convertToWorldSpaceAR(_this.chef3.children[1].children[0].position);
+                posEnd = _this.pizzaTable.convertToNodeSpaceAR(posEnd);
+                cc.tween(pizza).to(0.5, { position: posEnd }).call(function () {
+                    pizza.active = false;
+                    palete.children[i + 1].active = true;
+                }).start();
+            }, 0.1 * i);
         };
         var this_1 = this;
         for (var i = 0; i < 3; i++) {
@@ -368,6 +374,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.chef3.scaleX = 1;
                 _this.cusban.children[3].active = true;
                 _this.cusban.children[4].active = true;
+                cc.audioEngine.play(_this.arrVoice[3], false, 1);
                 palete.active = false;
                 _this.animChef3.setAnimation(0, "Win", true);
                 _this.scheduleOnce(function () {
@@ -952,7 +959,7 @@ var NewClass = /** @class */ (function (_super) {
             this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.soundThinking, false, 0.5);
             }, 0.5);
-            cc.audioEngine.play(this.soundThinkLose, false, 1);
+            // cc.audioEngine.play(this.soundThinkLose, false, 1)
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
@@ -964,8 +971,8 @@ var NewClass = /** @class */ (function (_super) {
             // }
             // cc.audioEngine.stop(this.idSound)
             // this.timeup.active = true;
+            cc.audioEngine.play(this.soundThinking, false, 0.5);
             this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundThinking, false, 0.5);
                 // this.endCard.active = true;
             }, 1);
         }
@@ -1005,7 +1012,7 @@ var NewClass = /** @class */ (function (_super) {
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
         this.timeup.scale = (logic) ? 1 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
-        this.endCardDoc.scale = 1.5;
+        this.endCardDoc.scale = 1.57;
         this.notiMission.scale = (logic) ? 2 : 1;
         this.barMission2.scale = (logic) ? 2 : 1;
         this.magVideo = 0;
@@ -1155,6 +1162,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundSwoosh", void 0);
+    __decorate([
+        property([cc.AudioClip])
+    ], NewClass.prototype, "arrVoice", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);

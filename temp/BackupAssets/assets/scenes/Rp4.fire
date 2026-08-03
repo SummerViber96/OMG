@@ -4007,7 +4007,7 @@
     ],
     "paused": false,
     "defaultSkin": 1,
-    "defaultAnimation": "Idle",
+    "defaultAnimation": "Fail",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -4018,7 +4018,7 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "Idle",
+    "_animationName": "Fail",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 0,
@@ -24731,8 +24731,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 2742.857142857143,
-      "height": 1542.857142857143
+      "width": 1222.9299363057323,
+      "height": 687.8980891719744
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -24750,8 +24750,8 @@
         0,
         0,
         1,
-        0.7,
-        0.7,
+        1.57,
+        1.57,
         1
       ]
     },
@@ -31730,7 +31730,7 @@
       "__uuid__": "568baf79-eb5b-4f98-87b8-2627dca8b794"
     },
     "soundThinking": {
-      "__uuid__": "9652b014-1696-401d-8ba9-30f333c23167"
+      "__uuid__": "75361794-00f4-4061-8927-c3fecdfea321"
     },
     "soundCream": null,
     "soundCherry": null,
@@ -31773,7 +31773,26 @@
     "soundFail": {
       "__uuid__": "76956785-a94e-4899-ac82-b72d51cd83ce"
     },
-    "soundSwoosh": null,
+    "soundSwoosh": {
+      "__uuid__": "5df225b7-10ca-4c46-bb95-1b5987df0358"
+    },
+    "arrVoice": [
+      {
+        "__uuid__": "5789adbc-854a-4314-b494-bdc61f22f3e6"
+      },
+      {
+        "__uuid__": "0eac0707-c56f-447f-ad48-06e8f132c5d0"
+      },
+      {
+        "__uuid__": "f88c5119-a0e0-4876-b364-777b91b38d0f"
+      },
+      {
+        "__uuid__": "9c936b00-79c5-4bdf-83d2-46df13f45e10"
+      },
+      {
+        "__uuid__": "be06d971-9463-4c26-a579-9bc609a7b347"
+      }
+    ],
     "tut": null,
     "hand": null,
     "endCard": {

@@ -63,7 +63,8 @@ export default class NewClass extends cc.Component {
     soundFail: cc.AudioClip = null
     @property(cc.AudioClip)
     soundSwoosh: cc.AudioClip = null;
-
+    @property([cc.AudioClip])
+    arrVoice: cc.AudioClip[] = []
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -308,6 +309,7 @@ export default class NewClass extends cc.Component {
         if (this.isF == false) {
             this.isF = true;
             anim.setAnimation(0, "Win", true)
+            cc.audioEngine.play(this.arrVoice[0],false,1)
             this.scheduleOnce(() => {
                 anim.setAnimation(0, "Walk", true)
                 this.chef2.scaleX = 1
@@ -369,6 +371,8 @@ export default class NewClass extends cc.Component {
 
         if (this.isMay2 == 2) {
             this.animChef3.setAnimation(0, "Win", true)
+                        cc.audioEngine.play(this.arrVoice[1],false,1)
+
             this.btnMay2.getChildByName("hand").active = false
             // this.moveScene2();
             this.scheduleOnce(() => {
@@ -396,12 +400,16 @@ export default class NewClass extends cc.Component {
         let palete = this.chef3.children[1]
         for (let i = 0; i < 3; i++) {
             let pizza = this.pizzaTable.children[i]
-            let posEnd = this.chef3.children[1].convertToWorldSpaceAR(this.chef3.children[1].children[0].position)
-            posEnd = this.pizzaTable.convertToNodeSpaceAR(posEnd)
-            cc.tween(pizza).to(0.5, { position: posEnd }).call(() => {
-                pizza.active = false;
-                palete.children[i + 1].active = true
-            }).start()
+            this.scheduleOnce(() => {
+                cc.audioEngine.play(this.soundSwoosh, false, 0.5)
+                let posEnd = this.chef3.children[1].convertToWorldSpaceAR(this.chef3.children[1].children[0].position)
+                posEnd = this.pizzaTable.convertToNodeSpaceAR(posEnd)
+                cc.tween(pizza).to(0.5, { position: posEnd }).call(() => {
+                    pizza.active = false;
+                    palete.children[i + 1].active = true
+                }).start()
+            }, 0.1 * i)
+
         }
         this.scheduleOnce(() => {
             this.chef3.scale = 1
@@ -422,6 +430,8 @@ export default class NewClass extends cc.Component {
                 this.chef3.scaleX = 1
                 this.cusban.children[3].active = true
                 this.cusban.children[4].active = true
+                            cc.audioEngine.play(this.arrVoice[3],false,1)
+
                 palete.active = false
                 this.animChef3.setAnimation(0, "Win", true)
 
@@ -1031,7 +1041,7 @@ export default class NewClass extends cc.Component {
 
             }, 0.5)
 
-            cc.audioEngine.play(this.soundThinkLose, false, 1)
+            // cc.audioEngine.play(this.soundThinkLose, false, 1)
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
@@ -1045,9 +1055,9 @@ export default class NewClass extends cc.Component {
             // }
             // cc.audioEngine.stop(this.idSound)
             // this.timeup.active = true;
+                cc.audioEngine.play(this.soundThinking, false, 0.5)
 
             this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundThinking, false, 0.5)
                 // this.endCard.active = true;
             }, 1)
 
@@ -1096,7 +1106,7 @@ export default class NewClass extends cc.Component {
 
         this.timeup.scale = (logic) ? 1 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
-        this.endCardDoc.scale = 1.5
+        this.endCardDoc.scale = 1.57
         this.notiMission.scale = (logic) ? 2 : 1
         this.barMission2.scale = (logic) ? 2 : 1
         this.magVideo = 0
