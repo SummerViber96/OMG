@@ -61,6 +61,8 @@ export default class NewClass extends cc.Component {
     soundDO: cc.AudioClip = null
     @property(cc.AudioClip)
     soundFail: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundSwoosh: cc.AudioClip = null;
 
     @property(cc.Node)
     tut: cc.Node = null
@@ -135,36 +137,7 @@ export default class NewClass extends cc.Component {
     chef3: cc.Node = null;
     @property(cc.Node)
     listHand: cc.Node = null
-    // @property(cc.Prefab)
-    // preTom: cc.Prefab = null
-    // @property(cc.Prefab)
-    // preTofu: cc.Prefab = null;
-    // @property(cc.Prefab)
-    // preHanh: cc.Prefab = null;
-    // @property(cc.Prefab)
-    // preDau: cc.Prefab = null;
-    // @property(cc.Prefab)
-    // preSauce: cc.Prefab = null
-    // @property(cc.Node)
-    // plate: cc.Node = null;
-    // @property(cc.Node)
-    // plateList: cc.Node = null
-    // @property(cc.Node)
-    // btnTo: cc.Node = null;
-    // @property(cc.Node)
-    // btnDau: cc.Node = null;
-    // @property(cc.Node)
-    // btnHanh: cc.Node = null
-    // @property(cc.Node)
-    // btnDauPhu: cc.Node = null;
-    // @property(cc.Node)
-    // btnSauce: cc.Node = null
-    // @property(cc.Node)
-    // listTick: cc.Node = null
-    // @property(cc.Node)
-    // listItemNoi: cc.Node = null
-    // @property(cc.Node)
-    // noiSup: cc.Node = null;
+
     @property(cc.VideoPlayer)
     video: cc.VideoPlayer = null;
     @property(cc.Node)
@@ -194,7 +167,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     posPizza: cc.Node = null;
     @property(cc.Node)
-    pizzaTable: cc.Node = null
+    pizzaTable: cc.Node = null;
+    @property(cc.Node)
+    cusban: cc.Node = null
     mcComp = null
 
     // @property(cc.Node)
@@ -295,11 +270,17 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.firstCus.children[1].active = false;
             this.firstCus.children[2].active = false;
-            this.ray.active = true;
-            this.rayAnim.active = true;
-            this.btnMay1.getComponent(cc.Button).enabled = true;
-            this.btnMay1.getChildByName("hand").active = true
-            this.spawPizza()
+
+            this.scheduleOnce(() => {
+                this.ray.active = true;
+                this.rayAnim.active = true;
+
+                this.spawPizza()
+            }, 0.2)
+            this.scheduleOnce(() => {
+                this.btnMay1.getComponent(cc.Button).enabled = true;
+                this.btnMay1.getChildByName("hand").active = true
+            }, 1)
         }, 0.5)
     }
     spawPizza() {
@@ -322,12 +303,13 @@ export default class NewClass extends cc.Component {
         this.btnMay1Sub.scale = 3.1
 
         this.isMay1++
-
-        cc.tween(this.btnMay1).to(0.2, { scale: 1.54 * 0.5 }).call(() => {
-            this.btnMay1.children[this.isMay1 - 1].active = false;
-            this.btnMay1.children[this.isMay1].active = true;
+        let fx = this.btnMay1.getChildByName("fx_upgrade")
+        fx.getComponent(cc.Animation).play()
+        cc.tween(this.btnMay1.children[0]).to(0.2, { scale: 1 * 0.5 }).call(() => {
+            this.btnMay1.children[0].children[this.isMay1 - 1].active = false;
+            this.btnMay1.children[0].children[this.isMay1].active = true;
             this.isPlay = false
-        }).to(0.2, { scale: 1.54 }).start()
+        }).to(0.2, { scale: 1 }).start()
         cc.tween(this.btnMay1Sub).to(0.2, { scale: 3.1 * 0.5 }).call(() => {
             this.btnMay1Sub.children[this.isMay1 - 1].active = false;
             this.btnMay1Sub.children[this.isMay1].active = true;
@@ -344,7 +326,6 @@ export default class NewClass extends cc.Component {
             cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292 + 1500) }).start()
         }, 3.6)
         this.scheduleOnce(() => {
-            console.log("on Btn")
             this.btnMay2.getComponent(cc.Button).enabled = true
             this.btnMay2.getChildByName("hand").active = true
         }, 5.6)
@@ -353,19 +334,19 @@ export default class NewClass extends cc.Component {
     isPlay2 = false
 
     btn_upgradeLoNuong() {
-        console.log("lo2")
         if (this.isMay2 > 1) return;
         if (this.isPlay2) return;
         this.isPlay2 = true
         this.btnMay2.scale = 2.9
-
+        let fx = this.btnMay2.getChildByName("fx_upgrade")
+        fx.getComponent(cc.Animation).play()
         this.isMay2++
 
-        cc.tween(this.btnMay2).to(0.2, { scale: 2.9 * 0.5 }).call(() => {
-            this.btnMay2.children[this.isMay2 - 1].active = false;
-            this.btnMay2.children[this.isMay2].active = true;
+        cc.tween(this.btnMay2.children[0]).to(0.2, { scale: 1 * 0.5 }).call(() => {
+            this.btnMay2.children[0].children[this.isMay2 - 1].active = false;
+            this.btnMay2.children[0].children[this.isMay2].active = true;
             this.isPlay2 = false
-        }).to(0.2, { scale: 2.9 }).start()
+        }).to(0.2, { scale: 1 }).start()
 
         if (this.isMay2 == 2) {
             this.btnMay2.getChildByName("hand").active = false
@@ -380,9 +361,12 @@ export default class NewClass extends cc.Component {
         cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292) }).start()
         let anim = this.chef3.children[0].getComponent(sp.Skeleton)
         anim.setAnimation(0, "Walk", true);
-        cc.tween(this.chef3).to(3, { position: cc.v3(1131.269, -1539.125) }).call(() => {
+        this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5)
+
+        cc.tween(this.chef3).to(2.5, { position: cc.v3(1131.269, -1539.125) }).call(() => {
             anim.setAnimation(0, "Idle", true);
             anim.setAnimation(1, "L-arm", true);
+            cc.audioEngine.stop(this.idFoot)
             this.chef3.children[1].active = true
             this.getPizza()
         }).start()
@@ -399,8 +383,28 @@ export default class NewClass extends cc.Component {
                 palete.children[i + 1].active = true
             }).start()
         }
+        this.scheduleOnce(() => {
+            this.chef3.scale = 1
+            let anim = this.chef3.children[0].getComponent(sp.Skeleton)
+            anim.setAnimation(0, "Walk", true);
+            this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5)
+            cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, {position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000)}).start()
+
+            cc.tween(this.chef3).to(2, { position: cc.v3(-463, -1559) }).call(() => {
+                this.cusban.children[2].active = true
+                palete.children[3].active=false
+                // cc.audioEngine.stop(this.idFoot)
+                this.chef3.scaleX = -1
+            }).to(2, { position: cc.v3(-235, -615) }).call(() => {
+                this.chef3.scaleX = 1
+                this.cusban.children[3].active = true
+                this.cusban.children[4].active = true
+palete.active=false
+            }).start()
+            // cc.tween(this)
+        }, 0.7)
     }
-    isCountpizza = 0
+    isCountpizza = 2
     addPizza(pizza) {
         pizza.parent = this.pizzaTable
         cc.tween(pizza).to(0.4, { position: this.posPizza.children[this.isCountpizza].position }).start()

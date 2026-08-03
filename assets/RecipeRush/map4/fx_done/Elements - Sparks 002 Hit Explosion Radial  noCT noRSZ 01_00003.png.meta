@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "18a99369-71ee-4569-a8f7-f173bf6247d9",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 300,
+  "height": 300,
+  "platformSettings": {},
+  "subMetas": {
+    "Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00003": {
+      "ver": "1.0.4",
+      "uuid": "1a002d83-7032-4531-86ad-e9f8b1bfc8f4",
+      "rawTextureUuid": "18a99369-71ee-4569-a8f7-f173bf6247d9",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 4.5,
+      "trimX": 92,
+      "trimY": 99,
+      "width": 115,
+      "height": 93,
+      "rawWidth": 300,
+      "rawHeight": 300,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

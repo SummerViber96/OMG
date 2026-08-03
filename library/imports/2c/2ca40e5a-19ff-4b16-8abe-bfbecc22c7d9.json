@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "RR_Pizza_Station_Gaemplay_00179",
+    "texture": "6756f1f7-9cbb-4fd1-b882-511ca5b88954",
+    "atlas": "",
+    "rect": [
+      3771,
+      1308,
+      143,
+      128
+    ],
+    "offset": [
+      1815.5,
+      -372
+    ],
+    "originalSize": [
+      4054,
+      2000
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

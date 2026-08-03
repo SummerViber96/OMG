@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00005",
+    "texture": "88d580b8-aa36-45f6-8a5d-8f8e8333d2bf",
+    "atlas": "",
+    "rect": [
+      71,
+      71,
+      170,
+      137
+    ],
+    "offset": [
+      6,
+      10.5
+    ],
+    "originalSize": [
+      300,
+      300
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

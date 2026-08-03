@@ -57,6 +57,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundTicketFly = null;
         _this.soundDO = null;
         _this.soundFail = null;
+        _this.soundSwoosh = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -90,36 +91,6 @@ var NewClass = /** @class */ (function (_super) {
         _this.chef2 = null;
         _this.chef3 = null;
         _this.listHand = null;
-        // @property(cc.Prefab)
-        // preTom: cc.Prefab = null
-        // @property(cc.Prefab)
-        // preTofu: cc.Prefab = null;
-        // @property(cc.Prefab)
-        // preHanh: cc.Prefab = null;
-        // @property(cc.Prefab)
-        // preDau: cc.Prefab = null;
-        // @property(cc.Prefab)
-        // preSauce: cc.Prefab = null
-        // @property(cc.Node)
-        // plate: cc.Node = null;
-        // @property(cc.Node)
-        // plateList: cc.Node = null
-        // @property(cc.Node)
-        // btnTo: cc.Node = null;
-        // @property(cc.Node)
-        // btnDau: cc.Node = null;
-        // @property(cc.Node)
-        // btnHanh: cc.Node = null
-        // @property(cc.Node)
-        // btnDauPhu: cc.Node = null;
-        // @property(cc.Node)
-        // btnSauce: cc.Node = null
-        // @property(cc.Node)
-        // listTick: cc.Node = null
-        // @property(cc.Node)
-        // listItemNoi: cc.Node = null
-        // @property(cc.Node)
-        // noiSup: cc.Node = null;
         _this.video = null;
         _this.cus1 = null;
         _this.listCus2 = null;
@@ -135,6 +106,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.btnMay2 = null;
         _this.posPizza = null;
         _this.pizzaTable = null;
+        _this.cusban = null;
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -184,7 +156,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isPlay = false;
         _this.isMay2 = 0;
         _this.isPlay2 = false;
-        _this.isCountpizza = 0;
+        _this.isCountpizza = 2;
         _this.isHand = null;
         _this.isShowMenu = false;
         _this.arrTom = [];
@@ -252,11 +224,15 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.firstCus.children[1].active = false;
             _this.firstCus.children[2].active = false;
-            _this.ray.active = true;
-            _this.rayAnim.active = true;
-            _this.btnMay1.getComponent(cc.Button).enabled = true;
-            _this.btnMay1.getChildByName("hand").active = true;
-            _this.spawPizza();
+            _this.scheduleOnce(function () {
+                _this.ray.active = true;
+                _this.rayAnim.active = true;
+                _this.spawPizza();
+            }, 0.2);
+            _this.scheduleOnce(function () {
+                _this.btnMay1.getComponent(cc.Button).enabled = true;
+                _this.btnMay1.getChildByName("hand").active = true;
+            }, 1);
         }, 0.5);
     };
     NewClass.prototype.spawPizza = function () {
@@ -279,11 +255,13 @@ var NewClass = /** @class */ (function (_super) {
         this.btnMay1.scale = 1.54;
         this.btnMay1Sub.scale = 3.1;
         this.isMay1++;
-        cc.tween(this.btnMay1).to(0.2, { scale: 1.54 * 0.5 }).call(function () {
-            _this.btnMay1.children[_this.isMay1 - 1].active = false;
-            _this.btnMay1.children[_this.isMay1].active = true;
+        var fx = this.btnMay1.getChildByName("fx_upgrade");
+        fx.getComponent(cc.Animation).play();
+        cc.tween(this.btnMay1.children[0]).to(0.2, { scale: 1 * 0.5 }).call(function () {
+            _this.btnMay1.children[0].children[_this.isMay1 - 1].active = false;
+            _this.btnMay1.children[0].children[_this.isMay1].active = true;
             _this.isPlay = false;
-        }).to(0.2, { scale: 1.54 }).start();
+        }).to(0.2, { scale: 1 }).start();
         cc.tween(this.btnMay1Sub).to(0.2, { scale: 3.1 * 0.5 }).call(function () {
             _this.btnMay1Sub.children[_this.isMay1 - 1].active = false;
             _this.btnMay1Sub.children[_this.isMay1].active = true;
@@ -299,26 +277,26 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(_this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292 + 1500) }).start();
         }, 3.6);
         this.scheduleOnce(function () {
-            console.log("on Btn");
             _this.btnMay2.getComponent(cc.Button).enabled = true;
             _this.btnMay2.getChildByName("hand").active = true;
         }, 5.6);
     };
     NewClass.prototype.btn_upgradeLoNuong = function () {
         var _this = this;
-        console.log("lo2");
         if (this.isMay2 > 1)
             return;
         if (this.isPlay2)
             return;
         this.isPlay2 = true;
         this.btnMay2.scale = 2.9;
+        var fx = this.btnMay2.getChildByName("fx_upgrade");
+        fx.getComponent(cc.Animation).play();
         this.isMay2++;
-        cc.tween(this.btnMay2).to(0.2, { scale: 2.9 * 0.5 }).call(function () {
-            _this.btnMay2.children[_this.isMay2 - 1].active = false;
-            _this.btnMay2.children[_this.isMay2].active = true;
+        cc.tween(this.btnMay2.children[0]).to(0.2, { scale: 1 * 0.5 }).call(function () {
+            _this.btnMay2.children[0].children[_this.isMay2 - 1].active = false;
+            _this.btnMay2.children[0].children[_this.isMay2].active = true;
             _this.isPlay2 = false;
-        }).to(0.2, { scale: 2.9 }).start();
+        }).to(0.2, { scale: 1 }).start();
         if (this.isMay2 == 2) {
             this.btnMay2.getChildByName("hand").active = false;
             // this.moveScene2();
@@ -332,14 +310,17 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292) }).start();
         var anim = this.chef3.children[0].getComponent(sp.Skeleton);
         anim.setAnimation(0, "Walk", true);
-        cc.tween(this.chef3).to(3, { position: cc.v3(1131.269, -1539.125) }).call(function () {
+        this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5);
+        cc.tween(this.chef3).to(2.5, { position: cc.v3(1131.269, -1539.125) }).call(function () {
             anim.setAnimation(0, "Idle", true);
             anim.setAnimation(1, "L-arm", true);
+            cc.audioEngine.stop(_this.idFoot);
             _this.chef3.children[1].active = true;
             _this.getPizza();
         }).start();
     };
     NewClass.prototype.getPizza = function () {
+        var _this = this;
         var palete = this.chef3.children[1];
         var _loop_1 = function (i) {
             var pizza = this_1.pizzaTable.children[i];
@@ -354,6 +335,25 @@ var NewClass = /** @class */ (function (_super) {
         for (var i = 0; i < 3; i++) {
             _loop_1(i);
         }
+        this.scheduleOnce(function () {
+            _this.chef3.scale = 1;
+            var anim = _this.chef3.children[0].getComponent(sp.Skeleton);
+            anim.setAnimation(0, "Walk", true);
+            _this.idFoot = cc.audioEngine.play(_this.soundFoot, false, 0.5);
+            cc.tween(_this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start();
+            cc.tween(_this.chef3).to(2, { position: cc.v3(-463, -1559) }).call(function () {
+                _this.cusban.children[2].active = true;
+                palete.children[3].active = false;
+                // cc.audioEngine.stop(this.idFoot)
+                _this.chef3.scaleX = -1;
+            }).to(2, { position: cc.v3(-235, -615) }).call(function () {
+                _this.chef3.scaleX = 1;
+                _this.cusban.children[3].active = true;
+                _this.cusban.children[4].active = true;
+                palete.active = false;
+            }).start();
+            // cc.tween(this)
+        }, 0.7);
     };
     NewClass.prototype.addPizza = function (pizza) {
         pizza.parent = this.pizzaTable;
@@ -1131,6 +1131,9 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundFail", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundSwoosh", void 0);
+    __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);
     __decorate([
@@ -1262,6 +1265,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "pizzaTable", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "cusban", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

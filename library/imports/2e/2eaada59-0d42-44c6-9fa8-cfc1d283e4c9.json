@@ -1,0 +1,144 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "pizza_Drop",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.2833333333333333,
+  "sample": 60,
+  "speed": 0.3,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "icon": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "ebcba10d-6f38-4c3e-8c1f-3d6c1a5587eb"
+                }
+              },
+              {
+                "frame": 0.016666666666666666,
+                "value": {
+                  "__uuid__": "976aa865-2df3-43f4-a647-7d838a32028e"
+                }
+              },
+              {
+                "frame": 0.03333333333333333,
+                "value": {
+                  "__uuid__": "a3331247-5e6c-4a48-b32e-946fb2b4ebc3"
+                }
+              },
+              {
+                "frame": 0.05,
+                "value": {
+                  "__uuid__": "d794640a-affa-46cd-8018-46ab9e6a14bf"
+                }
+              },
+              {
+                "frame": 0.06666666666666667,
+                "value": {
+                  "__uuid__": "a93e3583-c7ef-43a4-8485-d3424dac313c"
+                }
+              },
+              {
+                "frame": 0.08333333333333333,
+                "value": {
+                  "__uuid__": "80c3c1b8-8826-4a71-90ad-f6eab8deeda0"
+                }
+              },
+              {
+                "frame": 0.1,
+                "value": {
+                  "__uuid__": "aec75806-5a19-4268-a9cb-b083c20dc9c7"
+                }
+              },
+              {
+                "frame": 0.11666666666666667,
+                "value": {
+                  "__uuid__": "a04a528e-7bf3-4cc1-b0d7-f6fd824b9fc1"
+                }
+              },
+              {
+                "frame": 0.13333333333333333,
+                "value": {
+                  "__uuid__": "6aea01c2-7e60-4648-a627-9c6c009b3b3a"
+                }
+              },
+              {
+                "frame": 0.15,
+                "value": {
+                  "__uuid__": "264a5b9f-15a9-4518-8c27-d26e1954f017"
+                }
+              },
+              {
+                "frame": 0.16666666666666666,
+                "value": {
+                  "__uuid__": "70b0a1db-b57f-444d-9de3-796e1627eea1"
+                }
+              },
+              {
+                "frame": 0.18333333333333332,
+                "value": {
+                  "__uuid__": "cc21ccee-21bf-4e03-b844-13ab0307ca68"
+                }
+              },
+              {
+                "frame": 0.2,
+                "value": {
+                  "__uuid__": "89ce7cdb-c10d-4d21-aab7-ced28c45a816"
+                }
+              },
+              {
+                "frame": 0.21666666666666667,
+                "value": {
+                  "__uuid__": "c5f457b6-cf1f-43b9-9ea5-ab1fdbacfa14"
+                }
+              },
+              {
+                "frame": 0.23333333333333334,
+                "value": {
+                  "__uuid__": "1a6656af-13a6-4516-adb0-83fe9e4eec99"
+                }
+              },
+              {
+                "frame": 0.25,
+                "value": {
+                  "__uuid__": "625bf8fe-4d33-431b-9424-3c4927bcfe54"
+                }
+              },
+              {
+                "frame": 0.26666666666666666,
+                "value": {
+                  "__uuid__": "1d70ee0e-0eb2-49f1-95f7-8a4ac1dc0e9c"
+                }
+              }
+            ]
+          }
+        },
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                0
+              ],
+              "motionPath": []
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": [
+                375,
+                -336
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

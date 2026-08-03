@@ -35,6 +35,8 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.preBanh = null;
+        _this.soundSwoosh = null;
+        _this.listBanhTren = null;
         return _this;
         // update (dt) {}
     }
@@ -43,12 +45,13 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.spawbanh = function () {
         var _this = this;
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 4; i++) {
             this.scheduleOnce(function () {
                 var banh = cc.instantiate(_this.preBanh);
                 banh.parent = _this.node;
                 banh.position = cc.v3(2638, -1729);
                 banh.angle = 5;
+                cc.audioEngine.play(_this.soundSwoosh, false, 1);
                 cc.tween(banh).bezierTo(0.3, cc.v2(2638, -1729), cc.v2(2864, -1279 + 300), cc.v2(3038, -1437)).delay(0.3).bezierTo(0.4, cc.v2(3038, -1437), cc.v2(3176, -1214 + 300), cc.v2(3495, -1315)).call(function () {
                     banh.children[0].active = false;
                     banh.children[1].active = true;
@@ -56,10 +59,22 @@ var NewClass = /** @class */ (function (_super) {
                 cc.tween(banh.children[0]).to(0.5, { angle: 0 }).start();
             }, 0.5 * i);
         }
+        this.scheduleOnce(function () {
+            _this.listBanhTren.children[0].active = true;
+        }, 2);
+        this.scheduleOnce(function () {
+            _this.listBanhTren.children[1].active = true;
+        }, 2.5);
     };
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "preBanh", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundSwoosh", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listBanhTren", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

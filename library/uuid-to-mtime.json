@@ -1,7 +1,7 @@
 {
   "2c57eeae-95a7-4ca9-87d9-802977e12c2d": {
-    "asset": 1785712156090,
-    "meta": 1785712369093,
+    "asset": 1785779515610,
+    "meta": 1785780974951,
     "relativePath": "anim"
   },
   "8cb730ee-e6cf-48a7-9fca-7c696815ad76": {
@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761762695425,
-    "meta": 1785716004307,
+    "meta": 1785780974969,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2626,7 +2626,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1762664320536,
-    "meta": 1785716004308,
+    "meta": 1785780974968,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -10560,8 +10560,8 @@
     "relativePath": "prefab\\cookingCustomer\\cus5.prefab"
   },
   "1c8743b4-28a9-49da-b7e3-02e8d0dce655": {
-    "asset": 1785561518519,
-    "meta": 1785606247110,
+    "asset": 1785774877256,
+    "meta": 1785775866700,
     "relativePath": "RecipeRush"
   },
   "872571f6-3151-4867-8eef-1e30831ce7a1": {
@@ -11795,8 +11795,8 @@
     "relativePath": "Donut\\prefab\\cus8.prefab"
   },
   "33b95eb0-b556-49f6-a7b3-6ac43e6935de": {
-    "asset": 1785178188501,
-    "meta": 1785181276573,
+    "asset": 1785771867118,
+    "meta": 1785775866702,
     "relativePath": "RecipeRush\\sound"
   },
   "0549bd95-a906-4ef2-a0bb-71372ccd1bc5": {
@@ -13624,11 +13624,6 @@
     "meta": 1785527384819,
     "relativePath": "RecipeRush\\Pizza-Boy.png"
   },
-  "bdea7cdb-27b8-49c6-bcb8-29ef839c87df": {
-    "asset": 1785718178654,
-    "meta": 1785718178674,
-    "relativePath": "scenes\\Rp4.fire"
-  },
   "737ea9b4-6aea-4268-9684-3c23c4ce3286": {
     "asset": 1785710435276,
     "meta": 1785712369103,
@@ -13979,11 +13974,6 @@
     "meta": 1785703198884,
     "relativePath": "RecipeRush\\prefab\\prebanh.prefab"
   },
-  "b7d52816-0dd7-46b0-ba06-92cc045d26a3": {
-    "asset": 1785703189166,
-    "meta": 1785703190264,
-    "relativePath": "RecipeRush\\scripts\\banhDefault.ts"
-  },
   "37a08f9e-2386-44e6-8267-ced5e0b4071e": {
     "asset": 1785703951829,
     "meta": 1785703951842,
@@ -14220,8 +14210,8 @@
     "relativePath": "RecipeRush\\map4\\Layer 22.png"
   },
   "e0df9fd7-5c96-4f34-bd8f-c91f7fd164f6": {
-    "asset": 1785716980445,
-    "meta": 1785716980454,
+    "asset": 1785780180132,
+    "meta": 1785780180144,
     "relativePath": "anim\\pizze_move.anim"
   },
   "d58cc18a-9e0d-4e69-a929-f102abde320e": {
@@ -14249,9 +14239,669 @@
     "meta": 1785716930048,
     "relativePath": "RecipeRush\\scripts\\pizza.ts"
   },
+  "5df225b7-10ca-4c46-bb95-1b5987df0358": {
+    "asset": 1785771867115,
+    "meta": 1785771867794,
+    "relativePath": "RecipeRush\\sound\\Swoosh 01 - 02 (mp3cut.net) (2).mp3"
+  },
+  "d30fdacd-36cc-4884-a402-4b8c31d3de0f": {
+    "asset": 1785779408620,
+    "meta": 1785780974967,
+    "relativePath": "RecipeRush\\fx"
+  },
+  "7441bfda-eff5-4908-9bed-f546d732a256": {
+    "asset": 1785774891871,
+    "meta": 1785774891879,
+    "relativePath": "RecipeRush\\fx\\pizza"
+  },
+  "aa609309-38d6-4be3-aeb3-d330a8d0dac4": {
+    "asset": 1785774891803,
+    "meta": 1785774892000,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00164.png"
+  },
+  "7fcee9ef-e5c9-4ea4-92bb-cc00d4e2f8c8": {
+    "asset": 1785774891803,
+    "meta": 1785774892032,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00165.png"
+  },
+  "9835980a-2ba1-41a1-8587-634a02527f02": {
+    "asset": 1785774891803,
+    "meta": 1785774892145,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00167.png"
+  },
+  "4dedbc7a-1524-46ed-aeab-624596623e2a": {
+    "asset": 1785774891803,
+    "meta": 1785774892170,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00166.png"
+  },
+  "976003e0-0bb4-4bd2-8266-6f4e3d25ee0c": {
+    "asset": 1785774891803,
+    "meta": 1785774892276,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00168.png"
+  },
+  "f2040f3b-d1a7-48e1-8926-cc8d978db416": {
+    "asset": 1785774891803,
+    "meta": 1785774892294,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00169.png"
+  },
+  "1a11a6c1-07cb-4422-80bd-dbcc278c3e9f": {
+    "asset": 1785774891803,
+    "meta": 1785774892398,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00170.png"
+  },
+  "7b028638-6d59-475c-9b94-77bfd5e40999": {
+    "asset": 1785774891803,
+    "meta": 1785774892419,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00171.png"
+  },
+  "47b0743a-c6cc-4192-91f0-e7836f160618": {
+    "asset": 1785774891803,
+    "meta": 1785774892529,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00173.png"
+  },
+  "8ba301d9-770f-4e9c-a04d-85a9dbb1eddf": {
+    "asset": 1785774891803,
+    "meta": 1785774892551,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00172.png"
+  },
+  "61416830-ff8f-49ab-a6fa-0a6962d8fa14": {
+    "asset": 1785774891803,
+    "meta": 1785774892663,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00174.png"
+  },
+  "38ae858d-a8ff-4968-838e-d249aabb1f4e": {
+    "asset": 1785774891803,
+    "meta": 1785774892686,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00175.png"
+  },
+  "95fdb565-6d35-41ec-acaa-da22b98987f8": {
+    "asset": 1785774891803,
+    "meta": 1785774892796,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00176.png"
+  },
+  "256655bc-3202-4b6e-b01f-4507df570574": {
+    "asset": 1785774891803,
+    "meta": 1785774892823,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00177.png"
+  },
+  "6756f1f7-9cbb-4fd1-b882-511ca5b88954": {
+    "asset": 1785774891804,
+    "meta": 1785774892922,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00179.png"
+  },
+  "2d758187-5de6-4238-b1c6-7d7aa335e08c": {
+    "asset": 1785774891803,
+    "meta": 1785774892945,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00178.png"
+  },
+  "7c94b2ff-7fc0-45ce-9290-6c026ff4e8a4": {
+    "asset": 1785774891804,
+    "meta": 1785774893059,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00180.png"
+  },
+  "4a4124bb-1515-4e84-85c0-7e890b635574": {
+    "asset": 1785774891804,
+    "meta": 1785774893082,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00181.png"
+  },
+  "64e78ad9-941d-40c4-a045-95f14ec744c5": {
+    "asset": 1785774891804,
+    "meta": 1785774893191,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00183.png"
+  },
+  "dc3f0a0a-d728-470f-ac36-4b33beee6802": {
+    "asset": 1785774891804,
+    "meta": 1785774893210,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00182.png"
+  },
+  "d47b6bd1-19c8-4c74-979b-2f1d9409c897": {
+    "asset": 1785774891804,
+    "meta": 1785774893316,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00184.png"
+  },
+  "8ab54cfa-9050-4209-b10b-82e6b57a5aaf": {
+    "asset": 1785774891804,
+    "meta": 1785774893338,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00185.png"
+  },
+  "65d11d30-58c8-4fc2-a4d9-8c0f4743652c": {
+    "asset": 1785774891804,
+    "meta": 1785774893454,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00187.png"
+  },
+  "b5562b63-65cf-4577-a487-b898de5bcf54": {
+    "asset": 1785774891804,
+    "meta": 1785774893479,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00186.png"
+  },
+  "3e587d28-19bb-43e5-ba5d-4c3c33d53300": {
+    "asset": 1785774891804,
+    "meta": 1785774893578,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00188.png"
+  },
+  "ebc211f0-8bca-4541-9e73-89a79ec3b352": {
+    "asset": 1785774891804,
+    "meta": 1785774893599,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00189.png"
+  },
+  "fcc21cfc-344d-4338-b084-4920e5b0afd7": {
+    "asset": 1785774891804,
+    "meta": 1785774893708,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00190.png"
+  },
+  "af36df36-149d-4f38-a3e4-3463384adf4d": {
+    "asset": 1785774891805,
+    "meta": 1785774893759,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00191.png"
+  },
+  "38c2176e-1e87-46e5-95ee-71c7cb0c8970": {
+    "asset": 1785774891804,
+    "meta": 1785774893824,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00192.png"
+  },
+  "85aab7b6-a946-41bf-8e06-17ed9284d57f": {
+    "asset": 1785774891804,
+    "meta": 1785774893873,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00193.png"
+  },
+  "22082736-c7b6-450e-a070-620553bc2a48": {
+    "asset": 1785774891805,
+    "meta": 1785774893947,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00194.png"
+  },
+  "8b1cb41f-8202-4590-93dd-0f2c81b7f0f8": {
+    "asset": 1785774891804,
+    "meta": 1785774894007,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00195.png"
+  },
+  "c66c542b-7bee-4eb2-b830-acb443e84fe3": {
+    "asset": 1785774891816,
+    "meta": 1785774894087,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00196.png"
+  },
+  "d8bc9e8d-e568-4ef5-b8dc-2b8ee2cf0938": {
+    "asset": 1785774891816,
+    "meta": 1785774894147,
+    "relativePath": "RecipeRush\\fx\\pizza\\RR_Pizza_Station_Gaemplay_00197.png"
+  },
+  "2eaada59-0d42-44c6-9fa8-cfc1d283e4c9": {
+    "asset": 1785776316067,
+    "meta": 1785776316087,
+    "relativePath": "anim\\pizza_Drop.anim"
+  },
+  "b7d52816-0dd7-46b0-ba06-92cc045d26a3": {
+    "asset": 1785776228760,
+    "meta": 1785776229734,
+    "relativePath": "RecipeRush\\scripts\\banhDefault.ts"
+  },
+  "be0c03b0-59f0-482f-9d66-904804c0d908": {
+    "asset": 1785778115975,
+    "meta": 1785778115979,
+    "relativePath": "RecipeRush\\fx\\fx_ray"
+  },
+  "123e0198-4c4a-464e-8d41-8fae97e55a47": {
+    "asset": 1785778115952,
+    "meta": 1785778116008,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00002.png"
+  },
+  "c5393283-9e94-40e3-a28d-28b7bca4d37f": {
+    "asset": 1785778115952,
+    "meta": 1785778116016,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00000.png"
+  },
+  "5c224a62-676d-4d4c-ba74-fb16d764cae1": {
+    "asset": 1785778115952,
+    "meta": 1785778116033,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00004.png"
+  },
+  "2e41a499-8e6c-4400-95ac-fb5039c10a68": {
+    "asset": 1785778115952,
+    "meta": 1785778116036,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00006.png"
+  },
+  "9c462eaa-1a06-43e3-a03a-863c36e8c41d": {
+    "asset": 1785778115952,
+    "meta": 1785778116048,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00010.png"
+  },
+  "37d6b948-e865-47fe-9891-7441ac5d80ad": {
+    "asset": 1785778115952,
+    "meta": 1785778116051,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00008.png"
+  },
+  "e4b7f4f3-a291-4be3-b840-dd6414feee16": {
+    "asset": 1785778115952,
+    "meta": 1785778116067,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00012.png"
+  },
+  "fe93c1dd-e186-4b0c-b78c-3721c95dd5cf": {
+    "asset": 1785778115952,
+    "meta": 1785778116069,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00014.png"
+  },
+  "9062d6b1-a56c-422c-b004-3b4b72d129d9": {
+    "asset": 1785778115952,
+    "meta": 1785778116083,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00018.png"
+  },
+  "5ae11cde-1f9b-46ab-a51e-f2b65823c7d3": {
+    "asset": 1785778115952,
+    "meta": 1785778116086,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00016.png"
+  },
+  "ac7b5644-8b86-49f8-b998-3b284c20aaa2": {
+    "asset": 1785778115952,
+    "meta": 1785778116100,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00020.png"
+  },
+  "f5842d40-baec-4cf9-b052-cbd2b19d7155": {
+    "asset": 1785778115952,
+    "meta": 1785778116103,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00022.png"
+  },
+  "ccf51940-ba55-469f-9bc4-4e7eb666a18e": {
+    "asset": 1785778115952,
+    "meta": 1785778116119,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00024.png"
+  },
+  "1ab7b172-d008-4bba-a519-fae6effd85ab": {
+    "asset": 1785778115952,
+    "meta": 1785778116121,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00026.png"
+  },
+  "0961422b-1764-4654-8c3a-6638c72bb9fd": {
+    "asset": 1785778115952,
+    "meta": 1785778116132,
+    "relativePath": "RecipeRush\\fx\\fx_ray\\Elements - Energy 067 Ray Up noCT noRSZ 01_00028.png"
+  },
+  "316966ba-401b-4c54-b969-f175a803a785": {
+    "asset": 1785778919823,
+    "meta": 1785778919833,
+    "relativePath": "anim\\fx_rayAppear.anim"
+  },
+  "b63ce64b-18ae-4b25-8552-806ecf2f91c9": {
+    "asset": 1785779408656,
+    "meta": 1785779408659,
+    "relativePath": "RecipeRush\\fx\\udMachine"
+  },
+  "5efe8667-3052-4618-b86f-e360accf2b8d": {
+    "asset": 1785779408575,
+    "meta": 1785779408729,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00000.png"
+  },
+  "f48c1ff3-6783-4957-ab79-eecc01741d85": {
+    "asset": 1785779408575,
+    "meta": 1785779408739,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00001.png"
+  },
+  "7f227278-f0ff-42fb-a2ec-bec35960e53e": {
+    "asset": 1785779408575,
+    "meta": 1785779408803,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00003.png"
+  },
+  "09448e87-4523-4a08-96f0-6f268170bf79": {
+    "asset": 1785779408575,
+    "meta": 1785779408812,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00002.png"
+  },
+  "29f645dc-c97d-44b3-a597-53fe64630c8f": {
+    "asset": 1785779408575,
+    "meta": 1785779408873,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00004.png"
+  },
+  "6019e5bb-0386-4d41-9201-3dcccb7717ec": {
+    "asset": 1785779408577,
+    "meta": 1785779408882,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00005.png"
+  },
+  "c9acd267-35d1-43fe-988d-d9051384312d": {
+    "asset": 1785779408577,
+    "meta": 1785779408945,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00007.png"
+  },
+  "702d7a55-50ef-44c5-9089-f8eda9a27335": {
+    "asset": 1785779408600,
+    "meta": 1785779408956,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00006.png"
+  },
+  "4055a61f-f344-4d7e-b532-f7a48ae776e6": {
+    "asset": 1785779408577,
+    "meta": 1785779409021,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00009.png"
+  },
+  "a10768be-3150-450e-a050-71de63e6c858": {
+    "asset": 1785779408577,
+    "meta": 1785779409031,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00008.png"
+  },
+  "93b0e104-c4cc-4d51-a00c-aff89b5d2094": {
+    "asset": 1785779408577,
+    "meta": 1785779409095,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00010.png"
+  },
+  "1cd53d6b-6b9f-429c-a34e-77e1be37f471": {
+    "asset": 1785779408579,
+    "meta": 1785779409104,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00011.png"
+  },
+  "f9474600-7887-4fe2-af5b-1abbded56147": {
+    "asset": 1785779408577,
+    "meta": 1785779409170,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00012.png"
+  },
+  "ddcc83b7-bde5-45a9-8688-f201995e30b3": {
+    "asset": 1785779408579,
+    "meta": 1785779409180,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00013.png"
+  },
+  "ed256774-1d4f-414a-a142-33ff1a71f880": {
+    "asset": 1785779408580,
+    "meta": 1785779409244,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00014.png"
+  },
+  "30e6508e-c335-4afb-b9a5-4c21d3db3c59": {
+    "asset": 1785779408581,
+    "meta": 1785779409254,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00015.png"
+  },
+  "93603918-c7b3-4bb8-9c19-b86453846c01": {
+    "asset": 1785779408583,
+    "meta": 1785779409320,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00016.png"
+  },
+  "657cfbec-321e-4382-b550-4d9ac544b65d": {
+    "asset": 1785779408601,
+    "meta": 1785779409329,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00017.png"
+  },
+  "24f8a06e-08d2-4bd7-813b-b52b895a965d": {
+    "asset": 1785779408600,
+    "meta": 1785779409397,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00018.png"
+  },
+  "0bb7b4f6-3e8d-435c-8670-0b913653b4cf": {
+    "asset": 1785779408601,
+    "meta": 1785779409406,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00019.png"
+  },
+  "d32db4dc-ce55-4aaa-8731-49705f7cc7c1": {
+    "asset": 1785779408601,
+    "meta": 1785779409478,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00021.png"
+  },
+  "25b8fd79-b5c1-4f60-95a0-6fc8d429b0fa": {
+    "asset": 1785779408601,
+    "meta": 1785779409487,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00020.png"
+  },
+  "f5ff47c2-0ad6-40d8-b038-8aa4be19a853": {
+    "asset": 1785779408601,
+    "meta": 1785779409556,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00023.png"
+  },
+  "ae693b27-54cf-4c54-b573-9ab4d9bdda77": {
+    "asset": 1785779408601,
+    "meta": 1785779409565,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00022.png"
+  },
+  "c76e27f8-eb63-418e-84ef-61a4f2fab60f": {
+    "asset": 1785779408600,
+    "meta": 1785779409643,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00025.png"
+  },
+  "82d1e4af-2c4b-4fba-884d-70a820867305": {
+    "asset": 1785779408600,
+    "meta": 1785779409656,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00024.png"
+  },
+  "8f5639f9-71f1-4bc9-980a-46dc0c1bec92": {
+    "asset": 1785779408599,
+    "meta": 1785779409733,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00026.png"
+  },
+  "3df01947-0945-4798-b4af-336320b403cb": {
+    "asset": 1785779408600,
+    "meta": 1785779409742,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00027.png"
+  },
+  "a568b1c8-2105-4d59-9c5c-ca3c134d078a": {
+    "asset": 1785779408578,
+    "meta": 1785779409811,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00029.png"
+  },
+  "293f8c3b-97d5-40bd-8f3a-d4ac98476cf3": {
+    "asset": 1785779408597,
+    "meta": 1785779409821,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00028.png"
+  },
+  "478a4a8e-e658-4460-a47e-d3baf52e628a": {
+    "asset": 1785779408578,
+    "meta": 1785779409893,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00030.png"
+  },
+  "eae332b4-0f20-47c4-8d69-746cf780ccc5": {
+    "asset": 1785779408578,
+    "meta": 1785779409904,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00031.png"
+  },
+  "17b27f0e-c08d-4e23-b9cb-fcb432248738": {
+    "asset": 1785779408578,
+    "meta": 1785779409978,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00032.png"
+  },
+  "cf0d74cd-fcf5-4da5-805b-cf1009d0188a": {
+    "asset": 1785779408578,
+    "meta": 1785779409993,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00033.png"
+  },
+  "540a3c63-9c78-476f-930d-a4b75af76321": {
+    "asset": 1785779408577,
+    "meta": 1785779410066,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00034.png"
+  },
+  "5fbe4339-e569-41da-85db-fca249aa33a1": {
+    "asset": 1785779408577,
+    "meta": 1785779410083,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00035.png"
+  },
+  "17bb8b76-cd71-4d9a-815c-e1de2060c199": {
+    "asset": 1785779408577,
+    "meta": 1785779410151,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00037.png"
+  },
+  "6327cd6f-483f-4442-a2aa-79e242906147": {
+    "asset": 1785779408577,
+    "meta": 1785779410161,
+    "relativePath": "RecipeRush\\fx\\udMachine\\Elements - Energy 073 Ray Up noCT noRSZ 01_00036.png"
+  },
+  "1f626598-7a82-47e1-9824-d2315fc76871": {
+    "asset": 1785779572926,
+    "meta": 1785779572937,
+    "relativePath": "anim\\fx_udMachine.anim"
+  },
+  "9a5efd6a-a234-48ac-92f0-7a0b5ad08bfb": {
+    "asset": 1785781779377,
+    "meta": 1785781779542,
+    "relativePath": "RecipeRush\\map4\\RR_Pizza_Station_Gaemplay_01287.png"
+  },
+  "84d7aee8-4c58-4d18-b4c4-1fac5b5cdb7b": {
+    "asset": 1785785477342,
+    "meta": 1785785477347,
+    "relativePath": "RecipeRush\\map4\\cusNgoi"
+  },
+  "da744c0b-7f41-42cb-b223-b11c663ffb65": {
+    "asset": 1785785477308,
+    "meta": 1785785477370,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00010.png"
+  },
+  "781729b6-a5af-4e87-a695-2009218e0632": {
+    "asset": 1785785477307,
+    "meta": 1785785477372,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00000 (1).png"
+  },
+  "5536e412-fbf1-4489-acc0-85a751b809f0": {
+    "asset": 1785785477307,
+    "meta": 1785785477388,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00030.png"
+  },
+  "f70d6635-5885-44e3-ba6d-a2bdd80a52b7": {
+    "asset": 1785785477307,
+    "meta": 1785785477390,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00020.png"
+  },
+  "820f3a73-6e03-4515-8879-34cd89b31d12": {
+    "asset": 1785785477307,
+    "meta": 1785785477406,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00040.png"
+  },
+  "d26c9403-8834-4dcc-903e-896c1fe15e9c": {
+    "asset": 1785785477308,
+    "meta": 1785785477407,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00050.png"
+  },
+  "f690e33c-d1d8-41cd-8a42-9ea6a0de4aa9": {
+    "asset": 1785785477308,
+    "meta": 1785785477423,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00060 (1).png"
+  },
+  "0d0aea6b-74dd-4b98-9f7a-bb8c29ace94a": {
+    "asset": 1785785477308,
+    "meta": 1785785477424,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00070.png"
+  },
+  "6ba7e279-3086-4d38-aaf9-31dbc471ee21": {
+    "asset": 1785785477308,
+    "meta": 1785785477440,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00090.png"
+  },
+  "d4c5859b-2c7e-4a52-a55f-ec49cbe910c6": {
+    "asset": 1785785477308,
+    "meta": 1785785477442,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00080.png"
+  },
+  "b5c46256-07c2-4f85-8712-617918b734b0": {
+    "asset": 1785785477308,
+    "meta": 1785785477464,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00100.png"
+  },
+  "8d9083ff-92e4-437d-b765-01d5ed482f42": {
+    "asset": 1785785477308,
+    "meta": 1785785477465,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00110.png"
+  },
+  "10785584-b0aa-4d47-b9df-d1c655136b20": {
+    "asset": 1785785477308,
+    "meta": 1785785477484,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00120.png"
+  },
+  "12b6c350-f179-41af-8040-ef8c1cc01cef": {
+    "asset": 1785785477308,
+    "meta": 1785785477486,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00130.png"
+  },
+  "72207140-6830-45eb-b833-2b3ae2ef0b24": {
+    "asset": 1785785477308,
+    "meta": 1785785477503,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00140.png"
+  },
+  "34da587f-6995-4a3b-b155-a7472638f275": {
+    "asset": 1785785477308,
+    "meta": 1785785477504,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00150.png"
+  },
+  "6e196de7-eb77-4f79-9d23-df784eb05cc8": {
+    "asset": 1785785477320,
+    "meta": 1785785477520,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00170.png"
+  },
+  "fc850f8c-4751-4826-bfd3-f4917b186e6b": {
+    "asset": 1785785477308,
+    "meta": 1785785477521,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00160.png"
+  },
+  "67770d0e-de23-49d8-9655-3e7f68d1a85c": {
+    "asset": 1785785477322,
+    "meta": 1785785477538,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00190 (1).png"
+  },
+  "17c43641-2eab-41a8-a6b6-15caa28ca784": {
+    "asset": 1785785477308,
+    "meta": 1785785477539,
+    "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00180.png"
+  },
+  "bb3de9a1-9770-41cc-b22e-3457aa373128": {
+    "asset": 1785785606568,
+    "meta": 1785785606579,
+    "relativePath": "anim\\cus_fun.anim"
+  },
+  "92b565fe-3727-4719-a4a0-5d93fdcfa98d": {
+    "asset": 1785786397017,
+    "meta": 1785786397053,
+    "relativePath": "RecipeRush\\map4\\Plate.png"
+  },
+  "2f16c3e0-acfa-4788-a11a-3d05cf23c746": {
+    "asset": 1785786903027,
+    "meta": 1785786903028,
+    "relativePath": "RecipeRush\\map4\\fx_done"
+  },
+  "39310101-b928-4a75-bb1a-00436dd8d1dc": {
+    "asset": 1785786911793,
+    "meta": 1785786911847,
+    "relativePath": "RecipeRush\\map4\\fx_done\\Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00001.png"
+  },
+  "18a99369-71ee-4569-a8f7-f173bf6247d9": {
+    "asset": 1785786911793,
+    "meta": 1785786911854,
+    "relativePath": "RecipeRush\\map4\\fx_done\\Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00003.png"
+  },
+  "9706e039-453e-41c4-a5e6-9a973b389fc7": {
+    "asset": 1785786911794,
+    "meta": 1785786911865,
+    "relativePath": "RecipeRush\\map4\\fx_done\\Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00002.png"
+  },
+  "3e4ef0b7-b136-4e6f-9707-bdb39d5048cb": {
+    "asset": 1785786911794,
+    "meta": 1785786911866,
+    "relativePath": "RecipeRush\\map4\\fx_done\\Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00004.png"
+  },
+  "88d580b8-aa36-45f6-8a5d-8f8e8333d2bf": {
+    "asset": 1785786911794,
+    "meta": 1785786911877,
+    "relativePath": "RecipeRush\\map4\\fx_done\\Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00005.png"
+  },
+  "0e1521e4-3863-41f2-9705-3d01f3f8dabc": {
+    "asset": 1785786911794,
+    "meta": 1785786911879,
+    "relativePath": "RecipeRush\\map4\\fx_done\\Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00006.png"
+  },
+  "3566ccc6-0bc6-4470-9c38-477dea5d1d52": {
+    "asset": 1785786911794,
+    "meta": 1785786911890,
+    "relativePath": "RecipeRush\\map4\\fx_done\\Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00008.png"
+  },
+  "bbb2cdfe-d36d-4ac2-a3c0-5b9b8e0c77f7": {
+    "asset": 1785786911794,
+    "meta": 1785786911891,
+    "relativePath": "RecipeRush\\map4\\fx_done\\Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00007.png"
+  },
+  "c4a5ab9b-2f10-4109-964e-b99ee86dfcb2": {
+    "asset": 1785786911804,
+    "meta": 1785786911900,
+    "relativePath": "RecipeRush\\map4\\fx_done\\Elements - Sparks 002 Hit Explosion Radial  noCT noRSZ 01_00009.png"
+  },
+  "f524a919-2ff8-473a-ba70-54461bcbcd76": {
+    "asset": 1785786972121,
+    "meta": 1785786972131,
+    "relativePath": "anim\\pizza_done.anim"
+  },
+  "bdea7cdb-27b8-49c6-bcb8-29ef839c87df": {
+    "asset": 1785788581149,
+    "meta": 1785788581166,
+    "relativePath": "scenes\\Rp4.fire"
+  },
   "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1785718064679,
-    "meta": 1785718065923,
+    "asset": 1785788578995,
+    "meta": 1785788580220,
     "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
   }
 }

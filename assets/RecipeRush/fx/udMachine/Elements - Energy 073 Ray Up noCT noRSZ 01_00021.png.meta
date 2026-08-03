@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "d32db4dc-ce55-4aaa-8731-49705f7cc7c1",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2000,
+  "height": 2000,
+  "platformSettings": {},
+  "subMetas": {
+    "Elements - Energy 073 Ray Up noCT noRSZ 01_00021": {
+      "ver": "1.0.4",
+      "uuid": "8ffa5a0e-8bf9-4f9b-b396-462e3dd2ae2b",
+      "rawTextureUuid": "d32db4dc-ce55-4aaa-8731-49705f7cc7c1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 4,
+      "offsetY": -244.5,
+      "trimX": 639,
+      "trimY": 527,
+      "width": 730,
+      "height": 1435,
+      "rawWidth": 2000,
+      "rawHeight": 2000,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

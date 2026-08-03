@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Elements - Energy 073 Ray Up noCT noRSZ 01_00006",
+    "texture": "702d7a55-50ef-44c5-9089-f8eda9a27335",
+    "atlas": "",
+    "rect": [
+      748,
+      1069,
+      579,
+      857
+    ],
+    "offset": [
+      37.5,
+      -497.5
+    ],
+    "originalSize": [
+      2000,
+      2000
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
