@@ -3,7 +3,7 @@
   "_name": "pizze_move",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 8,
+  "_duration": 8.016666666666667,
   "sample": 60,
   "speed": 0.6,
   "wrapMode": 1,
@@ -45,5 +45,11 @@
       ]
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 8.016666666666667,
+      "func": "endMove",
+      "params": []
+    }
+  ]
 }

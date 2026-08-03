@@ -48,6 +48,9 @@ var NewClass = /** @class */ (function (_super) {
             else if (_this.tag == 2) {
                 other.getComponent("pizza").getRau();
             }
+            else if (_this.tag == 3) {
+                other.getComponent("pizza").getChin();
+            }
         }, 0.2);
     };
     __decorate([

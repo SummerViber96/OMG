@@ -133,6 +133,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.pizzaNode = null;
         _this.pizzaPrefab = null;
         _this.btnMay2 = null;
+        _this.posPizza = null;
+        _this.pizzaTable = null;
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -180,6 +182,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.mag = 0;
         _this.isMay1 = 0;
         _this.isPlay = false;
+        _this.isMay2 = 0;
+        _this.isPlay2 = false;
+        _this.isCountpizza = 0;
         _this.isHand = null;
         _this.isShowMenu = false;
         _this.arrTom = [];
@@ -266,7 +271,6 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_upgradeMay1 = function () {
         var _this = this;
-        console.log(this.isMay1);
         if (this.isMay1 > 1)
             return;
         if (this.isPlay)
@@ -292,11 +296,72 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveScene2 = function () {
         var _this = this;
         this.scheduleOnce(function () {
-            cc.tween(_this.camera.node).to(0.6, { position: cc.v3(3352.393 - 500, -1228.292) }).start();
-        }, 2);
+            cc.tween(_this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292 + 1500) }).start();
+        }, 3.6);
         this.scheduleOnce(function () {
+            console.log("on Btn");
             _this.btnMay2.getComponent(cc.Button).enabled = true;
-        }, 2.6);
+            _this.btnMay2.getChildByName("hand").active = true;
+        }, 5.6);
+    };
+    NewClass.prototype.btn_upgradeLoNuong = function () {
+        var _this = this;
+        console.log("lo2");
+        if (this.isMay2 > 1)
+            return;
+        if (this.isPlay2)
+            return;
+        this.isPlay2 = true;
+        this.btnMay2.scale = 2.9;
+        this.isMay2++;
+        cc.tween(this.btnMay2).to(0.2, { scale: 2.9 * 0.5 }).call(function () {
+            _this.btnMay2.children[_this.isMay2 - 1].active = false;
+            _this.btnMay2.children[_this.isMay2].active = true;
+            _this.isPlay2 = false;
+        }).to(0.2, { scale: 2.9 }).start();
+        if (this.isMay2 == 2) {
+            this.btnMay2.getChildByName("hand").active = false;
+            // this.moveScene2();
+            this.scheduleOnce(function () {
+                _this.moveScene3();
+            }, 1);
+        }
+    };
+    NewClass.prototype.moveScene3 = function () {
+        var _this = this;
+        cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292) }).start();
+        var anim = this.chef3.children[0].getComponent(sp.Skeleton);
+        anim.setAnimation(0, "Walk", true);
+        cc.tween(this.chef3).to(3, { position: cc.v3(1131.269, -1539.125) }).call(function () {
+            anim.setAnimation(0, "Idle", true);
+            anim.setAnimation(1, "L-arm", true);
+            _this.chef3.children[1].active = true;
+            _this.getPizza();
+        }).start();
+    };
+    NewClass.prototype.getPizza = function () {
+        var palete = this.chef3.children[1];
+        var _loop_1 = function (i) {
+            var pizza = this_1.pizzaTable.children[i];
+            var posEnd = this_1.chef3.children[1].convertToWorldSpaceAR(this_1.chef3.children[1].children[0].position);
+            posEnd = this_1.pizzaTable.convertToNodeSpaceAR(posEnd);
+            cc.tween(pizza).to(0.5, { position: posEnd }).call(function () {
+                pizza.active = false;
+                palete.children[i + 1].active = true;
+            }).start();
+        };
+        var this_1 = this;
+        for (var i = 0; i < 3; i++) {
+            _loop_1(i);
+        }
+    };
+    NewClass.prototype.addPizza = function (pizza) {
+        pizza.parent = this.pizzaTable;
+        cc.tween(pizza).to(0.4, { position: this.posPizza.children[this.isCountpizza].position }).start();
+        this.isCountpizza++;
+        if (this.isCountpizza > 5) {
+            this.isCountpizza = 0;
+        }
     };
     NewClass.prototype.moveTicket = function () {
         this.ticket.active = true;
@@ -329,8 +394,8 @@ var NewClass = /** @class */ (function (_super) {
         this.btnTo.getComponent(cc.Button).enabled = false;
         this.listHand.children[0].active = false;
         var arrPos = [cc.v2(-75, -24), cc.v2(-64, 19), cc.v2(-44, -3)];
-        var _loop_1 = function (i) {
-            this_1.scheduleOnce(function () {
+        var _loop_2 = function (i) {
+            this_2.scheduleOnce(function () {
                 var preTom = cc.instantiate(_this.preTom);
                 preTom.position = cc.v3(-334, -29);
                 preTom.parent = _this.plateList;
@@ -338,9 +403,9 @@ var NewClass = /** @class */ (function (_super) {
                 cc.tween(preTom).bezierTo(0.5, cc.v2(-334, -29), cc.v2(-334, -29 + 300), arrPos[i]).start();
             }, i * 0.15);
         };
-        var this_1 = this;
+        var this_2 = this;
         for (var i = 0; i < 3; i++) {
-            _loop_1(i);
+            _loop_2(i);
         }
         this.scheduleOnce(function () {
             _this.checkSuccess();
@@ -360,8 +425,8 @@ var NewClass = /** @class */ (function (_super) {
         this.listHand.children[2].active = false;
         this.listTick.children[1].active = true;
         var arrPos = [cc.v2(61, 41), cc.v2(80, 10), cc.v2(37, 13)];
-        var _loop_2 = function (i) {
-            this_2.scheduleOnce(function () {
+        var _loop_3 = function (i) {
+            this_3.scheduleOnce(function () {
                 var preTom = cc.instantiate(_this.preHanh);
                 preTom.position = cc.v3(25, -251);
                 preTom.parent = _this.plateList;
@@ -369,9 +434,9 @@ var NewClass = /** @class */ (function (_super) {
                 cc.tween(preTom).bezierTo(0.5, cc.v2(25, -251), cc.v2(25, -251 + 350), arrPos[i]).start();
             }, i * 0.15);
         };
-        var this_2 = this;
+        var this_3 = this;
         for (var i = 0; i < 3; i++) {
-            _loop_2(i);
+            _loop_3(i);
         }
         this.scheduleOnce(function () {
             _this.checkSuccess();
@@ -391,8 +456,8 @@ var NewClass = /** @class */ (function (_super) {
         this.listHand.children[1].active = false;
         this.listTick.children[2].active = true;
         var arrPos = [cc.v2(26, -32), cc.v2(3, -59), cc.v2(47, -55)];
-        var _loop_3 = function (i) {
-            this_3.scheduleOnce(function () {
+        var _loop_4 = function (i) {
+            this_4.scheduleOnce(function () {
                 var preTom = cc.instantiate(_this.preTofu);
                 preTom.position = cc.v3(180, -256);
                 preTom.parent = _this.plateList;
@@ -400,9 +465,9 @@ var NewClass = /** @class */ (function (_super) {
                 cc.tween(preTom).bezierTo(0.5, cc.v2(180, -256), cc.v2(180, -256 + 350), arrPos[i]).start();
             }, i * 0.15);
         };
-        var this_3 = this;
+        var this_4 = this;
         for (var i = 0; i < 3; i++) {
-            _loop_3(i);
+            _loop_4(i);
         }
         this.scheduleOnce(function () {
             _this.checkSuccess();
@@ -423,8 +488,8 @@ var NewClass = /** @class */ (function (_super) {
         this.listTick.children[0].active = true;
         var arrPos = [cc.v2(-5, -9), cc.v2(-8, 11), cc.v2(-21, 11)];
         var arrAngle = [45, 55, 73];
-        var _loop_4 = function (i) {
-            this_4.scheduleOnce(function () {
+        var _loop_5 = function (i) {
+            this_5.scheduleOnce(function () {
                 var preTom = cc.instantiate(_this.preDau);
                 preTom.position = cc.v3(-134, -245);
                 preTom.parent = _this.plateList;
@@ -433,9 +498,9 @@ var NewClass = /** @class */ (function (_super) {
                 cc.tween(preTom).to(0.5, { angle: arrAngle[i] }).start();
             }, i * 0.15);
         };
-        var this_4 = this;
+        var this_5 = this;
         for (var i = 0; i < 3; i++) {
-            _loop_4(i);
+            _loop_5(i);
         }
         this.scheduleOnce(function () {
             _this.checkSuccess();
@@ -525,8 +590,8 @@ var NewClass = /** @class */ (function (_super) {
         var arrPosTofu = [this.listItemNoi.children[4].position, this.listItemNoi.children[3].position, this.listItemNoi.children[5].position];
         var arrPosHanh = [this.listItemNoi.children[6].position, this.listItemNoi.children[7].position, this.listItemNoi.children[8].position];
         var arrPosTom = [this.listItemNoi.children[9].position, this.listItemNoi.children[10].position, this.listItemNoi.children[11].position];
-        var _loop_5 = function (i) {
-            this_5.scheduleOnce(function () {
+        var _loop_6 = function (i) {
+            this_6.scheduleOnce(function () {
                 var item1 = _this.arrTom[i];
                 var item2 = _this.arrDau[i];
                 var item3 = _this.arrHanh[i];
@@ -565,9 +630,9 @@ var NewClass = /** @class */ (function (_super) {
                 }).start();
             }, 0.1 * i);
         };
-        var this_5 = this;
+        var this_6 = this;
         for (var i = 0; i < 3; i++) {
-            _loop_5(i);
+            _loop_6(i);
         }
         this.scheduleOnce(function () {
             var chefANim = _this.chef2.children[0].getComponent(sp.Skeleton);
@@ -1191,6 +1256,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnMay2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "posPizza", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "pizzaTable", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

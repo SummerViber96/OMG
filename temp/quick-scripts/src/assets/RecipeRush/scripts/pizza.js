@@ -36,12 +36,14 @@ var NewClass = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.label = null;
         _this.text = 'hello';
+        // LIFE-CYCLE CALLBACKS:
+        // onLoad () {}
+        _this.gamePlay = null;
         return _this;
         // update (dt) {}
     }
-    // LIFE-CYCLE CALLBACKS:
-    // onLoad () {}
     NewClass.prototype.start = function () {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
     };
     NewClass.prototype.getTomato = function () {
         this.node.children[1].active = true;
@@ -55,6 +57,12 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.getRau = function () {
         this.node.children[5].active = true;
+    };
+    NewClass.prototype.getChin = function () {
+        this.node.children[6].active = true;
+    };
+    NewClass.prototype.endMove = function () {
+        this.gamePlay.addPizza(this.node);
     };
     __decorate([
         property(cc.Label)

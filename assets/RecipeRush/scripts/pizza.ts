@@ -19,8 +19,10 @@ export default class NewClass extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
+    gamePlay = null
 
     start() {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
 
     }
     getTomato() {
@@ -38,6 +40,13 @@ export default class NewClass extends cc.Component {
     getRau() {
         this.node.children[5].active = true
 
+    }
+    getChin() {
+        this.node.children[6].active = true
+
+    }
+    endMove() {
+        this.gamePlay.addPizza(this.node)
     }
     // update (dt) {}
 }

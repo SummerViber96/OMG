@@ -28,6 +28,10 @@ export default class NewClass extends cc.Component {
                 other.getComponent("pizza").getRau()
 
             }
+              else if (this.tag == 3) {
+                other.getComponent("pizza").getChin()
+
+            }
 
         }, 0.2)
 

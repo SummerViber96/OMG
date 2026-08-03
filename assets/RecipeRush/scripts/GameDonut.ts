@@ -190,7 +190,11 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     pizzaPrefab: cc.Prefab = null;
     @property(cc.Node)
-    btnMay2:cc.Node=null
+    btnMay2: cc.Node = null
+    @property(cc.Node)
+    posPizza: cc.Node = null;
+    @property(cc.Node)
+    pizzaTable: cc.Node = null
     mcComp = null
 
     // @property(cc.Node)
@@ -311,7 +315,6 @@ export default class NewClass extends cc.Component {
     isMay1 = 0
     isPlay = false
     btn_upgradeMay1() {
-        console.log(this.isMay1)
         if (this.isMay1 > 1) return;
         if (this.isPlay) return;
         this.isPlay = true
@@ -338,11 +341,73 @@ export default class NewClass extends cc.Component {
     }
     moveScene2() {
         this.scheduleOnce(() => {
-            cc.tween(this.camera.node).to(0.6,{position:cc.v3(3352.393 - 500, -1228.292)}).start()
-        }, 2)
-        this.scheduleOnce(()=>{
-this.btnMay2.getComponent(cc.Button).enabled=true
-        },2.6)
+            cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292 + 1500) }).start()
+        }, 3.6)
+        this.scheduleOnce(() => {
+            console.log("on Btn")
+            this.btnMay2.getComponent(cc.Button).enabled = true
+            this.btnMay2.getChildByName("hand").active = true
+        }, 5.6)
+    }
+    isMay2 = 0
+    isPlay2 = false
+
+    btn_upgradeLoNuong() {
+        console.log("lo2")
+        if (this.isMay2 > 1) return;
+        if (this.isPlay2) return;
+        this.isPlay2 = true
+        this.btnMay2.scale = 2.9
+
+        this.isMay2++
+
+        cc.tween(this.btnMay2).to(0.2, { scale: 2.9 * 0.5 }).call(() => {
+            this.btnMay2.children[this.isMay2 - 1].active = false;
+            this.btnMay2.children[this.isMay2].active = true;
+            this.isPlay2 = false
+        }).to(0.2, { scale: 2.9 }).start()
+
+        if (this.isMay2 == 2) {
+            this.btnMay2.getChildByName("hand").active = false
+            // this.moveScene2();
+            this.scheduleOnce(() => {
+                this.moveScene3()
+
+            }, 1)
+        }
+    }
+    moveScene3() {
+        cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292) }).start()
+        let anim = this.chef3.children[0].getComponent(sp.Skeleton)
+        anim.setAnimation(0, "Walk", true);
+        cc.tween(this.chef3).to(3, { position: cc.v3(1131.269, -1539.125) }).call(() => {
+            anim.setAnimation(0, "Idle", true);
+            anim.setAnimation(1, "L-arm", true);
+            this.chef3.children[1].active = true
+            this.getPizza()
+        }).start()
+
+    }
+    getPizza() {
+        let palete = this.chef3.children[1]
+        for (let i = 0; i < 3; i++) {
+            let pizza = this.pizzaTable.children[i]
+            let posEnd = this.chef3.children[1].convertToWorldSpaceAR(this.chef3.children[1].children[0].position)
+            posEnd = this.pizzaTable.convertToNodeSpaceAR(posEnd)
+            cc.tween(pizza).to(0.5, { position: posEnd }).call(() => {
+                pizza.active = false;
+                palete.children[i + 1].active = true
+            }).start()
+        }
+    }
+    isCountpizza = 0
+    addPizza(pizza) {
+        pizza.parent = this.pizzaTable
+        cc.tween(pizza).to(0.4, { position: this.posPizza.children[this.isCountpizza].position }).start()
+        this.isCountpizza++
+        if (this.isCountpizza > 5) {
+            this.isCountpizza = 0
+        }
     }
     isHand = null
     isShowMenu = false
