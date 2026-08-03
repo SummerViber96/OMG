@@ -14830,8 +14830,8 @@
     "relativePath": "RecipeRush\\map4\\cusNgoi\\RR_Pizza_Station_Gaemplay_00180.png"
   },
   "bb3de9a1-9770-41cc-b22e-3457aa373128": {
-    "asset": 1785785606568,
-    "meta": 1785785606579,
+    "asset": 1785788939628,
+    "meta": 1785788939634,
     "relativePath": "anim\\cus_fun.anim"
   },
   "92b565fe-3727-4719-a4a0-5d93fdcfa98d": {
@@ -14895,13 +14895,28 @@
     "relativePath": "anim\\pizza_done.anim"
   },
   "bdea7cdb-27b8-49c6-bcb8-29ef839c87df": {
-    "asset": 1785788581149,
-    "meta": 1785788581166,
+    "asset": 1785790951693,
+    "meta": 1785790951712,
     "relativePath": "scenes\\Rp4.fire"
   },
+  "0b357e04-9f2d-4077-992b-719daad82d2a": {
+    "asset": 1785789753183,
+    "meta": 1785789753211,
+    "relativePath": "RecipeRush\\spine\\1.atlas.txt"
+  },
+  "5f82ffcf-2ee4-4642-8967-141108057e01": {
+    "asset": 1785789753184,
+    "meta": 1785789753321,
+    "relativePath": "RecipeRush\\spine\\1.json"
+  },
+  "f0099bc4-c3e7-45c8-9f97-ca76fd53010e": {
+    "asset": 1785789753182,
+    "meta": 1785789753283,
+    "relativePath": "RecipeRush\\spine\\1.png"
+  },
   "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1785788578995,
-    "meta": 1785788580220,
+    "asset": 1785791068408,
+    "meta": 1785791069774,
     "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
   }
 }

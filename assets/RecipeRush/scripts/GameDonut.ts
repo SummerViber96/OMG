@@ -170,6 +170,8 @@ export default class NewClass extends cc.Component {
     pizzaTable: cc.Node = null;
     @property(cc.Node)
     cusban: cc.Node = null
+    @property(sp.Skeleton)
+    animChef3: sp.Skeleton = null
     mcComp = null
 
     // @property(cc.Node)
@@ -266,7 +268,7 @@ export default class NewClass extends cc.Component {
     }
     btn_addRay(evnt) {
         this.firstCus.children[1].getComponent(cc.Button).enabled = false
-        cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start()
+        cc.tween(this.camera.node).to(0.7, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start()
         this.scheduleOnce(() => {
             this.firstCus.children[1].active = false;
             this.firstCus.children[2].active = false;
@@ -276,7 +278,7 @@ export default class NewClass extends cc.Component {
                 this.rayAnim.active = true;
 
                 this.spawPizza()
-            }, 0.2)
+            }, 0.1)
             this.scheduleOnce(() => {
                 this.btnMay1.getComponent(cc.Button).enabled = true;
                 this.btnMay1.getChildByName("hand").active = true
@@ -295,12 +297,29 @@ export default class NewClass extends cc.Component {
     }
     isMay1 = 0
     isPlay = false
+    isF = false
     btn_upgradeMay1() {
         if (this.isMay1 > 1) return;
         if (this.isPlay) return;
         this.isPlay = true
         this.btnMay1.scale = 1.54
         this.btnMay1Sub.scale = 3.1
+        let anim = this.chef2.children[0].getComponent(sp.Skeleton)
+        if (this.isF == false) {
+            this.isF = true;
+            anim.setAnimation(0, "Win", true)
+            this.scheduleOnce(() => {
+                anim.setAnimation(0, "Walk", true)
+                this.chef2.scaleX = 1
+                cc.tween(this.chef2).to(1, { position: cc.v3(3066.776, -291.679) }).call(() => {
+                    anim.setAnimation(0, "Back-Idle", false)
+                    this.chef2.scaleX = -1
+
+
+                }).start()
+            }, 2)
+        }
+
 
         this.isMay1++
         let fx = this.btnMay1.getChildByName("fx_upgrade")
@@ -349,12 +368,13 @@ export default class NewClass extends cc.Component {
         }).to(0.2, { scale: 1 }).start()
 
         if (this.isMay2 == 2) {
+            this.animChef3.setAnimation(0, "Win", true)
             this.btnMay2.getChildByName("hand").active = false
             // this.moveScene2();
             this.scheduleOnce(() => {
                 this.moveScene3()
 
-            }, 1)
+            }, 2)
         }
     }
     moveScene3() {
@@ -388,18 +408,26 @@ export default class NewClass extends cc.Component {
             let anim = this.chef3.children[0].getComponent(sp.Skeleton)
             anim.setAnimation(0, "Walk", true);
             this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5)
-            cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, {position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000)}).start()
+            cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start()
 
-            cc.tween(this.chef3).to(2, { position: cc.v3(-463, -1559) }).call(() => {
+            cc.tween(this.chef3).to(2, { position: cc.v3(-463 + 200, -1559) }).call(() => {
                 this.cusban.children[2].active = true
-                palete.children[3].active=false
+                palete.children[3].active = false
+                this.cusban.children[1].active = true
+                this.cusban.children[0].active = false
+
                 // cc.audioEngine.stop(this.idFoot)
                 this.chef3.scaleX = -1
             }).to(2, { position: cc.v3(-235, -615) }).call(() => {
                 this.chef3.scaleX = 1
                 this.cusban.children[3].active = true
                 this.cusban.children[4].active = true
-palete.active=false
+                palete.active = false
+                this.animChef3.setAnimation(0, "Win", true)
+
+                this.scheduleOnce(() => {
+                    this.onEndGame(true)
+                }, 2)
             }).start()
             // cc.tween(this)
         }, 0.7)
@@ -1085,8 +1113,8 @@ palete.active=false
         this.isScaleVideo = 2
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false
-            this.endCardWin.active = (logic) ? false :
-                this.endCardWin.active = true
+            this.endCardWin.active = (logic) ? false : true
+            // this.endCardWin.active = true
         }
         if (logic == true) {
             this.magVideo = 300

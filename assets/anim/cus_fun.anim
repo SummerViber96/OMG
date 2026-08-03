@@ -5,8 +5,8 @@
   "_native": "",
   "_duration": 0.3333333333333333,
   "sample": 60,
-  "speed": 0.2,
-  "wrapMode": 1,
+  "speed": 0.15,
+  "wrapMode": 2,
   "curveData": {
     "paths": {
       "RR_Pizza_Station_Gaemplay_00000 (1)": {

@@ -4007,7 +4007,7 @@
     ],
     "paused": false,
     "defaultSkin": 1,
-    "defaultAnimation": "Idle",
+    "defaultAnimation": "Fail",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -4018,13 +4018,13 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "Idle",
+    "_animationName": "Fail",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "d7bd9355-92ca-430a-83d2-788faba9cce2"
+      "__uuid__": "5f82ffcf-2ee4-4642-8967-141108057e01"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -16300,8 +16300,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        2924.707,
-        -442.618,
+        3450.441,
+        -415.738,
         0,
         0,
         0,
@@ -16419,7 +16419,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "d7bd9355-92ca-430a-83d2-788faba9cce2"
+      "__uuid__": "5f82ffcf-2ee4-4642-8967-141108057e01"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -18704,7 +18704,7 @@
         "__id__": 480
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -31890,6 +31890,9 @@
     },
     "cusban": {
       "__id__": 43
+    },
+    "animChef3": {
+      "__id__": 95
     },
     "_id": "79O6kZ+2hENo3V8puWXJue"
   }

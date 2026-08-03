@@ -107,6 +107,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.posPizza = null;
         _this.pizzaTable = null;
         _this.cusban = null;
+        _this.animChef3 = null;
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -154,6 +155,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.mag = 0;
         _this.isMay1 = 0;
         _this.isPlay = false;
+        _this.isF = false;
         _this.isMay2 = 0;
         _this.isPlay2 = false;
         _this.isCountpizza = 2;
@@ -220,7 +222,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_addRay = function (evnt) {
         var _this = this;
         this.firstCus.children[1].getComponent(cc.Button).enabled = false;
-        cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start();
+        cc.tween(this.camera.node).to(0.7, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start();
         this.scheduleOnce(function () {
             _this.firstCus.children[1].active = false;
             _this.firstCus.children[2].active = false;
@@ -228,7 +230,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.ray.active = true;
                 _this.rayAnim.active = true;
                 _this.spawPizza();
-            }, 0.2);
+            }, 0.1);
             _this.scheduleOnce(function () {
                 _this.btnMay1.getComponent(cc.Button).enabled = true;
                 _this.btnMay1.getChildByName("hand").active = true;
@@ -254,6 +256,19 @@ var NewClass = /** @class */ (function (_super) {
         this.isPlay = true;
         this.btnMay1.scale = 1.54;
         this.btnMay1Sub.scale = 3.1;
+        var anim = this.chef2.children[0].getComponent(sp.Skeleton);
+        if (this.isF == false) {
+            this.isF = true;
+            anim.setAnimation(0, "Win", true);
+            this.scheduleOnce(function () {
+                anim.setAnimation(0, "Walk", true);
+                _this.chef2.scaleX = 1;
+                cc.tween(_this.chef2).to(1, { position: cc.v3(3066.776, -291.679) }).call(function () {
+                    anim.setAnimation(0, "Back-Idle", false);
+                    _this.chef2.scaleX = -1;
+                }).start();
+            }, 2);
+        }
         this.isMay1++;
         var fx = this.btnMay1.getChildByName("fx_upgrade");
         fx.getComponent(cc.Animation).play();
@@ -298,11 +313,12 @@ var NewClass = /** @class */ (function (_super) {
             _this.isPlay2 = false;
         }).to(0.2, { scale: 1 }).start();
         if (this.isMay2 == 2) {
+            this.animChef3.setAnimation(0, "Win", true);
             this.btnMay2.getChildByName("hand").active = false;
             // this.moveScene2();
             this.scheduleOnce(function () {
                 _this.moveScene3();
-            }, 1);
+            }, 2);
         }
     };
     NewClass.prototype.moveScene3 = function () {
@@ -341,9 +357,11 @@ var NewClass = /** @class */ (function (_super) {
             anim.setAnimation(0, "Walk", true);
             _this.idFoot = cc.audioEngine.play(_this.soundFoot, false, 0.5);
             cc.tween(_this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start();
-            cc.tween(_this.chef3).to(2, { position: cc.v3(-463, -1559) }).call(function () {
+            cc.tween(_this.chef3).to(2, { position: cc.v3(-463 + 200, -1559) }).call(function () {
                 _this.cusban.children[2].active = true;
                 palete.children[3].active = false;
+                _this.cusban.children[1].active = true;
+                _this.cusban.children[0].active = false;
                 // cc.audioEngine.stop(this.idFoot)
                 _this.chef3.scaleX = -1;
             }).to(2, { position: cc.v3(-235, -615) }).call(function () {
@@ -351,6 +369,10 @@ var NewClass = /** @class */ (function (_super) {
                 _this.cusban.children[3].active = true;
                 _this.cusban.children[4].active = true;
                 palete.active = false;
+                _this.animChef3.setAnimation(0, "Win", true);
+                _this.scheduleOnce(function () {
+                    _this.onEndGame(true);
+                }, 2);
             }).start();
             // cc.tween(this)
         }, 0.7);
@@ -999,8 +1021,8 @@ var NewClass = /** @class */ (function (_super) {
         this.isScaleVideo = 2;
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false;
-            this.endCardWin.active = (logic) ? false :
-                this.endCardWin.active = true;
+            this.endCardWin.active = (logic) ? false : true;
+            // this.endCardWin.active = true
         }
         if (logic == true) {
             this.magVideo = 300;
@@ -1268,6 +1290,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "cusban", void 0);
+    __decorate([
+        property(sp.Skeleton)
+    ], NewClass.prototype, "animChef3", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
