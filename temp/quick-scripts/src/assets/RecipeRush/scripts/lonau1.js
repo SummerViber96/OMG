@@ -29,13 +29,19 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.sauces = null;
+        _this.soundXit = null;
+        _this.gamePlay = null;
         return _this;
         // update (dt) {}
     }
     NewClass.prototype.start = function () {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut");
     };
     NewClass.prototype.onCollisionEnter = function (other, self) {
         this.sauces.play();
+        if (this.gamePlay.isMox == false) {
+            cc.audioEngine.play(this.soundXit, false, 0.3);
+        }
         this.scheduleOnce(function () {
             other.getComponent("pizza").getTomato();
         }, 0.2);
@@ -43,6 +49,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Animation)
     ], NewClass.prototype, "sauces", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundXit", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

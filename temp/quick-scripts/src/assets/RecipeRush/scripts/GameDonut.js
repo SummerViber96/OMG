@@ -24,7 +24,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-globalThis.coin = 0;
+globalThis.coin = 1000;
 globalThis.Game = false;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
@@ -159,6 +159,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isF = false;
         _this.isMay2 = 0;
         _this.isPlay2 = false;
+        _this.isMox = false;
         _this.isCountpizza = 2;
         _this.isHand = null;
         _this.isShowMenu = false;
@@ -222,7 +223,9 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_addRay = function (evnt) {
         var _this = this;
+        globalThis.coin -= 500;
         this.firstCus.children[1].getComponent(cc.Button).enabled = false;
+        cc.audioEngine.play(this.soundOk, false, 1);
         cc.tween(this.camera.node).to(0.7, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start();
         this.scheduleOnce(function () {
             _this.firstCus.children[1].active = false;
@@ -255,6 +258,8 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isPlay)
             return;
         this.isPlay = true;
+        cc.audioEngine.play(this.soundOk, false, 1);
+        globalThis.coin -= 100;
         this.btnMay1.scale = 1.54;
         this.btnMay1Sub.scale = 3.1;
         var anim = this.chef2.children[0].getComponent(sp.Skeleton);
@@ -304,6 +309,8 @@ var NewClass = /** @class */ (function (_super) {
             return;
         if (this.isPlay2)
             return;
+        globalThis.coin -= 100;
+        cc.audioEngine.play(this.soundOk, false, 1);
         this.isPlay2 = true;
         this.btnMay2.scale = 2.9;
         var fx = this.btnMay2.getChildByName("fx_upgrade");
@@ -315,6 +322,7 @@ var NewClass = /** @class */ (function (_super) {
             _this.isPlay2 = false;
         }).to(0.2, { scale: 1 }).start();
         if (this.isMay2 == 2) {
+            this.isMox = true;
             this.animChef3.setAnimation(0, "Win", true);
             cc.audioEngine.play(this.arrVoice[1], false, 1);
             this.btnMay2.getChildByName("hand").active = false;
@@ -368,6 +376,7 @@ var NewClass = /** @class */ (function (_super) {
                 palete.children[3].active = false;
                 _this.cusban.children[1].active = true;
                 _this.cusban.children[0].active = false;
+                globalThis.coin += 500;
                 // cc.audioEngine.stop(this.idFoot)
                 _this.chef3.scaleX = -1;
             }).to(2, { position: cc.v3(-235, -615) }).call(function () {
@@ -375,6 +384,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.cusban.children[3].active = true;
                 _this.cusban.children[4].active = true;
                 cc.audioEngine.play(_this.arrVoice[3], false, 1);
+                globalThis.coin += 1000;
                 palete.active = false;
                 _this.animChef3.setAnimation(0, "Win", true);
                 _this.scheduleOnce(function () {

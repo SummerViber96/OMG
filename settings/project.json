@@ -13,11 +13,8 @@
     ]
   ],
   "excluded-modules": [
-    "Collider",
     "DragonBones",
     "EditBox",
-    "Geom Utils",
-    "Intersection",
     "Mesh",
     "MotionStreak",
     "NodePool",
@@ -63,5 +60,5 @@
       "enable": false
     }
   },
-  "last-module-event-record-time": 1785177690145
+  "last-module-event-record-time": 1785794511291
 }

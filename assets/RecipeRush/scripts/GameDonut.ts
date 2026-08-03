@@ -1,6 +1,6 @@
 
 const { ccclass, property } = cc._decorator;
-globalThis.coin = 0
+globalThis.coin = 1000
 globalThis.Game = false
 @ccclass
 export default class NewClass extends cc.Component {
@@ -268,7 +268,9 @@ export default class NewClass extends cc.Component {
 
     }
     btn_addRay(evnt) {
+        globalThis.coin -= 500
         this.firstCus.children[1].getComponent(cc.Button).enabled = false
+        cc.audioEngine.play(this.soundOk,false,1)
         cc.tween(this.camera.node).to(0.7, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start()
         this.scheduleOnce(() => {
             this.firstCus.children[1].active = false;
@@ -303,13 +305,16 @@ export default class NewClass extends cc.Component {
         if (this.isMay1 > 1) return;
         if (this.isPlay) return;
         this.isPlay = true
+                cc.audioEngine.play(this.soundOk,false,1)
+
+        globalThis.coin -= 100
         this.btnMay1.scale = 1.54
         this.btnMay1Sub.scale = 3.1
         let anim = this.chef2.children[0].getComponent(sp.Skeleton)
         if (this.isF == false) {
             this.isF = true;
             anim.setAnimation(0, "Win", true)
-            cc.audioEngine.play(this.arrVoice[0],false,1)
+            cc.audioEngine.play(this.arrVoice[0], false, 1)
             this.scheduleOnce(() => {
                 anim.setAnimation(0, "Walk", true)
                 this.chef2.scaleX = 1
@@ -353,10 +358,13 @@ export default class NewClass extends cc.Component {
     }
     isMay2 = 0
     isPlay2 = false
-
+isMox=false
     btn_upgradeLoNuong() {
         if (this.isMay2 > 1) return;
         if (this.isPlay2) return;
+        globalThis.coin -= 100
+                cc.audioEngine.play(this.soundOk,false,1)
+
         this.isPlay2 = true
         this.btnMay2.scale = 2.9
         let fx = this.btnMay2.getChildByName("fx_upgrade")
@@ -370,8 +378,9 @@ export default class NewClass extends cc.Component {
         }).to(0.2, { scale: 1 }).start()
 
         if (this.isMay2 == 2) {
+            this.isMox=true
             this.animChef3.setAnimation(0, "Win", true)
-                        cc.audioEngine.play(this.arrVoice[1],false,1)
+            cc.audioEngine.play(this.arrVoice[1], false, 1)
 
             this.btnMay2.getChildByName("hand").active = false
             // this.moveScene2();
@@ -423,14 +432,15 @@ export default class NewClass extends cc.Component {
                 palete.children[3].active = false
                 this.cusban.children[1].active = true
                 this.cusban.children[0].active = false
-
+                globalThis.coin += 500
                 // cc.audioEngine.stop(this.idFoot)
                 this.chef3.scaleX = -1
             }).to(2, { position: cc.v3(-235, -615) }).call(() => {
                 this.chef3.scaleX = 1
                 this.cusban.children[3].active = true
                 this.cusban.children[4].active = true
-                            cc.audioEngine.play(this.arrVoice[3],false,1)
+                cc.audioEngine.play(this.arrVoice[3], false, 1)
+                globalThis.coin += 1000
 
                 palete.active = false
                 this.animChef3.setAnimation(0, "Win", true)
@@ -1055,7 +1065,7 @@ export default class NewClass extends cc.Component {
             // }
             // cc.audioEngine.stop(this.idSound)
             // this.timeup.active = true;
-                cc.audioEngine.play(this.soundThinking, false, 0.5)
+            cc.audioEngine.play(this.soundThinking, false, 0.5)
 
             this.scheduleOnce(() => {
                 // this.endCard.active = true;
