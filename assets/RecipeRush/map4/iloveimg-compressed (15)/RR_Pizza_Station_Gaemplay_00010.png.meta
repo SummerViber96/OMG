@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "980def83-cd76-4666-92ee-b99f24a7bbdf",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 391,
+  "height": 503,
+  "platformSettings": {},
+  "subMetas": {
+    "RR_Pizza_Station_Gaemplay_00010": {
+      "ver": "1.0.4",
+      "uuid": "cf34b24a-02fd-4b1c-9c65-1a9621794e44",
+      "rawTextureUuid": "980def83-cd76-4666-92ee-b99f24a7bbdf",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 5.5,
+      "trimX": 2,
+      "trimY": 0,
+      "width": 387,
+      "height": 492,
+      "rawWidth": 391,
+      "rawHeight": 503,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

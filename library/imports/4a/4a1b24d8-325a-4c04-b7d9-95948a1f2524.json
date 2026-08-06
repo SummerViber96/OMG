@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Tap_to_Upgrade",
+    "texture": "b94f1890-f1f2-42ac-bc0d-6e1e25d7ca28",
+    "atlas": "",
+    "rect": [
+      25,
+      67,
+      338,
+      135
+    ],
+    "offset": [
+      2,
+      -6.5
+    ],
+    "originalSize": [
+      384,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

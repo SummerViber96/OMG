@@ -9,8 +9,57 @@ export default class NewClass extends cc.Component {
     sauces: cc.Animation = null
     @property(cc.Integer)
     tag = 0
-
+    @property(cc.Sprite)
+    fillBar: cc.Sprite = null
+    @property(cc.SpriteFrame)
+    fillYellow: cc.SpriteFrame = null;
+    @property(cc.SpriteFrame)
+    fillRed: cc.SpriteFrame = null;
+    @property(cc.Node)
+    hindMay1: cc.Node = null;
+    @property(cc.Integer)
+    timeWaiting = 30
+    gamePlay = null
     start() {
+        this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
+        this.loadTime()
+    }
+    loadTime() {
+        cc.Tween.stopAllByTarget(this.fillBar)
+        if (this.fillBar) {
+            this.fillBar.fillRange = 1;
+            let changedYellow = false;
+            let changedRed = false;
+            cc.tween(this.fillBar)
+                .to(this.timeWaiting, { fillRange: 0 }, {
+                    progress: (start, end, current, ratio) => {
+
+                        let value = start + (end - start) * ratio;
+                        this.fillBar.fillRange = value;
+
+                        if (value <= 0.5 && !changedYellow) {
+                            changedYellow = true;
+                            this.fillBar.spriteFrame = this.fillYellow;
+                            this.hindMay1.active = true
+                        }
+
+                        if (value <= 0.25 && !changedRed) {
+                            changedRed = true;
+
+
+                            this.fillBar.spriteFrame = this.fillRed;
+
+                        }
+
+                        return value;
+                    }
+                }).call(() => {
+                    if (!this.isSuccess) {
+                        this.gamePlay.onEndGame(false)
+                    }
+                })
+                .start();
+        }
 
     }
     onCollisionEnter(other, self) {
@@ -28,7 +77,7 @@ export default class NewClass extends cc.Component {
                 other.getComponent("pizza").getRau()
 
             }
-              else if (this.tag == 3) {
+            else if (this.tag == 3) {
                 other.getComponent("pizza").getChin()
 
             }

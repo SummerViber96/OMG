@@ -173,6 +173,10 @@ export default class NewClass extends cc.Component {
     cusban: cc.Node = null
     @property(sp.Skeleton)
     animChef3: sp.Skeleton = null
+    @property(cc.Node)
+    hindMay1: cc.Node = null;
+    @property(cc.Node)
+    hindMay2: cc.Node = null;
     mcComp = null
 
     // @property(cc.Node)
@@ -232,10 +236,10 @@ export default class NewClass extends cc.Component {
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;
 
-        // this.updateResponsive();
-        // cc.view.setResizeCallback(() => {
-        //     this.updateResponsive();
-        // });
+        this.updateResponsive();
+        cc.view.setResizeCallback(() => {
+            this.updateResponsive();
+        });
         cc.audioEngine.play(this.soundShowPop, false, 1)
         // this.camera.node.position = cc.v3(0, 0)
         // this.scheduleOnce(() => {
@@ -255,6 +259,8 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             cc.tween(this.camera).to(0.5, { zoomRatio: 0.75 }).start()
             cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292) }).start()
+            // cc.tween(this.camera).to(0.5, { zoomRatio: 0.75 }).start()
+            cc.tween(this.cameraDoc.node).to(0.5, { position: cc.v3(3352.393 + 300, -1228.292) }).start()
 
         }, 1.5)
         this.scheduleOnce(() => {
@@ -270,33 +276,74 @@ export default class NewClass extends cc.Component {
     btn_addRay(evnt) {
         globalThis.coin -= 500
         this.firstCus.children[1].getComponent(cc.Button).enabled = false
-        cc.audioEngine.play(this.soundOk,false,1)
         cc.tween(this.camera.node).to(0.7, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start()
+        cc.tween(this.cameraDoc.node).to(0.7, { position: cc.v3(3352.393 + 300, -1228.292 + 1000) }).start()
+
         this.scheduleOnce(() => {
+            cc.audioEngine.play(this.soundOk, false, 1)
+
             this.firstCus.children[1].active = false;
             this.firstCus.children[2].active = false;
 
             this.scheduleOnce(() => {
                 this.ray.active = true;
                 this.rayAnim.active = true;
-
-                this.spawPizza()
+                this.spawPizzaFirst()
+                // this.spawPizza()
             }, 0.1)
             this.scheduleOnce(() => {
                 this.btnMay1.getComponent(cc.Button).enabled = true;
                 this.btnMay1.getChildByName("hand").active = true
-            }, 1)
-        }, 0.5)
+                this.btnMay1.children[0].getChildByName("aBoard").active = true
+
+            }, 2.2)
+        }, 0.3)
+    }
+    arrPizza = []
+    spawPizzaFirst() {
+        this.spawPizza()
+        this.schedule(this.spawPizza, 1, 1)
+        this.scheduleOnce(() => {
+            this.rayAnim.getComponent(cc.Animation).pause()
+
+            for (let i = 0; i < this.arrPizza.length; i++) {
+                this.arrPizza[i].getComponent(cc.Animation).pause()
+            }
+        }, 2.2)
+    }
+    resumPizza() {
+        this.rayAnim.getComponent(cc.Animation).resume()
+
+        for (let i = 0; i < this.arrPizza.length; i++) {
+            this.arrPizza[i].getComponent(cc.Animation).resume()
+        }
+        this.schedule(this.spawPizza, 1, 2)
+        this.scheduleOnce(() => {
+            this.rayAnim.getComponent(cc.Animation).pause()
+
+            for (let i = 0; i < this.arrPizza.length; i++) {
+                this.arrPizza[i].getComponent(cc.Animation).pause()
+            }
+        }, 3.7)
+    }
+    resumPizza2() {
+        this.rayAnim.getComponent(cc.Animation).resume()
+
+        for (let i = 0; i < this.arrPizza.length; i++) {
+            this.arrPizza[i].getComponent(cc.Animation).resume()
+        }
+        this.schedule(this.spawPizza, 1)
     }
     spawPizza() {
-        console.log("spaw Pizza")
+
         let pizza = cc.instantiate(this.pizzaPrefab);
         pizza.parent = this.pizzaNode;
-        this.schedule(() => {
-            let pizza = cc.instantiate(this.pizzaPrefab);
-            pizza.parent = this.pizzaNode;
+        this.arrPizza.push(pizza)
+        // this.schedule(() => {
+        //     let pizza = cc.instantiate(this.pizzaPrefab);
+        //     pizza.parent = this.pizzaNode;
 
-        }, 1.4)
+        // }, 1.4)
     }
     isMay1 = 0
     isPlay = false
@@ -305,27 +352,13 @@ export default class NewClass extends cc.Component {
         if (this.isMay1 > 1) return;
         if (this.isPlay) return;
         this.isPlay = true
-                cc.audioEngine.play(this.soundOk,false,1)
+        cc.audioEngine.play(this.soundOk, false, 1)
 
         globalThis.coin -= 100
         this.btnMay1.scale = 1.54
         this.btnMay1Sub.scale = 3.1
         let anim = this.chef2.children[0].getComponent(sp.Skeleton)
-        if (this.isF == false) {
-            this.isF = true;
-            anim.setAnimation(0, "Win", true)
-            cc.audioEngine.play(this.arrVoice[0], false, 1)
-            this.scheduleOnce(() => {
-                anim.setAnimation(0, "Walk", true)
-                this.chef2.scaleX = 1
-                cc.tween(this.chef2).to(1, { position: cc.v3(3066.776, -291.679) }).call(() => {
-                    anim.setAnimation(0, "Back-Idle", false)
-                    this.chef2.scaleX = -1
 
-
-                }).start()
-            }, 2)
-        }
 
 
         this.isMay1++
@@ -337,33 +370,61 @@ export default class NewClass extends cc.Component {
             this.isPlay = false
         }).to(0.2, { scale: 1 }).start()
         cc.tween(this.btnMay1Sub).to(0.2, { scale: 3.1 * 0.5 }).call(() => {
-            this.btnMay1Sub.children[this.isMay1 - 1].active = false;
-            this.btnMay1Sub.children[this.isMay1].active = true;
+            this.btnMay1Sub.children[this.isMay1].active = false;
+            this.btnMay1Sub.children[this.isMay1 + 1].active = true;
 
         }).to(0.2, { scale: 3.1 }).start()
         if (this.isMay1 == 2) {
             this.btnMay1.getChildByName("hand").active = false
+            // this.btnMay1.children[0].getChildByName("btn").active = false;
+            // this.btnMay1.children[0].getChildByName("progress").active = false;
+            this.btnMay1.children[0].getChildByName("aBoard").active = false
+            this.btnMay1.getComponent("lonau1").isSuccess = true
+            this.hindMay1.active = false
+            if (this.isF == false) {
+                this.isF = true;
+                anim.setAnimation(0, "Win", true)
+                cc.audioEngine.play(this.arrVoice[0], false, 1)
+                this.scheduleOnce(() => {
+                    anim.setAnimation(0, "Walk", true)
+                    this.chef2.scaleX = 1
+                    cc.tween(this.chef2).to(0.8, { position: cc.v3(3066.776, -291.679) }).call(() => {
+                        anim.setAnimation(0, "Back-Idle", false)
+                        this.chef2.scaleX = -1
+
+
+                    }).start()
+                }, 2)
+            }
+            this.resumPizza()
             this.moveScene2();
+        }
+        else {
+            anim.setAnimation(0, "Idle", true)
+
         }
 
     }
     moveScene2() {
         this.scheduleOnce(() => {
-            cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292 + 1500) }).start()
-        }, 3.6)
+            cc.tween(this.camera.node).to(1.2, { position: cc.v3(3352.393 - 2000, -1228.292 + 1500) }).start()
+            cc.tween(this.cameraDoc.node).to(1.2, { position: cc.v3(3352.393 - 1700, -1228.292 + 1000) }).start()
+
+        }, 3)
         this.scheduleOnce(() => {
             this.btnMay2.getComponent(cc.Button).enabled = true
             this.btnMay2.getChildByName("hand").active = true
-        }, 5.6)
+            this.btnMay2.children[0].getChildByName("aBoard").active = true
+        }, 4.4)
     }
     isMay2 = 0
     isPlay2 = false
-isMox=false
+    isMox = false
     btn_upgradeLoNuong() {
         if (this.isMay2 > 1) return;
         if (this.isPlay2) return;
         globalThis.coin -= 100
-                cc.audioEngine.play(this.soundOk,false,1)
+        cc.audioEngine.play(this.soundOk, false, 1)
 
         this.isPlay2 = true
         this.btnMay2.scale = 2.9
@@ -372,26 +433,38 @@ isMox=false
         this.isMay2++
 
         cc.tween(this.btnMay2.children[0]).to(0.2, { scale: 1 * 0.5 }).call(() => {
-            this.btnMay2.children[0].children[this.isMay2 - 1].active = false;
-            this.btnMay2.children[0].children[this.isMay2].active = true;
+            this.btnMay2.children[0].children[this.isMay2].active = false;
+            this.btnMay2.children[0].children[this.isMay2 + 1].active = true;
             this.isPlay2 = false
         }).to(0.2, { scale: 1 }).start()
 
         if (this.isMay2 == 2) {
-            this.isMox=true
+            this.hindMay2.active = false
+            this.isMox = true
             this.animChef3.setAnimation(0, "Win", true)
             cc.audioEngine.play(this.arrVoice[1], false, 1)
+            this.btnMay2.getComponent("diaPhomai").isSuccess = true
 
             this.btnMay2.getChildByName("hand").active = false
+            this.btnMay2.children[0].getChildByName("hind").active = false
+
             // this.moveScene2();
             this.scheduleOnce(() => {
                 this.moveScene3()
+            }, 3)
+            this.resumPizza2()
+            this.btnMay2.children[0].getChildByName("aBoard").active = false
 
-            }, 2)
+        }
+        else {
+            this.animChef3.setAnimation(0, "Idle", true)
+
         }
     }
     moveScene3() {
         cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292) }).start()
+        cc.tween(this.cameraDoc.node).to(2, { position: cc.v3(3352.393 - 1750, -1228.292) }).start()
+
         let anim = this.chef3.children[0].getComponent(sp.Skeleton)
         anim.setAnimation(0, "Walk", true);
         this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5)
@@ -401,7 +474,10 @@ isMox=false
             anim.setAnimation(1, "L-arm", true);
             cc.audioEngine.stop(this.idFoot)
             this.chef3.children[1].active = true
-            this.getPizza()
+            this.scheduleOnce(() => {
+                this.getPizza()
+
+            }, 1)
         }).start()
 
     }
@@ -410,6 +486,7 @@ isMox=false
         for (let i = 0; i < 3; i++) {
             let pizza = this.pizzaTable.children[i]
             this.scheduleOnce(() => {
+                pizza.zIndex = 3
                 cc.audioEngine.play(this.soundSwoosh, false, 0.5)
                 let posEnd = this.chef3.children[1].convertToWorldSpaceAR(this.chef3.children[1].children[0].position)
                 posEnd = this.pizzaTable.convertToNodeSpaceAR(posEnd)
@@ -426,6 +503,7 @@ isMox=false
             anim.setAnimation(0, "Walk", true);
             this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5)
             cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start()
+            cc.tween(this.cameraDoc.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start()
 
             cc.tween(this.chef3).to(2, { position: cc.v3(-463 + 200, -1559) }).call(() => {
                 this.cusban.children[2].active = true
@@ -444,6 +522,7 @@ isMox=false
 
                 palete.active = false
                 this.animChef3.setAnimation(0, "Win", true)
+                this.animChef3.setAnimation(1, "Win", true)
 
                 this.scheduleOnce(() => {
                     this.onEndGame(true)
@@ -1038,7 +1117,7 @@ isMox=false
     onEndGame(value) {
         if (this.isEndGame) return;
         this.isEndGame = true
-        this.warning.active = false;
+        // this.warning.active = false;
         this.scheduleOnce(() => {
             this.updateResponsive()
 
@@ -1110,15 +1189,15 @@ isMox=false
         canvas.fitWidth = (logic) ? true : false
         this.barCoin.scale = (logic) ? 2.5 : 1.4
         this.barCoin.getComponent(cc.Widget).top = (logic) ? 210 : 140
-        this.phaoHoa.scale = (logic) ? 9 : 5
-        this.guild.scale = (logic) ? 2 : 1.2
-        this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
+        // this.phaoHoa.scale = (logic) ? 9 : 5
+        // this.guild.scale = (logic) ? 2 : 1.2
+        // this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
 
-        this.timeup.scale = (logic) ? 1 : 1.4
-        this.amazing.scale = (logic) ? 1 : 1.4
+        // this.timeup.scale = (logic) ? 1 : 1.4
+        // this.amazing.scale = (logic) ? 1 : 1.4
         this.endCardDoc.scale = 1.57
-        this.notiMission.scale = (logic) ? 2 : 1
-        this.barMission2.scale = (logic) ? 2 : 1
+        // this.notiMission.scale = (logic) ? 2 : 1
+        // this.barMission2.scale = (logic) ? 2 : 1
         this.magVideo = 0
         this.barMission.scale = (logic) ? 1.7 : 1
         // this.camera.node.position = (logic) ? cc.v3(-160, 300, 0) : cc.v3(0, 120, 0)
@@ -1128,8 +1207,7 @@ isMox=false
         this.cameraDoc.node.active = (logic) ? true : false
         this.mag = 0
         this.magfront = 0
-        this.video.node.parent.scale = (logic) ? 2 : 1;
-        this.video.node.parent.position = (logic) ? cc.v3(-500, 600) : cc.v3(0, 0)
+
         this.isScaleVideo = 2
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false

@@ -15,6 +15,9 @@
   "excluded-modules": [
     "DragonBones",
     "EditBox",
+    "Graphics",
+    "Layout",
+    "Mask",
     "Mesh",
     "MotionStreak",
     "NodePool",
@@ -30,6 +33,7 @@
     "StudioComponent",
     "Toggle",
     "TiledMap",
+    "VideoPlayer",
     "WebView",
     "3D",
     "3D Primitive",
