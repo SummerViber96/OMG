@@ -58,7 +58,9 @@ var NewClass = /** @class */ (function (_super) {
                 if (value <= 0.5 && !changedYellow) {
                     changedYellow = true;
                     _this.fillBar.spriteFrame = _this.fillYellow;
-                    _this.hindMay1.active = true;
+                    if (_this.isSuccess == false) {
+                        _this.hindMay1.active = true;
+                    }
                 }
                 if (value <= 0.25 && !changedRed) {
                     changedRed = true;

@@ -36,6 +36,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.hindMay1 = null;
         _this.timeWaiting = 30;
         _this.gamePlay = null;
+        _this.isSuccess = false;
         return _this;
         // update (dt) {}
     }
@@ -58,7 +59,9 @@ var NewClass = /** @class */ (function (_super) {
                     if (value <= 0.5 && !changedYellow_1) {
                         changedYellow_1 = true;
                         _this.fillBar.spriteFrame = _this.fillYellow;
-                        _this.hindMay1.active = true;
+                        if (!_this.isSuccess) {
+                            _this.hindMay1.active = true;
+                        }
                     }
                     if (value <= 0.25 && !changedRed_1) {
                         changedRed_1 = true;

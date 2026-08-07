@@ -1,0 +1,14 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "khoi_banh-1.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00016": {
+      "__uuid__": "26cf5bee-dabb-42ab-ba7a-f991130617ec"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00017": {
+      "__uuid__": "7a76c681-1462-4a92-8306-347743d0163d"
+    }
+  }
+}

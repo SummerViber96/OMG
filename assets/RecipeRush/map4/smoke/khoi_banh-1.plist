@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00016.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{500,500}</string>
+                <key>spriteSourceSize</key>
+                <string>{500,500}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{500,500}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00017.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{500,500}</string>
+                <key>spriteSourceSize</key>
+                <string>{500,500}</string>
+                <key>textureRect</key>
+                <string>{{500,0},{500,500}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>khoi_banh-1.png</string>
+            <key>size</key>
+            <string>{1000,500}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:43fffa9f79eb3b84b9f3bc5028f07bee:123ab33f34fa07e6b3235135ec7b8c2e:35211475e395699a3975676cdd54cc2e$</string>
+            <key>textureFileName</key>
+            <string>khoi_banh-1.png</string>
+        </dict>
+    </dict>
+</plist>

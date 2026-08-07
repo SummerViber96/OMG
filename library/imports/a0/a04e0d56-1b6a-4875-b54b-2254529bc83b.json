@@ -1,0 +1,56 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "khoi_banh-0.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00000": {
+      "__uuid__": "426be66e-02b9-4d6c-9688-d0021dca1e8d"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00001": {
+      "__uuid__": "76188830-03c2-451b-aec7-f985e958586a"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00002": {
+      "__uuid__": "e9ee3ffe-9160-466b-8d19-d299058eecfa"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00003": {
+      "__uuid__": "bbba54be-76c8-4b6d-8bbc-3c0f6f96a892"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00004": {
+      "__uuid__": "ff7773bb-841d-497e-b08a-fe9cf1a85fea"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00005": {
+      "__uuid__": "a79db4ec-ab22-446f-943c-82647986f771"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00006": {
+      "__uuid__": "38f3eb8b-937c-4ee0-9f52-d4a0ca301c2f"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00007": {
+      "__uuid__": "42cabcfd-8169-4baf-bf11-3a8895727b3e"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00008": {
+      "__uuid__": "6482dc60-e6a4-42e6-b099-f045b6f81355"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00009": {
+      "__uuid__": "8048f759-18ff-4d96-b432-60c19657a562"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00010": {
+      "__uuid__": "afffeeb5-60fe-4833-aa28-d23cdd51c889"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00011": {
+      "__uuid__": "d53a98d1-fe71-409d-8869-3b4dab36b1e1"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00012": {
+      "__uuid__": "3b93835d-5075-45ab-9dfb-31caf23c9092"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00013": {
+      "__uuid__": "9e9feeab-9d7a-4eca-8eb9-9f458af93fcf"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00014": {
+      "__uuid__": "102c3f48-808e-45a0-b363-056942f1124b"
+    },
+    "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00015": {
+      "__uuid__": "bc505553-51a2-4f0a-a5ce-f9329564ffb2"
+    }
+  }
+}

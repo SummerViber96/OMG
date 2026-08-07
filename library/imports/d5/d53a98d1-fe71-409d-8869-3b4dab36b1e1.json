@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Elements - Smoke 009 Hit Explosion Up noCT noRSZ 01_00011",
+    "texture": "bc730f49-8049-4d5d-8a1d-383dea4346b1",
+    "atlas": "a04e0d56-1b6a-4875-b54b-2254529bc83b",
+    "rect": [
+      1500,
+      1000,
+      500,
+      500
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      500,
+      500
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
