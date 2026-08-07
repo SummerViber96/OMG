@@ -20,6 +20,7 @@ export default class NewClass extends cc.Component {
     @property(cc.Integer)
     timeWaiting = 30
     gamePlay = null
+    isSuccess = false
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("GameDonut")
         this.loadTime()
@@ -40,7 +41,9 @@ export default class NewClass extends cc.Component {
                         if (value <= 0.5 && !changedYellow) {
                             changedYellow = true;
                             this.fillBar.spriteFrame = this.fillYellow;
-                            this.hindMay1.active = true
+                            if(!this.isSuccess){
+                                this.hindMay1.active = true
+                            }
                         }
 
                         if (value <= 0.25 && !changedRed) {

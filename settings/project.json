@@ -15,9 +15,7 @@
   "excluded-modules": [
     "DragonBones",
     "EditBox",
-    "Graphics",
     "Layout",
-    "Mask",
     "Mesh",
     "MotionStreak",
     "NodePool",

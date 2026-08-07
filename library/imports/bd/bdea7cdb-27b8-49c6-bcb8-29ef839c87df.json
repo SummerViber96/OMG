@@ -2361,7 +2361,7 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
+    "_isTrimmedMode": false,
     "_atlas": null,
     "_id": "4bxalx4pRFE7cW8JVyBm0/"
   },
@@ -2377,7 +2377,7 @@
         "__id__": 51
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 53
@@ -10631,8 +10631,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1500,
-      "height": 800
+      "width": 2000,
+      "height": 1600
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -10643,15 +10643,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        2786.21,
-        -986.234,
+        555.749,
+        -497.254,
         0,
         0,
         0,
         0,
         1,
-        2.02,
-        2.02,
+        4,
+        4,
         1
       ]
     },
@@ -10693,8 +10693,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1345,
-      "height": 1321
+      "width": 2027,
+      "height": 1000
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -10749,7 +10749,7 @@
       "__uuid__": "e300a800-ccce-4870-b81a-378093909092"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -10758,7 +10758,7 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
+    "_isTrimmedMode": false,
     "_atlas": null,
     "_id": "d0i3BQVcZGTYT72wuzKqJb"
   },
@@ -16994,9 +16994,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "4e9f1354-bb2a-4091-ac04-2531ba7d3d99"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -29834,9 +29832,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "e9721ac9-cfe0-4b03-a3bc-a7398261e79d"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -29956,7 +29952,7 @@
       "__uuid__": "3d2298b7-1a66-438c-a736-53e7c791da87"
     },
     "soundBg": {
-      "__uuid__": "168f4698-0957-49a3-ab7b-a0b2cd32a241"
+      "__uuid__": "0667210f-864c-4dc1-b8a3-be52d37ccde4"
     },
     "soundWin": null,
     "soundLose": null,
