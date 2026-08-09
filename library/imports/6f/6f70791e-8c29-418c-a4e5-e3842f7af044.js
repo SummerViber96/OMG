@@ -317,6 +317,30 @@ var NewClass = /** @class */ (function (_super) {
             _this.checkHind();
         }, 2);
     };
+    NewClass.prototype.btn_sauceDauTay = function () {
+        var _this = this;
+        if (this.isShowMenu == false)
+            return;
+        cc.audioEngine.play(this.soundClick, false, 1);
+        this.unschedule(this.checkHind);
+        this.btnSauce.getComponent(cc.Button).enabled = false;
+        this.listHand.children[1].active = false;
+        // let startPos = cc.v2(300, 2)
+        // let endpos = cc.v2(1.5, 67);
+        // this.arrSauce = preSauce;
+        for (var i = 0; i < this.arrTom.length; i++) {
+            this.arrTom[i].children[2 + i].active = true;
+            this.arrTom[i].getComponent(cc.Animation).play();
+        }
+        this.msSauces = true;
+        this.scheduleOnce(function () {
+            _this.isSauceFinal = true;
+            _this.checkSuccess();
+        }, 0.1);
+        this.scheduleOnce(function () {
+            _this.checkHind();
+        }, 2);
+    };
     NewClass.prototype.btn_hanh = function () {
         var _this = this;
         if (this.isShowMenu == false)
@@ -327,20 +351,16 @@ var NewClass = /** @class */ (function (_super) {
         this.btnHanh.getComponent(cc.Button).enabled = false;
         this.listHand.children[2].active = false;
         this.listTick.children[1].active = true;
-        var arrPos = [cc.v2(61, 41), cc.v2(80, 10), cc.v2(37, 13)];
-        var _loop_4 = function (i) {
-            this_4.scheduleOnce(function () {
-                var preTom = cc.instantiate(_this.preHanh);
-                preTom.position = cc.v3(25, -251);
-                preTom.parent = _this.plateList;
-                _this.arrHanh.push(preTom);
-                cc.tween(preTom).bezierTo(0.5, cc.v2(25, -251), cc.v2(25, -251 + 350), arrPos[i]).start();
-            }, i * 0.15);
-        };
-        var this_4 = this;
-        for (var i = 0; i < 3; i++) {
-            _loop_4(i);
-        }
+        // let arrPos = [cc.v2(61, 41), cc.v2(80, 10), cc.v2(37, 13)]
+        // for (let i = 0; i < 3; i++) {
+        //     this.scheduleOnce(() => {
+        //         let preTom = cc.instantiate(this.preHanh);
+        //         preTom.position = cc.v3(25, -251);
+        //         preTom.parent = this.plateList
+        //         this.arrHanh.push(preTom)
+        //         cc.tween(preTom).bezierTo(0.5, cc.v2(25, -251), cc.v2(25, -251 + 350), arrPos[i]).start()
+        //     }, i * 0.15)
+        // }
         this.scheduleOnce(function () {
             _this.checkSuccess();
         }, 0.5 + 0.15 * 3);
@@ -356,22 +376,20 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundClick, false, 1);
         this.unschedule(this.checkHind);
         this.btnDauPhu.getComponent(cc.Button).enabled = false;
-        this.listHand.children[1].active = false;
+        this.listHand.children[4].active = false;
         this.listTick.children[2].active = true;
-        var arrPos = [cc.v2(26, -32), cc.v2(3, -59), cc.v2(47, -55)];
-        var _loop_5 = function (i) {
-            this_5.scheduleOnce(function () {
-                var preTom = cc.instantiate(_this.preTofu);
-                preTom.position = cc.v3(180, -256);
-                preTom.parent = _this.plateList;
-                _this.arrTofu.push(preTom);
-                cc.tween(preTom).bezierTo(0.5, cc.v2(180, -256), cc.v2(180, -256 + 350), arrPos[i]).start();
-            }, i * 0.15);
-        };
-        var this_5 = this;
-        for (var i = 0; i < 3; i++) {
-            _loop_5(i);
-        }
+        // let arrPos = [cc.v2(26, -32), cc.v2(3, -59), cc.v2(47, -55)]
+        // for (let i = 0; i < 3; i++) {
+        //     this.scheduleOnce(() => {
+        //         let preTom = cc.instantiate(this.preTofu);
+        //         preTom.position = cc.v3(180, -256);
+        //         preTom.parent = this.plateList
+        //         this.arrTofu.push(preTom)
+        //         cc.tween(preTom).bezierTo(0.5, cc.v2(180, -256), cc.v2(180, -256 + 350), arrPos[i]).start()
+        //     }, i * 0.15)
+        // }
+        this.arrTom[2].getComponent(cc.Animation).play();
+        this.arrTom[2].children[5].active = true;
         this.scheduleOnce(function () {
             _this.checkSuccess();
         }, 0.5 + 0.15 * 3);
@@ -391,8 +409,8 @@ var NewClass = /** @class */ (function (_super) {
         this.listTick.children[0].active = true;
         var arrPos = [cc.v2(-5, -9), cc.v2(-8, 11), cc.v2(-21, 11)];
         var arrAngle = [45, 55, 73];
-        var _loop_6 = function (i) {
-            this_6.scheduleOnce(function () {
+        var _loop_4 = function (i) {
+            this_4.scheduleOnce(function () {
                 var preTom = cc.instantiate(_this.preDau);
                 preTom.position = cc.v3(-134, -245);
                 preTom.parent = _this.plateList;
@@ -401,9 +419,9 @@ var NewClass = /** @class */ (function (_super) {
                 cc.tween(preTom).to(0.5, { angle: arrAngle[i] }).start();
             }, i * 0.15);
         };
-        var this_6 = this;
+        var this_4 = this;
         for (var i = 0; i < 3; i++) {
-            _loop_6(i);
+            _loop_4(i);
         }
         this.scheduleOnce(function () {
             _this.checkSuccess();
@@ -419,7 +437,7 @@ var NewClass = /** @class */ (function (_super) {
         cc.audioEngine.play(this.soundClick, false, 1);
         this.unschedule(this.checkHind);
         this.btnSauce.getComponent(cc.Button).enabled = false;
-        this.listHand.children[4].active = false;
+        this.listHand.children[1].active = false;
         var startPos = cc.v2(300, 2);
         var endpos = cc.v2(1.5, 67);
         var preSauce = cc.instantiate(this.preSauce);
@@ -449,7 +467,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.checkHind = function () {
-        if (this.msTofu == false) {
+        if (this.msSauces == false) {
             this.listHand.children[1].active = true;
             return;
         }
@@ -461,7 +479,7 @@ var NewClass = /** @class */ (function (_super) {
             this.listHand.children[3].active = true;
             return;
         }
-        if (this.msSauces == false) {
+        if (this.msTofu == false) {
             this.listHand.children[4].active = true;
             return;
         }
@@ -489,53 +507,26 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.transItem = function () {
         var _this = this;
-        var arrPosDau = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position];
-        var arrPosTofu = [this.listItemNoi.children[4].position, this.listItemNoi.children[3].position, this.listItemNoi.children[5].position];
-        var arrPosHanh = [this.listItemNoi.children[6].position, this.listItemNoi.children[7].position, this.listItemNoi.children[8].position];
-        var arrPosTom = [this.listItemNoi.children[9].position, this.listItemNoi.children[10].position, this.listItemNoi.children[11].position];
-        var _loop_7 = function (i) {
-            this_7.scheduleOnce(function () {
+        // let arrPosDau = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position]
+        // let arrPosTofu = [this.listItemNoi.children[4].position, this.listItemNoi.children[3].position, this.listItemNoi.children[5].position]
+        // let arrPosHanh = [this.listItemNoi.children[6].position, this.listItemNoi.children[7].position, this.listItemNoi.children[8].position]
+        var arrPosTom = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position];
+        var _loop_5 = function (i) {
+            this_5.scheduleOnce(function () {
                 var item1 = _this.arrTom[i];
-                var item2 = _this.arrDau[i];
-                var item3 = _this.arrHanh[i];
-                var item4 = _this.arrTofu[i];
                 var pos1 = arrPosTom[i];
                 pos1 = _this.listItemNoi.convertToWorldSpaceAR(pos1);
                 pos1 = item1.parent.convertToNodeSpaceAR(pos1);
-                var pos2 = arrPosTofu[i];
-                pos2 = _this.listItemNoi.convertToWorldSpaceAR(pos2);
-                pos2 = item4.parent.convertToNodeSpaceAR(pos2);
-                var pos3 = arrPosHanh[i];
-                pos3 = _this.listItemNoi.convertToWorldSpaceAR(pos3);
-                pos3 = item3.parent.convertToNodeSpaceAR(pos3);
-                var pos4 = arrPosDau[i];
-                pos4 = _this.listItemNoi.convertToWorldSpaceAR(pos4);
-                pos4 = item2.parent.convertToNodeSpaceAR(pos4);
                 cc.tween(item1).bezierTo(0.6, cc.v2(item1.x, item1.y), cc.v2(item1.x, item1.y + 400), cc.v3(pos1.x, pos1.y)).call(function () {
                     item1.active = false;
-                    _this.listItemNoi.children[i + 9].active = true;
-                    cc.tween(_this.listItemNoi.children[i + 9].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start();
-                }).start();
-                cc.tween(item2).bezierTo(0.6, cc.v2(item2.x, item2.y), cc.v2(item2.x, item2.y + 400), cc.v3(pos4.x, pos4.y)).call(function () {
-                    item2.active = false;
                     _this.listItemNoi.children[i].active = true;
-                }).start();
-                cc.tween(item3).bezierTo(0.6, cc.v2(item2.x, item2.y), cc.v2(item2.x, item2.y + 400), cc.v3(pos3.x, pos3.y)).call(function () {
-                    item3.active = false;
-                    _this.listItemNoi.children[i + 6].active = true;
-                }).start();
-                cc.tween(item4).bezierTo(0.6, cc.v2(item2.x, item2.y), cc.v2(item2.x, item2.y + 400), cc.v3(pos2.x, pos2.y)).call(function () {
-                    item4.active = false;
-                    _this.listItemNoi.children[i + 3].active = true;
-                }).start();
-                cc.tween(_this.arrSauce).bezierTo(0.6, cc.v2(_this.arrSauce.x, _this.arrSauce.y), cc.v2(_this.arrSauce.x, _this.arrSauce.y + 400), cc.v3(pos1.x, pos1.y)).call(function () {
-                    _this.arrSauce.active = false;
+                    cc.tween(_this.listItemNoi.children[i].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start();
                 }).start();
             }, 0.1 * i);
         };
-        var this_7 = this;
+        var this_5 = this;
         for (var i = 0; i < 3; i++) {
-            _loop_7(i);
+            _loop_5(i);
         }
         this.scheduleOnce(function () {
             var chefANim = _this.chef2.children[0].getComponent(sp.Skeleton);
@@ -546,6 +537,10 @@ var NewClass = /** @class */ (function (_super) {
             // cc.audioEngine.play(this.soun,false,1)
         }, 1);
         this.scheduleOnce(function () {
+            for (var i = 0; i < 3; i++) {
+                var item1 = _this.listItemNoi.children[i];
+                item1.active = false;
+            }
             cc.audioEngine.play(_this.soundSellDone, false, 1);
             _this.cus1.active = false;
             cc.audioEngine.stop(_this.isSOundNau);

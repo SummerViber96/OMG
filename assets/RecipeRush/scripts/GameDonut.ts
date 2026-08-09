@@ -369,20 +369,21 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
         this.btnSauce.getComponent(cc.Button).enabled = false;
-        this.listHand.children[4].active = false
-        let startPos = cc.v2(300, 2)
-        let endpos = cc.v2(1.5, 67);
-        let preSauce = cc.instantiate(this.preSauce)
-        preSauce.position = cc.v3(startPos.x, startPos.y);
-        preSauce.parent = this.plateList
-        this.arrSauce = preSauce;
-        cc.tween(preSauce).bezierTo(0.5, startPos, cc.v2(startPos.x, startPos.y + 300), endpos).start()
+        this.listHand.children[1].active = false
+        // let startPos = cc.v2(300, 2)
+        // let endpos = cc.v2(1.5, 67);
+
+        // this.arrSauce = preSauce;
+        for (let i = 0; i < this.arrTom.length; i++) {
+            this.arrTom[i].children[2 + i].active = true
+            this.arrTom[i].getComponent(cc.Animation).play()
+        }
         this.msSauces = true
 
         this.scheduleOnce(() => {
             this.isSauceFinal = true
             this.checkSuccess()
-        }, 0.5)
+        }, 0.1)
         this.scheduleOnce(() => {
             this.checkHind()
         }, 2)
@@ -400,18 +401,18 @@ export default class NewClass extends cc.Component {
         this.listHand.children[2].active = false
         this.listTick.children[1].active = true
 
-        let arrPos = [cc.v2(61, 41), cc.v2(80, 10), cc.v2(37, 13)]
-        for (let i = 0; i < 3; i++) {
-            this.scheduleOnce(() => {
-                let preTom = cc.instantiate(this.preHanh);
-                preTom.position = cc.v3(25, -251);
-                preTom.parent = this.plateList
-                this.arrHanh.push(preTom)
+        // let arrPos = [cc.v2(61, 41), cc.v2(80, 10), cc.v2(37, 13)]
+        // for (let i = 0; i < 3; i++) {
+        //     this.scheduleOnce(() => {
+        //         let preTom = cc.instantiate(this.preHanh);
+        //         preTom.position = cc.v3(25, -251);
+        //         preTom.parent = this.plateList
+        //         this.arrHanh.push(preTom)
 
-                cc.tween(preTom).bezierTo(0.5, cc.v2(25, -251), cc.v2(25, -251 + 350), arrPos[i]).start()
-            }, i * 0.15)
+        //         cc.tween(preTom).bezierTo(0.5, cc.v2(25, -251), cc.v2(25, -251 + 350), arrPos[i]).start()
+        //     }, i * 0.15)
 
-        }
+        // }
         this.scheduleOnce(() => {
             this.checkSuccess()
         }, 0.5 + 0.15 * 3)
@@ -427,21 +428,23 @@ export default class NewClass extends cc.Component {
         this.unschedule(this.checkHind)
 
         this.btnDauPhu.getComponent(cc.Button).enabled = false
-        this.listHand.children[1].active = false
+        this.listHand.children[4].active = false
         this.listTick.children[2].active = true
 
-        let arrPos = [cc.v2(26, -32), cc.v2(3, -59), cc.v2(47, -55)]
-        for (let i = 0; i < 3; i++) {
-            this.scheduleOnce(() => {
-                let preTom = cc.instantiate(this.preTofu);
-                preTom.position = cc.v3(180, -256);
-                preTom.parent = this.plateList
-                this.arrTofu.push(preTom)
+        // let arrPos = [cc.v2(26, -32), cc.v2(3, -59), cc.v2(47, -55)]
+        // for (let i = 0; i < 3; i++) {
+        //     this.scheduleOnce(() => {
+        //         let preTom = cc.instantiate(this.preTofu);
+        //         preTom.position = cc.v3(180, -256);
+        //         preTom.parent = this.plateList
+        //         this.arrTofu.push(preTom)
 
-                cc.tween(preTom).bezierTo(0.5, cc.v2(180, -256), cc.v2(180, -256 + 350), arrPos[i]).start()
-            }, i * 0.15)
+        //         cc.tween(preTom).bezierTo(0.5, cc.v2(180, -256), cc.v2(180, -256 + 350), arrPos[i]).start()
+        //     }, i * 0.15)
 
-        }
+        // }
+        this.arrTom[2].getComponent(cc.Animation).play()
+        this.arrTom[2].children[5].active = true
         this.scheduleOnce(() => {
             this.checkSuccess()
         }, 0.5 + 0.15 * 3)
@@ -487,7 +490,7 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
         this.btnSauce.getComponent(cc.Button).enabled = false;
-        this.listHand.children[4].active = false
+        this.listHand.children[1].active = false
         let startPos = cc.v2(300, 2)
         let endpos = cc.v2(1.5, 67);
         let preSauce = cc.instantiate(this.preSauce)
@@ -518,7 +521,8 @@ export default class NewClass extends cc.Component {
         }
     }
     checkHind() {
-        if (this.msTofu == false) {
+
+        if (this.msSauces == false) {
             this.listHand.children[1].active = true
             return;
         }
@@ -530,10 +534,11 @@ export default class NewClass extends cc.Component {
             this.listHand.children[3].active = true
             return;
         }
-        if (this.msSauces == false) {
+        if (this.msTofu == false) {
             this.listHand.children[4].active = true
             return;
         }
+
     }
     idFoot = null
     btn_plate() {
@@ -559,52 +564,26 @@ export default class NewClass extends cc.Component {
 
     }
     transItem() {
-        let arrPosDau = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position]
-        let arrPosTofu = [this.listItemNoi.children[4].position, this.listItemNoi.children[3].position, this.listItemNoi.children[5].position]
-        let arrPosHanh = [this.listItemNoi.children[6].position, this.listItemNoi.children[7].position, this.listItemNoi.children[8].position]
-        let arrPosTom = [this.listItemNoi.children[9].position, this.listItemNoi.children[10].position, this.listItemNoi.children[11].position]
+        // let arrPosDau = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position]
+        // let arrPosTofu = [this.listItemNoi.children[4].position, this.listItemNoi.children[3].position, this.listItemNoi.children[5].position]
+        // let arrPosHanh = [this.listItemNoi.children[6].position, this.listItemNoi.children[7].position, this.listItemNoi.children[8].position]
+        let arrPosTom = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position]
 
         for (let i = 0; i < 3; i++) {
             this.scheduleOnce(() => {
                 let item1 = this.arrTom[i];
-                let item2 = this.arrDau[i];
-                let item3 = this.arrHanh[i];
-                let item4 = this.arrTofu[i];
+
                 let pos1 = arrPosTom[i];
                 pos1 = this.listItemNoi.convertToWorldSpaceAR(pos1)
                 pos1 = item1.parent.convertToNodeSpaceAR(pos1);
-                let pos2 = arrPosTofu[i];
-                pos2 = this.listItemNoi.convertToWorldSpaceAR(pos2)
-                pos2 = item4.parent.convertToNodeSpaceAR(pos2);
-                let pos3 = arrPosHanh[i];
-                pos3 = this.listItemNoi.convertToWorldSpaceAR(pos3)
-                pos3 = item3.parent.convertToNodeSpaceAR(pos3);
-                let pos4 = arrPosDau[i];
-                pos4 = this.listItemNoi.convertToWorldSpaceAR(pos4)
-                pos4 = item2.parent.convertToNodeSpaceAR(pos4);
+
                 cc.tween(item1).bezierTo(0.6, cc.v2(item1.x, item1.y), cc.v2(item1.x, item1.y + 400), cc.v3(pos1.x, pos1.y)).call(() => {
                     item1.active = false
-                    this.listItemNoi.children[i + 9].active = true
-                    cc.tween(this.listItemNoi.children[i + 9].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start()
-
-                }).start()
-                cc.tween(item2).bezierTo(0.6, cc.v2(item2.x, item2.y), cc.v2(item2.x, item2.y + 400), cc.v3(pos4.x, pos4.y)).call(() => {
-                    item2.active = false
                     this.listItemNoi.children[i].active = true
-                }).start()
-                cc.tween(item3).bezierTo(0.6, cc.v2(item2.x, item2.y), cc.v2(item2.x, item2.y + 400), cc.v3(pos3.x, pos3.y)).call(() => {
-                    item3.active = false
-                    this.listItemNoi.children[i + 6].active = true
+                    cc.tween(this.listItemNoi.children[i].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start()
 
                 }).start()
-                cc.tween(item4).bezierTo(0.6, cc.v2(item2.x, item2.y), cc.v2(item2.x, item2.y + 400), cc.v3(pos2.x, pos2.y)).call(() => {
-                    item4.active = false
-                    this.listItemNoi.children[i + 3].active = true
 
-                }).start()
-                cc.tween(this.arrSauce).bezierTo(0.6, cc.v2(this.arrSauce.x, this.arrSauce.y), cc.v2(this.arrSauce.x, this.arrSauce.y + 400), cc.v3(pos1.x, pos1.y)).call(() => {
-                    this.arrSauce.active = false
-                }).start()
             }, 0.1 * i)
         }
         this.scheduleOnce(() => {
@@ -617,6 +596,14 @@ export default class NewClass extends cc.Component {
 
         }, 1)
         this.scheduleOnce(() => {
+            for (let i = 0; i < 3; i++) {
+
+                let item1 = this.listItemNoi.children[i];
+                item1.active = false
+
+
+
+            }
             cc.audioEngine.play(this.soundSellDone, false, 1)
             this.cus1.active = false
             cc.audioEngine.stop(this.isSOundNau)
