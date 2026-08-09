@@ -215,7 +215,7 @@ var NewClass = /** @class */ (function (_super) {
         // this.camera.node.position = cc.v3(0 + this.magfront, 120)
         this.scheduleOnce(function () {
             cc.tween(_this.camera).to(0.5, { zoomRatio: 0.75 }).start();
-            cc.tween(_this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292) }).start();
+            cc.tween(_this.camera.node).to(0.5, { position: cc.v3(3352.393 + 50, -1228.292) }).start();
             // cc.tween(this.camera).to(0.5, { zoomRatio: 0.75 }).start()
             cc.tween(_this.cameraDoc.node).to(0.5, { position: cc.v3(3352.393 + 300, -1228.292) }).start();
         }, 1.5);
@@ -230,12 +230,13 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         globalThis.coin -= 500;
         this.firstCus.children[1].getComponent(cc.Button).enabled = false;
-        cc.tween(this.camera.node).to(0.7, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start();
+        cc.tween(this.camera.node).to(0.7, { position: cc.v3(3352.393 + 50, -1228.292 + 1500) }).start();
         cc.tween(this.cameraDoc.node).to(0.7, { position: cc.v3(3352.393 + 300, -1228.292 + 1000) }).start();
         this.scheduleOnce(function () {
             cc.audioEngine.play(_this.soundOk, false, 1);
             _this.firstCus.children[1].active = false;
             _this.firstCus.children[2].active = false;
+            _this.logo.active = true;
             _this.scheduleOnce(function () {
                 _this.ray.active = true;
                 _this.rayAnim.active = true;
@@ -344,7 +345,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveScene2 = function () {
         var _this = this;
         this.scheduleOnce(function () {
-            cc.tween(_this.camera.node).to(1.2, { position: cc.v3(3352.393 - 2000, -1228.292 + 1500) }).start();
+            cc.tween(_this.camera.node).to(1.2, { position: cc.v3(3352.393 - 2000 + 100, -1228.292 + 1500) }).start();
             cc.tween(_this.cameraDoc.node).to(1.2, { position: cc.v3(3352.393 - 1700, -1228.292 + 1000) }).start();
         }, 3);
         this.scheduleOnce(function () {
@@ -392,7 +393,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.moveScene3 = function () {
         var _this = this;
-        cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292) }).start();
+        cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 + 100, -1228.292) }).start();
         cc.tween(this.cameraDoc.node).to(2, { position: cc.v3(3352.393 - 1750, -1228.292) }).start();
         var anim = this.chef3.children[0].getComponent(sp.Skeleton);
         anim.setAnimation(0, "Walk", true);
@@ -432,17 +433,19 @@ var NewClass = /** @class */ (function (_super) {
             var anim = _this.chef3.children[0].getComponent(sp.Skeleton);
             anim.setAnimation(0, "Walk", true);
             _this.idFoot = cc.audioEngine.play(_this.soundFoot, false, 0.5);
-            cc.tween(_this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start();
+            cc.tween(_this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000 + 100, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start();
             cc.tween(_this.cameraDoc.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start();
             cc.tween(_this.chef3).to(2, { position: cc.v3(-463 + 200, -1559) }).call(function () {
                 _this.cusban.children[2].active = true;
                 palete.children[3].active = false;
                 _this.cusban.children[1].active = true;
                 _this.cusban.children[0].active = false;
+                cc.audioEngine.play(_this.soundSellDone, false, 1);
                 globalThis.coin += 500;
                 // cc.audioEngine.stop(this.idFoot)
                 _this.chef3.scaleX = -1;
             }).to(2, { position: cc.v3(-235, -615) }).call(function () {
+                cc.audioEngine.play(_this.soundSellDone, false, 1);
                 _this.chef3.scaleX = 1;
                 _this.cusban.children[3].active = true;
                 _this.cusban.children[4].active = true;

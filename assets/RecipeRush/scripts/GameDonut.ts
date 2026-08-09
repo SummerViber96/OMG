@@ -258,7 +258,7 @@ export default class NewClass extends cc.Component {
         // this.camera.node.position = cc.v3(0 + this.magfront, 120)
         this.scheduleOnce(() => {
             cc.tween(this.camera).to(0.5, { zoomRatio: 0.75 }).start()
-            cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393 - 50, -1228.292) }).start()
+            cc.tween(this.camera.node).to(0.5, { position: cc.v3(3352.393+50, -1228.292) }).start()
             // cc.tween(this.camera).to(0.5, { zoomRatio: 0.75 }).start()
             cc.tween(this.cameraDoc.node).to(0.5, { position: cc.v3(3352.393 + 300, -1228.292) }).start()
 
@@ -276,7 +276,7 @@ export default class NewClass extends cc.Component {
     btn_addRay(evnt) {
         globalThis.coin -= 500
         this.firstCus.children[1].getComponent(cc.Button).enabled = false
-        cc.tween(this.camera.node).to(0.7, { position: cc.v3(3352.393 - 50, -1228.292 + 1500) }).start()
+        cc.tween(this.camera.node).to(0.7, { position: cc.v3(3352.393 +50, -1228.292 + 1500) }).start()
         cc.tween(this.cameraDoc.node).to(0.7, { position: cc.v3(3352.393 + 300, -1228.292 + 1000) }).start()
 
         this.scheduleOnce(() => {
@@ -284,7 +284,7 @@ export default class NewClass extends cc.Component {
 
             this.firstCus.children[1].active = false;
             this.firstCus.children[2].active = false;
-
+this.logo.active=true
             this.scheduleOnce(() => {
                 this.ray.active = true;
                 this.rayAnim.active = true;
@@ -407,7 +407,7 @@ export default class NewClass extends cc.Component {
     }
     moveScene2() {
         this.scheduleOnce(() => {
-            cc.tween(this.camera.node).to(1.2, { position: cc.v3(3352.393 - 2000, -1228.292 + 1500) }).start()
+            cc.tween(this.camera.node).to(1.2, { position: cc.v3(3352.393 - 2000+100, -1228.292 + 1500) }).start()
             cc.tween(this.cameraDoc.node).to(1.2, { position: cc.v3(3352.393 - 1700, -1228.292 + 1000) }).start()
 
         }, 3)
@@ -462,7 +462,7 @@ export default class NewClass extends cc.Component {
         }
     }
     moveScene3() {
-        cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000, -1228.292) }).start()
+        cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000+100, -1228.292) }).start()
         cc.tween(this.cameraDoc.node).to(2, { position: cc.v3(3352.393 - 1750, -1228.292) }).start()
 
         let anim = this.chef3.children[0].getComponent(sp.Skeleton)
@@ -502,7 +502,7 @@ export default class NewClass extends cc.Component {
             let anim = this.chef3.children[0].getComponent(sp.Skeleton)
             anim.setAnimation(0, "Walk", true);
             this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5)
-            cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start()
+            cc.tween(this.camera.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000+100, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start()
             cc.tween(this.cameraDoc.node).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292) }).to(2, { position: cc.v3(3352.393 - 2000 - 2000, -1228.292 + 1000) }).start()
 
             cc.tween(this.chef3).to(2, { position: cc.v3(-463 + 200, -1559) }).call(() => {
@@ -510,10 +510,13 @@ export default class NewClass extends cc.Component {
                 palete.children[3].active = false
                 this.cusban.children[1].active = true
                 this.cusban.children[0].active = false
+                cc.audioEngine.play(this.soundSellDone, false, 1)
                 globalThis.coin += 500
                 // cc.audioEngine.stop(this.idFoot)
                 this.chef3.scaleX = -1
             }).to(2, { position: cc.v3(-235, -615) }).call(() => {
+                cc.audioEngine.play(this.soundSellDone, false, 1)
+
                 this.chef3.scaleX = 1
                 this.cusban.children[3].active = true
                 this.cusban.children[4].active = true
