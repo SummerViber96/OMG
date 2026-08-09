@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Raw_Fried",
+    "texture": "ecf8772f-46be-421a-8736-121fa633e0ef",
+    "atlas": "",
+    "rect": [
+      76,
+      37,
+      226,
+      190
+    ],
+    "offset": [
+      -3,
+      -4
+    ],
+    "originalSize": [
+      384,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

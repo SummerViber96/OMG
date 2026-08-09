@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Donut_Final_Dish",
+    "texture": "73d3cd4a-c662-48d5-ae30-156755870ef3",
+    "atlas": "",
+    "rect": [
+      22,
+      27,
+      227,
+      186
+    ],
+    "offset": [
+      4,
+      -11
+    ],
+    "originalSize": [
+      263,
+      218
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

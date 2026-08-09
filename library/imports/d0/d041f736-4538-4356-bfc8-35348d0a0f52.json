@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "TicketWhite",
+    "texture": "7738907f-9e32-47bf-805a-46f94b882ed2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      593,
+      584
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      593,
+      584
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

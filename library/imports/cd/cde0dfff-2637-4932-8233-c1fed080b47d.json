@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Donut_Chocolate_Topping",
+    "texture": "4ac8ad22-4be1-4cc7-82d9-b4c7dde96389",
+    "atlas": "",
+    "rect": [
+      87,
+      34,
+      211,
+      193
+    ],
+    "offset": [
+      0.5,
+      -2.5
+    ],
+    "originalSize": [
+      384,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Sprnklers",
+    "texture": "1a9b0a8c-93b0-4cf9-b57c-9d2a4696855b",
+    "atlas": "",
+    "rect": [
+      30,
+      32,
+      211,
+      208
+    ],
+    "offset": [
+      0.5,
+      -1
+    ],
+    "originalSize": [
+      270,
+      270
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

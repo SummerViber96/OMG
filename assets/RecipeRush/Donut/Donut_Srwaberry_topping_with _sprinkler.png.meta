@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "0156e1a8-f9e5-40de-bae7-c7cfaf4fd961",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 384,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "Donut_Srwaberry_topping_with _sprinkler": {
+      "ver": "1.0.4",
+      "uuid": "25ac13f5-bc99-44a8-b004-80e4ffd09d33",
+      "rawTextureUuid": "0156e1a8-f9e5-40de-bae7-c7cfaf4fd961",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1.5,
+      "offsetY": 0,
+      "trimX": 81,
+      "trimY": 34,
+      "width": 219,
+      "height": 188,
+      "rawWidth": 384,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

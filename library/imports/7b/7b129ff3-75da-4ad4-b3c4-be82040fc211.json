@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "TicketMenu",
+    "texture": "ae168dc4-ee7d-4dcf-83f6-8a07dbd02ea0",
+    "atlas": "",
+    "rect": [
+      74,
+      64,
+      593,
+      1462
+    ],
+    "offset": [
+      -0.5,
+      -7
+    ],
+    "originalSize": [
+      742,
+      1576
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

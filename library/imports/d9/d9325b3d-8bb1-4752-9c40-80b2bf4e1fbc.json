@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Choco_chip",
+    "texture": "e8c7d208-e8e5-4c07-a37a-791d09099551",
+    "atlas": "",
+    "rect": [
+      30,
+      32,
+      211,
+      208
+    ],
+    "offset": [
+      0.5,
+      -1
+    ],
+    "originalSize": [
+      270,
+      270
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

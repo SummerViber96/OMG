@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Final_Dish",
+    "texture": "c8a1d6ba-d3ee-424b-aa3b-6393f4fffb65",
+    "atlas": "",
+    "rect": [
+      23,
+      50,
+      225,
+      175
+    ],
+    "offset": [
+      0.5,
+      -2.5
+    ],
+    "originalSize": [
+      270,
+      270
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

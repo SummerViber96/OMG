@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Raw_Donut_Station",
+    "texture": "ffad5782-048d-4edc-85f8-44217ff353bb",
+    "atlas": "",
+    "rect": [
+      0,
+      49,
+      1024,
+      1478
+    ],
+    "offset": [
+      0,
+      -20
+    ],
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Donut_Srwaberry_topping_with _sprinkler",
+    "texture": "0156e1a8-f9e5-40de-bae7-c7cfaf4fd961",
+    "atlas": "",
+    "rect": [
+      81,
+      34,
+      219,
+      188
+    ],
+    "offset": [
+      -1.5,
+      0
+    ],
+    "originalSize": [
+      384,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

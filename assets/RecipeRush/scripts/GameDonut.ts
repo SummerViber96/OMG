@@ -305,6 +305,90 @@ export default class NewClass extends cc.Component {
             this.checkHind()
         }, 1)
     }
+    //
+    btn_donnut() {
+        if (this.isShowMenu == false) return
+        cc.audioEngine.play(this.soundClick, false, 1)
+        this.unschedule(this.checkHind)
+
+        this.msTom = true
+        this.btnTo.getComponent(cc.Button).enabled = false
+        this.listHand.children[0].active = false
+        let arrPos = [cc.v2(-22, 43), cc.v2(52, 9), cc.v2(-42, -24)]
+        for (let i = 0; i < 3; i++) {
+            this.scheduleOnce(() => {
+                let preTom = cc.instantiate(this.preTom);
+                preTom.position = cc.v3(-334, -29);
+                preTom.parent = this.plateList
+                this.arrTom.push(preTom)
+                cc.tween(preTom).bezierTo(0.5, cc.v2(-334, -29), cc.v2(-334, -29 + 300), arrPos[i]).start()
+            }, i * 0.15)
+
+        }
+        this.scheduleOnce(() => {
+            this.checkSuccess()
+        }, 0.5 + 0.15 * 3)
+        this.scheduleOnce(() => {
+            this.checkHind()
+        }, 1)
+    }
+    btn_dauTay() {
+        if (this.isShowMenu == false) return
+
+        cc.audioEngine.play(this.soundClick, false, 1)
+        this.unschedule(this.checkHind)
+
+        this.msDau = true
+        this.btnDau.getComponent(cc.Button).enabled = false;
+        this.listHand.children[3].active = false
+        this.listTick.children[0].active = true
+        let arrPos = [cc.v2(83, -36), cc.v2(51, -54), cc.v2(16, -62)]
+        let arrAngle = [0, 0, 0]
+        for (let i = 0; i < 3; i++) {
+            this.scheduleOnce(() => {
+                let preTom = cc.instantiate(this.preDau);
+                preTom.position = cc.v3(-134, -245);
+                preTom.parent = this.plateList
+                this.arrDau.push(preTom)
+
+                cc.tween(preTom).bezierTo(0.5, cc.v2(-134, -245), cc.v2(-134, -245 + 350), arrPos[i]).start()
+                cc.tween(preTom).to(0.5, { angle: arrAngle[i] }).start()
+            }, i * 0.15)
+
+        }
+        this.scheduleOnce(() => {
+            this.checkSuccess()
+        }, 0.5 + 0.15 * 3)
+        this.scheduleOnce(() => {
+            this.checkHind()
+        }, 2)
+    }
+    btn_sauceDauTay() {
+        if (this.isShowMenu == false) return
+
+        cc.audioEngine.play(this.soundClick, false, 1)
+        this.unschedule(this.checkHind)
+        this.btnSauce.getComponent(cc.Button).enabled = false;
+        this.listHand.children[4].active = false
+        let startPos = cc.v2(300, 2)
+        let endpos = cc.v2(1.5, 67);
+        let preSauce = cc.instantiate(this.preSauce)
+        preSauce.position = cc.v3(startPos.x, startPos.y);
+        preSauce.parent = this.plateList
+        this.arrSauce = preSauce;
+        cc.tween(preSauce).bezierTo(0.5, startPos, cc.v2(startPos.x, startPos.y + 300), endpos).start()
+        this.msSauces = true
+
+        this.scheduleOnce(() => {
+            this.isSauceFinal = true
+            this.checkSuccess()
+        }, 0.5)
+        this.scheduleOnce(() => {
+            this.checkHind()
+        }, 2)
+    }
+
+
     btn_hanh() {
         if (this.isShowMenu == false) return
 
