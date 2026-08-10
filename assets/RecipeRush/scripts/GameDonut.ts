@@ -173,6 +173,8 @@ export default class NewClass extends cc.Component {
     listCus2: cc.Node = null
     @property(cc.Node)
     failUi: cc.Node = null
+    @property(cc.Node)
+    listItemPlate2: cc.Node = null
     mcComp = null
 
     // @property(cc.Node)
@@ -279,37 +281,37 @@ export default class NewClass extends cc.Component {
     arrDau = [];
     arrTofu = [];
     arrSauce = null
-    btn_tom() {
-        if (this.isShowMenu == false) return
-        cc.audioEngine.play(this.soundClick, false, 1)
-        this.unschedule(this.checkHind)
+    // btn_tom() {
+    //     if (this.isShowMenu == false) return
+    //     cc.audioEngine.play(this.soundClick, false, 1)
+    //     this.unschedule(this.checkHind)
+    //     this.msTom = true
+    //     this.btnTo.getComponent(cc.Button).enabled = false
+    //     this.listHand.children[0].active = false
+    //     let arrPos = [cc.v2(-75, -24), cc.v2(-64, 19), cc.v2(-44, -3)]
+    //     for (let i = 0; i < 3; i++) {
+    //         this.scheduleOnce(() => {
+    //             let preTom = cc.instantiate(this.preTom);
+    //             preTom.position = cc.v3(-334, -29);
+    //             preTom.parent = this.plateList
+    //             this.arrTom.push(preTom)
+    //             cc.tween(preTom).bezierTo(0.5, cc.v2(-334, -29), cc.v2(-334, -29 + 300), arrPos[i]).start()
+    //         }, i * 0.15)
 
-        this.msTom = true
-        this.btnTo.getComponent(cc.Button).enabled = false
-        this.listHand.children[0].active = false
-        let arrPos = [cc.v2(-75, -24), cc.v2(-64, 19), cc.v2(-44, -3)]
-        for (let i = 0; i < 3; i++) {
-            this.scheduleOnce(() => {
-                let preTom = cc.instantiate(this.preTom);
-                preTom.position = cc.v3(-334, -29);
-                preTom.parent = this.plateList
-                this.arrTom.push(preTom)
-                cc.tween(preTom).bezierTo(0.5, cc.v2(-334, -29), cc.v2(-334, -29 + 300), arrPos[i]).start()
-            }, i * 0.15)
-
-        }
-        this.scheduleOnce(() => {
-            this.checkSuccess()
-        }, 0.5 + 0.15 * 3)
-        this.scheduleOnce(() => {
-            this.checkHind()
-        }, 1)
-    }
+    //     }
+    //     this.scheduleOnce(() => {
+    //         this.checkSuccess()
+    //     }, 0.5 + 0.15 * 3)
+    //     this.scheduleOnce(() => {
+    //         this.checkHind()
+    //     }, 1)
+    // }
     //
     btn_donnut() {
         if (this.isShowMenu == false) return
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
+        this.isStep = 1
 
         this.msTom = true
         this.btnTo.getComponent(cc.Button).enabled = false
@@ -333,8 +335,12 @@ export default class NewClass extends cc.Component {
         }, 1)
     }
     btn_dauTay() {
+        if (this.isStep != 4) {
+            this.btnDau.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5)
+            return;
+        }
         if (this.isShowMenu == false) return
-
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
 
@@ -348,7 +354,7 @@ export default class NewClass extends cc.Component {
             this.scheduleOnce(() => {
                 let preTom = cc.instantiate(this.preDau);
                 preTom.position = cc.v3(-134, -245);
-                preTom.parent = this.plateList
+                preTom.parent = this.listItemPlate2
                 this.arrDau.push(preTom)
 
                 cc.tween(preTom).bezierTo(0.5, cc.v2(-134, -245), cc.v2(-134, -245 + 350), arrPos[i]).start()
@@ -357,70 +363,90 @@ export default class NewClass extends cc.Component {
 
         }
         this.scheduleOnce(() => {
-            this.checkSuccess()
-        }, 0.5 + 0.15 * 3)
-        this.scheduleOnce(() => {
-            this.checkHind()
-        }, 2)
+            this.plate.getChildByName("hand").active = true
+            this.plate.getComponent(cc.Button).enabled = true
+            this.isStep = 5
+        }, 0.3)
+
     }
     btn_sauceDauTay() {
         if (this.isShowMenu == false) return
 
+        if (this.isStep != 2) {
+            this.btnSauce.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5)
+            return;
+        }
+        // if (this.isStep != 2) return;
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
         this.btnSauce.getComponent(cc.Button).enabled = false;
         this.listHand.children[1].active = false
         // let startPos = cc.v2(300, 2)
         // let endpos = cc.v2(1.5, 67);
+        this.listTick.children[1].active = true
 
         // this.arrSauce = preSauce;
-        for (let i = 0; i < this.arrTom.length; i++) {
-            this.arrTom[i].children[2 + i].active = true
-            this.arrTom[i].getComponent(cc.Animation).play()
+        for (let i = 0; i < this.listItemPlate2.childrenCount; i++) {
+            let child = this.listItemPlate2.children[i]
+
+
+            child.children[2 + i].active = true
+            child.getComponent(cc.Animation).play()
         }
         this.msSauces = true
+        this.scheduleOnce(() => {
+            this.listHand.children[4].active = true
+            this.isStep = 3;
 
-        this.scheduleOnce(() => {
-            this.isSauceFinal = true
-            this.checkSuccess()
-        }, 0.1)
-        this.scheduleOnce(() => {
-            this.checkHind()
-        }, 2)
+        }, 0.6)
+        // this.scheduleOnce(() => {
+        //     this.plate.getChildByName("hand").active = true
+        //     this.plate.getComponent(cc.Button).enabled = true
+        // }, 0.3)
+        // this.scheduleOnce(() => {
+        //     this.isSauceFinal = true
+        //     this.checkSuccess()
+        // }, 0.1)
+        // this.scheduleOnce(() => {
+        //     this.checkHind()
+        // }, 2)
     }
 
 
     btn_hanh() {
-        if (this.isShowMenu == false) return
 
-        cc.audioEngine.play(this.soundClick, false, 1)
-        this.unschedule(this.checkHind)
+        this.btnHanh.getChildByName("hindBox").getComponent(cc.Animation).play();
+        cc.audioEngine.play(this.soundWrong, false, 0.5)
+        return;
 
-        this.msHanh = true;
-        this.btnHanh.getComponent(cc.Button).enabled = false
-        this.listHand.children[2].active = false
-        this.listTick.children[1].active = true
+        // if (this.isShowMenu == false) return
 
-        // let arrPos = [cc.v2(61, 41), cc.v2(80, 10), cc.v2(37, 13)]
-        // for (let i = 0; i < 3; i++) {
-        //     this.scheduleOnce(() => {
-        //         let preTom = cc.instantiate(this.preHanh);
-        //         preTom.position = cc.v3(25, -251);
-        //         preTom.parent = this.plateList
-        //         this.arrHanh.push(preTom)
+        // cc.audioEngine.play(this.soundClick, false, 1)
+        // this.unschedule(this.checkHind)
 
-        //         cc.tween(preTom).bezierTo(0.5, cc.v2(25, -251), cc.v2(25, -251 + 350), arrPos[i]).start()
-        //     }, i * 0.15)
+        // this.msHanh = true;
+        // this.btnHanh.getComponent(cc.Button).enabled = false
+        // this.listHand.children[2].active = false
+        // this.listTick.children[1].active = true
 
-        // }
-        this.scheduleOnce(() => {
-            this.checkSuccess()
-        }, 0.5 + 0.15 * 3)
-        this.scheduleOnce(() => {
-            this.checkHind()
-        }, 2)
+
+        // this.scheduleOnce(() => {
+        //     this.checkSuccess()
+        // }, 0.5 + 0.15 * 3)
+        // this.scheduleOnce(() => {
+        //     this.checkHind()
+        // }, 2)
     }
     btn_dauPhu() {
+        // if (this.isStep != 3) return;
+
+        if (this.isStep != 3) {
+            this.btnDauPhu.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5)
+            return;
+        }
+
         if (this.isShowMenu == false) return
 
         this.msTofu = true;
@@ -430,29 +456,31 @@ export default class NewClass extends cc.Component {
         this.btnDauPhu.getComponent(cc.Button).enabled = false
         this.listHand.children[4].active = false
         this.listTick.children[2].active = true
+        this.listItemPlate2.children[2].children[5].active = true;
+        this.listItemPlate2.children[2].getComponent(cc.Animation).play()
 
-        // let arrPos = [cc.v2(26, -32), cc.v2(3, -59), cc.v2(47, -55)]
-        // for (let i = 0; i < 3; i++) {
-        //     this.scheduleOnce(() => {
-        //         let preTom = cc.instantiate(this.preTofu);
-        //         preTom.position = cc.v3(180, -256);
-        //         preTom.parent = this.plateList
-        //         this.arrTofu.push(preTom)
 
-        //         cc.tween(preTom).bezierTo(0.5, cc.v2(180, -256), cc.v2(180, -256 + 350), arrPos[i]).start()
-        //     }, i * 0.15)
 
-        // }
-        this.arrTom[2].getComponent(cc.Animation).play()
-        this.arrTom[2].children[5].active = true
+        // this.arrTom[2].getComponent(cc.Animation).play()
+        // this.arrTom[2].children[5].active = true
+        // this.scheduleOnce(() => {
+        //     this.checkSuccess()
+        // }, 0.5 + 0.15 * 3)
+        // this.scheduleOnce(() => {
+        //     this.checkHind()
+        // }, 2)
         this.scheduleOnce(() => {
-            this.checkSuccess()
-        }, 0.5 + 0.15 * 3)
-        this.scheduleOnce(() => {
-            this.checkHind()
-        }, 2)
+            this.listHand.children[3].active = true;
+            this.isStep = 4
+        }, 0.3)
     }
     btn_dau() {
+        // if (this.isStep != 4) return;
+        if (this.isStep != 4) {
+            this.btnDau.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5)
+            return;
+        }
         if (this.isShowMenu == false) return
 
         cc.audioEngine.play(this.soundClick, false, 1)
@@ -468,7 +496,7 @@ export default class NewClass extends cc.Component {
             this.scheduleOnce(() => {
                 let preTom = cc.instantiate(this.preDau);
                 preTom.position = cc.v3(-134, -245);
-                preTom.parent = this.plateList
+                preTom.parent = this.listItemPlate2
                 this.arrDau.push(preTom)
 
                 cc.tween(preTom).bezierTo(0.5, cc.v2(-134, -245), cc.v2(-134, -245 + 350), arrPos[i]).start()
@@ -476,38 +504,39 @@ export default class NewClass extends cc.Component {
             }, i * 0.15)
 
         }
-        this.scheduleOnce(() => {
-            this.checkSuccess()
-        }, 0.5 + 0.15 * 3)
-        this.scheduleOnce(() => {
-            this.checkHind()
-        }, 2)
+
+        // this.scheduleOnce(() => {
+        //     this.checkSuccess()
+        // }, 0.5 + 0.15 * 3)
+        // this.scheduleOnce(() => {
+        //     this.checkHind()
+        // }, 2)
     }
     isSauceFinal = false
-    btn_sauce() {
-        if (this.isShowMenu == false) return
+    // btn_sauce() {
+    //     if (this.isShowMenu == false) return
 
-        cc.audioEngine.play(this.soundClick, false, 1)
-        this.unschedule(this.checkHind)
-        this.btnSauce.getComponent(cc.Button).enabled = false;
-        this.listHand.children[1].active = false
-        let startPos = cc.v2(300, 2)
-        let endpos = cc.v2(1.5, 67);
-        let preSauce = cc.instantiate(this.preSauce)
-        preSauce.position = cc.v3(startPos.x, startPos.y);
-        preSauce.parent = this.plateList
-        this.arrSauce = preSauce;
-        cc.tween(preSauce).bezierTo(0.5, startPos, cc.v2(startPos.x, startPos.y + 300), endpos).start()
-        this.msSauces = true
+    //     cc.audioEngine.play(this.soundClick, false, 1)
+    //     this.unschedule(this.checkHind)
+    //     this.btnSauce.getComponent(cc.Button).enabled = false;
+    //     this.listHand.children[1].active = false
+    //     let startPos = cc.v2(300, 2)
+    //     let endpos = cc.v2(1.5, 67);
+    //     let preSauce = cc.instantiate(this.preSauce)
+    //     preSauce.position = cc.v3(startPos.x, startPos.y);
+    //     preSauce.parent = this.plateList
+    //     this.arrSauce = preSauce;
+    //     cc.tween(preSauce).bezierTo(0.5, startPos, cc.v2(startPos.x, startPos.y + 300), endpos).start()
+    //     this.msSauces = true
 
-        this.scheduleOnce(() => {
-            this.isSauceFinal = true
-            this.checkSuccess()
-        }, 0.5)
-        this.scheduleOnce(() => {
-            this.checkHind()
-        }, 2)
-    }
+    //     this.scheduleOnce(() => {
+    //         this.isSauceFinal = true
+    //         this.checkSuccess()
+    //     }, 0.5)
+    //     this.scheduleOnce(() => {
+    //         this.checkHind()
+    //     }, 2)
+    // }
     checkSuccess() {
         if (this.msDau == true && this.msHanh == true && this.msSauces == true && this.msTofu == true && this.msTom == true && this.isSauceFinal) {
             this.plate.getChildByName("phaohoa").active = true;
@@ -520,8 +549,14 @@ export default class NewClass extends cc.Component {
 
         }
     }
+    msPalet1 = false
+    // isStep=0
     checkHind() {
-
+        if (this.msPalet1 == false) {
+            this.plate.getChildByName("hand").active = true
+            this.plate.getComponent(cc.Button).enabled = true
+            return
+        }
         if (this.msSauces == false) {
             this.listHand.children[1].active = true
             return;
@@ -548,183 +583,235 @@ export default class NewClass extends cc.Component {
         this.listHand.children[5].opacity = 0
         let chefANim = this.chef2.children[0].getComponent(sp.Skeleton)
         chefANim.setAnimation(0, "L-arm", true)
+        this.plate.getChildByName("hand").active = false
         this.plate.parent = this.chef2;
         this.plate.position = cc.v3(217, 482)
         this.plate.children[0].active = false
         cc.audioEngine.play(this.soundFoot, false, 0.5)
-        cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start()
-        cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start()
+        this.chef2.scaleX = 1
+        if (this.isStep == 1) {
 
-        cc.tween(this.chef2).to(1.5, { position: cc.v3(1231, -219) }).call(() => {
-            chefANim.setAnimation(1, "Idle", true);
-            cc.audioEngine.stop(this.idFoot)
-            this.transItem()
-        }).start()
-        chefANim.setAnimation(1, "Walk", true);
+            cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start()
+            cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start()
+
+            cc.tween(this.chef2).to(1.5, { position: cc.v3(1231, -219) }).call(() => {
+                chefANim.setAnimation(1, "Idle", true);
+                cc.audioEngine.stop(this.idFoot)
+                this.transItem()
+            }).start()
+            chefANim.setAnimation(1, "Walk", true);
+
+        }
+        else if (this.isStep == 5) {
+            cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, -200) }).start()
+            cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, -200) }).start()
+            this.chef3.active = true
+            cc.tween(this.chef2).to(1.5, { position: cc.v3(1231, -595.15) }).call(() => {
+                chefANim.setAnimation(1, "Idle", true);
+                chefANim.setAnimation(0, "Idle", true);
+
+                cc.audioEngine.stop(this.idFoot)
+                // this.transItem()
+                this.transItem()
+            }).start()
+            chefANim.setAnimation(1, "Walk", true);
+        }
 
     }
     transItem() {
-        // let arrPosDau = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position]
-        // let arrPosTofu = [this.listItemNoi.children[4].position, this.listItemNoi.children[3].position, this.listItemNoi.children[5].position]
-        // let arrPosHanh = [this.listItemNoi.children[6].position, this.listItemNoi.children[7].position, this.listItemNoi.children[8].position]
-        let arrPosTom = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position]
+        console.log(this.isStep)
+        if (this.isStep == 1) {
+            let arrPosTom = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position]
 
-        for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 3; i++) {
+                this.scheduleOnce(() => {
+                    let item1 = this.arrTom[i];
+
+                    let pos1 = arrPosTom[i];
+                    pos1 = this.listItemNoi.convertToWorldSpaceAR(pos1)
+                    pos1 = item1.parent.convertToNodeSpaceAR(pos1);
+
+                    cc.tween(item1).bezierTo(0.6, cc.v2(item1.x, item1.y), cc.v2(item1.x, item1.y + 400), cc.v3(pos1.x, pos1.y)).call(() => {
+                        item1.active = false
+                        this.listItemNoi.children[i].active = true
+                        cc.tween(this.listItemNoi.children[i].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start()
+
+                    }).start()
+
+                }, 0.1 * i)
+            }
             this.scheduleOnce(() => {
-                let item1 = this.arrTom[i];
+                let chefANim = this.chef2.children[0].getComponent(sp.Skeleton)
+                this.plate.active = false
+                chefANim.setAnimation(0, "Idle", true);
+                this.noiSup.getComponent("cooking").setOn()
+                this.isSOundNau = cc.audioEngine.play(this.soundCreamMini, false, 1)
+            }, 1)
+            this.scheduleOnce(() => {
+                for (let i = 0; i < 3; i++) {
 
-                let pos1 = arrPosTom[i];
-                pos1 = this.listItemNoi.convertToWorldSpaceAR(pos1)
-                pos1 = item1.parent.convertToNodeSpaceAR(pos1);
-
-                cc.tween(item1).bezierTo(0.6, cc.v2(item1.x, item1.y), cc.v2(item1.x, item1.y + 400), cc.v3(pos1.x, pos1.y)).call(() => {
+                    let item1 = this.listItemNoi.children[i];
                     item1.active = false
-                    this.listItemNoi.children[i].active = true
-                    cc.tween(this.listItemNoi.children[i].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start()
+                }
+                cc.audioEngine.play(this.soundSellDone, false, 1)
+                this.cus1.active = false
+                cc.audioEngine.stop(this.isSOundNau)
+                this.plate = this.chef2.getChildByName("plate2")
+                this.plate.active = true;
+                // let plate2 = this.chef2.getChildByName("plate2")
+                let chefANim = this.chef2.children[0].getComponent(sp.Skeleton)
+                chefANim.setAnimation(1, "Walk", true);
+                chefANim.setAnimation(0, "L-arm", true)
+                this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5)
+                cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start()
+                cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start()
 
+                cc.tween(this.camera.node).to(1.5, { position: cc.v3(1750 + this.mag, -200.232) }).call(() => {
                 }).start()
 
-            }, 0.1 * i)
+
+                cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(2100, -200.232) }).call(() => {
+                }).start()
+
+
+
+
+                this.chef2.scaleX = -1
+                cc.tween(this.chef2).to(1.5, { position: cc.v3(2316, -595) }).call(() => {
+                    chefANim.setAnimation(1, "Idle", true);
+                    chefANim.setAnimation(0, "Idle", true);
+
+                    cc.audioEngine.stop(this.idFoot)
+                    this.plate.parent = this.chef2.parent;
+                    this.plate.position = cc.v3(2285, -351)
+                    this.isStep = 2
+                    this.listHand.children[1].active = true
+                    // this.transItem()
+                }).start()
+
+            }, 3)
         }
-        this.scheduleOnce(() => {
-            let chefANim = this.chef2.children[0].getComponent(sp.Skeleton)
-            this.plate.active = false
-            chefANim.setAnimation(0, "Idle", true);
-            this.noiSup.getComponent("cooking").setOn()
-            this.isSOundNau = cc.audioEngine.play(this.soundCreamMini, false, 1)
-            // cc.audioEngine.play(this.soun,false,1)
-
-        }, 1)
-        this.scheduleOnce(() => {
-            for (let i = 0; i < 3; i++) {
-
-                let item1 = this.listItemNoi.children[i];
-                item1.active = false
-
-
-
-            }
-            cc.audioEngine.play(this.soundSellDone, false, 1)
-            this.cus1.active = false
-            cc.audioEngine.stop(this.isSOundNau)
-            this.chef2.getChildByName("plate2").active = true;
-            let plate2 = this.chef2.getChildByName("plate2")
-            let chefANim = this.chef2.children[0].getComponent(sp.Skeleton)
-            chefANim.setAnimation(1, "Walk", true);
-            chefANim.setAnimation(0, "L-arm", true)
-            this.idFoot = cc.audioEngine.play(this.soundFoot, false, 0.5)
+        else if (this.isStep == 5) {
             this.ticket.children[0].active = true;
-            cc.tween(this.ticket).to(0.3, { scale: 2.1 }).to(0.5, { opacity: 0 }).start()
-            cc.tween(this.camera.node).by(1, { position: cc.v3(0, -600) }).start()
-            cc.tween(this.cameraDoc.node).by(1, { position: cc.v3(0, -600) }).start()
+            let plate2 = this.chef2.getChildByName("plate2")
 
-            cc.tween(this.chef2).to(1, { position: cc.v3(1392, -592) }).call(() => {
-                chefANim.setAnimation(1, "Idle", true);
-                chefANim.setAnimation(0, "Idle", true);
-                cc.audioEngine.stop(this.idFoot)
-                plate2.parent = this.node
-                plate2.position = cc.v3(1236, -382)
-            }).start()
-            cc.tween(plate2).delay(1.1).to(0.4, { position: cc.v3(1236, -550) }).call(() => {
-                this.video.node.active = true;
-                this.video.play()
-                this.chef3.active = false
+            cc.tween(this.ticket).to(0.3, { scale: 2.1 }).to(0.5, { opacity: 0 }).start()
+            cc.tween(this.camera.node).by(1, { position: cc.v3(0, -400) }).start()
+            cc.tween(this.cameraDoc.node).by(1, { position: cc.v3(0, -400) }).start()
+
+            // cc.tween(this.chef2).to(1, { position: cc.v3(1392, -592) }).call(() => {
+            //     chefANim.setAnimation(1, "Idle", true);
+            //     chefANim.setAnimation(0, "Idle", true);
+            //     cc.audioEngine.stop(this.idFoot)
+            plate2.parent = this.node
+            plate2.position = cc.v3(1236, -382)
+            let anim = this.chef3.children[0].getComponent(sp.Skeleton)
+            // }).start()
+            cc.tween(plate2).to(0.4, { position: cc.v3(1236, -550) }).call(() => {
+                plate2.active = false;
+                this.chef3.getChildByName("plate2").active = true;
+                anim.setAnimation(1, "Walk", true);
+                anim.setAnimation(0, "L-arm", true)
+                this.chef3.scaleX = 1                // this.video.node.active = true;
+                // this.video.play()
+                // this.chef3.active = false
             }).start()
             this.scheduleOnce(() => {
                 cc.audioEngine.play(this.soundDO, false, 1)
 
             }, 3.5)
-            this.scheduleOnce(() => {
-                this.video.node.scale = this.isScaleVideo
-                // this.video.node.position = cc.v3(1700, -300)
-                this.video.node.position = cc.v3(1700, -300)
+            // this.scheduleOnce(() => {
+            //     this.video.node.scale = this.isScaleVideo
+            //     // this.video.node.position = cc.v3(1700, -300)
+            //     this.video.node.position = cc.v3(1700, -300)
 
-                // this.video.node.position=
-            }, 4)
-            this.scheduleOnce(() => {
-                this.video.node.position = cc.v3(-900 + this.magVideo, -1000)
+            //     // this.video.node.position=
+            // }, 4)
+            // this.scheduleOnce(() => {
+            //     this.video.node.position = cc.v3(-900 + this.magVideo, -1000)
 
-            }, 5 - 0.3)
-            this.scheduleOnce(() => {
-                this.listCus2.active = true
-                this.camera.node.position = cc.v3(-40, 300 - 100, 0)
-                this.cameraDoc.node.position = cc.v3(-40, 300 - 100, 0)
-                this.cameraDoc.zoomRatio = 1.4
-                this.camera.zoomRatio = 0.8
-                this.video.node.active = false
+            // }, 5 - 0.3)
+            // this.scheduleOnce(() => {
+            //     this.listCus2.active = true
+            //     this.camera.node.position = cc.v3(-40, 300 - 100, 0)
+            //     this.cameraDoc.node.position = cc.v3(-40, 300 - 100, 0)
+            //     this.cameraDoc.zoomRatio = 1.4
+            //     this.camera.zoomRatio = 0.8
+            //     this.video.node.active = false
 
-                this.failUi.active = true;
-                cc.audioEngine.play(this.soundFail, false, 1)
-                this.scheduleOnce(() => {
-                    this.failUi.active = false
-                    cc.tween(this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
-                    cc.tween(this.cameraDoc.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
+            //     this.failUi.active = true;
+            //     cc.audioEngine.play(this.soundFail, false, 1)
+            //     this.scheduleOnce(() => {
+            //         this.failUi.active = false
+            //         cc.tween(this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
+            //         cc.tween(this.cameraDoc.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
 
-                    this.chef1.children[0].getComponent(sp.Skeleton).setAnimation(0, "Fail", false)
-                    cc.audioEngine.play(this.soundAngry1, false, 1)
-                    cc.audioEngine.play(this.soundAngry2, false, 1)
-                    this.scheduleOnce(() => {
-                        cc.audioEngine.play(this.soundThinkLose, false, 1)
+            //         this.chef1.children[0].getComponent(sp.Skeleton).setAnimation(0, "Fail", false)
+            //         cc.audioEngine.play(this.soundAngry1, false, 1)
+            //         cc.audioEngine.play(this.soundAngry2, false, 1)
+            //         this.scheduleOnce(() => {
+            //             cc.audioEngine.play(this.soundThinkLose, false, 1)
 
-                    }, 2)
-                    this.scheduleOnce(() => {
-                        this.onEndGame(false)
-                    }, 3)
-                }, 1.3)
+            //         }, 2)
+            //         this.scheduleOnce(() => {
+            //             this.onEndGame(false)
+            //         }, 3)
+            //     }, 1.3)
 
-            }, 5.8)
+            // }, 5.8)
 
-        }, 3)
+        }
+
     }
     isSOundNau = null
 
 
-    replaceCustomer(departedCus: cc.Node, counterPos: cc.Vec3) {
-        if (this.isEndGame) return;
-        let idx = this.arrCus.indexOf(departedCus)
+    // replaceCustomer(departedCus: cc.Node, counterPos: cc.Vec3) {
+    //     if (this.isEndGame) return;
+    //     let idx = this.arrCus.indexOf(departedCus)
 
-        let newCus = this.spawnCustomerFromPrefab()
-        if (!newCus) return
-        this.btnCake.getComponent(cc.Button).enabled = true;
-        this.btnPotato.getComponent(cc.Button).enabled = true;
-        let newCusComp = newCus.getComponent("cusMission")
-        if (newCusComp) {
-            newCusComp.gamePlay = this
-            newCusComp.isReadyForSell = false
-        }
+    //     let newCus = this.spawnCustomerFromPrefab()
+    //     if (!newCus) return
+    //     this.btnCake.getComponent(cc.Button).enabled = true;
+    //     this.btnPotato.getComponent(cc.Button).enabled = true;
+    //     let newCusComp = newCus.getComponent("cusMission")
+    //     if (newCusComp) {
+    //         newCusComp.gamePlay = this
+    //         newCusComp.isReadyForSell = false
+    //     }
 
-        if (this.sellTargetCus === departedCus || this.isTargetCus === departedCus) {
-            this.sellTargetCus = null
-            this.sellTraySlot = -1
-        }
-        this.isMoving = false
-        if (this.mcComp) {
-            this.mcComp.unscheduleAllCallbacks()
-        }
+    //     if (this.sellTargetCus === departedCus || this.isTargetCus === departedCus) {
+    //         this.sellTargetCus = null
+    //         this.sellTraySlot = -1
+    //     }
+    //     this.isMoving = false
+    //     if (this.mcComp) {
+    //         this.mcComp.unscheduleAllCallbacks()
+    //     }
 
-        if (idx >= 0) {
-            this.arrCus[idx] = newCus
-        } else {
-            this.arrCus.push(newCus)
-        }
-        departedCus.destroy()
+    //     if (idx >= 0) {
+    //         this.arrCus[idx] = newCus
+    //     } else {
+    //         this.arrCus.push(newCus)
+    //     }
+    //     departedCus.destroy()
 
-        let spawnPos = counterPos.clone().add(this.cusEnterOffset)
-        let distance = spawnPos.sub(counterPos).mag()
-        let duration = distance / this.cusWalkSpeed
+    //     let spawnPos = counterPos.clone().add(this.cusEnterOffset)
+    //     let distance = spawnPos.sub(counterPos).mag()
+    //     let duration = distance / this.cusWalkSpeed
 
-        cc.Tween.stopAllByTarget(newCus)
-        newCus.position = spawnPos
-        newCus.active = true
-        newCusComp.move()
-        cc.tween(newCus)
-            .to(duration, { position: counterPos })
-            .call(() => {
-                newCusComp.showMission()
-                this.isTargetCus = newCus
-            })
-            .start()
-    }
+    //     cc.Tween.stopAllByTarget(newCus)
+    //     newCus.position = spawnPos
+    //     newCus.active = true
+    //     newCusComp.move()
+    //     cc.tween(newCus)
+    //         .to(duration, { position: counterPos })
+    //         .call(() => {
+    //             newCusComp.showMission()
+    //             this.isTargetCus = newCus
+    //         })
+    //         .start()
+    // }
     onHind() {
         this.hind1.active = true;
     }

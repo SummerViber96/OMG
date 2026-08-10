@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hindBox",
+    "texture": "e541dc6d-753e-4a6b-b24d-968fd089d9b6",
+    "atlas": "",
+    "rect": [
+      14,
+      13,
+      244,
+      244
+    ],
+    "offset": [
+      1,
+      0
+    ],
+    "originalSize": [
+      270,
+      270
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

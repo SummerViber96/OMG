@@ -109,6 +109,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.cus1 = null;
         _this.listCus2 = null;
         _this.failUi = null;
+        _this.listItemPlate2 = null;
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -162,6 +163,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.arrTofu = [];
         _this.arrSauce = null;
         _this.isSauceFinal = false;
+        _this.msPalet1 = false;
         _this.idFoot = null;
         _this.isSOundNau = null;
         _this.isMoving = false;
@@ -223,16 +225,42 @@ var NewClass = /** @class */ (function (_super) {
             _this.isShowMenu = true;
         }, 0.4);
     };
-    NewClass.prototype.btn_tom = function () {
+    // btn_tom() {
+    //     if (this.isShowMenu == false) return
+    //     cc.audioEngine.play(this.soundClick, false, 1)
+    //     this.unschedule(this.checkHind)
+    //     this.msTom = true
+    //     this.btnTo.getComponent(cc.Button).enabled = false
+    //     this.listHand.children[0].active = false
+    //     let arrPos = [cc.v2(-75, -24), cc.v2(-64, 19), cc.v2(-44, -3)]
+    //     for (let i = 0; i < 3; i++) {
+    //         this.scheduleOnce(() => {
+    //             let preTom = cc.instantiate(this.preTom);
+    //             preTom.position = cc.v3(-334, -29);
+    //             preTom.parent = this.plateList
+    //             this.arrTom.push(preTom)
+    //             cc.tween(preTom).bezierTo(0.5, cc.v2(-334, -29), cc.v2(-334, -29 + 300), arrPos[i]).start()
+    //         }, i * 0.15)
+    //     }
+    //     this.scheduleOnce(() => {
+    //         this.checkSuccess()
+    //     }, 0.5 + 0.15 * 3)
+    //     this.scheduleOnce(() => {
+    //         this.checkHind()
+    //     }, 1)
+    // }
+    //
+    NewClass.prototype.btn_donnut = function () {
         var _this = this;
         if (this.isShowMenu == false)
             return;
         cc.audioEngine.play(this.soundClick, false, 1);
         this.unschedule(this.checkHind);
+        this.isStep = 1;
         this.msTom = true;
         this.btnTo.getComponent(cc.Button).enabled = false;
         this.listHand.children[0].active = false;
-        var arrPos = [cc.v2(-75, -24), cc.v2(-64, 19), cc.v2(-44, -3)];
+        var arrPos = [cc.v2(-22, 43), cc.v2(52, 9), cc.v2(-42, -24)];
         var _loop_1 = function (i) {
             this_1.scheduleOnce(function () {
                 var preTom = cc.instantiate(_this.preTom);
@@ -253,39 +281,13 @@ var NewClass = /** @class */ (function (_super) {
             _this.checkHind();
         }, 1);
     };
-    //
-    NewClass.prototype.btn_donnut = function () {
-        var _this = this;
-        if (this.isShowMenu == false)
-            return;
-        cc.audioEngine.play(this.soundClick, false, 1);
-        this.unschedule(this.checkHind);
-        this.msTom = true;
-        this.btnTo.getComponent(cc.Button).enabled = false;
-        this.listHand.children[0].active = false;
-        var arrPos = [cc.v2(-22, 43), cc.v2(52, 9), cc.v2(-42, -24)];
-        var _loop_2 = function (i) {
-            this_2.scheduleOnce(function () {
-                var preTom = cc.instantiate(_this.preTom);
-                preTom.position = cc.v3(-334, -29);
-                preTom.parent = _this.plateList;
-                _this.arrTom.push(preTom);
-                cc.tween(preTom).bezierTo(0.5, cc.v2(-334, -29), cc.v2(-334, -29 + 300), arrPos[i]).start();
-            }, i * 0.15);
-        };
-        var this_2 = this;
-        for (var i = 0; i < 3; i++) {
-            _loop_2(i);
-        }
-        this.scheduleOnce(function () {
-            _this.checkSuccess();
-        }, 0.5 + 0.15 * 3);
-        this.scheduleOnce(function () {
-            _this.checkHind();
-        }, 1);
-    };
     NewClass.prototype.btn_dauTay = function () {
         var _this = this;
+        if (this.isStep != 4) {
+            this.btnDau.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5);
+            return;
+        }
         if (this.isShowMenu == false)
             return;
         cc.audioEngine.play(this.soundClick, false, 1);
@@ -296,80 +298,92 @@ var NewClass = /** @class */ (function (_super) {
         this.listTick.children[0].active = true;
         var arrPos = [cc.v2(83, -36), cc.v2(51, -54), cc.v2(16, -62)];
         var arrAngle = [0, 0, 0];
-        var _loop_3 = function (i) {
-            this_3.scheduleOnce(function () {
+        var _loop_2 = function (i) {
+            this_2.scheduleOnce(function () {
                 var preTom = cc.instantiate(_this.preDau);
                 preTom.position = cc.v3(-134, -245);
-                preTom.parent = _this.plateList;
+                preTom.parent = _this.listItemPlate2;
                 _this.arrDau.push(preTom);
                 cc.tween(preTom).bezierTo(0.5, cc.v2(-134, -245), cc.v2(-134, -245 + 350), arrPos[i]).start();
                 cc.tween(preTom).to(0.5, { angle: arrAngle[i] }).start();
             }, i * 0.15);
         };
-        var this_3 = this;
+        var this_2 = this;
         for (var i = 0; i < 3; i++) {
-            _loop_3(i);
+            _loop_2(i);
         }
         this.scheduleOnce(function () {
-            _this.checkSuccess();
-        }, 0.5 + 0.15 * 3);
-        this.scheduleOnce(function () {
-            _this.checkHind();
-        }, 2);
+            _this.plate.getChildByName("hand").active = true;
+            _this.plate.getComponent(cc.Button).enabled = true;
+            _this.isStep = 5;
+        }, 0.3);
     };
     NewClass.prototype.btn_sauceDauTay = function () {
         var _this = this;
         if (this.isShowMenu == false)
             return;
+        if (this.isStep != 2) {
+            this.btnSauce.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5);
+            return;
+        }
+        // if (this.isStep != 2) return;
         cc.audioEngine.play(this.soundClick, false, 1);
         this.unschedule(this.checkHind);
         this.btnSauce.getComponent(cc.Button).enabled = false;
         this.listHand.children[1].active = false;
         // let startPos = cc.v2(300, 2)
         // let endpos = cc.v2(1.5, 67);
+        this.listTick.children[1].active = true;
         // this.arrSauce = preSauce;
-        for (var i = 0; i < this.arrTom.length; i++) {
-            this.arrTom[i].children[2 + i].active = true;
-            this.arrTom[i].getComponent(cc.Animation).play();
+        for (var i = 0; i < this.listItemPlate2.childrenCount; i++) {
+            var child = this.listItemPlate2.children[i];
+            child.children[2 + i].active = true;
+            child.getComponent(cc.Animation).play();
         }
         this.msSauces = true;
         this.scheduleOnce(function () {
-            _this.isSauceFinal = true;
-            _this.checkSuccess();
-        }, 0.1);
-        this.scheduleOnce(function () {
-            _this.checkHind();
-        }, 2);
+            _this.listHand.children[4].active = true;
+            _this.isStep = 3;
+        }, 0.6);
+        // this.scheduleOnce(() => {
+        //     this.plate.getChildByName("hand").active = true
+        //     this.plate.getComponent(cc.Button).enabled = true
+        // }, 0.3)
+        // this.scheduleOnce(() => {
+        //     this.isSauceFinal = true
+        //     this.checkSuccess()
+        // }, 0.1)
+        // this.scheduleOnce(() => {
+        //     this.checkHind()
+        // }, 2)
     };
     NewClass.prototype.btn_hanh = function () {
-        var _this = this;
-        if (this.isShowMenu == false)
-            return;
-        cc.audioEngine.play(this.soundClick, false, 1);
-        this.unschedule(this.checkHind);
-        this.msHanh = true;
-        this.btnHanh.getComponent(cc.Button).enabled = false;
-        this.listHand.children[2].active = false;
-        this.listTick.children[1].active = true;
-        // let arrPos = [cc.v2(61, 41), cc.v2(80, 10), cc.v2(37, 13)]
-        // for (let i = 0; i < 3; i++) {
-        //     this.scheduleOnce(() => {
-        //         let preTom = cc.instantiate(this.preHanh);
-        //         preTom.position = cc.v3(25, -251);
-        //         preTom.parent = this.plateList
-        //         this.arrHanh.push(preTom)
-        //         cc.tween(preTom).bezierTo(0.5, cc.v2(25, -251), cc.v2(25, -251 + 350), arrPos[i]).start()
-        //     }, i * 0.15)
-        // }
-        this.scheduleOnce(function () {
-            _this.checkSuccess();
-        }, 0.5 + 0.15 * 3);
-        this.scheduleOnce(function () {
-            _this.checkHind();
-        }, 2);
+        this.btnHanh.getChildByName("hindBox").getComponent(cc.Animation).play();
+        cc.audioEngine.play(this.soundWrong, false, 0.5);
+        return;
+        // if (this.isShowMenu == false) return
+        // cc.audioEngine.play(this.soundClick, false, 1)
+        // this.unschedule(this.checkHind)
+        // this.msHanh = true;
+        // this.btnHanh.getComponent(cc.Button).enabled = false
+        // this.listHand.children[2].active = false
+        // this.listTick.children[1].active = true
+        // this.scheduleOnce(() => {
+        //     this.checkSuccess()
+        // }, 0.5 + 0.15 * 3)
+        // this.scheduleOnce(() => {
+        //     this.checkHind()
+        // }, 2)
     };
     NewClass.prototype.btn_dauPhu = function () {
+        // if (this.isStep != 3) return;
         var _this = this;
+        if (this.isStep != 3) {
+            this.btnDauPhu.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5);
+            return;
+        }
         if (this.isShowMenu == false)
             return;
         this.msTofu = true;
@@ -378,27 +392,29 @@ var NewClass = /** @class */ (function (_super) {
         this.btnDauPhu.getComponent(cc.Button).enabled = false;
         this.listHand.children[4].active = false;
         this.listTick.children[2].active = true;
-        // let arrPos = [cc.v2(26, -32), cc.v2(3, -59), cc.v2(47, -55)]
-        // for (let i = 0; i < 3; i++) {
-        //     this.scheduleOnce(() => {
-        //         let preTom = cc.instantiate(this.preTofu);
-        //         preTom.position = cc.v3(180, -256);
-        //         preTom.parent = this.plateList
-        //         this.arrTofu.push(preTom)
-        //         cc.tween(preTom).bezierTo(0.5, cc.v2(180, -256), cc.v2(180, -256 + 350), arrPos[i]).start()
-        //     }, i * 0.15)
-        // }
-        this.arrTom[2].getComponent(cc.Animation).play();
-        this.arrTom[2].children[5].active = true;
+        this.listItemPlate2.children[2].children[5].active = true;
+        this.listItemPlate2.children[2].getComponent(cc.Animation).play();
+        // this.arrTom[2].getComponent(cc.Animation).play()
+        // this.arrTom[2].children[5].active = true
+        // this.scheduleOnce(() => {
+        //     this.checkSuccess()
+        // }, 0.5 + 0.15 * 3)
+        // this.scheduleOnce(() => {
+        //     this.checkHind()
+        // }, 2)
         this.scheduleOnce(function () {
-            _this.checkSuccess();
-        }, 0.5 + 0.15 * 3);
-        this.scheduleOnce(function () {
-            _this.checkHind();
-        }, 2);
+            _this.listHand.children[3].active = true;
+            _this.isStep = 4;
+        }, 0.3);
     };
     NewClass.prototype.btn_dau = function () {
         var _this = this;
+        // if (this.isStep != 4) return;
+        if (this.isStep != 4) {
+            this.btnDau.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5);
+            return;
+        }
         if (this.isShowMenu == false)
             return;
         cc.audioEngine.play(this.soundClick, false, 1);
@@ -409,51 +425,49 @@ var NewClass = /** @class */ (function (_super) {
         this.listTick.children[0].active = true;
         var arrPos = [cc.v2(-5, -9), cc.v2(-8, 11), cc.v2(-21, 11)];
         var arrAngle = [45, 55, 73];
-        var _loop_4 = function (i) {
-            this_4.scheduleOnce(function () {
+        var _loop_3 = function (i) {
+            this_3.scheduleOnce(function () {
                 var preTom = cc.instantiate(_this.preDau);
                 preTom.position = cc.v3(-134, -245);
-                preTom.parent = _this.plateList;
+                preTom.parent = _this.listItemPlate2;
                 _this.arrDau.push(preTom);
                 cc.tween(preTom).bezierTo(0.5, cc.v2(-134, -245), cc.v2(-134, -245 + 350), arrPos[i]).start();
                 cc.tween(preTom).to(0.5, { angle: arrAngle[i] }).start();
             }, i * 0.15);
         };
-        var this_4 = this;
+        var this_3 = this;
         for (var i = 0; i < 3; i++) {
-            _loop_4(i);
+            _loop_3(i);
         }
-        this.scheduleOnce(function () {
-            _this.checkSuccess();
-        }, 0.5 + 0.15 * 3);
-        this.scheduleOnce(function () {
-            _this.checkHind();
-        }, 2);
+        // this.scheduleOnce(() => {
+        //     this.checkSuccess()
+        // }, 0.5 + 0.15 * 3)
+        // this.scheduleOnce(() => {
+        //     this.checkHind()
+        // }, 2)
     };
-    NewClass.prototype.btn_sauce = function () {
-        var _this = this;
-        if (this.isShowMenu == false)
-            return;
-        cc.audioEngine.play(this.soundClick, false, 1);
-        this.unschedule(this.checkHind);
-        this.btnSauce.getComponent(cc.Button).enabled = false;
-        this.listHand.children[1].active = false;
-        var startPos = cc.v2(300, 2);
-        var endpos = cc.v2(1.5, 67);
-        var preSauce = cc.instantiate(this.preSauce);
-        preSauce.position = cc.v3(startPos.x, startPos.y);
-        preSauce.parent = this.plateList;
-        this.arrSauce = preSauce;
-        cc.tween(preSauce).bezierTo(0.5, startPos, cc.v2(startPos.x, startPos.y + 300), endpos).start();
-        this.msSauces = true;
-        this.scheduleOnce(function () {
-            _this.isSauceFinal = true;
-            _this.checkSuccess();
-        }, 0.5);
-        this.scheduleOnce(function () {
-            _this.checkHind();
-        }, 2);
-    };
+    // btn_sauce() {
+    //     if (this.isShowMenu == false) return
+    //     cc.audioEngine.play(this.soundClick, false, 1)
+    //     this.unschedule(this.checkHind)
+    //     this.btnSauce.getComponent(cc.Button).enabled = false;
+    //     this.listHand.children[1].active = false
+    //     let startPos = cc.v2(300, 2)
+    //     let endpos = cc.v2(1.5, 67);
+    //     let preSauce = cc.instantiate(this.preSauce)
+    //     preSauce.position = cc.v3(startPos.x, startPos.y);
+    //     preSauce.parent = this.plateList
+    //     this.arrSauce = preSauce;
+    //     cc.tween(preSauce).bezierTo(0.5, startPos, cc.v2(startPos.x, startPos.y + 300), endpos).start()
+    //     this.msSauces = true
+    //     this.scheduleOnce(() => {
+    //         this.isSauceFinal = true
+    //         this.checkSuccess()
+    //     }, 0.5)
+    //     this.scheduleOnce(() => {
+    //         this.checkHind()
+    //     }, 2)
+    // }
     NewClass.prototype.checkSuccess = function () {
         var _this = this;
         if (this.msDau == true && this.msHanh == true && this.msSauces == true && this.msTofu == true && this.msTom == true && this.isSauceFinal) {
@@ -466,7 +480,13 @@ var NewClass = /** @class */ (function (_super) {
             }, 0.5);
         }
     };
+    // isStep=0
     NewClass.prototype.checkHind = function () {
+        if (this.msPalet1 == false) {
+            this.plate.getChildByName("hand").active = true;
+            this.plate.getComponent(cc.Button).enabled = true;
+            return;
+        }
         if (this.msSauces == false) {
             this.listHand.children[1].active = true;
             return;
@@ -492,163 +512,201 @@ var NewClass = /** @class */ (function (_super) {
         this.listHand.children[5].opacity = 0;
         var chefANim = this.chef2.children[0].getComponent(sp.Skeleton);
         chefANim.setAnimation(0, "L-arm", true);
+        this.plate.getChildByName("hand").active = false;
         this.plate.parent = this.chef2;
         this.plate.position = cc.v3(217, 482);
         this.plate.children[0].active = false;
         cc.audioEngine.play(this.soundFoot, false, 0.5);
-        cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start();
-        cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start();
-        cc.tween(this.chef2).to(1.5, { position: cc.v3(1231, -219) }).call(function () {
-            chefANim.setAnimation(1, "Idle", true);
-            cc.audioEngine.stop(_this.idFoot);
-            _this.transItem();
-        }).start();
-        chefANim.setAnimation(1, "Walk", true);
-    };
-    NewClass.prototype.transItem = function () {
-        var _this = this;
-        // let arrPosDau = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position]
-        // let arrPosTofu = [this.listItemNoi.children[4].position, this.listItemNoi.children[3].position, this.listItemNoi.children[5].position]
-        // let arrPosHanh = [this.listItemNoi.children[6].position, this.listItemNoi.children[7].position, this.listItemNoi.children[8].position]
-        var arrPosTom = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position];
-        var _loop_5 = function (i) {
-            this_5.scheduleOnce(function () {
-                var item1 = _this.arrTom[i];
-                var pos1 = arrPosTom[i];
-                pos1 = _this.listItemNoi.convertToWorldSpaceAR(pos1);
-                pos1 = item1.parent.convertToNodeSpaceAR(pos1);
-                cc.tween(item1).bezierTo(0.6, cc.v2(item1.x, item1.y), cc.v2(item1.x, item1.y + 400), cc.v3(pos1.x, pos1.y)).call(function () {
-                    item1.active = false;
-                    _this.listItemNoi.children[i].active = true;
-                    cc.tween(_this.listItemNoi.children[i].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start();
-                }).start();
-            }, 0.1 * i);
-        };
-        var this_5 = this;
-        for (var i = 0; i < 3; i++) {
-            _loop_5(i);
-        }
-        this.scheduleOnce(function () {
-            var chefANim = _this.chef2.children[0].getComponent(sp.Skeleton);
-            _this.plate.active = false;
-            chefANim.setAnimation(0, "Idle", true);
-            _this.noiSup.getComponent("cooking").setOn();
-            _this.isSOundNau = cc.audioEngine.play(_this.soundCreamMini, false, 1);
-            // cc.audioEngine.play(this.soun,false,1)
-        }, 1);
-        this.scheduleOnce(function () {
-            for (var i = 0; i < 3; i++) {
-                var item1 = _this.listItemNoi.children[i];
-                item1.active = false;
-            }
-            cc.audioEngine.play(_this.soundSellDone, false, 1);
-            _this.cus1.active = false;
-            cc.audioEngine.stop(_this.isSOundNau);
-            _this.chef2.getChildByName("plate2").active = true;
-            var plate2 = _this.chef2.getChildByName("plate2");
-            var chefANim = _this.chef2.children[0].getComponent(sp.Skeleton);
+        this.chef2.scaleX = 1;
+        if (this.isStep == 1) {
+            cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start();
+            cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start();
+            cc.tween(this.chef2).to(1.5, { position: cc.v3(1231, -219) }).call(function () {
+                chefANim.setAnimation(1, "Idle", true);
+                cc.audioEngine.stop(_this.idFoot);
+                _this.transItem();
+            }).start();
             chefANim.setAnimation(1, "Walk", true);
-            chefANim.setAnimation(0, "L-arm", true);
-            _this.idFoot = cc.audioEngine.play(_this.soundFoot, false, 0.5);
-            _this.ticket.children[0].active = true;
-            cc.tween(_this.ticket).to(0.3, { scale: 2.1 }).to(0.5, { opacity: 0 }).start();
-            cc.tween(_this.camera.node).by(1, { position: cc.v3(0, -600) }).start();
-            cc.tween(_this.cameraDoc.node).by(1, { position: cc.v3(0, -600) }).start();
-            cc.tween(_this.chef2).to(1, { position: cc.v3(1392, -592) }).call(function () {
+        }
+        else if (this.isStep == 5) {
+            cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, -200) }).start();
+            cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, -200) }).start();
+            this.chef3.active = true;
+            cc.tween(this.chef2).to(1.5, { position: cc.v3(1231, -595.15) }).call(function () {
                 chefANim.setAnimation(1, "Idle", true);
                 chefANim.setAnimation(0, "Idle", true);
                 cc.audioEngine.stop(_this.idFoot);
-                plate2.parent = _this.node;
-                plate2.position = cc.v3(1236, -382);
+                // this.transItem()
+                _this.transItem();
             }).start();
-            cc.tween(plate2).delay(1.1).to(0.4, { position: cc.v3(1236, -550) }).call(function () {
-                _this.video.node.active = true;
-                _this.video.play();
-                _this.chef3.active = false;
+            chefANim.setAnimation(1, "Walk", true);
+        }
+    };
+    NewClass.prototype.transItem = function () {
+        var _this = this;
+        console.log(this.isStep);
+        if (this.isStep == 1) {
+            var arrPosTom_1 = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position];
+            var _loop_4 = function (i) {
+                this_4.scheduleOnce(function () {
+                    var item1 = _this.arrTom[i];
+                    var pos1 = arrPosTom_1[i];
+                    pos1 = _this.listItemNoi.convertToWorldSpaceAR(pos1);
+                    pos1 = item1.parent.convertToNodeSpaceAR(pos1);
+                    cc.tween(item1).bezierTo(0.6, cc.v2(item1.x, item1.y), cc.v2(item1.x, item1.y + 400), cc.v3(pos1.x, pos1.y)).call(function () {
+                        item1.active = false;
+                        _this.listItemNoi.children[i].active = true;
+                        cc.tween(_this.listItemNoi.children[i].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start();
+                    }).start();
+                }, 0.1 * i);
+            };
+            var this_4 = this;
+            for (var i = 0; i < 3; i++) {
+                _loop_4(i);
+            }
+            this.scheduleOnce(function () {
+                var chefANim = _this.chef2.children[0].getComponent(sp.Skeleton);
+                _this.plate.active = false;
+                chefANim.setAnimation(0, "Idle", true);
+                _this.noiSup.getComponent("cooking").setOn();
+                _this.isSOundNau = cc.audioEngine.play(_this.soundCreamMini, false, 1);
+            }, 1);
+            this.scheduleOnce(function () {
+                for (var i = 0; i < 3; i++) {
+                    var item1 = _this.listItemNoi.children[i];
+                    item1.active = false;
+                }
+                cc.audioEngine.play(_this.soundSellDone, false, 1);
+                _this.cus1.active = false;
+                cc.audioEngine.stop(_this.isSOundNau);
+                _this.plate = _this.chef2.getChildByName("plate2");
+                _this.plate.active = true;
+                // let plate2 = this.chef2.getChildByName("plate2")
+                var chefANim = _this.chef2.children[0].getComponent(sp.Skeleton);
+                chefANim.setAnimation(1, "Walk", true);
+                chefANim.setAnimation(0, "L-arm", true);
+                _this.idFoot = cc.audioEngine.play(_this.soundFoot, false, 0.5);
+                cc.tween(_this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start();
+                cc.tween(_this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start();
+                cc.tween(_this.camera.node).to(1.5, { position: cc.v3(1750 + _this.mag, -200.232) }).call(function () {
+                }).start();
+                cc.tween(_this.cameraDoc.node).to(1.5, { position: cc.v3(2100, -200.232) }).call(function () {
+                }).start();
+                _this.chef2.scaleX = -1;
+                cc.tween(_this.chef2).to(1.5, { position: cc.v3(2316, -595) }).call(function () {
+                    chefANim.setAnimation(1, "Idle", true);
+                    chefANim.setAnimation(0, "Idle", true);
+                    cc.audioEngine.stop(_this.idFoot);
+                    _this.plate.parent = _this.chef2.parent;
+                    _this.plate.position = cc.v3(2285, -351);
+                    _this.isStep = 2;
+                    _this.listHand.children[1].active = true;
+                    // this.transItem()
+                }).start();
+            }, 3);
+        }
+        else if (this.isStep == 5) {
+            this.ticket.children[0].active = true;
+            var plate2_1 = this.chef2.getChildByName("plate2");
+            cc.tween(this.ticket).to(0.3, { scale: 2.1 }).to(0.5, { opacity: 0 }).start();
+            cc.tween(this.camera.node).by(1, { position: cc.v3(0, -400) }).start();
+            cc.tween(this.cameraDoc.node).by(1, { position: cc.v3(0, -400) }).start();
+            // cc.tween(this.chef2).to(1, { position: cc.v3(1392, -592) }).call(() => {
+            //     chefANim.setAnimation(1, "Idle", true);
+            //     chefANim.setAnimation(0, "Idle", true);
+            //     cc.audioEngine.stop(this.idFoot)
+            plate2_1.parent = this.node;
+            plate2_1.position = cc.v3(1236, -382);
+            var anim_1 = this.chef3.children[0].getComponent(sp.Skeleton);
+            // }).start()
+            cc.tween(plate2_1).to(0.4, { position: cc.v3(1236, -550) }).call(function () {
+                plate2_1.active = false;
+                _this.chef3.getChildByName("plate2").active = true;
+                anim_1.setAnimation(1, "Walk", true);
+                anim_1.setAnimation(0, "L-arm", true);
+                _this.chef3.scaleX = 1; // this.video.node.active = true;
+                // this.video.play()
+                // this.chef3.active = false
             }).start();
-            _this.scheduleOnce(function () {
+            this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.soundDO, false, 1);
             }, 3.5);
-            _this.scheduleOnce(function () {
-                _this.video.node.scale = _this.isScaleVideo;
-                // this.video.node.position = cc.v3(1700, -300)
-                _this.video.node.position = cc.v3(1700, -300);
-                // this.video.node.position=
-            }, 4);
-            _this.scheduleOnce(function () {
-                _this.video.node.position = cc.v3(-900 + _this.magVideo, -1000);
-            }, 5 - 0.3);
-            _this.scheduleOnce(function () {
-                _this.listCus2.active = true;
-                _this.camera.node.position = cc.v3(-40, 300 - 100, 0);
-                _this.cameraDoc.node.position = cc.v3(-40, 300 - 100, 0);
-                _this.cameraDoc.zoomRatio = 1.4;
-                _this.camera.zoomRatio = 0.8;
-                _this.video.node.active = false;
-                _this.failUi.active = true;
-                cc.audioEngine.play(_this.soundFail, false, 1);
-                _this.scheduleOnce(function () {
-                    _this.failUi.active = false;
-                    cc.tween(_this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start();
-                    cc.tween(_this.cameraDoc.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start();
-                    _this.chef1.children[0].getComponent(sp.Skeleton).setAnimation(0, "Fail", false);
-                    cc.audioEngine.play(_this.soundAngry1, false, 1);
-                    cc.audioEngine.play(_this.soundAngry2, false, 1);
-                    _this.scheduleOnce(function () {
-                        cc.audioEngine.play(_this.soundThinkLose, false, 1);
-                    }, 2);
-                    _this.scheduleOnce(function () {
-                        _this.onEndGame(false);
-                    }, 3);
-                }, 1.3);
-            }, 5.8);
-        }, 3);
+            // this.scheduleOnce(() => {
+            //     this.video.node.scale = this.isScaleVideo
+            //     // this.video.node.position = cc.v3(1700, -300)
+            //     this.video.node.position = cc.v3(1700, -300)
+            //     // this.video.node.position=
+            // }, 4)
+            // this.scheduleOnce(() => {
+            //     this.video.node.position = cc.v3(-900 + this.magVideo, -1000)
+            // }, 5 - 0.3)
+            // this.scheduleOnce(() => {
+            //     this.listCus2.active = true
+            //     this.camera.node.position = cc.v3(-40, 300 - 100, 0)
+            //     this.cameraDoc.node.position = cc.v3(-40, 300 - 100, 0)
+            //     this.cameraDoc.zoomRatio = 1.4
+            //     this.camera.zoomRatio = 0.8
+            //     this.video.node.active = false
+            //     this.failUi.active = true;
+            //     cc.audioEngine.play(this.soundFail, false, 1)
+            //     this.scheduleOnce(() => {
+            //         this.failUi.active = false
+            //         cc.tween(this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
+            //         cc.tween(this.cameraDoc.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
+            //         this.chef1.children[0].getComponent(sp.Skeleton).setAnimation(0, "Fail", false)
+            //         cc.audioEngine.play(this.soundAngry1, false, 1)
+            //         cc.audioEngine.play(this.soundAngry2, false, 1)
+            //         this.scheduleOnce(() => {
+            //             cc.audioEngine.play(this.soundThinkLose, false, 1)
+            //         }, 2)
+            //         this.scheduleOnce(() => {
+            //             this.onEndGame(false)
+            //         }, 3)
+            //     }, 1.3)
+            // }, 5.8)
+        }
     };
-    NewClass.prototype.replaceCustomer = function (departedCus, counterPos) {
-        var _this = this;
-        if (this.isEndGame)
-            return;
-        var idx = this.arrCus.indexOf(departedCus);
-        var newCus = this.spawnCustomerFromPrefab();
-        if (!newCus)
-            return;
-        this.btnCake.getComponent(cc.Button).enabled = true;
-        this.btnPotato.getComponent(cc.Button).enabled = true;
-        var newCusComp = newCus.getComponent("cusMission");
-        if (newCusComp) {
-            newCusComp.gamePlay = this;
-            newCusComp.isReadyForSell = false;
-        }
-        if (this.sellTargetCus === departedCus || this.isTargetCus === departedCus) {
-            this.sellTargetCus = null;
-            this.sellTraySlot = -1;
-        }
-        this.isMoving = false;
-        if (this.mcComp) {
-            this.mcComp.unscheduleAllCallbacks();
-        }
-        if (idx >= 0) {
-            this.arrCus[idx] = newCus;
-        }
-        else {
-            this.arrCus.push(newCus);
-        }
-        departedCus.destroy();
-        var spawnPos = counterPos.clone().add(this.cusEnterOffset);
-        var distance = spawnPos.sub(counterPos).mag();
-        var duration = distance / this.cusWalkSpeed;
-        cc.Tween.stopAllByTarget(newCus);
-        newCus.position = spawnPos;
-        newCus.active = true;
-        newCusComp.move();
-        cc.tween(newCus)
-            .to(duration, { position: counterPos })
-            .call(function () {
-            newCusComp.showMission();
-            _this.isTargetCus = newCus;
-        })
-            .start();
-    };
+    // replaceCustomer(departedCus: cc.Node, counterPos: cc.Vec3) {
+    //     if (this.isEndGame) return;
+    //     let idx = this.arrCus.indexOf(departedCus)
+    //     let newCus = this.spawnCustomerFromPrefab()
+    //     if (!newCus) return
+    //     this.btnCake.getComponent(cc.Button).enabled = true;
+    //     this.btnPotato.getComponent(cc.Button).enabled = true;
+    //     let newCusComp = newCus.getComponent("cusMission")
+    //     if (newCusComp) {
+    //         newCusComp.gamePlay = this
+    //         newCusComp.isReadyForSell = false
+    //     }
+    //     if (this.sellTargetCus === departedCus || this.isTargetCus === departedCus) {
+    //         this.sellTargetCus = null
+    //         this.sellTraySlot = -1
+    //     }
+    //     this.isMoving = false
+    //     if (this.mcComp) {
+    //         this.mcComp.unscheduleAllCallbacks()
+    //     }
+    //     if (idx >= 0) {
+    //         this.arrCus[idx] = newCus
+    //     } else {
+    //         this.arrCus.push(newCus)
+    //     }
+    //     departedCus.destroy()
+    //     let spawnPos = counterPos.clone().add(this.cusEnterOffset)
+    //     let distance = spawnPos.sub(counterPos).mag()
+    //     let duration = distance / this.cusWalkSpeed
+    //     cc.Tween.stopAllByTarget(newCus)
+    //     newCus.position = spawnPos
+    //     newCus.active = true
+    //     newCusComp.move()
+    //     cc.tween(newCus)
+    //         .to(duration, { position: counterPos })
+    //         .call(() => {
+    //             newCusComp.showMission()
+    //             this.isTargetCus = newCus
+    //         })
+    //         .start()
+    // }
     NewClass.prototype.onHind = function () {
         this.hind1.active = true;
     };
@@ -1175,6 +1233,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "failUi", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listItemPlate2", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
