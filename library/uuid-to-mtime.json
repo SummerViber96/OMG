@@ -10889,11 +10889,6 @@
     "meta": 1786456691529,
     "relativePath": "RecipeRush\\food\\lv1-wing.png"
   },
-  "c23f1790-83de-4c97-8f65-1b0d54bf1cc1": {
-    "asset": 1784437481216,
-    "meta": 1786456691499,
-    "relativePath": "RecipeRush\\food\\lv1-thigh-raw.png"
-  },
   "464eefee-d346-4f17-8e97-e9cdba70effb": {
     "asset": 1784437481218,
     "meta": 1786456691514,
@@ -10964,11 +10959,6 @@
     "meta": 1786456691609,
     "relativePath": "RecipeRush\\food\\lv3-wing-raw.png"
   },
-  "b8877730-f3fd-4fde-af99-ee014f57d122": {
-    "asset": 1784437481227,
-    "meta": 1786456691640,
-    "relativePath": "RecipeRush\\food\\lv4-thigh-raw.png"
-  },
   "9d6b44ac-5ac9-476c-95de-3d2e4f55b984": {
     "asset": 1784437481229,
     "meta": 1786456691674,
@@ -10984,20 +10974,10 @@
     "meta": 1786456691658,
     "relativePath": "RecipeRush\\food\\lv4-wing-burnt.png"
   },
-  "0d98e1af-b12b-4c83-ba03-8846230eba96": {
-    "asset": 1784437481215,
-    "meta": 1786456691484,
-    "relativePath": "RecipeRush\\food\\lettuce.png"
-  },
   "6f90e075-abb8-4b7c-b7d3-746ae52e7d7c": {
     "asset": 1784437481223,
     "meta": 1786456691576,
     "relativePath": "RecipeRush\\food\\lv3-thigh-burnt.png"
-  },
-  "49598058-e9c4-45db-8186-d17ed416765d": {
-    "asset": 1784437481232,
-    "meta": 1786456691722,
-    "relativePath": "RecipeRush\\food\\tomato.png"
   },
   "4d79078a-51bf-45de-9abd-7781a82593df": {
     "asset": 1784437481208,
@@ -11685,8 +11665,8 @@
     "relativePath": "RecipeRush\\anim\\circle_hind.anim"
   },
   "2ee52842-2ee3-4a0a-ba19-871231b22d94": {
-    "asset": 1785172165765,
-    "meta": 1786456693712,
+    "asset": 1786466769603,
+    "meta": 1786466769622,
     "relativePath": "RecipeRush\\prefab\\PreChicken.prefab"
   },
   "d4fdb943-afb7-4087-8320-2a152795b558": {
@@ -11828,11 +11808,6 @@
     "asset": 1785172165378,
     "meta": 1786456691544,
     "relativePath": "RecipeRush\\food\\lv2-thigh.png"
-  },
-  "29c6bb77-3aa5-450d-b87d-f2b2422d7a31": {
-    "asset": 1785172165379,
-    "meta": 1786456691707,
-    "relativePath": "RecipeRush\\food\\sauce.png"
   },
   "9495fef1-6c3b-43d0-9141-65880eb42f94": {
     "asset": 1785172165379,
@@ -13029,11 +13004,6 @@
     "meta": 1786456694899,
     "relativePath": "RecipeRush\\tea_0000_Layer-1.png"
   },
-  "ebb58409-3821-44dd-806b-527b5d25134b": {
-    "asset": 1785172165380,
-    "meta": 1786456691723,
-    "relativePath": "RecipeRush\\food\\tray.png"
-  },
   "c384d263-b1dc-4837-a1fb-1c44810ce336": {
     "asset": 1785172165771,
     "meta": 1786456694158,
@@ -13125,8 +13095,8 @@
     "relativePath": "RecipeRush\\scripts\\ticket.ts"
   },
   "c8ce49d5-ede5-4e7c-a747-a10c5b6ef76c": {
-    "asset": 1786462757385,
-    "meta": 1786462757393,
+    "asset": 1786469570151,
+    "meta": 1786469570165,
     "relativePath": "RecipeRush\\prefab\\preTofu.prefab"
   },
   "69ef9da5-ed6e-4a01-98fc-dbe3fd274186": {
@@ -13595,8 +13565,8 @@
     "relativePath": "RecipeRush\\prefab\\preDonut.prefab"
   },
   "540b02f1-5582-4c50-b054-9a86bbf548ab": {
-    "asset": 1786462713459,
-    "meta": 1786462713474,
+    "asset": 1786469688053,
+    "meta": 1786469688062,
     "relativePath": "RecipeRush\\prefab\\preDauTay.prefab"
   },
   "353992d6-a9c4-437b-887b-2e05c8d3c326": {
@@ -13608,11 +13578,6 @@
     "asset": 1786305006448,
     "meta": 1786456691211,
     "relativePath": "RecipeRush\\Donut\\donut2.png"
-  },
-  "139bdbd9-8899-4a17-ad88-0f89b9609239": {
-    "asset": 1786463391634,
-    "meta": 1786463391648,
-    "relativePath": "scenes\\Rp3_v2.fire"
   },
   "fb23e1f9-9619-49bb-ac21-26c43c1bb347": {
     "asset": 1786392875470,
@@ -13884,9 +13849,89 @@
     "meta": 1786462191815,
     "relativePath": "RecipeRush\\prefab\\happy-face.png"
   },
+  "2f9ab1a9-56f3-4121-a2ee-4b2ad4d03cce": {
+    "asset": 1786465444251,
+    "meta": 1786465444284,
+    "relativePath": "RecipeRush\\spine\\thot\\lv4-dui1.png"
+  },
+  "f6529db2-d399-4299-87c7-acb5a046f920": {
+    "asset": 1786465444251,
+    "meta": 1786465444285,
+    "relativePath": "RecipeRush\\spine\\thot\\lv1-thot.png"
+  },
+  "39f33c8c-7c1b-4fa5-9fa5-7eb535e983ec": {
+    "asset": 1786465444253,
+    "meta": 1786465444295,
+    "relativePath": "RecipeRush\\spine\\thot\\lv1-dui1.png"
+  },
+  "5a20f340-a631-4c0a-9322-32b36b3d1638": {
+    "asset": 1786469445053,
+    "meta": 1786469445071,
+    "relativePath": "RecipeRush\\prefab\\preGaran.prefab"
+  },
+  "139bdbd9-8899-4a17-ad88-0f89b9609239": {
+    "asset": 1786469749702,
+    "meta": 1786469749732,
+    "relativePath": "scenes\\Rp3_v2.fire"
+  },
   "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1786462257522,
-    "meta": 1786462259294,
+    "asset": 1786469003677,
+    "meta": 1786469005272,
     "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
+  },
+  "21d0f384-ee4d-4cde-9d27-1f0d3d0d06bd": {
+    "asset": 1786444026000,
+    "meta": 1786469256481,
+    "relativePath": "RecipeRush\\map\\lv2-cucumber2.png"
+  },
+  "8cc7daed-de5f-4388-a00c-773be159c580": {
+    "asset": 1786444026000,
+    "meta": 1786469256483,
+    "relativePath": "RecipeRush\\map\\Bottles.png"
+  },
+  "9f0b675f-31ab-4386-8619-ab5b24a7dc49": {
+    "asset": 1786444026000,
+    "meta": 1786469256507,
+    "relativePath": "RecipeRush\\map\\lv2-lettuce2.png"
+  },
+  "2e0a9220-533d-4fa9-b6e4-52c4d99cb5d2": {
+    "asset": 1786444026000,
+    "meta": 1786469256508,
+    "relativePath": "RecipeRush\\map\\lv2-sauce.png"
+  },
+  "58c0f903-829f-4225-b614-12b8a5de8363": {
+    "asset": 1786444026000,
+    "meta": 1786469256525,
+    "relativePath": "RecipeRush\\map\\lv2-tomato2.png"
+  },
+  "0d98e1af-b12b-4c83-ba03-8846230eba96": {
+    "asset": 1786444100000,
+    "meta": 1786469322991,
+    "relativePath": "RecipeRush\\food\\lettuce.png"
+  },
+  "c23f1790-83de-4c97-8f65-1b0d54bf1cc1": {
+    "asset": 1786444100000,
+    "meta": 1786469322993,
+    "relativePath": "RecipeRush\\food\\lv1-thigh-raw.png"
+  },
+  "b8877730-f3fd-4fde-af99-ee014f57d122": {
+    "asset": 1786444100000,
+    "meta": 1786469323012,
+    "relativePath": "RecipeRush\\food\\lv4-thigh-raw.png"
+  },
+  "29c6bb77-3aa5-450d-b87d-f2b2422d7a31": {
+    "asset": 1786444100000,
+    "meta": 1786469323027,
+    "relativePath": "RecipeRush\\food\\sauce.png"
+  },
+  "49598058-e9c4-45db-8186-d17ed416765d": {
+    "asset": 1786444100000,
+    "meta": 1786469323038,
+    "relativePath": "RecipeRush\\food\\tomato.png"
+  },
+  "ebb58409-3821-44dd-806b-527b5d25134b": {
+    "asset": 1786444100000,
+    "meta": 1786469323047,
+    "relativePath": "RecipeRush\\food\\tray.png"
   }
 }

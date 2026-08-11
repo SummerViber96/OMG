@@ -177,6 +177,8 @@ export default class NewClass extends cc.Component {
     listItemPlate2: cc.Node = null;
     @property(cc.Node)
     cus2: cc.Node = null;
+    @property(cc.Node)
+    garan2: cc.Node = null
     mcComp = null
 
     // @property(cc.Node)
@@ -318,8 +320,8 @@ export default class NewClass extends cc.Component {
         this.msTom = true
         this.btnTo.getComponent(cc.Button).enabled = false
         this.listHand.children[0].active = false
-        let arrPos = [cc.v2(-22, 43), cc.v2(52, 9), cc.v2(-42, -24)]
-        for (let i = 0; i < 3; i++) {
+        let arrPos = [cc.v2(-0, 0), cc.v2(52, 9), cc.v2(-42, -24)]
+        for (let i = 0; i < 1; i++) {
             this.scheduleOnce(() => {
                 let preTom = cc.instantiate(this.preTom);
                 preTom.position = cc.v3(-334, -29);
@@ -350,20 +352,24 @@ export default class NewClass extends cc.Component {
         this.btnDau.getComponent(cc.Button).enabled = false;
         this.listHand.children[3].active = false
         this.listTick.children[0].active = true
-        let arrPos = [cc.v2(83, -36), cc.v2(51, -54), cc.v2(16, -62)]
-        let arrAngle = [0, 0, 0]
-        for (let i = 0; i < 3; i++) {
-            this.scheduleOnce(() => {
-                let preTom = cc.instantiate(this.preDau);
-                preTom.position = cc.v3(-134, -245);
-                preTom.parent = this.listItemPlate2
-                this.arrDau.push(preTom)
+         let itemSauce = this.garan2.children[1]
+        itemSauce.scale = 0.5
+        itemSauce.active = true;
+        cc.tween(itemSauce).to(0.2, { scale: 1.15 }).to(0.05, { scale: 1 }).start()
+        // let arrPos = [cc.v2(83, -36), cc.v2(51, -54), cc.v2(16, -62)]
+        // let arrAngle = [0, 0, 0]
+        // for (let i = 0; i < 3; i++) {
+        //     this.scheduleOnce(() => {
+        //         let preTom = cc.instantiate(this.preDau);
+        //         preTom.position = cc.v3(-134, -245);
+        //         preTom.parent = this.listItemPlate2
+        //         this.arrDau.push(preTom)
 
-                cc.tween(preTom).bezierTo(0.5, cc.v2(-134, -245), cc.v2(-134, -245 + 350), arrPos[i]).start()
-                cc.tween(preTom).to(0.5, { angle: arrAngle[i] }).start()
-            }, i * 0.15)
+        //         cc.tween(preTom).bezierTo(0.5, cc.v2(-134, -245), cc.v2(-134, -245 + 350), arrPos[i]).start()
+        //         cc.tween(preTom).to(0.5, { angle: arrAngle[i] }).start()
+        //     }, i * 0.15)
 
-        }
+        // }
         this.scheduleOnce(() => {
             this.plate.getChildByName("hand").active = true
             this.plate.getComponent(cc.Button).enabled = true
@@ -386,16 +392,13 @@ export default class NewClass extends cc.Component {
         this.listHand.children[1].active = false
         // let startPos = cc.v2(300, 2)
         // let endpos = cc.v2(1.5, 67);
-        this.listTick.children[1].active = true
+        this.listTick.children[0].active = true
 
         // this.arrSauce = preSauce;
-        for (let i = 0; i < this.listItemPlate2.childrenCount; i++) {
-            let child = this.listItemPlate2.children[i]
-
-
-            child.children[2 + i].active = true
-            child.getComponent(cc.Animation).play()
-        }
+        let itemRau = this.garan2.children[0]
+        itemRau.scale = 0.5
+        itemRau.active = true;
+        cc.tween(itemRau).to(0.2, { scale: 1.15 }).to(0.05, { scale: 1 }).start()
         this.msSauces = true
         this.scheduleOnce(() => {
             this.listHand.children[4].active = true
@@ -457,9 +460,13 @@ export default class NewClass extends cc.Component {
 
         this.btnDauPhu.getComponent(cc.Button).enabled = false
         this.listHand.children[4].active = false
-        this.listTick.children[2].active = true
-        this.listItemPlate2.children[2].children[5].active = true;
-        this.listItemPlate2.children[2].getComponent(cc.Animation).play()
+        this.listTick.children[1].active = true
+        let itemSauce = this.garan2.children[3]
+        itemSauce.scale = 0.5
+        itemSauce.active = true;
+        cc.tween(itemSauce).to(0.2, { scale: 1.15 }).to(0.05, { scale: 1 }).start()
+        // this.listItemPlate2.children[2].children[5].active = true;
+        // this.listItemPlate2.children[2].getComponent(cc.Animation).play()
 
 
 
@@ -623,9 +630,9 @@ export default class NewClass extends cc.Component {
     transItem() {
         console.log(this.isStep)
         if (this.isStep == 1) {
-            let arrPosTom = [this.listItemNoi.children[0].position, this.listItemNoi.children[1].position, this.listItemNoi.children[2].position]
+            let arrPosTom = [this.listItemNoi.children[0].position]
 
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 1; i++) {
                 this.scheduleOnce(() => {
                     let item1 = this.arrTom[i];
 
@@ -636,12 +643,20 @@ export default class NewClass extends cc.Component {
                     cc.tween(item1).bezierTo(0.6, cc.v2(item1.x, item1.y), cc.v2(item1.x, item1.y + 400), cc.v3(pos1.x, pos1.y)).call(() => {
                         item1.active = false
                         this.listItemNoi.children[i].active = true
+                        // this.listItemNoi.children[i].children[0].children[1].active=true
                         cc.tween(this.listItemNoi.children[i].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start()
 
                     }).start()
 
                 }, 0.1 * i)
             }
+            this.scheduleOnce(() => {
+                for (let i = 0; i < 1; i++) {
+
+                    let item1 = this.listItemNoi.children[i];
+                    item1.children[1].getComponent(sp.Skeleton).setAnimation(0, "lv1-chin", false)
+                }
+            }, 2.5)
             this.scheduleOnce(() => {
                 let chefANim = this.chef2.children[0].getComponent(sp.Skeleton)
                 this.plate.active = false
@@ -650,7 +665,7 @@ export default class NewClass extends cc.Component {
                 this.isSOundNau = cc.audioEngine.play(this.soundCreamMini, false, 1)
             }, 1)
             this.scheduleOnce(() => {
-                for (let i = 0; i < 3; i++) {
+                for (let i = 0; i < 1; i++) {
 
                     let item1 = this.listItemNoi.children[i];
                     item1.active = false
@@ -738,7 +753,7 @@ export default class NewClass extends cc.Component {
                 this.scheduleOnce(() => {
                     this.onEndGame(false)
                 }, 3)
-            }, 1 +2.5)
+            }, 1 + 2.5)
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
             //     // this.video.node.position = cc.v3(1700, -300)
