@@ -110,6 +110,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.listCus2 = null;
         _this.failUi = null;
         _this.listItemPlate2 = null;
+        _this.cus2 = null;
         _this.mcComp = null;
         // @property(cc.Node)
         // tutMision: cc.Node = null
@@ -611,10 +612,6 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(this.ticket).to(0.3, { scale: 2.1 }).to(0.5, { opacity: 0 }).start();
             cc.tween(this.camera.node).by(1, { position: cc.v3(0, -400) }).start();
             cc.tween(this.cameraDoc.node).by(1, { position: cc.v3(0, -400) }).start();
-            // cc.tween(this.chef2).to(1, { position: cc.v3(1392, -592) }).call(() => {
-            //     chefANim.setAnimation(1, "Idle", true);
-            //     chefANim.setAnimation(0, "Idle", true);
-            //     cc.audioEngine.stop(this.idFoot)
             plate2_1.parent = this.node;
             plate2_1.position = cc.v3(1236, -382);
             var anim_1 = this.chef3.children[0].getComponent(sp.Skeleton);
@@ -622,15 +619,34 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(plate2_1).to(0.4, { position: cc.v3(1236, -550) }).call(function () {
                 plate2_1.active = false;
                 _this.chef3.getChildByName("plate2").active = true;
-                anim_1.setAnimation(1, "Walk", true);
+                // anim.setAnimation(1, "Walk", true);
                 anim_1.setAnimation(0, "L-arm", true);
                 _this.chef3.scaleX = 1; // this.video.node.active = true;
-                // this.video.play()
-                // this.chef3.active = false
             }).start();
             this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundDO, false, 1);
-            }, 3.5);
+                // cc.audioEngine.play(this.soundDO, false, 1)
+                anim_1.setAnimation(1, "Walk", true);
+                cc.tween(_this.chef3).to(1.5, { position: cc.v3(-475, -1224.698) }).call(function () {
+                    anim_1.setAnimation(0, "Win", true);
+                    anim_1.setAnimation(1, "Win", true);
+                    _this.chef3.getChildByName("plate2").active = false;
+                    _this.cus2.children[1].active = true;
+                    cc.audioEngine.play(_this.soundSellDone, false, 1);
+                }).start();
+                _this.scheduleOnce(function () {
+                    _this.cus2.getComponent(cc.Animation).play();
+                }, 1.4);
+                cc.tween(_this.camera.node).by(1.5, { position: cc.v3(-1700, -400) }).start();
+                cc.tween(_this.cameraDoc.node).by(1.5, { position: cc.v3(-1700, -400) }).start();
+            }, 0.7);
+            this.scheduleOnce(function () {
+                _this.listCus2.active = true;
+                cc.tween(_this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start();
+                cc.tween(_this.cameraDoc.node).to(1, { position: cc.v3(-500 + 40 + 250, 300) }).start();
+                _this.scheduleOnce(function () {
+                    _this.onEndGame(false);
+                }, 3);
+            }, 1 + 2);
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
             //     // this.video.node.position = cc.v3(1700, -300)
@@ -1236,6 +1252,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listItemPlate2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "cus2", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

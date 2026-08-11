@@ -174,7 +174,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     failUi: cc.Node = null
     @property(cc.Node)
-    listItemPlate2: cc.Node = null
+    listItemPlate2: cc.Node = null;
+    @property(cc.Node)
+    cus2: cc.Node = null;
     mcComp = null
 
     // @property(cc.Node)
@@ -699,10 +701,6 @@ export default class NewClass extends cc.Component {
             cc.tween(this.camera.node).by(1, { position: cc.v3(0, -400) }).start()
             cc.tween(this.cameraDoc.node).by(1, { position: cc.v3(0, -400) }).start()
 
-            // cc.tween(this.chef2).to(1, { position: cc.v3(1392, -592) }).call(() => {
-            //     chefANim.setAnimation(1, "Idle", true);
-            //     chefANim.setAnimation(0, "Idle", true);
-            //     cc.audioEngine.stop(this.idFoot)
             plate2.parent = this.node
             plate2.position = cc.v3(1236, -382)
             let anim = this.chef3.children[0].getComponent(sp.Skeleton)
@@ -710,16 +708,37 @@ export default class NewClass extends cc.Component {
             cc.tween(plate2).to(0.4, { position: cc.v3(1236, -550) }).call(() => {
                 plate2.active = false;
                 this.chef3.getChildByName("plate2").active = true;
-                anim.setAnimation(1, "Walk", true);
+                // anim.setAnimation(1, "Walk", true);
                 anim.setAnimation(0, "L-arm", true)
                 this.chef3.scaleX = 1                // this.video.node.active = true;
-                // this.video.play()
-                // this.chef3.active = false
+
             }).start()
             this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundDO, false, 1)
+                // cc.audioEngine.play(this.soundDO, false, 1)
+                anim.setAnimation(1, "Walk", true);
+                cc.tween(this.chef3).to(1.5, { position: cc.v3(-475, -1224.698) }).call(() => {
+                    anim.setAnimation(0, "Win", true)
+                    anim.setAnimation(1, "Win", true)
+                    this.chef3.getChildByName("plate2").active = false;
+                    this.cus2.children[1].active = true
+                    cc.audioEngine.play(this.soundSellDone, false, 1)
 
-            }, 3.5)
+                }).start()
+                this.scheduleOnce(() => {
+                    this.cus2.getComponent(cc.Animation).play()
+                }, 1.4)
+                cc.tween(this.camera.node).by(1.5, { position: cc.v3(-1700, -400) }).start()
+                cc.tween(this.cameraDoc.node).by(1.5, { position: cc.v3(-1700, -400) }).start()
+            }, 0.7)
+            this.scheduleOnce(() => {
+                this.listCus2.active = true
+
+                cc.tween(this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
+                cc.tween(this.cameraDoc.node).to(1, { position: cc.v3(-500 + 40 + 250, 300) }).start()
+                this.scheduleOnce(() => {
+                    this.onEndGame(false)
+                }, 3)
+            }, 1 +2)
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
             //     // this.video.node.position = cc.v3(1700, -300)
