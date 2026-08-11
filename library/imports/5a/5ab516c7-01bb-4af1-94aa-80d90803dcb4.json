@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Patty",
+    "texture": "b4e44ad2-74b6-4358-8351-2a86df28a100",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      251,
+      157
+    ],
+    "offset": [
+      -0.5,
+      -0.5
+    ],
+    "originalSize": [
+      252,
+      158
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

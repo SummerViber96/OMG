@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cooked_Patty",
+    "texture": "6b99c6e3-50d7-4ee9-872a-5adbca895894",
+    "atlas": "",
+    "rect": [
+      14,
+      7,
+      116,
+      83
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      144,
+      96
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

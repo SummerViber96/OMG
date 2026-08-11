@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "366172df-bb46-4de8-bfbc-09c2933222ea",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2000,
+  "height": 2000,
+  "platformSettings": {},
+  "subMetas": {
+    "RR_Convetor_BeltGameplay BG": {
+      "ver": "1.0.4",
+      "uuid": "f3fafb70-b8f4-4c5c-aba4-53df61e18034",
+      "rawTextureUuid": "366172df-bb46-4de8-bfbc-09c2933222ea",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 2000,
+      "height": 2000,
+      "rawWidth": 2000,
+      "rawHeight": 2000,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

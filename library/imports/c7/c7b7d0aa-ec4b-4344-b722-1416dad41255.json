@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Raw_Patty",
+    "texture": "37c2b88a-a136-419b-b7ef-70ea920ef1f8",
+    "atlas": "",
+    "rect": [
+      13,
+      16,
+      230,
+      231
+    ],
+    "offset": [
+      0,
+      -3.5
+    ],
+    "originalSize": [
+      256,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

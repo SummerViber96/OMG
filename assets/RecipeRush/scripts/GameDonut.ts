@@ -160,6 +160,10 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     btnSauce: cc.Node = null
     @property(cc.Node)
+    btnBuger: cc.Node = null;
+    @property(cc.Node)
+    btnPhomai: cc.Node = null
+    @property(cc.Node)
     listTick: cc.Node = null
     @property(cc.Node)
     listItemNoi: cc.Node = null
@@ -326,6 +330,7 @@ export default class NewClass extends cc.Component {
                 let preTom = cc.instantiate(this.preTom);
                 preTom.position = cc.v3(-334, -29);
                 preTom.parent = this.plateList
+                preTom.scale = 0.8
                 this.arrTom.push(preTom)
                 cc.tween(preTom).bezierTo(0.5, cc.v2(-334, -29), cc.v2(-334, -29 + 300), arrPos[i]).start()
             }, i * 0.15)
@@ -349,60 +354,105 @@ export default class NewClass extends cc.Component {
         this.unschedule(this.checkHind)
 
         this.msDau = true
-        this.btnDau.getComponent(cc.Button).enabled = false;
+        // this.btnDau.getComponent(cc.Button).enabled = false;
         this.listHand.children[3].active = false
-        this.listTick.children[0].active = true
-         let itemSauce = this.garan2.children[1]
+        this.listTick.children[2].active = true
+        let itemSauce = this.garan2.children[4]
         itemSauce.scale = 0.5
         itemSauce.active = true;
-        cc.tween(itemSauce).to(0.2, { scale: 1.15 }).to(0.05, { scale: 1 }).start()
-        // let arrPos = [cc.v2(83, -36), cc.v2(51, -54), cc.v2(16, -62)]
-        // let arrAngle = [0, 0, 0]
-        // for (let i = 0; i < 3; i++) {
-        //     this.scheduleOnce(() => {
-        //         let preTom = cc.instantiate(this.preDau);
-        //         preTom.position = cc.v3(-134, -245);
-        //         preTom.parent = this.listItemPlate2
-        //         this.arrDau.push(preTom)
+        cc.tween(itemSauce).to(0.2, { scale: 1.15 }).to(0.05, { scale: 0.9 }).start()
 
-        //         cc.tween(preTom).bezierTo(0.5, cc.v2(-134, -245), cc.v2(-134, -245 + 350), arrPos[i]).start()
-        //         cc.tween(preTom).to(0.5, { angle: arrAngle[i] }).start()
-        //     }, i * 0.15)
-
-        // }
         this.scheduleOnce(() => {
-            this.plate.getChildByName("hand").active = true
-            this.plate.getComponent(cc.Button).enabled = true
+            this.listHand.children[1].active = true
+
+            // this.plate.getChildByName("hand").active = true
+            // this.plate.getComponent(cc.Button).enabled = true
             this.isStep = 5
         }, 0.3)
 
     }
+    btn_buger() {
+        if (this.isStep != 2 && this.isStep != 6) {
+            this.btnBuger.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5)
+            return;
+        }
+        cc.audioEngine.play(this.soundClick, false, 1)
+        this.unschedule(this.checkHind)
+        // this.btnBuger.getComponent(cc.Button).enabled = false;
+        this.listHand.children[6].active = false
+        if (this.isStep == 2) {
+            let itemRau = this.garan2.children[0]
+            itemRau.scale = 0.5
+            itemRau.active = true;
+            cc.tween(itemRau).to(0.2, { scale: 1 }).to(0.05, { scale: 0.9 }).start()
+            this.msSauces = true
+            this.scheduleOnce(() => {
+                this.listHand.children[7].active = true
+                this.isStep = 3;
+
+            }, 0.6)
+        }
+        else if (this.isStep == 6) {
+            let itemRau = this.garan2.children[6]
+            itemRau.scale = 0.5
+            itemRau.active = true;
+            cc.tween(itemRau).to(0.2, { scale: 1 }).to(0.05, { scale: 0.9 }).start()
+            this.msSauces = true
+            this.scheduleOnce(() => {
+                // this.listHand.children[7].active = true
+                this.isStep = 7;
+                this.plate.getChildByName("hand").active = true
+                this.plate.getComponent(cc.Button).enabled = true
+            }, 0.6)
+        }
+
+    }
+    btn_phomat() {
+        if (this.isStep != 3) {
+            this.btnPhomai.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5)
+            return;
+        }
+        cc.audioEngine.play(this.soundClick, false, 1)
+        this.unschedule(this.checkHind)
+        // this.btnPhomai.getComponent(cc.Button).enabled = false;
+        this.listHand.children[7].active = false
+        this.listTick.children[0].active = true
+        let itemRau = this.garan2.children[3]
+        itemRau.scale = 0.5
+        itemRau.active = true;
+        cc.tween(itemRau).to(0.2, { scale: 1 }).to(0.05, { scale: 0.9 }).start()
+        this.msSauces = true
+        this.scheduleOnce(() => {
+            this.listHand.children[3].active = true
+            this.isStep = 4;
+
+        }, 0.6)
+    }
     btn_sauceDauTay() {
         if (this.isShowMenu == false) return
 
-        if (this.isStep != 2) {
+        if (this.isStep != 5) {
             this.btnSauce.getChildByName("hindBox").getComponent(cc.Animation).play();
             cc.audioEngine.play(this.soundWrong, false, 0.5)
             return;
         }
-        // if (this.isStep != 2) return;
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
-        this.btnSauce.getComponent(cc.Button).enabled = false;
+        // this.btnSauce.getComponent(cc.Button).enabled = false;
         this.listHand.children[1].active = false
-        // let startPos = cc.v2(300, 2)
-        // let endpos = cc.v2(1.5, 67);
-        this.listTick.children[0].active = true
-
+        this.listTick.children[1].active = true
         // this.arrSauce = preSauce;
-        let itemRau = this.garan2.children[0]
+        let itemRau = this.garan2.children[5]
         itemRau.scale = 0.5
         itemRau.active = true;
-        cc.tween(itemRau).to(0.2, { scale: 1.15 }).to(0.05, { scale: 1 }).start()
+        cc.tween(itemRau).to(0.2, { scale: 1.15 }).to(0.05, { scale: 0.9 }).start()
         this.msSauces = true
         this.scheduleOnce(() => {
-            this.listHand.children[4].active = true
-            this.isStep = 3;
+            this.listHand.children[6].active = true
+            this.isStep = 6;
+            // this.btnBuger.getComponent(cc.Button).enabled = true;
 
         }, 0.6)
         // this.scheduleOnce(() => {
@@ -446,7 +496,7 @@ export default class NewClass extends cc.Component {
     btn_dauPhu() {
         // if (this.isStep != 3) return;
 
-        if (this.isStep != 3) {
+        if (this.isStep != 10) {
             this.btnDauPhu.getChildByName("hindBox").getComponent(cc.Animation).play();
             cc.audioEngine.play(this.soundWrong, false, 0.5)
             return;
@@ -458,7 +508,7 @@ export default class NewClass extends cc.Component {
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
 
-        this.btnDauPhu.getComponent(cc.Button).enabled = false
+        // this.btnDauPhu.getComponent(cc.Button).enabled = false
         this.listHand.children[4].active = false
         this.listTick.children[1].active = true
         let itemSauce = this.garan2.children[3]
@@ -611,7 +661,7 @@ export default class NewClass extends cc.Component {
             chefANim.setAnimation(1, "Walk", true);
 
         }
-        else if (this.isStep == 5) {
+        else if (this.isStep == 7) {
             cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, -200) }).start()
             cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, -200) }).start()
             this.chef3.active = true
@@ -643,6 +693,7 @@ export default class NewClass extends cc.Component {
                     cc.tween(item1).bezierTo(0.6, cc.v2(item1.x, item1.y), cc.v2(item1.x, item1.y + 400), cc.v3(pos1.x, pos1.y)).call(() => {
                         item1.active = false
                         this.listItemNoi.children[i].active = true
+                        this.listItemNoi.children[i].getComponent(cc.Animation).play()
                         // this.listItemNoi.children[i].children[0].children[1].active=true
                         cc.tween(this.listItemNoi.children[i].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start()
 
@@ -650,13 +701,7 @@ export default class NewClass extends cc.Component {
 
                 }, 0.1 * i)
             }
-            this.scheduleOnce(() => {
-                for (let i = 0; i < 1; i++) {
 
-                    let item1 = this.listItemNoi.children[i];
-                    item1.children[1].getComponent(sp.Skeleton).setAnimation(0, "lv1-chin", false)
-                }
-            }, 2.5)
             this.scheduleOnce(() => {
                 let chefANim = this.chef2.children[0].getComponent(sp.Skeleton)
                 this.plate.active = false
@@ -702,13 +747,13 @@ export default class NewClass extends cc.Component {
                     this.plate.parent = this.chef2.parent;
                     this.plate.position = cc.v3(2285, -351)
                     this.isStep = 2
-                    this.listHand.children[1].active = true
+                    this.listHand.children[6].active = true
                     // this.transItem()
                 }).start()
 
             }, 3)
         }
-        else if (this.isStep == 5) {
+        else if (this.isStep == 7) {
             this.ticket.children[0].active = true;
             let plate2 = this.chef2.getChildByName("plate2")
 

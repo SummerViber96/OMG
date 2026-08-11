@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Burger_Final_Dish",
+    "texture": "b2cc9f66-a0c8-46e1-93f6-1fb3799d8c09",
+    "atlas": "",
+    "rect": [
+      36,
+      31,
+      140,
+      142
+    ],
+    "offset": [
+      4.5,
+      -0.5
+    ],
+    "originalSize": [
+      203,
+      203
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

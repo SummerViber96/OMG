@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "fa26a274-46cb-4372-805b-9b06c642262c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 256,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "Cheese": {
+      "ver": "1.0.4",
+      "uuid": "1681b739-d2e5-4571-8c6f-a87da92e335d",
+      "rawTextureUuid": "fa26a274-46cb-4372-805b-9b06c642262c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -4.5,
+      "trimX": 31,
+      "trimY": 32,
+      "width": 194,
+      "height": 201,
+      "rawWidth": 256,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

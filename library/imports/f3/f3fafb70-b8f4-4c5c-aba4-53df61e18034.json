@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "RR_Convetor_BeltGameplay BG",
+    "texture": "366172df-bb46-4de8-bfbc-09c2933222ea",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2000,
+      2000
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2000,
+      2000
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
