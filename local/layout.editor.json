@@ -7,19 +7,19 @@
       "windowType": "dockable",
       "x": 0,
       "y": 0,
-      "width": 2560,
-      "height": 1400,
+      "width": 1920,
+      "height": 1040,
       "layout": {
         "type": "dock-h",
         "children": [
           {
-            "width": 566,
-            "height": 1284,
+            "width": 423,
+            "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 566,
-                "height": 519,
+                "width": 423,
+                "height": 373,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 566,
-                "height": 762,
+                "width": 423,
+                "height": 548,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 964,
-            "height": 1284,
+            "width": 721,
+            "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 964,
-                "height": 666,
+                "width": 721,
+                "height": 479,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,8 +52,8 @@
                 ]
               },
               {
-                "width": 964,
-                "height": 615,
+                "width": 721,
+                "height": 442,
                 "type": "panel",
                 "active": 1,
                 "children": [
@@ -65,8 +65,8 @@
             ]
           },
           {
-            "width": 1008,
-            "height": 1284,
+            "width": 754,
+            "height": 924,
             "type": "panel",
             "active": 0,
             "children": [
