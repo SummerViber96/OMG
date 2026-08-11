@@ -11509,11 +11509,6 @@
     "meta": 1786456693657,
     "relativePath": "RecipeRush\\may"
   },
-  "1c00d3bf-9493-4130-a2e2-6e8475852f3e": {
-    "asset": 1784437481541,
-    "meta": 1786456693690,
-    "relativePath": "RecipeRush\\may\\lv1-1.png"
-  },
   "80d3d728-189f-4287-93a0-0bc49396c1fd": {
     "asset": 1784437481540,
     "meta": 1786456693675,
@@ -13130,18 +13125,18 @@
     "relativePath": "RecipeRush\\scripts\\ticket.ts"
   },
   "c8ce49d5-ede5-4e7c-a747-a10c5b6ef76c": {
-    "asset": 1785172165768,
-    "meta": 1786456693760,
+    "asset": 1786462757385,
+    "meta": 1786462757393,
     "relativePath": "RecipeRush\\prefab\\preTofu.prefab"
   },
   "69ef9da5-ed6e-4a01-98fc-dbe3fd274186": {
-    "asset": 1785172165767,
-    "meta": 1786456693742,
+    "asset": 1786462741362,
+    "meta": 1786462741369,
     "relativePath": "RecipeRush\\prefab\\preHanh.prefab"
   },
   "2d854f5d-eb56-43c7-96ee-64649736091c": {
-    "asset": 1785172165768,
-    "meta": 1786456693750,
+    "asset": 1786462752875,
+    "meta": 1786462752883,
     "relativePath": "RecipeRush\\prefab\\preSauce.prefab"
   },
   "4d98788e-f6a3-4ecd-a441-c485929a9e96": {
@@ -13540,8 +13535,8 @@
     "relativePath": "RecipeRush\\map3\\Layer 1bantrc.png"
   },
   "1722d1e7-190c-4f09-acea-f57b10a343e6": {
-    "asset": 1786250381139,
-    "meta": 1786456693722,
+    "asset": 1786462724878,
+    "meta": 1786462724890,
     "relativePath": "RecipeRush\\prefab\\preDau.prefab"
   },
   "0b5104ba-16f5-4e98-b824-eb48c6de40e7": {
@@ -13584,11 +13579,6 @@
     "meta": 1786456695643,
     "relativePath": "scripts\\APP\\nice.mp3"
   },
-  "23add651-0977-4543-ade4-bb25fd8651d4": {
-    "asset": 1786250381136,
-    "meta": 1786456694869,
-    "relativePath": "RecipeRush\\Splash_02 (1).jpg"
-  },
   "ae9d3554-85ff-4811-8e4d-a62e12210dd2": {
     "asset": 1786302711594,
     "meta": 1786456695179,
@@ -13605,8 +13595,8 @@
     "relativePath": "RecipeRush\\prefab\\preDonut.prefab"
   },
   "540b02f1-5582-4c50-b054-9a86bbf548ab": {
-    "asset": 1786300197300,
-    "meta": 1786456693730,
+    "asset": 1786462713459,
+    "meta": 1786462713474,
     "relativePath": "RecipeRush\\prefab\\preDauTay.prefab"
   },
   "353992d6-a9c4-437b-887b-2e05c8d3c326": {
@@ -13614,100 +13604,15 @@
     "meta": 1786456690620,
     "relativePath": "RecipeRush\\anim\\donut_scale.anim"
   },
-  "ffad5782-048d-4edc-85f8-44217ff353bb": {
-    "asset": 1786304901872,
-    "meta": 1786456691249,
-    "relativePath": "RecipeRush\\Donut\\Raw_Donut_Station.png"
-  },
-  "ae168dc4-ee7d-4dcf-83f6-8a07dbd02ea0": {
-    "asset": 1786304901871,
-    "meta": 1786456691305,
-    "relativePath": "RecipeRush\\Donut\\TicketMenu.png"
-  },
   "71ec5171-8ab7-4852-b8b2-b2568fbc97f0": {
     "asset": 1786305006448,
     "meta": 1786456691211,
     "relativePath": "RecipeRush\\Donut\\donut2.png"
   },
-  "e8c7d208-e8e5-4c07-a37a-791d09099551": {
-    "asset": 1786280236000,
-    "meta": 1786456691155,
-    "relativePath": "RecipeRush\\Donut\\Choco_chip.png"
-  },
-  "c4bbec59-a719-4fde-9c19-73553d970d61": {
-    "asset": 1786280236000,
-    "meta": 1786456691157,
-    "relativePath": "RecipeRush\\Donut\\Cream_bottles.png"
-  },
-  "4ac8ad22-4be1-4cc7-82d9-b4c7dde96389": {
-    "asset": 1786280236000,
-    "meta": 1786456691174,
-    "relativePath": "RecipeRush\\Donut\\Donut_Chocolate_Topping.png"
-  },
-  "73d3cd4a-c662-48d5-ae30-156755870ef3": {
-    "asset": 1786280236000,
-    "meta": 1786456691172,
-    "relativePath": "RecipeRush\\Donut\\Donut_Final_Dish.png"
-  },
-  "0156e1a8-f9e5-40de-bae7-c7cfaf4fd961": {
-    "asset": 1786280236000,
-    "meta": 1786456691192,
-    "relativePath": "RecipeRush\\Donut\\Donut_Srwaberry_topping_with _sprinkler.png"
-  },
-  "4fdab2aa-8a67-46af-8f48-377328663b57": {
-    "asset": 1786280236000,
-    "meta": 1786456691191,
-    "relativePath": "RecipeRush\\Donut\\Donut_Srwaberry_topping_without_sprinkler.png"
-  },
-  "fb6ad6d5-5de2-4878-ba76-0ad64ccf6bd7": {
-    "asset": 1786280236000,
-    "meta": 1786456691209,
-    "relativePath": "RecipeRush\\Donut\\donut_white_chocolate_topping.png"
-  },
-  "c8a1d6ba-d3ee-424b-aa3b-6393f4fffb65": {
-    "asset": 1786280236000,
-    "meta": 1786456691228,
-    "relativePath": "RecipeRush\\Donut\\Final_Dish.png"
-  },
-  "64861a7b-5a8f-4282-ba31-7747a4daa2d6": {
-    "asset": 1786280236000,
-    "meta": 1786456691226,
-    "relativePath": "RecipeRush\\Donut\\Gemini_Generated_Image_qdl2thqdl2thqdl2.png"
-  },
-  "7595208c-67d7-4ae5-b7e9-858ad9863c4b": {
-    "asset": 1786280236000,
-    "meta": 1786456691267,
-    "relativePath": "RecipeRush\\Donut\\Raw_Donut.png"
-  },
-  "1a9b0a8c-93b0-4cf9-b57c-9d2a4696855b": {
-    "asset": 1786280236000,
-    "meta": 1786456691287,
-    "relativePath": "RecipeRush\\Donut\\Sprnklers.png"
-  },
-  "ecf8772f-46be-421a-8736-121fa633e0ef": {
-    "asset": 1786280236000,
-    "meta": 1786456691269,
-    "relativePath": "RecipeRush\\Donut\\Raw_Fried.png"
-  },
-  "5c938dc6-8db2-441e-afa9-87944c6e3650": {
-    "asset": 1786280236000,
-    "meta": 1786456691285,
-    "relativePath": "RecipeRush\\Donut\\Strawberry.png"
-  },
-  "7738907f-9e32-47bf-805a-46f94b882ed2": {
-    "asset": 1786305716019,
-    "meta": 1786456691308,
-    "relativePath": "RecipeRush\\Donut\\TicketWhite.png"
-  },
   "139bdbd9-8899-4a17-ad88-0f89b9609239": {
-    "asset": 1786459769484,
-    "meta": 1786459769503,
+    "asset": 1786463391634,
+    "meta": 1786463391648,
     "relativePath": "scenes\\Rp3_v2.fire"
-  },
-  "e541dc6d-753e-4a6b-b24d-968fd089d9b6": {
-    "asset": 1786392812184,
-    "meta": 1786456691251,
-    "relativePath": "RecipeRush\\Donut\\hindBox.png"
   },
   "fb23e1f9-9619-49bb-ac21-26c43c1bb347": {
     "asset": 1786392875470,
@@ -13855,8 +13760,8 @@
     "relativePath": "scripts\\New Folder"
   },
   "1a2319c9-7958-4ad1-95da-4d4f8e0fabe2": {
-    "asset": 1786457275050,
-    "meta": 1786457275059,
+    "asset": 1786463370975,
+    "meta": 1786463370986,
     "relativePath": "RecipeRush\\anim\\cus_fun.anim"
   },
   "6a5fa90d-67c3-4b7d-8d75-233b2d52a199": {
@@ -13869,19 +13774,119 @@
     "meta": 1786458464914,
     "relativePath": "RecipeRush\\char\\1.json"
   },
-  "ecab53fa-1237-4615-835a-c4ed5534d9c3": {
-    "asset": 1786459132240,
-    "meta": 1786459132268,
-    "relativePath": "RecipeRush\\prefab\\happy-face.png"
-  },
-  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
-    "asset": 1786459301570,
-    "meta": 1786459302722,
-    "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
-  },
   "e138e4b5-6a93-4e46-a91e-96b800670271": {
     "asset": 1786459541914,
     "meta": 1786459541960,
     "relativePath": "RecipeRush\\char\\1.png"
+  },
+  "2d906353-ed64-4773-89fa-41b1ac324397": {
+    "asset": 1786460091245,
+    "meta": 1786460091257,
+    "relativePath": "RecipeRush\\anim\\phaohoa.prefab"
+  },
+  "23add651-0977-4543-ade4-bb25fd8651d4": {
+    "asset": 1786461248730,
+    "meta": 1786461261104,
+    "relativePath": "RecipeRush\\Splash_02 (1).jpg"
+  },
+  "c4bbec59-a719-4fde-9c19-73553d970d61": {
+    "asset": 1786436154000,
+    "meta": 1786461381494,
+    "relativePath": "RecipeRush\\Donut\\Cream_bottles.png"
+  },
+  "e8c7d208-e8e5-4c07-a37a-791d09099551": {
+    "asset": 1786436154000,
+    "meta": 1786461381499,
+    "relativePath": "RecipeRush\\Donut\\Choco_chip.png"
+  },
+  "4ac8ad22-4be1-4cc7-82d9-b4c7dde96389": {
+    "asset": 1786436154000,
+    "meta": 1786461381517,
+    "relativePath": "RecipeRush\\Donut\\Donut_Chocolate_Topping.png"
+  },
+  "73d3cd4a-c662-48d5-ae30-156755870ef3": {
+    "asset": 1786436154000,
+    "meta": 1786461381522,
+    "relativePath": "RecipeRush\\Donut\\Donut_Final_Dish.png"
+  },
+  "0156e1a8-f9e5-40de-bae7-c7cfaf4fd961": {
+    "asset": 1786436154000,
+    "meta": 1786461381545,
+    "relativePath": "RecipeRush\\Donut\\Donut_Srwaberry_topping_with _sprinkler.png"
+  },
+  "4fdab2aa-8a67-46af-8f48-377328663b57": {
+    "asset": 1786436154000,
+    "meta": 1786461381559,
+    "relativePath": "RecipeRush\\Donut\\Donut_Srwaberry_topping_without_sprinkler.png"
+  },
+  "fb6ad6d5-5de2-4878-ba76-0ad64ccf6bd7": {
+    "asset": 1786436154000,
+    "meta": 1786461381574,
+    "relativePath": "RecipeRush\\Donut\\donut_white_chocolate_topping.png"
+  },
+  "c8a1d6ba-d3ee-424b-aa3b-6393f4fffb65": {
+    "asset": 1786436154000,
+    "meta": 1786461381586,
+    "relativePath": "RecipeRush\\Donut\\Final_Dish.png"
+  },
+  "64861a7b-5a8f-4282-ba31-7747a4daa2d6": {
+    "asset": 1786436154000,
+    "meta": 1786461381600,
+    "relativePath": "RecipeRush\\Donut\\Gemini_Generated_Image_qdl2thqdl2thqdl2.png"
+  },
+  "e541dc6d-753e-4a6b-b24d-968fd089d9b6": {
+    "asset": 1786436154000,
+    "meta": 1786461381614,
+    "relativePath": "RecipeRush\\Donut\\hindBox.png"
+  },
+  "ffad5782-048d-4edc-85f8-44217ff353bb": {
+    "asset": 1786436154000,
+    "meta": 1786461381628,
+    "relativePath": "RecipeRush\\Donut\\Raw_Donut_Station.png"
+  },
+  "7595208c-67d7-4ae5-b7e9-858ad9863c4b": {
+    "asset": 1786436154000,
+    "meta": 1786461381638,
+    "relativePath": "RecipeRush\\Donut\\Raw_Donut.png"
+  },
+  "ecf8772f-46be-421a-8736-121fa633e0ef": {
+    "asset": 1786436154000,
+    "meta": 1786461381650,
+    "relativePath": "RecipeRush\\Donut\\Raw_Fried.png"
+  },
+  "1a9b0a8c-93b0-4cf9-b57c-9d2a4696855b": {
+    "asset": 1786436154000,
+    "meta": 1786461381666,
+    "relativePath": "RecipeRush\\Donut\\Sprnklers.png"
+  },
+  "5c938dc6-8db2-441e-afa9-87944c6e3650": {
+    "asset": 1786436154000,
+    "meta": 1786461381677,
+    "relativePath": "RecipeRush\\Donut\\Strawberry.png"
+  },
+  "ae168dc4-ee7d-4dcf-83f6-8a07dbd02ea0": {
+    "asset": 1786436154000,
+    "meta": 1786461381693,
+    "relativePath": "RecipeRush\\Donut\\TicketMenu.png"
+  },
+  "7738907f-9e32-47bf-805a-46f94b882ed2": {
+    "asset": 1786436154000,
+    "meta": 1786461381704,
+    "relativePath": "RecipeRush\\Donut\\TicketWhite.png"
+  },
+  "1c00d3bf-9493-4130-a2e2-6e8475852f3e": {
+    "asset": 1786462118243,
+    "meta": 1786462128260,
+    "relativePath": "RecipeRush\\may\\lv1-1.png"
+  },
+  "ecab53fa-1237-4615-835a-c4ed5534d9c3": {
+    "asset": 1786462144629,
+    "meta": 1786462191815,
+    "relativePath": "RecipeRush\\prefab\\happy-face.png"
+  },
+  "6f70791e-8c29-418c-a4e5-e3842f7af044": {
+    "asset": 1786462257522,
+    "meta": 1786462259294,
+    "relativePath": "RecipeRush\\scripts\\GameDonut.ts"
   }
 }

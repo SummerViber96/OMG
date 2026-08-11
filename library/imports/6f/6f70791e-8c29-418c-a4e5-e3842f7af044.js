@@ -646,7 +646,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.scheduleOnce(function () {
                     _this.onEndGame(false);
                 }, 3);
-            }, 1 + 2);
+            }, 1 + 2.5);
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
             //     // this.video.node.position = cc.v3(1700, -300)
@@ -956,8 +956,8 @@ var NewClass = /** @class */ (function (_super) {
         this.timeup.scale = (logic) ? 1 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
         this.endCardDoc.scale = 1.5;
-        this.notiMission.scale = (logic) ? 2 : 1;
-        this.barMission2.scale = (logic) ? 2 : 1;
+        // this.notiMission.scale = (logic) ? 2 : 1
+        // this.barMission2.scale = (logic) ? 2 : 1
         this.magVideo = 0;
         this.barMission.scale = (logic) ? 1.7 : 1;
         // this.camera.node.position = (logic) ? cc.v3(-160, 300, 0) : cc.v3(0, 120, 0)
