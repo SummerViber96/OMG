@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "0023016d-9aca-4944-9ab3-b1535cbee6a0",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1002,
+  "height": 149,
+  "platformSettings": {},
+  "subMetas": {
+    "Rush HouR Comp 1_00105 (1)": {
+      "ver": "1.0.4",
+      "uuid": "89d83308-aaab-4e47-9773-586f3c3e9630",
+      "rawTextureUuid": "0023016d-9aca-4944-9ab3-b1535cbee6a0",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1002,
+      "height": 149,
+      "rawWidth": 1002,
+      "rawHeight": 149,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

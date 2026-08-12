@@ -211,7 +211,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveTicket = function () {
         this.ticket.active = true;
         cc.audioEngine.play(this.soundTicketFly, false, 0.3);
-        cc.tween(this.camera.node).to(1, { position: cc.v3(1750 + this.mag, -200.232) }).call(function () {
+        cc.tween(this.camera.node).to(1, { position: cc.v3(2000, -200.232) }).call(function () {
             // this.ticket.getComponent(cc.Animation).play("ticket_show")
         }).start();
         cc.tween(this.camera).to(1, { zoomRatio: 1 }).start();
@@ -300,7 +300,7 @@ var NewClass = /** @class */ (function (_super) {
         this.msDau = true;
         // this.btnDau.getComponent(cc.Button).enabled = false;
         this.listHand.children[3].active = false;
-        this.listTick.children[2].active = true;
+        this.listTick.children[1].active = true;
         var itemSauce = this.garan2.children[4];
         itemSauce.scale = 0.5;
         itemSauce.active = true;
@@ -383,7 +383,7 @@ var NewClass = /** @class */ (function (_super) {
         this.unschedule(this.checkHind);
         // this.btnSauce.getComponent(cc.Button).enabled = false;
         this.listHand.children[1].active = false;
-        this.listTick.children[1].active = true;
+        this.listTick.children[2].active = true;
         // this.arrSauce = preSauce;
         var itemRau = this.garan2.children[5];
         itemRau.scale = 0.5;
@@ -643,7 +643,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.idFoot = cc.audioEngine.play(_this.soundFoot, false, 0.5);
                 cc.tween(_this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start();
                 cc.tween(_this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start();
-                cc.tween(_this.camera.node).to(1.5, { position: cc.v3(1750 + _this.mag, -200.232) }).call(function () {
+                cc.tween(_this.camera.node).to(1.5, { position: cc.v3(2000, -200.232) }).call(function () {
                 }).start();
                 cc.tween(_this.cameraDoc.node).to(1.5, { position: cc.v3(2100, -200.232) }).call(function () {
                 }).start();
@@ -697,9 +697,13 @@ var NewClass = /** @class */ (function (_super) {
                 _this.listCus2.active = true;
                 cc.tween(_this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start();
                 cc.tween(_this.cameraDoc.node).to(1, { position: cc.v3(-500 + 40 + 250, 300) }).start();
+                cc.audioEngine.play(_this.soundEnd, false, 0.5);
+                _this.scheduleOnce(function () {
+                    _this.timeup.active = true;
+                }, 1);
                 _this.scheduleOnce(function () {
                     _this.onEndGame(false);
-                }, 3);
+                }, 2.5);
             }, 1 + 2.5);
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
@@ -956,12 +960,13 @@ var NewClass = /** @class */ (function (_super) {
             this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.soundThinking, false, 0.5);
             }, 0.5);
-            cc.audioEngine.play(this.soundThinkLose, false, 1);
+            cc.audioEngine.play(this.soundThinkWin, false, 1);
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
         }
         else {
+            cc.audioEngine.play(this.soundThinkWin, false, 0.5);
             // this.barMission.getComponent("barTime").endGame()
             // for (let child of this.arrCus) {
             //     child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true)
@@ -969,9 +974,9 @@ var NewClass = /** @class */ (function (_super) {
             // cc.audioEngine.stop(this.idSound)
             // this.timeup.active = true;
             this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundThinking, false, 0.5);
+                cc.audioEngine.play(_this.soundThinking, false, 1);
                 // this.endCard.active = true;
-            }, 1);
+            }, 0.5);
         }
         this.linkToStore.active = true;
     };
@@ -1007,7 +1012,7 @@ var NewClass = /** @class */ (function (_super) {
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
-        this.timeup.scale = (logic) ? 1 : 1.4;
+        this.timeup.scale = (logic) ? 2 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
         this.endCardDoc.scale = 1.5;
         // this.notiMission.scale = (logic) ? 2 : 1
@@ -1066,12 +1071,12 @@ var NewClass = /** @class */ (function (_super) {
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                this.mag = -200;
+                // this.mag = -200
                 this.magfront = 200;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 // this.camera.zoomRatio = 0.85
-                this.mag = 220;
+                // this.mag = 220
             }
         }
     };

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "griller",
+    "texture": "2124d60e-8f9a-4ea7-abf5-2be9c426f79e",
+    "atlas": "",
+    "rect": [
+      8,
+      0,
+      433,
+      291
+    ],
+    "offset": [
+      -0.5,
+      4.5
+    ],
+    "originalSize": [
+      450,
+      300
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

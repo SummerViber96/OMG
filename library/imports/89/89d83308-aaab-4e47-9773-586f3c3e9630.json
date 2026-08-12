@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Rush HouR Comp 1_00105 (1)",
+    "texture": "0023016d-9aca-4944-9ab3-b1535cbee6a0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1002,
+      149
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1002,
+      149
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
