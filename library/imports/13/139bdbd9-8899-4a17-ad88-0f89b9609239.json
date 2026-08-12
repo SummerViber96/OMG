@@ -91,13 +91,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 576
-      },
-      {
-        "__id__": 577
-      },
-      {
         "__id__": 578
+      },
+      {
+        "__id__": 579
+      },
+      {
+        "__id__": 580
       }
     ],
     "_prefab": null,
@@ -15330,7 +15330,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "852c8960-0d40-4956-bafb-03a84b4e9796"
+      "__uuid__": "5a21682c-2cba-42a0-99b0-39ee4dbd9abe"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -16419,19 +16419,19 @@
         "__id__": 551
       },
       {
-        "__id__": 558
+        "__id__": 560
       },
       {
-        "__id__": 565
+        "__id__": 567
       },
       {
-        "__id__": 569
+        "__id__": 571
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 575
+        "__id__": 577
       }
     ],
     "_prefab": null,
@@ -24258,7 +24258,7 @@
     "_active": false,
     "_components": [
       {
-        "__id__": 557
+        "__id__": 559
       }
     ],
     "_prefab": null,
@@ -24410,14 +24410,18 @@
     "_parent": {
       "__id__": 551
     },
-    "_children": [],
+    "_children": [
+      {
+        "__id__": 555
+      }
+    ],
     "_active": true,
     "_components": [
       {
-        "__id__": 555
+        "__id__": 557
       },
       {
-        "__id__": 556
+        "__id__": 558
       }
     ],
     "_prefab": null,
@@ -24469,13 +24473,107 @@
     "_id": "7fH+UI5iNKZq+MQwsATS7i"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "Rush HouR Comp 1_00105 (1)",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 554
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 556
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 1002,
+      "height": 149
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0.5,
+        0.5,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "91XgAUkKZO7YByF1qCdfvQ"
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 555
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "8f359af0-1abf-451a-a478-69d46024edf2"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": "ff3n0EFYFNI4R8u7yQhEz5"
+  },
+  {
     "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 554
     },
-    "_enabled": true,
+    "_enabled": false,
     "_materials": [
       {
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
@@ -24549,16 +24647,16 @@
     },
     "_children": [
       {
-        "__id__": 559
+        "__id__": 561
       },
       {
-        "__id__": 561
+        "__id__": 563
       }
     ],
     "_active": false,
     "_components": [
       {
-        "__id__": 564
+        "__id__": 566
       }
     ],
     "_prefab": null,
@@ -24614,13 +24712,13 @@
     "_name": "New Sprite(Splash)",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 558
+      "__id__": 560
     },
     "_children": [],
     "_active": false,
     "_components": [
       {
-        "__id__": 560
+        "__id__": 562
       }
     ],
     "_prefab": null,
@@ -24676,7 +24774,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 559
+      "__id__": 561
     },
     "_enabled": true,
     "_materials": [
@@ -24708,16 +24806,16 @@
     "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 558
+      "__id__": 560
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 562
+        "__id__": 564
       },
       {
-        "__id__": 563
+        "__id__": 565
       }
     ],
     "_prefab": null,
@@ -24773,7 +24871,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 561
+      "__id__": 563
     },
     "_enabled": true,
     "_materials": [
@@ -24808,7 +24906,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 561
+      "__id__": 563
     },
     "_enabled": true,
     "_color": {
@@ -24826,7 +24924,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 558
+      "__id__": 560
     },
     "_enabled": true,
     "_defaultClip": {
@@ -24849,7 +24947,7 @@
     },
     "_children": [
       {
-        "__id__": 566
+        "__id__": 568
       }
     ],
     "_active": true,
@@ -24907,16 +25005,16 @@
     "_name": "video",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 565
+      "__id__": 567
     },
     "_children": [],
     "_active": false,
     "_components": [
       {
-        "__id__": 567
+        "__id__": 569
       },
       {
-        "__id__": 568
+        "__id__": 570
       }
     ],
     "_prefab": null,
@@ -24972,7 +25070,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 566
+      "__id__": 568
     },
     "_enabled": true,
     "_resourceType": 1,
@@ -24992,7 +25090,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 566
+      "__id__": 568
     },
     "_enabled": true,
     "alignMode": 1,
@@ -25023,16 +25121,16 @@
     },
     "_children": [
       {
-        "__id__": 570
+        "__id__": 572
       },
       {
-        "__id__": 572
+        "__id__": 574
       }
     ],
     "_active": false,
     "_components": [
       {
-        "__id__": 574
+        "__id__": 576
       }
     ],
     "_prefab": null,
@@ -25088,13 +25186,13 @@
     "_name": "New Sprite(Splash)",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 569
+      "__id__": 571
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 571
+        "__id__": 573
       }
     ],
     "_prefab": null,
@@ -25150,7 +25248,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 570
+      "__id__": 572
     },
     "_enabled": true,
     "_materials": [
@@ -25182,13 +25280,13 @@
     "_name": "Fail",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 569
+      "__id__": 571
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 573
+        "__id__": 575
       }
     ],
     "_prefab": null,
@@ -25244,7 +25342,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 572
+      "__id__": 574
     },
     "_enabled": true,
     "_materials": [
@@ -25274,7 +25372,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 569
+      "__id__": 571
     },
     "_enabled": true,
     "_defaultClip": {
@@ -25389,7 +25487,9 @@
     "soundClick": {
       "__uuid__": "33a985c8-ddda-4c31-b160-f2f4a01fa694"
     },
-    "soundEnd": null,
+    "soundEnd": {
+      "__uuid__": "49303cd5-5171-4053-9d53-61f186180af8"
+    },
     "soundSellDone": {
       "__uuid__": "3bf26e38-1121-453d-a3e2-293f13fbb22a"
     },
@@ -25404,7 +25504,9 @@
     "soundCreamMini": {
       "__uuid__": "1d3ef933-d58b-455b-bc8f-2f71184cd01c"
     },
-    "soundThinkWin": null,
+    "soundThinkWin": {
+      "__uuid__": "6152a4e1-5ba6-443b-93f2-a8d5110a53c7"
+    },
     "soundBanh": {
       "__uuid__": "84631f45-8822-4c8e-9dd3-1f99363b8249"
     },
@@ -25474,7 +25576,7 @@
       "__id__": 551
     },
     "amazing": {
-      "__id__": 558
+      "__id__": 560
     },
     "notiCoin": {
       "__id__": 390
@@ -25551,7 +25653,7 @@
       "__id__": 51
     },
     "video": {
-      "__id__": 567
+      "__id__": 569
     },
     "cus1": {
       "__id__": 29
@@ -25560,7 +25662,7 @@
       "__id__": 349
     },
     "failUi": {
-      "__id__": 569
+      "__id__": 571
     },
     "listItemPlate2": {
       "__id__": 114

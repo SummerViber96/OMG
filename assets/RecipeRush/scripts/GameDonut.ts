@@ -262,7 +262,7 @@ export default class NewClass extends cc.Component {
     moveTicket() {
         this.ticket.active = true
         cc.audioEngine.play(this.soundTicketFly, false, 0.3)
-        cc.tween(this.camera.node).to(1, { position: cc.v3(1750 + this.mag, -200.232) }).call(() => {
+        cc.tween(this.camera.node).to(1, { position: cc.v3(2000, -200.232) }).call(() => {
             // this.ticket.getComponent(cc.Animation).play("ticket_show")
         }).start()
         cc.tween(this.camera).to(1, { zoomRatio: 1 }).start()
@@ -351,8 +351,8 @@ export default class NewClass extends cc.Component {
         this.msDau = true
         this.btnDau.getComponent(cc.Button).enabled = false;
         this.listHand.children[3].active = false
-        this.listTick.children[0].active = true
-         let itemSauce = this.garan2.children[1]
+        this.listTick.children[1].active = true
+        let itemSauce = this.garan2.children[1]
         itemSauce.scale = 0.5
         itemSauce.active = true;
         cc.tween(itemSauce).to(0.2, { scale: 1.15 }).to(0.05, { scale: 1 }).start()
@@ -460,7 +460,7 @@ export default class NewClass extends cc.Component {
 
         this.btnDauPhu.getComponent(cc.Button).enabled = false
         this.listHand.children[4].active = false
-        this.listTick.children[1].active = true
+        this.listTick.children[2].active = true
         let itemSauce = this.garan2.children[3]
         itemSauce.scale = 0.5
         itemSauce.active = true;
@@ -683,7 +683,7 @@ export default class NewClass extends cc.Component {
                 cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start()
                 cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start()
 
-                cc.tween(this.camera.node).to(1.5, { position: cc.v3(1750 + this.mag, -200.232) }).call(() => {
+                cc.tween(this.camera.node).to(1.5, { position: cc.v3(2000, -200.232) }).call(() => {
                 }).start()
 
 
@@ -750,9 +750,14 @@ export default class NewClass extends cc.Component {
 
                 cc.tween(this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
                 cc.tween(this.cameraDoc.node).to(1, { position: cc.v3(-500 + 40 + 250, 300) }).start()
+                cc.audioEngine.play(this.soundEnd, false, 0.5)
+                this.scheduleOnce(() => {
+                    this.timeup.active = true
+
+                }, 1)
                 this.scheduleOnce(() => {
                     this.onEndGame(false)
-                }, 3)
+                }, 2.5)
             }, 1 + 2.5)
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
@@ -1017,6 +1022,7 @@ export default class NewClass extends cc.Component {
     }
 
     isEndGame = false
+
     onEndGame(value) {
         if (this.isEndGame) return;
         this.isEndGame = true
@@ -1033,7 +1039,7 @@ export default class NewClass extends cc.Component {
 
             }, 0.5)
 
-            cc.audioEngine.play(this.soundThinkLose, false, 1)
+            cc.audioEngine.play(this.soundThinkWin, false, 1)
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
@@ -1041,6 +1047,7 @@ export default class NewClass extends cc.Component {
 
         }
         else {
+            cc.audioEngine.play(this.soundThinkWin, false, 0.5)
             // this.barMission.getComponent("barTime").endGame()
             // for (let child of this.arrCus) {
             //     child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true)
@@ -1049,9 +1056,9 @@ export default class NewClass extends cc.Component {
             // this.timeup.active = true;
 
             this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundThinking, false, 0.5)
+                cc.audioEngine.play(this.soundThinking, false, 1)
                 // this.endCard.active = true;
-            }, 1)
+            }, 0.5)
 
 
         }
@@ -1096,7 +1103,7 @@ export default class NewClass extends cc.Component {
         this.guild.scale = (logic) ? 2 : 1.2
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
 
-        this.timeup.scale = (logic) ? 1 : 1.4
+        this.timeup.scale = (logic) ? 2 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
         this.endCardDoc.scale = 1.5
         // this.notiMission.scale = (logic) ? 2 : 1
@@ -1161,12 +1168,12 @@ export default class NewClass extends cc.Component {
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                this.mag = -200
+                // this.mag = -200
                 this.magfront = 200
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 // this.camera.zoomRatio = 0.85
-                this.mag = 220
+                // this.mag = 220
 
             }
         }
