@@ -14,12 +14,6 @@
           "cc.Sprite": {
             "spriteFrame": [
               {
-                "frame": 0.1,
-                "value": {
-                  "__uuid__": "88394d7f-ce17-4f86-8231-226492b90a8f"
-                }
-              },
-              {
                 "frame": 0.11666666666666667,
                 "value": {
                   "__uuid__": "852c8960-0d40-4956-bafb-03a84b4e9796"

@@ -260,7 +260,7 @@ export default class NewClass extends cc.Component {
     moveTicket() {
         this.ticket.active = true
         cc.audioEngine.play(this.soundTicketFly, false, 0.3)
-        cc.tween(this.camera.node).to(1, { position: cc.v3(1750 + this.mag, -200.232) }).call(() => {
+        cc.tween(this.camera.node).to(1, { position: cc.v3(2000 + this.mag, -200.232) }).call(() => {
             // this.ticket.getComponent(cc.Animation).play("ticket_show")
         }).start()
         cc.tween(this.camera).to(1, { zoomRatio: 1 }).start()
@@ -337,7 +337,7 @@ export default class NewClass extends cc.Component {
         }, 1)
     }
     btn_dauTay() {
-        if (this.isStep != 4) {
+        if (this.isStep != 5) {
             this.btnDau.getChildByName("hindBox").getComponent(cc.Animation).play();
             cc.audioEngine.play(this.soundWrong, false, 0.5)
             return;
@@ -367,7 +367,7 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.plate.getChildByName("hand").active = true
             this.plate.getComponent(cc.Button).enabled = true
-            this.isStep = 5
+            this.isStep = 6
         }, 0.3)
 
     }
@@ -382,7 +382,7 @@ export default class NewClass extends cc.Component {
         // if (this.isStep != 2) return;
         cc.audioEngine.play(this.soundClick, false, 1)
         this.unschedule(this.checkHind)
-        this.btnSauce.getComponent(cc.Button).enabled = false;
+        // this.btnSauce.getComponent(cc.Button).enabled = false;
         this.listHand.children[1].active = false
         // let startPos = cc.v2(300, 2)
         // let endpos = cc.v2(1.5, 67);
@@ -390,18 +390,21 @@ export default class NewClass extends cc.Component {
 
         // this.arrSauce = preSauce;
         for (let i = 0; i < this.listItemPlate2.childrenCount; i++) {
-            let child = this.listItemPlate2.children[i]
+            if (i != 1) {
+                let child = this.listItemPlate2.children[i]
 
 
-            child.children[2 + i].active = true
-            child.getComponent(cc.Animation).play()
+                child.children[2 + i].active = true
+                child.getComponent(cc.Animation).play()
+            }
+
         }
         this.msSauces = true
         this.scheduleOnce(() => {
-            this.listHand.children[4].active = true
+            this.listHand.children[2].active = true
             this.isStep = 3;
 
-        }, 0.6)
+        }, 0.3)
         // this.scheduleOnce(() => {
         //     this.plate.getChildByName("hand").active = true
         //     this.plate.getComponent(cc.Button).enabled = true
@@ -418,32 +421,32 @@ export default class NewClass extends cc.Component {
 
     btn_hanh() {
 
-        this.btnHanh.getChildByName("hindBox").getComponent(cc.Animation).play();
-        cc.audioEngine.play(this.soundWrong, false, 0.5)
-        return;
-
-        // if (this.isShowMenu == false) return
-
-        // cc.audioEngine.play(this.soundClick, false, 1)
-        // this.unschedule(this.checkHind)
-
-        // this.msHanh = true;
-        // this.btnHanh.getComponent(cc.Button).enabled = false
-        // this.listHand.children[2].active = false
-        // this.listTick.children[1].active = true
+        if (this.isStep != 3) {
+            this.btnHanh.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5)
+            return;
+        }
 
 
-        // this.scheduleOnce(() => {
-        //     this.checkSuccess()
-        // }, 0.5 + 0.15 * 3)
-        // this.scheduleOnce(() => {
-        //     this.checkHind()
-        // }, 2)
+
+        this.listHand.children[2].active = false
+
+        let child = this.listItemPlate2.children[1]
+        this.listTick.children[2].active = true
+
+
+        child.children[2 + 1].active = true
+        child.getComponent(cc.Animation).play()
+        this.scheduleOnce(() => {
+            this.listHand.children[4].active = true
+            this.isStep = 4;
+
+        }, 0.6)
     }
     btn_dauPhu() {
         // if (this.isStep != 3) return;
 
-        if (this.isStep != 3) {
+        if (this.isStep != 4) {
             this.btnDauPhu.getChildByName("hindBox").getComponent(cc.Animation).play();
             cc.audioEngine.play(this.soundWrong, false, 0.5)
             return;
@@ -473,12 +476,12 @@ export default class NewClass extends cc.Component {
         // }, 2)
         this.scheduleOnce(() => {
             this.listHand.children[3].active = true;
-            this.isStep = 4
+            this.isStep = 5
         }, 0.3)
     }
     btn_dau() {
         // if (this.isStep != 4) return;
-        if (this.isStep != 4) {
+        if (this.isStep != 5) {
             this.btnDau.getChildByName("hindBox").getComponent(cc.Animation).play();
             cc.audioEngine.play(this.soundWrong, false, 0.5)
             return;
@@ -604,7 +607,7 @@ export default class NewClass extends cc.Component {
             chefANim.setAnimation(1, "Walk", true);
 
         }
-        else if (this.isStep == 5) {
+        else if (this.isStep == 6) {
             cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, -200) }).start()
             cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, -200) }).start()
             this.chef3.active = true
@@ -668,7 +671,7 @@ export default class NewClass extends cc.Component {
                 cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start()
                 cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start()
 
-                cc.tween(this.camera.node).to(1.5, { position: cc.v3(1750 + this.mag, -200.232) }).call(() => {
+                cc.tween(this.camera.node).to(1.5, { position: cc.v3(2000, -200.232) }).call(() => {
                 }).start()
 
 
@@ -693,7 +696,7 @@ export default class NewClass extends cc.Component {
 
             }, 3)
         }
-        else if (this.isStep == 5) {
+        else if (this.isStep == 6) {
             this.ticket.children[0].active = true;
             let plate2 = this.chef2.getChildByName("plate2")
 
@@ -735,10 +738,15 @@ export default class NewClass extends cc.Component {
 
                 cc.tween(this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
                 cc.tween(this.cameraDoc.node).to(1, { position: cc.v3(-500 + 40 + 250, 300) }).start()
+                cc.audioEngine.play(this.soundEnd,false,0.5)
+                this.scheduleOnce(()=>{
+                this.timeup.active=true
+
+                },1)
                 this.scheduleOnce(() => {
                     this.onEndGame(false)
-                }, 3)
-            }, 1 +2.5)
+                }, 2.5)
+            }, 1 + 2.5)
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
             //     // this.video.node.position = cc.v3(1700, -300)
@@ -1018,7 +1026,7 @@ export default class NewClass extends cc.Component {
 
             }, 0.5)
 
-            cc.audioEngine.play(this.soundThinkLose, false, 1)
+            cc.audioEngine.play(this.soundThinkWin, false, 1)
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
@@ -1026,6 +1034,7 @@ export default class NewClass extends cc.Component {
 
         }
         else {
+             cc.audioEngine.play(this.soundThinkWin, false, 0.5)
             // this.barMission.getComponent("barTime").endGame()
             // for (let child of this.arrCus) {
             //     child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true)
@@ -1034,9 +1043,9 @@ export default class NewClass extends cc.Component {
             // this.timeup.active = true;
 
             this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundThinking, false, 0.5)
+                cc.audioEngine.play(this.soundThinking, false, 1)
                 // this.endCard.active = true;
-            }, 1)
+            }, 0.5)
 
 
         }
@@ -1081,7 +1090,7 @@ export default class NewClass extends cc.Component {
         this.guild.scale = (logic) ? 2 : 1.2
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360)
 
-        this.timeup.scale = (logic) ? 1 : 1.4
+        this.timeup.scale = (logic) ? 2 : 1.4
         this.amazing.scale = (logic) ? 1 : 1.4
         this.endCardDoc.scale = 1.5
         // this.notiMission.scale = (logic) ? 2 : 1
@@ -1146,12 +1155,12 @@ export default class NewClass extends cc.Component {
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
 
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                this.mag = -200
+                // this.mag = -200
                 this.magfront = 200
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 // this.camera.zoomRatio = 0.85
-                this.mag = 220
+                // this.mag = 220
 
             }
         }

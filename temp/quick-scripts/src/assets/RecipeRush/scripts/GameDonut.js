@@ -208,7 +208,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveTicket = function () {
         this.ticket.active = true;
         cc.audioEngine.play(this.soundTicketFly, false, 0.3);
-        cc.tween(this.camera.node).to(1, { position: cc.v3(1750 + this.mag, -200.232) }).call(function () {
+        cc.tween(this.camera.node).to(1, { position: cc.v3(2000 + this.mag, -200.232) }).call(function () {
             // this.ticket.getComponent(cc.Animation).play("ticket_show")
         }).start();
         cc.tween(this.camera).to(1, { zoomRatio: 1 }).start();
@@ -284,7 +284,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_dauTay = function () {
         var _this = this;
-        if (this.isStep != 4) {
+        if (this.isStep != 5) {
             this.btnDau.getChildByName("hindBox").getComponent(cc.Animation).play();
             cc.audioEngine.play(this.soundWrong, false, 0.5);
             return;
@@ -316,7 +316,7 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.plate.getChildByName("hand").active = true;
             _this.plate.getComponent(cc.Button).enabled = true;
-            _this.isStep = 5;
+            _this.isStep = 6;
         }, 0.3);
     };
     NewClass.prototype.btn_sauceDauTay = function () {
@@ -331,22 +331,24 @@ var NewClass = /** @class */ (function (_super) {
         // if (this.isStep != 2) return;
         cc.audioEngine.play(this.soundClick, false, 1);
         this.unschedule(this.checkHind);
-        this.btnSauce.getComponent(cc.Button).enabled = false;
+        // this.btnSauce.getComponent(cc.Button).enabled = false;
         this.listHand.children[1].active = false;
         // let startPos = cc.v2(300, 2)
         // let endpos = cc.v2(1.5, 67);
         this.listTick.children[1].active = true;
         // this.arrSauce = preSauce;
         for (var i = 0; i < this.listItemPlate2.childrenCount; i++) {
-            var child = this.listItemPlate2.children[i];
-            child.children[2 + i].active = true;
-            child.getComponent(cc.Animation).play();
+            if (i != 1) {
+                var child = this.listItemPlate2.children[i];
+                child.children[2 + i].active = true;
+                child.getComponent(cc.Animation).play();
+            }
         }
         this.msSauces = true;
         this.scheduleOnce(function () {
-            _this.listHand.children[4].active = true;
+            _this.listHand.children[2].active = true;
             _this.isStep = 3;
-        }, 0.6);
+        }, 0.3);
         // this.scheduleOnce(() => {
         //     this.plate.getChildByName("hand").active = true
         //     this.plate.getComponent(cc.Button).enabled = true
@@ -360,27 +362,26 @@ var NewClass = /** @class */ (function (_super) {
         // }, 2)
     };
     NewClass.prototype.btn_hanh = function () {
-        this.btnHanh.getChildByName("hindBox").getComponent(cc.Animation).play();
-        cc.audioEngine.play(this.soundWrong, false, 0.5);
-        return;
-        // if (this.isShowMenu == false) return
-        // cc.audioEngine.play(this.soundClick, false, 1)
-        // this.unschedule(this.checkHind)
-        // this.msHanh = true;
-        // this.btnHanh.getComponent(cc.Button).enabled = false
-        // this.listHand.children[2].active = false
-        // this.listTick.children[1].active = true
-        // this.scheduleOnce(() => {
-        //     this.checkSuccess()
-        // }, 0.5 + 0.15 * 3)
-        // this.scheduleOnce(() => {
-        //     this.checkHind()
-        // }, 2)
+        var _this = this;
+        if (this.isStep != 3) {
+            this.btnHanh.getChildByName("hindBox").getComponent(cc.Animation).play();
+            cc.audioEngine.play(this.soundWrong, false, 0.5);
+            return;
+        }
+        this.listHand.children[2].active = false;
+        var child = this.listItemPlate2.children[1];
+        this.listTick.children[2].active = true;
+        child.children[2 + 1].active = true;
+        child.getComponent(cc.Animation).play();
+        this.scheduleOnce(function () {
+            _this.listHand.children[4].active = true;
+            _this.isStep = 4;
+        }, 0.6);
     };
     NewClass.prototype.btn_dauPhu = function () {
         // if (this.isStep != 3) return;
         var _this = this;
-        if (this.isStep != 3) {
+        if (this.isStep != 4) {
             this.btnDauPhu.getChildByName("hindBox").getComponent(cc.Animation).play();
             cc.audioEngine.play(this.soundWrong, false, 0.5);
             return;
@@ -405,13 +406,13 @@ var NewClass = /** @class */ (function (_super) {
         // }, 2)
         this.scheduleOnce(function () {
             _this.listHand.children[3].active = true;
-            _this.isStep = 4;
+            _this.isStep = 5;
         }, 0.3);
     };
     NewClass.prototype.btn_dau = function () {
         var _this = this;
         // if (this.isStep != 4) return;
-        if (this.isStep != 4) {
+        if (this.isStep != 5) {
             this.btnDau.getChildByName("hindBox").getComponent(cc.Animation).play();
             cc.audioEngine.play(this.soundWrong, false, 0.5);
             return;
@@ -529,7 +530,7 @@ var NewClass = /** @class */ (function (_super) {
             }).start();
             chefANim.setAnimation(1, "Walk", true);
         }
-        else if (this.isStep == 5) {
+        else if (this.isStep == 6) {
             cc.tween(this.camera.node).to(1.5, { position: cc.v3(1239, -200) }).start();
             cc.tween(this.cameraDoc.node).to(1.5, { position: cc.v3(1239, -200) }).start();
             this.chef3.active = true;
@@ -589,7 +590,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.idFoot = cc.audioEngine.play(_this.soundFoot, false, 0.5);
                 cc.tween(_this.camera.node).to(1.5, { position: cc.v3(1239, 346) }).start();
                 cc.tween(_this.cameraDoc.node).to(1.5, { position: cc.v3(1239, 346) }).start();
-                cc.tween(_this.camera.node).to(1.5, { position: cc.v3(1750 + _this.mag, -200.232) }).call(function () {
+                cc.tween(_this.camera.node).to(1.5, { position: cc.v3(2000, -200.232) }).call(function () {
                 }).start();
                 cc.tween(_this.cameraDoc.node).to(1.5, { position: cc.v3(2100, -200.232) }).call(function () {
                 }).start();
@@ -606,7 +607,7 @@ var NewClass = /** @class */ (function (_super) {
                 }).start();
             }, 3);
         }
-        else if (this.isStep == 5) {
+        else if (this.isStep == 6) {
             this.ticket.children[0].active = true;
             var plate2_1 = this.chef2.getChildByName("plate2");
             cc.tween(this.ticket).to(0.3, { scale: 2.1 }).to(0.5, { opacity: 0 }).start();
@@ -643,9 +644,13 @@ var NewClass = /** @class */ (function (_super) {
                 _this.listCus2.active = true;
                 cc.tween(_this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start();
                 cc.tween(_this.cameraDoc.node).to(1, { position: cc.v3(-500 + 40 + 250, 300) }).start();
+                cc.audioEngine.play(_this.soundEnd, false, 0.5);
+                _this.scheduleOnce(function () {
+                    _this.timeup.active = true;
+                }, 1);
                 _this.scheduleOnce(function () {
                     _this.onEndGame(false);
-                }, 3);
+                }, 2.5);
             }, 1 + 2.5);
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
@@ -902,12 +907,13 @@ var NewClass = /** @class */ (function (_super) {
             this.scheduleOnce(function () {
                 cc.audioEngine.play(_this.soundThinking, false, 0.5);
             }, 0.5);
-            cc.audioEngine.play(this.soundThinkLose, false, 1);
+            cc.audioEngine.play(this.soundThinkWin, false, 1);
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
         }
         else {
+            cc.audioEngine.play(this.soundThinkWin, false, 0.5);
             // this.barMission.getComponent("barTime").endGame()
             // for (let child of this.arrCus) {
             //     child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true)
@@ -915,9 +921,9 @@ var NewClass = /** @class */ (function (_super) {
             // cc.audioEngine.stop(this.idSound)
             // this.timeup.active = true;
             this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundThinking, false, 0.5);
+                cc.audioEngine.play(_this.soundThinking, false, 1);
                 // this.endCard.active = true;
-            }, 1);
+            }, 0.5);
         }
         this.linkToStore.active = true;
     };
@@ -953,7 +959,7 @@ var NewClass = /** @class */ (function (_super) {
         this.phaoHoa.scale = (logic) ? 9 : 5;
         this.guild.scale = (logic) ? 2 : 1.2;
         this.guild.position = (logic) ? cc.v3(0, -900) : cc.v3(0, -360);
-        this.timeup.scale = (logic) ? 1 : 1.4;
+        this.timeup.scale = (logic) ? 2 : 1.4;
         this.amazing.scale = (logic) ? 1 : 1.4;
         this.endCardDoc.scale = 1.5;
         // this.notiMission.scale = (logic) ? 2 : 1
@@ -1012,12 +1018,12 @@ var NewClass = /** @class */ (function (_super) {
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
-                this.mag = -200;
+                // this.mag = -200
                 this.magfront = 200;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 // this.camera.zoomRatio = 0.85
-                this.mag = 220;
+                // this.mag = 220
             }
         }
     };
