@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "5504b048-5a30-4edc-947b-4affe86e7928",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 384,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "Donut_Chocolate_sprinkle (1)": {
+      "ver": "1.0.4",
+      "uuid": "fe8d89e1-1b44-4a41-80a4-3797d41640d7",
+      "rawTextureUuid": "5504b048-5a30-4edc-947b-4affe86e7928",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -2.5,
+      "trimX": 87,
+      "trimY": 34,
+      "width": 211,
+      "height": 193,
+      "rawWidth": 384,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

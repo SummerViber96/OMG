@@ -390,13 +390,13 @@ export default class NewClass extends cc.Component {
 
         // this.arrSauce = preSauce;
         for (let i = 0; i < this.listItemPlate2.childrenCount; i++) {
-            if (i != 1) {
-                let child = this.listItemPlate2.children[i]
+
+            let child = this.listItemPlate2.children[i]
 
 
-                child.children[2 + i].active = true
-                child.getComponent(cc.Animation).play()
-            }
+            child.children[2 + i].active = true
+            child.getComponent(cc.Animation).play()
+
 
         }
         this.msSauces = true
@@ -426,6 +426,7 @@ export default class NewClass extends cc.Component {
             cc.audioEngine.play(this.soundWrong, false, 0.5)
             return;
         }
+        cc.audioEngine.play(this.soundClick, false, 1)
 
 
 
@@ -436,6 +437,8 @@ export default class NewClass extends cc.Component {
 
 
         child.children[2 + 1].active = true
+        child.children[6].active = true
+
         child.getComponent(cc.Animation).play()
         this.scheduleOnce(() => {
             this.listHand.children[4].active = true
@@ -738,14 +741,16 @@ export default class NewClass extends cc.Component {
 
                 cc.tween(this.camera.node).to(1, { position: cc.v3(-160 + 40 + 250, 300) }).start()
                 cc.tween(this.cameraDoc.node).to(1, { position: cc.v3(-500 + 40 + 250, 300) }).start()
-                cc.audioEngine.play(this.soundEnd,false,0.5)
-                this.scheduleOnce(()=>{
-                this.timeup.active=true
-
-                },1)
+                cc.audioEngine.play(this.soundEnd, false, 0.5)
+                this.chef1.children[0].getComponent(sp.Skeleton).setAnimation(0, "Win", true)
                 this.scheduleOnce(() => {
+                    this.timeup.active = true
+
+                }, 1)
+                this.scheduleOnce(() => {
+                    
                     this.onEndGame(false)
-                }, 2.5)
+                }, 2)
             }, 1 + 2.5)
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
@@ -1021,12 +1026,12 @@ export default class NewClass extends cc.Component {
         if (value == true) {
             // this.barMission.getComponent("barTime").endGame()
             // this.amazing.active = true;
-            this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundThinking, false, 0.5)
+            // this.scheduleOnce(() => {
+            cc.audioEngine.play(this.soundThinking, false, 0.5)
 
-            }, 0.5)
+            // }, 0.5)
 
-            cc.audioEngine.play(this.soundThinkWin, false, 1)
+            // cc.audioEngine.play(this.soundThinkWin, false, 1)
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
@@ -1034,7 +1039,7 @@ export default class NewClass extends cc.Component {
 
         }
         else {
-             cc.audioEngine.play(this.soundThinkWin, false, 0.5)
+            //  cc.audioEngine.play(this.soundThinkWin, false, 0.5)
             // this.barMission.getComponent("barTime").endGame()
             // for (let child of this.arrCus) {
             //     child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true)
@@ -1042,10 +1047,10 @@ export default class NewClass extends cc.Component {
             // cc.audioEngine.stop(this.idSound)
             // this.timeup.active = true;
 
-            this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundThinking, false, 1)
-                // this.endCard.active = true;
-            }, 0.5)
+            // this.scheduleOnce(() => {
+            cc.audioEngine.play(this.soundThinking, false, 1)
+            // this.endCard.active = true;
+            // }, 0.5)
 
 
         }

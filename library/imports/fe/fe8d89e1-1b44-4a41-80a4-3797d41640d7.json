@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Donut_Chocolate_sprinkle (1)",
+    "texture": "5504b048-5a30-4edc-947b-4affe86e7928",
+    "atlas": "",
+    "rect": [
+      87,
+      34,
+      211,
+      193
+    ],
+    "offset": [
+      0.5,
+      -2.5
+    ],
+    "originalSize": [
+      384,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
