@@ -597,7 +597,7 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.transItem = function () {
         var _this = this;
-        console.log(this.isStep);
+        // console.log(this.isStep)
         if (this.isStep == 1) {
             var arrPosTom_1 = [this.listItemNoi.children[0].position];
             var _loop_3 = function (i) {
@@ -609,7 +609,7 @@ var NewClass = /** @class */ (function (_super) {
                     cc.tween(item1).bezierTo(0.6, cc.v2(item1.x, item1.y), cc.v2(item1.x, item1.y + 400), cc.v3(pos1.x, pos1.y)).call(function () {
                         item1.active = false;
                         _this.listItemNoi.children[i].active = true;
-                        _this.listItemNoi.children[i].getComponent(cc.Animation).play();
+                        // this.listItemNoi.children[i].getComponent(cc.Animation).play()
                         // this.listItemNoi.children[i].children[0].children[1].active=true
                         cc.tween(_this.listItemNoi.children[i].children[0].children[1]).delay(0.4).to(2.5, { opacity: 255 }).start();
                     }).start();
@@ -700,10 +700,11 @@ var NewClass = /** @class */ (function (_super) {
                 cc.audioEngine.play(_this.soundEnd, false, 0.5);
                 _this.scheduleOnce(function () {
                     _this.timeup.active = true;
+                    _this.chef1.children[0].getComponent(sp.Skeleton).setAnimation(0, "Win", false);
                 }, 1);
                 _this.scheduleOnce(function () {
                     _this.onEndGame(false);
-                }, 2.5);
+                }, 2);
             }, 1 + 2.5);
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
@@ -957,26 +958,26 @@ var NewClass = /** @class */ (function (_super) {
         if (value == true) {
             // this.barMission.getComponent("barTime").endGame()
             // this.amazing.active = true;
-            this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundThinking, false, 0.5);
-            }, 0.5);
-            cc.audioEngine.play(this.soundThinkWin, false, 1);
+            // this.scheduleOnce(() => {
+            cc.audioEngine.play(this.soundThinking, false, 0.5);
+            // }, 0.5)
+            // cc.audioEngine.play(this.soundThinkWin, false, 1)
             // this.scheduleOnce(() => {
             //     if (this.endCardWin) this.endCardWin.active = true
             // }, 0.5)
         }
         else {
-            cc.audioEngine.play(this.soundThinkWin, false, 0.5);
+            // cc.audioEngine.play(this.soundThinkWin, false, 0.5)
             // this.barMission.getComponent("barTime").endGame()
             // for (let child of this.arrCus) {
             //     child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true)
             // }
             // cc.audioEngine.stop(this.idSound)
             // this.timeup.active = true;
-            this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundThinking, false, 1);
-                // this.endCard.active = true;
-            }, 0.5);
+            // this.scheduleOnce(() => {
+            cc.audioEngine.play(this.soundThinking, false, 1);
+            // this.endCard.active = true;
+            // }, 0.5)
         }
         this.linkToStore.active = true;
     };

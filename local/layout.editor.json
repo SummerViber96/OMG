@@ -7,19 +7,19 @@
       "windowType": "dockable",
       "x": 0,
       "y": 0,
-      "width": 2560,
-      "height": 1400,
+      "width": 1920,
+      "height": 1040,
       "layout": {
         "type": "dock-h",
         "children": [
           {
-            "width": 565,
-            "height": 1284,
+            "width": 423,
+            "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 565,
-                "height": 517,
+                "width": 423,
+                "height": 373,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 565,
-                "height": 764,
+                "width": 423,
+                "height": 548,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 925,
-            "height": 1284,
+            "width": 720,
+            "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 925,
-                "height": 667,
+                "width": 720,
+                "height": 480,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,8 +52,8 @@
                 ]
               },
               {
-                "width": 925,
-                "height": 614,
+                "width": 720,
+                "height": 441,
                 "type": "panel",
                 "active": 1,
                 "children": [
@@ -65,8 +65,8 @@
             ]
           },
           {
-            "width": 1048,
-            "height": 1284,
+            "width": 755,
+            "height": 924,
             "type": "panel",
             "active": 0,
             "children": [
@@ -87,8 +87,8 @@
         "cocos-services"
       ]
     },
-    "window-1786563875047": {},
-    "worker": {}
+    "worker": {},
+    "window-1786602050062": {}
   },
   "panels": {
     "builder": {
