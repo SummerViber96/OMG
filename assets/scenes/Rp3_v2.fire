@@ -20567,7 +20567,7 @@
     "_prefab": {
       "__id__": 485
     },
-    "_opacity": 255,
+    "_opacity": 0,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -21834,7 +21834,7 @@
     "_prefab": {
       "__id__": 521
     },
-    "_opacity": 255,
+    "_opacity": 0,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -24424,7 +24424,7 @@
       }
     ],
     "_prefab": null,
-    "_opacity": 255,
+    "_opacity": 0,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -25493,7 +25493,7 @@
       "__uuid__": "3bf26e38-1121-453d-a3e2-293f13fbb22a"
     },
     "soundThinking": {
-      "__uuid__": "a8ec8794-6b58-4ced-91eb-3aaffefcc081"
+      "__uuid__": "6152a4e1-5ba6-443b-93f2-a8d5110a53c7"
     },
     "soundCream": null,
     "soundCherry": null,
@@ -25503,9 +25503,7 @@
     "soundCreamMini": {
       "__uuid__": "1d3ef933-d58b-455b-bc8f-2f71184cd01c"
     },
-    "soundThinkWin": {
-      "__uuid__": "6152a4e1-5ba6-443b-93f2-a8d5110a53c7"
-    },
+    "soundThinkWin": null,
     "soundBanh": {
       "__uuid__": "84631f45-8822-4c8e-9dd3-1f99363b8249"
     },

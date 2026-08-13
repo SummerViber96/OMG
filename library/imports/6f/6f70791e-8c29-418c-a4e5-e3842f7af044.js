@@ -660,7 +660,7 @@ var NewClass = /** @class */ (function (_super) {
                 }, 1);
                 _this.scheduleOnce(function () {
                     _this.onEndGame(false);
-                }, 2.5);
+                }, 2);
             }, 1 + 2.5);
             // this.scheduleOnce(() => {
             //     this.video.node.scale = this.isScaleVideo
@@ -912,28 +912,10 @@ var NewClass = /** @class */ (function (_super) {
             _this.updateResponsive();
         }, 0.5);
         if (value == true) {
-            // this.barMission.getComponent("barTime").endGame()
-            // this.amazing.active = true;
-            this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundThinking, false, 0.5);
-            }, 0.5);
-            cc.audioEngine.play(this.soundThinkWin, false, 1);
-            // this.scheduleOnce(() => {
-            //     if (this.endCardWin) this.endCardWin.active = true
-            // }, 0.5)
+            cc.audioEngine.play(this.soundThinking, false, 0.5);
         }
         else {
-            cc.audioEngine.play(this.soundThinkWin, false, 0.5);
-            // this.barMission.getComponent("barTime").endGame()
-            // for (let child of this.arrCus) {
-            //     child.children[0].getComponent(sp.Skeleton).setAnimation(0, "6.angry", true)
-            // }
-            // cc.audioEngine.stop(this.idSound)
-            // this.timeup.active = true;
-            this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundThinking, false, 1);
-                // this.endCard.active = true;
-            }, 0.5);
+            cc.audioEngine.play(this.soundThinking, false, 1);
         }
         this.linkToStore.active = true;
     };
