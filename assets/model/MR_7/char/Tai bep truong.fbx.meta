@@ -1,0 +1,405 @@
+{
+  "ver": "1.1.1",
+  "uuid": "5d178f91-6be5-46b4-b257-aed3bed8d41d",
+  "scaleFactor": 1,
+  "boneCount": 29,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "8eb0747f-9561-416d-9acd-2d1068115b6b",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "Mu bep truong.mesh": {
+      "ver": "1.0.1",
+      "uuid": "689d7ba0-fae3-43f7-a530-d2db2cb42300",
+      "verts": 124,
+      "tris": 140,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0145128201693296,
+        "y": 0.0308073554188013,
+        "z": -0.00804776139557362
+      },
+      "maxPos": {
+        "x": 0.0145128201693296,
+        "y": 0.0508594587445259,
+        "z": 0.0187267530709505
+      },
+      "name": "Mu bep truong.mesh",
+      "subMetas": {}
+    },
+    "1_Dau bep chuyen nghiep_Body.mesh": {
+      "ver": "1.0.1",
+      "uuid": "b94393d6-0546-4273-a055-e22bf43b6061",
+      "verts": 889,
+      "tris": 1152,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0167505871504545,
+        "y": 7.59724638754733e-9,
+        "z": -0.00832202658057213
+      },
+      "maxPos": {
+        "x": 0.0167505871504545,
+        "y": 0.0396333150565624,
+        "z": 0.0124055938795209
+      },
+      "name": "1_Dau bep chuyen nghiep_Body.mesh",
+      "subMetas": {}
+    },
+    "1_Dau bep chuyen nghiep_Hair.mesh": {
+      "ver": "1.0.1",
+      "uuid": "a86e9563-7187-42c4-8a51-3d15256b0426",
+      "verts": 247,
+      "tris": 156,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0133111234754324,
+        "y": 0.0228032898157835,
+        "z": -0.00380756915546954
+      },
+      "maxPos": {
+        "x": 0.0133111234754324,
+        "y": 0.0398671142756939,
+        "z": 0.0126647688448429
+      },
+      "name": "1_Dau bep chuyen nghiep_Hair.mesh",
+      "subMetas": {}
+    },
+    "1_Dau bep chuyen nghiep_Body.001.mesh": {
+      "ver": "1.0.1",
+      "uuid": "7acfcf33-e440-4d1f-ab17-a03d5f3de902",
+      "verts": 186,
+      "tris": 120,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00253256317228079,
+        "y": 0.0133049786090851,
+        "z": -0.00742934783920646
+      },
+      "maxPos": {
+        "x": 0.00253256317228079,
+        "y": 0.0185285862535238,
+        "z": -0.00256689032539725
+      },
+      "name": "1_Dau bep chuyen nghiep_Body.001.mesh",
+      "subMetas": {}
+    },
+    "1_Dau bep chuyen nghiep_Hair.001.mesh": {
+      "ver": "1.0.1",
+      "uuid": "ff41648e-6237-4051-8bee-0fa7ad78e534",
+      "verts": 40,
+      "tris": 76,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00430184556171298,
+        "y": 0.0215853694826365,
+        "z": -0.00641593663021922
+      },
+      "maxPos": {
+        "x": 0.00430184556171298,
+        "y": 0.0237339306622744,
+        "z": -0.00534700183197856
+      },
+      "name": "1_Dau bep chuyen nghiep_Hair.001.mesh",
+      "subMetas": {}
+    },
+    "Icosphere.mesh": {
+      "ver": "1.0.1",
+      "uuid": "dda43490-caa1-447f-90a6-7c78a928303d",
+      "verts": 153,
+      "tris": 116,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00461476622149348,
+        "y": -0.00407124310731888,
+        "z": -0.00454764533787966
+      },
+      "maxPos": {
+        "x": 0.00461476622149348,
+        "y": 0.00713394721969962,
+        "z": 0.0178667288273573
+      },
+      "name": "Icosphere.mesh",
+      "subMetas": {}
+    },
+    "Tai bep truong-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "45dedf20-be2d-4245-bb65-87337a753d39",
+      "name": "Tai bep truong-0.skeleton",
+      "subMetas": {}
+    },
+    "Tai bep truong-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "8bdfe003-58f7-448a-8c41-fa915b866afb",
+      "name": "Tai bep truong-1.skeleton",
+      "subMetas": {}
+    },
+    "Tai bep truong-2.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "e68c99b3-904f-42a3-b92e-296315e99cd2",
+      "name": "Tai bep truong-2.skeleton",
+      "subMetas": {}
+    },
+    "Tai bep truong-3.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "9edf2fbf-119e-4490-9c90-d8e1b3d0a491",
+      "name": "Tai bep truong-3.skeleton",
+      "subMetas": {}
+    },
+    "Tai bep truong-4.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "fe9b4419-e5f2-4cc2-b144-bb88b8081c90",
+      "name": "Tai bep truong-4.skeleton",
+      "subMetas": {}
+    },
+    "Tai bep truong-5.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "62e0c983-4eb4-4328-a708-34385404ac6d",
+      "name": "Tai bep truong-5.skeleton",
+      "subMetas": {}
+    },
+    "00_A pose.sac": {
+      "ver": "1.0.1",
+      "uuid": "17bec1b2-2837-412c-99e8-6a40693ced10",
+      "modelUuid": "5d178f91-6be5-46b4-b257-aed3bed8d41d",
+      "animationID": 0,
+      "name": "00_A pose.sac",
+      "maxFrameCount": 1,
+      "totalFrameCount": 14,
+      "duration": 0,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "01_Idle.sac": {
+      "ver": "1.0.1",
+      "uuid": "425dd1cf-56d8-4fdb-bc42-5dd7c91ea778",
+      "modelUuid": "5d178f91-6be5-46b4-b257-aed3bed8d41d",
+      "animationID": 1,
+      "name": "01_Idle.sac",
+      "maxFrameCount": 12,
+      "totalFrameCount": 95,
+      "duration": 2.6666667461395264,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Tai bep truong_Di nhanh cam muong.sac": {
+      "ver": "1.0.1",
+      "uuid": "0af468cf-94e8-4283-bf77-6c09deb2c772",
+      "modelUuid": "5d178f91-6be5-46b4-b257-aed3bed8d41d",
+      "animationID": 2,
+      "name": "Tai bep truong_Di nhanh cam muong.sac",
+      "maxFrameCount": 13,
+      "totalFrameCount": 195,
+      "duration": 0.5,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Tai bep truong_Dung chi cho.sac": {
+      "ver": "1.0.1",
+      "uuid": "1dcd62ef-06aa-42e2-8982-a7d3137c74e4",
+      "modelUuid": "5d178f91-6be5-46b4-b257-aed3bed8d41d",
+      "animationID": 3,
+      "name": "Tai bep truong_Dung chi cho.sac",
+      "maxFrameCount": 38,
+      "totalFrameCount": 197,
+      "duration": 2,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Tai bep truong_Dung nhin ngo xung quanh.sac": {
+      "ver": "1.0.1",
+      "uuid": "4ca31c03-e38d-489b-b22f-0a9fec578e10",
+      "modelUuid": "5d178f91-6be5-46b4-b257-aed3bed8d41d",
+      "animationID": 4,
+      "name": "Tai bep truong_Dung nhin ngo xung quanh.sac",
+      "maxFrameCount": 35,
+      "totalFrameCount": 520,
+      "duration": 2.8333332538604736,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Tai bep truong.prefab": {
+      "ver": "1.2.9",
+      "uuid": "4fccd111-4e65-40e9-b09a-f18dcf21aae6",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Tai bep truong.prefab",
+      "subMetas": {}
+    },
+    "Texture test.mtl": {
+      "ver": "1.0.3",
+      "uuid": "4165f69d-b54e-4024-8f5a-f36fca1e82f1",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 255,\n          \"g\": 255,\n          \"b\": 255,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"eef18516-5d33-4cc9-9608-e9bcec526f5a\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "Texture test.mtl",
+      "subMetas": {}
+    }
+  }
+}

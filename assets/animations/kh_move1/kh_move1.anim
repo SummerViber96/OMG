@@ -1,0 +1,103 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "kh_move1",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.5,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "kh4": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -64.713,
+                3.103,
+                21.178
+              ]
+            },
+            {
+              "frame": 1,
+              "value": [
+                -64.713,
+                3.103,
+                17.01
+              ]
+            }
+          ]
+        }
+      },
+      "kh7": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -61.238,
+                3.103,
+                24.844
+              ]
+            },
+            {
+              "frame": 1.5,
+              "value": [
+                -61.238,
+                3.103,
+                20.948
+              ]
+            }
+          ]
+        }
+      },
+      "kh8": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -64.882,
+                8.65,
+                26.515
+              ]
+            },
+            {
+              "frame": 1.5,
+              "value": [
+                -64.555,
+                4.58,
+                22.544
+              ]
+            }
+          ]
+        }
+      },
+      "kh6": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -61.176,
+                2.993,
+                21.361
+              ]
+            },
+            {
+              "frame": 1.5,
+              "value": [
+                -61.176,
+                2.993,
+                17.481
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

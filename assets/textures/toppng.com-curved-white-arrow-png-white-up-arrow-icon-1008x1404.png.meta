@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "8c13c06b-fac2-4878-8437-e16738f689ec",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 306,
+  "height": 427,
+  "platformSettings": {},
+  "subMetas": {
+    "toppng.com-curved-white-arrow-png-white-up-arrow-icon-1008x1404": {
+      "ver": "1.0.4",
+      "uuid": "fe717071-b59c-45bf-88f5-c9814f7c6938",
+      "rawTextureUuid": "8c13c06b-fac2-4878-8437-e16738f689ec",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 306,
+      "height": 427,
+      "rawWidth": 306,
+      "rawHeight": 427,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

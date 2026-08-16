@@ -1,0 +1,298 @@
+{
+  "ver": "1.1.1",
+  "uuid": "3b109645-3c50-4835-88f7-7ad9fad420df",
+  "scaleFactor": 1,
+  "boneCount": 29,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "9644c9c9-7320-4867-95bd-0d2815b7eb7e",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "SK_Stag_LOD0.mesh": {
+      "ver": "1.0.1",
+      "uuid": "1741496f-cf33-4854-89d4-1dca769466bf",
+      "verts": 6726,
+      "tris": 11188,
+      "submeshes": 2,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ],
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.521360874176025,
+        "y": -1.16410434246063,
+        "z": -0.000824007962364703
+      },
+      "maxPos": {
+        "x": 0.521360754966736,
+        "y": 0.9775550365448,
+        "z": 2.10297822952271
+      },
+      "name": "SK_Stag_LOD0.mesh",
+      "subMetas": {}
+    },
+    "SK_Stag_LOD1.mesh": {
+      "ver": "1.0.1",
+      "uuid": "c3efdce6-09c5-450f-b75f-3469bd7d0c56",
+      "verts": 5272,
+      "tris": 8834,
+      "submeshes": 2,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ],
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.521360874176025,
+        "y": -1.16410434246063,
+        "z": -0.000824007962364703
+      },
+      "maxPos": {
+        "x": 0.521360754966736,
+        "y": 0.971486568450928,
+        "z": 2.10297822952271
+      },
+      "name": "SK_Stag_LOD1.mesh",
+      "subMetas": {}
+    },
+    "SK_Stag_LOD2.mesh": {
+      "ver": "1.0.1",
+      "uuid": "3c1a6f64-0b41-4aa9-8b6b-cbe777454f5f",
+      "verts": 3818,
+      "tris": 6480,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.521360874176025,
+        "y": -1.16410434246063,
+        "z": -0.000824007962364703
+      },
+      "maxPos": {
+        "x": 0.521360754966736,
+        "y": 0.960053861141205,
+        "z": 2.10297822952271
+      },
+      "name": "SK_Stag_LOD2.mesh",
+      "subMetas": {}
+    },
+    "SK_Stag_LOD3.mesh": {
+      "ver": "1.0.1",
+      "uuid": "278e0cdd-9545-4f6c-9b06-b218b74eefdb",
+      "verts": 3251,
+      "tris": 5402,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.521360874176025,
+        "y": -1.16410434246063,
+        "z": -0.000824007962364703
+      },
+      "maxPos": {
+        "x": 0.521360754966736,
+        "y": 0.960053861141205,
+        "z": 2.10297822952271
+      },
+      "name": "SK_Stag_LOD3.mesh",
+      "subMetas": {}
+    },
+    "SK_DeerStag-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "6dffcc00-4f46-48c6-ba0a-2da51baefb13",
+      "name": "SK_DeerStag-0.skeleton",
+      "subMetas": {}
+    },
+    "SK_DeerStag-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "d833cd8a-d780-4450-b8d2-8bab6f8e2dbb",
+      "name": "SK_DeerStag-1.skeleton",
+      "subMetas": {}
+    },
+    "SK_DeerStag-2.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "5b879022-8a57-409f-a0fa-8c6922d06237",
+      "name": "SK_DeerStag-2.skeleton",
+      "subMetas": {}
+    },
+    "SK_DeerStag-3.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "037fe562-ab1f-41f2-8fe8-cf389046fb2a",
+      "name": "SK_DeerStag-3.skeleton",
+      "subMetas": {}
+    },
+    "SK_DeerStag.prefab": {
+      "ver": "1.2.9",
+      "uuid": "cccbffc5-5863-45a8-8f3c-9feec130c42a",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "SK_DeerStag.prefab",
+      "subMetas": {}
+    },
+    "M_DeerStag.mtl": {
+      "ver": "1.0.3",
+      "uuid": "0454d257-ecf4-45a3-a156-8245464b03a9",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 149,\n          \"g\": 149,\n          \"b\": 149,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"86c8834b-ac15-481a-b530-1b913d7cf99f\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "M_DeerStag.mtl",
+      "subMetas": {}
+    },
+    "M_DeerStagFur.mtl": {
+      "ver": "1.0.3",
+      "uuid": "34f07c50-92fc-4250-aa29-2428c55690dc",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 149,\n          \"g\": 149,\n          \"b\": 149,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"a2b456d3-dcc3-4426-9eda-96ff6e611827\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "M_DeerStagFur.mtl",
+      "subMetas": {}
+    }
+  }
+}

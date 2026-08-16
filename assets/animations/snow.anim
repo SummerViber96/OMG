@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "snow",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 3,
+  "sample": 60,
+  "speed": 0.3,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "—Pngtree—christmas snowing winter falling snow_13542673": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                229.433,
+                0
+              ]
+            },
+            {
+              "frame": 3,
+              "value": [
+                0,
+                -1497.977,
+                0
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 3,
+      "func": "finish",
+      "params": []
+    }
+  ]
+}

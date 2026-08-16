@@ -1,0 +1,221 @@
+{
+  "ver": "1.1.1",
+  "uuid": "b0d5eafd-be63-4e01-aca5-618a0d958678",
+  "scaleFactor": 1,
+  "boneCount": 29,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "b89e624a-4a64-48e0-9834-edf7529b4dd5",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "1_Co gai nong bong_Body.mesh": {
+      "ver": "1.0.1",
+      "uuid": "458bd2fd-2427-4e8a-8c90-d6ba439071cf",
+      "verts": 942,
+      "tris": 984,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.01675059273839,
+        "y": 7.59724638754733e-9,
+        "z": -0.00630767829716206
+      },
+      "maxPos": {
+        "x": 0.01675059273839,
+        "y": 0.0396589189767838,
+        "z": 0.0122893834486604
+      },
+      "name": "1_Co gai nong bong_Body.mesh",
+      "subMetas": {}
+    },
+    "1_Co gai nong bong_Hair.mesh": {
+      "ver": "1.0.1",
+      "uuid": "3aa67df3-02b9-400e-a206-123d782c6c41",
+      "verts": 526,
+      "tris": 348,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0110129080712795,
+        "y": 0.00719775818288326,
+        "z": -0.00631387205794454
+      },
+      "maxPos": {
+        "x": 0.0110129080712795,
+        "y": 0.0409003309905529,
+        "z": 0.0138627719134092
+      },
+      "name": "1_Co gai nong bong_Hair.mesh",
+      "subMetas": {}
+    },
+    "Cau 1-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "8499fb9e-199d-433d-b41d-32b9e3baeddc",
+      "name": "Cau 1-0.skeleton",
+      "subMetas": {}
+    },
+    "Cau 1-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "ddfa8097-c125-4ccd-a5f9-4845de58eff6",
+      "name": "Cau 1-1.skeleton",
+      "subMetas": {}
+    },
+    "Cau 1.002.sac": {
+      "ver": "1.0.1",
+      "uuid": "42882cb5-797f-4380-a75e-d700ca3a9542",
+      "modelUuid": "b0d5eafd-be63-4e01-aca5-618a0d958678",
+      "animationID": 0,
+      "name": "Cau 1.002.sac",
+      "maxFrameCount": 21,
+      "totalFrameCount": 121,
+      "duration": 1.6666666269302368,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Cau 1.prefab": {
+      "ver": "1.2.9",
+      "uuid": "0cbb8380-c135-4247-9285-c81e5286d212",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Cau 1.prefab",
+      "subMetas": {}
+    },
+    "Texture test.mtl": {
+      "ver": "1.0.3",
+      "uuid": "cf83fb59-0238-4092-9bde-6086d5d615b7",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 255,\n          \"g\": 255,\n          \"b\": 255,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"eef18516-5d33-4cc9-9608-e9bcec526f5a\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "Texture test.mtl",
+      "subMetas": {}
+    }
+  }
+}

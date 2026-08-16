@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "86c8834b-ac15-481a-b530-1b913d7cf99f",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 4096,
+  "height": 4096,
+  "platformSettings": {},
+  "subMetas": {
+    "T_DeeDoe_Legacy (1)": {
+      "ver": "1.0.4",
+      "uuid": "946508b4-a52d-4276-ad98-71e0d92c7a0a",
+      "rawTextureUuid": "86c8834b-ac15-481a-b530-1b913d7cf99f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -21.5,
+      "offsetY": 0,
+      "trimX": 25,
+      "trimY": 0,
+      "width": 4003,
+      "height": 4096,
+      "rawWidth": 4096,
+      "rawHeight": 4096,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

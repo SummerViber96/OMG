@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "8c763c3c-acac-4826-a89f-b41722184482",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 256,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "57_Food_Icon": {
+      "ver": "1.0.4",
+      "uuid": "5b751e81-b1da-4c70-bfd1-a3228f829ef1",
+      "rawTextureUuid": "8c763c3c-acac-4826-a89f-b41722184482",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -19,
+      "trimX": 42,
+      "trimY": 63,
+      "width": 172,
+      "height": 168,
+      "rawWidth": 256,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

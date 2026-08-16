@@ -1,0 +1,243 @@
+{
+  "ver": "1.1.1",
+  "uuid": "ae74ad1c-c6ab-49c7-bb28-8113a0eff9e4",
+  "scaleFactor": 1,
+  "boneCount": 29,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "6341197f-eddc-4413-a394-f0c829458514",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "4_Emma don khach_Body.mesh": {
+      "ver": "1.0.1",
+      "uuid": "b8d0b754-a30f-47e2-a617-1f8c5f2f5780",
+      "verts": 950,
+      "tris": 1042,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0167505871504545,
+        "y": 7.59724638754733e-9,
+        "z": -0.00674784881994128
+      },
+      "maxPos": {
+        "x": 0.0167505871504545,
+        "y": 0.0396589189767838,
+        "z": 0.0122893834486604
+      },
+      "name": "4_Emma don khach_Body.mesh",
+      "subMetas": {}
+    },
+    "4_Hoc sinh tron hoc_2_Hair.002.mesh": {
+      "ver": "1.0.1",
+      "uuid": "3a1efbf7-a20e-47db-8dff-dccdd2dab297",
+      "verts": 342,
+      "tris": 434,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00877308752387762,
+        "y": 0.0132193742319942,
+        "z": -0.00664420053362846
+      },
+      "maxPos": {
+        "x": 0.00877308752387762,
+        "y": 0.0392268970608711,
+        "z": 0.0106529137119651
+      },
+      "name": "4_Hoc sinh tron hoc_2_Hair.002.mesh",
+      "subMetas": {}
+    },
+    "Sach_mesh.mesh": {
+      "ver": "1.0.1",
+      "uuid": "b5d37402-1bee-4ec7-a119-00dddc4d91f7",
+      "verts": 456,
+      "tris": 236,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00604043714702129,
+        "y": -0.00469189416617155,
+        "z": -0.00183987582568079
+      },
+      "maxPos": {
+        "x": 0.00604043714702129,
+        "y": 0.00469193328171968,
+        "z": 0.000965886632911861
+      },
+      "name": "Sach_mesh.mesh",
+      "subMetas": {}
+    },
+    "Olivia quet don-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "7793a422-4a51-42d5-a602-1f90b7bfce7b",
+      "name": "Olivia quet don-0.skeleton",
+      "subMetas": {}
+    },
+    "Olivia quet don-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "7fd34331-e5e1-4c74-8e62-a702c15c27c0",
+      "name": "Olivia quet don-1.skeleton",
+      "subMetas": {}
+    },
+    "Olivia quet don-2.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "d153e47b-70e4-419d-ac54-91d2096403e1",
+      "name": "Olivia quet don-2.skeleton",
+      "subMetas": {}
+    },
+    "Olivia quet don.prefab": {
+      "ver": "1.2.9",
+      "uuid": "60a6d1d3-a997-49da-bcf4-a3cc8928658a",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Olivia quet don.prefab",
+      "subMetas": {}
+    },
+    "Material.mtl": {
+      "ver": "1.0.3",
+      "uuid": "c1db2c44-358c-44a8-91c9-ff032d4899f5",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 255,\n          \"g\": 255,\n          \"b\": 255,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"eef18516-5d33-4cc9-9608-e9bcec526f5a\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "Material.mtl",
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "move_cam",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.95,
+  "sample": 60,
+  "speed": 0.3,
+  "wrapMode": 22,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0.08333333333333333,
+          "value": [
+            -52.76,
+            0,
+            0
+          ]
+        },
+        {
+          "frame": 0.95,
+          "value": [
+            847.405,
+            -61.935,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 0,
+      "func": "",
+      "params": []
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "995b01ad-b460-479d-b8ca-71b4357bf955",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 128,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "Tessi": {
+      "ver": "1.0.4",
+      "uuid": "cdad6d23-9541-4afb-b2e4-6a5dc443fcf3",
+      "rawTextureUuid": "995b01ad-b460-479d-b8ca-71b4357bf955",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 128,
+      "height": 128,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

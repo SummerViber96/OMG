@@ -1,0 +1,168 @@
+{
+  "ver": "1.1.1",
+  "uuid": "efe5446f-723c-4e33-b926-09fd5fe0f1f0",
+  "scaleFactor": 1,
+  "boneCount": 0,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "ef7c6596-6e70-4a8e-8079-46c24d581f9d",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "Khu vuon da unlock.002.mesh": {
+      "ver": "1.0.1",
+      "uuid": "4cba1dc0-f50d-4fe9-86b0-85826e0fbda8",
+      "verts": 4884,
+      "tris": 3018,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_uv1"
+        ]
+      ],
+      "minPos": {
+        "x": -51.2983818054199,
+        "y": -3.33518362045288,
+        "z": -35.5268173217773
+      },
+      "maxPos": {
+        "x": 34.6696395874023,
+        "y": 10.7026386260986,
+        "z": 40.356559753418
+      },
+      "name": "Khu vuon da unlock.002.mesh",
+      "subMetas": {}
+    },
+    "Khu vuon da unlock.002.prefab": {
+      "ver": "1.2.9",
+      "uuid": "42aa13e8-14bc-4bee-a267-b535a92f4c1e",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Khu vuon da unlock.002.prefab",
+      "subMetas": {}
+    },
+    "Texture test.006.mtl": {
+      "ver": "1.0.3",
+      "uuid": "0d1a34b2-a01b-4702-9bd8-33080d3c4716",
+      "dataAsSubAsset": null,
+      "name": "Texture test.006.mtl",
+      "subMetas": {}
+    }
+  }
+}

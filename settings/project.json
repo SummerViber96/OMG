@@ -1,7 +1,9 @@
 {
+  "last-module-event-record-time": 1786918460897,
   "group-list": [
     "default",
-    "ui"
+    "UI",
+    "cam"
   ],
   "collision-matrix": [
     [
@@ -10,15 +12,22 @@
     [
       false,
       false
+    ],
+    [
+      false,
+      false,
+      false
     ]
   ],
   "excluded-modules": [
     "Collider",
+    "Dynamic Atlas",
     "DragonBones",
     "EditBox",
     "Graphics",
     "Geom Utils",
     "Intersection",
+    "Layout",
     "Mask",
     "Mesh",
     "MotionStreak",
@@ -27,8 +36,10 @@
     "Physics",
     "PageView",
     "PageViewIndicator",
+    "ProgressBar",
     "ParticleSystem",
     "RichText",
+    "Renderer Texture",
     "Slider",
     "ScrollBar",
     "ScrollView",
@@ -38,15 +49,18 @@
     "WebView",
     "3D",
     "3D Primitive",
+    "SubContext",
+    "TypeScript Polyfill",
     "3D Physics/cannon.js",
     "3D Physics/Builtin",
-    "3D Particle"
+    "3D Particle",
+    "SafeArea"
   ],
   "preview-port": 7456,
-  "design-resolution-width": 960,
-  "design-resolution-height": 640,
-  "fit-width": false,
-  "fit-height": true,
+  "design-resolution-width": 1080,
+  "design-resolution-height": 1920,
+  "fit-width": true,
+  "fit-height": false,
   "use-project-simulator-setting": false,
   "simulator-orientation": false,
   "use-customize-simulator": true,
@@ -64,9 +78,5 @@
     "audience": {
       "enable": false
     }
-  },
-  "last-module-event-record-time": 1777638119112,
-  "migrate-history": [
-    "cloud-function"
-  ]
+  }
 }

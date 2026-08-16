@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "3a564f0d-f6d2-4b9c-93d5-096c1cd64dba",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 512,
+  "platformSettings": {},
+  "subMetas": {
+    "Icon tai nguyen": {
+      "ver": "1.0.4",
+      "uuid": "3cdef00a-804f-444b-a714-e19172ab2fb5",
+      "rawTextureUuid": "3a564f0d-f6d2-4b9c-93d5-096c1cd64dba",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 0,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 511,
+      "height": 512,
+      "rawWidth": 512,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

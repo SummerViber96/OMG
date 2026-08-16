@@ -1,0 +1,245 @@
+{
+  "ver": "1.1.1",
+  "uuid": "f03e21f7-7182-4843-916a-ee2fb23d23b1",
+  "scaleFactor": 1,
+  "boneCount": 29,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "faccd01b-aad0-4f5a-9ab7-c5a6965235c1",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "0_Nguoi dep trai_Body.mesh": {
+      "ver": "1.0.1",
+      "uuid": "1e2f5d55-e1fb-49a8-973b-df5c7cc337e1",
+      "verts": 988,
+      "tris": 1188,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0167505871504545,
+        "y": 7.59724638754733e-9,
+        "z": -0.0064639113843441
+      },
+      "maxPos": {
+        "x": 0.0167505871504545,
+        "y": 0.0396589189767838,
+        "z": 0.0122893834486604
+      },
+      "name": "0_Nguoi dep trai_Body.mesh",
+      "subMetas": {}
+    },
+    "0_Nguoi dep trai_Hair.001.mesh": {
+      "ver": "1.0.1",
+      "uuid": "24a976e0-3dc9-4c79-b2b2-0a43608844ce",
+      "verts": 271,
+      "tris": 200,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00962163135409355,
+        "y": 0.0224059317260981,
+        "z": -0.00604607444256544
+      },
+      "maxPos": {
+        "x": 0.00985996518284082,
+        "y": 0.0421702675521374,
+        "z": 0.0141907799988985
+      },
+      "name": "0_Nguoi dep trai_Hair.001.mesh",
+      "subMetas": {}
+    },
+    "Dung an_Dung uong-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "6bd3a370-dff4-421c-9165-7f8db81ba221",
+      "name": "Dung an_Dung uong-0.skeleton",
+      "subMetas": {}
+    },
+    "Dung an_Dung uong-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "5cf5c6f6-5f9a-4c9a-8418-889557d4e887",
+      "name": "Dung an_Dung uong-1.skeleton",
+      "subMetas": {}
+    },
+    "00_A pose.sac": {
+      "ver": "1.0.1",
+      "uuid": "7847e747-8efe-4582-b573-6447d42684a7",
+      "modelUuid": "f03e21f7-7182-4843-916a-ee2fb23d23b1",
+      "animationID": 0,
+      "name": "00_A pose.sac",
+      "maxFrameCount": 1,
+      "totalFrameCount": 12,
+      "duration": 0,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Dung an.sac": {
+      "ver": "1.0.1",
+      "uuid": "40cf2cb8-3dd4-4166-964e-24deed4ae7ae",
+      "modelUuid": "f03e21f7-7182-4843-916a-ee2fb23d23b1",
+      "animationID": 1,
+      "name": "Dung an.sac",
+      "maxFrameCount": 34,
+      "totalFrameCount": 265,
+      "duration": 1.75,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Dung uong nuoc.sac": {
+      "ver": "1.0.1",
+      "uuid": "b71099d2-3546-481a-bde1-fc2e1ecd3b0d",
+      "modelUuid": "f03e21f7-7182-4843-916a-ee2fb23d23b1",
+      "animationID": 2,
+      "name": "Dung uong nuoc.sac",
+      "maxFrameCount": 89,
+      "totalFrameCount": 234,
+      "duration": 4.166666507720947,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Dung an_Dung uong.prefab": {
+      "ver": "1.2.9",
+      "uuid": "4dacea53-4879-47db-94aa-7b4b9a5a21ec",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Dung an_Dung uong.prefab",
+      "subMetas": {}
+    },
+    "Texture test.001.mtl": {
+      "ver": "1.0.3",
+      "uuid": "a5f80b5c-2011-4c53-9a77-8bda2fe6996e",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 255,\n          \"g\": 255,\n          \"b\": 255,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"eef18516-5d33-4cc9-9608-e9bcec526f5a\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "Texture test.001.mtl",
+      "subMetas": {}
+    }
+  }
+}

@@ -1,5 +1,5 @@
 "use strict";
-cc._RF.push(module, 'ed94bn8D51Mt57sqqgqKgvE', 'AdManager');
+cc._RF.push(module, '8f337+j6dlK4oyeX5iPIsII', 'AdManager');
 // scripts/common/AdManager.js
 
 "use strict";
@@ -18,9 +18,8 @@ cc.Class({
     }
   },
   openAdUrl: function openAdUrl() {
-    console.log("open"); //google instant
+    //google instant
     // cc.androidInstant.showInstallPrompt('https://play.google.com/store/apps/details?id=com.game.space.shooter2')
-
     var clickTag = '';
     window.androidLink = this.androidLink;
     window.iosLink = this.iosLink;

@@ -14,7 +14,6 @@ cc.Class({
     },
 
     openAdUrl: function(){
-        console.log("open")
         //google instant
         // cc.androidInstant.showInstallPrompt('https://play.google.com/store/apps/details?id=com.game.space.shooter2')
         var clickTag = '';

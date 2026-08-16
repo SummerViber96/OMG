@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "group1_on",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "banan1": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                5,
+                0
+              ]
+            },
+            {
+              "frame": 0.25,
+              "value": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "active": [
+            {
+              "frame": 0,
+              "value": true
+            }
+          ],
+          "scale": []
+        }
+      },
+      "banan2": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                17.903,
+                5,
+                0
+              ]
+            },
+            {
+              "frame": 0.25,
+              "value": [
+                17.903,
+                0,
+                0
+              ]
+            }
+          ],
+          "active": [
+            {
+              "frame": 0,
+              "value": true
+            }
+          ]
+        }
+      },
+      "RootNode": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.25,
+              "value": [
+                -64.32,
+                3,
+                23.971
+              ],
+              "curve": "sineOut"
+            },
+            {
+              "frame": 0.6,
+              "value": [
+                -64.32,
+                1,
+                23.971
+              ]
+            }
+          ],
+          "active": [
+            {
+              "frame": 0,
+              "value": false
+            },
+            {
+              "frame": 0.25,
+              "value": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

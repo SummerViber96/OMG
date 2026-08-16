@@ -1,0 +1,139 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "show_group2",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6333333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "RootNode1": {
+        "props": {
+          "active": [
+            {
+              "frame": 0,
+              "value": true
+            }
+          ],
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -79.066,
+                4,
+                -16.886
+              ]
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                -79.066,
+                0,
+                -16.886
+              ]
+            }
+          ]
+        }
+      },
+      "RootNode2": {
+        "props": {
+          "active": [
+            {
+              "frame": 0.3333333333333333,
+              "value": true
+            }
+          ],
+          "position": [
+            {
+              "frame": 0.25,
+              "value": [
+                -78.673,
+                4,
+                -14.306
+              ]
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": [
+                -78.673,
+                0,
+                -14.306
+              ]
+            }
+          ]
+        }
+      },
+      "RootNode3": {
+        "props": {
+          "active": [
+            {
+              "frame": 0,
+              "value": false
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": true
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": true
+            }
+          ],
+          "position": [
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                -87.598,
+                7,
+                -23.745
+              ]
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": [
+                -87.598,
+                3.7,
+                -23.745
+              ]
+            }
+          ]
+        }
+      },
+      "RootNode4": {
+        "props": {
+          "active": [
+            {
+              "frame": 0,
+              "value": false
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": true
+            }
+          ],
+          "position": [
+            {
+              "frame": 0.38333333333333336,
+              "value": [
+                -71.126,
+                7,
+                -23.533
+              ]
+            },
+            {
+              "frame": 0.6333333333333333,
+              "value": [
+                -71.126,
+                3.2,
+                -23.533
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

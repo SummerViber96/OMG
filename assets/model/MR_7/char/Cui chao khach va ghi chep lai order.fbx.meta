@@ -1,0 +1,289 @@
+{
+  "ver": "1.1.1",
+  "uuid": "fdf0e899-3398-4279-902b-035a3e61749f",
+  "scaleFactor": 1,
+  "boneCount": 29,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "2ab2467b-d453-49b9-8a35-8e96bc3fecc4",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "2_Noah boi ban_Body.mesh": {
+      "ver": "1.0.1",
+      "uuid": "fdaf0bb4-05b8-480d-a5b5-62e95031bef4",
+      "verts": 979,
+      "tris": 1058,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0167505871504545,
+        "y": 7.59724638754733e-9,
+        "z": -0.00630767829716206
+      },
+      "maxPos": {
+        "x": 0.0167505871504545,
+        "y": 0.0396333150565624,
+        "z": 0.0124055938795209
+      },
+      "name": "2_Noah boi ban_Body.mesh",
+      "subMetas": {}
+    },
+    "2_Noah boi ban_Hair.mesh": {
+      "ver": "1.0.1",
+      "uuid": "39f37cb7-b116-4185-ac84-611a123975c9",
+      "verts": 171,
+      "tris": 162,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00925102923065424,
+        "y": 0.022802323102951,
+        "z": -0.00640636775642633
+      },
+      "maxPos": {
+        "x": 0.00941524095833302,
+        "y": 0.0415405370295048,
+        "z": 0.0126393111422658
+      },
+      "name": "2_Noah boi ban_Hair.mesh",
+      "subMetas": {}
+    },
+    "So ghi.mesh": {
+      "ver": "1.0.1",
+      "uuid": "4e9e3491-2652-48ec-bc80-1523d9ac98db",
+      "verts": 83,
+      "tris": 51,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00486947176977992,
+        "y": -0.0073697417974472,
+        "z": -0.000433212320785969
+      },
+      "maxPos": {
+        "x": 0.00486947176977992,
+        "y": 0.00687919976189733,
+        "z": 0.00178169051650912
+      },
+      "name": "So ghi.mesh",
+      "subMetas": {}
+    },
+    "But.mesh": {
+      "ver": "1.0.1",
+      "uuid": "24bf5a68-8886-498d-8922-c3a8e62f5a48",
+      "verts": 208,
+      "tris": 104,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.000965837214607745,
+        "y": -0.00633201096206903,
+        "z": -0.00066180614521727
+      },
+      "maxPos": {
+        "x": 0.000580313382670283,
+        "y": 0.00718769198283553,
+        "z": 0.00066180614521727
+      },
+      "name": "But.mesh",
+      "subMetas": {}
+    },
+    "Cui chao khach va ghi chep lai order-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "25e22605-230a-4f37-9c38-569bfc636ea3",
+      "name": "Cui chao khach va ghi chep lai order-0.skeleton",
+      "subMetas": {}
+    },
+    "Cui chao khach va ghi chep lai order-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "3788b0c4-d510-4d56-b638-6d1094446cd4",
+      "name": "Cui chao khach va ghi chep lai order-1.skeleton",
+      "subMetas": {}
+    },
+    "Cui chao khach va ghi chep lai order-2.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "4ff16688-a577-4979-ad6f-62acc6337f7c",
+      "name": "Cui chao khach va ghi chep lai order-2.skeleton",
+      "subMetas": {}
+    },
+    "Cui chao khach va ghi chep lai order-3.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "407b3c4f-98a3-4be1-8b5a-c7f99454301a",
+      "name": "Cui chao khach va ghi chep lai order-3.skeleton",
+      "subMetas": {}
+    },
+    "01_Cui chao khach va ghi chep lai order.sac": {
+      "ver": "1.0.1",
+      "uuid": "59b52cdd-4eb4-4af4-85b0-412361dcae17",
+      "modelUuid": "fdf0e899-3398-4279-902b-035a3e61749f",
+      "animationID": 0,
+      "name": "01_Cui chao khach va ghi chep lai order.sac",
+      "maxFrameCount": 26,
+      "totalFrameCount": 233,
+      "duration": 3.375,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Cui chao khach va ghi chep lai order.prefab": {
+      "ver": "1.2.9",
+      "uuid": "e894231e-c60b-4dfc-a06a-74cb5a9166f6",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Cui chao khach va ghi chep lai order.prefab",
+      "subMetas": {}
+    },
+    "Texture test.mtl": {
+      "ver": "1.0.3",
+      "uuid": "76fe6e76-34f5-4fb9-aa16-d2c27be66f68",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 255,\n          \"g\": 255,\n          \"b\": 255,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"eef18516-5d33-4cc9-9608-e9bcec526f5a\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "Texture test.mtl",
+      "subMetas": {}
+    }
+  }
+}

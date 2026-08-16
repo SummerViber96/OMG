@@ -1,0 +1,175 @@
+{
+  "ver": "1.1.1",
+  "uuid": "6902382a-0676-4e14-a4df-9a092cf98d40",
+  "scaleFactor": 1,
+  "boneCount": 1,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "0b131663-79fa-481d-b431-adfd36ea45ef",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "0_Cai chao.mesh": {
+      "ver": "1.0.1",
+      "uuid": "15f2adbb-8485-486e-bbb6-953878ea6902",
+      "verts": 170,
+      "tris": 142,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00880725216120481,
+        "y": -0.00234670052304864,
+        "z": -0.0207153428345919
+      },
+      "maxPos": {
+        "x": 0.00880725216120481,
+        "y": 0.00131382385734469,
+        "z": 0.00391532527282834
+      },
+      "name": "0_Cai chao.mesh",
+      "subMetas": {}
+    },
+    "Chao-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "31b4cad1-4546-4da1-ac1d-4756d4e8afdd",
+      "name": "Chao-0.skeleton",
+      "subMetas": {}
+    },
+    "Chao.prefab": {
+      "ver": "1.2.9",
+      "uuid": "4b8dc060-a927-4d46-94ce-893d1b3c61c5",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Chao.prefab",
+      "subMetas": {}
+    },
+    "Texture test.mtl": {
+      "ver": "1.0.3",
+      "uuid": "0dfe391b-a226-45b6-8f5c-c995e8c4722d",
+      "dataAsSubAsset": null,
+      "name": "Texture test.mtl",
+      "subMetas": {}
+    }
+  }
+}

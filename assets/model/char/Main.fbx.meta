@@ -1,0 +1,264 @@
+{
+  "ver": "1.1.1",
+  "uuid": "f3742b90-cdc7-49a1-a8bf-bfb77706cf96",
+  "scaleFactor": 1,
+  "boneCount": 29,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "bfebd299-0414-4764-b598-3030f9695c1c",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "Main.mesh": {
+      "ver": "1.0.1",
+      "uuid": "06613fbd-2c36-4621-b80b-2c1068efcd96",
+      "verts": 505,
+      "tris": 876,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00536185968667269,
+        "y": -0.0000700568780303001,
+        "z": -0.00202137930318713
+      },
+      "maxPos": {
+        "x": 0.00536185968667269,
+        "y": 0.0127969300374389,
+        "z": 0.00256262510083616
+      },
+      "name": "Main.mesh",
+      "subMetas": {}
+    },
+    "Mu bep truong.mesh": {
+      "ver": "1.0.1",
+      "uuid": "dc06bcb3-7dac-4244-ab1c-8349b180ac31",
+      "verts": 94,
+      "tris": 128,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0029332828707993,
+        "y": 0.0107535030692816,
+        "z": -0.00201484235003591
+      },
+      "maxPos": {
+        "x": 0.0029332828707993,
+        "y": 0.0204224847257137,
+        "z": 0.00546297943219543
+      },
+      "name": "Mu bep truong.mesh",
+      "subMetas": {}
+    },
+    "Main-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "37a96c6e-8354-4f90-9a8e-21093e1eef47",
+      "name": "Main-0.skeleton",
+      "subMetas": {}
+    },
+    "Main-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "e1d3facf-f3d6-419c-97b0-f3f36dedf56e",
+      "name": "Main-1.skeleton",
+      "subMetas": {}
+    },
+    "Run 1.sac": {
+      "ver": "1.0.1",
+      "uuid": "127f4f0f-0f68-424c-9a3e-a71ec1020131",
+      "modelUuid": "f3742b90-cdc7-49a1-a8bf-bfb77706cf96",
+      "animationID": 0,
+      "name": "Run 1.sac",
+      "maxFrameCount": 7,
+      "totalFrameCount": 99,
+      "duration": 0.25,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Run 2.sac": {
+      "ver": "1.0.1",
+      "uuid": "b552b5c1-e42e-471e-9dc3-22d2be6c5d0a",
+      "modelUuid": "f3742b90-cdc7-49a1-a8bf-bfb77706cf96",
+      "animationID": 1,
+      "name": "Run 2.sac",
+      "maxFrameCount": 7,
+      "totalFrameCount": 97,
+      "duration": 0.25,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Idle 1.sac": {
+      "ver": "1.0.1",
+      "uuid": "8b50029c-e02b-4c17-bbb0-6223eaf0a8fc",
+      "modelUuid": "f3742b90-cdc7-49a1-a8bf-bfb77706cf96",
+      "animationID": 2,
+      "name": "Idle 1.sac",
+      "maxFrameCount": 29,
+      "totalFrameCount": 137,
+      "duration": 5.333333492279053,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Idle 2.sac": {
+      "ver": "1.0.1",
+      "uuid": "b5643ed6-a599-4f8a-9752-930b20d9b50c",
+      "modelUuid": "f3742b90-cdc7-49a1-a8bf-bfb77706cf96",
+      "animationID": 3,
+      "name": "Idle 2.sac",
+      "maxFrameCount": 19,
+      "totalFrameCount": 92,
+      "duration": 2.6666667461395264,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Main.prefab": {
+      "ver": "1.2.9",
+      "uuid": "27fb56ce-e31b-4974-967f-ff8ef8350434",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Main.prefab",
+      "subMetas": {}
+    },
+    "Material.mtl": {
+      "ver": "1.0.3",
+      "uuid": "dd48417a-526b-468e-a3c9-f014e6ba5a5c",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 255,\n          \"g\": 255,\n          \"b\": 255,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"c40453cf-641e-4733-b345-554b53b3752f\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true,\n        \"USE_SPECULAR\": false,\n        \"USE_SPECULAR_TEXTURE\": false,\n        \"OUTPUT_TO_GAMMA\": false\n      }\n    }\n  }\n}",
+      "name": "Material.mtl",
+      "subMetas": {}
+    },
+    "DefaultMaterial.mtl": {
+      "ver": "1.0.3",
+      "uuid": "1996e338-f37a-442c-81dd-602a9fb6c68a",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 255,\n          \"g\": 255,\n          \"b\": 255,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"c40453cf-641e-4733-b345-554b53b3752f\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "DefaultMaterial.mtl",
+      "subMetas": {}
+    }
+  }
+}

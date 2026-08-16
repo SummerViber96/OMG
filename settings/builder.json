@@ -1,9 +1,13 @@
 {
-  "title": "Code",
+  "title": "KF",
   "packageName": "org.cocos2d.demo",
-  "startScene": "439372e7-359a-45a6-8656-39ffe827aa9a",
+  "startScene": "2201513c-6378-49fb-9b39-86d673bf4b10",
   "excludeScenes": [
-    "45831789-b410-4fb5-bb8b-0d46193020a0"
+    "ec72e287-b4d4-49cf-9679-8dbd2ec00e48",
+    "e43f71c3-0619-4959-8e07-0523d7b942eb",
+    "38030284-2ba2-4758-8749-6c3e988df09e",
+    "bd343e5b-7159-4baa-b16a-7656c252bfd6",
+    "5332e5a0-6710-4687-a0cf-69c9b37ddd5a"
   ],
   "orientation": {
     "landscapeRight": true,
@@ -20,7 +24,7 @@
   "md5Cache": false,
   "nativeMd5Cache": true,
   "encryptJs": true,
-  "xxteaKey": "533dcaef-ef3a-4e",
+  "xxteaKey": "7a204457-526b-44",
   "zipCompressJs": true,
   "fb-instant-games": {},
   "android": {

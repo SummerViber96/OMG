@@ -1,429 +1,332 @@
-import A from "./animal"
-declare const window: any;
-const { ccclass, property } = cc._decorator;
 
+
+const { ccclass, property } = cc._decorator;
+cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
 @ccclass
 export default class NewClass extends cc.Component {
     @property(cc.Camera)
-    mainCamera: cc.Camera = null;
+    camera: cc.Camera = null
+    @property(cc.VideoPlayer)
+    video: cc.VideoPlayer = null;
+
     @property(cc.Node)
-    char1: cc.Node = null;
+    btnCollect: cc.Node = null;
+
     @property(cc.Node)
-    char2: cc.Node = null;
+    btnFry: cc.Node = null;
+
     @property(cc.Node)
-    char3: cc.Node = null;
+    btnServe: cc.Node = null;
+
     @property(cc.Node)
-    pig: cc.Node = null;
+    btnClean: cc.Node = null;
+
     @property(cc.Node)
-    pig2: cc.Node = null;
-    @property(cc.Node)
-    arenaWood: cc.Node = null;
-    @property(cc.Node)
-    arena2: cc.Node = null;
-    @property(cc.Node)
-    arena3: cc.Node = null;
-    @property(cc.Node)
-    tree1: cc.Node = null;
-    @property(cc.Node)
-    tree2: cc.Node = null
-    @property(cc.Node)
-    tree3: cc.Node = null;
-    @property(cc.Node)
-    bulletMain: cc.Node = null;
-    @property(cc.Node)
-    hand: cc.Node = null;
-    @property(cc.Node)
-    hand2: cc.Node = null;
-    @property(cc.Node)
-    hand3: cc.Node = null;
-    @property(cc.Node)
-    hand4: cc.Node = null;
-    @property(cc.Node)
-    hand5: cc.Node = null;
-    @property(cc.Node)
-    popup: cc.Node = null;
-    @property(cc.Prefab)
-    preWood: cc.Node = null;
-    @property(cc.Node)
-    bep: cc.Node = null;
-    // @property(cc.Node)
-    // snow: cc.Node
-    @property(cc.Node)
-    popup2: cc.Node = null;
-    @property(cc.Node)
-    house: cc.Node = null;
-    @property(cc.Node)
-    smokeEff: cc.Node = null;
-    @property(cc.Node)
-    listHouse: cc.Node[] = []
-    @property(cc.Node)
-    endCard: cc.Node = null;
-    @property(cc.Label)
-    lbWood: cc.Label = null;
+    linkToStore: cc.Node = null;
 
     @property(cc.AudioClip)
     soundBg: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundNhanGo: cc.AudioClip = null;
+    soundConfirm: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundChatGo: cc.AudioClip = null;
+    soundWin: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundGioThoi: cc.AudioClip = null;
+    soundEfx: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundUpgrade: cc.AudioClip = null;
+    soundGirl: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundRang: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    sounLonKeu: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    soundDapChao: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    soundUhh: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    soundZee: cc.AudioClip = null;
-    
-    isvertical=false
-    isCountWood = 0
-    isTarget = null;
-    isFollow = false;
-    isMoving = false
-    isStep = 0;
+    soundCycle: cc.AudioClip = null
+
+    @property(cc.Node)
+    textGuild: cc.Node = null
+    @property(cc.Node)
+    textGuild2: cc.Node = null
+    @property(cc.Node)
+    endCard: cc.Node = null;
+    @property(cc.Node)
+    linkToStore: cc.Node = null
+    @property(cc.Node)
+    phaohoa: cc.Node = null
+    @property(cc.Node)
+    handGuild: cc.Node = null
+    @property(cc.Sprite)
+    fillBar: cc.Sprite = null
+    @property(cc.Node)
+    bar: cc.Node = null
+    @property(cc.Label)
+    percentLabel: cc.Label = null
+    soundEfxId = 0;
+
+    currScreenWidth = null;
+
+    isHorizontal = true;
+
+    isPlay1 = false;
+
+    adChanel = '{{__adv_channels_adapter__}}'
+
+    // LIFE-CYCLE CALLBACKS:
+    idSoundCycle = null;
+    idSoundGirl = null;
+    decaySpeed = 10
+    onLoad() {
+
+    }
+
     start() {
-        cc.audioEngine.play(this.soundBg, true, 0.8)
-        window.gameReady && window.gameReady();
-        cc.audioEngine.playEffect(this.soundGioThoi, true);
-        cc.audioEngine.playEffect(this.soundRang, true);
 
-        cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
-        cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_END, this.onTouchCancel, this);
-        cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchCancel, this);
+        cc.audioEngine.play(this.soundBg, false, 1)
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
+
         this.scheduleOnce(() => {
-            this.popup.active = true
-            // this.hand.active = true
-            cc.tween(this.mainCamera).to(0.3, { zoomRatio: 0.8 }).start()
-        }, 0.5)
+            this.video.play();
+
+        }, 0.2)
+        this.scheduleOnce(() => {
+            this.video.stop();
+            this.btnCollect.getComponent(cc.Button).enabled = true
+            this.btnCollect.getChildByName("hand").active = true;
+            // this.textGuild2.active = true;
+        }, 1.2);
+
+        this._stopCallback = () => {
+            this.stopCycle();
+        };
+        // this.video.node.on('completed', this.onVideoEnd, this);
+
     }
-    onTouchMove(event) {
-        if (this.isMoving) return;
+    isStop = true
+    // _stopCallback=null
+    playCyle() {
+        if (this.handGuild.active == true) {
+            this.handGuild.active = false
+            this.fillBar.fillRange = 0;
+            this.percentLabel.string = "0%"; // 👈 init
 
-        if (!this.isTarget) {
-            // console.log(this.isStep)
-            if (this.isStep == 1) {
-                this.checkTarget(event.getLocation(), this.char3)
+            this.idSoundCycle = cc.audioEngine.play(this.soundCycle, true, 1);
+            this.idSoundGirl = cc.audioEngine.play(this.soundGirl, true, 1)
 
-            }
-            else if (this.isStep == 2) {
-                this.checkTarget(event.getLocation(), this.char2)
+        }
 
-            }
-            else if (this.isStep == 0) {
-                this.checkTarget(event.getLocation(), this.char1)
+        this.video.resume();
+        cc.audioEngine.resume(this.idSoundCycle)
+        cc.audioEngine.resume(this.idSoundGirl)
 
-            }
+        this.isStop = false;
+    }
 
+    stopCycle() {
+        cc.audioEngine.pause(this.idSoundCycle)
+        cc.audioEngine.pause(this.idSoundGirl)
 
+        this.isStop = true;
+        this.video.pause(); // hoặc pause nếu cần
+    }
+
+    btn_cycle() {
+        if (this.isStop) {
+            this.playCyle();
+
+        }
+        this.addProgress();
+
+        // this.textGuild.active = false;
+
+        cc.audioEngine.play(this.soundConfirm, false, 1)
+
+        this.unschedule(this._stopCallback);
+        this.scheduleOnce(this._stopCallback, 1);
+    }
+
+    onVideoEnd() {
+        this.showEndcard();
+    }
+
+    showEndcard() {
+        this.isStop = false
+        this.linkToStore.active = true
+        console.log("endGame")
+        // cc.audioEngine.play(this.soundWin, false, 1)
+        // this.btnCollect.active = false
+        // this.textGuild.active = false
+        // this.endCard.active = true
+        // this.textGuild.active = false;
+        // this.btnCollect.getChildByName("hand").active = false;
+        // this.textGuild2.active = false;
+        // this.phaohoa.active = true
+        // this.scheduleOnce(() => {
+        //     this.linkToStore.active = true;
+
+        // }, 0.5)
+    }
+    maxProgress = 100
+    currentProgress = 0
+    addProgress() {
+        // lực giảm dần (giống ads)
+        let power = Math.max(3, 10 - this.currentProgress * 0.05);
+
+        this.currentProgress += power;
+        this.currentProgress = Math.min(this.currentProgress, this.maxProgress);
+
+        let percent = this.currentProgress / this.maxProgress;
+
+        // mượt
+        cc.tween(this.fillBar)
+            .to(1, { fillRange: percent })
+            .start();
+        let percentText = Math.floor(percent * 100);
+        this.updatePercentLabel(percent);
+        if (percent >= 1) {
+            // this.onFull();
+            // this.showEndcard();
+
+        }
+        if (percent > 0.8) {
+            this.percentLabel.node.scale = 1.2;
+        }
+        if (percent > 0.5) {
+            this.textGuild.children[0].getComponent(cc.Label).string = "Keep going! Almost there!"
         }
         else {
-            let pos = event.getLocation();
-            pos = this.isTarget.parent.convertToNodeSpaceAR(pos)
-            this.isTarget.position = pos
+            this.textGuild.children[0].getComponent(cc.Label).string = "Can you make her fit?"
+
+
         }
     }
-    onTouchCancel(event) {
-        if (this.isMoving) return;
-        if (!this.isTarget) return;
-        console.log("step", this.isStep)
-        if (this.isStep == 0) {
-            let check = this.checkArea(event.getLocation(), this.arenaWood)
-            if (check) {
-                this.isStep++
-                this.isMoving = true
-                let pos = this.arenaWood.position;
-                pos = this.arenaWood.parent.convertToWorldSpaceAR(pos)
-                pos = this.isTarget.parent.convertToNodeSpaceAR(pos);
-                this.isTarget.position = pos
-                this.isTarget.getComponent(C).chatGo(this.tree1)
-                cc.audioEngine.play(this.soundChatGo, false, 0.8)
+    updatePercentLabel(targetPercent) {
+        let obj = { value: parseFloat(this.percentLabel.string) || 0 };
 
-                this.isTarget = null
-                cc.tween(this.mainCamera).to(0.3, { zoomRatio: 1.2 }).start()
-                cc.tween(this.mainCamera.node).to(0.3, { position: cc.v3(-200, 400) }).call(() => {
-                    this.pigMove1(pos)
-                }).start()
+        cc.tween(obj)
+            .to(1, { value: targetPercent * 100 }, {
+                progress: (start, end, current, t) => {
+                    let val = Math.floor(start + (end - start) * t);
+                    this.percentLabel.string = val + "%";
+                    if (val == 90) {
+                        this.showEndcard();
 
-
-
-            }
-            else {
-                // cc.tween(this.isTarget).to(0.5,{position:this.isTarget.getComponent(C).localPos}).star
-                this.isTarget.position = this.isTarget.getComponent(C).localPos
-            }
-        }
-        else if (this.isStep == 1) {
-
-            let pos = event.getLocation();
-            if (this.checkTree(pos, this.arena2)) {
-                this.isStep++
-                let pos2 = this.arena2.position;
-                pos2 = this.arena2.parent.convertToWorldSpaceAR(pos2)
-
-                pos2 = this.isTarget.parent.convertToNodeSpaceAR(pos2);
-                this.isTarget.position = pos2;
-                // this.isTarget.getComponent(C).chatGo2(this.tree2)
-                this.hand5.active = false
-                this.isTarget = null
-                this.hand4.active = true
-                this.pig2.getComponent(A).attack()
-                this.char3.getComponent(C).attack2(this.pig2)
-
-            }
-        }
-        else if (this.isStep == 2) {
-            // this.isTarget = null;
-            let pos = event.getLocation();
-            if (this.checkTree(pos, this.arena3)) {
-                this.hand5.active = false
-                this.isStep++
-                pos = this.isTarget.parent.convertToNodeSpaceAR(pos);
-                let pos2 = this.arena3.position;
-                pos2 = this.arena3.parent.convertToWorldSpaceAR(pos2)
-
-                pos2 = this.isTarget.parent.convertToNodeSpaceAR(pos2);
-                this.isTarget.position = pos2;
-
-
-
-                // this.isTarget.position = pos;
-                // this.isTarget.getComponent(C).chatGo2(this.tree2)
-                this.hand4.active = false
-                this.isTarget = null
-                this.char2.getComponent(C).attack2(this.pig2)
-
-                // this.hand4.active = true
-            }
-        }
-        else if (this.isStep == 3) {
-            this.isStep++
-            let pos = event.getLocation();
-            if (this.checkTree(pos, this.tree1)) {
-                this.hand4.active = false;
-                this.hand5.active = false
-                pos = this.isTarget.parent.convertToNodeSpaceAR(pos);
-                this.isTarget.position = pos
-                // this.isTarget.getComponent(C).chatGo2(this.tree1)
-                this.showPop2()
-            }
-        }
-        else if (this.isStep == 4) {
-
-            // let pos = event.getLocation();
-            // if (this.checkTree(pos, this.tree1)) {
-            //     pos = this.isTarget.parent.convertToNodeSpaceAR(pos);
-            //     this.isTarget.position = pos
-            // }
-        }
-    }
-    pigMove1(pos) {
-        pos = pos.add(cc.v3(100, 0))
-        this.char1.getComponent(C).warning();
-        this.pig.getComponent(A).run()
-        this.scheduleOnce(() => {
-            this.char1.getComponent(C).angry();
-
-        }, 0.5)
-
-        cc.audioEngine.play(this.sounLonKeu, false, 0.8)
-
-        cc.audioEngine.play(this.soundUhh, false, 0.8)
-
-        cc.tween(this.pig).to(1, { position: pos }).call(() => {
-            this.pig.getComponent(A).attack()
-
-            this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundDapChao, false, 0.8)
-            }, 0.3)
-
-
-            this.char1.getComponent(C).attack(this.pig)
-
-        }).start()
-        this.scheduleOnce(() => {
-            this.char1.getComponent(C).die()
-            this.pig.getComponent(A).idle()
-            cc.tween(this.mainCamera.node).delay(0.2).to(0.35, { position: cc.v3(0, 20) }).call(() => {
-                this.hand3.active = true
-                this.bep.getComponent(cc.Button).enabled = true
-            }).start()
-        }, 2.5)
-    }
-
-    checkTarget(pos, node) {
-        pos = node.parent.convertToNodeSpaceAR(pos)
-        if (node.position.sub(pos).mag() <= 200) {
-            this.isTarget = node
-            this.isFollow = true
-            // if (this.isStep == 0) {
-            //     cc.tween(this.mainCamera).to(0.3, { zoomRatio: 0.9 }).start()
-
-            // }
-        }
-    }
-    checkArea(pos, node) {
-        pos = node.parent.convertToNodeSpaceAR(pos)
-        if (node.position.sub(pos).mag() <= 200) {
-            this.hand.active = false
-            return true
-        }
-        return false
-    }
-    checkTree(pos, node) {
-        pos = node.parent.convertToNodeSpaceAR(pos)
-        if (node.position.sub(pos).mag() <= 500) {
-            return true
-        }
-        return false
-    }
-    update() {
-        let canvas = this.node.getComponent(cc.Canvas);
-
-        if (cc.winSize.width < cc.winSize.height) {
-            if (!this.isvertical) {
-                this.isvertical = true;
-                // this.fitCamera.zoomRatio = 0.8
-                // this.mainCamera.zoomRatio = 0.7
-                // this.mainCamera.node.position = this.mainCamera.node.position.add( cc.v3(-100, 0))
-                canvas.fitHeight = false;
-                canvas.fitWidth = true;
-                // for (let child of this.uiFit.children) {
-                //     child.scale = child.scale * 0.5;
-                // }
-                // this.uiFit.scaleX = 0.8
-                // this.uiFit.scaleY = 0.8
-            }
-        }
-        else {
-
-            this.isvertical = false;
-            // this.uiFit.children[0].scale = 0.4
-            // this.uiFit.children[1].scale = 1
-
-            // this.fitCamera.zoomRatio = 1
-            // this.mainCamera.zoomRatio = 1.3
-            canvas.fitHeight = true;
-            canvas.fitWidth = false;
-
-        }
-
-        // if (this.isFollow) {
-        //     this.mainCamera.node.setPosition(this.isTarget.position.add(cc.v3(50, 0)).clampf(cc.v3(-520, -340), cc.v3(900, 340)));
-
-        // }
-
-    }
-    createWood(tree) {
-        for (let i = 0; i < 4; i++) {
-            let wood = cc.instantiate(this.preWood)
-            wood.parent = tree
-            wood.scale = 1.3
-            wood.opacity = 0
-            wood.position = cc.v3(0, -50)
-            cc.tween(wood).delay(0.12 * i).set({ opacity: 255 }).by(0.3, { position: cc.v3(0, 150) }).call(() => {
-                this.isCountWood += 1
-                this.lbWood.string = this.isCountWood.toString()
-                wood.destroy()
-            }).start()
-        }
-    }
-    btn_wood() {
-        this.hand3.active = false;
-        cc.audioEngine.play(this.soundNhanGo, false, 0.8)
-
-        this.popup.getComponent(cc.Animation).play("close_popup")
-        this.transWood1()
-        this.bep.getComponent(cc.Button).enabled = false
-
-
-    }
-    transWood1() {
-        let targetPos = this.popup.position
-        targetPos = this.popup.parent.convertToWorldSpaceAR(targetPos);
-        targetPos = this.node.convertToNodeSpaceAR(targetPos);
-        let midpos = cc.v2(targetPos.x - 50, (targetPos.y + 80 + 397) / 2)
-        for (let i = 0; i < 6; i++) {
-            // cc.audioEngine.play(this.soundNhanGo,false,0.8)
-            let wood = cc.instantiate(this.preWood)
-            wood.parent = this.node;
-            wood.position = cc.v3(544, 410)
-            wood.scale = 1.2
-            cc.tween(wood).delay(0.05 * i).bezierTo(0.5, cc.v2(544, 397), midpos, cc.v2(targetPos.x, targetPos.y + 80)).call(() => {
-                this.isCountWood -= 1
-                this.lbWood.string = this.isCountWood.toString()
-                wood.destroy()
-                if (i == 5) {
-                    this.getHappy()
+                    }
+                    return current;
                 }
-            }).start()
-        }
+            })
+            .start();
     }
-    getHappy() {
-        cc.audioEngine.play(this.soundUpgrade, false, 0.8)
-        // cc.audioEngine.play(this., false, 0.8)
-        // cc.audioEngine.stopEffect()
-        this.bep.getChildByName("fire").active = true;
-        this.char3.getComponent(C).setArcher();
-        this.char2.getComponent(C).setArcher();
-        this.char2.position = cc.v3(20, -100)
-        this.char3.position = cc.v3(-255, -10)
+    onFull() {
+        // stop mọi thứ
+        this.stopCycle();
 
-        this.smokeEff.active = true;
+        // đảm bảo full
+        this.fillBar.fillRange = 1;
 
-        cc.tween(this.mainCamera).to(0.3, { zoomRatio: 0.7 }).call(() => {
-            // this.hand4.active = true
-            this.listHouse[3].active = true
-            this.listHouse[3].getComponent(cc.Animation).play("house2")
-            this.pig2.active = true;
-            cc.audioEngine.play(this.sounLonKeu, false, 0.8)
-
-            this.scheduleOnce(() => {
-                this.hand5.active = true;
-                this.isMoving = false
-            }, 1)
-        }).start()
-
+        // show endcard
+        this.showEndcard();
     }
-    showPop2() {
-        this.popup2.active = true;
-    }
-    btn_upgrade() {
-        cc.audioEngine.play(this.soundUpgrade, false, 0.8)
-        cc.audioEngine.play(this.soundZee, false, 0.8)
+    setScreenSize(isHorizontal) {
+        this.camera.zoomRatio = 1
+        this.node.getComponent(cc.Canvas).fitWidth = (isHorizontal) ? true : false;
+        this.node.getComponent(cc.Canvas).fitHeight = (isHorizontal) ? false : true;
+        // this.linkToStore.scale=(isHorizontal)?0.6
 
-        this.char3.getComponent(C).getHappy();
-        this.char2.getComponent(C).getHappy();
-        this.popup2.active = false;
-        this.listHouse[3].active = true
-        this.house.active = false
-        // this.house.getComponent(cc.Animation).play("showhouse")
-        this.smokeEff.active = true;
+        let canvas = this.node.getComponent(cc.Canvas);
+        canvas.fitHeight = (isHorizontal) ? true : false
+        canvas.fitWidth = (isHorizontal) ? false : true
+        this.textGuild.y = 405.732
+        this.bar.y = 503.311
+        this.btnCollect.scale = 1
+        this.bar.scale = 0.45;
+        this.textGuild.scale = 1
+        this.video.node.scale = 6.4
+        // this.btnCollect.getComponent(cc.Widget).bottom = 62.23
+        this.btnCollect.y = -507.769
 
-        this.scheduleOnce(() => {
-            cc.tween(this.mainCamera).to(0.4, { zoomRatio: 0.3 }).call(() => {
-            }).start()
+        if (isHorizontal == true) {
+            const frameSize = cc.view.getFrameSize();
+            const width = frameSize.width;
+            const height = frameSize.height;
 
+            // this.camera.node.position = cc.v3(-70, 0)
 
-        }, 0.3)
-        this.scheduleOnce(() => {
-            for (let i = 0; i < this.listHouse.length; i++) {
-                let child = this.listHouse[i]
-                child.active = true;
-                child.getComponent(cc.Animation).play("house2")
-                // child.getChildByName("fxhouse").children[0].getComponent(cc.Animation).play("efSmoke")
+            // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
+            const aspectRatio = Math.max(width, height) / Math.min(width, height);
+
+            // Gần đúng tỷ lệ màn hình iPhone X
+            const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+            const TOLERANCE = 0.05;
+            const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
+
+            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+                this.video.node.scale = 6.5
 
             }
-        }, 0.8)
-        this.scheduleOnce(() => {
-            this.endCard.active = true
-        }, 1.5)
+            else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
+
+
+
+            }
+        }
+        else {
+            const frameSize = cc.view.getFrameSize();
+            const width = frameSize.width;
+            const height = frameSize.height;
+
+            // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
+            const aspectRatio = Math.max(width, height) / Math.min(width, height);
+
+            // Gần đúng tỷ lệ màn hình iPhone X
+            const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+            const TOLERANCE = 0.05;
+            const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
+
+            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+                this.video.node.scale = 7.4
+                // this.btnCollect.getComponent(cc.Widget).bottom = 140
+                // console.log("man x")
+            }
+            else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
+                this.camera.zoomRatio = 0.72
+                this.btnCollect.scale = 0.8
+                this.btnCollect.y = -507.769 + 140
+                // this.btnCollect.getComponent(cc.Widget).bottom = 50
+                this.textGuild.y = 460.895 - 140
+                this.bar.y = 550.017 - 160
+                this.textGuild.scale = 0.8;
+                this.bar.scale = 0.3
+
+            }
+        }
+
+
+
+    }
+    isvertical = true
+    responsive() {
+        let deviceResolution = cc.view.getFrameSize();
+        if (deviceResolution.width >= deviceResolution.height) {
+            this.setScreenSize(true);
+            this.isvertical = false
+        }
+        else if (deviceResolution.width < deviceResolution.height) {
+            this.setScreenSize(false);
+            this.isvertical = true
+        }
     }
 
+
+    update(dt) {
+        this.responsive();
+        if (this.isStop && this.currentProgress > 0) {
+
+            this.currentProgress -= this.decaySpeed * dt;
+            this.currentProgress = Math.max(0, this.currentProgress);
+
+            let target = this.currentProgress / this.maxProgress;
+
+            // lerp mượt
+            this.fillBar.fillRange = cc.misc.lerp(this.fillBar.fillRange, target, 0.2);
+
+            let percentText = Math.floor(target * 100);
+            this.percentLabel.string = percentText + "%";
+        }
+    }
 }

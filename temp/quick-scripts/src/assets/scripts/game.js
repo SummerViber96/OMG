@@ -1,5 +1,5 @@
 "use strict";
-cc._RF.push(module, '9d30208n8tBYocShadMPp+o', 'game');
+cc._RF.push(module, '5af46B9aLZI+LEyNB9Bzehq', 'game');
 // scripts/game.ts
 
 "use strict";
@@ -23,476 +23,319 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var animal_1 = require("./animal");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.mainCamera = null;
-        _this.char1 = null;
-        _this.char2 = null;
-        _this.char3 = null;
-        _this.pig = null;
-        _this.pig2 = null;
-        _this.arenaWood = null;
-        _this.arena2 = null;
-        _this.arena3 = null;
-        _this.tree1 = null;
-        _this.tree2 = null;
-        _this.tree3 = null;
-        _this.bulletMain = null;
-        _this.hand = null;
-        _this.hand2 = null;
-        _this.hand3 = null;
-        _this.hand4 = null;
-        _this.hand5 = null;
-        _this.popup = null;
-        _this.preWood = null;
-        _this.bep = null;
-        // @property(cc.Node)
-        // snow: cc.Node
-        _this.popup2 = null;
-        _this.house = null;
-        _this.smokeEff = null;
-        _this.listHouse = [];
-        _this.endCard = null;
-        _this.lbWood = null;
+        _this.camera = null;
+        _this.video = null;
+        _this.btnCollect = null;
+        _this.btnFry = null;
+        _this.btnServe = null;
+        _this.btnClean = null;
+        _this.linkToStore = null;
         _this.soundBg = null;
-        _this.soundNhanGo = null;
-        _this.soundChatGo = null;
-        _this.soundGioThoi = null;
-        _this.soundUpgrade = null;
-        _this.soundRang = null;
-        _this.sounLonKeu = null;
-        _this.soundDapChao = null;
-        _this.soundUhh = null;
-        _this.soundZee = null;
-        _this.isvertical = false;
-        _this.isCountWood = 0;
-        _this.isTarget = null;
-        _this.isFollow = false;
-        _this.isMoving = false;
-        _this.isStep = 0;
+        _this.soundConfirm = null;
+        _this.soundWin = null;
+        _this.soundEfx = null;
+        _this.soundGirl = null;
+        _this.soundCycle = null;
+        _this.textGuild = null;
+        _this.textGuild2 = null;
+        _this.endCard = null;
+        _this.linkToStore = null;
+        _this.phaohoa = null;
+        _this.handGuild = null;
+        _this.fillBar = null;
+        _this.bar = null;
+        _this.percentLabel = null;
+        _this.soundEfxId = 0;
+        _this.currScreenWidth = null;
+        _this.isHorizontal = true;
+        _this.isPlay1 = false;
+        _this.adChanel = '{{__adv_channels_adapter__}}';
+        // LIFE-CYCLE CALLBACKS:
+        _this.idSoundCycle = null;
+        _this.idSoundGirl = null;
+        _this.decaySpeed = 10;
+        _this.isStop = true;
+        _this.maxProgress = 100;
+        _this.currentProgress = 0;
+        _this.isvertical = true;
         return _this;
     }
+    NewClass.prototype.onLoad = function () {
+    };
     NewClass.prototype.start = function () {
         var _this = this;
-        cc.audioEngine.play(this.soundBg, true, 0.8);
-        window.gameReady && window.gameReady();
-        cc.audioEngine.playEffect(this.soundGioThoi, true);
-        cc.audioEngine.playEffect(this.soundRang, true);
-        cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
-        cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_END, this.onTouchCancel, this);
-        cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchCancel, this);
+        cc.audioEngine.play(this.soundBg, false, 1);
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
         this.scheduleOnce(function () {
-            _this.popup.active = true;
-            // this.hand.active = true
-            cc.tween(_this.mainCamera).to(0.3, { zoomRatio: 0.8 }).start();
-        }, 0.5);
-    };
-    NewClass.prototype.onTouchMove = function (event) {
-        if (this.isMoving)
-            return;
-        if (!this.isTarget) {
-            // console.log(this.isStep)
-            if (this.isStep == 1) {
-                this.checkTarget(event.getLocation(), this.char3);
-            }
-            else if (this.isStep == 2) {
-                this.checkTarget(event.getLocation(), this.char2);
-            }
-            else if (this.isStep == 0) {
-                this.checkTarget(event.getLocation(), this.char1);
-            }
-        }
-        else {
-            var pos = event.getLocation();
-            pos = this.isTarget.parent.convertToNodeSpaceAR(pos);
-            this.isTarget.position = pos;
-        }
-    };
-    NewClass.prototype.onTouchCancel = function (event) {
-        var _this = this;
-        if (this.isMoving)
-            return;
-        if (!this.isTarget)
-            return;
-        console.log("step", this.isStep);
-        if (this.isStep == 0) {
-            var check = this.checkArea(event.getLocation(), this.arenaWood);
-            if (check) {
-                this.isStep++;
-                this.isMoving = true;
-                var pos_1 = this.arenaWood.position;
-                pos_1 = this.arenaWood.parent.convertToWorldSpaceAR(pos_1);
-                pos_1 = this.isTarget.parent.convertToNodeSpaceAR(pos_1);
-                this.isTarget.position = pos_1;
-                this.isTarget.getComponent(C).chatGo(this.tree1);
-                cc.audioEngine.play(this.soundChatGo, false, 0.8);
-                this.isTarget = null;
-                cc.tween(this.mainCamera).to(0.3, { zoomRatio: 1.2 }).start();
-                cc.tween(this.mainCamera.node).to(0.3, { position: cc.v3(-200, 400) }).call(function () {
-                    _this.pigMove1(pos_1);
-                }).start();
-            }
-            else {
-                // cc.tween(this.isTarget).to(0.5,{position:this.isTarget.getComponent(C).localPos}).star
-                this.isTarget.position = this.isTarget.getComponent(C).localPos;
-            }
-        }
-        else if (this.isStep == 1) {
-            var pos = event.getLocation();
-            if (this.checkTree(pos, this.arena2)) {
-                this.isStep++;
-                var pos2 = this.arena2.position;
-                pos2 = this.arena2.parent.convertToWorldSpaceAR(pos2);
-                pos2 = this.isTarget.parent.convertToNodeSpaceAR(pos2);
-                this.isTarget.position = pos2;
-                // this.isTarget.getComponent(C).chatGo2(this.tree2)
-                this.hand5.active = false;
-                this.isTarget = null;
-                this.hand4.active = true;
-                this.pig2.getComponent(animal_1.default).attack();
-                this.char3.getComponent(C).attack2(this.pig2);
-            }
-        }
-        else if (this.isStep == 2) {
-            // this.isTarget = null;
-            var pos = event.getLocation();
-            if (this.checkTree(pos, this.arena3)) {
-                this.hand5.active = false;
-                this.isStep++;
-                pos = this.isTarget.parent.convertToNodeSpaceAR(pos);
-                var pos2 = this.arena3.position;
-                pos2 = this.arena3.parent.convertToWorldSpaceAR(pos2);
-                pos2 = this.isTarget.parent.convertToNodeSpaceAR(pos2);
-                this.isTarget.position = pos2;
-                // this.isTarget.position = pos;
-                // this.isTarget.getComponent(C).chatGo2(this.tree2)
-                this.hand4.active = false;
-                this.isTarget = null;
-                this.char2.getComponent(C).attack2(this.pig2);
-                // this.hand4.active = true
-            }
-        }
-        else if (this.isStep == 3) {
-            this.isStep++;
-            var pos = event.getLocation();
-            if (this.checkTree(pos, this.tree1)) {
-                this.hand4.active = false;
-                this.hand5.active = false;
-                pos = this.isTarget.parent.convertToNodeSpaceAR(pos);
-                this.isTarget.position = pos;
-                // this.isTarget.getComponent(C).chatGo2(this.tree1)
-                this.showPop2();
-            }
-        }
-        else if (this.isStep == 4) {
-            // let pos = event.getLocation();
-            // if (this.checkTree(pos, this.tree1)) {
-            //     pos = this.isTarget.parent.convertToNodeSpaceAR(pos);
-            //     this.isTarget.position = pos
-            // }
-        }
-    };
-    NewClass.prototype.pigMove1 = function (pos) {
-        var _this = this;
-        pos = pos.add(cc.v3(100, 0));
-        this.char1.getComponent(C).warning();
-        this.pig.getComponent(animal_1.default).run();
+            _this.video.play();
+        }, 0.2);
         this.scheduleOnce(function () {
-            _this.char1.getComponent(C).angry();
-        }, 0.5);
-        cc.audioEngine.play(this.sounLonKeu, false, 0.8);
-        cc.audioEngine.play(this.soundUhh, false, 0.8);
-        cc.tween(this.pig).to(1, { position: pos }).call(function () {
-            _this.pig.getComponent(animal_1.default).attack();
-            _this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundDapChao, false, 0.8);
-            }, 0.3);
-            _this.char1.getComponent(C).attack(_this.pig);
-        }).start();
-        this.scheduleOnce(function () {
-            _this.char1.getComponent(C).die();
-            _this.pig.getComponent(animal_1.default).idle();
-            cc.tween(_this.mainCamera.node).delay(0.2).to(0.35, { position: cc.v3(0, 20) }).call(function () {
-                _this.hand3.active = true;
-                _this.bep.getComponent(cc.Button).enabled = true;
-            }).start();
-        }, 2.5);
-    };
-    NewClass.prototype.checkTarget = function (pos, node) {
-        pos = node.parent.convertToNodeSpaceAR(pos);
-        if (node.position.sub(pos).mag() <= 200) {
-            this.isTarget = node;
-            this.isFollow = true;
-            // if (this.isStep == 0) {
-            //     cc.tween(this.mainCamera).to(0.3, { zoomRatio: 0.9 }).start()
-            // }
-        }
-    };
-    NewClass.prototype.checkArea = function (pos, node) {
-        pos = node.parent.convertToNodeSpaceAR(pos);
-        if (node.position.sub(pos).mag() <= 200) {
-            this.hand.active = false;
-            return true;
-        }
-        return false;
-    };
-    NewClass.prototype.checkTree = function (pos, node) {
-        pos = node.parent.convertToNodeSpaceAR(pos);
-        if (node.position.sub(pos).mag() <= 500) {
-            return true;
-        }
-        return false;
-    };
-    NewClass.prototype.update = function () {
-        var canvas = this.node.getComponent(cc.Canvas);
-        if (cc.winSize.width < cc.winSize.height) {
-            if (!this.isvertical) {
-                this.isvertical = true;
-                // this.fitCamera.zoomRatio = 0.8
-                // this.mainCamera.zoomRatio = 0.7
-                // this.mainCamera.node.position = this.mainCamera.node.position.add( cc.v3(-100, 0))
-                canvas.fitHeight = false;
-                canvas.fitWidth = true;
-                // for (let child of this.uiFit.children) {
-                //     child.scale = child.scale * 0.5;
-                // }
-                // this.uiFit.scaleX = 0.8
-                // this.uiFit.scaleY = 0.8
-            }
-        }
-        else {
-            this.isvertical = false;
-            // this.uiFit.children[0].scale = 0.4
-            // this.uiFit.children[1].scale = 1
-            // this.fitCamera.zoomRatio = 1
-            // this.mainCamera.zoomRatio = 1.3
-            canvas.fitHeight = true;
-            canvas.fitWidth = false;
-        }
-        // if (this.isFollow) {
-        //     this.mainCamera.node.setPosition(this.isTarget.position.add(cc.v3(50, 0)).clampf(cc.v3(-520, -340), cc.v3(900, 340)));
-        // }
-    };
-    NewClass.prototype.createWood = function (tree) {
-        var _this = this;
-        var _loop_1 = function (i) {
-            var wood = cc.instantiate(this_1.preWood);
-            wood.parent = tree;
-            wood.scale = 1.3;
-            wood.opacity = 0;
-            wood.position = cc.v3(0, -50);
-            cc.tween(wood).delay(0.12 * i).set({ opacity: 255 }).by(0.3, { position: cc.v3(0, 150) }).call(function () {
-                _this.isCountWood += 1;
-                _this.lbWood.string = _this.isCountWood.toString();
-                wood.destroy();
-            }).start();
+            _this.video.stop();
+            _this.btnCollect.getComponent(cc.Button).enabled = true;
+            _this.btnCollect.getChildByName("hand").active = true;
+            // this.textGuild2.active = true;
+        }, 1.2);
+        this._stopCallback = function () {
+            _this.stopCycle();
         };
-        var this_1 = this;
-        for (var i = 0; i < 4; i++) {
-            _loop_1(i);
+        // this.video.node.on('completed', this.onVideoEnd, this);
+    };
+    // _stopCallback=null
+    NewClass.prototype.playCyle = function () {
+        if (this.handGuild.active == true) {
+            this.handGuild.active = false;
+            this.fillBar.fillRange = 0;
+            this.percentLabel.string = "0%"; // 👈 init
+            this.idSoundCycle = cc.audioEngine.play(this.soundCycle, true, 1);
+            this.idSoundGirl = cc.audioEngine.play(this.soundGirl, true, 1);
+        }
+        this.video.resume();
+        cc.audioEngine.resume(this.idSoundCycle);
+        cc.audioEngine.resume(this.idSoundGirl);
+        this.isStop = false;
+    };
+    NewClass.prototype.stopCycle = function () {
+        cc.audioEngine.pause(this.idSoundCycle);
+        cc.audioEngine.pause(this.idSoundGirl);
+        this.isStop = true;
+        this.video.pause(); // hoặc pause nếu cần
+    };
+    NewClass.prototype.btn_cycle = function () {
+        if (this.isStop) {
+            this.playCyle();
+        }
+        this.addProgress();
+        // this.textGuild.active = false;
+        cc.audioEngine.play(this.soundConfirm, false, 1);
+        this.unschedule(this._stopCallback);
+        this.scheduleOnce(this._stopCallback, 1);
+    };
+    NewClass.prototype.onVideoEnd = function () {
+        this.showEndcard();
+    };
+    NewClass.prototype.showEndcard = function () {
+        this.isStop = false;
+        this.linkToStore.active = true;
+        console.log("endGame");
+        // cc.audioEngine.play(this.soundWin, false, 1)
+        // this.btnCollect.active = false
+        // this.textGuild.active = false
+        // this.endCard.active = true
+        // this.textGuild.active = false;
+        // this.btnCollect.getChildByName("hand").active = false;
+        // this.textGuild2.active = false;
+        // this.phaohoa.active = true
+        // this.scheduleOnce(() => {
+        //     this.linkToStore.active = true;
+        // }, 0.5)
+    };
+    NewClass.prototype.addProgress = function () {
+        // lực giảm dần (giống ads)
+        var power = Math.max(3, 10 - this.currentProgress * 0.05);
+        this.currentProgress += power;
+        this.currentProgress = Math.min(this.currentProgress, this.maxProgress);
+        var percent = this.currentProgress / this.maxProgress;
+        // mượt
+        cc.tween(this.fillBar)
+            .to(1, { fillRange: percent })
+            .start();
+        var percentText = Math.floor(percent * 100);
+        this.updatePercentLabel(percent);
+        if (percent >= 1) {
+            // this.onFull();
+            // this.showEndcard();
+        }
+        if (percent > 0.8) {
+            this.percentLabel.node.scale = 1.2;
+        }
+        if (percent > 0.5) {
+            this.textGuild.children[0].getComponent(cc.Label).string = "Keep going! Almost there!";
+        }
+        else {
+            this.textGuild.children[0].getComponent(cc.Label).string = "Can you make her fit?";
         }
     };
-    NewClass.prototype.btn_wood = function () {
-        this.hand3.active = false;
-        cc.audioEngine.play(this.soundNhanGo, false, 0.8);
-        this.popup.getComponent(cc.Animation).play("close_popup");
-        this.transWood1();
-        this.bep.getComponent(cc.Button).enabled = false;
-    };
-    NewClass.prototype.transWood1 = function () {
+    NewClass.prototype.updatePercentLabel = function (targetPercent) {
         var _this = this;
-        var targetPos = this.popup.position;
-        targetPos = this.popup.parent.convertToWorldSpaceAR(targetPos);
-        targetPos = this.node.convertToNodeSpaceAR(targetPos);
-        var midpos = cc.v2(targetPos.x - 50, (targetPos.y + 80 + 397) / 2);
-        var _loop_2 = function (i) {
-            // cc.audioEngine.play(this.soundNhanGo,false,0.8)
-            var wood = cc.instantiate(this_2.preWood);
-            wood.parent = this_2.node;
-            wood.position = cc.v3(544, 410);
-            wood.scale = 1.2;
-            cc.tween(wood).delay(0.05 * i).bezierTo(0.5, cc.v2(544, 397), midpos, cc.v2(targetPos.x, targetPos.y + 80)).call(function () {
-                _this.isCountWood -= 1;
-                _this.lbWood.string = _this.isCountWood.toString();
-                wood.destroy();
-                if (i == 5) {
-                    _this.getHappy();
+        var obj = { value: parseFloat(this.percentLabel.string) || 0 };
+        cc.tween(obj)
+            .to(1, { value: targetPercent * 100 }, {
+            progress: function (start, end, current, t) {
+                var val = Math.floor(start + (end - start) * t);
+                _this.percentLabel.string = val + "%";
+                if (val == 90) {
+                    _this.showEndcard();
                 }
-            }).start();
-        };
-        var this_2 = this;
-        for (var i = 0; i < 6; i++) {
-            _loop_2(i);
+                return current;
+            }
+        })
+            .start();
+    };
+    NewClass.prototype.onFull = function () {
+        // stop mọi thứ
+        this.stopCycle();
+        // đảm bảo full
+        this.fillBar.fillRange = 1;
+        // show endcard
+        this.showEndcard();
+    };
+    NewClass.prototype.setScreenSize = function (isHorizontal) {
+        this.camera.zoomRatio = 1;
+        this.node.getComponent(cc.Canvas).fitWidth = (isHorizontal) ? true : false;
+        this.node.getComponent(cc.Canvas).fitHeight = (isHorizontal) ? false : true;
+        // this.linkToStore.scale=(isHorizontal)?0.6
+        var canvas = this.node.getComponent(cc.Canvas);
+        canvas.fitHeight = (isHorizontal) ? true : false;
+        canvas.fitWidth = (isHorizontal) ? false : true;
+        this.textGuild.y = 405.732;
+        this.bar.y = 503.311;
+        this.btnCollect.scale = 1;
+        this.bar.scale = 0.45;
+        this.textGuild.scale = 1;
+        this.video.node.scale = 6.4;
+        // this.btnCollect.getComponent(cc.Widget).bottom = 62.23
+        this.btnCollect.y = -507.769;
+        if (isHorizontal == true) {
+            var frameSize = cc.view.getFrameSize();
+            var width = frameSize.width;
+            var height = frameSize.height;
+            // this.camera.node.position = cc.v3(-70, 0)
+            // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
+            var aspectRatio = Math.max(width, height) / Math.min(width, height);
+            // Gần đúng tỷ lệ màn hình iPhone X
+            var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+            var TOLERANCE = 0.05;
+            var IPAD_RATIO = 1024 / 768; // ≈ 1.33
+            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+                this.video.node.scale = 6.5;
+            }
+            else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
+            }
+        }
+        else {
+            var frameSize = cc.view.getFrameSize();
+            var width = frameSize.width;
+            var height = frameSize.height;
+            // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
+            var aspectRatio = Math.max(width, height) / Math.min(width, height);
+            // Gần đúng tỷ lệ màn hình iPhone X
+            var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+            var TOLERANCE = 0.05;
+            var IPAD_RATIO = 1024 / 768; // ≈ 1.33
+            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+                this.video.node.scale = 7.4;
+                // this.btnCollect.getComponent(cc.Widget).bottom = 140
+                // console.log("man x")
+            }
+            else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
+                this.camera.zoomRatio = 0.72;
+                this.btnCollect.scale = 0.8;
+                this.btnCollect.y = -507.769 + 140;
+                // this.btnCollect.getComponent(cc.Widget).bottom = 50
+                this.textGuild.y = 460.895 - 140;
+                this.bar.y = 550.017 - 160;
+                this.textGuild.scale = 0.8;
+                this.bar.scale = 0.3;
+            }
         }
     };
-    NewClass.prototype.getHappy = function () {
-        var _this = this;
-        cc.audioEngine.play(this.soundUpgrade, false, 0.8);
-        // cc.audioEngine.play(this., false, 0.8)
-        // cc.audioEngine.stopEffect()
-        this.bep.getChildByName("fire").active = true;
-        this.char3.getComponent(C).setArcher();
-        this.char2.getComponent(C).setArcher();
-        this.char2.position = cc.v3(20, -100);
-        this.char3.position = cc.v3(-255, -10);
-        this.smokeEff.active = true;
-        cc.tween(this.mainCamera).to(0.3, { zoomRatio: 0.7 }).call(function () {
-            // this.hand4.active = true
-            _this.listHouse[3].active = true;
-            _this.listHouse[3].getComponent(cc.Animation).play("house2");
-            _this.pig2.active = true;
-            cc.audioEngine.play(_this.sounLonKeu, false, 0.8);
-            _this.scheduleOnce(function () {
-                _this.hand5.active = true;
-                _this.isMoving = false;
-            }, 1);
-        }).start();
+    NewClass.prototype.responsive = function () {
+        var deviceResolution = cc.view.getFrameSize();
+        if (deviceResolution.width >= deviceResolution.height) {
+            this.setScreenSize(true);
+            this.isvertical = false;
+        }
+        else if (deviceResolution.width < deviceResolution.height) {
+            this.setScreenSize(false);
+            this.isvertical = true;
+        }
     };
-    NewClass.prototype.showPop2 = function () {
-        this.popup2.active = true;
-    };
-    NewClass.prototype.btn_upgrade = function () {
-        var _this = this;
-        cc.audioEngine.play(this.soundUpgrade, false, 0.8);
-        cc.audioEngine.play(this.soundZee, false, 0.8);
-        this.char3.getComponent(C).getHappy();
-        this.char2.getComponent(C).getHappy();
-        this.popup2.active = false;
-        this.listHouse[3].active = true;
-        this.house.active = false;
-        // this.house.getComponent(cc.Animation).play("showhouse")
-        this.smokeEff.active = true;
-        this.scheduleOnce(function () {
-            cc.tween(_this.mainCamera).to(0.4, { zoomRatio: 0.3 }).call(function () {
-            }).start();
-        }, 0.3);
-        this.scheduleOnce(function () {
-            for (var i = 0; i < _this.listHouse.length; i++) {
-                var child = _this.listHouse[i];
-                child.active = true;
-                child.getComponent(cc.Animation).play("house2");
-                // child.getChildByName("fxhouse").children[0].getComponent(cc.Animation).play("efSmoke")
-            }
-        }, 0.8);
-        this.scheduleOnce(function () {
-            _this.endCard.active = true;
-        }, 1.5);
+    NewClass.prototype.update = function (dt) {
+        this.responsive();
+        if (this.isStop && this.currentProgress > 0) {
+            this.currentProgress -= this.decaySpeed * dt;
+            this.currentProgress = Math.max(0, this.currentProgress);
+            var target = this.currentProgress / this.maxProgress;
+            // lerp mượt
+            this.fillBar.fillRange = cc.misc.lerp(this.fillBar.fillRange, target, 0.2);
+            var percentText = Math.floor(target * 100);
+            this.percentLabel.string = percentText + "%";
+        }
     };
     __decorate([
         property(cc.Camera)
-    ], NewClass.prototype, "mainCamera", void 0);
+    ], NewClass.prototype, "camera", void 0);
+    __decorate([
+        property(cc.VideoPlayer)
+    ], NewClass.prototype, "video", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "char1", void 0);
+    ], NewClass.prototype, "btnCollect", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "char2", void 0);
+    ], NewClass.prototype, "btnFry", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "char3", void 0);
+    ], NewClass.prototype, "btnServe", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "pig", void 0);
+    ], NewClass.prototype, "btnClean", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "pig2", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "arenaWood", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "arena2", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "arena3", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "tree1", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "tree2", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "tree3", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "bulletMain", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "hand", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "hand2", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "hand3", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "hand4", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "hand5", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "popup", void 0);
-    __decorate([
-        property(cc.Prefab)
-    ], NewClass.prototype, "preWood", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "bep", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "popup2", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "house", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "smokeEff", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listHouse", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "endCard", void 0);
-    __decorate([
-        property(cc.Label)
-    ], NewClass.prototype, "lbWood", void 0);
+    ], NewClass.prototype, "linkToStore", void 0);
     __decorate([
         property(cc.AudioClip)
     ], NewClass.prototype, "soundBg", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundNhanGo", void 0);
+    ], NewClass.prototype, "soundConfirm", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundChatGo", void 0);
+    ], NewClass.prototype, "soundWin", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundGioThoi", void 0);
+    ], NewClass.prototype, "soundEfx", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundUpgrade", void 0);
+    ], NewClass.prototype, "soundGirl", void 0);
     __decorate([
         property(cc.AudioClip)
-    ], NewClass.prototype, "soundRang", void 0);
+    ], NewClass.prototype, "soundCycle", void 0);
     __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "sounLonKeu", void 0);
+        property(cc.Node)
+    ], NewClass.prototype, "textGuild", void 0);
     __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundDapChao", void 0);
+        property(cc.Node)
+    ], NewClass.prototype, "textGuild2", void 0);
     __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundUhh", void 0);
+        property(cc.Node)
+    ], NewClass.prototype, "endCard", void 0);
     __decorate([
-        property(cc.AudioClip)
-    ], NewClass.prototype, "soundZee", void 0);
+        property(cc.Node)
+    ], NewClass.prototype, "linkToStore", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "phaohoa", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "handGuild", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], NewClass.prototype, "fillBar", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "bar", void 0);
+    __decorate([
+        property(cc.Label)
+    ], NewClass.prototype, "percentLabel", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -1,0 +1,1663 @@
+{
+    "asset": {
+        "generator": "FBX2glTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "buffers": [
+        {
+            "byteLength": 1266600,
+            "uri": "buffer.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 38880,
+            "byteOffset": 0,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 45816,
+            "byteOffset": 38880,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 45816,
+            "byteOffset": 84696,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 30544,
+            "byteOffset": 130512,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 30544,
+            "byteOffset": 161056,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 61088,
+            "byteOffset": 191600,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 38880,
+            "byteOffset": 252688,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 45816,
+            "byteOffset": 291568,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 45816,
+            "byteOffset": 337384,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 30544,
+            "byteOffset": 383200,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 30544,
+            "byteOffset": 413744,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 61088,
+            "byteOffset": 444288,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 38880,
+            "byteOffset": 505376,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 45816,
+            "byteOffset": 544256,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 45816,
+            "byteOffset": 590072,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 30544,
+            "byteOffset": 635888,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 30544,
+            "byteOffset": 666432,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 61088,
+            "byteOffset": 696976,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 32412,
+            "byteOffset": 758064,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 39012,
+            "byteOffset": 790476,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 39012,
+            "byteOffset": 829488,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 26008,
+            "byteOffset": 868500,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 26008,
+            "byteOffset": 894508,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 52016,
+            "byteOffset": 920516,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 28248,
+            "byteOffset": 972532,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 34896,
+            "byteOffset": 1000780,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 34896,
+            "byteOffset": 1035676,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 23264,
+            "byteOffset": 1070572,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 23264,
+            "byteOffset": 1093836,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 46528,
+            "byteOffset": 1117100,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 14124,
+            "byteOffset": 1163628,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 17448,
+            "byteOffset": 1177752,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 17448,
+            "byteOffset": 1195200,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 11632,
+            "byteOffset": 1212648,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 11632,
+            "byteOffset": 1224280,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 23264,
+            "byteOffset": 1235912,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 1856,
+            "byteOffset": 1259176
+        },
+        {
+            "buffer": 0,
+            "byteLength": 1856,
+            "byteOffset": 1261032
+        },
+        {
+            "buffer": 0,
+            "byteLength": 1856,
+            "byteOffset": 1262888
+        },
+        {
+            "buffer": 0,
+            "byteLength": 1856,
+            "byteOffset": 1264744
+        }
+    ],
+    "scenes": [
+        {
+            "name": "Root Scene",
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 19440,
+            "bufferView": 0,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3818,
+            "bufferView": 1,
+            "byteOffset": 0,
+            "min": [
+                -0.521360874176025,
+                -1.16410434246063,
+                -0.000824007962364703
+            ],
+            "max": [
+                0.521360754966736,
+                0.960053861141205,
+                2.10297822952271
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3818,
+            "bufferView": 2,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 3818,
+            "bufferView": 3,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 3818,
+            "bufferView": 4,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3818,
+            "bufferView": 5,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 19440,
+            "bufferView": 6,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3818,
+            "bufferView": 7,
+            "byteOffset": 0,
+            "min": [
+                -0.521360874176025,
+                -1.16410434246063,
+                -0.000824007962364703
+            ],
+            "max": [
+                0.521360754966736,
+                0.960053861141205,
+                2.10297822952271
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3818,
+            "bufferView": 8,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 3818,
+            "bufferView": 9,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 3818,
+            "bufferView": 10,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3818,
+            "bufferView": 11,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 19440,
+            "bufferView": 12,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3818,
+            "bufferView": 13,
+            "byteOffset": 0,
+            "min": [
+                -0.521360874176025,
+                -1.16410434246063,
+                -0.000824007962364703
+            ],
+            "max": [
+                0.521360754966736,
+                0.960053861141205,
+                2.10297822952271
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3818,
+            "bufferView": 14,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 3818,
+            "bufferView": 15,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 3818,
+            "bufferView": 16,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3818,
+            "bufferView": 17,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 16206,
+            "bufferView": 18,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3251,
+            "bufferView": 19,
+            "byteOffset": 0,
+            "min": [
+                -0.521360874176025,
+                -1.16410434246063,
+                -0.000824007962364703
+            ],
+            "max": [
+                0.521360754966736,
+                0.960053861141205,
+                2.10297822952271
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3251,
+            "bufferView": 20,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 3251,
+            "bufferView": 21,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 3251,
+            "bufferView": 22,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3251,
+            "bufferView": 23,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 14124,
+            "bufferView": 24,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 2908,
+            "bufferView": 25,
+            "byteOffset": 0,
+            "min": [
+                -0.265659242868423,
+                -1.04111170768738,
+                0.540104568004608
+            ],
+            "max": [
+                0.265659242868423,
+                0.9775550365448,
+                1.59485077857971
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 2908,
+            "bufferView": 26,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 2908,
+            "bufferView": 27,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 2908,
+            "bufferView": 28,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 2908,
+            "bufferView": 29,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 7062,
+            "bufferView": 30,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 1454,
+            "bufferView": 31,
+            "byteOffset": 0,
+            "min": [
+                -0.260273367166519,
+                -1.04111170768738,
+                0.540954113006592
+            ],
+            "max": [
+                0.260273367166519,
+                0.971486568450928,
+                1.58897626399994
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 1454,
+            "bufferView": 32,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 1454,
+            "bufferView": 33,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 1454,
+            "bufferView": 34,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 1454,
+            "bufferView": 35,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 29,
+            "bufferView": 36,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 29,
+            "bufferView": 37,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 29,
+            "bufferView": 38,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 29,
+            "bufferView": 39,
+            "byteOffset": 0
+        }
+    ],
+    "samplers": [
+        {}
+    ],
+    "materials": [
+        {
+            "name": "M_DeerStag",
+            "alphaMode": "OPAQUE",
+            "extras": {
+                "fromFBX": {
+                    "shadingModel": "<unknown>",
+                    "isTruePBR": false
+                }
+            },
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.587999999523163,
+                    0.587999999523163,
+                    0.587999999523163,
+                    1.0
+                ],
+                "metallicFactor": 0.200000002980232,
+                "roughnessFactor": 0.800000011920929
+            }
+        },
+        {
+            "name": "M_DeerStagFur",
+            "alphaMode": "OPAQUE",
+            "extras": {
+                "fromFBX": {
+                    "shadingModel": "<unknown>",
+                    "isTruePBR": false
+                }
+            },
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.587999999523163,
+                    0.587999999523163,
+                    0.587999999523163,
+                    1.0
+                ],
+                "metallicFactor": 0.200000002980232,
+                "roughnessFactor": 0.800000011920929
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "SK_Stag_LOD0",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 4,
+                        "NORMAL": 2,
+                        "POSITION": 1,
+                        "TEXCOORD_0": 3,
+                        "WEIGHTS_0": 5
+                    },
+                    "indices": 0
+                },
+                {
+                    "material": 1,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 28,
+                        "NORMAL": 26,
+                        "POSITION": 25,
+                        "TEXCOORD_0": 27,
+                        "WEIGHTS_0": 29
+                    },
+                    "indices": 24
+                }
+            ]
+        },
+        {
+            "name": "SK_Stag_LOD1",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 10,
+                        "NORMAL": 8,
+                        "POSITION": 7,
+                        "TEXCOORD_0": 9,
+                        "WEIGHTS_0": 11
+                    },
+                    "indices": 6
+                },
+                {
+                    "material": 1,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 34,
+                        "NORMAL": 32,
+                        "POSITION": 31,
+                        "TEXCOORD_0": 33,
+                        "WEIGHTS_0": 35
+                    },
+                    "indices": 30
+                }
+            ]
+        },
+        {
+            "name": "SK_Stag_LOD2",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 16,
+                        "NORMAL": 14,
+                        "POSITION": 13,
+                        "TEXCOORD_0": 15,
+                        "WEIGHTS_0": 17
+                    },
+                    "indices": 12
+                }
+            ]
+        },
+        {
+            "name": "SK_Stag_LOD3",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 22,
+                        "NORMAL": 20,
+                        "POSITION": 19,
+                        "TEXCOORD_0": 21,
+                        "WEIGHTS_0": 23
+                    },
+                    "indices": 18
+                }
+            ]
+        }
+    ],
+    "skins": [
+        {
+            "joints": [
+                17,
+                18,
+                7,
+                13,
+                8,
+                5,
+                19,
+                10,
+                11,
+                4,
+                20,
+                9,
+                24,
+                22,
+                25,
+                27,
+                12,
+                16,
+                29,
+                14,
+                6,
+                23,
+                21,
+                15,
+                26,
+                28,
+                31,
+                30,
+                32
+            ],
+            "inverseBindMatrices": 36,
+            "skeleton": 4
+        },
+        {
+            "joints": [
+                17,
+                18,
+                7,
+                13,
+                8,
+                5,
+                19,
+                10,
+                11,
+                4,
+                20,
+                9,
+                24,
+                22,
+                25,
+                27,
+                12,
+                16,
+                29,
+                14,
+                6,
+                23,
+                21,
+                15,
+                26,
+                28,
+                31,
+                30,
+                32
+            ],
+            "inverseBindMatrices": 37,
+            "skeleton": 4
+        },
+        {
+            "joints": [
+                17,
+                18,
+                7,
+                13,
+                8,
+                5,
+                19,
+                10,
+                11,
+                4,
+                20,
+                9,
+                24,
+                22,
+                25,
+                27,
+                12,
+                16,
+                29,
+                14,
+                6,
+                23,
+                21,
+                15,
+                26,
+                28,
+                31,
+                30,
+                32
+            ],
+            "inverseBindMatrices": 38,
+            "skeleton": 4
+        },
+        {
+            "joints": [
+                17,
+                18,
+                7,
+                13,
+                8,
+                5,
+                19,
+                10,
+                11,
+                4,
+                20,
+                9,
+                24,
+                22,
+                25,
+                27,
+                12,
+                16,
+                29,
+                14,
+                6,
+                23,
+                21,
+                15,
+                26,
+                28,
+                31,
+                30,
+                32
+            ],
+            "inverseBindMatrices": 39,
+            "skeleton": 4
+        }
+    ],
+    "nodes": [
+        {
+            "name": "RootNode",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                1,
+                2,
+                33,
+                34,
+                35
+            ]
+        },
+        {
+            "name": "SK_Stag_LOD0",
+            "translation": [
+                0.0,
+                0.0,
+                0.0273313038051128
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mesh": 0,
+            "skin": 0
+        },
+        {
+            "name": "root",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                3
+            ]
+        },
+        {
+            "name": "STAG_",
+            "translation": [
+                0.0,
+                0.503832459449768,
+                0.999000012874603
+            ],
+            "rotation": [
+                0.497398674488068,
+                0.497385889291763,
+                -0.50260066986084,
+                0.502587676048279
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                4
+            ]
+        },
+        {
+            "name": "STAG_ Pelvis",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -0.5,
+                -0.5,
+                -0.499999314546585,
+                0.500000715255737
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                5,
+                30
+            ]
+        },
+        {
+            "name": "STAG_ Spine",
+            "translation": [
+                0.232718408107758,
+                -0.000260009750491008,
+                3.23096742249618e-07
+            ],
+            "rotation": [
+                -2.08047686101054e-06,
+                -6.93679396590596e-07,
+                0.00039815905620344,
+                0.999999940395355
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                6,
+                22,
+                26
+            ]
+        },
+        {
+            "name": "STAG_ Spine1",
+            "translation": [
+                0.326593667268753,
+                -0.000260162341874093,
+                -7.21774973122535e-10
+            ],
+            "rotation": [
+                1.13686837721616e-13,
+                -2.23998597448372e-12,
+                8.67361944783557e-19,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                7,
+                12,
+                17
+            ]
+        },
+        {
+            "name": "STAG_ Neck",
+            "translation": [
+                0.326554596424103,
+                -0.000160751340445131,
+                -4.4470652160733e-10
+            ],
+            "rotation": [
+                -3.90505770081484e-14,
+                3.29358698536453e-07,
+                -0.118748493492603,
+                0.992924392223358
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                8
+            ]
+        },
+        {
+            "name": "STAG_ Neck1",
+            "translation": [
+                0.207730397582054,
+                -0.000160751340445131,
+                -4.49363130039515e-10
+            ],
+            "rotation": [
+                8.30501520419219e-13,
+                3.29361114381754e-07,
+                -0.118748515844345,
+                0.992924332618713
+            ],
+            "scale": [
+                0.999999940395355,
+                0.999999940395355,
+                1.0
+            ],
+            "children": [
+                9
+            ]
+        },
+        {
+            "name": "STAG_ Neck2",
+            "translation": [
+                0.207730397582054,
+                -0.000160827636136673,
+                -4.4470652160733e-10
+            ],
+            "rotation": [
+                -1.26551069970504e-12,
+                3.29361853346199e-07,
+                -0.118748493492603,
+                0.992924392223358
+            ],
+            "scale": [
+                0.99999988079071,
+                1.0,
+                1.0
+            ],
+            "children": [
+                10
+            ]
+        },
+        {
+            "name": "STAG_ Head",
+            "translation": [
+                0.207769468426704,
+                3.81469718035987e-08,
+                -1.1641531922485e-12
+            ],
+            "rotation": [
+                3.96072627820154e-12,
+                6.94195534833852e-07,
+                -0.250288039445877,
+                0.968171417713165
+            ],
+            "scale": [
+                1.00000011920929,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                11
+            ]
+        },
+        {
+            "name": "STAG_ Ponytail1",
+            "translation": [
+                0.00488006602972746,
+                -0.0576128773391247,
+                -1.71880230936949e-07
+            ],
+            "rotation": [
+                6.29097576983206e-13,
+                -2.00783256332215e-06,
+                0.723909318447113,
+                0.68989509344101
+            ],
+            "scale": [
+                0.999999940395355,
+                0.999999940395355,
+                1.0
+            ]
+        },
+        {
+            "name": "STAG_ R Clavicle",
+            "translation": [
+                0.368803232908249,
+                0.000406951905461028,
+                -0.0427394136786461
+            ],
+            "rotation": [
+                0.77899444103241,
+                0.129338890314102,
+                -0.589042961597443,
+                -0.171660840511322
+            ],
+            "scale": [
+                0.999999940395355,
+                1.00000011920929,
+                0.999999940395355
+            ],
+            "children": [
+                13
+            ]
+        },
+        {
+            "name": "STAG_ R UpperArm",
+            "translation": [
+                0.146217420697212,
+                0.0,
+                3.81469718035987e-08
+            ],
+            "rotation": [
+                0.465687930583954,
+                -0.666693866252899,
+                -0.141702339053154,
+                0.56442403793335
+            ],
+            "scale": [
+                1.00000011920929,
+                1.00000023841858,
+                1.00000011920929
+            ],
+            "children": [
+                14
+            ]
+        },
+        {
+            "name": "STAG_ R Forearm",
+            "translation": [
+                0.2962526679039,
+                -1.90734859017994e-08,
+                -2.38418564890708e-08
+            ],
+            "rotation": [
+                2.84400080155124e-18,
+                8.19410326032888e-18,
+                -0.327890902757645,
+                0.944715619087219
+            ],
+            "scale": [
+                0.999999761581421,
+                0.999999940395355,
+                0.999999940395355
+            ],
+            "children": [
+                15
+            ]
+        },
+        {
+            "name": "STAG_ R Hand",
+            "translation": [
+                0.291308254003525,
+                3.81469718035987e-08,
+                0.0
+            ],
+            "rotation": [
+                0.726373374462128,
+                0.0445589125156403,
+                -0.0521955192089081,
+                0.683865368366241
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                0.999999940395355
+            ],
+            "children": [
+                16
+            ]
+        },
+        {
+            "name": "STAG_ R Finger0",
+            "translation": [
+                0.336182236671448,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.000380990066332743,
+                -0.290471374988556,
+                -0.000115654263936449,
+                0.956883609294891
+            ],
+            "scale": [
+                1.00000011920929,
+                1.0,
+                1.00000011920929
+            ]
+        },
+        {
+            "name": "STAG_ L Clavicle",
+            "translation": [
+                0.368803203105927,
+                0.000406723003834486,
+                0.042739424854517
+            ],
+            "rotation": [
+                0.778994977474213,
+                0.12933723628521,
+                0.589043319225311,
+                0.171658724546432
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                0.999999940395355
+            ],
+            "children": [
+                18
+            ]
+        },
+        {
+            "name": "STAG_ L UpperArm",
+            "translation": [
+                0.146217405796051,
+                0.0,
+                -3.81469718035987e-08
+            ],
+            "rotation": [
+                -0.465687930583954,
+                0.666693866252899,
+                -0.141702353954315,
+                0.56442403793335
+            ],
+            "scale": [
+                1.00000011920929,
+                1.00000023841858,
+                1.00000011920929
+            ],
+            "children": [
+                19
+            ]
+        },
+        {
+            "name": "STAG_ L Forearm",
+            "translation": [
+                0.2962526679039,
+                -1.90734859017994e-08,
+                1.90734859017994e-08
+            ],
+            "rotation": [
+                1.81016449851124e-17,
+                -1.13323570211836e-17,
+                -0.327890902757645,
+                0.944715619087219
+            ],
+            "scale": [
+                0.99999988079071,
+                0.999999940395355,
+                1.0
+            ],
+            "children": [
+                20
+            ]
+        },
+        {
+            "name": "STAG_ L Hand",
+            "translation": [
+                0.29130831360817,
+                0.0,
+                -1.43051144263495e-08
+            ],
+            "rotation": [
+                -0.726373374462128,
+                -0.04455890879035,
+                -0.0521955229341984,
+                0.683865427970886
+            ],
+            "scale": [
+                0.999999940395355,
+                1.0,
+                1.0
+            ],
+            "children": [
+                21
+            ]
+        },
+        {
+            "name": "STAG_ L Finger0",
+            "translation": [
+                0.336182206869125,
+                9.53674295089968e-09,
+                -3.81469718035987e-08
+            ],
+            "rotation": [
+                -0.000380995566956699,
+                0.290471374988556,
+                -0.000115656512207352,
+                0.956883609294891
+            ],
+            "scale": [
+                0.999999940395355,
+                0.999999940395355,
+                1.0
+            ]
+        },
+        {
+            "name": "STAG_ L Thigh",
+            "translation": [
+                -0.232718095183372,
+                0.000444717385107651,
+                0.180056646466255
+            ],
+            "rotation": [
+                0.729173243045807,
+                0.676442325115204,
+                0.0528866201639175,
+                0.089079886674881
+            ],
+            "scale": [
+                1.0,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                23
+            ]
+        },
+        {
+            "name": "STAG_ L Calf",
+            "translation": [
+                0.353254228830338,
+                0.0,
+                1.90734859017994e-08
+            ],
+            "rotation": [
+                -3.84516297408704e-17,
+                -2.62324945711799e-17,
+                -0.486828476190567,
+                0.873497605323792
+            ],
+            "scale": [
+                0.999999821186066,
+                1.0,
+                1.0
+            ],
+            "children": [
+                24
+            ]
+        },
+        {
+            "name": "STAG_ L HorseLink",
+            "translation": [
+                0.293993175029755,
+                -7.62939436071974e-08,
+                -1.90734859017994e-08
+            ],
+            "rotation": [
+                -3.20919468776992e-09,
+                -8.7428393413802e-09,
+                0.544253349304199,
+                0.838920891284943
+            ],
+            "scale": [
+                1.0,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                25
+            ]
+        },
+        {
+            "name": "STAG_ L Foot",
+            "translation": [
+                0.38145986199379,
+                7.62939436071974e-08,
+                1.90734859017994e-08
+            ],
+            "rotation": [
+                0.0108726685866714,
+                0.0291401594877243,
+                -0.106252685189247,
+                0.993852615356445
+            ],
+            "scale": [
+                1.00000011920929,
+                1.0,
+                0.999999940395355
+            ]
+        },
+        {
+            "name": "STAG_ R Thigh",
+            "translation": [
+                -0.232718095183372,
+                0.000445785524789244,
+                -0.180056646466255
+            ],
+            "rotation": [
+                0.729172885417938,
+                0.676442563533783,
+                -0.052884679287672,
+                -0.0890818685293198
+            ],
+            "scale": [
+                1.0,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                27
+            ]
+        },
+        {
+            "name": "STAG_ R Calf",
+            "translation": [
+                0.353254228830338,
+                7.10542719878232e-17,
+                1.90734859017994e-08
+            ],
+            "rotation": [
+                1.21222168988595e-17,
+                -6.75609898265189e-18,
+                -0.486828207969666,
+                0.873497724533081
+            ],
+            "scale": [
+                0.99999988079071,
+                0.999999940395355,
+                0.999999940395355
+            ],
+            "children": [
+                28
+            ]
+        },
+        {
+            "name": "STAG_ R HorseLink",
+            "translation": [
+                0.293993204832077,
+                0.0,
+                1.90734859017994e-08
+            ],
+            "rotation": [
+                2.50662939293989e-08,
+                7.19851123154314e-10,
+                0.544253349304199,
+                0.838920891284943
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                29
+            ]
+        },
+        {
+            "name": "STAG_ R Foot",
+            "translation": [
+                0.381459802389145,
+                7.62939436071974e-08,
+                0.0
+            ],
+            "rotation": [
+                -0.0108726099133492,
+                -0.0291401650756598,
+                -0.106252878904343,
+                0.993852615356445
+            ],
+            "scale": [
+                0.999999821186066,
+                0.999999761581421,
+                0.999999821186066
+            ]
+        },
+        {
+            "name": "STAG_ Tail",
+            "translation": [
+                -0.223836973309517,
+                -0.144433215260506,
+                7.92322651932409e-08
+            ],
+            "rotation": [
+                -9.52397556375217e-07,
+                -7.75974854150263e-07,
+                0.991875469684601,
+                0.127212852239609
+            ],
+            "scale": [
+                1.00000011920929,
+                1.0,
+                1.0
+            ],
+            "children": [
+                31
+            ]
+        },
+        {
+            "name": "STAG_ Tail1",
+            "translation": [
+                0.0820958688855171,
+                -5.99670383962803e-05,
+                -1.6647390410629e-10
+            ],
+            "rotation": [
+                1.20202144678755e-12,
+                5.69649841963837e-07,
+                -0.205383643507957,
+                0.978681564331055
+            ],
+            "scale": [
+                0.99999988079071,
+                0.99999988079071,
+                1.0
+            ],
+            "children": [
+                32
+            ]
+        },
+        {
+            "name": "STAG_ Tail2",
+            "translation": [
+                0.0820832774043083,
+                -8.88061476871371e-05,
+                -2.46800468950426e-10
+            ],
+            "rotation": [
+                -3.23416011853428e-12,
+                5.69653025195294e-07,
+                -0.205383732914925,
+                0.97868150472641
+            ],
+            "scale": [
+                1.00000011920929,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "SK_Stag_LOD1",
+            "translation": [
+                0.0,
+                0.0,
+                0.0273313038051128
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mesh": 1,
+            "skin": 1
+        },
+        {
+            "name": "SK_Stag_LOD2",
+            "translation": [
+                0.0,
+                0.0,
+                0.0273313038051128
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mesh": 2,
+            "skin": 2
+        },
+        {
+            "name": "SK_Stag_LOD3",
+            "translation": [
+                0.0,
+                0.0,
+                0.0273313038051128
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mesh": 3,
+            "skin": 3
+        }
+    ]
+}

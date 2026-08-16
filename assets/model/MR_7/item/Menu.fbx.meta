@@ -1,0 +1,187 @@
+{
+  "ver": "1.1.1",
+  "uuid": "0db5c745-5a1a-49ba-b481-7f81a7daac2b",
+  "scaleFactor": 1,
+  "boneCount": 3,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "b3248b79-0a31-4dd5-af4b-69af2c32bede",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "Menu_mesh.mesh": {
+      "ver": "1.0.1",
+      "uuid": "d224653f-59b9-4177-a2ed-6302558f3217",
+      "verts": 36,
+      "tris": 24,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00965755991637707,
+        "y": 0,
+        "z": -0.00999999977648258
+      },
+      "maxPos": {
+        "x": 0.00965755991637707,
+        "y": 0.0000381504723918624,
+        "z": 0.00999999977648258
+      },
+      "name": "Menu_mesh.mesh",
+      "subMetas": {}
+    },
+    "Menu-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "aacba873-1165-4160-911a-d311a533d73b",
+      "name": "Menu-0.skeleton",
+      "subMetas": {}
+    },
+    "001_Menu.sac": {
+      "ver": "1.0.1",
+      "uuid": "67d3e773-d685-4871-b1ab-3f1a8f130311",
+      "modelUuid": "0db5c745-5a1a-49ba-b481-7f81a7daac2b",
+      "animationID": 0,
+      "name": "001_Menu.sac",
+      "maxFrameCount": 21,
+      "totalFrameCount": 21,
+      "duration": 1.1666666269302368,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Menu.prefab": {
+      "ver": "1.2.9",
+      "uuid": "ac1144f7-b03d-4e90-9169-399285bc2247",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Menu.prefab",
+      "subMetas": {}
+    },
+    "Material.mtl": {
+      "ver": "1.0.3",
+      "uuid": "28761671-6b70-4547-bdf5-151353a55a63",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 255,\n          \"g\": 255,\n          \"b\": 255,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"0fa10bb3-30f8-489a-84f5-3e70c24b17c0\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "Material.mtl",
+      "subMetas": {}
+    }
+  }
+}

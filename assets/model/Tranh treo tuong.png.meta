@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "4e01b809-7cea-4500-bd99-0dde36f717e2",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1920,
+  "height": 1080,
+  "platformSettings": {},
+  "subMetas": {
+    "Tranh treo tuong": {
+      "ver": "1.0.4",
+      "uuid": "a684ca54-00c4-446a-85f3-6c6901751ed6",
+      "rawTextureUuid": "4e01b809-7cea-4500-bd99-0dde36f717e2",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1920,
+      "height": 1080,
+      "rawWidth": 1920,
+      "rawHeight": 1080,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "ver": "1.1.1",
+  "uuid": "b4ecf9e1-6286-4e81-8099-f9efb4adcb07",
+  "scaleFactor": 1,
+  "boneCount": 32,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "2edf6de2-f15a-4779-8e73-fbffe06d58b1",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "SK_Wolf_LOD0.mesh": {
+      "ver": "1.0.1",
+      "uuid": "97f8f579-afd4-4863-a053-c3fcf119b0d4",
+      "verts": 5889,
+      "tris": 10105,
+      "submeshes": 2,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ],
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.175563529133797,
+        "y": -0.892845392227173,
+        "z": -0.0052748704329133
+      },
+      "maxPos": {
+        "x": 0.175563529133797,
+        "y": 1.06313538551331,
+        "z": 0.976676166057587
+      },
+      "name": "SK_Wolf_LOD0.mesh",
+      "subMetas": {}
+    },
+    "SK_Wolf_LOD1.mesh": {
+      "ver": "1.0.1",
+      "uuid": "35456b55-bc0e-4855-9606-6d42e5ab0e7a",
+      "verts": 4548,
+      "tris": 7819,
+      "submeshes": 2,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ],
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.170982643961906,
+        "y": -0.892845392227173,
+        "z": -0.0052748704329133
+      },
+      "maxPos": {
+        "x": 0.170982643961906,
+        "y": 1.05514323711395,
+        "z": 0.975370764732361
+      },
+      "name": "SK_Wolf_LOD1.mesh",
+      "subMetas": {}
+    },
+    "SK_Wolf_LOD2.mesh": {
+      "ver": "1.0.1",
+      "uuid": "31061134-a90d-4e0b-b7d5-7fea1d268031",
+      "verts": 3294,
+      "tris": 5679,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.164310455322266,
+        "y": -0.892845392227173,
+        "z": -0.0052748704329133
+      },
+      "maxPos": {
+        "x": 0.164310455322266,
+        "y": 1.04890382289886,
+        "z": 0.974379539489746
+      },
+      "name": "SK_Wolf_LOD2.mesh",
+      "subMetas": {}
+    },
+    "SK_Wolf_LOD3.mesh": {
+      "ver": "1.0.1",
+      "uuid": "6ce3ef5f-2ad8-4c82-a3c8-10c3754b7ecb",
+      "verts": 3103,
+      "tris": 5309,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.161736905574799,
+        "y": -0.892845392227173,
+        "z": -0.0052748704329133
+      },
+      "maxPos": {
+        "x": 0.161736905574799,
+        "y": 1.04890382289886,
+        "z": 0.974379539489746
+      },
+      "name": "SK_Wolf_LOD3.mesh",
+      "subMetas": {}
+    },
+    "SK_Wolf-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "3993b8e5-d245-4466-8010-382f63a50c5c",
+      "name": "SK_Wolf-0.skeleton",
+      "subMetas": {}
+    },
+    "SK_Wolf-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "6fc4fdf1-59ee-45df-bc34-891e352736e9",
+      "name": "SK_Wolf-1.skeleton",
+      "subMetas": {}
+    },
+    "SK_Wolf-2.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "44f1e41c-4c55-4b2d-a762-f5ca2eb485e6",
+      "name": "SK_Wolf-2.skeleton",
+      "subMetas": {}
+    },
+    "SK_Wolf-3.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "cb545754-2048-4aad-8f58-24d708841400",
+      "name": "SK_Wolf-3.skeleton",
+      "subMetas": {}
+    },
+    "SK_Wolf.prefab": {
+      "ver": "1.2.9",
+      "uuid": "5b410e2b-d061-48c8-a761-6f7da7175f2c",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "SK_Wolf.prefab",
+      "subMetas": {}
+    },
+    "M_Wolf.mtl": {
+      "ver": "1.0.3",
+      "uuid": "7a30f601-0cfc-4b73-a985-198e5d90ef7d",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 149,\n          \"g\": 149,\n          \"b\": 149,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"690c4a72-2695-4f97-9cee-074852b3f45e\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "M_Wolf.mtl",
+      "subMetas": {}
+    },
+    "M_WolfFur.mtl": {
+      "ver": "1.0.3",
+      "uuid": "b45aa640-3d3e-4a7c-9fcb-93c4ccebeb7c",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 149,\n          \"g\": 149,\n          \"b\": 149,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"690c4a72-2695-4f97-9cee-074852b3f45e\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "M_WolfFur.mtl",
+      "subMetas": {}
+    }
+  }
+}

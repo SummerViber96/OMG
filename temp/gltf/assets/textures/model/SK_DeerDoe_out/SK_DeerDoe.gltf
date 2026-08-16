@@ -1,0 +1,1747 @@
+{
+    "asset": {
+        "generator": "FBX2glTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "buffers": [
+        {
+            "byteLength": 1360868,
+            "uri": "buffer.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 32496,
+            "byteOffset": 0,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37680,
+            "byteOffset": 32496,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37680,
+            "byteOffset": 70176,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 50240,
+            "byteOffset": 107856,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25120,
+            "byteOffset": 158096,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25120,
+            "byteOffset": 183216,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 50240,
+            "byteOffset": 208336,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 32496,
+            "byteOffset": 258576,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37680,
+            "byteOffset": 291072,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37680,
+            "byteOffset": 328752,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 50240,
+            "byteOffset": 366432,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25120,
+            "byteOffset": 416672,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25120,
+            "byteOffset": 441792,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 50240,
+            "byteOffset": 466912,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 32496,
+            "byteOffset": 517152,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37680,
+            "byteOffset": 549648,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37680,
+            "byteOffset": 587328,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 50240,
+            "byteOffset": 625008,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25120,
+            "byteOffset": 675248,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25120,
+            "byteOffset": 700368,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 50240,
+            "byteOffset": 725488,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 23244,
+            "byteOffset": 775728,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 27984,
+            "byteOffset": 798972,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 27984,
+            "byteOffset": 826956,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37312,
+            "byteOffset": 854940,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 18656,
+            "byteOffset": 892252,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 18656,
+            "byteOffset": 910908,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37312,
+            "byteOffset": 929564,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 30768,
+            "byteOffset": 966876,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37824,
+            "byteOffset": 997644,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 37824,
+            "byteOffset": 1035468,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 50432,
+            "byteOffset": 1073292,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25216,
+            "byteOffset": 1123724,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25216,
+            "byteOffset": 1148940,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 50432,
+            "byteOffset": 1174156,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 15384,
+            "byteOffset": 1224588,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 18912,
+            "byteOffset": 1239972,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 18912,
+            "byteOffset": 1258884,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25216,
+            "byteOffset": 1277796,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 12608,
+            "byteOffset": 1303012,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 12608,
+            "byteOffset": 1315620,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 25216,
+            "byteOffset": 1328228,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 1856,
+            "byteOffset": 1353444
+        },
+        {
+            "buffer": 0,
+            "byteLength": 1856,
+            "byteOffset": 1355300
+        },
+        {
+            "buffer": 0,
+            "byteLength": 1856,
+            "byteOffset": 1357156
+        },
+        {
+            "buffer": 0,
+            "byteLength": 1856,
+            "byteOffset": 1359012
+        }
+    ],
+    "scenes": [
+        {
+            "name": "Root Scene",
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 16248,
+            "bufferView": 0,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3140,
+            "bufferView": 1,
+            "byteOffset": 0,
+            "min": [
+                -0.252313613891602,
+                -0.95944356918335,
+                -0.000872535689268261
+            ],
+            "max": [
+                0.252313524484634,
+                0.919824302196503,
+                1.50323891639709
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3140,
+            "bufferView": 2,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3140,
+            "bufferView": 3,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 3140,
+            "bufferView": 4,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 3140,
+            "bufferView": 5,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3140,
+            "bufferView": 6,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 16248,
+            "bufferView": 7,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3140,
+            "bufferView": 8,
+            "byteOffset": 0,
+            "min": [
+                -0.252313613891602,
+                -0.996269881725311,
+                -0.000872535689268261
+            ],
+            "max": [
+                0.252313524484634,
+                0.882997930049896,
+                1.50323891639709
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3140,
+            "bufferView": 9,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3140,
+            "bufferView": 10,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 3140,
+            "bufferView": 11,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 3140,
+            "bufferView": 12,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3140,
+            "bufferView": 13,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 16248,
+            "bufferView": 14,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3140,
+            "bufferView": 15,
+            "byteOffset": 0,
+            "min": [
+                -0.252313613891602,
+                -0.994426786899567,
+                -0.000872535689268261
+            ],
+            "max": [
+                0.252313524484634,
+                0.884841084480286,
+                1.50323891639709
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3140,
+            "bufferView": 16,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3140,
+            "bufferView": 17,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 3140,
+            "bufferView": 18,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 3140,
+            "bufferView": 19,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3140,
+            "bufferView": 20,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 11622,
+            "bufferView": 21,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 2332,
+            "bufferView": 22,
+            "byteOffset": 0,
+            "min": [
+                -0.250662595033646,
+                -0.994426786899567,
+                -0.000872535689268261
+            ],
+            "max": [
+                0.250662505626678,
+                0.884841084480286,
+                1.50323891639709
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 2332,
+            "bufferView": 23,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 2332,
+            "bufferView": 24,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 2332,
+            "bufferView": 25,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 2332,
+            "bufferView": 26,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 2332,
+            "bufferView": 27,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 15384,
+            "bufferView": 28,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3152,
+            "bufferView": 29,
+            "byteOffset": 0,
+            "min": [
+                -0.261212289333344,
+                -0.851722955703735,
+                0.485644191503525
+            ],
+            "max": [
+                0.261212199926376,
+                0.930590927600861,
+                1.51236045360565
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 3152,
+            "bufferView": 30,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3152,
+            "bufferView": 31,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 3152,
+            "bufferView": 32,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 3152,
+            "bufferView": 33,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 3152,
+            "bufferView": 34,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 7692,
+            "bufferView": 35,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 1576,
+            "bufferView": 36,
+            "byteOffset": 0,
+            "min": [
+                -0.256896078586578,
+                -0.888549268245697,
+                0.485644191503525
+            ],
+            "max": [
+                0.256896018981934,
+                0.88891738653183,
+                1.50789940357208
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 1576,
+            "bufferView": 37,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 1576,
+            "bufferView": 38,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 1576,
+            "bufferView": 39,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 1576,
+            "bufferView": 40,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 1576,
+            "bufferView": 41,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 29,
+            "bufferView": 42,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 29,
+            "bufferView": 43,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 29,
+            "bufferView": 44,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 29,
+            "bufferView": 45,
+            "byteOffset": 0
+        }
+    ],
+    "samplers": [
+        {}
+    ],
+    "materials": [
+        {
+            "name": "M_DeerDoe",
+            "alphaMode": "OPAQUE",
+            "extras": {
+                "fromFBX": {
+                    "shadingModel": "<unknown>",
+                    "isTruePBR": false
+                }
+            },
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.587999999523163,
+                    0.587999999523163,
+                    0.587999999523163,
+                    1.0
+                ],
+                "metallicFactor": 0.200000002980232,
+                "roughnessFactor": 0.800000011920929
+            }
+        },
+        {
+            "name": "M_DeerDoeFur",
+            "alphaMode": "OPAQUE",
+            "extras": {
+                "fromFBX": {
+                    "shadingModel": "<unknown>",
+                    "isTruePBR": false
+                }
+            },
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.587999999523163,
+                    0.587999999523163,
+                    0.587999999523163,
+                    1.0
+                ],
+                "metallicFactor": 0.200000002980232,
+                "roughnessFactor": 0.800000011920929
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "SK_DeerDoe_LOD0",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 5,
+                        "NORMAL": 2,
+                        "POSITION": 1,
+                        "TANGENT": 3,
+                        "TEXCOORD_0": 4,
+                        "WEIGHTS_0": 6
+                    },
+                    "indices": 0
+                },
+                {
+                    "material": 1,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 33,
+                        "NORMAL": 30,
+                        "POSITION": 29,
+                        "TANGENT": 31,
+                        "TEXCOORD_0": 32,
+                        "WEIGHTS_0": 34
+                    },
+                    "indices": 28
+                }
+            ]
+        },
+        {
+            "name": "SK_DeerDoe_LOD1",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 12,
+                        "NORMAL": 9,
+                        "POSITION": 8,
+                        "TANGENT": 10,
+                        "TEXCOORD_0": 11,
+                        "WEIGHTS_0": 13
+                    },
+                    "indices": 7
+                },
+                {
+                    "material": 1,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 40,
+                        "NORMAL": 37,
+                        "POSITION": 36,
+                        "TANGENT": 38,
+                        "TEXCOORD_0": 39,
+                        "WEIGHTS_0": 41
+                    },
+                    "indices": 35
+                }
+            ]
+        },
+        {
+            "name": "SK_DeerDoe_LOD2",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 19,
+                        "NORMAL": 16,
+                        "POSITION": 15,
+                        "TANGENT": 17,
+                        "TEXCOORD_0": 18,
+                        "WEIGHTS_0": 20
+                    },
+                    "indices": 14
+                }
+            ]
+        },
+        {
+            "name": "SK_DeerDoe_LOD3",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 26,
+                        "NORMAL": 23,
+                        "POSITION": 22,
+                        "TANGENT": 24,
+                        "TEXCOORD_0": 25,
+                        "WEIGHTS_0": 27
+                    },
+                    "indices": 21
+                }
+            ]
+        }
+    ],
+    "skins": [
+        {
+            "joints": [
+                21,
+                9,
+                20,
+                10,
+                22,
+                15,
+                8,
+                16,
+                11,
+                17,
+                7,
+                13,
+                12,
+                27,
+                14,
+                30,
+                23,
+                19,
+                32,
+                28,
+                25,
+                18,
+                24,
+                26,
+                29,
+                31,
+                34,
+                33,
+                35
+            ],
+            "inverseBindMatrices": 42,
+            "skeleton": 7
+        },
+        {
+            "joints": [
+                21,
+                9,
+                20,
+                10,
+                22,
+                15,
+                8,
+                16,
+                11,
+                17,
+                7,
+                13,
+                12,
+                27,
+                14,
+                30,
+                23,
+                19,
+                32,
+                28,
+                25,
+                18,
+                24,
+                26,
+                29,
+                31,
+                34,
+                33,
+                35
+            ],
+            "inverseBindMatrices": 43,
+            "skeleton": 7
+        },
+        {
+            "joints": [
+                21,
+                9,
+                20,
+                10,
+                22,
+                15,
+                8,
+                16,
+                11,
+                17,
+                7,
+                13,
+                12,
+                27,
+                14,
+                30,
+                23,
+                19,
+                32,
+                28,
+                25,
+                18,
+                24,
+                26,
+                29,
+                31,
+                34,
+                33,
+                35
+            ],
+            "inverseBindMatrices": 44,
+            "skeleton": 7
+        },
+        {
+            "joints": [
+                21,
+                20,
+                10,
+                9,
+                15,
+                11,
+                16,
+                8,
+                22,
+                13,
+                17,
+                7,
+                23,
+                14,
+                27,
+                28,
+                19,
+                32,
+                30,
+                12,
+                25,
+                18,
+                24,
+                26,
+                29,
+                31,
+                34,
+                33,
+                35
+            ],
+            "inverseBindMatrices": 45,
+            "skeleton": 7
+        }
+    ],
+    "nodes": [
+        {
+            "name": "RootNode",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        {
+            "name": "SK_DeerDoe_LOD0",
+            "translation": [
+                0.0,
+                0.0,
+                0.0377280861139297
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mesh": 0,
+            "skin": 0
+        },
+        {
+            "name": "SK_DeerDoe_LOD1",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mesh": 1,
+            "skin": 1
+        },
+        {
+            "name": "SK_DeerDoe_LOD2",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mesh": 2,
+            "skin": 2
+        },
+        {
+            "name": "SK_DeerDoe_LOD3",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mesh": 3,
+            "skin": 3
+        },
+        {
+            "name": "root",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -0.70710676908493,
+                -0.0,
+                0.0,
+                0.70710676908493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                6
+            ]
+        },
+        {
+            "name": "DeerDoe_",
+            "translation": [
+                0.0,
+                0.469999998807907,
+                0.900999963283539
+            ],
+            "rotation": [
+                0.497401535511017,
+                0.497382998466492,
+                -0.502603590488434,
+                0.502584874629974
+            ],
+            "scale": [
+                1.00000011920929,
+                1.00000011920929,
+                1.00000011920929
+            ],
+            "children": [
+                7
+            ]
+        },
+        {
+            "name": "DeerDoe_ Pelvis",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -0.5,
+                -0.5,
+                -0.499999314546585,
+                0.500000715255737
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                8,
+                33
+            ]
+        },
+        {
+            "name": "DeerDoe_ Spine",
+            "translation": [
+                0.208510369062424,
+                -0.000233001701417379,
+                2.89487644522524e-07
+            ],
+            "rotation": [
+                -2.08047686101054e-06,
+                -6.93675247021019e-07,
+                0.00039815905620344,
+                0.999999940395355
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                9,
+                25,
+                29
+            ]
+        },
+        {
+            "name": "DeerDoe_ Spine1",
+            "translation": [
+                0.29262039065361,
+                -0.000233001701417379,
+                -6.43776698616705e-10
+            ],
+            "rotation": [
+                2.27373675443232e-13,
+                -1.75948144942595e-12,
+                -4.65661287307739e-10,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                10,
+                15,
+                20
+            ]
+        },
+        {
+            "name": "DeerDoe_ Neck",
+            "translation": [
+                0.292570471763611,
+                -0.000139617914101109,
+                -3.85334708585816e-10
+            ],
+            "rotation": [
+                7.76900950256315e-13,
+                4.74777465342413e-07,
+                -0.171177849173546,
+                0.985240161418915
+            ],
+            "scale": [
+                1.0,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                11
+            ]
+        },
+        {
+            "name": "DeerDoe_ Neck1",
+            "translation": [
+                0.186090812087059,
+                -0.000132751461933367,
+                -3.70200703425638e-10
+            ],
+            "rotation": [
+                2.94035683388177e-13,
+                6.31810905815655e-07,
+                -0.227795585989952,
+                0.973708987236023
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                12
+            ]
+        },
+        {
+            "name": "DeerDoe_ Neck2",
+            "translation": [
+                0.186121672391891,
+                -0.000144081117468886,
+                -3.96976229666279e-10
+            ],
+            "rotation": [
+                2.23771847406018e-12,
+                3.29360375417309e-07,
+                -0.118748433887959,
+                0.992924392223358
+            ],
+            "scale": [
+                1.00000011920929,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                13
+            ]
+        },
+        {
+            "name": "DeerDoe_ Head",
+            "translation": [
+                0.183980941772461,
+                0.00411022175103426,
+                7.60774110375451e-09
+            ],
+            "rotation": [
+                -4.62386075608667e-12,
+                1.84799660019053e-07,
+                -0.0666280761361122,
+                0.997777879238129
+            ],
+            "scale": [
+                0.99999988079071,
+                0.99999988079071,
+                1.0
+            ],
+            "children": [
+                14
+            ]
+        },
+        {
+            "name": "DeerDoe_ Ponytail1",
+            "translation": [
+                0.00463684089481831,
+                -0.011665535159409,
+                -9.71660440995947e-08
+            ],
+            "rotation": [
+                -1.87990906397317e-07,
+                -1.78885454715783e-06,
+                0.681300044059753,
+                0.732004284858704
+            ],
+            "scale": [
+                1.0,
+                1.00000011920929,
+                1.0
+            ]
+        },
+        {
+            "name": "DeerDoe_ R Clavicle",
+            "translation": [
+                0.330439269542694,
+                0.000364532461389899,
+                -0.0382935404777527
+            ],
+            "rotation": [
+                0.778994500637054,
+                0.129338875412941,
+                -0.589042961597443,
+                -0.171660870313644
+            ],
+            "scale": [
+                0.999999940395355,
+                1.00000011920929,
+                0.999999940395355
+            ],
+            "children": [
+                16
+            ]
+        },
+        {
+            "name": "DeerDoe_ R UpperArm",
+            "translation": [
+                0.131007462739944,
+                0.0,
+                3.81469718035987e-08
+            ],
+            "rotation": [
+                0.465687930583954,
+                -0.666693866252899,
+                -0.141702368855476,
+                0.564423978328705
+            ],
+            "scale": [
+                1.00000011920929,
+                1.0,
+                1.0
+            ],
+            "children": [
+                17
+            ]
+        },
+        {
+            "name": "DeerDoe_ R Forearm",
+            "translation": [
+                0.265435636043549,
+                -1.90734859017994e-08,
+                0.0
+            ],
+            "rotation": [
+                -8.97268204881074e-18,
+                -4.6897869232434e-18,
+                -0.327890902757645,
+                0.944715619087219
+            ],
+            "scale": [
+                0.99999988079071,
+                1.0,
+                0.999999940395355
+            ],
+            "children": [
+                18
+            ]
+        },
+        {
+            "name": "DeerDoe_ R Hand",
+            "translation": [
+                0.261005580425262,
+                1.90734859017994e-08,
+                -1.90734859017994e-08
+            ],
+            "rotation": [
+                0.726373374462128,
+                0.0445589125156403,
+                -0.0521955229341984,
+                0.683865368366241
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                19
+            ]
+        },
+        {
+            "name": "DeerDoe_ R Finger0",
+            "translation": [
+                0.301211535930634,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.000380994839360937,
+                -0.290471404790878,
+                -0.000115646987978835,
+                0.956883609294891
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "DeerDoe_ L Clavicle",
+            "translation": [
+                0.330439209938049,
+                0.000364379870006815,
+                0.0382935404777527
+            ],
+            "rotation": [
+                0.778994917869568,
+                0.129337206482887,
+                0.589043319225311,
+                0.171658739447594
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                0.999999940395355
+            ],
+            "children": [
+                21
+            ]
+        },
+        {
+            "name": "DeerDoe_ L UpperArm",
+            "translation": [
+                0.131007477641106,
+                1.42108543975646e-16,
+                7.10542719878232e-17
+            ],
+            "rotation": [
+                -0.465687930583954,
+                0.666693866252899,
+                -0.141702324151993,
+                0.56442403793335
+            ],
+            "scale": [
+                1.00000011920929,
+                1.00000011920929,
+                1.00000011920929
+            ],
+            "children": [
+                22
+            ]
+        },
+        {
+            "name": "DeerDoe_ L Forearm",
+            "translation": [
+                0.265435636043549,
+                3.55271359939116e-17,
+                -4.76837147544984e-09
+            ],
+            "rotation": [
+                1.1972961256311e-17,
+                -7.82804109768844e-18,
+                -0.327890902757645,
+                0.944715619087219
+            ],
+            "scale": [
+                0.999999940395355,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                23
+            ]
+        },
+        {
+            "name": "DeerDoe_ L Hand",
+            "translation": [
+                0.261005580425262,
+                1.90734859017994e-08,
+                4.76837147544984e-09
+            ],
+            "rotation": [
+                -0.726373374462128,
+                -0.0445589125156403,
+                -0.0521955266594887,
+                0.683865427970886
+            ],
+            "scale": [
+                0.999999940395355,
+                1.0,
+                1.0
+            ],
+            "children": [
+                24
+            ]
+        },
+        {
+            "name": "DeerDoe_ L Finger0",
+            "translation": [
+                0.301211535930634,
+                0.0,
+                1.90734859017994e-08
+            ],
+            "rotation": [
+                -0.000380988756660372,
+                0.290471404790878,
+                -0.000115660513984039,
+                0.956883609294891
+            ],
+            "scale": [
+                1.0,
+                0.999999940395355,
+                1.0
+            ]
+        },
+        {
+            "name": "DeerDoe_ L Thigh",
+            "translation": [
+                -0.208510085940361,
+                0.000398559554014355,
+                0.161326631903648
+            ],
+            "rotation": [
+                0.729172825813293,
+                0.676442742347717,
+                0.0528865642845631,
+                0.089079923927784
+            ],
+            "scale": [
+                1.0,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                26
+            ]
+        },
+        {
+            "name": "DeerDoe_ L Calf",
+            "translation": [
+                0.316507667303085,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -1.8183329070602e-17,
+                1.01341412361475e-17,
+                -0.486827880144119,
+                0.873497903347015
+            ],
+            "scale": [
+                0.999999940395355,
+                0.999999940395355,
+                1.0
+            ],
+            "children": [
+                27
+            ]
+        },
+        {
+            "name": "DeerDoe_ L HorseLink",
+            "translation": [
+                0.263411194086075,
+                -1.42108543975646e-16,
+                -1.90734859017994e-08
+            ],
+            "rotation": [
+                -3.90652843407224e-09,
+                -2.53437892894226e-09,
+                0.544253706932068,
+                0.838920652866364
+            ],
+            "scale": [
+                0.999999940395355,
+                1.0,
+                0.999999940395355
+            ],
+            "children": [
+                28
+            ]
+        },
+        {
+            "name": "DeerDoe_ L Foot",
+            "translation": [
+                0.341779321432114,
+                3.81469718035987e-08,
+                0.0
+            ],
+            "rotation": [
+                0.0108726918697357,
+                0.0291401576250792,
+                -0.106253169476986,
+                0.993852555751801
+            ],
+            "scale": [
+                0.999999940395355,
+                0.999999821186066,
+                0.999999821186066
+            ]
+        },
+        {
+            "name": "DeerDoe_ R Thigh",
+            "translation": [
+                -0.208510085940361,
+                0.000399398792069405,
+                -0.161326631903648
+            ],
+            "rotation": [
+                0.72917252779007,
+                0.676442921161652,
+                -0.0528846383094788,
+                -0.0890818983316422
+            ],
+            "scale": [
+                1.0,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                30
+            ]
+        },
+        {
+            "name": "DeerDoe_ R Calf",
+            "translation": [
+                0.316507637500763,
+                3.81469718035987e-08,
+                -1.90734859017994e-08
+            ],
+            "rotation": [
+                2.49394226765799e-17,
+                1.98807897143445e-18,
+                -0.486827880144119,
+                0.873497903347015
+            ],
+            "scale": [
+                0.999999940395355,
+                1.0,
+                1.0
+            ],
+            "children": [
+                31
+            ]
+        },
+        {
+            "name": "DeerDoe_ R HorseLink",
+            "translation": [
+                0.263411194086075,
+                0.0,
+                1.90734859017994e-08
+            ],
+            "rotation": [
+                -5.77582426330991e-09,
+                2.91376944794308e-09,
+                0.544253706932068,
+                0.838920652866364
+            ],
+            "scale": [
+                1.0,
+                1.00000011920929,
+                1.0
+            ],
+            "children": [
+                32
+            ]
+        },
+        {
+            "name": "DeerDoe_ R Foot",
+            "translation": [
+                0.341779321432114,
+                -3.81469718035987e-08,
+                1.90734859017994e-08
+            ],
+            "rotation": [
+                -0.0108726024627686,
+                -0.0291401632130146,
+                -0.106253162026405,
+                0.993852555751801
+            ],
+            "scale": [
+                0.999999940395355,
+                0.999999821186066,
+                0.999999940395355
+            ]
+        },
+        {
+            "name": "DeerDoe_ Tail",
+            "translation": [
+                -0.214562714099884,
+                -0.116632916033268,
+                5.29293906481598e-08
+            ],
+            "rotation": [
+                -1.04057846783689e-06,
+                -8.02247996034566e-07,
+                0.985122084617615,
+                0.171855971217155
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                34
+            ]
+        },
+        {
+            "name": "DeerDoe_ Tail1",
+            "translation": [
+                0.0735422149300575,
+                -5.74493387830444e-05,
+                -1.55996521256085e-10
+            ],
+            "rotation": [
+                -8.61252402728496e-08,
+                6.33182025921997e-07,
+                -0.284509003162384,
+                0.958673357963562
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                35
+            ]
+        },
+        {
+            "name": "DeerDoe_ Tail2",
+            "translation": [
+                0.0860361084342003,
+                -0.000147857659612782,
+                -4.05125322178179e-10
+            ],
+            "rotation": [
+                -1.04592166039197e-08,
+                3.68376845472085e-07,
+                -0.132304355502129,
+                0.991209149360657
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ]
+}

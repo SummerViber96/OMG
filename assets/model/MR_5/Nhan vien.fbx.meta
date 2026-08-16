@@ -1,0 +1,279 @@
+{
+  "ver": "1.1.1",
+  "uuid": "b37be3c1-c222-4bef-8ac0-5ed4df6a9e42",
+  "scaleFactor": 1,
+  "boneCount": 29,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "dc784081-089d-40ba-9bda-bf551770dfe9",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "Nhan vien_Body.mesh": {
+      "ver": "1.0.1",
+      "uuid": "5d0aabf4-f9f6-4b9f-a800-c017653f8912",
+      "verts": 751,
+      "tris": 1222,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0167505871504545,
+        "y": 7.59724638754733e-9,
+        "z": -0.00626966170966625
+      },
+      "maxPos": {
+        "x": 0.0167505871504545,
+        "y": 0.0396589189767838,
+        "z": 0.0122893834486604
+      },
+      "name": "Nhan vien_Body.mesh",
+      "subMetas": {}
+    },
+    "Nhan vien_Hair.mesh": {
+      "ver": "1.0.1",
+      "uuid": "ad688583-1612-4d5f-9b4a-47fe11fe4a12",
+      "verts": 854,
+      "tris": 1099,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0118029648438096,
+        "y": 0.017796853557229,
+        "z": -0.00823346711695194
+      },
+      "maxPos": {
+        "x": 0.0124502833932638,
+        "y": 0.0416421070694923,
+        "z": 0.0162698421627283
+      },
+      "name": "Nhan vien_Hair.mesh",
+      "subMetas": {}
+    },
+    "Dia de do an.mesh": {
+      "ver": "1.0.1",
+      "uuid": "08d770af-a35c-431d-aa8c-a846d879aab3",
+      "verts": 120,
+      "tris": 76,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00114067585673183,
+        "y": -0.0110645927488804,
+        "z": -0.0116340005770326
+      },
+      "maxPos": {
+        "x": 0.00114067585673183,
+        "y": 0.0110645927488804,
+        "z": 0.0116340005770326
+      },
+      "name": "Dia de do an.mesh",
+      "subMetas": {}
+    },
+    "Nhan vien-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "dfb2bd60-5084-48a9-940a-f04263caaa81",
+      "name": "Nhan vien-0.skeleton",
+      "subMetas": {}
+    },
+    "Nhan vien-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "b25c59aa-a020-4784-aa11-daaa80df7307",
+      "name": "Nhan vien-1.skeleton",
+      "subMetas": {}
+    },
+    "Nhan vien-2.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "bd3f2507-be8c-4e63-bbbd-7c35fae7d569",
+      "name": "Nhan vien-2.skeleton",
+      "subMetas": {}
+    },
+    "Idle.sac": {
+      "ver": "1.0.1",
+      "uuid": "0d4b3073-d4c8-4814-93be-fc4f13b8f3f0",
+      "modelUuid": "b37be3c1-c222-4bef-8ac0-5ed4df6a9e42",
+      "animationID": 0,
+      "name": "Idle.sac",
+      "maxFrameCount": 12,
+      "totalFrameCount": 105,
+      "duration": 2.6666667461395264,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Run stack.sac": {
+      "ver": "1.0.1",
+      "uuid": "ee2a6625-d8a0-4c6b-9e99-8b8c5487e428",
+      "modelUuid": "b37be3c1-c222-4bef-8ac0-5ed4df6a9e42",
+      "animationID": 1,
+      "name": "Run stack.sac",
+      "maxFrameCount": 13,
+      "totalFrameCount": 213,
+      "duration": 0.5,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Walk.sac": {
+      "ver": "1.0.1",
+      "uuid": "38c9671a-ec6b-4d18-aa11-8f0837e33657",
+      "modelUuid": "b37be3c1-c222-4bef-8ac0-5ed4df6a9e42",
+      "animationID": 2,
+      "name": "Walk.sac",
+      "maxFrameCount": 17,
+      "totalFrameCount": 161,
+      "duration": 0.7083333134651184,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Nhan vien.prefab": {
+      "ver": "1.2.9",
+      "uuid": "9b85136e-cd7d-4f92-bf41-4c20f8addcc1",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Nhan vien.prefab",
+      "subMetas": {}
+    },
+    "Texture test.002.mtl": {
+      "ver": "1.0.3",
+      "uuid": "16b627f6-be41-4f13-b6ea-1c27001f5450",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseTexture\": {\n          \"__uuid__\": \"e047f2be-b251-4875-9c8a-488c7403f8b4\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "Texture test.002.mtl",
+      "subMetas": {}
+    }
+  }
+}

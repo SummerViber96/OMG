@@ -1,0 +1,279 @@
+{
+  "ver": "1.1.1",
+  "uuid": "507e128a-e1f0-48ab-be09-89f107f57eeb",
+  "scaleFactor": 1,
+  "boneCount": 29,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {
+    "buffer.bin": {
+      "ver": "1.0.0",
+      "uuid": "98a65075-5fa2-4f4b-b3ff-4beb523b581b",
+      "name": "buffer.bin",
+      "subMetas": {}
+    },
+    "Mu bep truong.mesh": {
+      "ver": "1.0.1",
+      "uuid": "9771f3fd-de6e-44cd-bd49-c86513bebe96",
+      "verts": 164,
+      "tris": 96,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0144829507917166,
+        "y": 0.0285037085413933,
+        "z": -0.0071936440654099
+      },
+      "maxPos": {
+        "x": 0.0141216432675719,
+        "y": 0.0584929026663303,
+        "z": 0.0232117008417845
+      },
+      "name": "Mu bep truong.mesh",
+      "subMetas": {}
+    },
+    "1_Dau bep chuyen nghiep_Body.mesh": {
+      "ver": "1.0.1",
+      "uuid": "d32413b1-bb04-4a15-8dc4-4f87168d35f0",
+      "verts": 1038,
+      "tris": 1162,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.0167505871504545,
+        "y": 7.59724638754733e-9,
+        "z": -0.00630767829716206
+      },
+      "maxPos": {
+        "x": 0.0167505871504545,
+        "y": 0.0396333150565624,
+        "z": 0.0124055938795209
+      },
+      "name": "1_Dau bep chuyen nghiep_Body.mesh",
+      "subMetas": {}
+    },
+    "1_Dau bep chuyen nghiep_Hair.mesh": {
+      "ver": "1.0.1",
+      "uuid": "87dba98d-831f-47ea-a2c4-841c966ccde1",
+      "verts": 355,
+      "tris": 213,
+      "submeshes": 1,
+      "attributes": [
+        [
+          "a_joints",
+          "a_normal",
+          "a_position",
+          "a_uv0",
+          "a_weights"
+        ]
+      ],
+      "minPos": {
+        "x": -0.00943389721214771,
+        "y": 0.0228032898157835,
+        "z": -0.0062773316167295
+      },
+      "maxPos": {
+        "x": 0.00943389721214771,
+        "y": 0.0398671142756939,
+        "z": 0.0126370461657643
+      },
+      "name": "1_Dau bep chuyen nghiep_Hair.mesh",
+      "subMetas": {}
+    },
+    "Chef 2-0.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "fc39e817-1866-4a94-8c22-47695429f2b6",
+      "name": "Chef 2-0.skeleton",
+      "subMetas": {}
+    },
+    "Chef 2-1.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "942f7e42-2be7-4c21-9625-de751f13dc6f",
+      "name": "Chef 2-1.skeleton",
+      "subMetas": {}
+    },
+    "Chef 2-2.skeleton": {
+      "ver": "1.0.1",
+      "uuid": "92ad8492-aae2-4a81-ae6c-c542e3155369",
+      "name": "Chef 2-2.skeleton",
+      "subMetas": {}
+    },
+    "Cook do man.001.sac": {
+      "ver": "1.0.1",
+      "uuid": "460ee8fb-37dc-4119-a7a6-6293c9efdc39",
+      "modelUuid": "507e128a-e1f0-48ab-be09-89f107f57eeb",
+      "animationID": 0,
+      "name": "Cook do man.001.sac",
+      "maxFrameCount": 9,
+      "totalFrameCount": 38,
+      "duration": 0.3333333432674408,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Cook do man.002.sac": {
+      "ver": "1.0.1",
+      "uuid": "a1edc961-0ca9-4772-a1a8-78b42397c0b4",
+      "modelUuid": "507e128a-e1f0-48ab-be09-89f107f57eeb",
+      "animationID": 1,
+      "name": "Cook do man.002.sac",
+      "maxFrameCount": 25,
+      "totalFrameCount": 101,
+      "duration": 2.8333332538604736,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Cook do man.003.sac": {
+      "ver": "1.0.1",
+      "uuid": "f4b1d939-114a-4b49-955c-12934cad3cc3",
+      "modelUuid": "507e128a-e1f0-48ab-be09-89f107f57eeb",
+      "animationID": 2,
+      "name": "Cook do man.003.sac",
+      "maxFrameCount": 13,
+      "totalFrameCount": 51,
+      "duration": 0.5,
+      "animationFrameRate": 30,
+      "subMetas": {}
+    },
+    "Chef 2.prefab": {
+      "ver": "1.2.9",
+      "uuid": "194a5cea-d25f-48b0-8c6a-fb1e84253edc",
+      "optimizationPolicy": "AUTO",
+      "asyncLoadAssets": false,
+      "readonly": true,
+      "content": [
+        {
+          "__type__": "cc.Prefab",
+          "_name": "",
+          "_objFlags": 0,
+          "data": {
+            "__id__": 1
+          }
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Sprite",
+          "_objFlags": 0,
+          "_opacity": 255,
+          "_color": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+          },
+          "_cascadeOpacityEnabled": true,
+          "_parent": null,
+          "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 0.5
+          },
+          "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 40,
+            "height": 36
+          },
+          "_children": [],
+          "_skewX": 0,
+          "_skewY": 0,
+          "_localZOrder": 0,
+          "_globalZOrder": 0,
+          "_tag": -1,
+          "_opacityModifyRGB": false,
+          "_reorderChildDirty": false,
+          "_id": "",
+          "_active": true,
+          "_components": [
+            {
+              "__id__": 2
+            }
+          ],
+          "_prefab": {
+            "__id__": 3
+          },
+          "_eulerAngles": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "_trs": {
+            "__type__": "TypedArray",
+            "ctor": "Float64Array",
+            "array": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "__type__": "cc.Sprite",
+          "_name": "",
+          "_objFlags": 0,
+          "node": {
+            "__id__": 1
+          },
+          "_enabled": true,
+          "_spriteFrame": {
+            "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+          },
+          "_type": 0,
+          "_sizeMode": 1,
+          "_fillType": 0,
+          "_fillCenter": {
+            "__type__": "cc.Vec2",
+            "x": 0,
+            "y": 0
+          },
+          "_fillStart": 0,
+          "_fillRange": 0,
+          "_isTrimmedMode": true,
+          "_srcBlendFactor": 770,
+          "_dstBlendFactor": 771,
+          "_atlas": null
+        },
+        {
+          "__type__": "cc.PrefabInfo",
+          "root": {
+            "__id__": 1
+          },
+          "asset": null,
+          "fileId": "d7118yAG5lKybkFOAh8koPL"
+        }
+      ],
+      "name": "Chef 2.prefab",
+      "subMetas": {}
+    },
+    "Texture test.mtl": {
+      "ver": "1.0.3",
+      "uuid": "a3ffd69f-efbb-477b-9284-69644de24c65",
+      "dataAsSubAsset": "{\n  \"__type__\": \"cc.Material\",\n  \"_name\": \"\",\n  \"_objFlags\": 0,\n  \"_native\": \"\",\n  \"_effectAsset\": {\n    \"__uuid__\": \"abc2cb62-7852-4525-a90d-d474487b88f2\"\n  },\n  \"_techniqueIndex\": 0,\n  \"_techniqueData\": {\n    \"0\": {\n      \"props\": {\n        \"diffuseColor\": {\n          \"__type__\": \"cc.Color\",\n          \"r\": 255,\n          \"g\": 255,\n          \"b\": 255,\n          \"a\": 255\n        },\n        \"diffuseTexture\": {\n          \"__uuid__\": \"eef18516-5d33-4cc9-9608-e9bcec526f5a\"\n        }\n      },\n      \"defines\": {\n        \"USE_DIFFUSE_TEXTURE\": true\n      }\n    }\n  }\n}",
+      "name": "Texture test.mtl",
+      "subMetas": {}
+    }
+  }
+}

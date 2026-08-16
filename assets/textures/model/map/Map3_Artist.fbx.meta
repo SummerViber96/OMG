@@ -1,0 +1,9 @@
+{
+  "ver": "1.1.1",
+  "uuid": "5b71ad46-b491-4fb6-b3f2-d0f82cfa97a8",
+  "scaleFactor": 1,
+  "boneCount": 0,
+  "precomputeJointMatrix": false,
+  "animationFrameRate": 30,
+  "subMetas": {}
+}
