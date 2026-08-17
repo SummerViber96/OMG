@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icon-BMI",
+    "texture": "a9587c1a-ebd0-41de-af53-5b9ccbcdf703",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      56,
+      67
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      56,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

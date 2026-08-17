@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icon-Xedap",
+    "texture": "1773cd5f-14f9-490b-a8bc-e63c7dd45246",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      54,
+      71
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      56,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

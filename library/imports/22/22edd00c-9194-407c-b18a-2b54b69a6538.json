@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "WorldClock",
+    "texture": "3090748b-6fa6-4b4c-a8bf-53cdec6133be",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      89,
+      200
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      92,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

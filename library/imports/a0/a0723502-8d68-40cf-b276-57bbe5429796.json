@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chaucay",
+    "texture": "a36a47b3-c614-4534-9ebe-c39e319384fb",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      96,
+      202
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      96,
+      204
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

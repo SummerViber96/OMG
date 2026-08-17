@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "taOrder-Purple",
+    "texture": "af101bb2-e527-40e9-bfc0-e2a67664848e",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      34,
+      52
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      36,
+      52
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tulanh2",
+    "texture": "dbff382a-6e7d-479e-9131-024c9743a8de",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      261,
+      151
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      264,
+      152
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

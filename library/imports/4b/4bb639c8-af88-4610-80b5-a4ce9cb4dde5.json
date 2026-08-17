@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ProteinBar-Red",
+    "texture": "a133e1fd-2b29-41fb-bca6-125e5c62644d",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      21,
+      72
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      24,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

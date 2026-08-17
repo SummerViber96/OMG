@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ingame demo",
+    "texture": "f9a1bb50-8c1a-4184-b14b-03c1d13a1385",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      1934,
+      1235
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      1936,
+      1236
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

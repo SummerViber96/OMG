@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cuaravao",
+    "texture": "9b1e34a9-612c-41e7-b62c-8838566a8118",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      252,
+      216
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      252,
+      216
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "taOrder-Green",
+    "texture": "93f1457d-bbc7-4b29-8b23-90bbce105889",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      34,
+      48
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      36,
+      48
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

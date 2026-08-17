@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GPGym3Map",
+    "texture": "4af3bd97-5ae1-4ba8-9d30-58af24c61c2d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      4680,
+      2880
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      4680,
+      2880
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

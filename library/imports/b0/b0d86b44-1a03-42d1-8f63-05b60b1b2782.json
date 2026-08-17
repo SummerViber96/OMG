@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Muave2",
+    "texture": "263eaedb-5304-4e2e-92d7-38b7bfb4eb3d",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      228,
+      257
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      228,
+      260
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

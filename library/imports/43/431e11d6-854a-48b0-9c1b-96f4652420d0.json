@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "PlateTreeLv3-3",
+    "texture": "948e31b9-f307-4b05-ab24-4372c5e25f0f",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      268,
+      201
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      268,
+      204
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

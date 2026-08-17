@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "e978f702-0db6-41b6-8262-1bc6ddb8bc13",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 104,
+  "height": 68,
+  "platformSettings": {},
+  "subMetas": {
+    "Thietbi-khay": {
+      "ver": "1.0.4",
+      "uuid": "03d604be-3576-443b-8665-7d19bb137a6e",
+      "rawTextureUuid": "e978f702-0db6-41b6-8262-1bc6ddb8bc13",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 102,
+      "height": 65,
+      "rawWidth": 104,
+      "rawHeight": 68,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

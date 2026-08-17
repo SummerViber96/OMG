@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tranh",
+    "texture": "fbf7e3e7-b7f7-4570-b086-630d2111c8ce",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      139,
+      206
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      140,
+      208
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

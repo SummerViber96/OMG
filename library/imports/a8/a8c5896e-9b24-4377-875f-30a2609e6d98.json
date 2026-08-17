@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ProteinBarLv4",
+    "texture": "912309c6-ccd7-4f8c-a440-c86b45a9848d",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      142,
+      246
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      144,
+      248
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

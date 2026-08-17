@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ProteinBar-green",
+    "texture": "84fc13c0-10f8-4bb8-a1f6-56f90e1084ac",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      21,
+      72
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      24,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

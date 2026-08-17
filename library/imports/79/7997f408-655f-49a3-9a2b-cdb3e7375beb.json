@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MaynuocLv2",
+    "texture": "bb9f01d7-9a83-4989-9f5e-26d29b01b11f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      123,
+      200
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      124,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

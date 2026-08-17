@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tuongletan",
+    "texture": "2f4771b7-36ea-4727-8610-754e2fc400d6",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      627,
+      474
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      628,
+      476
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

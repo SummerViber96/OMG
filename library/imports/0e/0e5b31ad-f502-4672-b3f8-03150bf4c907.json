@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "PTlight",
+    "texture": "31267a0c-cd21-42eb-96be-6fa7cc92ab54",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      12,
+      14
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      12,
+      16
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

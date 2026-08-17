@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ta-Black",
+    "texture": "8dab63ec-b2c5-47e9-bb2d-6ad3df40010c",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      51,
+      58
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      52,
+      60
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

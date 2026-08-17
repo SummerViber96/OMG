@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Quarkmit",
+    "texture": "0ac04cdf-4864-4471-b7af-b81991c30aa8",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      34,
+      66
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      36,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

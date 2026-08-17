@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Maybannc",
+    "texture": "1202dd94-d157-4fd3-8247-6c54af9ee54f",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      128,
+      235
+    ],
+    "offset": [
+      -1,
+      0.5
+    ],
+    "originalSize": [
+      132,
+      236
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

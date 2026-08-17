@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Wallgym5",
+    "texture": "d9c1accd-b827-494b-865a-ea06ac5b4be4",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      219,
+      613
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      220,
+      616
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

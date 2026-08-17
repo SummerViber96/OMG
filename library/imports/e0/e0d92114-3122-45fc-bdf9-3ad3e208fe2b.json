@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "HealthyBar_napopen",
+    "texture": "c89d801b-4417-441e-ae6a-19024d3b479c",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      88,
+      98
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      88,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

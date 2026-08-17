@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ThietBiLv3-3",
+    "texture": "d3808531-c44e-444f-8a06-7e62947d56ee",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      368,
+      351
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      368,
+      352
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Achievement",
+    "texture": "dd64d6fe-9550-4b43-a405-7848e56c07a2",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      72,
+      86
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      72,
+      88
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

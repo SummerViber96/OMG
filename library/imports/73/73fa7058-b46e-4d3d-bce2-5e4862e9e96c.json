@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "QuarkmitIce",
+    "texture": "c8bea152-bd00-44c0-bbf8-a1a626cee748",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      37,
+      66
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      40,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

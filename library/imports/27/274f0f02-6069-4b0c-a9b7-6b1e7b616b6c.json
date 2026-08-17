@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ta-Blue",
+    "texture": "442eef8c-805a-4773-92af-f5874519461a",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      43,
+      49
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      44,
+      52
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

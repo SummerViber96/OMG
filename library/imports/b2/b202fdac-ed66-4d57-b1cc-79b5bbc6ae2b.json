@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "HealthyBarLv6",
+    "texture": "1a6f4179-ba39-4242-9231-3a01ddc5393d",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      293,
+      233
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      296,
+      236
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

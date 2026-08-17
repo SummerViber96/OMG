@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "XedapLvl0",
+    "texture": "bdc81ebd-8da1-48a5-a97a-e9cc2aa725c0",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      126,
+      106
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      128,
+      108
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

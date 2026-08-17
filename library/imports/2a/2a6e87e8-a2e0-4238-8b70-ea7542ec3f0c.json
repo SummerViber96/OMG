@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "nuoctanglucIce",
+    "texture": "b47f22a8-0a51-4904-96f3-c1178daff5dd",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      33,
+      57
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      36,
+      60
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

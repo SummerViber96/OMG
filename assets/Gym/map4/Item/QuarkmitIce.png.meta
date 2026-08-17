@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "c8bea152-bd00-44c0-bbf8-a1a626cee748",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 40,
+  "height": 68,
+  "platformSettings": {},
+  "subMetas": {
+    "QuarkmitIce": {
+      "ver": "1.0.4",
+      "uuid": "73fa7058-b46e-4d3d-bce2-5e4862e9e96c",
+      "rawTextureUuid": "c8bea152-bd00-44c0-bbf8-a1a626cee748",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 37,
+      "height": 66,
+      "rawWidth": 40,
+      "rawHeight": 68,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

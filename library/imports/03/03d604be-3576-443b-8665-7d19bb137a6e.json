@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Thietbi-khay",
+    "texture": "e978f702-0db6-41b6-8262-1bc6ddb8bc13",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      102,
+      65
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      104,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

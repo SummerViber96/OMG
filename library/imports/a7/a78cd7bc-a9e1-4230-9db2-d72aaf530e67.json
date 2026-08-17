@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "demolv0",
+    "texture": "c1d37f7d-0a0d-47cf-aae9-5b83af5062ab",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2340,
+      1440
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2340,
+      1440
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

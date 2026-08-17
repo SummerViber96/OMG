@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ta-red",
+    "texture": "86985fe5-e05f-4235-b75f-a0514a2bb019",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      43,
+      49
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      44,
+      52
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

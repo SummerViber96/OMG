@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "PlantPot",
+    "texture": "67da3797-2196-481c-b402-ea097e1ea5f3",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      118,
+      200
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      120,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

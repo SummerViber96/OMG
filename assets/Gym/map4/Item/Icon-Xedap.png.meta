@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "1773cd5f-14f9-490b-a8bc-e63c7dd45246",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 56,
+  "height": 72,
+  "platformSettings": {},
+  "subMetas": {
+    "Icon-Xedap": {
+      "ver": "1.0.4",
+      "uuid": "09cbef1a-469b-43ae-ba56-94f9cd4af4f3",
+      "rawTextureUuid": "1773cd5f-14f9-490b-a8bc-e63c7dd45246",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 54,
+      "height": 71,
+      "rawWidth": 56,
+      "rawHeight": 72,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

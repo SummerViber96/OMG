@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BanletanLV3",
+    "texture": "6d6db32a-07be-4f82-bb29-e0cc6b5e20dc",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      339,
+      234
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      340,
+      236
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

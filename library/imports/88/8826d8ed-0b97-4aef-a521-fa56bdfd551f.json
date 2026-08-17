@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Heater",
+    "texture": "1c05fcb7-7aaf-4bf4-a63a-a5ef04c63fb8",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      81,
+      123
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      84,
+      124
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
