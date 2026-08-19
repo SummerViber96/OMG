@@ -9,7 +9,8 @@ export default class NewClass extends cc.Component {
     @property(sp.Skeleton)
     anim: sp.Skeleton = null
     @property(cc.AudioClip)
-    soundHappy:cc.AudioClip=null
+    soundHappy: cc.AudioClip = null
+    posDone = cc.v3(0, 0)
     @property(cc.Integer)
     tag = 0
     gamePlay = null
@@ -36,7 +37,7 @@ export default class NewClass extends cc.Component {
         this.pop.getChildByName("hand").active = true
     }
     clickPop(event, value) {
-        console.log("clcik pop")
+        // console.log("clcik pop")
         event.currentTarget.getComponent(cc.Button).enabled = false
         // console.log("click pop")
         let btn = event.currentTarget
@@ -48,8 +49,8 @@ export default class NewClass extends cc.Component {
     gapBung() {
         this.anim.setAnimation(0, "Abdominal", true)
     }
-    dayTa(){
-                this.anim.setAnimation(0, "AbCrunch", true)
+    dayTa() {
+        this.anim.setAnimation(0, "AbCrunch", true)
 
     }
     tucGian() {
@@ -58,11 +59,15 @@ export default class NewClass extends cc.Component {
 
     }
     happy() {
-        if(this.soundHappy){
-            cc.audioEngine.play(this.soundHappy,false,1)
+        if (this.soundHappy) {
+            cc.audioEngine.play(this.soundHappy, false, 1)
         }
         this.anim.setAnimation(0, "HappyOut", true);
-        
+
+
+    }
+    boxing() {
+        this.anim.setAnimation(0, "Boxing", true);
 
     }
     // update (dt) {}

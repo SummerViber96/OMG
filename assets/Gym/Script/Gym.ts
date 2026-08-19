@@ -55,8 +55,23 @@ export default class NewClass extends cc.Component {
     coinBar: cc.Node
     @property(cc.Node)
     logo: cc.Node = null
+    @property(cc.Node)
+    textGuild1: cc.Node = null
+    @property(cc.Node)
+    door: cc.Node = null;
+    @property(cc.Node)
+    listIconPt: cc.Node = null;
+    @property(cc.Node)
+    listPt: cc.Node = null
+    @property(cc.Prefab)
+    preCoin: cc.Prefab = null;
+    arrPosDone=[cc.v3(-213.047,-138.697),cc.v3(-90,-69)]
+    // @property(cc.Node)
+    // listCrunch:cc.Node=null
     arrPosCus = []
     arrCus = []
+    arrIconPt = []
+    isStep = 0
     arrCrunch = []
     isHind = false
     adChanel = '{{__adv_channels_adapter__}}'
@@ -67,23 +82,31 @@ export default class NewClass extends cc.Component {
         }
         cc.audioEngine.play(this.soundBG, true, 0.5)
         this.scheduleOnce(() => {
-            this.npc.active = true
-        }, 1)
-        this.scheduleOnce(() => {
-            cc.tween(this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
-                this.npc.active = false
-            }).start()
-        }, 4)
+            for (let i = 0; i < 3; i++) {
+                let child = this.listCusNode.children[i];
+                child.getChildByName("pop").active = true
+            }
+            this.textGuild1.active = true
+            // this.listIconPt.active=true
+        }, 0.6)
+        // this.scheduleOnce(() => {
+        //     this.npc.active = true
+        // }, 1)
+        // this.scheduleOnce(() => {
+        //     cc.tween(this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
+        //         this.npc.active = false
+        //     }).start()
+        // }, 4)
         for (let i = 0; i < this.listCusNode.childrenCount; i++) {
             this.arrCus.push(this.listCusNode.children[i])
         }
-        for (let i = 0; i < this.listPlacePos.childrenCount; i++) {
-            this.arrPosCus.push(this.listPlacePos.children[i].position)
+        for (let i = 0; i < this.listIconPt.children[0].childrenCount; i++) {
+            this.arrIconPt.push(this.listIconPt.children[0].children[i])
         }
         for (let i = 0; i < this.listCrunch.childrenCount; i++) {
             this.arrCrunch.push(this.listCrunch.children[i])
         }
-        this.spawFistCustomer()
+        // this.spawFistCustomer()
     }
     spawFistCustomer() {
         let arr = [cc.v3(438, -159), cc.v3(577, -256)];
@@ -127,77 +150,194 @@ export default class NewClass extends cc.Component {
     }
     doCus(tag) {
         cc.audioEngine.play(this.soundClick, false, 1)
-        cc.tween(this.npc2).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
-            this.npc.active = false
-        }).start()
         this.moveCus(tag)
+        if (this.isStep == 0) {
+            this.isStep = 1;
+            this.listIconPt.active = true;
+            this.scheduleOnce(() => {
+                this.arrIconPt[0].getChildByName("hand").active = true
+            }, 0.3)
+        }
+        else if (this.isStep == 2) {
+            this.arrIconPt[1].getComponent(cc.Button).enabled = true;
+            this.arrIconPt[1].getChildByName("hand").active = true
+
+
+        }
+        else if (this.isStep == 3) {
+            this.arrIconPt[2].getComponent(cc.Button).enabled = true;
+            this.arrIconPt[2].getChildByName("hand").active = true
+
+
+        }
+    }
+    offIconPt(node) {
+        node.children[1].active = true;
+        node.getChildByName("hand").active = false
+    }
+    clickPt(event, tag) {
+        let pt = null;
+        cc.audioEngine.play(this.soundClick, false, 1)
+        let btn = event.currentTarget.getComponent(cc.Button);
+        btn.enabled = false
+        if (this.isStep == 1) {
+            btn.enabled = false
+            cc.tween(this.textGuild1).to(0.5, { opacity: 0 }).start()
+            pt = this.listPt.children[0];
+            this.isStep = 2
+            pt.active = true
+            this.door.getComponent(cc.Animation).play("door_open")
+            let anim = pt.children[0].getComponent(sp.Skeleton)
+            anim.setAnimation(0, "WalkOutL", true)
+            anim.timeScale = 2
+            cc.tween(pt).to(2.6, { position: cc.v3(-1.6, -92) }).to(0.5, { position: cc.v3(-100, -80) }).call(() => {
+                anim.setAnimation(0, "WorkFL", true)
+                anim.timeScale = 1
+                this.activeCus(0)
+
+            }).start()
+            this.scheduleOnce(() => {
+                this.arrCus[1].getChildByName("pop").getChildByName("hand").active = true
+                this.arrCus[1].getChildByName("pop").getComponent(cc.Button).enabled = true
+            }, 2)
+            this.scheduleOnce(() => {
+                pt.parent = this.node
+
+            }, 0.3)
+            this.scheduleOnce(() => {
+                this.door.getComponent(cc.Animation).play("door_close")
+
+            }, 0.7)
+            this.offIconPt(this.arrIconPt[0])
+
+        }
+        else if (this.isStep == 2) {
+            pt = this.listPt.children[0];
+            this.isStep = 3
+            pt.active = true
+            this.door.getComponent(cc.Animation).play("door_open")
+            let anim = pt.children[0].getComponent(sp.Skeleton)
+            anim.setAnimation(0, "WalkOutL", true)
+            anim.timeScale = 2
+            cc.tween(pt).to(0.4, { position: cc.v3(310, 52) }).call(() => {
+                pt.scaleX = -1
+            }).to(2, { position: cc.v3(698.565, -184.59) }).call(() => {
+                pt.scaleX = 1
+            }).to(1.5, { position: cc.v3(348.565, -333) }).call(() => {
+                anim.setAnimation(0, "WorkFL", true)
+                anim.timeScale = 1
+                this.activeCus(1)
+
+            }).start()
+            this.scheduleOnce(() => {
+                this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true
+                this.arrCus[2].getChildByName("pop").getComponent(cc.Button).enabled = true
+
+            }, 2)
+            this.scheduleOnce(() => {
+                pt.parent = this.node
+            }, 0.2)
+            this.scheduleOnce(() => {
+                this.door.getComponent(cc.Animation).play("door_close")
+
+            }, 0.7)
+            this.offIconPt(this.arrIconPt[1])
+        }
+        else if (this.isStep == 3) {
+            pt = this.listPt.children[0];
+            this.isStep = 4
+            pt.active = true
+            this.door.getComponent(cc.Animation).play("door_open")
+            let anim = pt.children[0].getComponent(sp.Skeleton)
+            anim.setAnimation(0, "WalkOutL", true)
+            anim.timeScale = 2
+            cc.tween(pt).to(0.4, { position: cc.v3(310, 52) }).call(() => {
+                pt.scaleX = -1
+            }).to(2, { position: cc.v3(850, -120) }).call(() => {
+                anim.setAnimation(0, "WorkFL", true)
+                anim.timeScale = 1
+                pt.scaleX = 1
+                this.activeCus(2)
+            }).start()
+            this.scheduleOnce(() => {
+                this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true
+            }, 2)
+            this.scheduleOnce(() => {
+                pt.parent = this.node
+            }, 0.2)
+            this.scheduleOnce(() => {
+                this.door.getComponent(cc.Animation).play("door_close")
+
+            }, 0.7)
+            this.offIconPt(this.arrIconPt[2])
+        }
     }
     isCountAction = 0
+    activeCus(value) {
+        let char = null
+        switch (value) {
+            case 0:
+                char = this.arrCrunch[0].getChildByName("char")
+                char.getComponent("cusGym").gapBung()
+                char.position = cc.v3(1, -16)
+                this.arrCrunch[0].children[0].active = false
+                this.arrCrunch[0].children[1].active = true
+                this.createCoin(char, 4)
+                break;
+            case 1:
+                char = this.dayTa1.getChildByName("char")
+                char.getComponent("cusGym").dayTa()
+                this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true)
+                this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true)
+                char.position = cc.v3(-15.771 + 14, 7 - 5)
+                this.createCoin(char, 4)
+
+                break;
+            case 2:
+                this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+
+                char = this.boxing1.getChildByName("char")
+                char.getComponent("cusGym").boxing()
+                this.createCoin(char, 4)
+
+                break;
+        }
+        this.scheduleOnce(() => {
+            // this.moveCusOut()
+        }, 1.5)
+
+    }
+    createCoin(node, value) {
+        let pos = node.parent.convertToWorldSpaceAR(node.position)
+        pos = this.node.convertToNodeSpaceAR(pos)
+        let coin = cc.instantiate(this.preCoin);
+        coin.parent = this.node;
+        coin.position = pos.add(cc.v3(0, 50))
+        globalThis.gold += value
+    }
     moveCus(value) {
         cc.audioEngine.play(this.soundCoin, false, 1)
         if (value == 1) {
             let char = this.arrCrunch[0].getChildByName("char")
             char.active = true;
             this.arrCus[0].active = false
-            char.getChildByName("notiBonusCoin").active = true
-            globalThis.gold += 2
-            this.scheduleOnce(() => {
-                char.getComponent("cusGym").gapBung()
-                char.position = cc.v3(1, -16)
-                this.arrCrunch[0].children[0].active = false
-                this.arrCrunch[0].children[1].active = true
-
-            }, 0.5)
-            this.scheduleOnce(() => {
-                cc.audioEngine.play(this.soundShowPop, false, 1)
-                for (let i = 1; i < 4; i++) {
-                    let pop = this.arrCus[i].getChildByName("pop")
-
-                    pop.getComponent(cc.Button).enabled = true
-                    pop.children[0].active = true
-                    pop.active = true
-                    if (i != 1) {
-                        this.arrCus[0].getComponent("cusGym").tucGian()
-                    }
-                }
-                this.scheduleOnce(() => {
-                    this.onHind()
-                }, 3)
-            }, 1.4)
-
         }
         else if (value == 2) {
             this.arrCus[1].active = false
-            this.dayTa1.getChildByName("char").active = true;
-            let char = this.arrCrunch[0].getChildByName("char")
-            char.active = true;
-            this.arrCus[0].active = false
-            this.dayTa1.getChildByName("char").getChildByName("notiBonusCoin").active = true
-            char.getChildByName("notiBonusCoin").active = true
-            globalThis.gold += 2
-            this.scheduleOnce(() => {
-                this.dayTa1.getChildByName("char").getComponent("cusGym").dayTa()
-                // this.dayTa1.getChildByName("char").position = cc.v3(1, -16)
-                this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true)
-                this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true)
-
-
-                char.getComponent("cusGym").gapBung()
-                char.position = cc.v3(1, -16)
-                this.arrCrunch[0].children[0].active = false
-                this.arrCrunch[0].children[1].active = true
-
-            }, 0.5)
-
+            let char = this.dayTa1.getChildByName("char")
+            char.active = true
 
         }
         else if (value == 3) {
-            this.boxing1.children[0].getChildByName("notiBonusCoin").active = true
-            globalThis.gold += 2
             this.arrCus[2].active = false
+            let char = this.boxing1.getChildByName("char")
+            char.active = true
+            // this.boxing1.children[0].getChildByName("notiBonusCoin").active = true
+            // globalThis.gold += 2
+            // this.arrCus[2].active = false
 
-            this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
-            this.boxing1.children[0].active = true
+            // this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+            // this.boxing1.children[0].active = true
         }
         else if (value == 4) {
             this.boxing2.children[0].getChildByName("notiBonusCoin").active = true

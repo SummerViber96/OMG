@@ -31,6 +31,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.pop = null;
         _this.anim = null;
         _this.soundHappy = null;
+        _this.posDone = cc.v3(0, 0);
         _this.tag = 0;
         _this.gamePlay = null;
         return _this;
@@ -59,7 +60,7 @@ var NewClass = /** @class */ (function (_super) {
         this.pop.getChildByName("hand").active = true;
     };
     NewClass.prototype.clickPop = function (event, value) {
-        console.log("clcik pop");
+        // console.log("clcik pop")
         event.currentTarget.getComponent(cc.Button).enabled = false;
         // console.log("click pop")
         var btn = event.currentTarget;
@@ -82,6 +83,9 @@ var NewClass = /** @class */ (function (_super) {
             cc.audioEngine.play(this.soundHappy, false, 1);
         }
         this.anim.setAnimation(0, "HappyOut", true);
+    };
+    NewClass.prototype.boxing = function () {
+        this.anim.setAnimation(0, "Boxing", true);
     };
     __decorate([
         property(cc.Node)

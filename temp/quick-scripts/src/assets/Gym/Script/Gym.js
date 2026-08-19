@@ -54,8 +54,17 @@ var NewClass = /** @class */ (function (_super) {
         _this.fillBar = null;
         _this.endCard = null;
         _this.logo = null;
+        _this.textGuild1 = null;
+        _this.door = null;
+        _this.listIconPt = null;
+        _this.listPt = null;
+        _this.preCoin = null;
+        // @property(cc.Node)
+        // listCrunch:cc.Node=null
         _this.arrPosCus = [];
         _this.arrCus = [];
+        _this.arrIconPt = [];
+        _this.isStep = 0;
         _this.arrCrunch = [];
         _this.isHind = false;
         _this.adChanel = '{{__adv_channels_adapter__}}';
@@ -74,23 +83,31 @@ var NewClass = /** @class */ (function (_super) {
         }
         cc.audioEngine.play(this.soundBG, true, 0.5);
         this.scheduleOnce(function () {
-            _this.npc.active = true;
-        }, 1);
-        this.scheduleOnce(function () {
-            cc.tween(_this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(function () {
-                _this.npc.active = false;
-            }).start();
-        }, 4);
+            for (var i = 0; i < 3; i++) {
+                var child = _this.listCusNode.children[i];
+                child.getChildByName("pop").active = true;
+            }
+            _this.textGuild1.active = true;
+            // this.listIconPt.active=true
+        }, 0.6);
+        // this.scheduleOnce(() => {
+        //     this.npc.active = true
+        // }, 1)
+        // this.scheduleOnce(() => {
+        //     cc.tween(this.npc).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(() => {
+        //         this.npc.active = false
+        //     }).start()
+        // }, 4)
         for (var i = 0; i < this.listCusNode.childrenCount; i++) {
             this.arrCus.push(this.listCusNode.children[i]);
         }
-        for (var i = 0; i < this.listPlacePos.childrenCount; i++) {
-            this.arrPosCus.push(this.listPlacePos.children[i].position);
+        for (var i = 0; i < this.listIconPt.children[0].childrenCount; i++) {
+            this.arrIconPt.push(this.listIconPt.children[0].children[i]);
         }
         for (var i = 0; i < this.listCrunch.childrenCount; i++) {
             this.arrCrunch.push(this.listCrunch.children[i]);
         }
-        this.spawFistCustomer();
+        // this.spawFistCustomer()
     };
     NewClass.prototype.spawFistCustomer = function () {
         var _this = this;
@@ -136,68 +153,177 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.doCus = function (tag) {
         var _this = this;
         cc.audioEngine.play(this.soundClick, false, 1);
-        cc.tween(this.npc2).by(0.2, { opacity: -255, position: cc.v3(0, -80) }).call(function () {
-            _this.npc.active = false;
-        }).start();
         this.moveCus(tag);
+        if (this.isStep == 0) {
+            this.isStep = 1;
+            this.listIconPt.active = true;
+            this.scheduleOnce(function () {
+                _this.arrIconPt[0].getChildByName("hand").active = true;
+            }, 0.3);
+        }
+        else if (this.isStep == 2) {
+            this.arrIconPt[1].getComponent(cc.Button).enabled = true;
+            this.arrIconPt[1].getChildByName("hand").active = true;
+        }
+        else if (this.isStep == 3) {
+            this.arrIconPt[2].getComponent(cc.Button).enabled = true;
+            this.arrIconPt[2].getChildByName("hand").active = true;
+        }
+    };
+    NewClass.prototype.offIconPt = function (node) {
+        node.children[1].active = true;
+        node.getChildByName("hand").active = false;
+    };
+    NewClass.prototype.clickPt = function (event, tag) {
+        var _this = this;
+        var pt = null;
+        cc.audioEngine.play(this.soundClick, false, 1);
+        var btn = event.currentTarget.getComponent(cc.Button);
+        btn.enabled = false;
+        if (this.isStep == 1) {
+            btn.enabled = false;
+            cc.tween(this.textGuild1).to(0.5, { opacity: 0 }).start();
+            pt = this.listPt.children[0];
+            this.isStep = 2;
+            pt.active = true;
+            this.door.getComponent(cc.Animation).play("door_open");
+            var anim_1 = pt.children[0].getComponent(sp.Skeleton);
+            anim_1.setAnimation(0, "WalkOutL", true);
+            anim_1.timeScale = 2;
+            cc.tween(pt).to(2.6, { position: cc.v3(-1.6, -92) }).to(0.5, { position: cc.v3(-100, -80) }).call(function () {
+                anim_1.setAnimation(0, "WorkFL", true);
+                anim_1.timeScale = 1;
+                _this.activeCus(0);
+            }).start();
+            this.scheduleOnce(function () {
+                _this.arrCus[1].getChildByName("pop").getChildByName("hand").active = true;
+                _this.arrCus[1].getChildByName("pop").getComponent(cc.Button).enabled = true;
+            }, 2);
+            this.scheduleOnce(function () {
+                pt.parent = _this.node;
+            }, 0.3);
+            this.scheduleOnce(function () {
+                _this.door.getComponent(cc.Animation).play("door_close");
+            }, 0.7);
+            this.offIconPt(this.arrIconPt[0]);
+        }
+        else if (this.isStep == 2) {
+            pt = this.listPt.children[0];
+            this.isStep = 3;
+            pt.active = true;
+            this.door.getComponent(cc.Animation).play("door_open");
+            var anim_2 = pt.children[0].getComponent(sp.Skeleton);
+            anim_2.setAnimation(0, "WalkOutL", true);
+            anim_2.timeScale = 2;
+            cc.tween(pt).to(0.4, { position: cc.v3(310, 52) }).call(function () {
+                pt.scaleX = -1;
+            }).to(2, { position: cc.v3(698.565, -184.59) }).call(function () {
+                pt.scaleX = 1;
+            }).to(1.5, { position: cc.v3(348.565, -333) }).call(function () {
+                anim_2.setAnimation(0, "WorkFL", true);
+                anim_2.timeScale = 1;
+                _this.activeCus(1);
+            }).start();
+            this.scheduleOnce(function () {
+                _this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true;
+                _this.arrCus[2].getChildByName("pop").getComponent(cc.Button).enabled = true;
+            }, 2);
+            this.scheduleOnce(function () {
+                pt.parent = _this.node;
+            }, 0.2);
+            this.scheduleOnce(function () {
+                _this.door.getComponent(cc.Animation).play("door_close");
+            }, 0.7);
+            this.offIconPt(this.arrIconPt[1]);
+        }
+        else if (this.isStep == 3) {
+            pt = this.listPt.children[0];
+            this.isStep = 4;
+            pt.active = true;
+            this.door.getComponent(cc.Animation).play("door_open");
+            var anim_3 = pt.children[0].getComponent(sp.Skeleton);
+            anim_3.setAnimation(0, "WalkOutL", true);
+            anim_3.timeScale = 2;
+            cc.tween(pt).to(0.4, { position: cc.v3(310, 52) }).call(function () {
+                pt.scaleX = -1;
+            }).to(2, { position: cc.v3(850, -120) }).call(function () {
+                anim_3.setAnimation(0, "WorkFL", true);
+                anim_3.timeScale = 1;
+                pt.scaleX = 1;
+                _this.activeCus(2);
+            }).start();
+            this.scheduleOnce(function () {
+                _this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true;
+            }, 2);
+            this.scheduleOnce(function () {
+                pt.parent = _this.node;
+            }, 0.2);
+            this.scheduleOnce(function () {
+                _this.door.getComponent(cc.Animation).play("door_close");
+            }, 0.7);
+            this.offIconPt(this.arrIconPt[2]);
+        }
+    };
+    NewClass.prototype.activeCus = function (value) {
+        var char = null;
+        switch (value) {
+            case 0:
+                char = this.arrCrunch[0].getChildByName("char");
+                char.getComponent("cusGym").gapBung();
+                char.position = cc.v3(1, -16);
+                this.arrCrunch[0].children[0].active = false;
+                this.arrCrunch[0].children[1].active = true;
+                this.createCoin(char, 4);
+                break;
+            case 1:
+                char = this.dayTa1.getChildByName("char");
+                char.getComponent("cusGym").dayTa();
+                this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                char.position = cc.v3(-15.771 + 14, 7 - 5);
+                this.createCoin(char, 4);
+                break;
+            case 2:
+                this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                char = this.boxing1.getChildByName("char");
+                char.getComponent("cusGym").boxing();
+                this.createCoin(char, 4);
+                break;
+        }
+        this.scheduleOnce(function () {
+            // this.moveCusOut()
+        }, 1.5);
+    };
+    NewClass.prototype.createCoin = function (node, value) {
+        var pos = node.parent.convertToWorldSpaceAR(node.position);
+        pos = this.node.convertToNodeSpaceAR(pos);
+        var coin = cc.instantiate(this.preCoin);
+        coin.parent = this.node;
+        coin.position = pos.add(cc.v3(0, 50));
+        globalThis.gold += value;
     };
     NewClass.prototype.moveCus = function (value) {
         var _this = this;
         cc.audioEngine.play(this.soundCoin, false, 1);
         if (value == 1) {
-            var char_1 = this.arrCrunch[0].getChildByName("char");
-            char_1.active = true;
+            var char = this.arrCrunch[0].getChildByName("char");
+            char.active = true;
             this.arrCus[0].active = false;
-            char_1.getChildByName("notiBonusCoin").active = true;
-            globalThis.gold += 2;
-            this.scheduleOnce(function () {
-                char_1.getComponent("cusGym").gapBung();
-                char_1.position = cc.v3(1, -16);
-                _this.arrCrunch[0].children[0].active = false;
-                _this.arrCrunch[0].children[1].active = true;
-            }, 0.5);
-            this.scheduleOnce(function () {
-                cc.audioEngine.play(_this.soundShowPop, false, 1);
-                for (var i = 1; i < 4; i++) {
-                    var pop = _this.arrCus[i].getChildByName("pop");
-                    pop.getComponent(cc.Button).enabled = true;
-                    pop.children[0].active = true;
-                    pop.active = true;
-                    if (i != 1) {
-                        _this.arrCus[0].getComponent("cusGym").tucGian();
-                    }
-                }
-                _this.scheduleOnce(function () {
-                    _this.onHind();
-                }, 3);
-            }, 1.4);
         }
         else if (value == 2) {
             this.arrCus[1].active = false;
-            this.dayTa1.getChildByName("char").active = true;
-            var char_2 = this.arrCrunch[0].getChildByName("char");
-            char_2.active = true;
-            this.arrCus[0].active = false;
-            this.dayTa1.getChildByName("char").getChildByName("notiBonusCoin").active = true;
-            char_2.getChildByName("notiBonusCoin").active = true;
-            globalThis.gold += 2;
-            this.scheduleOnce(function () {
-                _this.dayTa1.getChildByName("char").getComponent("cusGym").dayTa();
-                // this.dayTa1.getChildByName("char").position = cc.v3(1, -16)
-                _this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
-                _this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true);
-                char_2.getComponent("cusGym").gapBung();
-                char_2.position = cc.v3(1, -16);
-                _this.arrCrunch[0].children[0].active = false;
-                _this.arrCrunch[0].children[1].active = true;
-            }, 0.5);
+            var char = this.dayTa1.getChildByName("char");
+            char.active = true;
         }
         else if (value == 3) {
-            this.boxing1.children[0].getChildByName("notiBonusCoin").active = true;
-            globalThis.gold += 2;
             this.arrCus[2].active = false;
-            this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
-            this.boxing1.children[0].active = true;
+            var char = this.boxing1.getChildByName("char");
+            char.active = true;
+            // this.boxing1.children[0].getChildByName("notiBonusCoin").active = true
+            // globalThis.gold += 2
+            // this.arrCus[2].active = false
+            // this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+            // this.boxing1.children[0].active = true
         }
         else if (value == 4) {
             this.boxing2.children[0].getChildByName("notiBonusCoin").active = true;
@@ -266,36 +392,36 @@ var NewClass = /** @class */ (function (_super) {
         btn.active = true;
         btn.position = cc.v3(60 * this.isCountStep, -17.93);
         if (this.isCus == 0) {
-            var char_3 = this.listCrunch.children[0].getChildByName("char");
-            char_3.getChildByName("vfx").getComponent(cc.Animation).play();
-            char_3.getComponent(cc.Animation).play();
+            var char_1 = this.listCrunch.children[0].getChildByName("char");
+            char_1.getChildByName("vfx").getComponent(cc.Animation).play();
+            char_1.getComponent(cc.Animation).play();
             if (this.isCountStep == 5) {
                 cc.audioEngine.play(this.soundCoin, false, 1);
-                char_3.getChildByName("notiBonusCoin2").active = true;
-                char_3.getComponent("cusGym").happy();
-                char_3.position = cc.v3(-67, -50);
+                char_1.getChildByName("notiBonusCoin2").active = true;
+                char_1.getComponent("cusGym").happy();
+                char_1.position = cc.v3(-67, -50);
                 this.guildUpgrade.active = false;
                 this.move4();
                 globalThis.gold += 200;
                 this.phaohoa.getComponent(cc.Animation).play();
                 this.scheduleOnce(function () {
-                    cc.tween(char_3).to(0.3, { opacity: 0 }).start();
+                    cc.tween(char_1).to(0.3, { opacity: 0 }).start();
                 }, 1);
             }
         }
         else if (this.isCus == 1) {
-            var char_4 = this.boxing1.children[0];
-            char_4.getChildByName("vfx").getComponent(cc.Animation).play();
+            var char_2 = this.boxing1.children[0];
+            char_2.getChildByName("vfx").getComponent(cc.Animation).play();
             if (this.isCountStep == 5) {
                 cc.audioEngine.play(this.soundCoin, false, 1);
                 globalThis.gold += 200;
-                char_4.getChildByName("notiBonusCoin2").active = true;
-                char_4.getComponent("cusGym").happy();
+                char_2.getChildByName("notiBonusCoin2").active = true;
+                char_2.getComponent("cusGym").happy();
                 this.guildUpgrade.active = false;
                 // this.move4()
                 this.phaohoa.getComponent(cc.Animation).play();
                 this.scheduleOnce(function () {
-                    cc.tween(char_4).to(0.3, { opacity: 0 }).start();
+                    cc.tween(char_2).to(0.3, { opacity: 0 }).start();
                 }, 1);
             }
             if (this.isCountStep == 4) {
@@ -369,9 +495,9 @@ var NewClass = /** @class */ (function (_super) {
         if (value == "1") {
             var fill = this.guildUpgrade2.getChildByName("bgTrain2").children[1];
             var btn = this.guildUpgrade2.getChildByName("bgTrain2").getChildByName("Button");
-            var char_5 = this.dayTa1.children[0];
-            char_5.getComponent(cc.Animation).play();
-            char_5.getChildByName("vfx").getComponent(cc.Animation).play();
+            var char_3 = this.dayTa1.children[0];
+            char_3.getComponent(cc.Animation).play();
+            char_3.getChildByName("vfx").getComponent(cc.Animation).play();
             this.dem1++;
             fill.getComponent(cc.Sprite).fillRange = this.dem1 * 0.2;
             btn.active = true;
@@ -379,22 +505,22 @@ var NewClass = /** @class */ (function (_super) {
             if (this.dem1 == 5) {
                 event.currentTarget.active = false;
                 cc.audioEngine.play(this.soundCoin, false, 1);
-                char_5.getChildByName("notiBonusCoin2").active = true;
-                char_5.getComponent("cusGym").happy();
-                char_5.position = cc.v3(-81, -45);
+                char_3.getChildByName("notiBonusCoin2").active = true;
+                char_3.getComponent("cusGym").happy();
+                char_3.position = cc.v3(-81, -45);
                 globalThis.gold += 200;
                 this.phaohoa.getComponent(cc.Animation).play();
                 this.scheduleOnce(function () {
-                    cc.tween(char_5).to(0.3, { opacity: 0 }).start();
+                    cc.tween(char_3).to(0.3, { opacity: 0 }).start();
                 }, 1);
             }
         }
         else {
             var fill = this.guildUpgrade2.getChildByName("bgTrain").children[1];
-            var char_6 = this.boxing2.children[0];
+            var char_4 = this.boxing2.children[0];
             var btn = this.guildUpgrade2.getChildByName("bgTrain").getChildByName("Button");
-            char_6.getComponent(cc.Animation).play();
-            char_6.getChildByName("vfx").getComponent(cc.Animation).play();
+            char_4.getComponent(cc.Animation).play();
+            char_4.getChildByName("vfx").getComponent(cc.Animation).play();
             this.dem2++;
             btn.active = true;
             btn.position = cc.v3(50 * this.dem2, -17.93);
@@ -402,12 +528,12 @@ var NewClass = /** @class */ (function (_super) {
             if (this.dem2 == 5) {
                 event.currentTarget.active = false;
                 cc.audioEngine.play(this.soundCoin, false, 1);
-                char_6.getChildByName("notiBonusCoin2").active = true;
-                char_6.getComponent("cusGym").happy();
+                char_4.getChildByName("notiBonusCoin2").active = true;
+                char_4.getComponent("cusGym").happy();
                 globalThis.gold += 200;
                 this.phaohoa.getComponent(cc.Animation).play();
                 this.scheduleOnce(function () {
-                    cc.tween(char_6).to(0.3, { opacity: 0 }).start();
+                    cc.tween(char_4).to(0.3, { opacity: 0 }).start();
                 }, 1);
             }
         }
@@ -558,6 +684,21 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "logo", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "textGuild1", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "door", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listIconPt", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listPt", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "preCoin", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
