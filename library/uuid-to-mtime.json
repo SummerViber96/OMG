@@ -12370,8 +12370,8 @@
     "relativePath": "Gym\\chair\\chaiii.png"
   },
   "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787101484483,
-    "meta": 1787101484506,
+    "asset": 1787101789122,
+    "meta": 1787101789149,
     "relativePath": "scenes\\Gym.fire"
   },
   "21e776b4-f860-4f9d-8410-51e514c3faa3": {
@@ -14590,8 +14590,8 @@
     "relativePath": "Gym\\Script\\cusGym.ts"
   },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787101259571,
-    "meta": 1787101390447,
+    "asset": 1787101762049,
+    "meta": 1787101786695,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

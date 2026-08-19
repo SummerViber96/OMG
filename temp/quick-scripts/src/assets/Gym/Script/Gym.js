@@ -59,6 +59,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.listIconPt = null;
         _this.listPt = null;
         _this.preCoin = null;
+        _this.arrPosDone = [cc.v3(-213.047, -138.697), cc.v3(-90, -69)];
         // @property(cc.Node)
         // listCrunch:cc.Node=null
         _this.arrPosCus = [];
