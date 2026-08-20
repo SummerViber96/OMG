@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1786978825092,
-    "meta": 1787085087085,
+    "meta": 1787166158896,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2631,7 +2631,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1786978826318,
-    "meta": 1787085087074,
+    "meta": 1787166158892,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -10865,8 +10865,8 @@
     "relativePath": "CreamCafe\\Station.png"
   },
   "c03eff2d-ccd7-4f60-8e4a-8f5476efbe56": {
-    "asset": 1786991372459,
-    "meta": 1787073932969,
+    "asset": 1787099917500,
+    "meta": 1787166158883,
     "relativePath": "Gym"
   },
   "4c225839-02fe-4aa3-8b58-d28f389834ba": {
@@ -10995,8 +10995,8 @@
     "relativePath": "Gym\\Decor3.png"
   },
   "221feed5-d91b-42bd-9c32-dd267e3b5f47": {
-    "asset": 1786978825657,
-    "meta": 1786990596657,
+    "asset": 1787088208695,
+    "meta": 1787166158886,
     "relativePath": "Gym\\spine"
   },
   "4678d7fe-cc3a-4b5f-84db-d69f67265946": {
@@ -12369,11 +12369,6 @@
     "meta": 1786990594559,
     "relativePath": "Gym\\chair\\chaiii.png"
   },
-  "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787101789122,
-    "meta": 1787101789149,
-    "relativePath": "scenes\\Gym.fire"
-  },
   "21e776b4-f860-4f9d-8410-51e514c3faa3": {
     "asset": 1786978825182,
     "meta": 1786990593230,
@@ -12885,8 +12880,8 @@
     "relativePath": "_allAsset\\spine"
   },
   "e8b07e4f-f5e9-4696-8db1-dcc474c22f58": {
-    "asset": 1776965530032,
-    "meta": 1786990587319,
+    "asset": 1787085922260,
+    "meta": 1787166158870,
     "relativePath": "_allAsset\\ui"
   },
   "a64e5a63-b299-487d-ad0c-4d77ecb3a9dc": {
@@ -14500,8 +14495,8 @@
     "relativePath": "_allAsset\\anim\\door_open.anim"
   },
   "63263a68-5fcb-4244-a74f-a6eb8bd3365e": {
-    "asset": 1787084876281,
-    "meta": 1787085087011,
+    "asset": 1787088862912,
+    "meta": 1787166158869,
     "relativePath": "_allAsset\\anim"
   },
   "d2dbaed0-88d7-4589-ae3e-6003c28b9e18": {
@@ -14515,8 +14510,8 @@
     "relativePath": "_allAsset\\ui\\Layer 2910 (1).png"
   },
   "090765ee-3972-40d0-8d3e-0e7168c1a65f": {
-    "asset": 1787088207276,
-    "meta": 1787088207278,
+    "asset": 1787088212625,
+    "meta": 1787166158887,
     "relativePath": "Gym\\spine\\pt"
   },
   "8053478e-893b-4e81-b8eb-d2146bd9c757": {
@@ -14575,8 +14570,8 @@
     "relativePath": "_allAsset\\anim\\listPt_show.anim"
   },
   "05582137-271a-4a49-b543-cfff5ca29fc1": {
-    "asset": 1787099912902,
-    "meta": 1787099912904,
+    "asset": 1787099923016,
+    "meta": 1787166158885,
     "relativePath": "Gym\\prefab"
   },
   "76779f4f-308b-4f86-b84e-9d854204c84e": {
@@ -14584,14 +14579,109 @@
     "meta": 1787099940315,
     "relativePath": "Gym\\prefab\\notiBonusCoin.prefab"
   },
+  "e20fc91d-915f-488e-b17e-04c7685c5a12": {
+    "asset": 1787168199136,
+    "meta": 1787168199151,
+    "relativePath": "Gym\\spine\\pt\\PTYellow.atlas.txt"
+  },
+  "848e630d-a69a-4751-bf5b-f52b976d7f65": {
+    "asset": 1787168199136,
+    "meta": 1787168199196,
+    "relativePath": "Gym\\spine\\pt\\PTYellow.json"
+  },
+  "d3c47b5e-bc45-4105-bb08-9ffebc8129d6": {
+    "asset": 1787168199134,
+    "meta": 1787168199182,
+    "relativePath": "Gym\\spine\\pt\\PTYellow.png"
+  },
+  "d65f932e-bd61-4b23-8809-c91a153dd90b": {
+    "asset": 1787172728528,
+    "meta": 1787172728529,
+    "relativePath": "Gym\\prefab\\listPt"
+  },
+  "8d6b7840-2810-49a2-9cce-2d67a655d0e6": {
+    "asset": 1787172735020,
+    "meta": 1787172735077,
+    "relativePath": "Gym\\prefab\\listPt\\pt1.prefab"
+  },
+  "c1814a57-b74e-45c2-a951-8310e3e036e3": {
+    "asset": 1787172737917,
+    "meta": 1787172746977,
+    "relativePath": "Gym\\prefab\\listPt\\pt2.prefab"
+  },
+  "d53a812e-8736-4ca7-a5c0-30f68dcbad73": {
+    "asset": 1787172742190,
+    "meta": 1787172752666,
+    "relativePath": "Gym\\prefab\\listPt\\pt3.prefab"
+  },
+  "ef3e95d1-eede-41d3-83c9-2eea6495d596": {
+    "asset": 1787172778063,
+    "meta": 1787172778073,
+    "relativePath": "Gym\\prefab\\listPt\\pt4.prefab"
+  },
+  "f1ea1cf2-6844-4f3e-a0f0-d81a75049349": {
+    "asset": 1787174747230,
+    "meta": 1787174747231,
+    "relativePath": "Gym\\prefab\\listCus"
+  },
+  "9317423b-6ae0-4021-8484-25e9cae9a2b6": {
+    "asset": 1787193510604,
+    "meta": 1787193510619,
+    "relativePath": "Gym\\prefab\\listCus\\Cus1.prefab"
+  },
+  "aa27e966-ff34-46eb-9038-1329bd06fb9a": {
+    "asset": 1787179167334,
+    "meta": 1787179167348,
+    "relativePath": "Gym\\prefab\\listCus\\Cus2.prefab"
+  },
+  "f7fed7ae-7392-4db3-b22a-e4338513b068": {
+    "asset": 1787179160408,
+    "meta": 1787179160421,
+    "relativePath": "Gym\\prefab\\listCus\\Cus3.prefab"
+  },
+  "eb9e06a5-0f52-4df8-9093-e3ec1f864c3a": {
+    "asset": 1787184897475,
+    "meta": 1787184897493,
+    "relativePath": "Gym\\prefab\\listCus\\Cus4.prefab"
+  },
+  "84193220-ec77-42be-b40e-3b30218ec5ce": {
+    "asset": 1787178398091,
+    "meta": 1787178398104,
+    "relativePath": "Gym\\prefab\\listCus\\Cus5.prefab"
+  },
+  "77ea2da4-f23a-452b-877c-ea2a919fbf8d": {
+    "asset": 1787178404215,
+    "meta": 1787178404227,
+    "relativePath": "Gym\\prefab\\listCus\\Cus6.prefab"
+  },
+  "6272e68a-bf26-4ca8-bd59-d7b75ea1bd9e": {
+    "asset": 1787178408232,
+    "meta": 1787178408246,
+    "relativePath": "Gym\\prefab\\listCus\\Cus7.prefab"
+  },
+  "d10f9868-24ce-444d-9593-a403e73617e0": {
+    "asset": 1787189084651,
+    "meta": 1787189087107,
+    "relativePath": "Gym\\Script\\Machine.ts"
+  },
   "02049483-f91e-45f8-a4e6-06d642d19c01": {
-    "asset": 1787101387497,
-    "meta": 1787101390293,
+    "asset": 1787192777203,
+    "meta": 1787192808005,
     "relativePath": "Gym\\Script\\cusGym.ts"
   },
+  "788d1169-f148-4f07-9cdb-661943c335cb": {
+    "asset": 1787194727861,
+    "meta": 1787194729189,
+    "relativePath": "Gym\\Script\\pt.ts"
+  },
+  "439372e7-359a-45a6-8656-39ffe827aa9a": {
+    "asset": 1787195872878,
+    "meta": 1787195910893,
+    "relativePath": "scenes\\Gym.fire"
+  },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787101762049,
-    "meta": 1787101786695,
+    "asset": 1787196169091,
+    "meta": 1787196170113,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

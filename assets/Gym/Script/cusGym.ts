@@ -13,6 +13,10 @@ export default class NewClass extends cc.Component {
     posDone = cc.v3(0, 0)
     @property(cc.Integer)
     tag = 0
+    parentName = ""
+    parentIndex = 0
+    parentNode = null
+    isPt = false
     gamePlay = null
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym")
@@ -43,7 +47,7 @@ export default class NewClass extends cc.Component {
         let btn = event.currentTarget
         btn.getComponent(cc.Button).enabled = false;
         cc.tween(this.pop).to(0.2, { scale: 0 }).start();
-        this.gamePlay.doCus(this.tag)
+        this.gamePlay.doCus(this.tag, this.node)
 
     }
     gapBung() {
@@ -69,6 +73,20 @@ export default class NewClass extends cc.Component {
     boxing() {
         this.anim.setAnimation(0, "Boxing", true);
 
+    }
+    waitingTag(value) {
+        switch (value) {
+            case 0:
+                this.anim.setAnimation(0, "Sit_Waiting", true)
+                break;
+            case 1:
+                this.anim.setAnimation(0, "Sit_Waiting", true)
+                break;
+            case 2:
+                this.anim.setAnimation(0, "IdleFL", true)
+
+                break;
+        }
     }
     // update (dt) {}
 }

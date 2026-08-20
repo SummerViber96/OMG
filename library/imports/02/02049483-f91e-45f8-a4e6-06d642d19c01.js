@@ -33,6 +33,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundHappy = null;
         _this.posDone = cc.v3(0, 0);
         _this.tag = 0;
+        _this.parentName = "";
+        _this.parentIndex = 0;
+        _this.parentNode = null;
+        _this.isPt = false;
         _this.gamePlay = null;
         return _this;
         // update (dt) {}
@@ -66,7 +70,7 @@ var NewClass = /** @class */ (function (_super) {
         var btn = event.currentTarget;
         btn.getComponent(cc.Button).enabled = false;
         cc.tween(this.pop).to(0.2, { scale: 0 }).start();
-        this.gamePlay.doCus(this.tag);
+        this.gamePlay.doCus(this.tag, this.node);
     };
     NewClass.prototype.gapBung = function () {
         this.anim.setAnimation(0, "Abdominal", true);
@@ -86,6 +90,19 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.boxing = function () {
         this.anim.setAnimation(0, "Boxing", true);
+    };
+    NewClass.prototype.waitingTag = function (value) {
+        switch (value) {
+            case 0:
+                this.anim.setAnimation(0, "Sit_Waiting", true);
+                break;
+            case 1:
+                this.anim.setAnimation(0, "Sit_Waiting", true);
+                break;
+            case 2:
+                this.anim.setAnimation(0, "IdleFL", true);
+                break;
+        }
     };
     __decorate([
         property(cc.Node)
