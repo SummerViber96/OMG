@@ -84,13 +84,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 852
+        "__id__": 857
       },
       {
-        "__id__": 853
+        "__id__": 858
       },
       {
-        "__id__": 854
+        "__id__": 859
       }
     ],
     "_prefab": null,
@@ -29585,12 +29585,15 @@
       },
       {
         "__id__": 802
+      },
+      {
+        "__id__": 851
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 851
+        "__id__": 856
       }
     ],
     "_prefab": null,
@@ -38632,6 +38635,209 @@
     "_id": "e4hWBObj5C7r2FZH5br+0y"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "textGuild3",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 651
+    },
+    "_children": [
+      {
+        "__id__": 852
+      }
+    ],
+    "_active": false,
+    "_components": [
+      {
+        "__id__": 855
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        -368.212,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "d91vVLW5dI2L7a8HcdVJR/"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "New Label",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 851
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 853
+      },
+      {
+        "__id__": 854
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 247,
+      "g": 189,
+      "b": 87,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 959.36,
+      "height": 110.8
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        -25.105,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "63ANm5IpJIWZhtkpKNZoSc"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 852
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "THEY'RE LOSING PATIENCE!",
+    "_N$string": "THEY'RE LOSING PATIENCE!",
+    "_fontSize": 80,
+    "_lineHeight": 80,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "046cf7de-020b-4d44-9913-3d4220457fa4"
+    },
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "cf+Ft0euRKJrkCRhTzE3hw"
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 852
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 5,
+    "_id": "367NeMVadJwb24/SU8/Fq+"
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 851
+    },
+    "_enabled": true,
+    "_defaultClip": {
+      "__uuid__": "36268057-7633-41b5-999a-1ac7fa9277f8"
+    },
+    "_clips": [
+      {
+        "__uuid__": "36268057-7633-41b5-999a-1ac7fa9277f8"
+      }
+    ],
+    "playOnLoad": true,
+    "_id": "e5UifRGKhMwKFFwjcG8gS0"
+  },
+  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -38791,6 +38997,9 @@
     },
     "textGuild2": {
       "__id__": 797
+    },
+    "textGuild3": {
+      "__id__": 851
     },
     "door": {
       "__id__": 641

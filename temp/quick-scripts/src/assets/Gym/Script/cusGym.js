@@ -38,6 +38,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.parentNode = null;
         _this.isPt = false;
         _this.isQueueMoving = false;
+        _this.isAngryWait = false;
         _this.gamePlay = null;
         return _this;
         // update (dt) {}
@@ -108,7 +109,7 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(0, "AbCrunch", true);
     };
     NewClass.prototype.tucGian = function () {
-        console.log("tuc gian");
+        this.isAngryWait = true;
         this.anim.setAnimation(0, "Waiting3", true);
     };
     NewClass.prototype.happy = function () {

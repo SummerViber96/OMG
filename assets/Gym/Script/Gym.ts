@@ -57,8 +57,10 @@ export default class NewClass extends cc.Component {
     logo: cc.Node = null
     @property(cc.Node)
     textGuild1: cc.Node = null
-      @property(cc.Node)
+    @property(cc.Node)
     textGuild2: cc.Node = null
+    @property(cc.Node)
+    textGuild3: cc.Node = null
     @property(cc.Node)
     door: cc.Node = null;
     @property(cc.Node)
@@ -141,7 +143,11 @@ export default class NewClass extends cc.Component {
             cus.scaleX = -1
         }).to(0.8, { position: posEnd }).call(() => {
             cus.scaleX = 1
-            anim.setAnimation(0, "Waiting", true)
+            if (cusComp.isAngryWait) {
+                cusComp.tucGian()
+            } else {
+                anim.setAnimation(0, "Waiting", true)
+            }
             cusComp.showQueuePop()
 
         }).start()
@@ -218,7 +224,11 @@ export default class NewClass extends cc.Component {
             cc.Tween.stopAllByTarget(queueCus)
             cc.tween(queueCus).to(0.8, { position: posEnd }).call(() => {
                 queueCus.scaleX = 1
-                anim.setAnimation(0, "Waiting", true)
+                if (cusComp.isAngryWait) {
+                    cusComp.tucGian()
+                } else {
+                    anim.setAnimation(0, "Waiting", true)
+                }
                 cusComp.showQueuePop()
             }).start()
         }
@@ -240,6 +250,7 @@ export default class NewClass extends cc.Component {
 
         this.arrWaiting.push(cus)
         cusComp.waitingTag(tag)
+        this.updateQueueHand()
 
     }
     moveCusToMayDay(cus, value, tag) {
@@ -252,13 +263,14 @@ export default class NewClass extends cc.Component {
         cus.scale = 1
         cus.scaleX = 1
         let cusComp = cus.getComponent("cusGym")
-
+        may.getChildByName("G1_AbCrunch").zIndex=1
         cusComp.parentName = "MayDay"
         cusComp.parentIndex = value;
         cusComp.parentNode = may
 
         this.arrWaiting.push(cus)
         cus.getComponent("cusGym").waitingTag(tag)
+        this.updateQueueHand()
     }
     moveCusToBoxing(cus, value, tag) {
         this.leaveQueue(cus)
@@ -275,6 +287,7 @@ export default class NewClass extends cc.Component {
         cusComp.parentNode = this.boxing1
         this.arrWaiting.push(cus)
         cus.getComponent("cusGym").waitingTag(tag)
+        this.updateQueueHand()
     }
     offIconPt(node) {
         node.children[1].active = true;
@@ -298,6 +311,45 @@ export default class NewClass extends cc.Component {
         if (node.children[1] && node.children[1].active) return false
         return true
     }
+    hasFreeMachineForTag(tag) {
+        if (tag == 0) {
+            for (let i = 0; i < this.arrCrunch.length; i++) {
+                if (!this.arrCrunch[i].getChildByName("char")) return true
+            }
+            return false
+        }
+        if (tag == 1) {
+            for (let i = 0; i < this.arrMayDay.length; i++) {
+                if (!this.arrMayDay[i].getChildByName("char")) return true
+            }
+            return false
+        }
+        if (tag == 2) {
+            return !this.boxing1.getChildByName("char")
+        }
+        return false
+    }
+    canClickQueueCus(cus) {
+        if (!cus || !cus.isValid) return false
+        let cusComp = cus.getComponent("cusGym")
+        if (!cusComp || cusComp.isQueueMoving) return false
+        let pop = cus.getChildByName("pop")
+        if (!pop || !pop.active) return false
+        let btn = pop.getComponent(cc.Button)
+        if (btn && !btn.enabled) return false
+        if (this.isStep < 4) return false
+        return this.hasFreeMachineForTag(cusComp.tag)
+    }
+    hasCusWaitingForPt() {
+        this.cleanupWaiting()
+        for (let i = 0; i < this.arrWaiting.length; i++) {
+            if (this.isCusWaitingForPt(this.arrWaiting[i])) return true
+        }
+        return false
+    }
+    canClickIconPt(node) {
+        return this.isIconPtFree(node) && this.hasCusWaitingForPt()
+    }
     hideAllIconPtHands() {
         for (let i = 0; i < this.arrIconPt.length; i++) {
             let hand = this.arrIconPt[i].getChildByName("hand")
@@ -307,9 +359,14 @@ export default class NewClass extends cc.Component {
     showFreeIconPtHand() {
         this.hideAllIconPtHands()
         this.hideAllQueueHands()
+        if (!this.hasCusWaitingForPt()) {
+            this.guidingIconPt = false
+            this.updateQueueHand()
+            return
+        }
         for (let i = 0; i < this.arrIconPt.length; i++) {
             let icon = this.arrIconPt[i]
-            if (this.isIconPtFree(icon)) {
+            if (this.canClickIconPt(icon)) {
                 let hand = icon.getChildByName("hand")
                 if (hand) hand.active = true
                 this.guidingIconPt = true
@@ -335,12 +392,8 @@ export default class NewClass extends cc.Component {
         if (this.guidingIconPt) return
         for (let i = 0; i < this.arrCus.length; i++) {
             let cus = this.arrCus[i]
-            if (!cus || !cus.isValid) continue
-            let cusComp = cus.getComponent("cusGym")
-            if (!cusComp || cusComp.isQueueMoving) continue
-            let pop = cus.getChildByName("pop")
-            if (!pop || !pop.active) continue
-            let hand = pop.getChildByName("hand")
+            if (!this.canClickQueueCus(cus)) continue
+            let hand = cus.getChildByName("pop").getChildByName("hand")
             if (hand) hand.active = true
             return
         }
@@ -668,6 +721,9 @@ export default class NewClass extends cc.Component {
         char.scale = 0.8
         this.createCoin(char, coin)
         cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start()
+        if (!this.guidingIconPt) {
+            this.updateQueueHand()
+        }
     }
     startGame() {
         if (this.isGameStarted) return
@@ -695,9 +751,32 @@ export default class NewClass extends cc.Component {
             this.updateQueueHand()
         }, 15)
         this.scheduleOnce(() => {
+            cc.tween(this.textGuild2).to(0.8, { scale: 0 }).start()
+            this.zoomGame()
             // this.startGame()
         }, 22)
 
+    }
+    zoomGame(){
+        cc.tween(this.camera).to(0.8, { zoomRatio: 2 }).start()
+        cc.tween(this.camera.node).to(0.8, { position: cc.v3(-494, -296) }).start()
+        while (this.arrCus.length < 5 && this.arrCus.length < this.arrPosCus.length) {
+            this.spawCustomer()
+        }
+        for (let i = 0; i < this.arrCus.length; i++) {
+            let cus = this.arrCus[i]
+            if (!cus || !cus.isValid) continue
+            let cusComp = cus.getComponent("cusGym")
+            if (!cusComp) continue
+            cusComp.isAngryWait = true
+            if (!cusComp.isQueueMoving) {
+                cusComp.tucGian()
+            }
+        }
+        this.scheduleOnce(() => {
+            this.textGuild3.active = true
+        }, 0.5)
+    
     }
     createCoin(node, value) {
         let pos = node.parent.convertToWorldSpaceAR(node.position)
@@ -972,14 +1051,14 @@ export default class NewClass extends cc.Component {
     // }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1
+        // this.camera.zoomRatio = 1
 
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.guildUpgrade.scale = (logic) ? 2.4 : 1
         this.guildUpgrade2.scale = (logic) ? 1.6 : 1
 
-        this.camera.node.position = cc.v3(0, 0)
+        // this.camera.node.position = cc.v3(0, 0)
         this.lbCoin.string = globalThis.gold.toString()
         this.npc.scale = (logic) ? 1.7 : 1
         this.npc2.scale = (logic) ? 1.7 : 1
@@ -1005,8 +1084,8 @@ export default class NewClass extends cc.Component {
             const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
-            this.camera.zoomRatio = 1.7
-            this.camera.node.position = cc.v3(150, 0)
+            // this.camera.zoomRatio = 1.7
+            // this.camera.node.position = cc.v3(150, 0)
             this.phaohoa.scale = (logic) ? 7 : 3
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
@@ -1014,7 +1093,7 @@ export default class NewClass extends cc.Component {
                 this.logo.getComponent(cc.Widget).top = 48 + 30
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.4
+                // this.camera.zoomRatio = 1.4
                 this.guildUpgrade.scale = 1.8
 
             }
@@ -1036,7 +1115,7 @@ export default class NewClass extends cc.Component {
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.8
+                // this.camera.zoomRatio = 0.8
             }
         }
 

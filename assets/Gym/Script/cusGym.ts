@@ -18,6 +18,7 @@ export default class NewClass extends cc.Component {
     parentNode = null
     isPt = false
     isQueueMoving = false
+    isAngryWait = false
     gamePlay = null
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym")
@@ -83,9 +84,8 @@ export default class NewClass extends cc.Component {
 
     }
     tucGian() {
-        console.log("tuc gian")
+        this.isAngryWait = true
         this.anim.setAnimation(0, "Waiting3", true)
-
     }
     happy() {
         if (this.soundHappy) {

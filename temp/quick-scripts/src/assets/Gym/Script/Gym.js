@@ -56,6 +56,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.logo = null;
         _this.textGuild1 = null;
         _this.textGuild2 = null;
+        _this.textGuild3 = null;
         _this.door = null;
         _this.listIconPt = null;
         _this.listPt = null;
@@ -135,7 +136,12 @@ var NewClass = /** @class */ (function (_super) {
             cus.scaleX = -1;
         }).to(0.8, { position: posEnd }).call(function () {
             cus.scaleX = 1;
-            anim.setAnimation(0, "Waiting", true);
+            if (cusComp.isAngryWait) {
+                cusComp.tucGian();
+            }
+            else {
+                anim.setAnimation(0, "Waiting", true);
+            }
             cusComp.showQueuePop();
         }).start();
         this.countCus++;
@@ -206,7 +212,12 @@ var NewClass = /** @class */ (function (_super) {
             cc.Tween.stopAllByTarget(queueCus);
             cc.tween(queueCus).to(0.8, { position: posEnd }).call(function () {
                 queueCus.scaleX = 1;
-                anim.setAnimation(0, "Waiting", true);
+                if (cusComp.isAngryWait) {
+                    cusComp.tucGian();
+                }
+                else {
+                    anim.setAnimation(0, "Waiting", true);
+                }
                 cusComp.showQueuePop();
             }).start();
         };
@@ -230,6 +241,7 @@ var NewClass = /** @class */ (function (_super) {
         cusComp.parentNode = crunch;
         this.arrWaiting.push(cus);
         cusComp.waitingTag(tag);
+        this.updateQueueHand();
     };
     NewClass.prototype.moveCusToMayDay = function (cus, value, tag) {
         this.leaveQueue(cus);
@@ -241,11 +253,13 @@ var NewClass = /** @class */ (function (_super) {
         cus.scale = 1;
         cus.scaleX = 1;
         var cusComp = cus.getComponent("cusGym");
+        may.getChildByName("G1_AbCrunch").zIndex = 1;
         cusComp.parentName = "MayDay";
         cusComp.parentIndex = value;
         cusComp.parentNode = may;
         this.arrWaiting.push(cus);
         cus.getComponent("cusGym").waitingTag(tag);
+        this.updateQueueHand();
     };
     NewClass.prototype.moveCusToBoxing = function (cus, value, tag) {
         this.leaveQueue(cus);
@@ -261,6 +275,7 @@ var NewClass = /** @class */ (function (_super) {
         cusComp.parentNode = this.boxing1;
         this.arrWaiting.push(cus);
         cus.getComponent("cusGym").waitingTag(tag);
+        this.updateQueueHand();
     };
     NewClass.prototype.offIconPt = function (node) {
         node.children[1].active = true;
@@ -286,6 +301,53 @@ var NewClass = /** @class */ (function (_super) {
             return false;
         return true;
     };
+    NewClass.prototype.hasFreeMachineForTag = function (tag) {
+        if (tag == 0) {
+            for (var i = 0; i < this.arrCrunch.length; i++) {
+                if (!this.arrCrunch[i].getChildByName("char"))
+                    return true;
+            }
+            return false;
+        }
+        if (tag == 1) {
+            for (var i = 0; i < this.arrMayDay.length; i++) {
+                if (!this.arrMayDay[i].getChildByName("char"))
+                    return true;
+            }
+            return false;
+        }
+        if (tag == 2) {
+            return !this.boxing1.getChildByName("char");
+        }
+        return false;
+    };
+    NewClass.prototype.canClickQueueCus = function (cus) {
+        if (!cus || !cus.isValid)
+            return false;
+        var cusComp = cus.getComponent("cusGym");
+        if (!cusComp || cusComp.isQueueMoving)
+            return false;
+        var pop = cus.getChildByName("pop");
+        if (!pop || !pop.active)
+            return false;
+        var btn = pop.getComponent(cc.Button);
+        if (btn && !btn.enabled)
+            return false;
+        if (this.isStep < 4)
+            return false;
+        return this.hasFreeMachineForTag(cusComp.tag);
+    };
+    NewClass.prototype.hasCusWaitingForPt = function () {
+        this.cleanupWaiting();
+        for (var i = 0; i < this.arrWaiting.length; i++) {
+            if (this.isCusWaitingForPt(this.arrWaiting[i]))
+                return true;
+        }
+        return false;
+    };
+    NewClass.prototype.canClickIconPt = function (node) {
+        return this.isIconPtFree(node) && this.hasCusWaitingForPt();
+    };
     NewClass.prototype.hideAllIconPtHands = function () {
         for (var i = 0; i < this.arrIconPt.length; i++) {
             var hand = this.arrIconPt[i].getChildByName("hand");
@@ -296,9 +358,14 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.showFreeIconPtHand = function () {
         this.hideAllIconPtHands();
         this.hideAllQueueHands();
+        if (!this.hasCusWaitingForPt()) {
+            this.guidingIconPt = false;
+            this.updateQueueHand();
+            return;
+        }
         for (var i = 0; i < this.arrIconPt.length; i++) {
             var icon = this.arrIconPt[i];
-            if (this.isIconPtFree(icon)) {
+            if (this.canClickIconPt(icon)) {
                 var hand = icon.getChildByName("hand");
                 if (hand)
                     hand.active = true;
@@ -330,15 +397,9 @@ var NewClass = /** @class */ (function (_super) {
             return;
         for (var i = 0; i < this.arrCus.length; i++) {
             var cus = this.arrCus[i];
-            if (!cus || !cus.isValid)
+            if (!this.canClickQueueCus(cus))
                 continue;
-            var cusComp = cus.getComponent("cusGym");
-            if (!cusComp || cusComp.isQueueMoving)
-                continue;
-            var pop = cus.getChildByName("pop");
-            if (!pop || !pop.active)
-                continue;
-            var hand = pop.getChildByName("hand");
+            var hand = cus.getChildByName("pop").getChildByName("hand");
             if (hand)
                 hand.active = true;
             return;
@@ -661,6 +722,9 @@ var NewClass = /** @class */ (function (_super) {
         char.scale = 0.8;
         this.createCoin(char, coin);
         cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start();
+        if (!this.guidingIconPt) {
+            this.updateQueueHand();
+        }
     };
     NewClass.prototype.startGame = function () {
         var _this = this;
@@ -688,6 +752,34 @@ var NewClass = /** @class */ (function (_super) {
             }
             _this.updateQueueHand();
         }, 15);
+        this.scheduleOnce(function () {
+            cc.tween(_this.textGuild2).to(0.8, { scale: 0 }).start();
+            _this.zoomGame();
+            // this.startGame()
+        }, 22);
+    };
+    NewClass.prototype.zoomGame = function () {
+        var _this = this;
+        cc.tween(this.camera).to(0.8, { zoomRatio: 2 }).start();
+        cc.tween(this.camera.node).to(0.8, { position: cc.v3(-494, -296) }).start();
+        while (this.arrCus.length < 5 && this.arrCus.length < this.arrPosCus.length) {
+            this.spawCustomer();
+        }
+        for (var i = 0; i < this.arrCus.length; i++) {
+            var cus = this.arrCus[i];
+            if (!cus || !cus.isValid)
+                continue;
+            var cusComp = cus.getComponent("cusGym");
+            if (!cusComp)
+                continue;
+            cusComp.isAngryWait = true;
+            if (!cusComp.isQueueMoving) {
+                cusComp.tucGian();
+            }
+        }
+        this.scheduleOnce(function () {
+            _this.textGuild3.active = true;
+        }, 0.5);
     };
     NewClass.prototype.createCoin = function (node, value) {
         var pos = node.parent.convertToWorldSpaceAR(node.position);
@@ -934,12 +1026,12 @@ var NewClass = /** @class */ (function (_super) {
     // }
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
-        this.camera.zoomRatio = 1;
+        // this.camera.zoomRatio = 1
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.guildUpgrade.scale = (logic) ? 2.4 : 1;
         this.guildUpgrade2.scale = (logic) ? 1.6 : 1;
-        this.camera.node.position = cc.v3(0, 0);
+        // this.camera.node.position = cc.v3(0, 0)
         this.lbCoin.string = globalThis.gold.toString();
         this.npc.scale = (logic) ? 1.7 : 1;
         this.npc2.scale = (logic) ? 1.7 : 1;
@@ -962,8 +1054,8 @@ var NewClass = /** @class */ (function (_super) {
             var IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
-            this.camera.zoomRatio = 1.7;
-            this.camera.node.position = cc.v3(150, 0);
+            // this.camera.zoomRatio = 1.7
+            // this.camera.node.position = cc.v3(150, 0)
             this.phaohoa.scale = (logic) ? 7 : 3;
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
                 // console.log("check iphonex")
@@ -971,7 +1063,7 @@ var NewClass = /** @class */ (function (_super) {
                 this.logo.getComponent(cc.Widget).top = 48 + 30;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 1.4;
+                // this.camera.zoomRatio = 1.4
                 this.guildUpgrade.scale = 1.8;
             }
         }
@@ -988,7 +1080,7 @@ var NewClass = /** @class */ (function (_super) {
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.8;
+                // this.camera.zoomRatio = 0.8
             }
         }
     };
@@ -1076,6 +1168,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "textGuild2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "textGuild3", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "door", void 0);

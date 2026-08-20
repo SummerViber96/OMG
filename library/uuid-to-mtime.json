@@ -14665,8 +14665,8 @@
     "relativePath": "Gym\\Script\\Machine.ts"
   },
   "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787215340659,
-    "meta": 1787215340693,
+    "asset": 1787218565183,
+    "meta": 1787218565204,
     "relativePath": "scenes\\Gym.fire"
   },
   "aa145222-bdff-4cd6-9334-8e0be1fe0ddd": {
@@ -14680,13 +14680,13 @@
     "relativePath": "Gym\\Script\\pt.ts"
   },
   "02049483-f91e-45f8-a4e6-06d642d19c01": {
-    "asset": 1787216750520,
-    "meta": 1787216767305,
+    "asset": 1787218131369,
+    "meta": 1787218200727,
     "relativePath": "Gym\\Script\\cusGym.ts"
   },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787216935591,
-    "meta": 1787216937247,
+    "asset": 1787218543736,
+    "meta": 1787218545110,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }
