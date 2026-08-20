@@ -19,6 +19,7 @@ require('./assets/Gym/Script/Machine');
 require('./assets/Gym/Script/cusGym');
 require('./assets/Gym/Script/listCard');
 require('./assets/Gym/Script/pt');
+require('./assets/Gym/Script/time');
 require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');
 require('./assets/HF/touch');

@@ -14630,8 +14630,8 @@
     "relativePath": "Gym\\prefab\\listCus\\Cus1.prefab"
   },
   "aa27e966-ff34-46eb-9038-1329bd06fb9a": {
-    "asset": 1787216204493,
-    "meta": 1787216204506,
+    "asset": 1787222897426,
+    "meta": 1787222897442,
     "relativePath": "Gym\\prefab\\listCus\\Cus2.prefab"
   },
   "f7fed7ae-7392-4db3-b22a-e4338513b068": {
@@ -14665,19 +14665,14 @@
     "relativePath": "Gym\\Script\\Machine.ts"
   },
   "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787221035711,
-    "meta": 1787221035732,
+    "asset": 1787223935245,
+    "meta": 1787223935266,
     "relativePath": "scenes\\Gym.fire"
   },
   "aa145222-bdff-4cd6-9334-8e0be1fe0ddd": {
     "asset": 1787196591982,
     "meta": 1787197181099,
     "relativePath": "Bracelet"
-  },
-  "02049483-f91e-45f8-a4e6-06d642d19c01": {
-    "asset": 1787219445192,
-    "meta": 1787219463618,
-    "relativePath": "Gym\\Script\\cusGym.ts"
   },
   "ea4cba5b-8cf1-4824-9d20-f0bd7477ad1f": {
     "asset": 1787219938590,
@@ -14704,9 +14699,44 @@
     "meta": 1787220894017,
     "relativePath": "Gym\\Script\\pt.ts"
   },
+  "a808fe21-3f77-4d35-ae9f-76692d20c996": {
+    "asset": 1787221691014,
+    "meta": 1787221691117,
+    "relativePath": "Gym\\ui\\splash.png"
+  },
+  "cc4350ad-9480-455c-9c3f-728be5b1ad81": {
+    "asset": 1787221836026,
+    "meta": 1787221836055,
+    "relativePath": "_allAsset\\Google_Play_icon.png"
+  },
+  "629fabe9-a976-41c6-8fc6-f196eaa970d3": {
+    "asset": 1787221836025,
+    "meta": 1787221836056,
+    "relativePath": "_allAsset\\App_Store_icon.png"
+  },
+  "61978288-bc0e-4144-8ad2-29025ffed904": {
+    "asset": 1787222974660,
+    "meta": 1787222974694,
+    "relativePath": "Gym\\prefab\\listCus\\time.png"
+  },
+  "02049483-f91e-45f8-a4e6-06d642d19c01": {
+    "asset": 1787223253107,
+    "meta": 1787223321955,
+    "relativePath": "Gym\\Script\\cusGym.ts"
+  },
+  "6f01f84d-fd6b-4cab-89ed-0c6f14af80db": {
+    "asset": 1787223331040,
+    "meta": 1787223332071,
+    "relativePath": "Gym\\Script\\time.ts"
+  },
+  "d6b8fadb-37d4-4d69-83eb-9af4b863b069": {
+    "asset": 1787223687310,
+    "meta": 1787223687320,
+    "relativePath": "_allAsset\\anim\\noti_show.anim"
+  },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787221203084,
-    "meta": 1787221204035,
+    "asset": 1787224076266,
+    "meta": 1787224077964,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

@@ -79,6 +79,8 @@ export default class NewClass extends cc.Component {
     arrMayDay: cc.Node[] = []
     @property(cc.Node)
     listCard: cc.Node = null
+    @property(cc.Node)
+    noti:cc.Node=null
     arrPosDone = [cc.v3(-239, -133), cc.v3(57, -157), cc.v3(-123, -36), cc.v3(-14, 65), cc.v3(-58, -235), cc.v3(198, -59)]
     arrPosDoneCrunch = [cc.v3(218, -392), cc.v3(409, -289)]
     // @property(cc.Node)
@@ -93,6 +95,7 @@ export default class NewClass extends cc.Component {
     guidingIconPt = false
     hideQueueHandGuide = false
     isHind = false
+    isEndgame = false
     ptSpeed = 1
     adChanel = '{{__adv_channels_adapter__}}'
     posGapBung = cc.v3(-30, -19);
@@ -245,7 +248,7 @@ export default class NewClass extends cc.Component {
         let posEnd = this.getQueuePos(queueIndex)
         let cus = cc.instantiate(this.listPreCus[this.countCus])
         let spawnParent = this.listCusNode || this.node
-        let startPos = this.toSortLayerPos(spawnParent, cc.v3(-934, -632))
+        let startPos = this.toSortLayerPos(spawnParent, cc.v3(-1051, -600))
         let midPos = this.toSortLayerPos(spawnParent, cc.v3(-675, -435))
         this.attachToSortLayer(cus)
 
@@ -253,12 +256,13 @@ export default class NewClass extends cc.Component {
         let cusComp = cus.getComponent("cusGym")
         cusComp.isQueueMoving = true
         cus.position = startPos
-        this.faceCusByDir(cus, startPos, midPos)
+        cus.scaleX = -1
         let anim = cus.children[0].getComponent(sp.Skeleton)
         anim.setAnimation(0, "WalkInR", true)
+        this.faceCusByDir(cus, midPos, posEnd)
+
         cc.Tween.stopAllByTarget(cus)
         cc.tween(cus).to(1, { position: midPos }).call(() => {
-            this.faceCusByDir(cus, midPos, posEnd)
         }).to(0.8, { position: posEnd }).call(() => {
             cus.scaleX = 1
             if (cusComp.isAngryWait) {
@@ -382,7 +386,7 @@ export default class NewClass extends cc.Component {
         cus.scale = 1
         cus.scaleX = 1
         let cusComp = cus.getComponent("cusGym")
-        may.getChildByName("G1_AbCrunch").zIndex = 1
+        may.getChildByName("G1_AbCrunch").zIndex = cus.zIndex+1
         cusComp.parentName = "MayDay"
         cusComp.parentIndex = value;
         cusComp.parentNode = may
@@ -880,7 +884,7 @@ export default class NewClass extends cc.Component {
             this.zoomGame()
             this.scheduleOnce(() => {
                 this.listCard.active = true
-            }, 0.5)
+            },4)
             // this.startGame()
         }, 22)
 
@@ -910,12 +914,113 @@ export default class NewClass extends cc.Component {
     }
     clickCard(event, value) {
         this.listCard.active = false
+        cc.tween(this.camera).to(0.8, { zoomRatio: 1 }).start()
+        cc.tween(this.camera.node).to(0.8, { position: cc.v3(0, 0) }).start()
         switch (Number(value)) {
             case 0:
-                this.ptSpeed = 2
+                this.ptSpeed = 1.5
+                this.noti.children[0].children[1].active=true
+                this.noti.active = true
                 break
             case 1:
+                this.addCountDownTime(15)
+                this.noti.children[0].children[0].active=true
+                this.noti.active = true
                 break
+        }
+        if (this.textGuild3) this.textGuild3.active = false
+        this.unschedule(this.spawCustomer)
+        this.hideQueueHandGuide = true
+        this.hideAllQueueHands()
+        this.hideAllIconPtHands()
+        this.scheduleOnce(() => {
+            this.autoFillMachinesAndPts()
+        }, 0.5)
+        this.scheduleOnce(() => {
+            this.onEndgame()
+        }, 9)
+    }
+    autoFillMachinesAndPts() {
+        let queue = this.arrCus.slice()
+        for (let i = 0; i < queue.length; i++) {
+            let cus = queue[i]
+            if (!cus || !cus.isValid) continue
+            if (this.arrCus.indexOf(cus) < 0) continue
+            let cusComp = cus.getComponent("cusGym")
+            if (!cusComp) continue
+            if (!this.hasFreeMachineForTag(cusComp.tag)) continue
+            cc.Tween.stopAllByTarget(cus)
+            cusComp.isQueueMoving = false
+            let pop = cus.getChildByName("pop")
+            if (pop) pop.active = false
+            this.placeCusOnFreeMachine(cus, cusComp.tag)
+        }
+        this.autoSpawnPts()
+    }
+    placeCusOnFreeMachine(cus, tag) {
+        if (tag == 0) {
+            for (let i = 0; i < this.arrCrunch.length; i++) {
+                if (!this.arrCrunch[i].getChildByName("char")) {
+                    this.moveCusToCrunch(cus, i, tag)
+                    return true
+                }
+            }
+        } else if (tag == 1) {
+            for (let i = 0; i < this.arrMayDay.length; i++) {
+                if (!this.arrMayDay[i].getChildByName("char")) {
+                    this.moveCusToMayDay(cus, i, tag)
+                    return true
+                }
+            }
+        } else if (tag == 2) {
+            if (!this.boxing1.getChildByName("char")) {
+                this.moveCusToBoxing(cus, 0, tag)
+                return true
+            }
+        }
+        return false
+    }
+    getFreeIconPt() {
+        for (let i = 0; i < this.arrIconPt.length; i++) {
+            if (this.isIconPtFree(this.arrIconPt[i])) return this.arrIconPt[i]
+        }
+        return null
+    }
+    autoSpawnPts() {
+        this.cleanupWaiting()
+        let waiting = this.arrWaiting.slice()
+        let delay = 0
+        for (let i = 0; i < waiting.length; i++) {
+            let cus = waiting[i]
+            if (!this.isCusWaitingForPt(cus)) continue
+            let cusComp = cus.getComponent("cusGym")
+            let icon = this.getFreeIconPt()
+            if (icon) {
+                let btn = icon.getComponent(cc.Button)
+                if (btn) btn.enabled = false
+                if (icon.children[1]) icon.children[1].active = true
+            }
+            let spawnCus = cus
+            let parentName = cusComp.parentName
+            let iconBtn = icon
+            this.scheduleOnce(() => {
+                if (!spawnCus || !spawnCus.isValid || !this.isCusWaitingForPt(spawnCus)) {
+                    if (iconBtn) {
+                        let btn = iconBtn.getComponent(cc.Button)
+                        if (btn) btn.enabled = true
+                        if (iconBtn.children[1]) iconBtn.children[1].active = false
+                    }
+                    return
+                }
+                if (!this.addPt(spawnCus, parentName, iconBtn)) {
+                    if (iconBtn) {
+                        let btn = iconBtn.getComponent(cc.Button)
+                        if (btn) btn.enabled = true
+                        if (iconBtn.children[1]) iconBtn.children[1].active = false
+                    }
+                }
+            }, delay)
+            delay += 0.12
         }
     }
     createCoin(node, value) {
@@ -925,9 +1030,11 @@ export default class NewClass extends cc.Component {
         coin.parent = this.node;
         coin.position = pos.add(cc.v3(0, 50))
         globalThis.gold += value
+        cc.audioEngine.play(this.soundCoin, false, 1)
+
     }
     moveCus(value) {
-        cc.audioEngine.play(this.soundCoin, false, 1)
+        // cc.audioEngine.play(this.soundCoin, false, 1)
         if (value == 1) {
             let char = this.arrCrunch[0].getChildByName("char")
             char.active = true;
@@ -1073,9 +1180,23 @@ export default class NewClass extends cc.Component {
     //     }
     // }
     onEndgame() {
+        if (this.isEndgame) return
+        this.isEndgame = true
         cc.audioEngine.play(this.soundWin, false, 1)
         this.endCard.active = true;
         this.linkToStore.active = true
+    }
+    startCountDown() {
+        let timeComp = this.node.getComponentInChildren("time")
+        if (timeComp && timeComp.startCountDown) {
+            timeComp.startCountDown()
+        }
+    }
+    addCountDownTime(sec) {
+        let timeComp = this.node.getComponentInChildren("time")
+        if (timeComp && timeComp.addTime) {
+            timeComp.addTime(sec)
+        }
     }
     // move2() {
     //     this.scheduleOnce(() => {

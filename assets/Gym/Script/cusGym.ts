@@ -66,6 +66,7 @@ export default class NewClass extends cc.Component {
         if (this.isQueueMoving) return
         let moved = this.gamePlay.doCus(this.tag, this.node)
         if (!moved) return
+        this.gamePlay.startCountDown()
         let btn = event.currentTarget
         btn.getComponent(cc.Button).enabled = false
         let hand = this.pop.getChildByName("hand")
@@ -88,9 +89,9 @@ export default class NewClass extends cc.Component {
         this.anim.setAnimation(0, "Waiting3", true)
     }
     happy() {
-        if (this.soundHappy) {
-            cc.audioEngine.play(this.soundHappy, false, 1)
-        }
+        // if (this.soundHappy) {
+        //     cc.audioEngine.play(this.soundHappy, false, 1)
+        // }
         this.anim.setAnimation(0, "HappyOut", true);
 
 

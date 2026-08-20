@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Google_Play_icon",
+    "texture": "cc4350ad-9480-455c-9c3f-728be5b1ad81",
+    "atlas": "",
+    "rect": [
+      26,
+      34,
+      979,
+      287
+    ],
+    "offset": [
+      1,
+      0
+    ],
+    "originalSize": [
+      1029,
+      355
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

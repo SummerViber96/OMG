@@ -90,6 +90,7 @@ var NewClass = /** @class */ (function (_super) {
         var moved = this.gamePlay.doCus(this.tag, this.node);
         if (!moved)
             return;
+        this.gamePlay.startCountDown();
         var btn = event.currentTarget;
         btn.getComponent(cc.Button).enabled = false;
         var hand = this.pop.getChildByName("hand");
@@ -112,9 +113,9 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(0, "Waiting3", true);
     };
     NewClass.prototype.happy = function () {
-        if (this.soundHappy) {
-            cc.audioEngine.play(this.soundHappy, false, 1);
-        }
+        // if (this.soundHappy) {
+        //     cc.audioEngine.play(this.soundHappy, false, 1)
+        // }
         this.anim.setAnimation(0, "HappyOut", true);
     };
     NewClass.prototype.boxing = function () {
