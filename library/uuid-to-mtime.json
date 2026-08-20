@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1786978825092,
-    "meta": 1787197211791,
+    "meta": 1787224362997,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2631,7 +2631,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1786978826318,
-    "meta": 1787197212098,
+    "meta": 1787224363000,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -10865,8 +10865,8 @@
     "relativePath": "CreamCafe\\Station.png"
   },
   "c03eff2d-ccd7-4f60-8e4a-8f5476efbe56": {
-    "asset": 1787197092128,
-    "meta": 1787197186857,
+    "asset": 1787219940105,
+    "meta": 1787224362989,
     "relativePath": "Gym"
   },
   "4c225839-02fe-4aa3-8b58-d28f389834ba": {
@@ -12030,8 +12030,8 @@
     "relativePath": "Gym\\anim\\pop_show.anim"
   },
   "e86ba0b1-baa8-45cb-a3b4-3e36d95d1746": {
-    "asset": 1787197087507,
-    "meta": 1787197192427,
+    "asset": 1787223069005,
+    "meta": 1787224362990,
     "relativePath": "Gym\\Script"
   },
   "e890b120-e213-4922-a3ca-25f8bcdf89be": {
@@ -12855,8 +12855,8 @@
     "relativePath": "Gym\\sound\\Boy_Ohyeah.mp3"
   },
   "a5f6be45-bff0-46c7-a795-f45b09f360c8": {
-    "asset": 1787197092333,
-    "meta": 1787197179498,
+    "asset": 1787221836029,
+    "meta": 1787224362968,
     "relativePath": "_allAsset"
   },
   "218b6ba6-19c2-4db2-8827-155389c1ffcf": {
@@ -14495,8 +14495,8 @@
     "relativePath": "_allAsset\\anim\\door_open.anim"
   },
   "63263a68-5fcb-4244-a74f-a6eb8bd3365e": {
-    "asset": 1787197092296,
-    "meta": 1787197179499,
+    "asset": 1787223620506,
+    "meta": 1787224362969,
     "relativePath": "_allAsset\\anim"
   },
   "d2dbaed0-88d7-4589-ae3e-6003c28b9e18": {
@@ -14620,8 +14620,8 @@
     "relativePath": "Gym\\prefab\\listPt\\pt4.prefab"
   },
   "f1ea1cf2-6844-4f3e-a0f0-d81a75049349": {
-    "asset": 1787197091773,
-    "meta": 1787197192321,
+    "asset": 1787222974665,
+    "meta": 1787224362989,
     "relativePath": "Gym\\prefab\\listCus"
   },
   "9317423b-6ae0-4021-8484-25e9cae9a2b6": {
@@ -14665,8 +14665,8 @@
     "relativePath": "Gym\\Script\\Machine.ts"
   },
   "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787223935245,
-    "meta": 1787223935266,
+    "asset": 1787224490131,
+    "meta": 1787224490149,
     "relativePath": "scenes\\Gym.fire"
   },
   "aa145222-bdff-4cd6-9334-8e0be1fe0ddd": {
@@ -14675,8 +14675,8 @@
     "relativePath": "Bracelet"
   },
   "ea4cba5b-8cf1-4824-9d20-f0bd7477ad1f": {
-    "asset": 1787219938590,
-    "meta": 1787219938591,
+    "asset": 1787221691015,
+    "meta": 1787224362991,
     "relativePath": "Gym\\ui"
   },
   "23cff2bf-ab7c-4925-944e-ba13b1249406": {
@@ -14735,8 +14735,8 @@
     "relativePath": "_allAsset\\anim\\noti_show.anim"
   },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787224076266,
-    "meta": 1787224077964,
+    "asset": 1787224183442,
+    "meta": 1787224185087,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

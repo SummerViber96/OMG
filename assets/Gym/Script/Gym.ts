@@ -256,13 +256,13 @@ export default class NewClass extends cc.Component {
         let cusComp = cus.getComponent("cusGym")
         cusComp.isQueueMoving = true
         cus.position = startPos
-        cus.scaleX = -1
+        // Prefab quay trái (scaleX=1) → đi sang phải cần scaleX=-1
+        this.faceCusByDir(cus, startPos, midPos)
         let anim = cus.children[0].getComponent(sp.Skeleton)
-        anim.setAnimation(0, "WalkInR", true)
-        this.faceCusByDir(cus, midPos, posEnd)
-
+        anim.setAnimation(0, "WalkInL", true)
         cc.Tween.stopAllByTarget(cus)
         cc.tween(cus).to(1, { position: midPos }).call(() => {
+            this.faceCusByDir(cus, midPos, posEnd)
         }).to(0.8, { position: posEnd }).call(() => {
             cus.scaleX = 1
             if (cusComp.isAngryWait) {

@@ -239,6 +239,7 @@ var NewClass = /** @class */ (function (_super) {
         cus.scaleX = toPos.x < fromPos.x ? 1 : -1;
     };
     NewClass.prototype.spawCustomer = function () {
+        var _this = this;
         if (this.arrCus.length >= this.arrPosCus.length)
             return;
         var queueIndex = this.arrCus.length;
@@ -252,12 +253,13 @@ var NewClass = /** @class */ (function (_super) {
         var cusComp = cus.getComponent("cusGym");
         cusComp.isQueueMoving = true;
         cus.position = startPos;
-        cus.scaleX = -1;
+        // Prefab quay trái (scaleX=1) → đi sang phải cần scaleX=-1
+        this.faceCusByDir(cus, startPos, midPos);
         var anim = cus.children[0].getComponent(sp.Skeleton);
-        anim.setAnimation(0, "WalkInR", true);
-        this.faceCusByDir(cus, midPos, posEnd);
+        anim.setAnimation(0, "WalkInL", true);
         cc.Tween.stopAllByTarget(cus);
         cc.tween(cus).to(1, { position: midPos }).call(function () {
+            _this.faceCusByDir(cus, midPos, posEnd);
         }).to(0.8, { position: posEnd }).call(function () {
             cus.scaleX = 1;
             if (cusComp.isAngryWait) {

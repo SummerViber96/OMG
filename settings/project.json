@@ -16,10 +16,8 @@
     "Collider",
     "DragonBones",
     "EditBox",
-    "Graphics",
     "Geom Utils",
     "Intersection",
-    "Mask",
     "Mesh",
     "MotionStreak",
     "NodePool",
@@ -66,5 +64,5 @@
       "enable": false
     }
   },
-  "last-module-event-record-time": 1776888124816
+  "last-module-event-record-time": 1787224248106
 }

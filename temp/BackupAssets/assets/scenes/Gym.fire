@@ -40943,13 +40943,15 @@
       "__id__": 890
     },
     "_enabled": true,
-    "_defaultClip": null,
+    "_defaultClip": {
+      "__uuid__": "d6b8fadb-37d4-4d69-83eb-9af4b863b069"
+    },
     "_clips": [
       {
         "__uuid__": "d6b8fadb-37d4-4d69-83eb-9af4b863b069"
       }
     ],
-    "playOnLoad": false,
+    "playOnLoad": true,
     "_id": "190cZ12xtGervSEpM29tSh"
   },
   {
