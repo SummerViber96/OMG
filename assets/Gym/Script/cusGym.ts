@@ -115,4 +115,10 @@ export default class NewClass extends cc.Component {
         }
     }
     // update (dt) {}
+    update(dt) {
+        if (!this.gamePlay || !this.gamePlay.sortLayer) return
+        if (this.node.parent === this.gamePlay.sortLayer) {
+            this.node.zIndex = -Math.round(this.node.y)
+        }
+    }
 }

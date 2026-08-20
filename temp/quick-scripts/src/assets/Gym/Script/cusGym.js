@@ -41,7 +41,6 @@ var NewClass = /** @class */ (function (_super) {
         _this.isAngryWait = false;
         _this.gamePlay = null;
         return _this;
-        // update (dt) {}
     }
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym");
@@ -133,6 +132,14 @@ var NewClass = /** @class */ (function (_super) {
             case 2:
                 this.anim.setAnimation(0, "IdleFL", true);
                 break;
+        }
+    };
+    // update (dt) {}
+    NewClass.prototype.update = function (dt) {
+        if (!this.gamePlay || !this.gamePlay.sortLayer)
+            return;
+        if (this.node.parent === this.gamePlay.sortLayer) {
+            this.node.zIndex = -Math.round(this.node.y);
         }
     };
     __decorate([

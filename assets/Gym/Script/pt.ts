@@ -220,6 +220,6 @@ export default class NewClass extends cc.Component {
         }
     }
     update(dt) {
-        // this.node.zIndex=-this.node.y
+        this.node.zIndex = -Math.round(this.node.y)
     }
 }

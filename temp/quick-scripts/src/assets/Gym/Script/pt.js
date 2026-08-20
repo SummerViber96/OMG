@@ -226,7 +226,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.update = function (dt) {
-        // this.node.zIndex=-this.node.y
+        this.node.zIndex = -Math.round(this.node.y);
     };
     __decorate([
         property(sp.Skeleton)

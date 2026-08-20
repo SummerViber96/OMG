@@ -67,6 +67,8 @@ export default class NewClass extends cc.Component {
     listIconPt: cc.Node = null;
     @property(cc.Node)
     listPt: cc.Node = null
+    @property(cc.Node)
+    sortLayer: cc.Node = null
     @property(cc.Prefab)
     preCoin: cc.Prefab = null;
     @property([cc.Prefab])
@@ -87,6 +89,7 @@ export default class NewClass extends cc.Component {
     ptBusyMachines = {}
     isGameStarted = false
     guidingIconPt = false
+    hideQueueHandGuide = false
     isHind = false
     adChanel = '{{__adv_channels_adapter__}}'
     posGapBung = cc.v3(-30, -19);
@@ -98,9 +101,11 @@ export default class NewClass extends cc.Component {
         }
         cc.audioEngine.play(this.soundBG, true, 0.5)
         this.scheduleOnce(() => {
-            for (let i = 0; i < 3; i++) {
-                let child = this.listCusNode.children[i];
-                child.getChildByName("pop").active = true
+            for (let i = 0; i < Math.min(3, this.arrCus.length); i++) {
+                let child = this.arrCus[i];
+                if (child && child.isValid) {
+                    child.getChildByName("pop").active = true
+                }
             }
             this.textGuild1.active = true
         }, 0.6)
@@ -118,6 +123,107 @@ export default class NewClass extends cc.Component {
             let pos = this.listPlacePos.children[i].position
             this.arrPosCus.push(cc.v3(pos.x, pos.y, pos.z))
         }
+        this.setupSortLayer()
+        this.rebuildQueuePosInSortLayer()
+        for (let i = 0; i < this.arrCus.length; i++) {
+            this.attachToSortLayer(this.arrCus[i])
+        }
+        this.refreshSortLayerDepth()
+    }
+
+    setupSortLayer() {
+        let doorParent = this.door ? this.door.parent : null
+        let parent = (doorParent && doorParent.parent)
+            || (this.listCrunch && this.listCrunch.parent)
+            || this.game
+            || this.node
+
+        if (!this.sortLayer || !this.sortLayer.isValid) {
+            this.sortLayer = new cc.Node("SortLayer")
+            this.sortLayer.parent = parent
+            this.sortLayer.setPosition(0, 0)
+            if (doorParent && doorParent.parent === parent) {
+                this.sortLayer.setSiblingIndex(doorParent.getSiblingIndex())
+            } else if (this.listCrunch && this.listCrunch.parent === parent) {
+                this.sortLayer.setSiblingIndex(this.listCrunch.getSiblingIndex())
+            }
+        }
+
+        let nodes = []
+        for (let i = 0; i < this.arrCrunch.length; i++) {
+            nodes.push(this.arrCrunch[i])
+        }
+        for (let i = 0; i < this.arrMayDay.length; i++) {
+            if (this.arrMayDay[i]) nodes.push(this.arrMayDay[i])
+        }
+        if (doorParent && doorParent !== parent && doorParent !== this.sortLayer) {
+            nodes.push(doorParent)
+        } else if (this.door) {
+            nodes.push(this.door)
+        }
+        if (this.boxing1) nodes.push(this.boxing1)
+        if (this.boxing2) nodes.push(this.boxing2)
+        if (this.dayTa1) nodes.push(this.dayTa1)
+        if (this.listPt) nodes.push(this.listPt)
+
+        for (let i = 0; i < nodes.length; i++) {
+            this.attachToSortLayer(nodes[i])
+        }
+        this.refreshSortLayerDepth()
+        this.setDepthByY(this.sortLayer)
+    }
+
+    rebuildQueuePosInSortLayer() {
+        let layer = this.sortLayer
+        if (!layer || !this.listPlacePos) return
+        this.arrPosCus = []
+        for (let i = 0; i < this.listPlacePos.childrenCount; i++) {
+            let place = this.listPlacePos.children[i]
+            let worldPos = place.parent.convertToWorldSpaceAR(place.position)
+            let localPos = layer.convertToNodeSpaceAR(worldPos)
+            this.arrPosCus.push(cc.v3(localPos.x, localPos.y, localPos.z))
+        }
+    }
+    toSortLayerPos(fromParent, localPos) {
+        let layer = this.sortLayer || this.node
+        if (!fromParent || fromParent === layer) {
+            return cc.v3(localPos.x, localPos.y, localPos.z)
+        }
+        let worldPos = fromParent.convertToWorldSpaceAR(localPos)
+        let pos = layer.convertToNodeSpaceAR(worldPos)
+        return cc.v3(pos.x, pos.y, pos.z)
+    }
+
+    getSortLayer() {
+        if (!this.sortLayer || !this.sortLayer.isValid) {
+            this.setupSortLayer()
+        }
+        return this.sortLayer || this.node
+    }
+    setDepthByY(node) {
+        if (!node || !node.isValid) return
+        node.zIndex = -Math.round(node.y)
+    }
+    attachToSortLayer(node) {
+        let layer = this.sortLayer || this.node
+        if (!node || !node.isValid) return
+        if (node.parent === layer) {
+            this.setDepthByY(node)
+            return
+        }
+        let worldPos = node.parent
+            ? node.parent.convertToWorldSpaceAR(node.position)
+            : node.position
+        node.parent = layer
+        node.position = layer.convertToNodeSpaceAR(worldPos)
+        this.setDepthByY(node)
+    }
+    refreshSortLayerDepth() {
+        let layer = this.sortLayer
+        if (!layer) return
+        for (let i = 0; i < layer.childrenCount; i++) {
+            this.setDepthByY(layer.children[i])
+        }
     }
 
     getQueuePos(index) {
@@ -130,16 +236,19 @@ export default class NewClass extends cc.Component {
         let queueIndex = this.arrCus.length
         let posEnd = this.getQueuePos(queueIndex)
         let cus = cc.instantiate(this.listPreCus[this.countCus])
-        cus.parent = this.listCusNode;
+        let spawnParent = this.listCusNode || this.node
+        let startPos = this.toSortLayerPos(spawnParent, cc.v3(-934, -632))
+        let midPos = this.toSortLayerPos(spawnParent, cc.v3(-675, -435))
+        this.attachToSortLayer(cus)
 
         this.arrCus.push(cus);
         let cusComp = cus.getComponent("cusGym")
         cusComp.isQueueMoving = true
-        cus.position = cc.v3(-934, -632)
+        cus.position = startPos
         let anim = cus.children[0].getComponent(sp.Skeleton)
         anim.setAnimation(0, "WalkInR", true)
         cc.Tween.stopAllByTarget(cus)
-        cc.tween(cus).to(1, { position: cc.v3(-675, -435) }).call(() => {
+        cc.tween(cus).to(1, { position: midPos }).call(() => {
             cus.scaleX = -1
         }).to(0.8, { position: posEnd }).call(() => {
             cus.scaleX = 1
@@ -390,6 +499,7 @@ export default class NewClass extends cc.Component {
         this.hideAllQueueHands()
         if (this.isStep < 4) return
         if (this.guidingIconPt) return
+        if (this.hideQueueHandGuide) return
         for (let i = 0; i < this.arrCus.length; i++) {
             let cus = this.arrCus[i]
             if (!this.canClickQueueCus(cus)) continue
@@ -419,7 +529,7 @@ export default class NewClass extends cc.Component {
                 this.arrCus[1].getChildByName("pop").getComponent(cc.Button).enabled = true
             }, 1)
             this.scheduleOnce(() => {
-                pt.parent = this.node
+                this.attachToSortLayer(pt)
 
             }, 0.3)
             this.door.getComponent(cc.Animation).play("door_open")
@@ -450,7 +560,7 @@ export default class NewClass extends cc.Component {
 
             }, 1)
             this.scheduleOnce(() => {
-                pt.parent = this.node
+                this.attachToSortLayer(pt)
             }, 0.2)
             this.scheduleOnce(() => {
                 this.door.getComponent(cc.Animation).play("door_close")
@@ -475,7 +585,7 @@ export default class NewClass extends cc.Component {
                 this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true
             }, 1)
             this.scheduleOnce(() => {
-                pt.parent = this.node
+                this.attachToSortLayer(pt)
             }, 0.2)
             this.scheduleOnce(() => {
                 this.door.getComponent(cc.Animation).play("door_close")
@@ -595,7 +705,7 @@ export default class NewClass extends cc.Component {
 
         this.countpt++;
         this.scheduleOnce(() => {
-            pt.parent = this.node
+            this.attachToSortLayer(pt)
 
         }, 0.3)
         if (this.countpt > 3) {
@@ -715,9 +825,10 @@ export default class NewClass extends cc.Component {
     finishCusWorkout(char, posDone, coin) {
         if (!char || !char.isValid) return
         this.removeFromWaiting(char)
-        char.parent = this.node;
+        let donePos = this.toSortLayerPos(this.node, posDone)
+        this.attachToSortLayer(char)
         char.getComponent("cusGym").happy()
-        char.position = posDone
+        char.position = donePos
         char.scale = 0.8
         this.createCoin(char, coin)
         cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start()
@@ -736,6 +847,10 @@ export default class NewClass extends cc.Component {
         this.arrWaiting = []
         this.ptBusyMachines = {}
         this.unschedule(this.spawCustomer)
+        for (let i = this.arrCus.length - 1; i >= 0; i--) {
+            let cus = this.arrCus[i]
+            if (cus && cus.isValid) cus.destroy()
+        }
         for (let i = this.listCusNode.childrenCount - 1; i >= 0; i--) {
             this.listCusNode.children[i].destroy()
         }
@@ -760,6 +875,8 @@ export default class NewClass extends cc.Component {
     zoomGame(){
         cc.tween(this.camera).to(0.8, { zoomRatio: 2 }).start()
         cc.tween(this.camera.node).to(0.8, { position: cc.v3(-494, -296) }).start()
+        this.hideQueueHandGuide = true
+        this.hideAllQueueHands()
         while (this.arrCus.length < 5 && this.arrCus.length < this.arrPosCus.length) {
             this.spawCustomer()
         }

@@ -60,6 +60,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.door = null;
         _this.listIconPt = null;
         _this.listPt = null;
+        _this.sortLayer = null;
         _this.preCoin = null;
         _this.listPrePt = [];
         _this.listPreCus = [];
@@ -76,6 +77,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.ptBusyMachines = {};
         _this.isGameStarted = false;
         _this.guidingIconPt = false;
+        _this.hideQueueHandGuide = false;
         _this.isHind = false;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.posGapBung = cc.v3(-30, -19);
@@ -94,9 +96,11 @@ var NewClass = /** @class */ (function (_super) {
         }
         cc.audioEngine.play(this.soundBG, true, 0.5);
         this.scheduleOnce(function () {
-            for (var i = 0; i < 3; i++) {
-                var child = _this.listCusNode.children[i];
-                child.getChildByName("pop").active = true;
+            for (var i = 0; i < Math.min(3, _this.arrCus.length); i++) {
+                var child = _this.arrCus[i];
+                if (child && child.isValid) {
+                    child.getChildByName("pop").active = true;
+                }
             }
             _this.textGuild1.active = true;
         }, 0.6);
@@ -113,6 +117,112 @@ var NewClass = /** @class */ (function (_super) {
             var pos = this.listPlacePos.children[i].position;
             this.arrPosCus.push(cc.v3(pos.x, pos.y, pos.z));
         }
+        this.setupSortLayer();
+        this.rebuildQueuePosInSortLayer();
+        for (var i = 0; i < this.arrCus.length; i++) {
+            this.attachToSortLayer(this.arrCus[i]);
+        }
+        this.refreshSortLayerDepth();
+    };
+    NewClass.prototype.setupSortLayer = function () {
+        var doorParent = this.door ? this.door.parent : null;
+        var parent = (doorParent && doorParent.parent)
+            || (this.listCrunch && this.listCrunch.parent)
+            || this.game
+            || this.node;
+        if (!this.sortLayer || !this.sortLayer.isValid) {
+            this.sortLayer = new cc.Node("SortLayer");
+            this.sortLayer.parent = parent;
+            this.sortLayer.setPosition(0, 0);
+            if (doorParent && doorParent.parent === parent) {
+                this.sortLayer.setSiblingIndex(doorParent.getSiblingIndex());
+            }
+            else if (this.listCrunch && this.listCrunch.parent === parent) {
+                this.sortLayer.setSiblingIndex(this.listCrunch.getSiblingIndex());
+            }
+        }
+        var nodes = [];
+        for (var i = 0; i < this.arrCrunch.length; i++) {
+            nodes.push(this.arrCrunch[i]);
+        }
+        for (var i = 0; i < this.arrMayDay.length; i++) {
+            if (this.arrMayDay[i])
+                nodes.push(this.arrMayDay[i]);
+        }
+        if (doorParent && doorParent !== parent && doorParent !== this.sortLayer) {
+            nodes.push(doorParent);
+        }
+        else if (this.door) {
+            nodes.push(this.door);
+        }
+        if (this.boxing1)
+            nodes.push(this.boxing1);
+        if (this.boxing2)
+            nodes.push(this.boxing2);
+        if (this.dayTa1)
+            nodes.push(this.dayTa1);
+        if (this.listPt)
+            nodes.push(this.listPt);
+        for (var i = 0; i < nodes.length; i++) {
+            this.attachToSortLayer(nodes[i]);
+        }
+        this.refreshSortLayerDepth();
+        this.setDepthByY(this.sortLayer);
+    };
+    NewClass.prototype.rebuildQueuePosInSortLayer = function () {
+        var layer = this.sortLayer;
+        if (!layer || !this.listPlacePos)
+            return;
+        this.arrPosCus = [];
+        for (var i = 0; i < this.listPlacePos.childrenCount; i++) {
+            var place = this.listPlacePos.children[i];
+            var worldPos = place.parent.convertToWorldSpaceAR(place.position);
+            var localPos = layer.convertToNodeSpaceAR(worldPos);
+            this.arrPosCus.push(cc.v3(localPos.x, localPos.y, localPos.z));
+        }
+    };
+    NewClass.prototype.toSortLayerPos = function (fromParent, localPos) {
+        var layer = this.sortLayer || this.node;
+        if (!fromParent || fromParent === layer) {
+            return cc.v3(localPos.x, localPos.y, localPos.z);
+        }
+        var worldPos = fromParent.convertToWorldSpaceAR(localPos);
+        var pos = layer.convertToNodeSpaceAR(worldPos);
+        return cc.v3(pos.x, pos.y, pos.z);
+    };
+    NewClass.prototype.getSortLayer = function () {
+        if (!this.sortLayer || !this.sortLayer.isValid) {
+            this.setupSortLayer();
+        }
+        return this.sortLayer || this.node;
+    };
+    NewClass.prototype.setDepthByY = function (node) {
+        if (!node || !node.isValid)
+            return;
+        node.zIndex = -Math.round(node.y);
+    };
+    NewClass.prototype.attachToSortLayer = function (node) {
+        var layer = this.sortLayer || this.node;
+        if (!node || !node.isValid)
+            return;
+        if (node.parent === layer) {
+            this.setDepthByY(node);
+            return;
+        }
+        var worldPos = node.parent
+            ? node.parent.convertToWorldSpaceAR(node.position)
+            : node.position;
+        node.parent = layer;
+        node.position = layer.convertToNodeSpaceAR(worldPos);
+        this.setDepthByY(node);
+    };
+    NewClass.prototype.refreshSortLayerDepth = function () {
+        var layer = this.sortLayer;
+        if (!layer)
+            return;
+        for (var i = 0; i < layer.childrenCount; i++) {
+            this.setDepthByY(layer.children[i]);
+        }
     };
     NewClass.prototype.getQueuePos = function (index) {
         var pos = this.arrPosCus[index];
@@ -124,15 +234,18 @@ var NewClass = /** @class */ (function (_super) {
         var queueIndex = this.arrCus.length;
         var posEnd = this.getQueuePos(queueIndex);
         var cus = cc.instantiate(this.listPreCus[this.countCus]);
-        cus.parent = this.listCusNode;
+        var spawnParent = this.listCusNode || this.node;
+        var startPos = this.toSortLayerPos(spawnParent, cc.v3(-934, -632));
+        var midPos = this.toSortLayerPos(spawnParent, cc.v3(-675, -435));
+        this.attachToSortLayer(cus);
         this.arrCus.push(cus);
         var cusComp = cus.getComponent("cusGym");
         cusComp.isQueueMoving = true;
-        cus.position = cc.v3(-934, -632);
+        cus.position = startPos;
         var anim = cus.children[0].getComponent(sp.Skeleton);
         anim.setAnimation(0, "WalkInR", true);
         cc.Tween.stopAllByTarget(cus);
-        cc.tween(cus).to(1, { position: cc.v3(-675, -435) }).call(function () {
+        cc.tween(cus).to(1, { position: midPos }).call(function () {
             cus.scaleX = -1;
         }).to(0.8, { position: posEnd }).call(function () {
             cus.scaleX = 1;
@@ -395,6 +508,8 @@ var NewClass = /** @class */ (function (_super) {
             return;
         if (this.guidingIconPt)
             return;
+        if (this.hideQueueHandGuide)
+            return;
         for (var i = 0; i < this.arrCus.length; i++) {
             var cus = this.arrCus[i];
             if (!this.canClickQueueCus(cus))
@@ -425,7 +540,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.arrCus[1].getChildByName("pop").getComponent(cc.Button).enabled = true;
             }, 1);
             this.scheduleOnce(function () {
-                pt.parent = _this.node;
+                _this.attachToSortLayer(pt);
             }, 0.3);
             this.door.getComponent(cc.Animation).play("door_open");
             this.scheduleOnce(function () {
@@ -449,7 +564,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.arrCus[2].getChildByName("pop").getComponent(cc.Button).enabled = true;
             }, 1);
             this.scheduleOnce(function () {
-                pt.parent = _this.node;
+                _this.attachToSortLayer(pt);
             }, 0.2);
             this.scheduleOnce(function () {
                 _this.door.getComponent(cc.Animation).play("door_close");
@@ -471,7 +586,7 @@ var NewClass = /** @class */ (function (_super) {
                 _this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true;
             }, 1);
             this.scheduleOnce(function () {
-                pt.parent = _this.node;
+                _this.attachToSortLayer(pt);
             }, 0.2);
             this.scheduleOnce(function () {
                 _this.door.getComponent(cc.Animation).play("door_close");
@@ -598,7 +713,7 @@ var NewClass = /** @class */ (function (_super) {
         ptComp.machineIndex = cusComp.parentIndex;
         this.countpt++;
         this.scheduleOnce(function () {
-            pt.parent = _this.node;
+            _this.attachToSortLayer(pt);
         }, 0.3);
         if (this.countpt > 3) {
             this.countpt = 0;
@@ -716,9 +831,10 @@ var NewClass = /** @class */ (function (_super) {
         if (!char || !char.isValid)
             return;
         this.removeFromWaiting(char);
-        char.parent = this.node;
+        var donePos = this.toSortLayerPos(this.node, posDone);
+        this.attachToSortLayer(char);
         char.getComponent("cusGym").happy();
-        char.position = posDone;
+        char.position = donePos;
         char.scale = 0.8;
         this.createCoin(char, coin);
         cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start();
@@ -739,6 +855,11 @@ var NewClass = /** @class */ (function (_super) {
         this.arrWaiting = [];
         this.ptBusyMachines = {};
         this.unschedule(this.spawCustomer);
+        for (var i = this.arrCus.length - 1; i >= 0; i--) {
+            var cus = this.arrCus[i];
+            if (cus && cus.isValid)
+                cus.destroy();
+        }
         for (var i = this.listCusNode.childrenCount - 1; i >= 0; i--) {
             this.listCusNode.children[i].destroy();
         }
@@ -762,6 +883,8 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         cc.tween(this.camera).to(0.8, { zoomRatio: 2 }).start();
         cc.tween(this.camera.node).to(0.8, { position: cc.v3(-494, -296) }).start();
+        this.hideQueueHandGuide = true;
+        this.hideAllQueueHands();
         while (this.arrCus.length < 5 && this.arrCus.length < this.arrPosCus.length) {
             this.spawCustomer();
         }
@@ -1180,6 +1303,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listPt", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "sortLayer", void 0);
     __decorate([
         property(cc.Prefab)
     ], NewClass.prototype, "preCoin", void 0);
