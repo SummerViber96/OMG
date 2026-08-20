@@ -694,6 +694,9 @@ export default class NewClass extends cc.Component {
             }
             this.updateQueueHand()
         }, 15)
+        this.scheduleOnce(() => {
+            // this.startGame()
+        }, 22)
 
     }
     createCoin(node, value) {
