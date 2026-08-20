@@ -57,6 +57,8 @@ export default class NewClass extends cc.Component {
     logo: cc.Node = null
     @property(cc.Node)
     textGuild1: cc.Node = null
+      @property(cc.Node)
+    textGuild2: cc.Node = null
     @property(cc.Node)
     door: cc.Node = null;
     @property(cc.Node)
@@ -80,6 +82,9 @@ export default class NewClass extends cc.Component {
     arrIconPt = []
     isStep = 0
     arrCrunch = []
+    ptBusyMachines = {}
+    isGameStarted = false
+    guidingIconPt = false
     isHind = false
     adChanel = '{{__adv_channels_adapter__}}'
     posGapBung = cc.v3(-30, -19);
@@ -108,27 +113,36 @@ export default class NewClass extends cc.Component {
             this.arrCrunch.push(this.listCrunch.children[i])
         }
         for (let i = 0; i < this.listPlacePos.childrenCount; i++) {
-            this.arrPosCus.push(this.listPlacePos.children[i].position)
+            let pos = this.listPlacePos.children[i].position
+            this.arrPosCus.push(cc.v3(pos.x, pos.y, pos.z))
         }
     }
 
+    getQueuePos(index) {
+        let pos = this.arrPosCus[index]
+        return cc.v3(pos.x, pos.y, pos.z)
+    }
     countCus = 0
     spawCustomer() {
-        if (this.arrCus.length > 7) return;
+        if (this.arrCus.length >= this.arrPosCus.length) return;
+        let queueIndex = this.arrCus.length
+        let posEnd = this.getQueuePos(queueIndex)
         let cus = cc.instantiate(this.listPreCus[this.countCus])
         cus.parent = this.listCusNode;
-        let posEnd = this.arrPosCus[this.arrCus.length % 6]
-        console.log(this.arrCus.length, this.arrCus.length % 6)
 
         this.arrCus.push(cus);
+        let cusComp = cus.getComponent("cusGym")
+        cusComp.isQueueMoving = true
         cus.position = cc.v3(-934, -632)
         let anim = cus.children[0].getComponent(sp.Skeleton)
         anim.setAnimation(0, "WalkInR", true)
+        cc.Tween.stopAllByTarget(cus)
         cc.tween(cus).to(1, { position: cc.v3(-675, -435) }).call(() => {
             cus.scaleX = -1
         }).to(0.8, { position: posEnd }).call(() => {
+            cus.scaleX = 1
             anim.setAnimation(0, "Waiting", true)
-            cus.getChildByName("pop").active = true
+            cusComp.showQueuePop()
 
         }).start()
         this.countCus++
@@ -162,13 +176,14 @@ export default class NewClass extends cc.Component {
 
 
             }
+            return true
         }
         else {
             if (tag == 0) {
                 for (let i = 0; i < this.arrCrunch.length; i++) {
                     if (!this.arrCrunch[i].getChildByName("char")) {
                         this.moveCusToCrunch(cus, i, tag)
-                        return;
+                        return true
                     }
                 }
             }
@@ -176,27 +191,40 @@ export default class NewClass extends cc.Component {
                 for (let i = 0; i < this.arrMayDay.length; i++) {
                     if (!this.arrMayDay[i].getChildByName("char")) {
                         this.moveCusToMayDay(cus, i, tag)
-                        return;
+                        return true
                     }
                 }
             }
             else if (tag == 2) {
                 if (!this.boxing1.getChildByName("char")) {
-                    this.moveCusToBoxing(cus, i, tag)
-
+                    this.moveCusToBoxing(cus, 0, tag)
+                    return true
                 }
             }
-
-
         }
-
+        return false
+    }
+    leaveQueue(cus) {
+        let index = this.arrCus.indexOf(cus)
+        if (index === -1) return
+        this.arrCus.splice(index, 1)
+        for (let i = index; i < this.arrCus.length; i++) {
+            let queueCus = this.arrCus[i]
+            let posEnd = this.getQueuePos(i)
+            let cusComp = queueCus.getComponent("cusGym")
+            let anim = queueCus.children[0].getComponent(sp.Skeleton)
+            cusComp.isQueueMoving = true
+            anim.setAnimation(0, "WalkInL", true)
+            cc.Tween.stopAllByTarget(queueCus)
+            cc.tween(queueCus).to(0.8, { position: posEnd }).call(() => {
+                queueCus.scaleX = 1
+                anim.setAnimation(0, "Waiting", true)
+                cusComp.showQueuePop()
+            }).start()
+        }
     }
     moveCusToCrunch(cus, value, tag) {
-        for (let i = 0; i < this.arrCus.length; i++) {
-            if (cus == this.arrCus[i]) {
-                this.arrCus.slice(i, 0)
-            }
-        }
+        this.leaveQueue(cus)
         let crunch = this.arrCrunch[value];
         cus.parent = crunch;
         cus.position = this.posGapBung;
@@ -215,11 +243,7 @@ export default class NewClass extends cc.Component {
 
     }
     moveCusToMayDay(cus, value, tag) {
-        for (let i = 0; i < this.arrCus.length; i++) {
-            if (cus == this.arrCus[i]) {
-                this.arrCus.slice(i, 0)
-            }
-        }
+        this.leaveQueue(cus)
         let may = this.arrMayDay[value]
         cus.parent = may;
         cus.position = this.posNangTa;
@@ -237,11 +261,7 @@ export default class NewClass extends cc.Component {
         cus.getComponent("cusGym").waitingTag(tag)
     }
     moveCusToBoxing(cus, value, tag) {
-        for (let i = 0; i < this.arrCus.length; i++) {
-            if (cus == this.arrCus[i]) {
-                this.arrCus.slice(i, 0)
-            }
-        }
+        this.leaveQueue(cus)
         cus.parent = this.boxing1
         cus.position = cc.v3(123, 23);
         cus.name = "char"
@@ -261,8 +281,69 @@ export default class NewClass extends cc.Component {
         node.getChildByName("hand").active = false
     }
     onIconPt(node) {
-        node.children[1].active = false;
-        node.getChildByName("hand").active = false
+        if (node) {
+            node.children[1].active = false;
+            node.getChildByName("hand").active = false
+            node.getComponent(cc.Button).enabled = true
+            this.guidingIconPt = false
+            this.updateQueueHand()
+        }
+
+    }
+    isIconPtFree(node) {
+        if (!node || !node.active) return false
+        let btn = node.getComponent(cc.Button)
+        if (btn && !btn.enabled) return false
+        // children[1] = busy overlay
+        if (node.children[1] && node.children[1].active) return false
+        return true
+    }
+    hideAllIconPtHands() {
+        for (let i = 0; i < this.arrIconPt.length; i++) {
+            let hand = this.arrIconPt[i].getChildByName("hand")
+            if (hand) hand.active = false
+        }
+    }
+    showFreeIconPtHand() {
+        this.hideAllIconPtHands()
+        this.hideAllQueueHands()
+        for (let i = 0; i < this.arrIconPt.length; i++) {
+            let icon = this.arrIconPt[i]
+            if (this.isIconPtFree(icon)) {
+                let hand = icon.getChildByName("hand")
+                if (hand) hand.active = true
+                this.guidingIconPt = true
+                return
+            }
+        }
+        this.guidingIconPt = false
+        this.updateQueueHand()
+    }
+    hideAllQueueHands() {
+        for (let i = 0; i < this.arrCus.length; i++) {
+            let cus = this.arrCus[i]
+            if (!cus || !cus.isValid) continue
+            let pop = cus.getChildByName("pop")
+            if (!pop) continue
+            let hand = pop.getChildByName("hand")
+            if (hand) hand.active = false
+        }
+    }
+    updateQueueHand() {
+        this.hideAllQueueHands()
+        if (this.isStep < 4) return
+        if (this.guidingIconPt) return
+        for (let i = 0; i < this.arrCus.length; i++) {
+            let cus = this.arrCus[i]
+            if (!cus || !cus.isValid) continue
+            let cusComp = cus.getComponent("cusGym")
+            if (!cusComp || cusComp.isQueueMoving) continue
+            let pop = cus.getChildByName("pop")
+            if (!pop || !pop.active) continue
+            let hand = pop.getChildByName("hand")
+            if (hand) hand.active = true
+            return
+        }
     }
     clickPt(event, tag) {
         let pt = null;
@@ -350,21 +431,87 @@ export default class NewClass extends cc.Component {
             this.offIconPt(this.arrIconPt[2])
         }
         else {
-
-            for (let i = 0; i < this.arrCus.length; i++) {
-                let cus = this.arrCus[i];
-
-
+            this.cleanupWaiting()
+            for (let i = 0; i < this.arrWaiting.length; i++) {
+                let cus = this.arrWaiting[i];
+                if (!this.isCusWaitingForPt(cus)) continue
                 let cusComp = cus.getComponent("cusGym")
-
-                if (cusComp.isPt == false) {
-                    let btn = event.currentTarget.getComponent(cc.Button);
-                    btn.enabled = false
-                    event.currentTarget.children[1].active=true
-                    this.addPt(cus, cusComp.parentName);
-                    return;
+                let btn = event.currentTarget.getComponent(cc.Button);
+                btn.enabled = false
+                event.currentTarget.children[1].active = true
+                if (!this.addPt(cus, cusComp.parentName, event.currentTarget)) {
+                    btn.enabled = true
+                    event.currentTarget.children[1].active = false
+                } else {
+                    this.guidingIconPt = false
+                    event.currentTarget.getChildByName("hand").active = false
+                    this.updateQueueHand()
                 }
+                return;
             }
+        }
+    }
+    cleanupWaiting() {
+        for (let i = this.arrWaiting.length - 1; i >= 0; i--) {
+            if (!this.isCusOnMachine(this.arrWaiting[i])) {
+                this.arrWaiting.splice(i, 1)
+            }
+        }
+    }
+    isCusOnMachine(cus) {
+        if (!cus || !cus.isValid) return false
+        let cusComp = cus.getComponent("cusGym")
+        if (!cusComp || !cusComp.parentNode || !cusComp.parentNode.isValid) return false
+        if (cus.parent !== cusComp.parentNode) return false
+        if (cus.name !== "char") return false
+        return true
+    }
+    isCusWaitingForPt(cus) {
+        if (!this.isCusOnMachine(cus)) return false
+        let cusComp = cus.getComponent("cusGym")
+        if (cusComp.isPt) return false
+        if (this.isMachinePtBusy(cusComp.parentName, cusComp.parentIndex)) return false
+        return true
+    }
+    removeFromWaiting(cus) {
+        let index = this.arrWaiting.indexOf(cus)
+        if (index !== -1) {
+            this.arrWaiting.splice(index, 1)
+        }
+    }
+    getMachineKey(parentName, index) {
+        return parentName + "_" + index
+    }
+    isMachinePtBusy(parentName, index) {
+        return !!this.ptBusyMachines[this.getMachineKey(parentName, index)]
+    }
+    setMachinePtBusy(parentName, index, busy) {
+        let key = this.getMachineKey(parentName, index)
+        if (busy) {
+            this.ptBusyMachines[key] = true
+        } else {
+            delete this.ptBusyMachines[key]
+        }
+    }
+    releaseMachinePt(parentName, index) {
+        this.setMachinePtBusy(parentName, index, false)
+    }
+    getPtTag(parentName, parentIndex) {
+        switch (parentName) {
+            case "Crunch":
+                switch (parentIndex) {
+                    case 0: return 0
+                    case 1: return 4
+                    case 2: return 5
+                    case 3: return 6
+                    default: return 0
+                }
+            case "MayDay":
+                return parentIndex === 0 ? 1 : 3
+            case "Boxing":
+                return 2
+            default:
+                return 0
         }
     }
     countpt = 0
@@ -376,137 +523,177 @@ export default class NewClass extends cc.Component {
 
         }, 0.7)
     }
-    addPt(cus, parentName) {
-        this.openDoor();
+    addPt(cus, parentName, btn) {
         let cusComp = cus.getComponent("cusGym");
+        if (!this.isCusWaitingForPt(cus)) {
+            return false
+        }
+        this.openDoor();
         cusComp.isPt = true
+        this.setMachinePtBusy(parentName, cusComp.parentIndex, true)
         let pt = cc.instantiate(this.listPrePt[this.countpt]);
         pt.parent = this.listPt;
-        pt.active=true
-        
+        pt.active = true
         pt.position = cc.v3(382.607, 121)
         let ptComp = pt.getComponent("pt");
+        ptComp.btn = btn
+        ptComp.machineParentName = parentName
+        ptComp.machineIndex = cusComp.parentIndex
+
         this.countpt++;
+        this.scheduleOnce(() => {
+            pt.parent = this.node
+
+        }, 0.3)
         if (this.countpt > 3) {
             this.countpt = 0
         }
-        let value = 0
-        console.log(parentName)
-        switch (cusComp.parentName) {
-            case "Crunch":
-                // ptComp.tag = cusComp.parentNode.getComponent("Machine").tag
-                if (ptComp.tag == 1) {
-                    value = 4
-                }
-                else if (ptComp.tag == 2) {
-                    value = 5
-                }
-                else if (ptComp.tag == 3) {
-                    value = 6
-                }
-                let fnc = () => {
-                    this.activeCus(value)
-                }
-                ptComp.tag = value
-                ptComp.moveIn(fnc)
-                break;
-            case "MayDay":
-                ptComp.tag = cusComp.parentNode.getComponent("Machine").tag
-                if (ptComp.tag == 0) {
-                    value = 1
-                }
-                else {
-                    value = 3
-                }
-                let fnc2 = () => {
-                    this.activeCus(value)
-                }
-                ptComp.tag = value
-
-                ptComp.moveIn(fnc2)
-                break;
-            case "Boxing":
-                let fnc3 = () => {
-                    this.activeCus(2)
-                }
-                ptComp.moveIn(fnc3)
-                break;
+        let tag = this.getPtTag(parentName, cusComp.parentIndex)
+        ptComp.tag = Number(tag)
+        let targetCus = cus
+        let fnc = () => {
+            this.activeCus(Number(tag), targetCus)
         }
-
+        ptComp.moveIn(fnc)
+        return true
     }
     isCountAction = 0
-    activeCus(value) {
-        let char = null
+    activeCus(value, cus = null) {
+        let char = cus && this.isCusOnMachine(cus) ? cus : null
+        if (!char) {
+            char = this.getCharByPtTag(value)
+        }
+        if (!char) {
+            console.warn("activeCus: missing char for tag", value)
+            return
+        }
+        this.removeFromWaiting(char)
+        let cusComp = char.getComponent("cusGym")
+        if (cusComp) {
+            cusComp.isPt = true
+        }
         switch (value) {
             case 0:
-                char = this.arrCrunch[0].getChildByName("char")
                 char.getComponent("cusGym").gapBung()
                 char.position = cc.v3(1, -16)
                 this.arrCrunch[0].children[0].active = false
                 this.arrCrunch[0].children[1].active = true
                 this.scheduleOnce(() => {
-                    char.parent = this.node;
-                    char.getComponent("cusGym").happy()
-                    char.position = this.arrPosDone[0]
-                    char.scale = 0.8
-                    this.createCoin(char, 4)
-
-                    cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start()
+                    this.finishCusWorkout(char, this.arrPosDone[0], 4)
                 }, 2)
                 break;
             case 1:
-                char = this.dayTa1.getChildByName("char")
                 char.getComponent("cusGym").dayTa()
                 this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true)
-                this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true)
+                this.dayTa1.getChildByName("G1_AbCrunch").getComponent(sp.Skeleton).setAnimation(0, "Action", true)
                 char.position = cc.v3(-15.771 + 14, 7 - 5)
                 this.scheduleOnce(() => {
                     this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true)
-                    this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Idle", true)
-                    char.parent = this.node;
-                    char.getComponent("cusGym").happy()
-                    char.position = this.arrPosDoneCrunch[0]
-                    char.scale = 0.8
-                    this.createCoin(char, 6)
-
-                    cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start()
+                    this.dayTa1.getChildByName("G1_AbCrunch").getComponent(sp.Skeleton).setAnimation(0, "Idle", true)
+                    this.finishCusWorkout(char, this.arrPosDoneCrunch[0], 6)
                 }, 2)
                 break;
             case 2:
                 this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
-
-                char = this.boxing1.getChildByName("char")
                 char.getComponent("cusGym").boxing()
                 this.startGame()
 
                 this.scheduleOnce(() => {
                     this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true);
-
-                    char.parent = this.node;
-                    char.getComponent("cusGym").happy()
-                    char.position = cc.v3(647, - 66)
-                    char.scale = 0.8
-                    this.createCoin(char, 6)
-
-                    this.startGame()
                     this.isStep = 4
-
-                    cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start()
+                    this.finishCusWorkout(char, cc.v3(647, -66), 6)
+                }, 2)
+                break;
+            case 3:
+                let mayDay2 = this.arrMayDay[1]
+                char.getComponent("cusGym").dayTa()
+                mayDay2.getComponent(sp.Skeleton).setAnimation(0, "Action", true)
+                mayDay2.getChildByName("G1_AbCrunch").getComponent(sp.Skeleton).setAnimation(0, "Action", true)
+                char.position = cc.v3(-15.771 + 14, 7 - 5)
+                this.scheduleOnce(() => {
+                    mayDay2.getComponent(sp.Skeleton).setAnimation(0, "Idle", true)
+                    mayDay2.getChildByName("G1_AbCrunch").getComponent(sp.Skeleton).setAnimation(0, "Idle", true)
+                    this.finishCusWorkout(char, this.arrPosDoneCrunch[1], 6)
+                }, 2)
+                break;
+            case 4:
+                char.getComponent("cusGym").gapBung()
+                char.position = cc.v3(1, -16)
+                this.arrCrunch[1].children[0].active = false
+                this.arrCrunch[1].children[1].active = true
+                this.scheduleOnce(() => {
+                    this.finishCusWorkout(char, this.arrPosDone[1], 4)
+                }, 2)
+                break;
+            case 5:
+                char.getComponent("cusGym").gapBung()
+                char.position = cc.v3(1, -16)
+                this.arrCrunch[2].children[0].active = false
+                this.arrCrunch[2].children[1].active = true
+                this.scheduleOnce(() => {
+                    this.finishCusWorkout(char, this.arrPosDone[2], 4)
+                }, 2)
+                break;
+            case 6:
+                char.getComponent("cusGym").gapBung()
+                char.position = cc.v3(1, -16)
+                this.arrCrunch[3].children[0].active = false
+                this.arrCrunch[3].children[1].active = true
+                this.scheduleOnce(() => {
+                    this.finishCusWorkout(char, this.arrPosDone[3], 4)
                 }, 2)
                 break;
         }
 
 
     }
+    getCharByPtTag(value) {
+        switch (value) {
+            case 0: return this.arrCrunch[0].getChildByName("char")
+            case 1: return this.dayTa1.getChildByName("char")
+            case 2: return this.boxing1.getChildByName("char")
+            case 3: return this.arrMayDay[1].getChildByName("char")
+            case 4: return this.arrCrunch[1].getChildByName("char")
+            case 5: return this.arrCrunch[2].getChildByName("char")
+            case 6: return this.arrCrunch[3].getChildByName("char")
+            default: return null
+        }
+    }
+    finishCusWorkout(char, posDone, coin) {
+        if (!char || !char.isValid) return
+        this.removeFromWaiting(char)
+        char.parent = this.node;
+        char.getComponent("cusGym").happy()
+        char.position = posDone
+        char.scale = 0.8
+        this.createCoin(char, coin)
+        cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start()
+    }
     startGame() {
+        if (this.isGameStarted) return
+        this.isGameStarted = true
+
         for (let child of this.arrIconPt) {
             this.onIconPt(child)
             child.getComponent(cc.Button).enabled = true
+        }
+        this.arrWaiting = []
+        this.ptBusyMachines = {}
+        this.unschedule(this.spawCustomer)
+        for (let i = this.listCusNode.childrenCount - 1; i >= 0; i--) {
+            this.listCusNode.children[i].destroy()
         }
         this.arrCus = []
         this.spawCustomer()
 
         this.schedule(this.spawCustomer, 4)
+        this.scheduleOnce(() => {
+            this.textGuild2.active = true
+            while (this.arrCus.length < 3) {
+                this.spawCustomer()
+            }
+            this.updateQueueHand()
+        }, 15)
 
     }
     createCoin(node, value) {

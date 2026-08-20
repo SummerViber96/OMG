@@ -37,6 +37,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.anim = null;
         _this.tag = 0;
         _this.gamePlay = null;
+        _this.btn = null;
+        _this.machineParentName = "";
+        _this.machineIndex = 0;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -48,7 +51,8 @@ var NewClass = /** @class */ (function (_super) {
         var anim = this.anim;
         anim.setAnimation(0, "WalkOutL", true);
         anim.timeScale = 2;
-        switch (this.tag) {
+        console.log("move in, this.tag", this.tag);
+        switch (Number(this.tag)) {
             case 0:
                 cc.tween(this.node).to(2.6, { position: cc.v3(-1.6, -92) }).to(0.5, { position: cc.v3(-100, -80) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
@@ -122,7 +126,7 @@ var NewClass = /** @class */ (function (_super) {
                     }, 2);
                 }).start();
                 break;
-            case 6: //may day3
+            case 6: //may day4
                 cc.tween(this.node).to(1, { position: cc.v3(182.844, 90) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
                     anim.timeScale = 1;
@@ -138,11 +142,18 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         var anim = this.anim;
         anim.setAnimation(0, "WalkOutL", true);
-        switch (this.tag) {
+        var finishMoveOut = function () {
+            _this.node.active = false;
+            _this.gamePlay.onIconPt(_this.btn);
+            if (_this.machineParentName) {
+                _this.gamePlay.releaseMachinePt(_this.machineParentName, _this.machineIndex);
+            }
+        };
+        switch (Number(this.tag)) {
             case 0:
                 this.node.scaleX = -1;
                 cc.tween(this.node).to(0.5, { position: cc.v3(-1.6, -92) }).to(2.6, { position: cc.v3(382, 120) }).call(function () {
-                    _this.node.active = false;
+                    finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
@@ -155,7 +166,7 @@ var NewClass = /** @class */ (function (_super) {
                 }).to(2, { position: cc.v3(310, 52) }).call(function () {
                     _this.node.scaleX = -1;
                 }).to(0.4, { position: cc.v3(382, 120) }).call(function () {
-                    _this.node.active = false;
+                    finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
@@ -166,11 +177,51 @@ var NewClass = /** @class */ (function (_super) {
                 cc.tween(this.node).to(2, { position: cc.v3(310, 52) }).call(function () {
                     _this.node.scaleX = -1;
                 }).to(0.4, { position: cc.v3(382, 120) }).call(function () {
-                    _this.node.active = false;
+                    finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
                 }, 2);
+                break;
+            case 3:
+                this.node.scaleX = 1;
+                cc.tween(this.node).to(0.6, { position: cc.v3(698.565, -184.59) }).call(function () {
+                    _this.node.scaleX = 1;
+                }).to(2, { position: cc.v3(310, 52) }).call(function () {
+                    _this.node.scaleX = -1;
+                }).to(0.4, { position: cc.v3(382, 120) }).call(function () {
+                    finishMoveOut();
+                }).start();
+                this.scheduleOnce(function () {
+                    _this.gamePlay.openDoor();
+                }, 2);
+                break;
+            case 4: //gapbung2
+                this.node.scaleX = -1;
+                cc.tween(this.node).to(0.8, { position: cc.v3(442, -35) }).to(0.5, { position: cc.v3(310, 52) }).to(0.4, { position: cc.v3(382, 120) }).call(function () {
+                    finishMoveOut();
+                }).start();
+                this.scheduleOnce(function () {
+                    _this.gamePlay.openDoor();
+                }, 2.6);
+                break;
+            case 5: //gapbung2
+                this.node.scaleX = -1;
+                cc.tween(this.node).to(0.5, { position: cc.v3(86, -10) }).to(1.5, { position: cc.v3(382, 120) }).call(function () {
+                    finishMoveOut();
+                }).start();
+                this.scheduleOnce(function () {
+                    _this.gamePlay.openDoor();
+                }, 2.6);
+                break;
+            case 6: //gapbung2
+                this.node.scaleX = -1;
+                cc.tween(this.node).to(1, { position: cc.v3(382, 120) }).call(function () {
+                    finishMoveOut();
+                }).start();
+                this.scheduleOnce(function () {
+                    _this.gamePlay.openDoor();
+                }, 2.6);
                 break;
         }
     };

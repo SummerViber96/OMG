@@ -17,6 +17,7 @@ export default class NewClass extends cc.Component {
     parentIndex = 0
     parentNode = null
     isPt = false
+    isQueueMoving = false
     gamePlay = null
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym")
@@ -36,19 +37,43 @@ export default class NewClass extends cc.Component {
         this.anim.setAnimation(0, "Sit_Waiting", true);
     }
     showPop() {
+        this.showQueuePop()
+    }
+    showQueuePop() {
+        this.isQueueMoving = false
+        this.node.scaleX = 1
+        cc.Tween.stopAllByTarget(this.pop)
+        this.pop.scale = 1
         this.pop.active = true
-        this.pop.getComponent(cc.Animation).play()
-        this.pop.getChildByName("hand").active = true
+        let popAnim = this.pop.getComponent(cc.Animation)
+        if (popAnim) {
+            popAnim.play()
+        }
+        let hand = this.pop.getChildByName("hand")
+        if (hand) {
+            hand.active = false
+        }
+        let btn = this.pop.getComponent(cc.Button)
+        if (btn) {
+            btn.enabled = true
+        }
+        if (this.gamePlay) {
+            this.gamePlay.updateQueueHand()
+        }
     }
     clickPop(event, value) {
-        // console.log("clcik pop")
-        event.currentTarget.getComponent(cc.Button).enabled = false
-        // console.log("click pop")
+        if (this.isQueueMoving) return
+        let moved = this.gamePlay.doCus(this.tag, this.node)
+        if (!moved) return
         let btn = event.currentTarget
-        btn.getComponent(cc.Button).enabled = false;
-        cc.tween(this.pop).to(0.2, { scale: 0 }).start();
-        this.gamePlay.doCus(this.tag, this.node)
-
+        btn.getComponent(cc.Button).enabled = false
+        let hand = this.pop.getChildByName("hand")
+        if (hand) hand.active = false
+        cc.Tween.stopAllByTarget(this.pop)
+        cc.tween(this.pop).to(0.2, { scale: 0 }).start()
+        if (this.gamePlay.isStep >= 4) {
+            this.gamePlay.showFreeIconPtHand()
+        }
     }
     gapBung() {
         this.anim.setAnimation(0, "Abdominal", true)
@@ -75,6 +100,7 @@ export default class NewClass extends cc.Component {
 
     }
     waitingTag(value) {
+        this.node.scaleX = 1
         switch (value) {
             case 0:
                 this.anim.setAnimation(0, "Sit_Waiting", true)

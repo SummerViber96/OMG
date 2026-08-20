@@ -7634,7 +7634,7 @@
       "__id__": 193
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 205
@@ -7979,7 +7979,7 @@
     "soundHappy": {
       "__uuid__": "b3b553e9-8f1a-47e0-b46d-6b00ef4feb09"
     },
-    "tag": 0,
+    "tag": 1,
     "_id": ""
   },
   {

@@ -37,6 +37,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.parentIndex = 0;
         _this.parentNode = null;
         _this.isPt = false;
+        _this.isQueueMoving = false;
         _this.gamePlay = null;
         return _this;
         // update (dt) {}
@@ -59,18 +60,46 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(0, "Sit_Waiting", true);
     };
     NewClass.prototype.showPop = function () {
+        this.showQueuePop();
+    };
+    NewClass.prototype.showQueuePop = function () {
+        this.isQueueMoving = false;
+        this.node.scaleX = 1;
+        cc.Tween.stopAllByTarget(this.pop);
+        this.pop.scale = 1;
         this.pop.active = true;
-        this.pop.getComponent(cc.Animation).play();
-        this.pop.getChildByName("hand").active = true;
+        var popAnim = this.pop.getComponent(cc.Animation);
+        if (popAnim) {
+            popAnim.play();
+        }
+        var hand = this.pop.getChildByName("hand");
+        if (hand) {
+            hand.active = false;
+        }
+        var btn = this.pop.getComponent(cc.Button);
+        if (btn) {
+            btn.enabled = true;
+        }
+        if (this.gamePlay) {
+            this.gamePlay.updateQueueHand();
+        }
     };
     NewClass.prototype.clickPop = function (event, value) {
-        // console.log("clcik pop")
-        event.currentTarget.getComponent(cc.Button).enabled = false;
-        // console.log("click pop")
+        if (this.isQueueMoving)
+            return;
+        var moved = this.gamePlay.doCus(this.tag, this.node);
+        if (!moved)
+            return;
         var btn = event.currentTarget;
         btn.getComponent(cc.Button).enabled = false;
+        var hand = this.pop.getChildByName("hand");
+        if (hand)
+            hand.active = false;
+        cc.Tween.stopAllByTarget(this.pop);
         cc.tween(this.pop).to(0.2, { scale: 0 }).start();
-        this.gamePlay.doCus(this.tag, this.node);
+        if (this.gamePlay.isStep >= 4) {
+            this.gamePlay.showFreeIconPtHand();
+        }
     };
     NewClass.prototype.gapBung = function () {
         this.anim.setAnimation(0, "Abdominal", true);
@@ -92,6 +121,7 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(0, "Boxing", true);
     };
     NewClass.prototype.waitingTag = function (value) {
+        this.node.scaleX = 1;
         switch (value) {
             case 0:
                 this.anim.setAnimation(0, "Sit_Waiting", true);

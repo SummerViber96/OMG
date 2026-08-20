@@ -55,6 +55,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.endCard = null;
         _this.logo = null;
         _this.textGuild1 = null;
+        _this.textGuild2 = null;
         _this.door = null;
         _this.listIconPt = null;
         _this.listPt = null;
@@ -71,6 +72,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.arrIconPt = [];
         _this.isStep = 0;
         _this.arrCrunch = [];
+        _this.ptBusyMachines = {};
+        _this.isGameStarted = false;
+        _this.guidingIconPt = false;
         _this.isHind = false;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.posGapBung = cc.v3(-30, -19);
@@ -105,25 +109,34 @@ var NewClass = /** @class */ (function (_super) {
             this.arrCrunch.push(this.listCrunch.children[i]);
         }
         for (var i = 0; i < this.listPlacePos.childrenCount; i++) {
-            this.arrPosCus.push(this.listPlacePos.children[i].position);
+            var pos = this.listPlacePos.children[i].position;
+            this.arrPosCus.push(cc.v3(pos.x, pos.y, pos.z));
         }
     };
+    NewClass.prototype.getQueuePos = function (index) {
+        var pos = this.arrPosCus[index];
+        return cc.v3(pos.x, pos.y, pos.z);
+    };
     NewClass.prototype.spawCustomer = function () {
-        if (this.arrCus.length > 7)
+        if (this.arrCus.length >= this.arrPosCus.length)
             return;
+        var queueIndex = this.arrCus.length;
+        var posEnd = this.getQueuePos(queueIndex);
         var cus = cc.instantiate(this.listPreCus[this.countCus]);
         cus.parent = this.listCusNode;
-        var posEnd = this.arrPosCus[this.arrCus.length % 6];
-        console.log(this.arrCus.length, this.arrCus.length % 6);
         this.arrCus.push(cus);
+        var cusComp = cus.getComponent("cusGym");
+        cusComp.isQueueMoving = true;
         cus.position = cc.v3(-934, -632);
         var anim = cus.children[0].getComponent(sp.Skeleton);
         anim.setAnimation(0, "WalkInR", true);
+        cc.Tween.stopAllByTarget(cus);
         cc.tween(cus).to(1, { position: cc.v3(-675, -435) }).call(function () {
             cus.scaleX = -1;
         }).to(0.8, { position: posEnd }).call(function () {
+            cus.scaleX = 1;
             anim.setAnimation(0, "Waiting", true);
-            cus.getChildByName("pop").active = true;
+            cusComp.showQueuePop();
         }).start();
         this.countCus++;
         if (this.countCus > 5) {
@@ -150,13 +163,14 @@ var NewClass = /** @class */ (function (_super) {
                 this.arrIconPt[2].getComponent(cc.Button).enabled = true;
                 this.arrIconPt[2].getChildByName("hand").active = true;
             }
+            return true;
         }
         else {
             if (tag == 0) {
                 for (var i = 0; i < this.arrCrunch.length; i++) {
                     if (!this.arrCrunch[i].getChildByName("char")) {
                         this.moveCusToCrunch(cus, i, tag);
-                        return;
+                        return true;
                     }
                 }
             }
@@ -164,23 +178,45 @@ var NewClass = /** @class */ (function (_super) {
                 for (var i = 0; i < this.arrMayDay.length; i++) {
                     if (!this.arrMayDay[i].getChildByName("char")) {
                         this.moveCusToMayDay(cus, i, tag);
-                        return;
+                        return true;
                     }
                 }
             }
             else if (tag == 2) {
                 if (!this.boxing1.getChildByName("char")) {
-                    this.moveCusToBoxing(cus, i, tag);
+                    this.moveCusToBoxing(cus, 0, tag);
+                    return true;
                 }
             }
         }
+        return false;
+    };
+    NewClass.prototype.leaveQueue = function (cus) {
+        var index = this.arrCus.indexOf(cus);
+        if (index === -1)
+            return;
+        this.arrCus.splice(index, 1);
+        var _loop_1 = function (i) {
+            var queueCus = this_1.arrCus[i];
+            var posEnd = this_1.getQueuePos(i);
+            var cusComp = queueCus.getComponent("cusGym");
+            var anim = queueCus.children[0].getComponent(sp.Skeleton);
+            cusComp.isQueueMoving = true;
+            anim.setAnimation(0, "WalkInL", true);
+            cc.Tween.stopAllByTarget(queueCus);
+            cc.tween(queueCus).to(0.8, { position: posEnd }).call(function () {
+                queueCus.scaleX = 1;
+                anim.setAnimation(0, "Waiting", true);
+                cusComp.showQueuePop();
+            }).start();
+        };
+        var this_1 = this;
+        for (var i = index; i < this.arrCus.length; i++) {
+            _loop_1(i);
+        }
     };
     NewClass.prototype.moveCusToCrunch = function (cus, value, tag) {
-        for (var i = 0; i < this.arrCus.length; i++) {
-            if (cus == this.arrCus[i]) {
-                this.arrCus.slice(i, 0);
-            }
-        }
+        this.leaveQueue(cus);
         var crunch = this.arrCrunch[value];
         cus.parent = crunch;
         cus.position = this.posGapBung;
@@ -196,11 +232,7 @@ var NewClass = /** @class */ (function (_super) {
         cusComp.waitingTag(tag);
     };
     NewClass.prototype.moveCusToMayDay = function (cus, value, tag) {
-        for (var i = 0; i < this.arrCus.length; i++) {
-            if (cus == this.arrCus[i]) {
-                this.arrCus.slice(i, 0);
-            }
-        }
+        this.leaveQueue(cus);
         var may = this.arrMayDay[value];
         cus.parent = may;
         cus.position = this.posNangTa;
@@ -216,11 +248,7 @@ var NewClass = /** @class */ (function (_super) {
         cus.getComponent("cusGym").waitingTag(tag);
     };
     NewClass.prototype.moveCusToBoxing = function (cus, value, tag) {
-        for (var i = 0; i < this.arrCus.length; i++) {
-            if (cus == this.arrCus[i]) {
-                this.arrCus.slice(i, 0);
-            }
-        }
+        this.leaveQueue(cus);
         cus.parent = this.boxing1;
         cus.position = cc.v3(123, 23);
         cus.name = "char";
@@ -239,8 +267,82 @@ var NewClass = /** @class */ (function (_super) {
         node.getChildByName("hand").active = false;
     };
     NewClass.prototype.onIconPt = function (node) {
-        node.children[1].active = false;
-        node.getChildByName("hand").active = false;
+        if (node) {
+            node.children[1].active = false;
+            node.getChildByName("hand").active = false;
+            node.getComponent(cc.Button).enabled = true;
+            this.guidingIconPt = false;
+            this.updateQueueHand();
+        }
+    };
+    NewClass.prototype.isIconPtFree = function (node) {
+        if (!node || !node.active)
+            return false;
+        var btn = node.getComponent(cc.Button);
+        if (btn && !btn.enabled)
+            return false;
+        // children[1] = busy overlay
+        if (node.children[1] && node.children[1].active)
+            return false;
+        return true;
+    };
+    NewClass.prototype.hideAllIconPtHands = function () {
+        for (var i = 0; i < this.arrIconPt.length; i++) {
+            var hand = this.arrIconPt[i].getChildByName("hand");
+            if (hand)
+                hand.active = false;
+        }
+    };
+    NewClass.prototype.showFreeIconPtHand = function () {
+        this.hideAllIconPtHands();
+        this.hideAllQueueHands();
+        for (var i = 0; i < this.arrIconPt.length; i++) {
+            var icon = this.arrIconPt[i];
+            if (this.isIconPtFree(icon)) {
+                var hand = icon.getChildByName("hand");
+                if (hand)
+                    hand.active = true;
+                this.guidingIconPt = true;
+                return;
+            }
+        }
+        this.guidingIconPt = false;
+        this.updateQueueHand();
+    };
+    NewClass.prototype.hideAllQueueHands = function () {
+        for (var i = 0; i < this.arrCus.length; i++) {
+            var cus = this.arrCus[i];
+            if (!cus || !cus.isValid)
+                continue;
+            var pop = cus.getChildByName("pop");
+            if (!pop)
+                continue;
+            var hand = pop.getChildByName("hand");
+            if (hand)
+                hand.active = false;
+        }
+    };
+    NewClass.prototype.updateQueueHand = function () {
+        this.hideAllQueueHands();
+        if (this.isStep < 4)
+            return;
+        if (this.guidingIconPt)
+            return;
+        for (var i = 0; i < this.arrCus.length; i++) {
+            var cus = this.arrCus[i];
+            if (!cus || !cus.isValid)
+                continue;
+            var cusComp = cus.getComponent("cusGym");
+            if (!cusComp || cusComp.isQueueMoving)
+                continue;
+            var pop = cus.getChildByName("pop");
+            if (!pop || !pop.active)
+                continue;
+            var hand = pop.getChildByName("hand");
+            if (hand)
+                hand.active = true;
+            return;
+        }
     };
     NewClass.prototype.clickPt = function (event, tag) {
         var _this = this;
@@ -316,17 +418,97 @@ var NewClass = /** @class */ (function (_super) {
             this.offIconPt(this.arrIconPt[2]);
         }
         else {
-            for (var i = 0; i < this.arrCus.length; i++) {
-                var cus = this.arrCus[i];
+            this.cleanupWaiting();
+            for (var i = 0; i < this.arrWaiting.length; i++) {
+                var cus = this.arrWaiting[i];
+                if (!this.isCusWaitingForPt(cus))
+                    continue;
                 var cusComp = cus.getComponent("cusGym");
-                if (cusComp.isPt == false) {
-                    var btn = event.currentTarget.getComponent(cc.Button);
-                    btn.enabled = false;
-                    event.currentTarget.children[1].active = true;
-                    this.addPt(cus, cusComp.parentName);
-                    return;
+                var btn = event.currentTarget.getComponent(cc.Button);
+                btn.enabled = false;
+                event.currentTarget.children[1].active = true;
+                if (!this.addPt(cus, cusComp.parentName, event.currentTarget)) {
+                    btn.enabled = true;
+                    event.currentTarget.children[1].active = false;
                 }
+                else {
+                    this.guidingIconPt = false;
+                    event.currentTarget.getChildByName("hand").active = false;
+                    this.updateQueueHand();
+                }
+                return;
             }
+        }
+    };
+    NewClass.prototype.cleanupWaiting = function () {
+        for (var i = this.arrWaiting.length - 1; i >= 0; i--) {
+            if (!this.isCusOnMachine(this.arrWaiting[i])) {
+                this.arrWaiting.splice(i, 1);
+            }
+        }
+    };
+    NewClass.prototype.isCusOnMachine = function (cus) {
+        if (!cus || !cus.isValid)
+            return false;
+        var cusComp = cus.getComponent("cusGym");
+        if (!cusComp || !cusComp.parentNode || !cusComp.parentNode.isValid)
+            return false;
+        if (cus.parent !== cusComp.parentNode)
+            return false;
+        if (cus.name !== "char")
+            return false;
+        return true;
+    };
+    NewClass.prototype.isCusWaitingForPt = function (cus) {
+        if (!this.isCusOnMachine(cus))
+            return false;
+        var cusComp = cus.getComponent("cusGym");
+        if (cusComp.isPt)
+            return false;
+        if (this.isMachinePtBusy(cusComp.parentName, cusComp.parentIndex))
+            return false;
+        return true;
+    };
+    NewClass.prototype.removeFromWaiting = function (cus) {
+        var index = this.arrWaiting.indexOf(cus);
+        if (index !== -1) {
+            this.arrWaiting.splice(index, 1);
+        }
+    };
+    NewClass.prototype.getMachineKey = function (parentName, index) {
+        return parentName + "_" + index;
+    };
+    NewClass.prototype.isMachinePtBusy = function (parentName, index) {
+        return !!this.ptBusyMachines[this.getMachineKey(parentName, index)];
+    };
+    NewClass.prototype.setMachinePtBusy = function (parentName, index, busy) {
+        var key = this.getMachineKey(parentName, index);
+        if (busy) {
+            this.ptBusyMachines[key] = true;
+        }
+        else {
+            delete this.ptBusyMachines[key];
+        }
+    };
+    NewClass.prototype.releaseMachinePt = function (parentName, index) {
+        this.setMachinePtBusy(parentName, index, false);
+    };
+    NewClass.prototype.getPtTag = function (parentName, parentIndex) {
+        switch (parentName) {
+            case "Crunch":
+                switch (parentIndex) {
+                    case 0: return 0;
+                    case 1: return 4;
+                    case 2: return 5;
+                    case 3: return 6;
+                    default: return 0;
+                }
+            case "MayDay":
+                return parentIndex === 0 ? 1 : 3;
+            case "Boxing":
+                return 2;
+            default:
+                return 0;
         }
     };
     NewClass.prototype.openDoor = function () {
@@ -336,126 +518,176 @@ var NewClass = /** @class */ (function (_super) {
             _this.door.getComponent(cc.Animation).play("door_close");
         }, 0.7);
     };
-    NewClass.prototype.addPt = function (cus, parentName) {
+    NewClass.prototype.addPt = function (cus, parentName, btn) {
         var _this = this;
-        this.openDoor();
         var cusComp = cus.getComponent("cusGym");
+        if (!this.isCusWaitingForPt(cus)) {
+            return false;
+        }
+        this.openDoor();
         cusComp.isPt = true;
+        this.setMachinePtBusy(parentName, cusComp.parentIndex, true);
         var pt = cc.instantiate(this.listPrePt[this.countpt]);
         pt.parent = this.listPt;
         pt.active = true;
         pt.position = cc.v3(382.607, 121);
         var ptComp = pt.getComponent("pt");
+        ptComp.btn = btn;
+        ptComp.machineParentName = parentName;
+        ptComp.machineIndex = cusComp.parentIndex;
         this.countpt++;
+        this.scheduleOnce(function () {
+            pt.parent = _this.node;
+        }, 0.3);
         if (this.countpt > 3) {
             this.countpt = 0;
         }
-        var value = 0;
-        console.log(parentName);
-        switch (cusComp.parentName) {
-            case "Crunch":
-                // ptComp.tag = cusComp.parentNode.getComponent("Machine").tag
-                if (ptComp.tag == 1) {
-                    value = 4;
-                }
-                else if (ptComp.tag == 2) {
-                    value = 5;
-                }
-                else if (ptComp.tag == 3) {
-                    value = 6;
-                }
-                var fnc = function () {
-                    _this.activeCus(value);
-                };
-                ptComp.tag = value;
-                ptComp.moveIn(fnc);
-                break;
-            case "MayDay":
-                ptComp.tag = cusComp.parentNode.getComponent("Machine").tag;
-                if (ptComp.tag == 0) {
-                    value = 1;
-                }
-                else {
-                    value = 3;
-                }
-                var fnc2 = function () {
-                    _this.activeCus(value);
-                };
-                ptComp.tag = value;
-                ptComp.moveIn(fnc2);
-                break;
-            case "Boxing":
-                var fnc3 = function () {
-                    _this.activeCus(2);
-                };
-                ptComp.moveIn(fnc3);
-                break;
-        }
+        var tag = this.getPtTag(parentName, cusComp.parentIndex);
+        ptComp.tag = Number(tag);
+        var targetCus = cus;
+        var fnc = function () {
+            _this.activeCus(Number(tag), targetCus);
+        };
+        ptComp.moveIn(fnc);
+        return true;
     };
-    NewClass.prototype.activeCus = function (value) {
+    NewClass.prototype.activeCus = function (value, cus) {
         var _this = this;
-        var char = null;
+        if (cus === void 0) { cus = null; }
+        var char = cus && this.isCusOnMachine(cus) ? cus : null;
+        if (!char) {
+            char = this.getCharByPtTag(value);
+        }
+        if (!char) {
+            console.warn("activeCus: missing char for tag", value);
+            return;
+        }
+        this.removeFromWaiting(char);
+        var cusComp = char.getComponent("cusGym");
+        if (cusComp) {
+            cusComp.isPt = true;
+        }
         switch (value) {
             case 0:
-                char = this.arrCrunch[0].getChildByName("char");
                 char.getComponent("cusGym").gapBung();
                 char.position = cc.v3(1, -16);
                 this.arrCrunch[0].children[0].active = false;
                 this.arrCrunch[0].children[1].active = true;
                 this.scheduleOnce(function () {
-                    char.parent = _this.node;
-                    char.getComponent("cusGym").happy();
-                    char.position = _this.arrPosDone[0];
-                    char.scale = 0.8;
-                    _this.createCoin(char, 4);
-                    cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start();
+                    _this.finishCusWorkout(char, _this.arrPosDone[0], 4);
                 }, 2);
                 break;
             case 1:
-                char = this.dayTa1.getChildByName("char");
                 char.getComponent("cusGym").dayTa();
                 this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
-                this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                this.dayTa1.getChildByName("G1_AbCrunch").getComponent(sp.Skeleton).setAnimation(0, "Action", true);
                 char.position = cc.v3(-15.771 + 14, 7 - 5);
                 this.scheduleOnce(function () {
                     _this.dayTa1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true);
-                    _this.dayTa1.children[2].getComponent(sp.Skeleton).setAnimation(0, "Idle", true);
-                    char.parent = _this.node;
-                    char.getComponent("cusGym").happy();
-                    char.position = _this.arrPosDoneCrunch[0];
-                    char.scale = 0.8;
-                    _this.createCoin(char, 6);
-                    cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start();
+                    _this.dayTa1.getChildByName("G1_AbCrunch").getComponent(sp.Skeleton).setAnimation(0, "Idle", true);
+                    _this.finishCusWorkout(char, _this.arrPosDoneCrunch[0], 6);
                 }, 2);
                 break;
             case 2:
                 this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
-                char = this.boxing1.getChildByName("char");
                 char.getComponent("cusGym").boxing();
                 this.startGame();
                 this.scheduleOnce(function () {
                     _this.boxing1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true);
-                    char.parent = _this.node;
-                    char.getComponent("cusGym").happy();
-                    char.position = cc.v3(647, -66);
-                    char.scale = 0.8;
-                    _this.createCoin(char, 6);
-                    _this.startGame();
                     _this.isStep = 4;
-                    cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start();
+                    _this.finishCusWorkout(char, cc.v3(647, -66), 6);
+                }, 2);
+                break;
+            case 3:
+                var mayDay2_1 = this.arrMayDay[1];
+                char.getComponent("cusGym").dayTa();
+                mayDay2_1.getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                mayDay2_1.getChildByName("G1_AbCrunch").getComponent(sp.Skeleton).setAnimation(0, "Action", true);
+                char.position = cc.v3(-15.771 + 14, 7 - 5);
+                this.scheduleOnce(function () {
+                    mayDay2_1.getComponent(sp.Skeleton).setAnimation(0, "Idle", true);
+                    mayDay2_1.getChildByName("G1_AbCrunch").getComponent(sp.Skeleton).setAnimation(0, "Idle", true);
+                    _this.finishCusWorkout(char, _this.arrPosDoneCrunch[1], 6);
+                }, 2);
+                break;
+            case 4:
+                char.getComponent("cusGym").gapBung();
+                char.position = cc.v3(1, -16);
+                this.arrCrunch[1].children[0].active = false;
+                this.arrCrunch[1].children[1].active = true;
+                this.scheduleOnce(function () {
+                    _this.finishCusWorkout(char, _this.arrPosDone[1], 4);
+                }, 2);
+                break;
+            case 5:
+                char.getComponent("cusGym").gapBung();
+                char.position = cc.v3(1, -16);
+                this.arrCrunch[2].children[0].active = false;
+                this.arrCrunch[2].children[1].active = true;
+                this.scheduleOnce(function () {
+                    _this.finishCusWorkout(char, _this.arrPosDone[2], 4);
+                }, 2);
+                break;
+            case 6:
+                char.getComponent("cusGym").gapBung();
+                char.position = cc.v3(1, -16);
+                this.arrCrunch[3].children[0].active = false;
+                this.arrCrunch[3].children[1].active = true;
+                this.scheduleOnce(function () {
+                    _this.finishCusWorkout(char, _this.arrPosDone[3], 4);
                 }, 2);
                 break;
         }
     };
+    NewClass.prototype.getCharByPtTag = function (value) {
+        switch (value) {
+            case 0: return this.arrCrunch[0].getChildByName("char");
+            case 1: return this.dayTa1.getChildByName("char");
+            case 2: return this.boxing1.getChildByName("char");
+            case 3: return this.arrMayDay[1].getChildByName("char");
+            case 4: return this.arrCrunch[1].getChildByName("char");
+            case 5: return this.arrCrunch[2].getChildByName("char");
+            case 6: return this.arrCrunch[3].getChildByName("char");
+            default: return null;
+        }
+    };
+    NewClass.prototype.finishCusWorkout = function (char, posDone, coin) {
+        if (!char || !char.isValid)
+            return;
+        this.removeFromWaiting(char);
+        char.parent = this.node;
+        char.getComponent("cusGym").happy();
+        char.position = posDone;
+        char.scale = 0.8;
+        this.createCoin(char, coin);
+        cc.tween(char).delay(1).to(0.5, { opacity: 0 }).start();
+    };
     NewClass.prototype.startGame = function () {
+        var _this = this;
+        if (this.isGameStarted)
+            return;
+        this.isGameStarted = true;
         for (var _i = 0, _a = this.arrIconPt; _i < _a.length; _i++) {
             var child = _a[_i];
             this.onIconPt(child);
             child.getComponent(cc.Button).enabled = true;
         }
+        this.arrWaiting = [];
+        this.ptBusyMachines = {};
+        this.unschedule(this.spawCustomer);
+        for (var i = this.listCusNode.childrenCount - 1; i >= 0; i--) {
+            this.listCusNode.children[i].destroy();
+        }
         this.arrCus = [];
         this.spawCustomer();
         this.schedule(this.spawCustomer, 4);
+        this.scheduleOnce(function () {
+            _this.textGuild2.active = true;
+            while (_this.arrCus.length < 3) {
+                _this.spawCustomer();
+            }
+            _this.updateQueueHand();
+        }, 15);
     };
     NewClass.prototype.createCoin = function (node, value) {
         var pos = node.parent.convertToWorldSpaceAR(node.position);
@@ -841,6 +1073,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "textGuild1", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "textGuild2", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "door", void 0);
