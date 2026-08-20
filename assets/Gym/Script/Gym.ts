@@ -77,6 +77,8 @@ export default class NewClass extends cc.Component {
     listPreCus: cc.Prefab[] = []
     @property(cc.Node)
     arrMayDay: cc.Node[] = []
+    @property(cc.Node)
+    listCard: cc.Node = null
     arrPosDone = [cc.v3(-239, -133), cc.v3(57, -157), cc.v3(-123, -36), cc.v3(-14, 65), cc.v3(-58, -235), cc.v3(198, -59)]
     arrPosDoneCrunch = [cc.v3(218, -392), cc.v3(409, -289)]
     // @property(cc.Node)
@@ -91,6 +93,7 @@ export default class NewClass extends cc.Component {
     guidingIconPt = false
     hideQueueHandGuide = false
     isHind = false
+    ptSpeed = 1
     adChanel = '{{__adv_channels_adapter__}}'
     posGapBung = cc.v3(-30, -19);
     posNangTa = cc.v3(-50, -42)
@@ -230,6 +233,11 @@ export default class NewClass extends cc.Component {
         let pos = this.arrPosCus[index]
         return cc.v3(pos.x, pos.y, pos.z)
     }
+    // Prefab cus mặc định quay trái khi scaleX = 1
+    faceCusByDir(cus, fromPos, toPos) {
+        if (!cus || Math.abs(toPos.x - fromPos.x) < 0.1) return
+        cus.scaleX = toPos.x < fromPos.x ? 1 : -1
+    }
     countCus = 0
     spawCustomer() {
         if (this.arrCus.length >= this.arrPosCus.length) return;
@@ -245,11 +253,12 @@ export default class NewClass extends cc.Component {
         let cusComp = cus.getComponent("cusGym")
         cusComp.isQueueMoving = true
         cus.position = startPos
+        this.faceCusByDir(cus, startPos, midPos)
         let anim = cus.children[0].getComponent(sp.Skeleton)
         anim.setAnimation(0, "WalkInR", true)
         cc.Tween.stopAllByTarget(cus)
         cc.tween(cus).to(1, { position: midPos }).call(() => {
-            cus.scaleX = -1
+            this.faceCusByDir(cus, midPos, posEnd)
         }).to(0.8, { position: posEnd }).call(() => {
             cus.scaleX = 1
             if (cusComp.isAngryWait) {
@@ -330,6 +339,7 @@ export default class NewClass extends cc.Component {
             let anim = queueCus.children[0].getComponent(sp.Skeleton)
             cusComp.isQueueMoving = true
             anim.setAnimation(0, "WalkInL", true)
+            this.faceCusByDir(queueCus, queueCus.position, posEnd)
             cc.Tween.stopAllByTarget(queueCus)
             cc.tween(queueCus).to(0.8, { position: posEnd }).call(() => {
                 queueCus.scaleX = 1
@@ -372,7 +382,7 @@ export default class NewClass extends cc.Component {
         cus.scale = 1
         cus.scaleX = 1
         let cusComp = cus.getComponent("cusGym")
-        may.getChildByName("G1_AbCrunch").zIndex=1
+        may.getChildByName("G1_AbCrunch").zIndex = 1
         cusComp.parentName = "MayDay"
         cusComp.parentIndex = value;
         cusComp.parentNode = may
@@ -868,11 +878,14 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             cc.tween(this.textGuild2).to(0.8, { scale: 0 }).start()
             this.zoomGame()
+            this.scheduleOnce(() => {
+                this.listCard.active = true
+            }, 0.5)
             // this.startGame()
         }, 22)
 
     }
-    zoomGame(){
+    zoomGame() {
         cc.tween(this.camera).to(0.8, { zoomRatio: 2 }).start()
         cc.tween(this.camera.node).to(0.8, { position: cc.v3(-494, -296) }).start()
         this.hideQueueHandGuide = true
@@ -893,7 +906,17 @@ export default class NewClass extends cc.Component {
         this.scheduleOnce(() => {
             this.textGuild3.active = true
         }, 0.5)
-    
+
+    }
+    clickCard(event, value) {
+        this.listCard.active = false
+        switch (Number(value)) {
+            case 0:
+                this.ptSpeed = 2
+                break
+            case 1:
+                break
+        }
     }
     createCoin(node, value) {
         let pos = node.parent.convertToWorldSpaceAR(node.position)

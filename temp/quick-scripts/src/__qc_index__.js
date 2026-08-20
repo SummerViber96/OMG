@@ -6,6 +6,7 @@ require('./assets/Gym/Gym2/Gym2');
 require('./assets/Gym/Script/Gym');
 require('./assets/Gym/Script/Machine');
 require('./assets/Gym/Script/cusGym');
+require('./assets/Gym/Script/listCard');
 require('./assets/Gym/Script/pt');
 require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');

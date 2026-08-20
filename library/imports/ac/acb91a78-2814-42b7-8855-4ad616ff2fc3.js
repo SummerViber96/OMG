@@ -65,6 +65,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.listPrePt = [];
         _this.listPreCus = [];
         _this.arrMayDay = [];
+        _this.listCard = null;
         _this.arrPosDone = [cc.v3(-239, -133), cc.v3(57, -157), cc.v3(-123, -36), cc.v3(-14, 65), cc.v3(-58, -235), cc.v3(198, -59)];
         _this.arrPosDoneCrunch = [cc.v3(218, -392), cc.v3(409, -289)];
         // @property(cc.Node)
@@ -79,6 +80,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.guidingIconPt = false;
         _this.hideQueueHandGuide = false;
         _this.isHind = false;
+        _this.ptSpeed = 1;
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.posGapBung = cc.v3(-30, -19);
         _this.posNangTa = cc.v3(-50, -42);
@@ -228,7 +230,14 @@ var NewClass = /** @class */ (function (_super) {
         var pos = this.arrPosCus[index];
         return cc.v3(pos.x, pos.y, pos.z);
     };
+    // Prefab cus mặc định quay trái khi scaleX = 1
+    NewClass.prototype.faceCusByDir = function (cus, fromPos, toPos) {
+        if (!cus || Math.abs(toPos.x - fromPos.x) < 0.1)
+            return;
+        cus.scaleX = toPos.x < fromPos.x ? 1 : -1;
+    };
     NewClass.prototype.spawCustomer = function () {
+        var _this = this;
         if (this.arrCus.length >= this.arrPosCus.length)
             return;
         var queueIndex = this.arrCus.length;
@@ -242,11 +251,12 @@ var NewClass = /** @class */ (function (_super) {
         var cusComp = cus.getComponent("cusGym");
         cusComp.isQueueMoving = true;
         cus.position = startPos;
+        this.faceCusByDir(cus, startPos, midPos);
         var anim = cus.children[0].getComponent(sp.Skeleton);
         anim.setAnimation(0, "WalkInR", true);
         cc.Tween.stopAllByTarget(cus);
         cc.tween(cus).to(1, { position: midPos }).call(function () {
-            cus.scaleX = -1;
+            _this.faceCusByDir(cus, midPos, posEnd);
         }).to(0.8, { position: posEnd }).call(function () {
             cus.scaleX = 1;
             if (cusComp.isAngryWait) {
@@ -322,6 +332,7 @@ var NewClass = /** @class */ (function (_super) {
             var anim = queueCus.children[0].getComponent(sp.Skeleton);
             cusComp.isQueueMoving = true;
             anim.setAnimation(0, "WalkInL", true);
+            this_1.faceCusByDir(queueCus, queueCus.position, posEnd);
             cc.Tween.stopAllByTarget(queueCus);
             cc.tween(queueCus).to(0.8, { position: posEnd }).call(function () {
                 queueCus.scaleX = 1;
@@ -876,6 +887,9 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             cc.tween(_this.textGuild2).to(0.8, { scale: 0 }).start();
             _this.zoomGame();
+            _this.scheduleOnce(function () {
+                _this.listCard.active = true;
+            }, 0.5);
             // this.startGame()
         }, 22);
     };
@@ -903,6 +917,16 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.textGuild3.active = true;
         }, 0.5);
+    };
+    NewClass.prototype.clickCard = function (event, value) {
+        this.listCard.active = false;
+        switch (Number(value)) {
+            case 0:
+                this.ptSpeed = 2;
+                break;
+            case 1:
+                break;
+        }
     };
     NewClass.prototype.createCoin = function (node, value) {
         var pos = node.parent.convertToWorldSpaceAR(node.position);
@@ -1318,6 +1342,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "arrMayDay", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listCard", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

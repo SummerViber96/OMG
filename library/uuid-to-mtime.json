@@ -14625,8 +14625,8 @@
     "relativePath": "Gym\\prefab\\listCus"
   },
   "9317423b-6ae0-4021-8484-25e9cae9a2b6": {
-    "asset": 1787197091674,
-    "meta": 1787197192335,
+    "asset": 1787219774778,
+    "meta": 1787219774799,
     "relativePath": "Gym\\prefab\\listCus\\Cus1.prefab"
   },
   "aa27e966-ff34-46eb-9038-1329bd06fb9a": {
@@ -14665,8 +14665,8 @@
     "relativePath": "Gym\\Script\\Machine.ts"
   },
   "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787219574152,
-    "meta": 1787219574174,
+    "asset": 1787221035711,
+    "meta": 1787221035732,
     "relativePath": "scenes\\Gym.fire"
   },
   "aa145222-bdff-4cd6-9334-8e0be1fe0ddd": {
@@ -14674,19 +14674,39 @@
     "meta": 1787197181099,
     "relativePath": "Bracelet"
   },
-  "788d1169-f148-4f07-9cdb-661943c335cb": {
-    "asset": 1787218911008,
-    "meta": 1787219105649,
-    "relativePath": "Gym\\Script\\pt.ts"
-  },
   "02049483-f91e-45f8-a4e6-06d642d19c01": {
     "asset": 1787219445192,
     "meta": 1787219463618,
     "relativePath": "Gym\\Script\\cusGym.ts"
   },
+  "ea4cba5b-8cf1-4824-9d20-f0bd7477ad1f": {
+    "asset": 1787219938590,
+    "meta": 1787219938591,
+    "relativePath": "Gym\\ui"
+  },
+  "23cff2bf-ab7c-4925-944e-ba13b1249406": {
+    "asset": 1787219949464,
+    "meta": 1787219949531,
+    "relativePath": "Gym\\ui\\1.png"
+  },
+  "240beede-12b4-4cf9-b472-d4c5d659f69f": {
+    "asset": 1787219949464,
+    "meta": 1787219949533,
+    "relativePath": "Gym\\ui\\2.png"
+  },
+  "e6789c56-4708-45e0-a05f-3267574bc72f": {
+    "asset": 1787220607067,
+    "meta": 1787220608043,
+    "relativePath": "Gym\\Script\\listCard.ts"
+  },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787219462304,
-    "meta": 1787219463824,
+    "asset": 1787220892556,
+    "meta": 1787220893949,
     "relativePath": "Gym\\Script\\Gym.ts"
+  },
+  "788d1169-f148-4f07-9cdb-661943c335cb": {
+    "asset": 1787220874719,
+    "meta": 1787220894017,
+    "relativePath": "Gym\\Script\\pt.ts"
   }
 }

@@ -45,16 +45,20 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym");
     };
+    NewClass.prototype.getMoveTime = function (time) {
+        var speed = (this.gamePlay && this.gamePlay.ptSpeed) ? this.gamePlay.ptSpeed : 1;
+        return time / speed;
+    };
     NewClass.prototype.moveIn = function (fncDone) {
         var _this = this;
         this.node.active = true;
         var anim = this.anim;
         anim.setAnimation(0, "WalkOutL", true);
-        anim.timeScale = 2;
+        anim.timeScale = 2 * ((this.gamePlay && this.gamePlay.ptSpeed) ? this.gamePlay.ptSpeed : 1);
         console.log("move in, this.tag", this.tag);
         switch (Number(this.tag)) {
             case 0:
-                cc.tween(this.node).to(2.6, { position: cc.v3(-1.6, -92) }).to(0.5, { position: cc.v3(-100, -80) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(2.6), { position: cc.v3(-1.6, -92) }).to(this.getMoveTime(0.5), { position: cc.v3(-100, -80) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
                     anim.timeScale = 1;
                     fncDone();
@@ -64,11 +68,11 @@ var NewClass = /** @class */ (function (_super) {
                 }).start();
                 break;
             case 1: //may day ta 1
-                cc.tween(this.node).to(0.4, { position: cc.v3(310, 52) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(0.4), { position: cc.v3(310, 52) }).call(function () {
                     _this.node.scaleX = -1;
-                }).to(2, { position: cc.v3(698.565, -184.59) }).call(function () {
+                }).to(this.getMoveTime(2), { position: cc.v3(698.565, -184.59) }).call(function () {
                     _this.node.scaleX = 1;
-                }).to(1.5, { position: cc.v3(348.565, -333) }).call(function () {
+                }).to(this.getMoveTime(1.5), { position: cc.v3(348.565, -333) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
                     anim.timeScale = 1;
                     fncDone();
@@ -79,10 +83,10 @@ var NewClass = /** @class */ (function (_super) {
                 break;
             case 2: //may boxing
                 anim.setAnimation(0, "WalkOutL", true);
-                anim.timeScale = 2;
-                cc.tween(this.node).to(0.4, { position: cc.v3(310, 52) }).call(function () {
+                anim.timeScale = 2 * ((this.gamePlay && this.gamePlay.ptSpeed) ? this.gamePlay.ptSpeed : 1);
+                cc.tween(this.node).to(this.getMoveTime(0.4), { position: cc.v3(310, 52) }).call(function () {
                     _this.node.scaleX = -1;
-                }).to(2, { position: cc.v3(850, -120) }).call(function () {
+                }).to(this.getMoveTime(2), { position: cc.v3(850, -120) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
                     anim.timeScale = 1;
                     _this.node.scaleX = 1;
@@ -93,11 +97,11 @@ var NewClass = /** @class */ (function (_super) {
                 }).start();
                 break;
             case 3: //may day ta 2
-                cc.tween(this.node).to(0.4, { position: cc.v3(310, 52) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(0.4), { position: cc.v3(310, 52) }).call(function () {
                     _this.node.scaleX = -1;
-                }).to(2, { position: cc.v3(698.565, -184.59) }).call(function () {
+                }).to(this.getMoveTime(2), { position: cc.v3(698.565, -184.59) }).call(function () {
                     _this.node.scaleX = 1;
-                }).to(0.6, { position: cc.v3(572, -203) }).call(function () {
+                }).to(this.getMoveTime(0.6), { position: cc.v3(572, -203) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
                     anim.timeScale = 1;
                     fncDone();
@@ -107,7 +111,7 @@ var NewClass = /** @class */ (function (_super) {
                 }).start();
                 break;
             case 4: // may day 2
-                cc.tween(this.node).to(0.4, { position: cc.v3(310, 52) }).to(0.5, { position: cc.v3(442, -35) }).to(0.8, { position: cc.v3(267, -146) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(0.4), { position: cc.v3(310, 52) }).to(this.getMoveTime(0.5), { position: cc.v3(442, -35) }).to(this.getMoveTime(0.8), { position: cc.v3(267, -146) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
                     anim.timeScale = 1;
                     fncDone();
@@ -117,7 +121,7 @@ var NewClass = /** @class */ (function (_super) {
                 }).start();
                 break;
             case 5: //may day3
-                cc.tween(this.node).to(1.5, { position: cc.v3(86, -10) }).to(0.5, { position: cc.v3(40, 14) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(1.5), { position: cc.v3(86, -10) }).to(this.getMoveTime(0.5), { position: cc.v3(40, 14) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
                     anim.timeScale = 1;
                     fncDone();
@@ -127,7 +131,7 @@ var NewClass = /** @class */ (function (_super) {
                 }).start();
                 break;
             case 6: //may day4
-                cc.tween(this.node).to(1, { position: cc.v3(182.844, 90) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(1), { position: cc.v3(182.844, 90) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
                     anim.timeScale = 1;
                     fncDone();
@@ -142,6 +146,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         var anim = this.anim;
         anim.setAnimation(0, "WalkOutL", true);
+        anim.timeScale = 2 * ((this.gamePlay && this.gamePlay.ptSpeed) ? this.gamePlay.ptSpeed : 1);
         var finishMoveOut = function () {
             _this.node.active = false;
             _this.gamePlay.onIconPt(_this.btn);
@@ -152,76 +157,76 @@ var NewClass = /** @class */ (function (_super) {
         switch (Number(this.tag)) {
             case 0:
                 this.node.scaleX = -1;
-                cc.tween(this.node).to(0.5, { position: cc.v3(-1.6, -92) }).to(2.6, { position: cc.v3(382, 120) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(0.5), { position: cc.v3(-1.6, -92) }).to(this.getMoveTime(2.6), { position: cc.v3(382, 120) }).call(function () {
                     finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
-                }, 2.6);
+                }, this.getMoveTime(2.6));
                 break;
             case 1:
                 this.node.scaleX = -1;
-                cc.tween(this.node).to(1.5, { position: cc.v3(698.565, -184.59) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(1.5), { position: cc.v3(698.565, -184.59) }).call(function () {
                     _this.node.scaleX = 1;
-                }).to(2, { position: cc.v3(310, 52) }).call(function () {
+                }).to(this.getMoveTime(2), { position: cc.v3(310, 52) }).call(function () {
                     _this.node.scaleX = -1;
-                }).to(0.4, { position: cc.v3(382, 120) }).call(function () {
+                }).to(this.getMoveTime(0.4), { position: cc.v3(382, 120) }).call(function () {
                     finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
-                }, 3.5);
+                }, this.getMoveTime(3.5));
                 break;
             case 2:
                 this.node.scaleX = 1;
-                cc.tween(this.node).to(2, { position: cc.v3(310, 52) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(2), { position: cc.v3(310, 52) }).call(function () {
                     _this.node.scaleX = -1;
-                }).to(0.4, { position: cc.v3(382, 120) }).call(function () {
+                }).to(this.getMoveTime(0.4), { position: cc.v3(382, 120) }).call(function () {
                     finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
-                }, 2);
+                }, this.getMoveTime(2));
                 break;
             case 3:
                 this.node.scaleX = 1;
-                cc.tween(this.node).to(0.6, { position: cc.v3(698.565, -184.59) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(0.6), { position: cc.v3(698.565, -184.59) }).call(function () {
                     _this.node.scaleX = 1;
-                }).to(2, { position: cc.v3(310, 52) }).call(function () {
+                }).to(this.getMoveTime(2), { position: cc.v3(310, 52) }).call(function () {
                     _this.node.scaleX = -1;
-                }).to(0.4, { position: cc.v3(382, 120) }).call(function () {
+                }).to(this.getMoveTime(0.4), { position: cc.v3(382, 120) }).call(function () {
                     finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
-                }, 2);
+                }, this.getMoveTime(2));
                 break;
             case 4: //gapbung2
                 this.node.scaleX = -1;
-                cc.tween(this.node).to(0.8, { position: cc.v3(442, -35) }).to(0.5, { position: cc.v3(310, 52) }).to(0.4, { position: cc.v3(382, 120) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(0.8), { position: cc.v3(442, -35) }).to(this.getMoveTime(0.5), { position: cc.v3(310, 52) }).to(this.getMoveTime(0.4), { position: cc.v3(382, 120) }).call(function () {
                     finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
-                }, 2.6);
+                }, this.getMoveTime(2.6));
                 break;
             case 5: //gapbung2
                 this.node.scaleX = -1;
-                cc.tween(this.node).to(0.5, { position: cc.v3(86, -10) }).to(1.5, { position: cc.v3(382, 120) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(0.5), { position: cc.v3(86, -10) }).to(this.getMoveTime(1.5), { position: cc.v3(382, 120) }).call(function () {
                     finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
-                }, 2.6);
+                }, this.getMoveTime(2.6));
                 break;
             case 6: //gapbung2
                 this.node.scaleX = -1;
-                cc.tween(this.node).to(1, { position: cc.v3(382, 120) }).call(function () {
+                cc.tween(this.node).to(this.getMoveTime(1), { position: cc.v3(382, 120) }).call(function () {
                     finishMoveOut();
                 }).start();
                 this.scheduleOnce(function () {
                     _this.gamePlay.openDoor();
-                }, 2.6);
+                }, this.getMoveTime(2.6));
                 break;
         }
     };
