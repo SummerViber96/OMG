@@ -14580,8 +14580,8 @@
     "relativePath": "Gym\\sound\\Boy_Angry_02.mp3"
   },
   "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787528604950,
-    "meta": 1787528604987,
+    "asset": 1787529156246,
+    "meta": 1787529156280,
     "relativePath": "scenes\\Gym.fire"
   },
   "788d1169-f148-4f07-9cdb-661943c335cb": {
@@ -14899,11 +14899,6 @@
     "meta": 1787524823401,
     "relativePath": "Gym\\Script\\listCard.ts"
   },
-  "02049483-f91e-45f8-a4e6-06d642d19c01": {
-    "asset": 1787526477002,
-    "meta": 1787526493320,
-    "relativePath": "Gym\\Script\\cusGym.ts"
-  },
   "90613c24-1b0c-4139-844e-e00794687b3c": {
     "asset": 1787527685639,
     "meta": 1787527756366,
@@ -14934,9 +14929,14 @@
     "meta": 1787528330538,
     "relativePath": "Gym\\map4\\MapGym3 (1) (1).jpg"
   },
+  "02049483-f91e-45f8-a4e6-06d642d19c01": {
+    "asset": 1787528848473,
+    "meta": 1787528856843,
+    "relativePath": "Gym\\Script\\cusGym.ts"
+  },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787528589159,
-    "meta": 1787528591116,
+    "asset": 1787528891092,
+    "meta": 1787528893201,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

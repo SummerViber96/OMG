@@ -46,6 +46,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isPt = false;
         _this.isQueueMoving = false;
         _this.isAngryWait = false;
+        _this.isSpawned = false;
         _this.gamePlay = null;
         _this.greenSp = null;
         _this.isWaitProgress = false;

@@ -32,6 +32,7 @@ export default class NewClass extends cc.Component {
     isPt = false
     isQueueMoving = false
     isAngryWait = false
+    isSpawned = false
     gamePlay = null
     greenSp: cc.SpriteFrame = null
     isWaitProgress = false

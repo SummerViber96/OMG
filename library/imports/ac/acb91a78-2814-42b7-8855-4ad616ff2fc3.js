@@ -274,6 +274,7 @@ var NewClass = /** @class */ (function (_super) {
         this.attachToSortLayer(cus);
         this.arrCus.push(cus);
         var cusComp = cus.getComponent("cusGym");
+        cusComp.isSpawned = true;
         cusComp.isQueueMoving = true;
         cus.position = startPos;
         // Prefab quay trái (scaleX=1) → đi sang phải cần scaleX=-1
@@ -562,8 +563,9 @@ var NewClass = /** @class */ (function (_super) {
         if (!cus || !cus.isValid)
             return;
         var cusComp = cus.getComponent("cusGym");
-        if (cusComp)
-            cusComp.liftPop();
+        if (!cusComp || !cusComp.isSpawned)
+            return;
+        cusComp.liftPop();
     };
     NewClass.prototype.updateQueueHand = function () {
         this.hideAllQueueHands();
