@@ -31,8 +31,15 @@ var NewClass = /** @class */ (function (_super) {
         _this.pop = null;
         _this.anim = null;
         _this.soundHappy = null;
+        _this.soundAngry = null;
         _this.posDone = cc.v3(0, 0);
         _this.tag = 0;
+        //fill bar
+        _this.fillBar = null;
+        _this.yellowSp = null;
+        _this.redSp = null;
+        _this.angryPrefab = null;
+        _this.waitTime = 8;
         _this.parentName = "";
         _this.parentIndex = 0;
         _this.parentNode = null;
@@ -40,10 +47,59 @@ var NewClass = /** @class */ (function (_super) {
         _this.isQueueMoving = false;
         _this.isAngryWait = false;
         _this.gamePlay = null;
+        _this.greenSp = null;
+        _this.isWaitProgress = false;
+        _this.waitTimeLeft = 0;
+        _this.popLifted = false;
+        _this.popHomePos = cc.v3(0, 0);
         return _this;
     }
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym");
+        if (this.pop)
+            this.popHomePos = this.pop.position.clone();
+        if (this.fillBar) {
+            this.greenSp = this.fillBar.spriteFrame;
+            if (!this.isWaitProgress && this.fillBar.node.parent) {
+                this.fillBar.node.parent.active = false;
+            }
+        }
+    };
+    NewClass.prototype.liftPop = function () {
+        if (!this.pop || !this.gamePlay)
+            return;
+        var layer = this.gamePlay.sortLayer || this.gamePlay.node;
+        if (!this.popLifted)
+            this.popHomePos = this.pop.position.clone();
+        var world = this.node.convertToWorldSpaceAR(this.popHomePos);
+        this.pop.parent = layer;
+        this.pop.position = layer.convertToNodeSpaceAR(world);
+        this.pop.zIndex = 10000;
+        this.popLifted = true;
+    };
+    NewClass.prototype.resetPopLayer = function () {
+        if (!this.popLifted || !this.pop)
+            return;
+        this.pop.parent = this.node;
+        this.pop.position = this.popHomePos;
+        this.pop.zIndex = 0;
+        this.popLifted = false;
+    };
+    NewClass.prototype.followLiftedPop = function () {
+        if (!this.popLifted || !this.pop || !this.pop.isValid || !this.gamePlay)
+            return;
+        var layer = this.pop.parent;
+        if (!layer)
+            return;
+        var world = this.node.convertToWorldSpaceAR(this.popHomePos);
+        this.pop.position = layer.convertToNodeSpaceAR(world);
+        this.pop.zIndex = 10000;
+    };
+    NewClass.prototype.onDestroy = function () {
+        if (this.popLifted && this.pop && this.pop.isValid) {
+            this.pop.destroy();
+            this.popLifted = false;
+        }
     };
     NewClass.prototype.showMision = function () {
         this.pop.getComponent(cc.Animation).play();
@@ -96,6 +152,7 @@ var NewClass = /** @class */ (function (_super) {
         var hand = this.pop.getChildByName("hand");
         if (hand)
             hand.active = false;
+        this.resetPopLayer();
         cc.Tween.stopAllByTarget(this.pop);
         cc.tween(this.pop).to(0.2, { scale: 0 }).start();
         if (this.gamePlay.isStep >= 4) {
@@ -109,14 +166,36 @@ var NewClass = /** @class */ (function (_super) {
         this.anim.setAnimation(0, "AbCrunch", true);
     };
     NewClass.prototype.tucGian = function () {
+        if (this.gamePlay && this.gamePlay.isEndgame)
+            return;
         this.isAngryWait = true;
+        if (this.soundAngry && this.gamePlay && this.gamePlay.playSfx) {
+            this.gamePlay.playSfx(this.soundAngry, false, 1);
+        }
         this.anim.setAnimation(0, "Waiting3", true);
     };
-    NewClass.prototype.happy = function () {
-        // if (this.soundHappy) {
-        //     cc.audioEngine.play(this.soundHappy, false, 1)
-        // }
+    NewClass.prototype.happy = function (playSound) {
+        if (playSound === void 0) { playSound = true; }
+        if (playSound && this.soundHappy && this.gamePlay && this.gamePlay.playSfx) {
+            this.gamePlay.playSfx(this.soundHappy, false, 1);
+        }
         this.anim.setAnimation(0, "HappyOut", true);
+    };
+    NewClass.prototype.celebrate = function () {
+        this.stopWaitProgress();
+        this.unscheduleAllCallbacks();
+        this.clearAngryFx();
+        if (this.pop)
+            this.pop.active = false;
+        this.happy(false);
+    };
+    NewClass.prototype.clearAngryFx = function () {
+        for (var i = this.node.childrenCount - 1; i >= 0; i--) {
+            var child = this.node.children[i];
+            if (child && child.name.indexOf("angry") >= 0) {
+                child.destroy();
+            }
+        }
     };
     NewClass.prototype.boxing = function () {
         this.anim.setAnimation(0, "Boxing", true);
@@ -134,9 +213,72 @@ var NewClass = /** @class */ (function (_super) {
                 this.anim.setAnimation(0, "IdleFL", true);
                 break;
         }
+        this.startWaitProgress();
+    };
+    NewClass.prototype.startWaitProgress = function () {
+        if (!this.fillBar)
+            return;
+        this.isWaitProgress = true;
+        this.waitTimeLeft = this.waitTime;
+        this.fillBar.fillRange = 1;
+        if (!this.greenSp)
+            this.greenSp = this.fillBar.spriteFrame;
+        if (this.greenSp)
+            this.fillBar.spriteFrame = this.greenSp;
+        if (this.fillBar.node.parent)
+            this.fillBar.node.parent.active = true;
+    };
+    NewClass.prototype.stopWaitProgress = function () {
+        this.isWaitProgress = false;
+        this.waitTimeLeft = 0;
+        if (this.fillBar && this.fillBar.node.parent) {
+            this.fillBar.node.parent.active = false;
+        }
+    };
+    NewClass.prototype.spawnAngry = function () {
+        var _this = this;
+        if (this.gamePlay && this.gamePlay.isEndgame)
+            return;
+        if (!this.angryPrefab)
+            return;
+        for (var i = 0; i < 4; i++) {
+            this.scheduleOnce(function () {
+                var angry = cc.instantiate(_this.angryPrefab);
+                angry.parent = _this.node;
+                angry.position = cc.v3((Math.random() - 0.5) * 50, 110 + Math.random() * 20).add(cc.v3(0, 50));
+                angry.opacity = 255;
+                angry.scale = 0.8 + Math.random() * 0.3;
+                cc.tween(angry).parallel(cc.tween().by(0.9, { position: cc.v3((Math.random() - 0.5) * 30, 90) }), cc.tween().to(0.9, { opacity: 0 })).call(function () {
+                    if (angry && angry.isValid)
+                        angry.destroy();
+                }).start();
+            }, i * 0.12);
+        }
     };
     // update (dt) {}
     NewClass.prototype.update = function (dt) {
+        if (this.isWaitProgress && this.fillBar) {
+            this.waitTimeLeft -= dt;
+            var ratio = this.waitTime > 0 ? Math.max(0, this.waitTimeLeft / this.waitTime) : 0;
+            this.fillBar.fillRange = ratio;
+            if (ratio <= 0.25) {
+                if (this.redSp)
+                    this.fillBar.spriteFrame = this.redSp;
+            }
+            else if (ratio <= 0.5) {
+                if (this.yellowSp)
+                    this.fillBar.spriteFrame = this.yellowSp;
+            }
+            if (ratio <= 0) {
+                this.stopWaitProgress();
+                if (this.gamePlay && this.gamePlay.isEndgame)
+                    return;
+                this.tucGian();
+                this.spawnAngry();
+            }
+        }
+        if (this.popLifted)
+            this.followLiftedPop();
         if (!this.gamePlay || !this.gamePlay.sortLayer)
             return;
         if (this.node.parent === this.gamePlay.sortLayer) {
@@ -153,8 +295,26 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundHappy", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundAngry", void 0);
+    __decorate([
         property(cc.Integer)
     ], NewClass.prototype, "tag", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], NewClass.prototype, "fillBar", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], NewClass.prototype, "yellowSp", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], NewClass.prototype, "redSp", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], NewClass.prototype, "angryPrefab", void 0);
+    __decorate([
+        property
+    ], NewClass.prototype, "waitTime", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

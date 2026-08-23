@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MapGym3 (1) (1)",
+    "texture": "f7b28185-0faa-4cfb-8dbe-c72d5d907d35",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2048,
+      1260
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2048,
+      1260
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

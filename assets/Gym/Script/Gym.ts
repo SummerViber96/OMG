@@ -5,10 +5,12 @@ globalThis.gold = 100
 export default class NewClass extends cc.Component {
     @property(cc.Camera)
     camera: cc.Camera = null;
-    @property(cc.Node)
-    npc: cc.Node = null
-    @property(cc.Node)
-    npc2: cc.Node = null
+    @property(cc.Camera)
+    cameraDoc: cc.Camera = null;
+    // @property(cc.Node)
+    // npc: cc.Node = null
+    // @property(cc.Node)
+    // npc2: cc.Node = null
     @property(cc.Node)
     listCusNode: cc.Node = null
     @property(cc.Node)
@@ -31,6 +33,10 @@ export default class NewClass extends cc.Component {
     soundConfirm: cc.AudioClip = null;
     @property(cc.AudioClip)
     soundWin: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundTime: cc.AudioClip = null
+    @property(cc.AudioClip)
+    soundDoor: cc.AudioClip = null
     @property(cc.Node)
     game: cc.Node = null
     @property(cc.Node)
@@ -41,8 +47,7 @@ export default class NewClass extends cc.Component {
     phaohoa: cc.Node = null;
     @property(cc.Node)
     linkToStore: cc.Node = null;
-    @property(cc.Node)
-    listE: cc.Node = null
+
     @property(cc.Label)
     lbCoin: cc.Label = null
     @property(cc.Node)
@@ -51,6 +56,8 @@ export default class NewClass extends cc.Component {
     fillBar: cc.Sprite = null
     @property(cc.Node)
     endCard: cc.Node = null
+    @property(cc.Node)
+    endCardDoc: cc.Node = null
     @property(cc.Node)
     coinBar: cc.Node
     @property(cc.Node)
@@ -80,7 +87,13 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     listCard: cc.Node = null
     @property(cc.Node)
-    noti:cc.Node=null
+    noti: cc.Node = null;
+    @property(cc.Node)
+    guildTime1: cc.Node = null;
+    @property(cc.Node)
+    timeBar: cc.Node = null
+
+
     arrPosDone = [cc.v3(-239, -133), cc.v3(57, -157), cc.v3(-123, -36), cc.v3(-14, 65), cc.v3(-58, -235), cc.v3(198, -59)]
     arrPosDoneCrunch = [cc.v3(218, -392), cc.v3(409, -289)]
     // @property(cc.Node)
@@ -100,12 +113,14 @@ export default class NewClass extends cc.Component {
     adChanel = '{{__adv_channels_adapter__}}'
     posGapBung = cc.v3(-30, -19);
     posNangTa = cc.v3(-50, -42)
-
+    idSoundTime = null
+    idSoundBG = null
+    sfxIds = []
     start() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        cc.audioEngine.play(this.soundBG, true, 0.5)
+        this.idSoundBG = cc.audioEngine.play(this.soundBG, true, 0.5)
         this.scheduleOnce(() => {
             for (let i = 0; i < Math.min(3, this.arrCus.length); i++) {
                 let child = this.arrCus[i];
@@ -113,9 +128,8 @@ export default class NewClass extends cc.Component {
                     child.getChildByName("pop").active = true
                 }
             }
-            this.textGuild1.active = true
         }, 0.6)
-
+        this.idSoundTime = this.playSfx(this.soundTime, true, 0.5)
         for (let i = 0; i < this.listCusNode.childrenCount; i++) {
             this.arrCus.push(this.listCusNode.children[i])
         }
@@ -135,8 +149,21 @@ export default class NewClass extends cc.Component {
             this.attachToSortLayer(this.arrCus[i])
         }
         this.refreshSortLayerDepth()
+        this.scheduleOnce(() => {
+            this.offGuild()
+        }, 1)
     }
+    offGuild() {
+        cc.audioEngine.stop(this.idSoundTime)
+        cc.tween(this.guildTime1.children[0]).to(0.3, { opacity: 0 }).start();
+        cc.tween(this.guildTime1.children[1]).to(0.3, { scale: 0 }).start();
+        this.scheduleOnce(() => {
+            this.timeBar.active = true
+            this.textGuild1.active = true
+        }, 0.3)
 
+
+    }
     setupSortLayer() {
         let doorParent = this.door ? this.door.parent : null
         let parent = (doorParent && doorParent.parent)
@@ -282,7 +309,7 @@ export default class NewClass extends cc.Component {
 
     arrWaiting = []
     doCus(tag, cus) {
-        cc.audioEngine.play(this.soundClick, false, 1)
+        this.playSfx(this.soundClick, false, 1)
         if (this.isStep <= 3) {
             this.moveCus(tag)
             if (this.isStep == 0) {
@@ -386,7 +413,7 @@ export default class NewClass extends cc.Component {
         cus.scale = 1
         cus.scaleX = 1
         let cusComp = cus.getComponent("cusGym")
-        may.getChildByName("G1_AbCrunch").zIndex = cus.zIndex+1
+        may.getChildByName("G1_AbCrunch").zIndex = cus.zIndex + 1
         cusComp.parentName = "MayDay"
         cusComp.parentIndex = value;
         cusComp.parentNode = may
@@ -456,7 +483,7 @@ export default class NewClass extends cc.Component {
         if (!cus || !cus.isValid) return false
         let cusComp = cus.getComponent("cusGym")
         if (!cusComp || cusComp.isQueueMoving) return false
-        let pop = cus.getChildByName("pop")
+        let pop = this.getCusPop(cus)
         if (!pop || !pop.active) return false
         let btn = pop.getComponent(cc.Button)
         if (btn && !btn.enabled) return false
@@ -499,15 +526,35 @@ export default class NewClass extends cc.Component {
         this.guidingIconPt = false
         this.updateQueueHand()
     }
+    getCusPop(cus) {
+        if (!cus || !cus.isValid) return null
+        let cusComp = cus.getComponent("cusGym")
+        if (cusComp && cusComp.pop) return cusComp.pop
+        return cus.getChildByName("pop")
+    }
     hideAllQueueHands() {
         for (let i = 0; i < this.arrCus.length; i++) {
             let cus = this.arrCus[i]
             if (!cus || !cus.isValid) continue
-            let pop = cus.getChildByName("pop")
+            let cusComp = cus.getComponent("cusGym")
+            if (cusComp) cusComp.resetPopLayer()
+            let pop = this.getCusPop(cus)
             if (!pop) continue
             let hand = pop.getChildByName("hand")
             if (hand) hand.active = false
         }
+        this.resetQueueCusDepth()
+    }
+    resetQueueCusDepth() {
+        for (let i = 0; i < this.arrCus.length; i++) {
+            let cus = this.arrCus[i]
+            if (cus && cus.isValid) this.setDepthByY(cus)
+        }
+    }
+    bringCusPopToFront(cus) {
+        if (!cus || !cus.isValid) return
+        let cusComp = cus.getComponent("cusGym")
+        if (cusComp) cusComp.liftPop()
     }
     updateQueueHand() {
         this.hideAllQueueHands()
@@ -517,14 +564,17 @@ export default class NewClass extends cc.Component {
         for (let i = 0; i < this.arrCus.length; i++) {
             let cus = this.arrCus[i]
             if (!this.canClickQueueCus(cus)) continue
-            let hand = cus.getChildByName("pop").getChildByName("hand")
+            let pop = this.getCusPop(cus)
+            if (!pop) continue
+            let hand = pop.getChildByName("hand")
             if (hand) hand.active = true
+            this.bringCusPopToFront(cus)
             return
         }
     }
     clickPt(event, tag) {
         let pt = null;
-        cc.audioEngine.play(this.soundClick, false, 1)
+        this.playSfx(this.soundClick, false, 1)
 
         if (this.isStep == 1) {
             let btn = event.currentTarget.getComponent(cc.Button);
@@ -541,17 +591,13 @@ export default class NewClass extends cc.Component {
             this.scheduleOnce(() => {
                 this.arrCus[1].getChildByName("pop").getChildByName("hand").active = true
                 this.arrCus[1].getChildByName("pop").getComponent(cc.Button).enabled = true
+                this.bringCusPopToFront(this.arrCus[1])
             }, 1)
             this.scheduleOnce(() => {
                 this.attachToSortLayer(pt)
 
             }, 0.3)
-            this.door.getComponent(cc.Animation).play("door_open")
-
-            this.scheduleOnce(() => {
-                this.door.getComponent(cc.Animation).play("door_close")
-
-            }, 0.7)
+            this.openDoor()
             this.offIconPt(this.arrIconPt[0])
 
         }
@@ -561,7 +607,7 @@ export default class NewClass extends cc.Component {
             pt = this.listPt.children[0];
             this.isStep = 3
             pt.active = true
-            this.door.getComponent(cc.Animation).play("door_open")
+            this.openDoor()
             let fnc = () => {
                 this.activeCus(1)
             }
@@ -571,15 +617,12 @@ export default class NewClass extends cc.Component {
             this.scheduleOnce(() => {
                 this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true
                 this.arrCus[2].getChildByName("pop").getComponent(cc.Button).enabled = true
+                this.bringCusPopToFront(this.arrCus[2])
 
             }, 1)
             this.scheduleOnce(() => {
                 this.attachToSortLayer(pt)
             }, 0.2)
-            this.scheduleOnce(() => {
-                this.door.getComponent(cc.Animation).play("door_close")
-
-            }, 0.7)
             this.offIconPt(this.arrIconPt[1])
         }
         else if (this.isStep == 3) {
@@ -588,7 +631,7 @@ export default class NewClass extends cc.Component {
             pt = this.listPt.children[0];
             this.isStep = 4
             pt.active = true
-            this.door.getComponent(cc.Animation).play("door_open")
+            this.openDoor()
 
             let fnc = () => {
                 this.activeCus(2)
@@ -597,14 +640,11 @@ export default class NewClass extends cc.Component {
 
             this.scheduleOnce(() => {
                 this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true
+                this.bringCusPopToFront(this.arrCus[2])
             }, 1)
             this.scheduleOnce(() => {
                 this.attachToSortLayer(pt)
             }, 0.2)
-            this.scheduleOnce(() => {
-                this.door.getComponent(cc.Animation).play("door_close")
-
-            }, 0.7)
             this.offIconPt(this.arrIconPt[2])
         }
         else {
@@ -692,12 +732,16 @@ export default class NewClass extends cc.Component {
         }
     }
     countpt = 0
+    playDoorAnim(animName) {
+        if (this.door) {
+            this.door.getComponent(cc.Animation).play(animName)
+        }
+        this.playSfx(this.soundDoor, false, 1)
+    }
     openDoor() {
-        this.door.getComponent(cc.Animation).play("door_open")
-
+        this.playDoorAnim("door_open")
         this.scheduleOnce(() => {
-            this.door.getComponent(cc.Animation).play("door_close")
-
+            this.playDoorAnim("door_close")
         }, 0.7)
     }
     addPt(cus, parentName, btn) {
@@ -748,6 +792,7 @@ export default class NewClass extends cc.Component {
         let cusComp = char.getComponent("cusGym")
         if (cusComp) {
             cusComp.isPt = true
+            cusComp.stopWaitProgress()
         }
         switch (value) {
             case 0:
@@ -853,6 +898,8 @@ export default class NewClass extends cc.Component {
     startGame() {
         if (this.isGameStarted) return
         this.isGameStarted = true
+        cc.tween(this.cameraDoc.node).to(0.4, { position: cc.v3(-250, 0) }).start()
+        cc.tween(this.cameraDoc).to(0.8, { zoomRatio: 1.65 }).start()
 
         for (let child of this.arrIconPt) {
             this.onIconPt(child)
@@ -871,7 +918,7 @@ export default class NewClass extends cc.Component {
         this.arrCus = []
         this.spawCustomer()
 
-        this.schedule(this.spawCustomer, 4)
+        this.schedule(this.spawCustomer, 3)
         this.scheduleOnce(() => {
             this.textGuild2.active = true
             while (this.arrCus.length < 3) {
@@ -880,11 +927,11 @@ export default class NewClass extends cc.Component {
             this.updateQueueHand()
         }, 15)
         this.scheduleOnce(() => {
-            cc.tween(this.textGuild2).to(0.8, { scale: 0 }).start()
+            cc.tween(this.textGuild2).to(0.8, { opacity: 0 }).start()
             this.zoomGame()
             this.scheduleOnce(() => {
                 this.listCard.active = true
-            },4)
+            }, 4)
             // this.startGame()
         }, 22)
 
@@ -892,6 +939,9 @@ export default class NewClass extends cc.Component {
     zoomGame() {
         cc.tween(this.camera).to(0.8, { zoomRatio: 2 }).start()
         cc.tween(this.camera.node).to(0.8, { position: cc.v3(-494, -296) }).start()
+        cc.tween(this.cameraDoc).to(0.8, { zoomRatio: 2.5 }).start()
+        cc.tween(this.cameraDoc.node).to(0.4, { position: cc.v3(-500, -100) }).start()
+
         this.hideQueueHandGuide = true
         this.hideAllQueueHands()
         while (this.arrCus.length < 5 && this.arrCus.length < this.arrPosCus.length) {
@@ -916,29 +966,51 @@ export default class NewClass extends cc.Component {
         this.listCard.active = false
         cc.tween(this.camera).to(0.8, { zoomRatio: 1 }).start()
         cc.tween(this.camera.node).to(0.8, { position: cc.v3(0, 0) }).start()
+        cc.tween(this.cameraDoc).to(0.8, { zoomRatio: 1.5 }).start()
+        cc.tween(this.cameraDoc.node).to(0.8, { position: cc.v3(-100, 0) }).start()
+        if (this.textGuild3) this.textGuild3.opacity = 0
         switch (Number(value)) {
             case 0:
-                this.ptSpeed = 1.5
-                this.noti.children[0].children[1].active=true
+                this.ptSpeed = 1.
                 this.noti.active = true
+                this.noti.children[0].children[1].active = true
+                this.noti.getComponent(cc.Animation).play()
+                this.unschedule(this.spawCustomer)
+                this.hideQueueHandGuide = true
+                this.hideAllQueueHands()
+                this.hideAllIconPtHands()
+                this.scheduleOnce(() => {
+                    this.autoFillMachinesAndPts()
+                }, 0.5)
+                this.scheduleOnce(() => {
+                    this.noti.children[0].children[0].active = false
+                    this.noti.children[0].children[1].active = false
+                    this.noti.children[0].children[2].active = true
+                    this.noti.active = true
+                    this.noti.getComponent(cc.Animation).play()
+                }, 8.5)
+
                 break
             case 1:
                 this.addCountDownTime(15)
-                this.noti.children[0].children[0].active=true
                 this.noti.active = true
+                this.noti.children[0].children[0].active = true
+                this.noti.getComponent(cc.Animation).play()
+                this.hideQueueHandGuide = false
+                this.scheduleOnce(() => {
+                    this.showContinueHandGuide()
+                }, 0.8)
                 break
         }
-        if (this.textGuild3) this.textGuild3.active = false
-        this.unschedule(this.spawCustomer)
-        this.hideQueueHandGuide = true
-        this.hideAllQueueHands()
-        this.hideAllIconPtHands()
-        this.scheduleOnce(() => {
-            this.autoFillMachinesAndPts()
-        }, 0.5)
         this.scheduleOnce(() => {
             this.onEndgame()
-        }, 9)
+        }, 10)
+    }
+    showContinueHandGuide() {
+        this.hideQueueHandGuide = false
+        this.guidingIconPt = false
+        this.showFreeIconPtHand()
+        this.updateQueueHand()
     }
     autoFillMachinesAndPts() {
         let queue = this.arrCus.slice()
@@ -1029,27 +1101,42 @@ export default class NewClass extends cc.Component {
         let coin = cc.instantiate(this.preCoin);
         coin.parent = this.node;
         coin.position = pos.add(cc.v3(0, 50))
-        globalThis.gold += value
-        cc.audioEngine.play(this.soundCoin, false, 1)
+        globalThis.gold += 50
+        this.playSfx(this.soundCoin, false, 1)
 
+    }
+    activateSeatCus(char, parentNode, parentName, parentIndex, tag) {
+        if (!char) return
+        char.active = true
+        char.name = "char"
+        let cusComp = char.getComponent("cusGym")
+        if (!cusComp) return
+        cusComp.parentName = parentName
+        cusComp.parentIndex = parentIndex
+        cusComp.parentNode = parentNode
+        cusComp.isPt = false
+        if (this.arrWaiting.indexOf(char) < 0) {
+            this.arrWaiting.push(char)
+        }
+        cusComp.waitingTag(tag)
     }
     moveCus(value) {
         // cc.audioEngine.play(this.soundCoin, false, 1)
         if (value == 1) {
             let char = this.arrCrunch[0].getChildByName("char")
-            char.active = true;
+            this.activateSeatCus(char, this.arrCrunch[0], "Crunch", 0, 0)
             this.arrCus[0].active = false
         }
         else if (value == 2) {
             this.arrCus[1].active = false
             let char = this.dayTa1.getChildByName("char")
-            char.active = true
+            this.activateSeatCus(char, this.dayTa1, "MayDay", 0, 1)
 
         }
         else if (value == 3) {
             this.arrCus[2].active = false
             let char = this.boxing1.getChildByName("char")
-            char.active = true
+            this.activateSeatCus(char, this.boxing1, "Boxing", 0, 2)
 
         }
         else if (value == 4) {
@@ -1071,38 +1158,7 @@ export default class NewClass extends cc.Component {
             this.isHind = true
         }
     }
-    // onHind() {
-    //     let index = 1;
 
-    //     this.schedule(() => {
-    //         // tắt tất cả trước
-    //         for (let i = 1; i < this.arrCus.length; i++) {
-    //             let pop = this.arrCus[i].getChildByName("pop");
-    //             let hand = pop.getChildByName("hand");
-    //             hand.active = false;
-    //         }
-
-    //         // bật cái hiện tại
-    //         let pop = this.arrCus[index].getChildByName("pop");
-    //         let hand = pop.getChildByName("hand");
-    //         hand.active = true;
-
-    //         index++;
-    //         if (index >= this.arrCus.length) {
-    //             index = 1; // quay lại từ đầu
-    //         }
-    //     }, 0.5);
-    // }
-    // isCus = 0
-    // moveCame1() {
-    //     cc.tween(this.game).to(0.5, { scale: 2.3 }).start()
-    //     // cc.tween(this.camera).to(0.3, { zoomRatio: 2.5 }).start();
-    //     cc.tween(this.game).to(0.5, { position: cc.v3(200, -550) }).start()
-    //     this.scheduleOnce(() => {
-    //         this.guildUpgrade.active = true
-    //     }, 0.5)
-    //     this.isCus = 0
-    // }
     update(dt) {
         let deviceResolution = cc.view.getFrameSize();
         if (deviceResolution.width < deviceResolution.height) {
@@ -1113,78 +1169,61 @@ export default class NewClass extends cc.Component {
         }
     }
     isCountStep = 0
-    // btn_upgrade() {
-    //     cc.audioEngine.play(this.soundConfirm, false, 1)
-    //     this.isCountStep++
-    //     if (this.isCountStep < 5) {
-    //         this.fillBar.fillRange = this.isCountStep * 0.25
-    //         // this.listE.children[this.isCountStep - 1].active = true
 
-    //     }
-    //     let btn = this.guildUpgrade.children[2].getChildByName("Button")
-    //     btn.active = true;
-    //     btn.position = cc.v3(60 * this.isCountStep, -17.93)
-    //     if (this.isCus == 0) {
-    //         let char = this.listCrunch.children[0].getChildByName("char")
-    //         char.getChildByName("vfx").getComponent(cc.Animation).play()
-    //         char.getComponent(cc.Animation).play()
-
-    //         if (this.isCountStep == 5) {
-    //             cc.audioEngine.play(this.soundCoin, false, 1)
-
-    //             char.getChildByName("notiBonusCoin2").active = true
-    //             char.getComponent("cusGym").happy()
-    //             char.position = cc.v3(-67, -50)
-    //             this.guildUpgrade.active = false;
-    //             this.move4()
-    //             globalThis.gold += 200
-    //             this.phaohoa.getComponent(cc.Animation).play()
-    //             this.scheduleOnce(() => {
-    //                 cc.tween(char).to(0.3, { opacity: 0 }).start()
-
-    //             }, 1)
-    //         }
-    //     }
-    //     else if (this.isCus == 1) {
-    //         let char = this.boxing1.children[0]
-
-    //         char.getChildByName("vfx").getComponent(cc.Animation).play()
-
-    //         if (this.isCountStep == 5) {
-    //             cc.audioEngine.play(this.soundCoin, false, 1)
-
-    //             globalThis.gold += 200
-
-    //             char.getChildByName("notiBonusCoin2").active = true
-
-    //             char.getComponent("cusGym").happy()
-    //             this.guildUpgrade.active = false;
-    //             // this.move4()
-    //             this.phaohoa.getComponent(cc.Animation).play()
-    //             this.scheduleOnce(() => {
-    //                 cc.tween(char).to(0.3, { opacity: 0 }).start()
-    //             }, 1)
-
-    //         }
-    //         if (this.isCountStep == 4) {
-    //             this.linkToStore.active = true
-    //         }
-    //     }
-    //     else if (this.isCus == 2) {
-    //         let char = this.boxing2.children[0]
-    //         char.getChildByName("vfx").getComponent(cc.Animation).play()
-
-    //         // if (this.isCountStep == 2) {
-    //         //     this.linkToStore.active = true
-    //         // }
-    //     }
-    // }
+    playSfx(clip, loop = false, vol = 1) {
+        if (this.isEndgame || !clip) return null
+        let id = cc.audioEngine.play(clip, loop, vol)
+        if (id != null) this.sfxIds.push(id)
+        return id
+    }
+    stopOtherSounds() {
+        if (this.idSoundTime != null) {
+            cc.audioEngine.stop(this.idSoundTime)
+            this.idSoundTime = null
+        }
+        for (let i = 0; i < this.sfxIds.length; i++) {
+            cc.audioEngine.stop(this.sfxIds[i])
+        }
+        this.sfxIds = []
+    }
     onEndgame() {
         if (this.isEndgame) return
         this.isEndgame = true
-        cc.audioEngine.play(this.soundWin, false, 1)
-        this.endCard.active = true;
+        this.unschedule(this.spawCustomer)
+        this.stopOtherSounds()
+        this.makeAllCusHappy()
+        if (this.soundWin) cc.audioEngine.play(this.soundWin, false, 1)
+        // this.endCard.active = true;
         this.linkToStore.active = true
+    }
+    addCusToList(list, node) {
+        if (!node || !node.isValid) return
+        if (list.indexOf(node) >= 0) return
+        if (!node.getComponent("cusGym")) return
+        list.push(node)
+    }
+    makeAllCusHappy() {
+        let list = []
+        for (let i = 0; i < this.arrCus.length; i++) this.addCusToList(list, this.arrCus[i])
+        for (let i = 0; i < this.arrWaiting.length; i++) this.addCusToList(list, this.arrWaiting[i])
+        for (let i = 0; i < this.arrCrunch.length; i++) {
+            if (this.arrCrunch[i]) this.addCusToList(list, this.arrCrunch[i].getChildByName("char"))
+        }
+        for (let i = 0; i < this.arrMayDay.length; i++) {
+            if (this.arrMayDay[i]) this.addCusToList(list, this.arrMayDay[i].getChildByName("char"))
+        }
+        if (this.dayTa1) this.addCusToList(list, this.dayTa1.getChildByName("char"))
+        if (this.boxing1) this.addCusToList(list, this.boxing1.getChildByName("char"))
+        if (this.boxing2) this.addCusToList(list, this.boxing2.getChildByName("char"))
+        if (this.sortLayer) {
+            for (let i = 0; i < this.sortLayer.childrenCount; i++) {
+                this.addCusToList(list, this.sortLayer.children[i])
+            }
+        }
+        for (let i = 0; i < list.length; i++) {
+            let cusComp = list[i].getComponent("cusGym")
+            if (cusComp) cusComp.celebrate()
+        }
     }
     startCountDown() {
         let timeComp = this.node.getComponentInChildren("time")
@@ -1198,163 +1237,66 @@ export default class NewClass extends cc.Component {
             timeComp.addTime(sec)
         }
     }
-    // move2() {
-    //     this.scheduleOnce(() => {
-    //         cc.tween(this.game).to(0.5, { scale: 1 }).start()
-    //         // cc.tween(this.camera).to(0.3, { zoomRatio: 2.5 }).start();
-    //         cc.tween(this.game).to(0.5, { position: cc.v3(0, 0) }).start()
-    //         this.isCus = 1
-    //         this.isCountStep = 0
-    //         this.fillBar.fillRange = 0
 
-    //     }, 1)
-    //     this.scheduleOnce(() => {
-    //         this.move3()
-    //     }, 1.7)
-    // }
-    // move3() {
-    //     cc.tween(this.game).to(0.5, { scale: 2.7 }).start()
-    //     // cc.tween(this.camera).to(0.3, { zoomRatio: 2.5 }).start();
-    //     cc.tween(this.game).to(0.5, { position: cc.v3(-1973, -120) }).start()
-    //     this.scheduleOnce(() => {
-    //         this.guildUpgrade.active = true
-    //     }, 0.5)
-    // }
-    // move4() {
-    //     this.scheduleOnce(() => {
-    //         cc.tween(this.game).to(0.5, { scale: 1 }).start()
-    //         // cc.tween(this.camera).to(0.3, { zoomRatio: 2.5 }).start();
-    //         cc.tween(this.game).to(0.5, { position: cc.v3(0, 0) }).start()
-    //         this.isCus = 2
-    //         this.isCountStep = 0
-    //         this.fillBar.fillRange = 0
-    //     }, 1)
-    //     this.scheduleOnce(() => {
-    //         this.move5()
-    //     }, 1.7)
-    // }
-    // move5() {
-    //     cc.tween(this.game).to(1, { scale: 1.7 }).start()
-    //     // cc.tween(this.camera).to(0.3, { zoomRatio: 2.5 }).start();
-    //     cc.tween(this.game).to(1, { position: cc.v3(1100, 100) }).start()
-    //     // let text = this.guildUpgrade.getChildByName("New Label")
-    //     // text.getComponent(cc.Label).string = "Last one! Finish strong!"
-    //     this.scheduleOnce(() => {
-    //         this.guildUpgrade2.active = true
-    //     }, 0.5)
-    // }
-    // dem1 = 0;
-    // dem2 = 0
-    // btn_upgrade2(event, value) {
-    //     cc.audioEngine.play(this.soundConfirm, false, 1)
-    //     if (value == "1") {
-    //         let fill = this.guildUpgrade2.getChildByName("bgTrain2").children[1]
-    //         let btn = this.guildUpgrade2.getChildByName("bgTrain2").getChildByName("Button")
-    //         let char = this.dayTa1.children[0]
-    //         char.getComponent(cc.Animation).play();
-    //         char.getChildByName("vfx").getComponent(cc.Animation).play();
-    //         this.dem1++
-    //         fill.getComponent(cc.Sprite).fillRange = this.dem1 * 0.2
-    //         btn.active = true;
-    //         btn.position = cc.v3(50 * this.dem1, -17.93)
-    //         if (this.dem1 == 5) {
-    //             event.currentTarget.active = false
-    //             cc.audioEngine.play(this.soundCoin, false, 1)
-
-    //             char.getChildByName("notiBonusCoin2").active = true
-    //             char.getComponent("cusGym").happy()
-    //             char.position = cc.v3(-81, -45)
-    //             globalThis.gold += 200
-    //             this.phaohoa.getComponent(cc.Animation).play()
-    //             this.scheduleOnce(() => {
-    //                 cc.tween(char).to(0.3, { opacity: 0 }).start()
-
-    //             }, 1)
-
-    //         }
-    //     }
-    //     else {
-    //         let fill = this.guildUpgrade2.getChildByName("bgTrain").children[1]
-    //         let char = this.boxing2.children[0]
-    //         let btn = this.guildUpgrade2.getChildByName("bgTrain").getChildByName("Button")
-
-    //         char.getComponent(cc.Animation).play();
-    //         char.getChildByName("vfx").getComponent(cc.Animation).play();
-    //         this.dem2++
-    //         btn.active = true;
-    //         btn.position = cc.v3(50 * this.dem2, -17.93)
-    //         fill.getComponent(cc.Sprite).fillRange = this.dem2 * 0.2
-    //         if (this.dem2 == 5) {
-    //             event.currentTarget.active = false
-
-    //             cc.audioEngine.play(this.soundCoin, false, 1)
-
-    //             char.getChildByName("notiBonusCoin2").active = true
-    //             char.getComponent("cusGym").happy()
-    //             globalThis.gold += 200
-    //             this.phaohoa.getComponent(cc.Animation).play()
-    //             this.scheduleOnce(() => {
-    //                 cc.tween(char).to(0.3, { opacity: 0 }).start()
-
-    //             }, 1)
-
-    //         }
-    //     }
-
-    //     if (this.dem1 == 5 && this.dem2 == 5) {
-    //         cc.tween(this.guildUpgrade2).to(0.26, { opacity: 0 }).call(() => {
-    //             this.guildUpgrade2.active = false
-    //         }).start()
-    //         this.scheduleOnce(() => {
-    //             this.move2()
-    //         }, 0.8)
-    //     }
-    // }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
-        // this.camera.zoomRatio = 1
-
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
-        this.guildUpgrade.scale = (logic) ? 2.4 : 1
-        this.guildUpgrade2.scale = (logic) ? 1.6 : 1
-
-        // this.camera.node.position = cc.v3(0, 0)
         this.lbCoin.string = globalThis.gold.toString()
-        this.npc.scale = (logic) ? 1.7 : 1
-        this.npc2.scale = (logic) ? 1.7 : 1
-        this.npc.y = (logic) ? -700 : 0
-        this.npc2.y = (logic) ? -700 : 0
+        if (this.isEndgame) {
+            if (logic) {
+                this.endCardDoc.active = true
+                this.endCard.active = false
+
+            } else {
+                this.endCard.active = true
+                this.endCardDoc.active = false
+
+            }
+        }
         this.endCard.scale = (logic) ? 1.5 : 0.7
         this.logo.scale = (logic) ? 1.5 : 1
-        this.coinBar.scale = (logic) ? 1.5 : 1;
-        this.coinBar.getComponent(cc.Widget).top = 77;
+        this.listIconPt.scale = (logic) ? 2.2 : 1.3
+        this.listIconPt.getComponent(cc.Widget).bottom = (logic) ? 230 : 114.86
         this.logo.getComponent(cc.Widget).top = 48
-        // this.barCoin.y=(logic)?400:470
+        this.cameraDoc.node.active = logic ? true : false
+        this.camera.node.active = logic ? false : true
+        this.guildTime1.scale = logic ? 2.2 : 1;
+        this.timeBar.scale = logic ? 1.5 : 1
+        this.timeBar.getComponent(cc.Widget).top = logic ? 250 : 150
+        this.noti.scale = (logic) ? 1.8 : 1
+        this.listCard.scale = (logic) ? 1.6 : 1
+        this.textGuild1.getComponent(cc.Widget).bottom = (logic) ? 570 : 279.79
+        this.textGuild2.getComponent(cc.Widget).bottom = (logic) ? 570 : 279.79
+        this.textGuild3.getComponent(cc.Widget).bottom = (logic) ? 570 : 279.79
+        this.textGuild1.scale = (logic) ? 1.8 : 1
+        this.textGuild2.scale = (logic) ? 1.8 : 1
+        this.textGuild3.scale = (logic) ? 1.8 : 1
+        this.listCard.scale = (logic) ? 1.7 : 1
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
 
-            // this.camera.node.position = cc.v3(-70, 0)
+
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
 
             // Gần đúng tỷ lệ màn hình iPhone X
-            const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
-            // this.camera.zoomRatio = 1.7
-            // this.camera.node.position = cc.v3(150, 0)
+            const TALL_PHONE_MIN_RATIO = 2.0;  
+
             this.phaohoa.scale = (logic) ? 7 : 3
-            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+            if (aspectRatio >= TALL_PHONE_MIN_RATIO) {
                 // console.log("check iphonex")
-                this.coinBar.getComponent(cc.Widget).top = 77 + 30;
-                this.logo.getComponent(cc.Widget).top = 48 + 30
+                // this.coinBar.getComponent(cc.Widget).top = 77 + 30;
+                this.logo.getComponent(cc.Widget).top = 48 + 70
+                this.timeBar.getComponent(cc.Widget).top = 250 + 70
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                // this.camera.zoomRatio = 1.4
+
                 this.guildUpgrade.scale = 1.8
 
             }

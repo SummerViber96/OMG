@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Angry_Emoji (1)",
+    "texture": "7c00ae0a-ec4e-4d7d-b47c-470bc1032676",
+    "atlas": "",
+    "rect": [
+      7,
+      8,
+      153,
+      153
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      167,
+      169
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

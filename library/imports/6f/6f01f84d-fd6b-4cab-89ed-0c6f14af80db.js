@@ -29,6 +29,8 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.label = null;
+        _this.fill = null;
+        _this.timeMax = 60;
         _this.timeLeft = 60;
         _this.gamePlay = null;
         _this.isDone = false;
@@ -37,12 +39,15 @@ var NewClass = /** @class */ (function (_super) {
     }
     NewClass.prototype.start = function () {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym");
+        this.timeMax = this.timeLeft;
         this.updateLabel();
+        this.updateFill(false);
     };
     NewClass.prototype.startCountDown = function () {
         if (this.isCounting || this.isDone)
             return;
         this.isCounting = true;
+        this.updateFill(false);
         this.schedule(this.tick, 1);
     };
     NewClass.prototype.addTime = function (sec) {
@@ -50,12 +55,14 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.timeLeft += sec;
         this.updateLabel();
+        this.updateFill(true);
     };
     NewClass.prototype.tick = function () {
         if (this.isDone)
             return;
         this.timeLeft--;
         this.updateLabel();
+        this.updateFill(true);
         if (this.timeLeft <= 0) {
             this.isDone = true;
             this.unschedule(this.tick);
@@ -72,9 +79,24 @@ var NewClass = /** @class */ (function (_super) {
         var s = t % 60;
         this.label.string = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
     };
+    NewClass.prototype.updateFill = function (smooth) {
+        if (!this.fill)
+            return;
+        var ratio = this.timeMax > 0 ? Math.max(0, Math.min(1, this.timeLeft / this.timeMax)) : 0;
+        cc.Tween.stopAllByTarget(this.fill);
+        if (smooth) {
+            cc.tween(this.fill).to(1, { fillRange: ratio }).start();
+        }
+        else {
+            this.fill.fillRange = ratio;
+        }
+    };
     __decorate([
         property(cc.Label)
     ], NewClass.prototype, "label", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], NewClass.prototype, "fill", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

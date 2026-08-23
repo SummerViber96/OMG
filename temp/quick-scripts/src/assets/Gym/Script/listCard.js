@@ -55,7 +55,7 @@ var NewClass = /** @class */ (function (_super) {
         var done = 0;
         for (var i = 0; i < this.cards.length; i++) {
             var card = this.cards[i];
-            card.scale = 0.5;
+            card.scale = 0;
             cc.Tween.stopAllByTarget(card);
             cc.tween(card).to(0.5, { scale: this.normalScale }, { easing: "backOut" }).call(function () {
                 done++;

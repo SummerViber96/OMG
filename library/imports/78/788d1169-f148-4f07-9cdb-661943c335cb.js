@@ -86,7 +86,7 @@ var NewClass = /** @class */ (function (_super) {
                 anim.timeScale = 2 * ((this.gamePlay && this.gamePlay.ptSpeed) ? this.gamePlay.ptSpeed : 1);
                 cc.tween(this.node).to(this.getMoveTime(0.4), { position: cc.v3(310, 52) }).call(function () {
                     _this.node.scaleX = -1;
-                }).to(this.getMoveTime(2), { position: cc.v3(850, -120) }).call(function () {
+                }).to(this.getMoveTime(2), { position: cc.v3(721, -127) }).call(function () {
                     anim.setAnimation(0, "WorkFL", true);
                     anim.timeScale = 1;
                     _this.node.scaleX = 1;

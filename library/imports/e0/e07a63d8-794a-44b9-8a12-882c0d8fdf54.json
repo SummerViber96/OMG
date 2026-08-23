@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Gemini_Generated_Image_qdl2thqdl2thqdl2",
+    "texture": "82c83a95-125c-4a67-a2fd-5b03619f123a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      346,
+      65
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      346,
+      65
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

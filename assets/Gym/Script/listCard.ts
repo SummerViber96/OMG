@@ -31,7 +31,7 @@ export default class NewClass extends cc.Component {
         let done = 0
         for (let i = 0; i < this.cards.length; i++) {
             let card = this.cards[i]
-            card.scale = 0.5
+            card.scale = 0
             cc.Tween.stopAllByTarget(card)
             cc.tween(card).to(0.5, { scale: this.normalScale }, { easing: "backOut" }).call(() => {
                 done++

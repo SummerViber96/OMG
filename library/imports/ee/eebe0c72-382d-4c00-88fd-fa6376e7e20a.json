@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Clean, Upgrade, Grow Your Gym!",
+    "texture": "4e7d0f94-cbe6-4d46-8d86-4f442b199cc6",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      954,
+      104
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      954,
+      104
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

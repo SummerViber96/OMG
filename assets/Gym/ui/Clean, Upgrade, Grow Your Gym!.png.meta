@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "4e7d0f94-cbe6-4d46-8d86-4f442b199cc6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 954,
+  "height": 104,
+  "platformSettings": {},
+  "subMetas": {
+    "Clean, Upgrade, Grow Your Gym!": {
+      "ver": "1.0.4",
+      "uuid": "eebe0c72-382d-4c00-88fd-fa6376e7e20a",
+      "rawTextureUuid": "4e7d0f94-cbe6-4d46-8d86-4f442b199cc6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 954,
+      "height": 104,
+      "rawWidth": 954,
+      "rawHeight": 104,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1786978825092,
-    "meta": 1787224362997,
+    "meta": 1787527013396,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2631,7 +2631,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1786978826318,
-    "meta": 1787224363000,
+    "meta": 1787527013401,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -10000,8 +10000,8 @@
     "relativePath": "New Folder\\Prefab\\hand.prefab"
   },
   "3ff51cb8-8161-4bf3-bd2d-a3c98f638eb1": {
-    "asset": 1787197092357,
-    "meta": 1787197180075,
+    "asset": 1787512010937,
+    "meta": 1787512010956,
     "relativePath": "anim\\vfx_coin.anim"
   },
   "fa7d6d45-986b-4ae6-b1b7-a479d09264b2": {
@@ -10865,8 +10865,8 @@
     "relativePath": "CreamCafe\\Station.png"
   },
   "c03eff2d-ccd7-4f60-8e4a-8f5476efbe56": {
-    "asset": 1787219940105,
-    "meta": 1787224362989,
+    "asset": 1787512431103,
+    "meta": 1787527013388,
     "relativePath": "Gym"
   },
   "4c225839-02fe-4aa3-8b58-d28f389834ba": {
@@ -11757,7 +11757,7 @@
   "9cedf475-9809-427d-a069-0bb1b3086b74": {
     "asset": 1787197091651,
     "meta": 1787197191912,
-    "relativePath": "Gym\\pop"
+    "relativePath": "Gym\\ui\\pop"
   },
   "064f9e77-5df4-45ff-83a7-f814f8f34599": {
     "asset": 1787197091888,
@@ -11842,157 +11842,157 @@
   "2acbcddd-6c17-4245-a836-b6a3199c4489": {
     "asset": 1787197091649,
     "meta": 1787197191981,
-    "relativePath": "Gym\\pop\\buble-green copy 3.png"
+    "relativePath": "Gym\\ui\\pop\\buble-green copy 3.png"
   },
   "723b6020-aa4c-4129-80f3-95847eddcb57": {
     "asset": 1787197091647,
     "meta": 1787197191930,
-    "relativePath": "Gym\\pop\\autoclean1.png"
+    "relativePath": "Gym\\ui\\pop\\autoclean1.png"
   },
   "a0a3cc45-e4a1-4bfb-a72a-c7b4462f217e": {
     "asset": 1787197091612,
     "meta": 1787197191998,
-    "relativePath": "Gym\\pop\\Chainuoc.png"
+    "relativePath": "Gym\\ui\\pop\\Chainuoc.png"
   },
   "389006d4-edf5-4d4e-82ac-989264286579": {
     "asset": 1787197091647,
     "meta": 1787197191932,
-    "relativePath": "Gym\\pop\\autoclean2.png"
+    "relativePath": "Gym\\ui\\pop\\autoclean2.png"
   },
   "96b3bdb3-5e2c-4a79-b44e-1896d3393fe5": {
     "asset": 1787197091650,
     "meta": 1787197191999,
-    "relativePath": "Gym\\pop\\dayleo.png"
+    "relativePath": "Gym\\ui\\pop\\dayleo.png"
   },
   "b85a8c56-0403-4672-bbd0-26de652e02c7": {
     "asset": 1787197091613,
     "meta": 1787197192015,
-    "relativePath": "Gym\\pop\\Daynhay.png"
+    "relativePath": "Gym\\ui\\pop\\Daynhay.png"
   },
   "5e92c319-c1a3-4225-a198-ac150b7de4a0": {
     "asset": 1787197091619,
     "meta": 1787197192077,
-    "relativePath": "Gym\\pop\\Icon_nutri.png"
+    "relativePath": "Gym\\ui\\pop\\Icon_nutri.png"
   },
   "6c6e3414-78d6-4b6d-a391-bb3fd62766b0": {
     "asset": 1787197091617,
     "meta": 1787197192047,
-    "relativePath": "Gym\\pop\\Icon_boxing.png"
+    "relativePath": "Gym\\ui\\pop\\Icon_boxing.png"
   },
   "492a4602-2ccd-49f2-b861-bc751889e292": {
     "asset": 1787197091617,
     "meta": 1787197192072,
-    "relativePath": "Gym\\pop\\Icon_Speedbag.png"
+    "relativePath": "Gym\\ui\\pop\\Icon_Speedbag.png"
   },
   "2fa28c26-8bd9-4b89-a62d-f8d480b0d71e": {
     "asset": 1787197091617,
     "meta": 1787197192062,
-    "relativePath": "Gym\\pop\\Icon_Gymnastics.png"
+    "relativePath": "Gym\\ui\\pop\\Icon_Gymnastics.png"
   },
   "0b69ce2d-e6bf-44a7-acd1-1c09cb2c3cd5": {
     "asset": 1787197091616,
     "meta": 1787197192056,
-    "relativePath": "Gym\\pop\\Icon_Click.png"
+    "relativePath": "Gym\\ui\\pop\\Icon_Click.png"
   },
   "d7da4c67-69ff-4dfb-8b3d-4e94e10bf443": {
     "asset": 1787197091618,
     "meta": 1787197192049,
-    "relativePath": "Gym\\pop\\Icon_clean.png"
+    "relativePath": "Gym\\ui\\pop\\Icon_clean.png"
   },
   "438fac04-25dc-4cdf-a114-e1fa9705b2dd": {
     "asset": 1787197091615,
     "meta": 1787197192092,
-    "relativePath": "Gym\\pop\\IconGreenPT.png"
+    "relativePath": "Gym\\ui\\pop\\IconGreenPT.png"
   },
   "c5ee56e4-322a-46ab-931f-5c7362846d56": {
     "asset": 1787197091614,
     "meta": 1787197192090,
-    "relativePath": "Gym\\pop\\IconBluePT.png"
+    "relativePath": "Gym\\ui\\pop\\IconBluePT.png"
   },
   "c1f85784-1e65-45a0-86f5-112a03f0bf8f": {
     "asset": 1787197091615,
     "meta": 1787197192109,
-    "relativePath": "Gym\\pop\\IconRedPT.png"
+    "relativePath": "Gym\\ui\\pop\\IconRedPT.png"
   },
   "ef6a50e3-6707-48ce-8d6e-fd1b0da26385": {
     "asset": 1787197091616,
     "meta": 1787197192031,
-    "relativePath": "Gym\\pop\\Icon_AbCrunch.png"
+    "relativePath": "Gym\\ui\\pop\\Icon_AbCrunch.png"
   },
   "20c19a2d-93dc-467a-ac7c-d614bd0e1573": {
     "asset": 1787197091615,
     "meta": 1787197192107,
-    "relativePath": "Gym\\pop\\IconPurplePT.png"
+    "relativePath": "Gym\\ui\\pop\\IconPurplePT.png"
   },
   "d0de7a5c-76c4-45bf-861c-91e63d25f630": {
     "asset": 1787197091616,
     "meta": 1787197192124,
-    "relativePath": "Gym\\pop\\IconYellowPT.png"
+    "relativePath": "Gym\\ui\\pop\\IconYellowPT.png"
   },
   "207e0348-a5d9-4c6c-a544-da9638a1cd14": {
     "asset": 1787197091641,
     "meta": 1787197192201,
-    "relativePath": "Gym\\pop\\Nutri-blue.png"
+    "relativePath": "Gym\\ui\\pop\\Nutri-blue.png"
   },
   "3a26e524-c637-4b0c-a6dd-9004a3164193": {
     "asset": 1787197091644,
     "meta": 1787197192249,
-    "relativePath": "Gym\\pop\\Nutri-yellow.png"
+    "relativePath": "Gym\\ui\\pop\\Nutri-yellow.png"
   },
   "6f03a272-d098-4223-902c-d29f9b6449f7": {
     "asset": 1787197091642,
     "meta": 1787197192232,
-    "relativePath": "Gym\\pop\\Nutri-purple.png"
+    "relativePath": "Gym\\ui\\pop\\Nutri-purple.png"
   },
   "0aaa03b0-75b8-4609-96bb-f5aafc9d76cb": {
     "asset": 1787197091645,
     "meta": 1787197192266,
-    "relativePath": "Gym\\pop\\Plate.png"
+    "relativePath": "Gym\\ui\\pop\\Plate.png"
   },
   "07156330-6cec-4b85-bb1e-b273410a39a6": {
     "asset": 1787197091641,
     "meta": 1787197192213,
-    "relativePath": "Gym\\pop\\Nutri-green.png"
+    "relativePath": "Gym\\ui\\pop\\Nutri-green.png"
   },
   "2130adac-17d9-490d-88b2-d83e20271964": {
     "asset": 1787197091646,
     "meta": 1787197192280,
-    "relativePath": "Gym\\pop\\ProgressBar.png"
+    "relativePath": "Gym\\ui\\pop\\ProgressBar.png"
   },
   "f149fc75-e762-4ac9-b825-114dc4f5c685": {
     "asset": 1787197091643,
     "meta": 1787197192241,
-    "relativePath": "Gym\\pop\\Nutri-red.png"
+    "relativePath": "Gym\\ui\\pop\\Nutri-red.png"
   },
   "0f243e9b-f205-47e7-adcc-8c8a63e27ae9": {
     "asset": 1787197091645,
     "meta": 1787197192257,
-    "relativePath": "Gym\\pop\\Plate_slot.png"
+    "relativePath": "Gym\\ui\\pop\\Plate_slot.png"
   },
   "a0fe9e94-dec2-4ea8-ae3c-2e28231cf822": {
     "asset": 1787197091646,
     "meta": 1787197192310,
-    "relativePath": "Gym\\pop\\WorkingTime1.png"
+    "relativePath": "Gym\\ui\\pop\\WorkingTime1.png"
   },
   "39feffc3-7f54-4a45-87bd-56f66c155015": {
     "asset": 1787197091651,
     "meta": 1787197192309,
-    "relativePath": "Gym\\pop\\towel.png"
+    "relativePath": "Gym\\ui\\pop\\towel.png"
   },
   "fb7b566e-ad91-4a2a-b957-4e41142f74ff": {
     "asset": 1787197091646,
     "meta": 1787197192319,
-    "relativePath": "Gym\\pop\\WorkingTime2.png"
+    "relativePath": "Gym\\ui\\pop\\WorkingTime2.png"
   },
   "211c2bc1-baee-4024-ae09-c827c2b977a8": {
     "asset": 1787197091644,
     "meta": 1787197192296,
-    "relativePath": "Gym\\pop\\PTdoor1.png"
+    "relativePath": "Gym\\ui\\pop\\PTdoor1.png"
   },
   "d00b2f6d-ed03-4275-a5f8-b382632faf3e": {
     "asset": 1787197091645,
     "meta": 1787197192298,
-    "relativePath": "Gym\\pop\\PTdoor2.png"
+    "relativePath": "Gym\\ui\\pop\\PTdoor2.png"
   },
   "035d94d8-6a61-41c0-8634-e9f7b619bf10": {
     "asset": 1787197091900,
@@ -12030,8 +12030,8 @@
     "relativePath": "Gym\\anim\\pop_show.anim"
   },
   "e86ba0b1-baa8-45cb-a3b4-3e36d95d1746": {
-    "asset": 1787223069005,
-    "meta": 1787224362990,
+    "asset": 1787511924234,
+    "meta": 1787527013393,
     "relativePath": "Gym\\Script"
   },
   "e890b120-e213-4922-a3ca-25f8bcdf89be": {
@@ -12055,8 +12055,8 @@
     "relativePath": "Gym\\Script\\MC1-1.json"
   },
   "13b7b410-2e32-4dbd-8b2f-3b5e0aa72af4": {
-    "asset": 1787197087528,
-    "meta": 1787197186955,
+    "asset": 1787509878740,
+    "meta": 1787527013389,
     "relativePath": "Gym\\anim"
   },
   "06f3255a-845c-41c8-a08e-62d75eb41244": {
@@ -12122,7 +12122,7 @@
   "06dc54f9-4929-44de-9a3b-f65e5105cd1a": {
     "asset": 1787197091650,
     "meta": 1787197191988,
-    "relativePath": "Gym\\pop\\buble-green copy 32.png"
+    "relativePath": "Gym\\ui\\pop\\buble-green copy 32.png"
   },
   "460d6fde-d003-482d-a655-a661726acb2a": {
     "asset": 1787197092354,
@@ -12132,16 +12132,16 @@
   "b3e18d29-4838-45d0-a109-7679371ea264": {
     "asset": 1787197091640,
     "meta": 1787197192275,
-    "relativePath": "Gym\\pop\\MapGym1.png"
+    "relativePath": "Gym\\ui\\pop\\MapGym1.png"
   },
   "8ee6212d-96db-473d-9ada-fef2fe66e44f": {
     "asset": 1787197091627,
     "meta": 1787197192188,
-    "relativePath": "Gym\\pop\\MapGym1.jpg"
+    "relativePath": "Gym\\ui\\pop\\MapGym1.jpg"
   },
   "040ab129-54b5-4790-aeda-8a621c1ce0d3": {
-    "asset": 1787197091878,
-    "meta": 1787197192730,
+    "asset": 1787524701271,
+    "meta": 1787527013394,
     "relativePath": "Gym\\sound"
   },
   "81f3e186-399d-4aa2-9bc5-edb680ac4d17": {
@@ -12207,27 +12207,27 @@
   "461a6852-2206-41a1-9c67-e21976533d32": {
     "asset": 1787197087528,
     "meta": 1787197187028,
-    "relativePath": "Gym\\anim\\thanh-red-1.png"
+    "relativePath": "Gym\\ui\\thanh-red-1.png"
   },
   "53de4038-ec91-4a59-8301-0f267923ee07": {
     "asset": 1787197087528,
     "meta": 1787197187026,
-    "relativePath": "Gym\\anim\\thanh-red-2.png"
+    "relativePath": "Gym\\ui\\thanh-red-2.png"
   },
   "d7772865-0b13-4594-a3e0-d9f1a6c63ffd": {
     "asset": 1787197087528,
     "meta": 1787197187009,
-    "relativePath": "Gym\\anim\\thanh-green-2.png"
+    "relativePath": "Gym\\ui\\thanh-green-2.png"
   },
   "a2d803bb-e91d-4835-b806-4c12a7004750": {
     "asset": 1787197087527,
     "meta": 1787197187007,
-    "relativePath": "Gym\\anim\\thanh-green-1.png"
+    "relativePath": "Gym\\ui\\thanh-green-1.png"
   },
   "a451c96b-2e57-4033-97a9-aefa50399b5f": {
     "asset": 1787197087516,
     "meta": 1787197186972,
-    "relativePath": "Gym\\anim\\IconBluePT.png"
+    "relativePath": "Gym\\ui\\IconBluePT.png"
   },
   "45831789-b410-4fb5-bb8b-0d46193020a0": {
     "asset": 1787197092514,
@@ -12322,47 +12322,47 @@
   "8a20bc32-9533-45f1-b17a-8382f4b2767e": {
     "asset": 1787197087489,
     "meta": 1787197192643,
-    "relativePath": "Gym\\Script\\endCard.prefab"
+    "relativePath": "Gym\\prefab\\endCard.prefab"
   },
   "097b6e60-87a5-4667-9f8d-c628af19c419": {
     "asset": 1787197091622,
     "meta": 1787197192174,
-    "relativePath": "Gym\\pop\\MapGym1 (1).jpg"
+    "relativePath": "Gym\\ui\\pop\\MapGym1 (1).jpg"
   },
   "b3461138-4738-483a-862a-0b276f5a0663": {
     "asset": 1787197091647,
     "meta": 1787197191947,
-    "relativePath": "Gym\\pop\\boxing.png"
+    "relativePath": "Gym\\ui\\pop\\boxing.png"
   },
   "9a102fa5-2b1b-4370-a89e-482bf2feb731": {
     "asset": 1787197091648,
     "meta": 1787197191964,
-    "relativePath": "Gym\\pop\\bubble2.png"
+    "relativePath": "Gym\\ui\\pop\\bubble2.png"
   },
   "3904109d-9e92-44f9-a16f-2d29d3e63446": {
     "asset": 1787197091648,
     "meta": 1787197191946,
-    "relativePath": "Gym\\pop\\bubble1.png"
+    "relativePath": "Gym\\ui\\pop\\bubble1.png"
   },
   "7d970c58-ad40-4bfa-a725-945ab0ce0dde": {
     "asset": 1787197091649,
     "meta": 1787197191965,
-    "relativePath": "Gym\\pop\\bubble3.png"
+    "relativePath": "Gym\\ui\\pop\\bubble3.png"
   },
   "a6538b6c-7ce2-47ca-9d89-7d249cf4fcc4": {
     "asset": 1787197091614,
     "meta": 1787197192030,
-    "relativePath": "Gym\\pop\\DumbBellblue.png"
+    "relativePath": "Gym\\ui\\pop\\DumbBellblue.png"
   },
   "de5f28fc-e0e5-42a6-8006-b0d237890838": {
     "asset": 1787197091613,
     "meta": 1787197192014,
-    "relativePath": "Gym\\pop\\DumbBell.png"
+    "relativePath": "Gym\\ui\\pop\\DumbBell.png"
   },
   "f1f30421-bde9-4f5c-b552-321a38cc129e": {
     "asset": 1787197091620,
     "meta": 1787197192147,
-    "relativePath": "Gym\\pop\\Logo.png"
+    "relativePath": "Gym\\ui\\pop\\Logo.png"
   },
   "e17676e4-46e6-406b-85c2-987f35a1a875": {
     "asset": 1787197087601,
@@ -12684,11 +12684,6 @@
     "meta": 1787197193270,
     "relativePath": "Gym\\sound\\Gym-Mania-GP-Music-1-ver3-1.mp3"
   },
-  "d144372f-a82f-4a98-b4e4-3ec9d51b47af": {
-    "asset": 1787197091857,
-    "meta": 1787197193237,
-    "relativePath": "Gym\\sound\\Girl_Yippy.mp3"
-  },
   "bcabcef7-55e8-4e96-a60a-bf7e4caa09f4": {
     "asset": 1787197087597,
     "meta": 1787197187500,
@@ -12732,7 +12727,7 @@
   "73bb8d71-4c3d-41a4-8e4b-bcff06f89a38": {
     "asset": 1787197091619,
     "meta": 1787197192127,
-    "relativePath": "Gym\\pop\\Logo (3) (1).png"
+    "relativePath": "Gym\\ui\\pop\\Logo (3) (1).png"
   },
   "9d406cb0-2534-4de7-896c-5192c2e2b2d3": {
     "asset": 1787197087466,
@@ -12849,11 +12844,6 @@
     "meta": 1787197188124,
     "relativePath": "Gym\\chair\\ThietBiLv3.png"
   },
-  "ee70035a-9659-46ae-a861-b921deb94ac2": {
-    "asset": 1787197091855,
-    "meta": 1787197193238,
-    "relativePath": "Gym\\sound\\Boy_Ohyeah.mp3"
-  },
   "a5f6be45-bff0-46c7-a795-f45b09f360c8": {
     "asset": 1787221836029,
     "meta": 1787224362968,
@@ -12909,55 +12899,10 @@
     "meta": 1787197189335,
     "relativePath": "Gym\\map4\\chaucay.png"
   },
-  "a1b3f116-8d6a-401c-8d86-cd0c16544531": {
-    "asset": 1787197091459,
-    "meta": 1787197189648,
-    "relativePath": "Gym\\map4\\door.png"
-  },
-  "1202dd94-d157-4fd3-8247-6c54af9ee54f": {
-    "asset": 1787197090810,
-    "meta": 1787197191345,
-    "relativePath": "Gym\\map4\\Maybannc.png"
-  },
-  "f4fd7caa-7f18-457b-8d17-64d5f097998a": {
-    "asset": 1787197090826,
-    "meta": 1787197191385,
-    "relativePath": "Gym\\map4\\Muave1(fix).png"
-  },
-  "1242aa67-75b4-4d55-b79c-942a3c8ebf9e": {
-    "asset": 1787197090842,
-    "meta": 1787197191363,
-    "relativePath": "Gym\\map4\\Muave1.png"
-  },
-  "70cfc3e6-8d39-475e-90b8-1fc698967660": {
-    "asset": 1787197090905,
-    "meta": 1787197191439,
-    "relativePath": "Gym\\map4\\PTdoor2.png"
-  },
-  "cf52cd75-c378-46b1-ae3f-dc051a4c4d2f": {
-    "asset": 1787197091500,
-    "meta": 1787197190594,
-    "relativePath": "Gym\\map4\\light.png"
-  },
-  "958d6725-315c-48d8-9698-cddcf6907796": {
-    "asset": 1787197090891,
-    "meta": 1787197191422,
-    "relativePath": "Gym\\map4\\PTdoor1.png"
-  },
-  "263eaedb-5304-4e2e-92d7-38b7bfb4eb3d": {
-    "asset": 1787197090858,
-    "meta": 1787197191394,
-    "relativePath": "Gym\\map4\\Muave2.png"
-  },
   "d784e414-6caf-4e55-9283-2c87224ead91": {
     "asset": 1787197090936,
     "meta": 1787197191458,
     "relativePath": "Gym\\map4\\PTicon2.png"
-  },
-  "fc4693eb-a3b2-44ab-b995-a0f5246f0931": {
-    "asset": 1787197090872,
-    "meta": 1787197191420,
-    "relativePath": "Gym\\map4\\PTBoard.png"
   },
   "1487e95f-d14c-4903-b3c4-27664c51317c": {
     "asset": 1787197090979,
@@ -12973,11 +12918,6 @@
     "asset": 1787197090920,
     "meta": 1787197191442,
     "relativePath": "Gym\\map4\\PTicon1.png"
-  },
-  "d1132808-e2b0-4891-a663-ab1e0d5f79ce": {
-    "asset": 1787197091010,
-    "meta": 1787197191510,
-    "relativePath": "Gym\\map4\\PTroom1.png"
   },
   "26dce567-543e-41e7-9953-3696b41b5c18": {
     "asset": 1787197090965,
@@ -13039,26 +12979,6 @@
     "meta": 1787197191519,
     "relativePath": "Gym\\map4\\PTroom2.png"
   },
-  "24ff906f-fe4e-416c-84bc-41f56801cfd0": {
-    "asset": 1787197091117,
-    "meta": 1787197191633,
-    "relativePath": "Gym\\map4\\Tuongletan4.png"
-  },
-  "375eab88-b616-4060-9f26-d7a73b465cac": {
-    "asset": 1787197091164,
-    "meta": 1787197191655,
-    "relativePath": "Gym\\map4\\Wallgym2.png"
-  },
-  "07f7d95c-2ea0-463e-a02e-b10902b69872": {
-    "asset": 1787197091180,
-    "meta": 1787197191673,
-    "relativePath": "Gym\\map4\\Wallgym4.png"
-  },
-  "d8e903a5-4064-462f-870a-8d18472289d7": {
-    "asset": 1787197091149,
-    "meta": 1787197191635,
-    "relativePath": "Gym\\map4\\Wallgym1.png"
-  },
   "c0357b4a-68e4-45f6-be1b-4d486d475dec": {
     "asset": 1787197091565,
     "meta": 1787197191570,
@@ -13068,36 +12988,6 @@
     "asset": 1787197091276,
     "meta": 1787197189352,
     "relativePath": "Gym\\map4\\cuaravao.png"
-  },
-  "d9c1accd-b827-494b-865a-ea06ac5b4be4": {
-    "asset": 1787197091196,
-    "meta": 1787197191675,
-    "relativePath": "Gym\\map4\\Wallgym5.png"
-  },
-  "2f4771b7-36ea-4727-8610-754e2fc400d6": {
-    "asset": 1787197091597,
-    "meta": 1787197191596,
-    "relativePath": "Gym\\map4\\tuongletan.png"
-  },
-  "0c60ded1-5d1f-4018-bf11-13bce57446d4": {
-    "asset": 1787197091134,
-    "meta": 1787197191654,
-    "relativePath": "Gym\\map4\\WallGym3.png"
-  },
-  "13cfc79e-08b6-4868-a50f-89b8c732bc09": {
-    "asset": 1787197091213,
-    "meta": 1787197191699,
-    "relativePath": "Gym\\map4\\Wallgym6.png"
-  },
-  "0ddbdd2f-e2fa-443d-a809-923f1db525d7": {
-    "asset": 1787197091245,
-    "meta": 1787197191715,
-    "relativePath": "Gym\\map4\\Wallgym8.png"
-  },
-  "b886a15f-ead0-4797-9fbf-fab8b596f4a0": {
-    "asset": 1787197091229,
-    "meta": 1787197191696,
-    "relativePath": "Gym\\map4\\Wallgym7.png"
   },
   "f9a1bb50-8c1a-4184-b14b-03c1d13a1385": {
     "asset": 1787197091484,
@@ -13124,31 +13014,6 @@
     "meta": 1787197189368,
     "relativePath": "Gym\\map4\\Decoration"
   },
-  "dd64d6fe-9550-4b43-a405-7848e56c07a2": {
-    "asset": 1787197087807,
-    "meta": 1787197189387,
-    "relativePath": "Gym\\map4\\Decoration\\Achievement.png"
-  },
-  "4020ed05-1f13-4c25-9b0f-8c2d5b8f1a47": {
-    "asset": 1787197087887,
-    "meta": 1787197189420,
-    "relativePath": "Gym\\map4\\Decoration\\ghe.png"
-  },
-  "1c05fcb7-7aaf-4bf4-a63a-a5ef04c63fb8": {
-    "asset": 1787197087824,
-    "meta": 1787197189416,
-    "relativePath": "Gym\\map4\\Decoration\\Heater.png"
-  },
-  "54dd5f11-5b7b-413f-a7b5-7830ddf6527b": {
-    "asset": 1787197087840,
-    "meta": 1787197189444,
-    "relativePath": "Gym\\map4\\Decoration\\Plant.png"
-  },
-  "470aede4-e714-48db-ba9e-5a7166d68ae8": {
-    "asset": 1787197087855,
-    "meta": 1787197189443,
-    "relativePath": "Gym\\map4\\Decoration\\PlantPot.png"
-  },
   "de7b194b-f678-4ec2-86a1-4448b66345cf": {
     "asset": 1787197089361,
     "meta": 1787197190254,
@@ -13158,11 +13023,6 @@
     "asset": 1787197088795,
     "meta": 1787197190269,
     "relativePath": "Gym\\map4\\Item\\Belt.png"
-  },
-  "03fc7c56-5e00-4727-b6c7-f30b68102f30": {
-    "asset": 1787197087871,
-    "meta": 1787197189461,
-    "relativePath": "Gym\\map4\\Decoration\\WorldClock.png"
   },
   "cba28c24-058a-4ef2-8c2d-40bed067cd69": {
     "asset": 1787197089025,
@@ -13325,8 +13185,8 @@
     "relativePath": "Gym\\map4\\Item\\taOrder-Red.png"
   },
   "99bc28f1-61de-4f1e-8978-9c770d1aefce": {
-    "asset": 1787197090786,
-    "meta": 1787197190584,
+    "asset": 1787519816843,
+    "meta": 1787527013390,
     "relativePath": "Gym\\map4\\Machine"
   },
   "c8caf016-fbe8-4feb-8e0e-caaeb293e220": {
@@ -13353,11 +13213,6 @@
     "asset": 1787197089585,
     "meta": 1787197190642,
     "relativePath": "Gym\\map4\\Machine\\BanletanLV4.png"
-  },
-  "6d6db32a-07be-4f82-bb29-e0cc6b5e20dc": {
-    "asset": 1787197089570,
-    "meta": 1787197190632,
-    "relativePath": "Gym\\map4\\Machine\\BanletanLV3.png"
   },
   "152deb1d-b900-4956-b67e-c79c45c56022": {
     "asset": 1787197090525,
@@ -13464,11 +13319,6 @@
     "meta": 1787197190859,
     "relativePath": "Gym\\map4\\Machine\\PlateTreeLv0-1.png"
   },
-  "917da996-331d-44c9-bc37-cdb406604f9b": {
-    "asset": 1787197089830,
-    "meta": 1787197190849,
-    "relativePath": "Gym\\map4\\Machine\\MaynuocLv4.png"
-  },
   "52b54cc9-fc12-4b1b-b782-da3f492f5042": {
     "asset": 1787197089940,
     "meta": 1787197190867,
@@ -13548,11 +13398,6 @@
     "asset": 1787197090095,
     "meta": 1787197191005,
     "relativePath": "Gym\\map4\\Machine\\PlateTreeLv5-2_.png"
-  },
-  "16870dbe-eb80-4cdb-bc39-7c1b950b8982": {
-    "asset": 1787197090124,
-    "meta": 1787197191020,
-    "relativePath": "Gym\\map4\\Machine\\ProteinBarLv1.png"
   },
   "fb3d1a30-8e1d-4129-9dab-b05e30e7b857": {
     "asset": 1787197090110,
@@ -13664,11 +13509,6 @@
     "meta": 1787197191238,
     "relativePath": "Gym\\map4\\Machine\\tulanhLv1.png"
   },
-  "3cfc5b2e-ddd1-404e-926d-02825d9934ca": {
-    "asset": 1787197090602,
-    "meta": 1787197191246,
-    "relativePath": "Gym\\map4\\Machine\\tulanhLv2.png"
-  },
   "9bc77bc8-4a9b-4eac-9b8e-c8681e5cfe94": {
     "asset": 1787197090617,
     "meta": 1787197191256,
@@ -13718,11 +13558,6 @@
     "asset": 1787197090510,
     "meta": 1787197191329,
     "relativePath": "Gym\\map4\\Machine\\XedapLvl5.png"
-  },
-  "0448d3c1-83a9-4ee8-b2f4-983003603522": {
-    "asset": 1787197087946,
-    "meta": 1787197189739,
-    "relativePath": "Gym\\map4\\Icon Machine Upgrade\\Achievement.png"
   },
   "9799ba4a-d113-4f00-a4d0-da8a74fd5de9": {
     "asset": 1787197087962,
@@ -13894,11 +13729,6 @@
     "meta": 1787197190123,
     "relativePath": "Gym\\map4\\Icon Machine Upgrade\\ThietBiLv2.png"
   },
-  "7c6f873d-7512-4fc1-b6cf-ad39fcb2fc4d": {
-    "asset": 1787197088498,
-    "meta": 1787197190145,
-    "relativePath": "Gym\\map4\\Icon Machine Upgrade\\ThietBiLv4.png"
-  },
   "92c11541-42cb-45c6-9b5f-f1a7554feb1f": {
     "asset": 1787197088483,
     "meta": 1787197190135,
@@ -13968,16 +13798,6 @@
     "asset": 1787197087920,
     "meta": 1787197189793,
     "relativePath": "Gym\\map4\\GPGym3Map.jpg"
-  },
-  "98f1bb77-a44f-46e2-9e80-a12c43eecb4d": {
-    "asset": 1787197089634,
-    "meta": 1787197190752,
-    "relativePath": "Gym\\map4\\Machine\\Gemini_Generated_Image_qdl2thqdl2thqdl2.png"
-  },
-  "1c637be2-fbcd-4df9-adda-4f85c8897727": {
-    "asset": 1787197090796,
-    "meta": 1787197191365,
-    "relativePath": "Gym\\map4\\MapGym3 (1).jpg"
   },
   "046cf7de-020b-4d44-9913-3d4220457fa4": {
     "asset": 1787197092468,
@@ -14510,8 +14330,8 @@
     "relativePath": "_allAsset\\ui\\Layer 2910 (1).png"
   },
   "090765ee-3972-40d0-8d3e-0e7168c1a65f": {
-    "asset": 1787197092108,
-    "meta": 1787197193670,
+    "asset": 1787519703643,
+    "meta": 1787527013395,
     "relativePath": "Gym\\spine\\pt"
   },
   "8053478e-893b-4e81-b8eb-d2146bd9c757": {
@@ -14529,16 +14349,6 @@
     "meta": 1787197193742,
     "relativePath": "Gym\\spine\\pt\\PTRed.atlas.txt"
   },
-  "084760a3-8948-4706-a0c1-d372d4347d02": {
-    "asset": 1787197092004,
-    "meta": 1787197193751,
-    "relativePath": "Gym\\spine\\pt\\PTGreen.png"
-  },
-  "f9577842-7619-482e-94c2-600e3fbdb712": {
-    "asset": 1787197091957,
-    "meta": 1787197193732,
-    "relativePath": "Gym\\spine\\pt\\PTBlue.png"
-  },
   "1a1be0ea-35b5-4957-914e-284f6f2c6e85": {
     "asset": 1787197091941,
     "meta": 1787197212808,
@@ -14554,11 +14364,6 @@
     "meta": 1787197212824,
     "relativePath": "Gym\\spine\\pt\\PTRed.json"
   },
-  "09b4632d-b7ea-47c6-827b-8f3690102096": {
-    "asset": 1787197092055,
-    "meta": 1787197193787,
-    "relativePath": "Gym\\spine\\pt\\PTRed.png"
-  },
   "325ec1ff-dbc3-4b2c-b9ef-64b174c59147": {
     "asset": 1787197092108,
     "meta": 1787197193815,
@@ -14570,13 +14375,13 @@
     "relativePath": "_allAsset\\anim\\listPt_show.anim"
   },
   "05582137-271a-4a49-b543-cfff5ca29fc1": {
-    "asset": 1787197091854,
-    "meta": 1787197192320,
+    "asset": 1787522400845,
+    "meta": 1787527013391,
     "relativePath": "Gym\\prefab"
   },
   "76779f4f-308b-4f86-b84e-9d854204c84e": {
-    "asset": 1787197091847,
-    "meta": 1787197192412,
+    "asset": 1787512051491,
+    "meta": 1787512051511,
     "relativePath": "Gym\\prefab\\notiBonusCoin.prefab"
   },
   "e20fc91d-915f-488e-b17e-04c7685c5a12": {
@@ -14588,11 +14393,6 @@
     "asset": 1787197092084,
     "meta": 1787197212831,
     "relativePath": "Gym\\spine\\pt\\PTYellow.json"
-  },
-  "d3c47b5e-bc45-4105-bb08-9ffebc8129d6": {
-    "asset": 1787197092102,
-    "meta": 1787197193797,
-    "relativePath": "Gym\\spine\\pt\\PTYellow.png"
   },
   "d65f932e-bd61-4b23-8809-c91a153dd90b": {
     "asset": 1787197091840,
@@ -14625,38 +14425,38 @@
     "relativePath": "Gym\\prefab\\listCus"
   },
   "9317423b-6ae0-4021-8484-25e9cae9a2b6": {
-    "asset": 1787219774778,
-    "meta": 1787219774799,
+    "asset": 1787525281486,
+    "meta": 1787525281498,
     "relativePath": "Gym\\prefab\\listCus\\Cus1.prefab"
   },
   "aa27e966-ff34-46eb-9038-1329bd06fb9a": {
-    "asset": 1787222897426,
-    "meta": 1787222897442,
+    "asset": 1787525291499,
+    "meta": 1787525291512,
     "relativePath": "Gym\\prefab\\listCus\\Cus2.prefab"
   },
   "f7fed7ae-7392-4db3-b22a-e4338513b068": {
-    "asset": 1787215063506,
-    "meta": 1787215063517,
+    "asset": 1787525326278,
+    "meta": 1787525326293,
     "relativePath": "Gym\\prefab\\listCus\\Cus3.prefab"
   },
   "eb9e06a5-0f52-4df8-9093-e3ec1f864c3a": {
-    "asset": 1787215078190,
-    "meta": 1787215078202,
+    "asset": 1787525306520,
+    "meta": 1787525306534,
     "relativePath": "Gym\\prefab\\listCus\\Cus4.prefab"
   },
   "84193220-ec77-42be-b40e-3b30218ec5ce": {
-    "asset": 1787215093148,
-    "meta": 1787215093159,
+    "asset": 1787525314723,
+    "meta": 1787525314736,
     "relativePath": "Gym\\prefab\\listCus\\Cus5.prefab"
   },
   "77ea2da4-f23a-452b-877c-ea2a919fbf8d": {
-    "asset": 1787215110306,
-    "meta": 1787215110317,
+    "asset": 1787525351640,
+    "meta": 1787525351653,
     "relativePath": "Gym\\prefab\\listCus\\Cus6.prefab"
   },
   "6272e68a-bf26-4ca8-bd59-d7b75ea1bd9e": {
-    "asset": 1787215004059,
-    "meta": 1787215004077,
+    "asset": 1787512570567,
+    "meta": 1787512570582,
     "relativePath": "Gym\\prefab\\listCus\\Cus7.prefab"
   },
   "d10f9868-24ce-444d-9593-a403e73617e0": {
@@ -14664,40 +14464,20 @@
     "meta": 1787197192641,
     "relativePath": "Gym\\Script\\Machine.ts"
   },
-  "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787224490131,
-    "meta": 1787224490149,
-    "relativePath": "scenes\\Gym.fire"
-  },
   "aa145222-bdff-4cd6-9334-8e0be1fe0ddd": {
     "asset": 1787196591982,
     "meta": 1787197181099,
     "relativePath": "Bracelet"
   },
   "ea4cba5b-8cf1-4824-9d20-f0bd7477ad1f": {
-    "asset": 1787221691015,
-    "meta": 1787224362991,
+    "asset": 1787522279060,
+    "meta": 1787527013396,
     "relativePath": "Gym\\ui"
-  },
-  "23cff2bf-ab7c-4925-944e-ba13b1249406": {
-    "asset": 1787219949464,
-    "meta": 1787219949531,
-    "relativePath": "Gym\\ui\\1.png"
   },
   "240beede-12b4-4cf9-b472-d4c5d659f69f": {
     "asset": 1787219949464,
     "meta": 1787219949533,
     "relativePath": "Gym\\ui\\2.png"
-  },
-  "e6789c56-4708-45e0-a05f-3267574bc72f": {
-    "asset": 1787220607067,
-    "meta": 1787220608043,
-    "relativePath": "Gym\\Script\\listCard.ts"
-  },
-  "788d1169-f148-4f07-9cdb-661943c335cb": {
-    "asset": 1787220874719,
-    "meta": 1787220894017,
-    "relativePath": "Gym\\Script\\pt.ts"
   },
   "a808fe21-3f77-4d35-ae9f-76692d20c996": {
     "asset": 1787221691014,
@@ -14719,24 +14499,444 @@
     "meta": 1787222974694,
     "relativePath": "Gym\\prefab\\listCus\\time.png"
   },
-  "02049483-f91e-45f8-a4e6-06d642d19c01": {
-    "asset": 1787223253107,
-    "meta": 1787223321955,
-    "relativePath": "Gym\\Script\\cusGym.ts"
-  },
-  "6f01f84d-fd6b-4cab-89ed-0c6f14af80db": {
-    "asset": 1787223331040,
-    "meta": 1787223332071,
-    "relativePath": "Gym\\Script\\time.ts"
-  },
   "d6b8fadb-37d4-4d69-83eb-9af4b863b069": {
     "asset": 1787223687310,
     "meta": 1787223687320,
     "relativePath": "_allAsset\\anim\\noti_show.anim"
   },
+  "06f3c3b7-9349-49f6-9bba-f7b1b3c532d8": {
+    "asset": 1787499261437,
+    "meta": 1787499261467,
+    "relativePath": "Gym\\ui\\Timer.png"
+  },
+  "93b34921-bfb5-4ff4-97cc-c15426afbc89": {
+    "asset": 1787507835674,
+    "meta": 1787507835684,
+    "relativePath": "Gym\\anim\\timer_Show.anim"
+  },
+  "417489b2-f4b9-4d96-b471-f30e6894fcd7": {
+    "asset": 1787505259409,
+    "meta": 1787505259419,
+    "relativePath": "Gym\\anim\\timer_idle.anim"
+  },
+  "af9dccd6-049b-4cfd-b97c-e3c4755e4153": {
+    "asset": 1787507872690,
+    "meta": 1787507873474,
+    "relativePath": "Gym\\Script\\Timeguild.ts"
+  },
+  "82c83a95-125c-4a67-a2fd-5b03619f123a": {
+    "asset": 1787508975904,
+    "meta": 1787508975933,
+    "relativePath": "Gym\\ui\\Gemini_Generated_Image_qdl2thqdl2thqdl2.png"
+  },
+  "a73d34aa-447e-4dc6-bbb0-0ebb6c5641ae": {
+    "asset": 1787508975904,
+    "meta": 1787508975934,
+    "relativePath": "Gym\\ui\\Timer_BarFGr.png"
+  },
+  "2cb818c1-7e43-486d-8093-371bb06ed206": {
+    "asset": 1787508975904,
+    "meta": 1787508975945,
+    "relativePath": "Gym\\ui\\Layer 410.png"
+  },
+  "fa517e71-52c2-4972-bb24-1def7fc012bc": {
+    "asset": 1787508975905,
+    "meta": 1787508975947,
+    "relativePath": "Gym\\ui\\Timer_Bar.png"
+  },
+  "4336f81b-0d7a-47c3-a6de-c88ecd448c89": {
+    "asset": 1787508975905,
+    "meta": 1787508975957,
+    "relativePath": "Gym\\ui\\Yellow_Bar.png"
+  },
+  "ddcb4945-d9f3-4a2f-8db4-725be0c50149": {
+    "asset": 1787510320242,
+    "meta": 1787510320253,
+    "relativePath": "Gym\\anim\\bar_show.anim"
+  },
+  "6f01f84d-fd6b-4cab-89ed-0c6f14af80db": {
+    "asset": 1787511199529,
+    "meta": 1787511200869,
+    "relativePath": "Gym\\Script\\time.ts"
+  },
+  "6eabc003-2c28-4c69-97dd-11e96834c586": {
+    "asset": 1787512167606,
+    "meta": 1787512168220,
+    "relativePath": "Gym\\sound\\Boy_Angry_03.mp3"
+  },
+  "2858e156-2bc8-498d-bea6-cfce74e02828": {
+    "asset": 1787512167611,
+    "meta": 1787512168239,
+    "relativePath": "Gym\\sound\\Door Sliding_Open and CLose.mp3"
+  },
+  "d291b2f3-0eaf-4277-b138-ad231d8e5681": {
+    "asset": 1787512167612,
+    "meta": 1787512168253,
+    "relativePath": "Gym\\sound\\Boy_Angry_01.mp3"
+  },
+  "17d4f8a3-7d4e-4a27-8b37-d3174c0c0180": {
+    "asset": 1787512167613,
+    "meta": 1787512168259,
+    "relativePath": "Gym\\sound\\Boy_Angry_02.mp3"
+  },
+  "439372e7-359a-45a6-8656-39ffe827aa9a": {
+    "asset": 1787528604950,
+    "meta": 1787528604987,
+    "relativePath": "scenes\\Gym.fire"
+  },
+  "788d1169-f148-4f07-9cdb-661943c335cb": {
+    "asset": 1787513934580,
+    "meta": 1787513936328,
+    "relativePath": "Gym\\Script\\pt.ts"
+  },
+  "874c9f4d-4730-4cd6-8417-72a42157fe2f": {
+    "asset": 1787515353099,
+    "meta": 1787515353713,
+    "relativePath": "Gym\\sound\\Whistle-Sound-mp3cutnet.mp3"
+  },
+  "a1b3f116-8d6a-401c-8d86-cd0c16544531": {
+    "asset": 1787490548000,
+    "meta": 1787515813664,
+    "relativePath": "Gym\\map4\\door.png"
+  },
+  "cf52cd75-c378-46b1-ae3f-dc051a4c4d2f": {
+    "asset": 1787490548000,
+    "meta": 1787515813672,
+    "relativePath": "Gym\\map4\\light.png"
+  },
+  "1202dd94-d157-4fd3-8247-6c54af9ee54f": {
+    "asset": 1787490548000,
+    "meta": 1787515813701,
+    "relativePath": "Gym\\map4\\Maybannc.png"
+  },
+  "1c637be2-fbcd-4df9-adda-4f85c8897727": {
+    "asset": 1787490548000,
+    "meta": 1787515813724,
+    "relativePath": "Gym\\map4\\MapGym3 (1).jpg"
+  },
+  "1242aa67-75b4-4d55-b79c-942a3c8ebf9e": {
+    "asset": 1787490548000,
+    "meta": 1787515813725,
+    "relativePath": "Gym\\map4\\Muave1.png"
+  },
+  "f4fd7caa-7f18-457b-8d17-64d5f097998a": {
+    "asset": 1787490548000,
+    "meta": 1787515813744,
+    "relativePath": "Gym\\map4\\Muave1(fix).png"
+  },
+  "263eaedb-5304-4e2e-92d7-38b7bfb4eb3d": {
+    "asset": 1787490548000,
+    "meta": 1787515813745,
+    "relativePath": "Gym\\map4\\Muave2.png"
+  },
+  "fc4693eb-a3b2-44ab-b995-a0f5246f0931": {
+    "asset": 1787490548000,
+    "meta": 1787515813767,
+    "relativePath": "Gym\\map4\\PTBoard.png"
+  },
+  "958d6725-315c-48d8-9698-cddcf6907796": {
+    "asset": 1787490548000,
+    "meta": 1787515813776,
+    "relativePath": "Gym\\map4\\PTdoor1.png"
+  },
+  "70cfc3e6-8d39-475e-90b8-1fc698967660": {
+    "asset": 1787490548000,
+    "meta": 1787515813795,
+    "relativePath": "Gym\\map4\\PTdoor2.png"
+  },
+  "d1132808-e2b0-4891-a663-ab1e0d5f79ce": {
+    "asset": 1787490548000,
+    "meta": 1787515813811,
+    "relativePath": "Gym\\map4\\PTroom1.png"
+  },
+  "24ff906f-fe4e-416c-84bc-41f56801cfd0": {
+    "asset": 1787490548000,
+    "meta": 1787515813821,
+    "relativePath": "Gym\\map4\\Tuongletan4.png"
+  },
+  "d8e903a5-4064-462f-870a-8d18472289d7": {
+    "asset": 1787490548000,
+    "meta": 1787515813832,
+    "relativePath": "Gym\\map4\\Wallgym1.png"
+  },
+  "375eab88-b616-4060-9f26-d7a73b465cac": {
+    "asset": 1787490548000,
+    "meta": 1787515813840,
+    "relativePath": "Gym\\map4\\Wallgym2.png"
+  },
+  "0c60ded1-5d1f-4018-bf11-13bce57446d4": {
+    "asset": 1787490548000,
+    "meta": 1787515813851,
+    "relativePath": "Gym\\map4\\WallGym3.png"
+  },
+  "07f7d95c-2ea0-463e-a02e-b10902b69872": {
+    "asset": 1787490548000,
+    "meta": 1787515813860,
+    "relativePath": "Gym\\map4\\Wallgym4.png"
+  },
+  "d9c1accd-b827-494b-865a-ea06ac5b4be4": {
+    "asset": 1787490548000,
+    "meta": 1787515813870,
+    "relativePath": "Gym\\map4\\Wallgym5.png"
+  },
+  "13cfc79e-08b6-4868-a50f-89b8c732bc09": {
+    "asset": 1787490548000,
+    "meta": 1787515813883,
+    "relativePath": "Gym\\map4\\Wallgym6.png"
+  },
+  "b886a15f-ead0-4797-9fbf-fab8b596f4a0": {
+    "asset": 1787490548000,
+    "meta": 1787515813890,
+    "relativePath": "Gym\\map4\\Wallgym7.png"
+  },
+  "0ddbdd2f-e2fa-443d-a809-923f1db525d7": {
+    "asset": 1787490548000,
+    "meta": 1787515813905,
+    "relativePath": "Gym\\map4\\Wallgym8.png"
+  },
+  "4020ed05-1f13-4c25-9b0f-8c2d5b8f1a47": {
+    "asset": 1787490626000,
+    "meta": 1787515841933,
+    "relativePath": "Gym\\map4\\Decoration\\ghe.png"
+  },
+  "dd64d6fe-9550-4b43-a405-7848e56c07a2": {
+    "asset": 1787490626000,
+    "meta": 1787515841935,
+    "relativePath": "Gym\\map4\\Decoration\\Achievement.png"
+  },
+  "1c05fcb7-7aaf-4bf4-a63a-a5ef04c63fb8": {
+    "asset": 1787490626000,
+    "meta": 1787515841956,
+    "relativePath": "Gym\\map4\\Decoration\\Heater.png"
+  },
+  "54dd5f11-5b7b-413f-a7b5-7830ddf6527b": {
+    "asset": 1787490626000,
+    "meta": 1787515841961,
+    "relativePath": "Gym\\map4\\Decoration\\Plant.png"
+  },
+  "470aede4-e714-48db-ba9e-5a7166d68ae8": {
+    "asset": 1787490626000,
+    "meta": 1787515841979,
+    "relativePath": "Gym\\map4\\Decoration\\PlantPot.png"
+  },
+  "03fc7c56-5e00-4727-b6c7-f30b68102f30": {
+    "asset": 1787490626000,
+    "meta": 1787515841980,
+    "relativePath": "Gym\\map4\\Decoration\\WorldClock.png"
+  },
+  "99fdfd5b-01e8-4cd5-9e38-d1a7d3135035": {
+    "asset": 1787516167846,
+    "meta": 1787516167880,
+    "relativePath": "Gym\\ui\\splash.jpg"
+  },
+  "4e7d0f94-cbe6-4d46-8d86-4f442b199cc6": {
+    "asset": 1787516490273,
+    "meta": 1787516490308,
+    "relativePath": "Gym\\ui\\Clean, Upgrade, Grow Your Gym!.png"
+  },
+  "b65a7f44-41de-4800-9ad2-66f11cb40932": {
+    "asset": 1787516626608,
+    "meta": 1787516626661,
+    "relativePath": "Gym\\ui\\Play Now.png"
+  },
+  "f9577842-7619-482e-94c2-600e3fbdb712": {
+    "asset": 1787519703644,
+    "meta": 1787519703820,
+    "relativePath": "Gym\\spine\\pt\\PTBlue.png"
+  },
+  "d3c47b5e-bc45-4105-bb08-9ffebc8129d6": {
+    "asset": 1787519703644,
+    "meta": 1787519703822,
+    "relativePath": "Gym\\spine\\pt\\PTYellow.png"
+  },
+  "09b4632d-b7ea-47c6-827b-8f3690102096": {
+    "asset": 1787519703645,
+    "meta": 1787519703848,
+    "relativePath": "Gym\\spine\\pt\\PTRed.png"
+  },
+  "084760a3-8948-4706-a0c1-d372d4347d02": {
+    "asset": 1787519703644,
+    "meta": 1787519703850,
+    "relativePath": "Gym\\spine\\pt\\PTGreen.png"
+  },
+  "917da996-331d-44c9-bc37-cdb406604f9b": {
+    "asset": 1787519816847,
+    "meta": 1787519816994,
+    "relativePath": "Gym\\map4\\Machine\\MaynuocLv4.png"
+  },
+  "16870dbe-eb80-4cdb-bc39-7c1b950b8982": {
+    "asset": 1787519816847,
+    "meta": 1787519816995,
+    "relativePath": "Gym\\map4\\Machine\\ProteinBarLv1.png"
+  },
+  "3cfc5b2e-ddd1-404e-926d-02825d9934ca": {
+    "asset": 1787519816847,
+    "meta": 1787519817007,
+    "relativePath": "Gym\\map4\\Machine\\tulanhLv2.png"
+  },
+  "98f1bb77-a44f-46e2-9e80-a12c43eecb4d": {
+    "asset": 1787519816848,
+    "meta": 1787519817010,
+    "relativePath": "Gym\\map4\\Machine\\Gemini_Generated_Image_qdl2thqdl2thqdl2.png"
+  },
+  "84e67937-fe2e-4fcd-a1f6-d72d85a1a4e5": {
+    "asset": 1787519927000,
+    "meta": 1787520019190,
+    "relativePath": "Gym\\ui\\22.png"
+  },
+  "23cff2bf-ab7c-4925-944e-ba13b1249406": {
+    "asset": 1787519927000,
+    "meta": 1787520019191,
+    "relativePath": "Gym\\ui\\1.png"
+  },
+  "6d6db32a-07be-4f82-bb29-e0cc6b5e20dc": {
+    "asset": 1787520175503,
+    "meta": 1787520190551,
+    "relativePath": "Gym\\map4\\Machine\\BanletanLV3.png"
+  },
+  "2f4771b7-36ea-4727-8610-754e2fc400d6": {
+    "asset": 1787520209113,
+    "meta": 1787520263713,
+    "relativePath": "Gym\\map4\\tuongletan.png"
+  },
+  "52c5ace4-7448-4932-a958-3e0b5795f8e2": {
+    "asset": 1787520482817,
+    "meta": 1787520483471,
+    "relativePath": "Gym\\sound\\Whistle_Sound.mp3"
+  },
+  "8a75aaac-9159-4993-91e7-87ce0cc44cf1": {
+    "asset": 1787520569938,
+    "meta": 1787520785305,
+    "relativePath": "Gym\\sound\\Man_Yeah_01.mp3"
+  },
+  "d144372f-a82f-4a98-b4e4-3ec9d51b47af": {
+    "asset": 1787520742773,
+    "meta": 1787520785306,
+    "relativePath": "Gym\\sound\\Girl_Yippy.mp3"
+  },
+  "bc24cdab-568a-461b-a098-756ed3fc0eae": {
+    "asset": 1787520922578,
+    "meta": 1787520923145,
+    "relativePath": "Gym\\sound\\Gym-Mania-GP-Music-1-ver3-1 (mp3cut.net) (1).mp3"
+  },
+  "08fe1590-61e2-41fa-b648-bfd3e9120dd3": {
+    "asset": 1787521063339,
+    "meta": 1787521118388,
+    "relativePath": "Gym\\sound\\Boy_Thank you.mp3"
+  },
+  "fbe90d4f-dbe2-488f-bc90-4cd81d03a032": {
+    "asset": 1787521223836,
+    "meta": 1787521385249,
+    "relativePath": "Gym\\sound\\Excited for More Challenges Gym Mania.mp3"
+  },
+  "ee70035a-9659-46ae-a861-b921deb94ac2": {
+    "asset": 1787521157058,
+    "meta": 1787521385250,
+    "relativePath": "Gym\\sound\\Boy_Ohyeah.mp3"
+  },
+  "4ea2b65d-669e-4118-a616-6c97c8b13e58": {
+    "asset": 1787521332528,
+    "meta": 1787521385271,
+    "relativePath": "Gym\\sound\\Boy-Angry-02-mp3cutnet-1.mp3"
+  },
+  "be017391-af65-43eb-9044-4a856b25c74a": {
+    "asset": 1787521367251,
+    "meta": 1787521385275,
+    "relativePath": "Gym\\sound\\Boy-Angry-01.mp3"
+  },
+  "cdbf56ad-bd77-4462-9d1a-100a7d4d7d3f": {
+    "asset": 1787521775829,
+    "meta": 1787521775855,
+    "relativePath": "Gym\\ui\\progressGreen.png"
+  },
+  "509755e6-21c4-44cc-b89d-ef996f576587": {
+    "asset": 1787521775829,
+    "meta": 1787521775858,
+    "relativePath": "Gym\\ui\\downloadbg.png"
+  },
+  "e8e7c390-2fa2-481f-b52a-681bcf35ee02": {
+    "asset": 1787521775829,
+    "meta": 1787521775868,
+    "relativePath": "Gym\\ui\\download3.png"
+  },
+  "004dbe5e-09e4-4ac0-9144-7971e1d0e378": {
+    "asset": 1787521775829,
+    "meta": 1787521775869,
+    "relativePath": "Gym\\ui\\downloadsss.png"
+  },
+  "477a05f2-2f04-43ce-923c-a7d00f0a8517": {
+    "asset": 1787522182893,
+    "meta": 1787522182918,
+    "relativePath": "Gym\\ui\\Angry_Emoji.png"
+  },
+  "7c00ae0a-ec4e-4d7d-b47c-470bc1032676": {
+    "asset": 1787522279059,
+    "meta": 1787522279078,
+    "relativePath": "Gym\\ui\\Angry_Emoji (1).png"
+  },
+  "71f028b6-d3f7-4332-8521-cddb9339cbc3": {
+    "asset": 1787522400834,
+    "meta": 1787522400845,
+    "relativePath": "Gym\\prefab\\angry.prefab"
+  },
+  "b5a4a5cd-677c-47cc-919b-c44885ea91e4": {
+    "asset": 1787524367692,
+    "meta": 1787524368399,
+    "relativePath": "Gym\\sound\\Door-Sliding-Open-and-CLose-mp3c.mp3"
+  },
+  "2071f23f-f1b7-4bd6-a7a7-1da4c5bab893": {
+    "asset": 1787524593706,
+    "meta": 1787524594439,
+    "relativePath": "Gym\\sound\\Door-Sliding-Open-and-CLose-mp3c (1).mp3"
+  },
+  "a6ac25d1-ebcf-4b08-8c45-aeedcf357001": {
+    "asset": 1787524701270,
+    "meta": 1787524701682,
+    "relativePath": "Gym\\sound\\Door-Sliding-Open-and-CLose-mp3c (1) (mp3cut.net).mp3"
+  },
+  "e6789c56-4708-45e0-a05f-3267574bc72f": {
+    "asset": 1787524778223,
+    "meta": 1787524823401,
+    "relativePath": "Gym\\Script\\listCard.ts"
+  },
+  "02049483-f91e-45f8-a4e6-06d642d19c01": {
+    "asset": 1787526477002,
+    "meta": 1787526493320,
+    "relativePath": "Gym\\Script\\cusGym.ts"
+  },
+  "90613c24-1b0c-4139-844e-e00794687b3c": {
+    "asset": 1787527685639,
+    "meta": 1787527756366,
+    "relativePath": "Gym\\sound\\angry_Girl_01.mp3"
+  },
+  "0448d3c1-83a9-4ee8-b2f4-983003603522": {
+    "asset": 1787527919429,
+    "meta": 1787527988195,
+    "relativePath": "Gym\\map4\\Icon Machine Upgrade\\Achievement.png"
+  },
+  "7e88af95-6c7c-4cf3-bb18-1d6d41464a28": {
+    "asset": 1787528029025,
+    "meta": 1787528053507,
+    "relativePath": "Gym\\ui\\more time copy 4.png"
+  },
+  "5327afbe-ceac-43cb-a2bb-3ae272094c34": {
+    "asset": 1787528078320,
+    "meta": 1787528078345,
+    "relativePath": "_allAsset\\ui\\Layer 2910 (1) (1).png"
+  },
+  "7c6f873d-7512-4fc1-b6cf-ad39fcb2fc4d": {
+    "asset": 1787528284632,
+    "meta": 1787528294487,
+    "relativePath": "Gym\\map4\\Icon Machine Upgrade\\ThietBiLv4.png"
+  },
+  "f7b28185-0faa-4cfb-8dbe-c72d5d907d35": {
+    "asset": 1787528320577,
+    "meta": 1787528330538,
+    "relativePath": "Gym\\map4\\MapGym3 (1) (1).jpg"
+  },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787224183442,
-    "meta": 1787224185087,
+    "asset": 1787528589159,
+    "meta": 1787528591116,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

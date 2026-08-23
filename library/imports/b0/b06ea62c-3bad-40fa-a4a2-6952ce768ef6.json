@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "more time copy 4",
+    "texture": "7e88af95-6c7c-4cf3-bb18-1d6d41464a28",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      309,
+      359
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      309,
+      359
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

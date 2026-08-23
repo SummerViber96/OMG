@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Timer_Bar",
+    "texture": "fa517e71-52c2-4972-bb24-1def7fc012bc",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      178,
+      65
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      178,
+      65
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

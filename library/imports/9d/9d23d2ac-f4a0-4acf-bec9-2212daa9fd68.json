@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Yellow_Bar",
+    "texture": "4336f81b-0d7a-47c3-a6de-c88ecd448c89",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      346,
+      65
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      346,
+      65
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
