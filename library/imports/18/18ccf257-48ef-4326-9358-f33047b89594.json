@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Green_Bar (1)",
+    "texture": "40f20687-4830-4abd-ac70-7c01ae558017",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1776,
+      524
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1776,
+      524
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

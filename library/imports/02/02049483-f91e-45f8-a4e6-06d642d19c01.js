@@ -174,6 +174,9 @@ var NewClass = /** @class */ (function (_super) {
             this.gamePlay.playSfx(this.soundAngry, false, 1);
         }
         this.anim.setAnimation(0, "Waiting3", true);
+        if (this.parentName === "Crunch") {
+            this.node.position = cc.v3(-106.701, -47);
+        }
     };
     NewClass.prototype.happy = function (playSound) {
         if (playSound === void 0) { playSound = true; }

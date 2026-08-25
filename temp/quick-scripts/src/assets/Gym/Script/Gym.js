@@ -992,7 +992,7 @@ var NewClass = /** @class */ (function (_super) {
             this.textGuild3.opacity = 0;
         switch (Number(value)) {
             case 0:
-                this.ptSpeed = 1.;
+                this.ptSpeed = 1.5;
                 this.noti.active = true;
                 this.noti.children[0].children[1].active = true;
                 this.noti.getComponent(cc.Animation).play();
@@ -1004,12 +1004,8 @@ var NewClass = /** @class */ (function (_super) {
                     _this.autoFillMachinesAndPts();
                 }, 0.5);
                 this.scheduleOnce(function () {
-                    _this.noti.children[0].children[0].active = false;
-                    _this.noti.children[0].children[1].active = false;
-                    _this.noti.children[0].children[2].active = true;
-                    _this.noti.active = true;
-                    _this.noti.getComponent(cc.Animation).play();
-                }, 8.5);
+                    _this.showContinueHandGuide();
+                }, 1);
                 break;
             case 1:
                 this.addCountDownTime(15);
@@ -1023,8 +1019,15 @@ var NewClass = /** @class */ (function (_super) {
                 break;
         }
         this.scheduleOnce(function () {
+            _this.noti.children[0].children[0].active = false;
+            _this.noti.children[0].children[1].active = false;
+            _this.noti.children[0].children[2].active = true;
+            _this.noti.active = true;
+            _this.noti.getComponent(cc.Animation).play();
+        }, 18.5);
+        this.scheduleOnce(function () {
             _this.onEndgame();
-        }, 10);
+        }, 20);
     };
     NewClass.prototype.showContinueHandGuide = function () {
         this.hideQueueHandGuide = false;
@@ -1305,6 +1308,7 @@ var NewClass = /** @class */ (function (_super) {
             }
         }
         this.endCard.scale = (logic) ? 1.5 : 0.7;
+        this.endCard.children[1].y = 0;
         this.logo.scale = (logic) ? 1.5 : 1;
         this.listIconPt.scale = (logic) ? 2.2 : 1.3;
         this.listIconPt.getComponent(cc.Widget).bottom = (logic) ? 230 : 114.86;
@@ -1335,12 +1339,18 @@ var NewClass = /** @class */ (function (_super) {
             var TALL_PHONE_MIN_RATIO = 2.0;
             this.phaohoa.scale = (logic) ? 7 : 3;
             if (aspectRatio >= TALL_PHONE_MIN_RATIO) {
+                this.endCardDoc.children[1].scale = 2;
+                this.endCardDoc.children[1].x = 1400;
                 // console.log("check iphonex")
                 // this.coinBar.getComponent(cc.Widget).top = 77 + 30;
                 this.logo.getComponent(cc.Widget).top = 48 + 70;
                 this.timeBar.getComponent(cc.Widget).top = 250 + 70;
+                // this.endCard.children[1].scale=1.43
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
+                console.log("check ipad");
+                this.endCardDoc.children[1].scale = 1.2;
+                this.endCardDoc.children[1].x = 700;
                 this.guildUpgrade.scale = 1.8;
             }
         }
@@ -1355,9 +1365,13 @@ var NewClass = /** @class */ (function (_super) {
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+                this.endCard.children[1].scale = 1.43;
+                this.endCard.children[1].y = -200;
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 // this.camera.zoomRatio = 0.8
+                this.endCard.children[1].scale = 1.1;
+                this.endCard.children[1].y = 200;
             }
         }
     };

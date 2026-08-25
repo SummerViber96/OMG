@@ -149,6 +149,9 @@ export default class NewClass extends cc.Component {
             this.gamePlay.playSfx(this.soundAngry, false, 1)
         }
         this.anim.setAnimation(0, "Waiting3", true)
+        if (this.parentName === "Crunch") {
+            this.node.position = cc.v3(-106.701, -47)
+        }
     }
     happy(playSound = true) {
         if (playSound && this.soundHappy && this.gamePlay && this.gamePlay.playSfx) {
