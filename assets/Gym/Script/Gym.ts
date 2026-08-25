@@ -977,17 +977,15 @@ export default class NewClass extends cc.Component {
                 this.noti.active = true
                 this.noti.children[0].children[1].active = true
                 this.noti.getComponent(cc.Animation).play()
-                this.unschedule(this.spawCustomer)
                 this.hideQueueHandGuide = true
                 this.hideAllQueueHands()
                 this.hideAllIconPtHands()
                 this.scheduleOnce(() => {
                     this.autoFillMachinesAndPts()
                 }, 0.5)
-                // this.scheduleOnce(() => {
-                //     this.showContinueHandGuide()
-                // }, 1)
-
+                this.scheduleOnce(() => {
+                    this.showContinueHandGuide()
+                }, 1.5)
                 break
             case 1:
                 this.addCountDownTime(15)

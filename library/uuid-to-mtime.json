@@ -14895,8 +14895,8 @@
     "relativePath": "Gym\\Script\\cusGym.ts"
   },
   "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787646843177,
-    "meta": 1787646843198,
+    "asset": 1787647386857,
+    "meta": 1787647386876,
     "relativePath": "scenes\\Gym.fire"
   },
   "a36a47b3-c614-4534-9ebe-c39e319384fb": {
@@ -14955,8 +14955,8 @@
     "relativePath": "Gym\\map4\\tuongletan-2.png"
   },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787646926701,
-    "meta": 1787646929543,
+    "asset": 1787647261417,
+    "meta": 1787647323430,
     "relativePath": "Gym\\Script\\Gym.ts"
   }
 }

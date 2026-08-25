@@ -996,7 +996,6 @@ var NewClass = /** @class */ (function (_super) {
                 this.noti.active = true;
                 this.noti.children[0].children[1].active = true;
                 this.noti.getComponent(cc.Animation).play();
-                this.unschedule(this.spawCustomer);
                 this.hideQueueHandGuide = true;
                 this.hideAllQueueHands();
                 this.hideAllIconPtHands();
@@ -1005,7 +1004,7 @@ var NewClass = /** @class */ (function (_super) {
                 }, 0.5);
                 this.scheduleOnce(function () {
                     _this.showContinueHandGuide();
-                }, 1);
+                }, 1.5);
                 break;
             case 1:
                 this.addCountDownTime(15);
