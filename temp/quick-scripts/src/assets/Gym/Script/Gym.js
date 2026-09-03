@@ -1308,6 +1308,8 @@ var NewClass = /** @class */ (function (_super) {
         }
         this.endCard.scale = (logic) ? 1.5 : 0.7;
         this.endCard.children[1].y = 0;
+        this.endCard.children[1].scale = 1.25;
+        this.endCard.children[1].x = 0;
         this.logo.scale = (logic) ? 1.5 : 1;
         this.listIconPt.scale = (logic) ? 2.2 : 1.3;
         this.listIconPt.getComponent(cc.Widget).bottom = (logic) ? 230 : 114.86;
@@ -1326,6 +1328,7 @@ var NewClass = /** @class */ (function (_super) {
         this.textGuild2.scale = (logic) ? 1.8 : 1;
         this.textGuild3.scale = (logic) ? 1.8 : 1;
         this.listCard.scale = (logic) ? 1.7 : 1;
+        this.endCardDoc.children[1].scale = 1.65;
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
@@ -1336,7 +1339,7 @@ var NewClass = /** @class */ (function (_super) {
             var TOLERANCE = 0.05;
             var IPAD_RATIO = 1024 / 768; // ≈ 1.33
             var TALL_PHONE_MIN_RATIO = 2.0;
-            this.phaohoa.scale = (logic) ? 7 : 3;
+            // this.phaohoa.scale = (logic) ? 7 : 3
             if (aspectRatio >= TALL_PHONE_MIN_RATIO) {
                 this.endCardDoc.children[1].scale = 2;
                 this.endCardDoc.children[1].x = 1400;
@@ -1370,7 +1373,8 @@ var NewClass = /** @class */ (function (_super) {
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 // this.camera.zoomRatio = 0.8
                 this.endCard.children[1].scale = 1.1;
-                this.endCard.children[1].y = 200;
+                this.endCard.children[1].y = 0;
+                this.endCard.children[1].x = 100;
             }
         }
     };

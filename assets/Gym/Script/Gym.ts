@@ -1259,6 +1259,8 @@ export default class NewClass extends cc.Component {
         }
         this.endCard.scale = (logic) ? 1.5 : 0.7
         this.endCard.children[1].y = 0
+        this.endCard.children[1].scale = 1.25
+        this.endCard.children[1].x=0
 
         this.logo.scale = (logic) ? 1.5 : 1
         this.listIconPt.scale = (logic) ? 2.2 : 1.3
@@ -1278,6 +1280,7 @@ export default class NewClass extends cc.Component {
         this.textGuild2.scale = (logic) ? 1.8 : 1
         this.textGuild3.scale = (logic) ? 1.8 : 1
         this.listCard.scale = (logic) ? 1.7 : 1
+        this.endCardDoc.children[1].scale=1.65
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
@@ -1293,7 +1296,7 @@ export default class NewClass extends cc.Component {
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
             const TALL_PHONE_MIN_RATIO = 2.0;
 
-            this.phaohoa.scale = (logic) ? 7 : 3
+            // this.phaohoa.scale = (logic) ? 7 : 3
             if (aspectRatio >= TALL_PHONE_MIN_RATIO) {
                 this.endCardDoc.children[1].scale = 2
                 this.endCardDoc.children[1].x = 1400
@@ -1332,7 +1335,8 @@ export default class NewClass extends cc.Component {
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 // this.camera.zoomRatio = 0.8
                 this.endCard.children[1].scale = 1.1
-                this.endCard.children[1].y = 200
+                this.endCard.children[1].y = 0
+                this.endCard.children[1].x=100
 
             }
         }

@@ -7979,7 +7979,13 @@
     "soundHappy": {
       "__uuid__": "b3b553e9-8f1a-47e0-b46d-6b00ef4feb09"
     },
+    "soundAngry": null,
     "tag": 0,
+    "fillBar": null,
+    "yellowSp": null,
+    "redSp": null,
+    "angryPrefab": null,
+    "waitTime": 8,
     "_id": ""
   },
   {

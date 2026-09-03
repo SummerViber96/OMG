@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761829220486,
-    "meta": 1787633706253,
+    "meta": 1787767078595,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2631,7 +2631,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1773121698116,
-    "meta": 1787633706544,
+    "meta": 1787767078593,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -12865,8 +12865,8 @@
     "relativePath": "model"
   },
   "e6adedb7-e7ec-4b59-ac1e-2c53fdc566b7": {
-    "asset": 1787623260397,
-    "meta": 1787633639249,
+    "asset": 1787646843032,
+    "meta": 1787718655354,
     "relativePath": "Gym\\map4"
   },
   "d78e58c8-027e-4617-8b1c-5d6b04b91e0c": {
@@ -14390,38 +14390,38 @@
     "relativePath": "Gym\\prefab\\listCus"
   },
   "9317423b-6ae0-4021-8484-25e9cae9a2b6": {
-    "asset": 1787636793112,
-    "meta": 1787636793125,
+    "asset": 1787719628504,
+    "meta": 1787719628537,
     "relativePath": "Gym\\prefab\\listCus\\Cus1.prefab"
   },
   "aa27e966-ff34-46eb-9038-1329bd06fb9a": {
-    "asset": 1787637084237,
-    "meta": 1787637084248,
+    "asset": 1787719607148,
+    "meta": 1787719607161,
     "relativePath": "Gym\\prefab\\listCus\\Cus2.prefab"
   },
   "f7fed7ae-7392-4db3-b22a-e4338513b068": {
-    "asset": 1787637136068,
-    "meta": 1787637136083,
+    "asset": 1787719643186,
+    "meta": 1787719643207,
     "relativePath": "Gym\\prefab\\listCus\\Cus3.prefab"
   },
   "eb9e06a5-0f52-4df8-9093-e3ec1f864c3a": {
-    "asset": 1787640959433,
-    "meta": 1787640959444,
+    "asset": 1787719652042,
+    "meta": 1787719652054,
     "relativePath": "Gym\\prefab\\listCus\\Cus4.prefab"
   },
   "84193220-ec77-42be-b40e-3b30218ec5ce": {
-    "asset": 1787644219522,
-    "meta": 1787644219535,
+    "asset": 1787719675578,
+    "meta": 1787719675591,
     "relativePath": "Gym\\prefab\\listCus\\Cus5.prefab"
   },
   "77ea2da4-f23a-452b-877c-ea2a919fbf8d": {
-    "asset": 1787640937035,
-    "meta": 1787640937047,
+    "asset": 1787719684922,
+    "meta": 1787719684939,
     "relativePath": "Gym\\prefab\\listCus\\Cus6.prefab"
   },
   "6272e68a-bf26-4ca8-bd59-d7b75ea1bd9e": {
-    "asset": 1787623260437,
-    "meta": 1787633647707,
+    "asset": 1787719689831,
+    "meta": 1787719689844,
     "relativePath": "Gym\\prefab\\listCus\\Cus7.prefab"
   },
   "d10f9868-24ce-444d-9593-a403e73617e0": {
@@ -14435,8 +14435,8 @@
     "relativePath": "Bracelet"
   },
   "ea4cba5b-8cf1-4824-9d20-f0bd7477ad1f": {
-    "asset": 1787623260962,
-    "meta": 1787633650986,
+    "asset": 1787721077269,
+    "meta": 1787767078588,
     "relativePath": "Gym\\ui"
   },
   "240beede-12b4-4cf9-b472-d4c5d659f69f": {
@@ -14493,11 +14493,6 @@
     "asset": 1787623260715,
     "meta": 1787633652184,
     "relativePath": "Gym\\ui\\Timer_BarFGr.png"
-  },
-  "2cb818c1-7e43-486d-8093-371bb06ed206": {
-    "asset": 1787623260714,
-    "meta": 1787633651224,
-    "relativePath": "Gym\\ui\\Layer 410.png"
   },
   "fa517e71-52c2-4972-bb24-1def7fc012bc": {
     "asset": 1787623260715,
@@ -14829,11 +14824,6 @@
     "meta": 1787633640033,
     "relativePath": "Gym\\map4\\Icon Machine Upgrade\\Achievement.png"
   },
-  "7e88af95-6c7c-4cf3-bb18-1d6d41464a28": {
-    "asset": 1787623260731,
-    "meta": 1787633651246,
-    "relativePath": "Gym\\ui\\more time copy 4.png"
-  },
   "5327afbe-ceac-43cb-a2bb-3ae272094c34": {
     "asset": 1787623263639,
     "meta": 1787633604788,
@@ -14859,11 +14849,6 @@
     "meta": 1787633811142,
     "relativePath": "Gym\\ui\\Timer.png"
   },
-  "6fb3eb8a-ea4b-4416-9b1c-248cf50bf2b5": {
-    "asset": 1787635613000,
-    "meta": 1787635641092,
-    "relativePath": "Gym\\ui\\Green_Bar.png"
-  },
   "3ac3e89f-b843-4dc9-b9c0-79058f2117a5": {
     "asset": 1787635613000,
     "meta": 1787635641093,
@@ -14879,11 +14864,6 @@
     "meta": 1787635986318,
     "relativePath": "Gym\\ui\\Green_Bar (1).png"
   },
-  "679ee720-962b-42c5-af14-30fb6d4cb184": {
-    "asset": 1787636569966,
-    "meta": 1787636569988,
-    "relativePath": "Gym\\ui\\Green_Bar (1) (1).png"
-  },
   "5a4071fc-76e2-47c5-b492-c5ad6cd6efcb": {
     "asset": 1787641456876,
     "meta": 1787641456901,
@@ -14893,11 +14873,6 @@
     "asset": 1787645476039,
     "meta": 1787645506019,
     "relativePath": "Gym\\Script\\cusGym.ts"
-  },
-  "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787647386857,
-    "meta": 1787647386876,
-    "relativePath": "scenes\\Gym.fire"
   },
   "a36a47b3-c614-4534-9ebe-c39e319384fb": {
     "asset": 1787621618000,
@@ -14954,9 +14929,39 @@
     "meta": 1787646843162,
     "relativePath": "Gym\\map4\\tuongletan-2.png"
   },
+  "439372e7-359a-45a6-8656-39ffe827aa9a": {
+    "asset": 1787767386637,
+    "meta": 1787767386653,
+    "relativePath": "scenes\\Gym.fire"
+  },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
-    "asset": 1787647261417,
-    "meta": 1787647323430,
+    "asset": 1787720690700,
+    "meta": 1787720693799,
     "relativePath": "Gym\\Script\\Gym.ts"
+  },
+  "6fb3eb8a-ea4b-4416-9b1c-248cf50bf2b5": {
+    "asset": 1787695840000,
+    "meta": 1787721123640,
+    "relativePath": "Gym\\ui\\Green_Bar.png"
+  },
+  "679ee720-962b-42c5-af14-30fb6d4cb184": {
+    "asset": 1787695840000,
+    "meta": 1787721123643,
+    "relativePath": "Gym\\ui\\Green_Bar (1) (1).png"
+  },
+  "2cb818c1-7e43-486d-8093-371bb06ed206": {
+    "asset": 1787721071638,
+    "meta": 1787721123659,
+    "relativePath": "Gym\\ui\\Layer 410.png"
+  },
+  "7e88af95-6c7c-4cf3-bb18-1d6d41464a28": {
+    "asset": 1787695840000,
+    "meta": 1787721123665,
+    "relativePath": "Gym\\ui\\more time copy 4.png"
+  },
+  "f0144f1d-7fa8-4edd-abf7-4ff0388f443b": {
+    "asset": 1787695840000,
+    "meta": 1787721123681,
+    "relativePath": "Gym\\ui\\Red_bar (1).png"
   }
 }

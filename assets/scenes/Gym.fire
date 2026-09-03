@@ -15472,7 +15472,9 @@
     "yellowSp": {
       "__uuid__": "28da0455-d2c7-43d4-bda6-f5fd097838b2"
     },
-    "redSp": null,
+    "redSp": {
+      "__uuid__": "49d3a95a-515c-46c5-aa89-2cfc2e862511"
+    },
     "angryPrefab": {
       "__uuid__": "71f028b6-d3f7-4332-8521-cddb9339cbc3"
     },
@@ -19874,7 +19876,9 @@
     "yellowSp": {
       "__uuid__": "28da0455-d2c7-43d4-bda6-f5fd097838b2"
     },
-    "redSp": null,
+    "redSp": {
+      "__uuid__": "49d3a95a-515c-46c5-aa89-2cfc2e862511"
+    },
     "angryPrefab": {
       "__uuid__": "71f028b6-d3f7-4332-8521-cddb9339cbc3"
     },
@@ -27602,7 +27606,9 @@
     "yellowSp": {
       "__uuid__": "28da0455-d2c7-43d4-bda6-f5fd097838b2"
     },
-    "redSp": null,
+    "redSp": {
+      "__uuid__": "49d3a95a-515c-46c5-aa89-2cfc2e862511"
+    },
     "angryPrefab": {
       "__uuid__": "71f028b6-d3f7-4332-8521-cddb9339cbc3"
     },
@@ -37923,8 +37929,8 @@
         0,
         0,
         1,
-        1.6,
-        1.6,
+        1.65,
+        1.65,
         1
       ]
     },
@@ -39548,7 +39554,7 @@
       "__uuid__": "2c264567-6e0f-471e-bae9-283901572700"
     },
     "soundWin": {
-      "__uuid__": "bccfd469-9d3c-4aeb-8f45-5c1dfaa45ed8"
+      "__uuid__": "fbe90d4f-dbe2-488f-bc90-4cd81d03a032"
     },
     "soundTime": {
       "__uuid__": "874c9f4d-4730-4cd6-8417-72a42157fe2f"
