@@ -1,0 +1,35 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "idle",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 22,
+  "curveData": {
+    "props": {
+      "scaleY": [
+        {
+          "frame": 0,
+          "value": 1.4
+        },
+        {
+          "frame": 0.6666666666666666,
+          "value": 1.35
+        }
+      ],
+      "scaleX": [
+        {
+          "frame": 0,
+          "value": 1.4
+        },
+        {
+          "frame": 0.6666666666666666,
+          "value": 1.38
+        }
+      ]
+    }
+  },
+  "events": []
+}
