@@ -3001,8 +3001,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 558.5,
-      "height": 142
+      "width": 509.02,
+      "height": 154.6
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3053,10 +3053,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "DOWNLOAD",
-    "_N$string": "DOWNLOAD",
-    "_fontSize": 100,
-    "_lineHeight": 100,
+    "_string": "Help Him!",
+    "_N$string": "Help Him!",
+    "_fontSize": 110,
+    "_lineHeight": 110,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "cf3da404-31ff-4c1a-baae-7a66a45e5a4b"

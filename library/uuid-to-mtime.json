@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1786978825092,
-    "meta": 1788439399798,
+    "meta": 1788444400630,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1786978826318,
-    "meta": 1788439399990,
+    "meta": 1788444400636,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -4330,8 +4330,8 @@
     "relativePath": "scripts"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1788442688570,
-    "meta": 1788442688579,
+    "asset": 1788444478744,
+    "meta": 1788444478769,
     "relativePath": "scenes\\Donut1.fire"
   },
   "470ed163-3949-4cd6-9cdc-895dae391e9e": {
@@ -9485,8 +9485,8 @@
     "relativePath": "anim\\hand\\hand_vuot.anim"
   },
   "3d126123-a1d4-46c9-85b8-2fa8ec458ab1": {
-    "asset": 1788439364746,
-    "meta": 1788439380224,
+    "asset": 1788440354309,
+    "meta": 1788444400571,
     "relativePath": "_allAsset"
   },
   "7b6b0072-0b0e-49c1-888e-86ad47bc0726": {
@@ -9525,8 +9525,8 @@
     "relativePath": "model\\Jo hnMan"
   },
   "c8f3475d-6893-45ec-8674-8da96a294ed3": {
-    "asset": 1788439630556,
-    "meta": 1788439630557,
+    "asset": 1788442639637,
+    "meta": 1788444400615,
     "relativePath": "Monster"
   },
   "ca348dc9-d498-4ec1-9aa1-8cd329a35588": {
@@ -9543,11 +9543,6 @@
     "asset": 1788439906397,
     "meta": 1788439906425,
     "relativePath": "Monster\\03.png"
-  },
-  "79aac064-5f5d-4b76-97b1-64fd3b711108": {
-    "asset": 1788440077422,
-    "meta": 1788440077442,
-    "relativePath": "Monster\\Shadow.png"
   },
   "c75df750-d390-48e9-ad2c-2498fa23ceb1": {
     "asset": 1788440236321,
@@ -10123,5 +10118,10 @@
     "asset": 1788442677377,
     "meta": 1788442678144,
     "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "ddd195f2-eb88-4f31-896e-a9af0331555b": {
+    "asset": 1788442126516,
+    "meta": 1788444400572,
+    "relativePath": "_allAsset\\anim"
   }
 }
