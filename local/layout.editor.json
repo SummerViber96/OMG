@@ -92,20 +92,8 @@
           }
         ]
       },
-      "panels": [
-        "hierarchy",
-        "assets",
-        "scene",
-        "node-library",
-        "console",
-        "timeline",
-        "game-window",
-        "inspector",
-        "cocos-services"
-      ]
-    },
-    "window-1788444479808": {},
-    "worker": {}
+      "panels": []
+    }
   },
   "panels": {
     "builder": {
