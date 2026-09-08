@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1761829220486,
-    "meta": 1787767078595,
+    "meta": 1788425030223,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2631,7 +2631,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1773121698116,
-    "meta": 1787767078593,
+    "meta": 1788425030222,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -12305,8 +12305,8 @@
     "relativePath": "Gym\\bar\\update_machine.plist"
   },
   "bbb594ac-8c31-40e5-ba13-15f4b5531aa4": {
-    "asset": 1787623263937,
-    "meta": 1787633605932,
+    "asset": 1788425994879,
+    "meta": 1788425994897,
     "relativePath": "anim\\vfx_set.anim"
   },
   "267cfdf8-e8aa-4fc6-968f-6e69fe6c05b0": {
@@ -14415,8 +14415,8 @@
     "relativePath": "Gym\\prefab\\listCus\\Cus5.prefab"
   },
   "77ea2da4-f23a-452b-877c-ea2a919fbf8d": {
-    "asset": 1787719684922,
-    "meta": 1787719684939,
+    "asset": 1788419109714,
+    "meta": 1788419109724,
     "relativePath": "Gym\\prefab\\listCus\\Cus6.prefab"
   },
   "6272e68a-bf26-4ca8-bd59-d7b75ea1bd9e": {
@@ -14899,11 +14899,6 @@
     "meta": 1787646843102,
     "relativePath": "Gym\\map4\\Wallgym2.png"
   },
-  "2f4771b7-36ea-4727-8610-754e2fc400d6": {
-    "asset": 1787621618000,
-    "meta": 1787646843104,
-    "relativePath": "Gym\\map4\\tuongletan.png"
-  },
   "d9c1accd-b827-494b-865a-ea06ac5b4be4": {
     "asset": 1787621618000,
     "meta": 1787646843122,
@@ -14930,8 +14925,8 @@
     "relativePath": "Gym\\map4\\tuongletan-2.png"
   },
   "439372e7-359a-45a6-8656-39ffe827aa9a": {
-    "asset": 1787767386637,
-    "meta": 1787767386653,
+    "asset": 1788426266578,
+    "meta": 1788426266595,
     "relativePath": "scenes\\Gym.fire"
   },
   "acb91a78-2814-42b7-8855-4ad616ff2fc3": {
@@ -14963,5 +14958,10 @@
     "asset": 1787695840000,
     "meta": 1787721123681,
     "relativePath": "Gym\\ui\\Red_bar (1).png"
+  },
+  "2f4771b7-36ea-4727-8610-754e2fc400d6": {
+    "asset": 1788426222695,
+    "meta": 1788426244584,
+    "relativePath": "Gym\\map4\\tuongletan.png"
   }
 }

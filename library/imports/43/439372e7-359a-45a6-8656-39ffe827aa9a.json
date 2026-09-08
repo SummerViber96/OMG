@@ -33764,10 +33764,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "361c17f5-8730-4864-b486-2057a156ccf8"
+      "__uuid__": "86d7e971-2787-4db0-98e5-bb412a65dd5b"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -34500,10 +34500,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "361c17f5-8730-4864-b486-2057a156ccf8"
+      "__uuid__": "86d7e971-2787-4db0-98e5-bb412a65dd5b"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -35236,10 +35236,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "361c17f5-8730-4864-b486-2057a156ccf8"
+      "__uuid__": "86d7e971-2787-4db0-98e5-bb412a65dd5b"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -39540,7 +39540,7 @@
       "__id__": 421
     },
     "soundBG": {
-      "__uuid__": "bc24cdab-568a-461b-a098-756ed3fc0eae"
+      "__uuid__": "1c1f7724-8ba0-4b85-8496-29fd01e71561"
     },
     "soundShowPop": {
       "__uuid__": "f7b3fbaa-b150-42a5-a38f-438e57055cee"
