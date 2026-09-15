@@ -39,6 +39,8 @@ export default class NewClass extends cc.Component {
     waitTimeLeft = 0
     popLifted = false
     popHomePos = cc.v3(0, 0)
+    popShown = false
+    isPopReady = false
     start() {
         this.gamePlay = cc.Canvas.instance.node.getComponent("Gym")
         if (this.pop) this.popHomePos = this.pop.position.clone()
@@ -100,13 +102,27 @@ export default class NewClass extends cc.Component {
     showQueuePop() {
         this.isQueueMoving = false
         this.node.scaleX = 1
+        if (!this.pop) {
+            if (this.gamePlay) this.gamePlay.updateQueueHand()
+            return
+        }
+        if (this.popShown && this.pop.active) {
+            let btn = this.pop.getComponent(cc.Button)
+            if (btn) btn.enabled = true
+            if (this.gamePlay) this.gamePlay.updateQueueHand()
+            return
+        }
+        this.isPopReady = false
+        this.unschedule(this.markPopReady)
         cc.Tween.stopAllByTarget(this.pop)
-        this.pop.scale = 1
         this.pop.active = true
         let popAnim = this.pop.getComponent(cc.Animation)
         if (popAnim) {
             popAnim.play()
+        } else {
+            this.pop.scale = 1
         }
+        this.popShown = true
         let hand = this.pop.getChildByName("hand")
         if (hand) {
             hand.active = false
@@ -115,9 +131,20 @@ export default class NewClass extends cc.Component {
         if (btn) {
             btn.enabled = true
         }
+        this.scheduleOnce(this.markPopReady, 0.9)
         if (this.gamePlay) {
             this.gamePlay.updateQueueHand()
         }
+    }
+    markPopReady() {
+        if (!this.pop || !this.pop.active) return
+        this.isPopReady = true
+        if (this.gamePlay) this.gamePlay.updateQueueHand()
+    }
+    clearPopState() {
+        this.popShown = false
+        this.isPopReady = false
+        this.unschedule(this.markPopReady)
     }
     clickPop(event, value) {
         if (this.isQueueMoving) return
@@ -129,8 +156,11 @@ export default class NewClass extends cc.Component {
         let hand = this.pop.getChildByName("hand")
         if (hand) hand.active = false
         this.resetPopLayer()
+        this.clearPopState()
         cc.Tween.stopAllByTarget(this.pop)
-        cc.tween(this.pop).to(0.2, { scale: 0 }).start()
+        cc.tween(this.pop).to(0.2, { scale: 0 }).call(() => {
+            if (this.pop && this.pop.isValid) this.pop.active = false
+        }).start()
         if (this.gamePlay.isStep >= 4) {
             this.gamePlay.showFreeIconPtHand()
         }
@@ -146,7 +176,7 @@ export default class NewClass extends cc.Component {
         if (this.gamePlay && this.gamePlay.isEndgame) return
         this.isAngryWait = true
         if (this.soundAngry && this.gamePlay && this.gamePlay.playSfx) {
-            this.gamePlay.playSfx(this.soundAngry, false, 1)
+            this.gamePlay.playSfx(this.soundAngry, false, 0.5)
         }
         this.anim.setAnimation(0, "Waiting3", true)
         if (this.parentName === "Crunch") {

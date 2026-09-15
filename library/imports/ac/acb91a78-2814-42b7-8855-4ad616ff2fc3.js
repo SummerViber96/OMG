@@ -25,6 +25,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 globalThis.gold = 100;
+var AutoCard;
+(function (AutoCard) {
+    AutoCard[AutoCard["Speed"] = 0] = "Speed";
+    AutoCard[AutoCard["Time"] = 1] = "Time";
+})(AutoCard || (AutoCard = {}));
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
     function NewClass() {
@@ -74,6 +79,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.noti = null;
         _this.guildTime1 = null;
         _this.timeBar = null;
+        _this.isAutoPlay = true;
+        _this.autoCard = AutoCard.Time;
         _this.arrPosDone = [cc.v3(-239, -133), cc.v3(57, -157), cc.v3(-123, -36), cc.v3(-14, 65), cc.v3(-58, -235), cc.v3(198, -59)];
         _this.arrPosDoneCrunch = [cc.v3(218, -392), cc.v3(409, -289)];
         // @property(cc.Node)
@@ -96,6 +103,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.idSoundTime = null;
         _this.idSoundBG = null;
         _this.sfxIds = [];
+        _this.autoPlayPhase = 0;
+        _this.autoPlayWait = 0;
+        _this.didAutoPickCard = false;
+        _this.isWaitingCard = false;
         _this.countCus = 0;
         _this.arrWaiting = [];
         _this.countpt = 0;
@@ -113,7 +124,14 @@ var NewClass = /** @class */ (function (_super) {
             for (var i = 0; i < Math.min(3, _this.arrCus.length); i++) {
                 var child = _this.arrCus[i];
                 if (child && child.isValid) {
-                    child.getChildByName("pop").active = true;
+                    var pop = child.getChildByName("pop");
+                    if (pop)
+                        pop.active = true;
+                    var cusComp = child.getComponent("cusGym");
+                    if (cusComp) {
+                        cusComp.popShown = true;
+                        cusComp.isPopReady = true;
+                    }
                 }
             }
         }, 0.6);
@@ -140,6 +158,11 @@ var NewClass = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.offGuild();
         }, 1);
+        if (this.isAutoPlay) {
+            this.scheduleOnce(function () {
+                _this.startAutoPlay();
+            }, 1.5);
+        }
     };
     NewClass.prototype.offGuild = function () {
         var _this = this;
@@ -148,7 +171,7 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.guildTime1.children[1]).to(0.3, { scale: 0 }).start();
         this.scheduleOnce(function () {
             _this.timeBar.active = true;
-            _this.textGuild1.active = true;
+            // this.textGuild1.active = true
         }, 0.3);
     };
     NewClass.prototype.setupSortLayer = function () {
@@ -308,16 +331,19 @@ var NewClass = /** @class */ (function (_super) {
                 this.isStep = 1;
                 this.listIconPt.active = true;
                 this.scheduleOnce(function () {
-                    _this.arrIconPt[0].getChildByName("hand").active = true;
+                    if (!_this.isAutoPlay)
+                        _this.arrIconPt[0].getChildByName("hand").active = true;
                 }, 0.3);
             }
             else if (this.isStep == 2) {
                 this.arrIconPt[1].getComponent(cc.Button).enabled = true;
-                this.arrIconPt[1].getChildByName("hand").active = true;
+                if (!this.isAutoPlay)
+                    this.arrIconPt[1].getChildByName("hand").active = true;
             }
             else if (this.isStep == 3) {
                 this.arrIconPt[2].getComponent(cc.Button).enabled = true;
-                this.arrIconPt[2].getChildByName("hand").active = true;
+                if (!this.isAutoPlay)
+                    this.arrIconPt[2].getChildByName("hand").active = true;
             }
             return true;
         }
@@ -378,6 +404,7 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.moveCusToCrunch = function (cus, value, tag) {
+        this.hideCusPop(cus);
         this.leaveQueue(cus);
         var crunch = this.arrCrunch[value];
         cus.parent = crunch;
@@ -395,6 +422,7 @@ var NewClass = /** @class */ (function (_super) {
         this.updateQueueHand();
     };
     NewClass.prototype.moveCusToMayDay = function (cus, value, tag) {
+        this.hideCusPop(cus);
         this.leaveQueue(cus);
         var may = this.arrMayDay[value];
         cus.parent = may;
@@ -413,6 +441,7 @@ var NewClass = /** @class */ (function (_super) {
         this.updateQueueHand();
     };
     NewClass.prototype.moveCusToBoxing = function (cus, value, tag) {
+        this.hideCusPop(cus);
         this.leaveQueue(cus);
         cus.parent = this.boxing1;
         cus.position = cc.v3(123, 23);
@@ -476,7 +505,7 @@ var NewClass = /** @class */ (function (_super) {
         if (!cus || !cus.isValid)
             return false;
         var cusComp = cus.getComponent("cusGym");
-        if (!cusComp || cusComp.isQueueMoving)
+        if (!cusComp || cusComp.isQueueMoving || !cusComp.isPopReady)
             return false;
         var pop = this.getCusPop(cus);
         if (!pop || !pop.active)
@@ -509,6 +538,10 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.showFreeIconPtHand = function () {
         this.hideAllIconPtHands();
         this.hideAllQueueHands();
+        if (this.isAutoPlay) {
+            this.guidingIconPt = false;
+            return;
+        }
         if (!this.hasCusWaitingForPt()) {
             this.guidingIconPt = false;
             this.updateQueueHand();
@@ -534,6 +567,24 @@ var NewClass = /** @class */ (function (_super) {
         if (cusComp && cusComp.pop)
             return cusComp.pop;
         return cus.getChildByName("pop");
+    };
+    NewClass.prototype.hideCusPop = function (cus) {
+        if (!cus || !cus.isValid)
+            return;
+        var cusComp = cus.getComponent("cusGym");
+        if (cusComp) {
+            cusComp.clearPopState();
+            cusComp.resetPopLayer();
+        }
+        var pop = this.getCusPop(cus);
+        if (!pop || !pop.isValid)
+            return;
+        cc.Tween.stopAllByTarget(pop);
+        var hand = pop.getChildByName("hand");
+        if (hand)
+            hand.active = false;
+        pop.scale = 0;
+        pop.active = false;
     };
     NewClass.prototype.hideAllQueueHands = function () {
         for (var i = 0; i < this.arrCus.length; i++) {
@@ -573,7 +624,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         if (this.guidingIconPt)
             return;
-        if (this.hideQueueHandGuide)
+        if (this.hideQueueHandGuide || this.isAutoPlay)
             return;
         for (var i = 0; i < this.arrCus.length; i++) {
             var cus = this.arrCus[i];
@@ -605,9 +656,11 @@ var NewClass = /** @class */ (function (_super) {
             };
             pt.getComponent("pt").moveIn(fnc);
             this.scheduleOnce(function () {
-                _this.arrCus[1].getChildByName("pop").getChildByName("hand").active = true;
                 _this.arrCus[1].getChildByName("pop").getComponent(cc.Button).enabled = true;
-                _this.bringCusPopToFront(_this.arrCus[1]);
+                if (!_this.isAutoPlay) {
+                    _this.arrCus[1].getChildByName("pop").getChildByName("hand").active = true;
+                    _this.bringCusPopToFront(_this.arrCus[1]);
+                }
             }, 1);
             this.scheduleOnce(function () {
                 _this.attachToSortLayer(pt);
@@ -627,9 +680,11 @@ var NewClass = /** @class */ (function (_super) {
             };
             pt.getComponent("pt").moveIn(fnc);
             this.scheduleOnce(function () {
-                _this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true;
                 _this.arrCus[2].getChildByName("pop").getComponent(cc.Button).enabled = true;
-                _this.bringCusPopToFront(_this.arrCus[2]);
+                if (!_this.isAutoPlay) {
+                    _this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true;
+                    _this.bringCusPopToFront(_this.arrCus[2]);
+                }
             }, 1);
             this.scheduleOnce(function () {
                 _this.attachToSortLayer(pt);
@@ -648,8 +703,10 @@ var NewClass = /** @class */ (function (_super) {
             };
             pt.getComponent("pt").moveIn(fnc);
             this.scheduleOnce(function () {
-                _this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true;
-                _this.bringCusPopToFront(_this.arrCus[2]);
+                if (!_this.isAutoPlay) {
+                    _this.arrCus[2].getChildByName("pop").getChildByName("hand").active = true;
+                    _this.bringCusPopToFront(_this.arrCus[2]);
+                }
             }, 1);
             this.scheduleOnce(function () {
                 _this.attachToSortLayer(pt);
@@ -939,17 +996,19 @@ var NewClass = /** @class */ (function (_super) {
         this.spawCustomer();
         this.schedule(this.spawCustomer, 3);
         this.scheduleOnce(function () {
-            _this.textGuild2.active = true;
+            if (!_this.isAutoPlay)
+                _this.textGuild2.active = true;
             while (_this.arrCus.length < 3) {
                 _this.spawCustomer();
             }
             _this.updateQueueHand();
         }, 15);
         this.scheduleOnce(function () {
-            cc.tween(_this.textGuild2).to(0.8, { opacity: 0 }).start();
+            if (_this.textGuild2.active)
+                cc.tween(_this.textGuild2).to(0.8, { opacity: 0 }).start();
             _this.zoomGame();
             _this.scheduleOnce(function () {
-                _this.listCard.active = true;
+                _this.showCardPick();
             }, 4);
             // this.startGame()
         }, 22);
@@ -960,6 +1019,7 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.camera.node).to(0.8, { position: cc.v3(-494, -296) }).start();
         cc.tween(this.cameraDoc).to(0.8, { zoomRatio: 2.5 }).start();
         cc.tween(this.cameraDoc.node).to(0.4, { position: cc.v3(-500, -100) }).start();
+        this.isWaitingCard = true;
         this.hideQueueHandGuide = true;
         this.hideAllQueueHands();
         while (this.arrCus.length < 5 && this.arrCus.length < this.arrPosCus.length) {
@@ -978,11 +1038,140 @@ var NewClass = /** @class */ (function (_super) {
             }
         }
         this.scheduleOnce(function () {
-            _this.textGuild3.active = true;
+            if (!_this.isAutoPlay)
+                _this.textGuild3.active = true;
         }, 0.5);
+    };
+    NewClass.prototype.showCardPick = function () {
+        var _this = this;
+        var pick = Number(this.autoCard);
+        if (this.isAutoPlay) {
+            var cardList = this.listCard.getComponent("listCard");
+            if (cardList) {
+                cardList.lockFocus = true;
+                cardList.focusIndex = pick;
+            }
+        }
+        this.listCard.active = true;
+        if (this.isAutoPlay && !this.didAutoPickCard) {
+            this.didAutoPickCard = true;
+            this.scheduleOnce(function () {
+                if (!_this.listCard || !_this.listCard.active)
+                    return;
+                var board = _this.listCard.getChildByName("board");
+                var pickCard = board && board.children[pick];
+                if (pickCard) {
+                    cc.tween(pickCard).to(0.12, { scale: 1.28 }).to(0.1, { scale: 1.15 }).call(function () {
+                        _this.clickCard(null, pick);
+                    }).start();
+                }
+                else {
+                    _this.clickCard(null, pick);
+                }
+            }, 1.5);
+        }
+    };
+    NewClass.prototype.startAutoPlay = function () {
+        this.autoPlayPhase = 0;
+        this.autoPlayWait = 0;
+        this.hideQueueHandGuide = true;
+        this.hideAllQueueHands();
+        this.hideAllIconPtHands();
+        this.schedule(this.tickAutoPlay, 0.25);
+    };
+    NewClass.prototype.tickAutoPlay = function () {
+        if (this.isEndgame) {
+            this.unschedule(this.tickAutoPlay);
+            return;
+        }
+        if (this.autoPlayWait > 0) {
+            this.autoPlayWait -= 0.25;
+            return;
+        }
+        if (this.isWaitingCard || (this.listCard && this.listCard.active))
+            return;
+        if (!this.isGameStarted) {
+            this.tickAutoPlayTutorial();
+            return;
+        }
+        this.autoPlayServeOne();
+    };
+    NewClass.prototype.tickAutoPlayTutorial = function () {
+        switch (this.autoPlayPhase) {
+            case 0:
+                if (this.autoClickCus(this.arrCus[0])) {
+                    this.autoPlayPhase = 1;
+                    this.autoPlayWait = 0.7;
+                }
+                break;
+            case 1:
+                if (this.autoClickPtIcon(this.arrIconPt[0])) {
+                    this.autoPlayPhase = 2;
+                    this.autoPlayWait = 1.2;
+                }
+                break;
+            case 2:
+                if (this.autoClickCus(this.arrCus[1])) {
+                    this.autoPlayPhase = 3;
+                    this.autoPlayWait = 2.4;
+                }
+                break;
+            case 3:
+                if (this.autoClickPtIcon(this.arrIconPt[1])) {
+                    this.autoPlayPhase = 4;
+                    this.autoPlayWait = 1.2;
+                }
+                break;
+            case 4:
+                if (this.autoClickCus(this.arrCus[2])) {
+                    this.autoPlayPhase = 5;
+                    this.autoPlayWait = 2.8;
+                }
+                break;
+            case 5:
+                if (this.autoClickPtIcon(this.arrIconPt[2])) {
+                    this.autoPlayPhase = 6;
+                }
+                break;
+        }
+    };
+    NewClass.prototype.autoPlayServeOne = function () {
+        for (var i = 0; i < this.arrCus.length; i++) {
+            if (this.canClickQueueCus(this.arrCus[i])) {
+                this.autoClickCus(this.arrCus[i]);
+                this.autoPlayWait = 0.85;
+                return;
+            }
+        }
+        for (var i = 0; i < this.arrIconPt.length; i++) {
+            if (this.canClickIconPt(this.arrIconPt[i])) {
+                this.autoClickPtIcon(this.arrIconPt[i]);
+                this.autoPlayWait = 0.55;
+                return;
+            }
+        }
+    };
+    NewClass.prototype.autoClickCus = function (cus) {
+        if (!cus || !cus.isValid)
+            return false;
+        var cusComp = cus.getComponent("cusGym");
+        if (!cusComp || cusComp.isQueueMoving)
+            return false;
+        var pop = this.getCusPop(cus);
+        if (!pop || !pop.active)
+            return false;
+        cusComp.clickPop({ currentTarget: pop }, "");
+        return true;
+    };
+    NewClass.prototype.autoClickPtIcon = function (icon) {
+        if (!icon || !icon.isValid || !icon.activeInHierarchy)
+            return false;
+        this.clickPt({ currentTarget: icon }, "");
+        return true;
     };
     NewClass.prototype.clickCard = function (event, value) {
         var _this = this;
+        this.isWaitingCard = false;
         this.listCard.active = false;
         cc.tween(this.camera).to(0.8, { zoomRatio: 1 }).start();
         cc.tween(this.camera.node).to(0.8, { position: cc.v3(0, 0) }).start();
@@ -1002,19 +1191,32 @@ var NewClass = /** @class */ (function (_super) {
                 this.scheduleOnce(function () {
                     _this.autoFillMachinesAndPts();
                 }, 0.5);
-                this.scheduleOnce(function () {
-                    _this.showContinueHandGuide();
-                }, 1.5);
+                if (this.isAutoPlay) {
+                    this.autoPlayWait = 1.6;
+                }
+                else {
+                    this.scheduleOnce(function () {
+                        _this.showContinueHandGuide();
+                    }, 1.5);
+                }
                 break;
             case 1:
                 this.addCountDownTime(15);
                 this.noti.active = true;
                 this.noti.children[0].children[0].active = true;
                 this.noti.getComponent(cc.Animation).play();
-                this.hideQueueHandGuide = false;
-                this.scheduleOnce(function () {
-                    _this.showContinueHandGuide();
-                }, 0.8);
+                if (this.isAutoPlay) {
+                    this.hideQueueHandGuide = true;
+                    this.hideAllQueueHands();
+                    this.hideAllIconPtHands();
+                    this.autoPlayWait = 0.8;
+                }
+                else {
+                    this.hideQueueHandGuide = false;
+                    this.scheduleOnce(function () {
+                        _this.showContinueHandGuide();
+                    }, 0.8);
+                }
                 break;
         }
         this.scheduleOnce(function () {
@@ -1049,9 +1251,7 @@ var NewClass = /** @class */ (function (_super) {
                 continue;
             cc.Tween.stopAllByTarget(cus);
             cusComp.isQueueMoving = false;
-            var pop = cus.getChildByName("pop");
-            if (pop)
-                pop.active = false;
+            this.hideCusPop(cus);
             this.placeCusOnFreeMachine(cus, cusComp.tag);
         }
         this.autoSpawnPts();
@@ -1161,22 +1361,26 @@ var NewClass = /** @class */ (function (_super) {
         if (this.arrWaiting.indexOf(char) < 0) {
             this.arrWaiting.push(char);
         }
+        this.hideCusPop(char);
         cusComp.waitingTag(tag);
     };
     NewClass.prototype.moveCus = function (value) {
         var _this = this;
         // cc.audioEngine.play(this.soundCoin, false, 1)
         if (value == 1) {
+            this.hideCusPop(this.arrCus[0]);
             var char = this.arrCrunch[0].getChildByName("char");
             this.activateSeatCus(char, this.arrCrunch[0], "Crunch", 0, 0);
             this.arrCus[0].active = false;
         }
         else if (value == 2) {
+            this.hideCusPop(this.arrCus[1]);
             this.arrCus[1].active = false;
             var char = this.dayTa1.getChildByName("char");
             this.activateSeatCus(char, this.dayTa1, "MayDay", 0, 1);
         }
         else if (value == 3) {
+            this.hideCusPop(this.arrCus[2]);
             this.arrCus[2].active = false;
             var char = this.boxing1.getChildByName("char");
             this.activateSeatCus(char, this.boxing1, "Boxing", 0, 2);
@@ -1504,6 +1708,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "timeBar", void 0);
+    __decorate([
+        property
+    ], NewClass.prototype, "isAutoPlay", void 0);
+    __decorate([
+        property({ type: cc.Enum(AutoCard) })
+    ], NewClass.prototype, "autoCard", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

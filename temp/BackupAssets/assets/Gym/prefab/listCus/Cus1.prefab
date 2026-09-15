@@ -8394,7 +8394,9 @@
     "yellowSp": {
       "__uuid__": "28da0455-d2c7-43d4-bda6-f5fd097838b2"
     },
-    "redSp": null,
+    "redSp": {
+      "__uuid__": "49d3a95a-515c-46c5-aa89-2cfc2e862511"
+    },
     "angryPrefab": {
       "__uuid__": "71f028b6-d3f7-4332-8521-cddb9339cbc3"
     },

@@ -53,6 +53,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.waitTimeLeft = 0;
         _this.popLifted = false;
         _this.popHomePos = cc.v3(0, 0);
+        _this.popShown = false;
+        _this.isPopReady = false;
         return _this;
     }
     NewClass.prototype.start = function () {
@@ -122,13 +124,31 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.showQueuePop = function () {
         this.isQueueMoving = false;
         this.node.scaleX = 1;
+        if (!this.pop) {
+            if (this.gamePlay)
+                this.gamePlay.updateQueueHand();
+            return;
+        }
+        if (this.popShown && this.pop.active) {
+            var btn_1 = this.pop.getComponent(cc.Button);
+            if (btn_1)
+                btn_1.enabled = true;
+            if (this.gamePlay)
+                this.gamePlay.updateQueueHand();
+            return;
+        }
+        this.isPopReady = false;
+        this.unschedule(this.markPopReady);
         cc.Tween.stopAllByTarget(this.pop);
-        this.pop.scale = 1;
         this.pop.active = true;
         var popAnim = this.pop.getComponent(cc.Animation);
         if (popAnim) {
             popAnim.play();
         }
+        else {
+            this.pop.scale = 1;
+        }
+        this.popShown = true;
         var hand = this.pop.getChildByName("hand");
         if (hand) {
             hand.active = false;
@@ -137,11 +157,25 @@ var NewClass = /** @class */ (function (_super) {
         if (btn) {
             btn.enabled = true;
         }
+        this.scheduleOnce(this.markPopReady, 0.9);
         if (this.gamePlay) {
             this.gamePlay.updateQueueHand();
         }
     };
+    NewClass.prototype.markPopReady = function () {
+        if (!this.pop || !this.pop.active)
+            return;
+        this.isPopReady = true;
+        if (this.gamePlay)
+            this.gamePlay.updateQueueHand();
+    };
+    NewClass.prototype.clearPopState = function () {
+        this.popShown = false;
+        this.isPopReady = false;
+        this.unschedule(this.markPopReady);
+    };
     NewClass.prototype.clickPop = function (event, value) {
+        var _this = this;
         if (this.isQueueMoving)
             return;
         var moved = this.gamePlay.doCus(this.tag, this.node);
@@ -154,8 +188,12 @@ var NewClass = /** @class */ (function (_super) {
         if (hand)
             hand.active = false;
         this.resetPopLayer();
+        this.clearPopState();
         cc.Tween.stopAllByTarget(this.pop);
-        cc.tween(this.pop).to(0.2, { scale: 0 }).start();
+        cc.tween(this.pop).to(0.2, { scale: 0 }).call(function () {
+            if (_this.pop && _this.pop.isValid)
+                _this.pop.active = false;
+        }).start();
         if (this.gamePlay.isStep >= 4) {
             this.gamePlay.showFreeIconPtHand();
         }
@@ -171,7 +209,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.isAngryWait = true;
         if (this.soundAngry && this.gamePlay && this.gamePlay.playSfx) {
-            this.gamePlay.playSfx(this.soundAngry, false, 1);
+            this.gamePlay.playSfx(this.soundAngry, false, 0.5);
         }
         this.anim.setAnimation(0, "Waiting3", true);
         if (this.parentName === "Crunch") {

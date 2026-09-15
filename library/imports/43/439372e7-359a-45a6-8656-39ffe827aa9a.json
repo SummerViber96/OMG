@@ -12434,7 +12434,7 @@
       "__id__": 285
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 300
@@ -39540,7 +39540,7 @@
       "__id__": 421
     },
     "soundBG": {
-      "__uuid__": "bc24cdab-568a-461b-a098-756ed3fc0eae"
+      "__uuid__": "1c1f7724-8ba0-4b85-8496-29fd01e71561"
     },
     "soundShowPop": {
       "__uuid__": "f7b3fbaa-b150-42a5-a38f-438e57055cee"
@@ -39669,6 +39669,8 @@
     "timeBar": {
       "__id__": 691
     },
+    "isAutoPlay": true,
+    "autoCard": 1,
     "_id": "7exwsUe0VKvJrd1gYYvjqJ"
   }
 ]

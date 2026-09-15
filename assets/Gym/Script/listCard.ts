@@ -7,6 +7,8 @@ export default class NewClass extends cc.Component {
 
     private cards: cc.Node[] = []
     private cardIndex = 0
+    lockFocus = false
+    focusIndex = 0
     private readonly normalScale = 1
     private readonly highlightScale = 1.15
     private readonly handOffset = cc.v3(130, -270)
@@ -23,7 +25,7 @@ export default class NewClass extends cc.Component {
         if (!this.hand || this.cards.length === 0) return
 
         this.hand.active = false
-        this.cardIndex = 0
+        this.cardIndex = this.lockFocus ? this.focusIndex : 0
         this.scaleCardsIn()
     }
 
@@ -36,8 +38,12 @@ export default class NewClass extends cc.Component {
             cc.tween(card).to(0.5, { scale: this.normalScale }, { easing: "backOut" }).call(() => {
                 done++
                 if (done >= this.cards.length) {
-                    this.hand.active = true
-                    this.focusCard(this.cardIndex)
+                    if (!this.lockFocus && this.hand) {
+                        this.hand.active = true
+                        this.focusCard(this.cardIndex)
+                    } else if (this.lockFocus) {
+                        this.focusCard(this.cardIndex)
+                    }
                 }
             }).start()
         }
@@ -55,6 +61,8 @@ export default class NewClass extends cc.Component {
 
         cc.Tween.stopAllByTarget(card)
         cc.tween(card).to(0.25, { scale: this.highlightScale }).start()
+
+        if (!this.hand || this.lockFocus) return
 
         let worldPos = card.parent.convertToWorldSpaceAR(card.position)
         let localPos = this.hand.parent.convertToNodeSpaceAR(worldPos).add(this.handOffset)

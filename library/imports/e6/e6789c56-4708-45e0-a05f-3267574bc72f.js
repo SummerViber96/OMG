@@ -31,6 +31,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.hand = null;
         _this.cards = [];
         _this.cardIndex = 0;
+        _this.lockFocus = false;
+        _this.focusIndex = 0;
         _this.normalScale = 1;
         _this.highlightScale = 1.15;
         _this.handOffset = cc.v3(130, -270);
@@ -47,7 +49,7 @@ var NewClass = /** @class */ (function (_super) {
         if (!this.hand || this.cards.length === 0)
             return;
         this.hand.active = false;
-        this.cardIndex = 0;
+        this.cardIndex = this.lockFocus ? this.focusIndex : 0;
         this.scaleCardsIn();
     };
     NewClass.prototype.scaleCardsIn = function () {
@@ -60,8 +62,13 @@ var NewClass = /** @class */ (function (_super) {
             cc.tween(card).to(0.5, { scale: this.normalScale }, { easing: "backOut" }).call(function () {
                 done++;
                 if (done >= _this.cards.length) {
-                    _this.hand.active = true;
-                    _this.focusCard(_this.cardIndex);
+                    if (!_this.lockFocus && _this.hand) {
+                        _this.hand.active = true;
+                        _this.focusCard(_this.cardIndex);
+                    }
+                    else if (_this.lockFocus) {
+                        _this.focusCard(_this.cardIndex);
+                    }
                 }
             }).start();
         }
@@ -78,6 +85,8 @@ var NewClass = /** @class */ (function (_super) {
         }
         cc.Tween.stopAllByTarget(card);
         cc.tween(card).to(0.25, { scale: this.highlightScale }).start();
+        if (!this.hand || this.lockFocus)
+            return;
         var worldPos = card.parent.convertToWorldSpaceAR(card.position);
         var localPos = this.hand.parent.convertToNodeSpaceAR(worldPos).add(this.handOffset);
         cc.Tween.stopAllByTarget(this.hand);
