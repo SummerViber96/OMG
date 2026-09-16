@@ -59,22 +59,40 @@ export default class NewClass extends cc.Component {
     fxColor: cc.Prefab = null
 
     //new
-    @property(cc.Node)
-    btnDonut: cc.Node = null
-    @property(cc.Prefab)
-    preDonut: cc.Prefab = null
-    @property(cc.Node)
-    listDonutPlace: cc.Node = null;
-    @property(cc.Node)
-    listDonutSub: cc.Node = null;
-    @property(cc.Node)
-    listKhayPlace: cc.Node = null;
-    @property(cc.Node)
-    listKhaySub: cc.Node = null
+    // @property(cc.Node)
+    // btnDonut: cc.Node = null
+    // @property(cc.Prefab)
+    // preDonut: cc.Prefab = null
+    // @property(cc.Node)
+    // listDonutPlace: cc.Node = null;
+    // @property(cc.Node)
+    // listDonutSub: cc.Node = null;
+    // @property(cc.Node)
+    // listKhayPlace: cc.Node = null;
+    // @property(cc.Node)
+    // listKhaySub: cc.Node = null
     @property(cc.Node)
     listhand: cc.Node = null
     @property(cc.Node)
     btnDau: cc.Node = null;
+    @property(cc.Node)
+    cua: cc.Node = null
+    @property(cc.Node)
+    door: cc.Node = null;
+    @property([cc.Prefab])
+    listPreBox: cc.Prefab[] = [];
+    @property(cc.Node)
+    listItem2: cc.Node = null;
+    @property(cc.Node)
+    btnDone: cc.Node = null;
+    @property(cc.Node)
+    main2: cc.Node = null;
+    @property(cc.Node)
+    listBox: cc.Node = null
+    @property(cc.Node)
+    ro: cc.Node = null
+    @property(cc.Node)
+    listNoti: cc.Node = null;
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -102,14 +120,92 @@ export default class NewClass extends cc.Component {
             window.gameReady && window.gameReady();
         }
     }
-  
-protected start(): void {
-    cc.audioEngine.play(this.soundBg,true,0.3)
-}
 
+    protected start(): void {
+        cc.audioEngine.play(this.soundBg, true, 0.3)
+        this.scheduleOnce(() => {
+            this.btn_openDoor()
+        }, 2)
+    }
+    isOpenDoor = false
+    btn_openDoor() {
+        if (this.isOpenDoor == true) return;
+        this.isOpenDoor = true;
+        this.door.scale = 2
+        this.cua.getComponent(cc.Animation).play()
+        this.door.getChildByName("text").active = false
+        this.scheduleOnce(() => {
+            this.cua.getComponent(cc.Button).enabled=false
+        }, 0.3)
+    }
+    isClickBox = 0
+    clickItem(boxValue, tag) {
+        if (this.isClickBox >= 5) return;
+        let arrPos = [cc.v3(0, 56), cc.v3(109, 47), cc.v3(-105, 40), cc.v3(-52, 22), cc.v3(61, 22)]
+        this.isClickBox++
+        let box = cc.instantiate(this.listPreBox[tag])
+        box.parent = this.listItem2;
+        box.position = boxValue.position;
+        cc.tween(box).to(0.5, { position: arrPos[this.isClickBox - 1] }).call(() => {
 
+        }).start()
+        if (this.isClickBox == 1) {
+            this.btnDone.active = true
+        }
+        if (this.isClickBox == 5) {
+            this.scheduleOnce(() => {
+                this.btn_done()
 
+            }, 0.5)
+        }
 
+    }
+    isDone = false
+    countItem=0
+    btn_done() {
+        if (this.isDone == true) return;
+        this.isDone = true
+        this.btnDone.getComponent(cc.Button).enabled = false;
+        this.main2.active = true;
+        let arrPos = [cc.v3(0, 36), cc.v3(-158, 123), cc.v3(187, 128), cc.v3(211, -59), cc.v3(-203, -40)]
+        let count = 0
+        this.countItem=this.listItem2.childrenCount
+        for (let i = this.listItem2.childrenCount - 1; i >= 0; i--) {
+            let child = this.listItem2.children[i];
+            child.parent = this.listBox
+            child.scale = 2.3;
+            child.position = arrPos[count]
+            child.getComponent(cc.Button).enabled = true
+            count++
+        }
+        cc.tween(this.main2).to(0.35, { scale: 0.5 }).start()
+    }
+    isCountNoti = 0
+    moveToVong(box) {
+        let count = this.isCountNoti
+        // this.scheduleOnce(() => {
+        this.listNoti.children[count].active = true
+        // }, 0.4)
+        this.isCountNoti++
+        this.scheduleOnce(() => {
+            let midPos = cc.v2(-50, 100);
+            let endPos = cc.v2(0, -30);
+            let pos = box.parent.convertToWorldSpaceAR(box.position);
+            pos = this.ro.convertToNodeSpaceAR(pos);
+            let startPos = cc.v2(pos.x, pos.y)
+            box.parent = this.ro;
+            box.position = pos;
+
+            cc.tween(box).bezierTo(0.7, startPos, midPos, endPos).call(() => {
+
+            }).start()
+            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.4 }).start()
+        }, 0.4)
+        if(this.isCountNoti==this.countItem){
+            this.linkToStore.active=true
+        }
+
+    }
 
     onEndGame(value) {
         cc.audioEngine.play(this.soundEnd, false, 1)
@@ -140,17 +236,18 @@ protected start(): void {
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
         this.camera.zoomRatio = 1
-       
+
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = cc.v3(0, 0)
-      
+this.listNoti.scale=(logic)?1.1:0.7
 
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
+            this.camera.node.position = cc.v3(0, -200)
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
@@ -174,7 +271,7 @@ protected start(): void {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
-        this.camera.zoomRatio = 0.37
+            this.camera.zoomRatio = 0.37
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);

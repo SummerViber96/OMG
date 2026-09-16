@@ -1,0 +1,131 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "box_cut",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.25,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "icon": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.25,
+              "value": -12
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": 12
+            },
+            {
+              "frame": 0.75,
+              "value": 0
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.75,
+              "value": 255
+            },
+            {
+              "frame": 0.7666666666666667,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "tach": {
+        "props": {
+          "active": [
+            {
+              "frame": 0.7333333333333333,
+              "value": false
+            },
+            {
+              "frame": 0.75,
+              "value": true
+            }
+          ]
+        }
+      },
+      "tach/image_032": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.75,
+              "value": [
+                0.384,
+                25.428,
+                0
+              ]
+            },
+            {
+              "frame": 0.9166666666666666,
+              "value": [
+                0.384,
+                39.698,
+                0
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.9166666666666666,
+              "value": 255
+            },
+            {
+              "frame": 1.25,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "tach/image_033": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.75,
+              "value": [
+                0.16,
+                -26.613,
+                0
+              ]
+            },
+            {
+              "frame": 0.9166666666666666,
+              "value": [
+                0.16,
+                -36.6,
+                0
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.9166666666666666,
+              "value": 255
+            },
+            {
+              "frame": 1.25,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 1,
+      "func": "show",
+      "params": []
+    }
+  ]
+}

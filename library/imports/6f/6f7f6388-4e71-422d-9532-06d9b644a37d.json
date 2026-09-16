@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bracelet_19",
+    "texture": "bf7b35ad-b45a-46f7-9a3d-33fd0d7df6f4",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      911,
+      832
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      911,
+      832
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

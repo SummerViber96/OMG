@@ -1,4 +1,5 @@
 
+require('./assets/Bracelet2/script/boxitem');
 require('./assets/HF/GamePLay');
 require('./assets/HF/GamePlay2');
 require('./assets/HF/touch');

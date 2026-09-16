@@ -56,14 +56,29 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundWrong = null;
         _this.fxColor = null;
         //new
-        _this.btnDonut = null;
-        _this.preDonut = null;
-        _this.listDonutPlace = null;
-        _this.listDonutSub = null;
-        _this.listKhayPlace = null;
-        _this.listKhaySub = null;
+        // @property(cc.Node)
+        // btnDonut: cc.Node = null
+        // @property(cc.Prefab)
+        // preDonut: cc.Prefab = null
+        // @property(cc.Node)
+        // listDonutPlace: cc.Node = null;
+        // @property(cc.Node)
+        // listDonutSub: cc.Node = null;
+        // @property(cc.Node)
+        // listKhayPlace: cc.Node = null;
+        // @property(cc.Node)
+        // listKhaySub: cc.Node = null
         _this.listhand = null;
         _this.btnDau = null;
+        _this.cua = null;
+        _this.door = null;
+        _this.listPreBox = [];
+        _this.listItem2 = null;
+        _this.btnDone = null;
+        _this.main2 = null;
+        _this.listBox = null;
+        _this.ro = null;
+        _this.listNoti = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -83,6 +98,11 @@ var NewClass = /** @class */ (function (_super) {
         _this.adChanel = '{{__adv_channels_adapter__}}';
         _this.countCus = 0;
         _this.idSound = null;
+        _this.isOpenDoor = false;
+        _this.isClickBox = 0;
+        _this.isDone = false;
+        _this.countItem = 0;
+        _this.isCountNoti = 0;
         return _this;
     }
     NewClass.prototype.onLoad = function () {
@@ -91,7 +111,85 @@ var NewClass = /** @class */ (function (_super) {
         }
     };
     NewClass.prototype.start = function () {
+        var _this = this;
         cc.audioEngine.play(this.soundBg, true, 0.3);
+        this.scheduleOnce(function () {
+            _this.btn_openDoor();
+        }, 2);
+    };
+    NewClass.prototype.btn_openDoor = function () {
+        var _this = this;
+        if (this.isOpenDoor == true)
+            return;
+        this.isOpenDoor = true;
+        this.door.scale = 2;
+        this.cua.getComponent(cc.Animation).play();
+        this.door.getChildByName("text").active = false;
+        this.scheduleOnce(function () {
+            _this.cua.getComponent(cc.Button).enabled = false;
+        }, 0.3);
+    };
+    NewClass.prototype.clickItem = function (boxValue, tag) {
+        var _this = this;
+        if (this.isClickBox >= 5)
+            return;
+        var arrPos = [cc.v3(0, 56), cc.v3(109, 47), cc.v3(-105, 40), cc.v3(-52, 22), cc.v3(61, 22)];
+        this.isClickBox++;
+        var box = cc.instantiate(this.listPreBox[tag]);
+        box.parent = this.listItem2;
+        box.position = boxValue.position;
+        cc.tween(box).to(0.5, { position: arrPos[this.isClickBox - 1] }).call(function () {
+        }).start();
+        if (this.isClickBox == 1) {
+            this.btnDone.active = true;
+        }
+        if (this.isClickBox == 5) {
+            this.scheduleOnce(function () {
+                _this.btn_done();
+            }, 0.5);
+        }
+    };
+    NewClass.prototype.btn_done = function () {
+        if (this.isDone == true)
+            return;
+        this.isDone = true;
+        this.btnDone.getComponent(cc.Button).enabled = false;
+        this.main2.active = true;
+        var arrPos = [cc.v3(0, 36), cc.v3(-158, 123), cc.v3(187, 128), cc.v3(211, -59), cc.v3(-203, -40)];
+        var count = 0;
+        this.countItem = this.listItem2.childrenCount;
+        for (var i = this.listItem2.childrenCount - 1; i >= 0; i--) {
+            var child = this.listItem2.children[i];
+            child.parent = this.listBox;
+            child.scale = 2.3;
+            child.position = arrPos[count];
+            child.getComponent(cc.Button).enabled = true;
+            count++;
+        }
+        cc.tween(this.main2).to(0.35, { scale: 0.5 }).start();
+    };
+    NewClass.prototype.moveToVong = function (box) {
+        var _this = this;
+        var count = this.isCountNoti;
+        // this.scheduleOnce(() => {
+        this.listNoti.children[count].active = true;
+        // }, 0.4)
+        this.isCountNoti++;
+        this.scheduleOnce(function () {
+            var midPos = cc.v2(-50, 100);
+            var endPos = cc.v2(0, -30);
+            var pos = box.parent.convertToWorldSpaceAR(box.position);
+            pos = _this.ro.convertToNodeSpaceAR(pos);
+            var startPos = cc.v2(pos.x, pos.y);
+            box.parent = _this.ro;
+            box.position = pos;
+            cc.tween(box).bezierTo(0.7, startPos, midPos, endPos).call(function () {
+            }).start();
+            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.4 }).start();
+        }, 0.4);
+        if (this.isCountNoti == this.countItem) {
+            this.linkToStore.active = true;
+        }
     };
     NewClass.prototype.onEndGame = function (value) {
         cc.audioEngine.play(this.soundEnd, false, 1);
@@ -123,10 +221,12 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, 0);
+        this.listNoti.scale = (logic) ? 1.1 : 0.7;
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
             var height = frameSize.height;
+            this.camera.node.position = cc.v3(0, -200);
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             var aspectRatio = Math.max(width, height) / Math.min(width, height);
             // Gần đúng tỷ lệ màn hình iPhone X
@@ -231,28 +331,37 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "fxColor", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "btnDonut", void 0);
-    __decorate([
-        property(cc.Prefab)
-    ], NewClass.prototype, "preDonut", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listDonutPlace", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listDonutSub", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listKhayPlace", void 0);
-    __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "listKhaySub", void 0);
-    __decorate([
-        property(cc.Node)
     ], NewClass.prototype, "listhand", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "btnDau", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "cua", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "door", void 0);
+    __decorate([
+        property([cc.Prefab])
+    ], NewClass.prototype, "listPreBox", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listItem2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "btnDone", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "main2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listBox", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "ro", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listNoti", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);
