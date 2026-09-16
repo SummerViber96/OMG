@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "handtap 1",
+    "texture": "b13fb2d3-5af1-4113-a15b-ca42f8d83384",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      212,
+      198
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      212,
+      198
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

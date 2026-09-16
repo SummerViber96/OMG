@@ -47,8 +47,14 @@ var NewClass = /** @class */ (function (_super) {
         this.node.getChildByName("vong").active = true;
         this.gamePlay.moveToVong(this.node);
     };
+    NewClass.prototype.cutEff = function () {
+        cc.audioEngine.play(this.gamePlay.soundCut, false, 1);
+    };
     NewClass.prototype.btn_cut = function () {
         var _this = this;
+        this.gamePlay.hand2.active = false;
+        this.node.getComponent(cc.Button).enabled = false;
+        cc.audioEngine.play(this.gamePlay.soundClick, false, 1);
         cc.tween(this.node).to(0.4, { position: cc.v3(0, 1114) }).call(function () {
             _this.node.getComponent(cc.Animation).play("box_cut");
         }).start();

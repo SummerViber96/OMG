@@ -121,5 +121,16 @@
       }
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 0.7,
+      "func": "cutEff",
+      "params": []
+    },
+    {
+      "frame": 1,
+      "func": "show",
+      "params": []
+    }
+  ]
 }

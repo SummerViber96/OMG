@@ -44,6 +44,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundDonutJump = null;
         _this.soundEnd = null;
         _this.soundSellDone = null;
+        _this.soundoor = null;
+        _this.soundCut = null;
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -79,6 +81,9 @@ var NewClass = /** @class */ (function (_super) {
         _this.listBox = null;
         _this.ro = null;
         _this.listNoti = null;
+        _this.hand1 = null;
+        _this.hand2 = null;
+        _this.listSoundGame = [];
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -125,6 +130,7 @@ var NewClass = /** @class */ (function (_super) {
         this.door.scale = 2;
         this.cua.getComponent(cc.Animation).play();
         this.door.getChildByName("text").active = false;
+        cc.audioEngine.play(this.soundoor, false, 1);
         this.scheduleOnce(function () {
             _this.cua.getComponent(cc.Button).enabled = false;
         }, 0.3);
@@ -133,11 +139,13 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         if (this.isClickBox >= 5)
             return;
+        cc.audioEngine.play(this.soundClick, false, 1);
         var arrPos = [cc.v3(0, 56), cc.v3(109, 47), cc.v3(-105, 40), cc.v3(-52, 22), cc.v3(61, 22)];
         this.isClickBox++;
         var box = cc.instantiate(this.listPreBox[tag]);
         box.parent = this.listItem2;
         box.position = boxValue.position;
+        this.hand1.active = false;
         cc.tween(box).to(0.5, { position: arrPos[this.isClickBox - 1] }).call(function () {
         }).start();
         if (this.isClickBox == 1) {
@@ -152,6 +160,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.btn_done = function () {
         if (this.isDone == true)
             return;
+        cc.audioEngine.play(this.soundClick, false, 1);
         this.isDone = true;
         this.btnDone.getComponent(cc.Button).enabled = false;
         this.main2.active = true;
@@ -169,14 +178,18 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.main2).to(0.35, { scale: 0.5 }).start();
     };
     NewClass.prototype.moveToVong = function (box) {
+        // cc.audioEngine.play(this.soundClick, false, 1)
         var _this = this;
         var count = this.isCountNoti;
         // this.scheduleOnce(() => {
         this.listNoti.children[count].active = true;
+        cc.audioEngine.play(this.listSoundGame[count], false, 1);
+        this.hand2.active = false;
         // }, 0.4)
+        // cc.audioEngine.play(this.soundCut, false, 1)
         this.isCountNoti++;
         this.scheduleOnce(function () {
-            var midPos = cc.v2(-50, 100);
+            var midPos = cc.v2(-50, 150);
             var endPos = cc.v2(0, -30);
             var pos = box.parent.convertToWorldSpaceAR(box.position);
             pos = _this.ro.convertToNodeSpaceAR(pos);
@@ -187,7 +200,7 @@ var NewClass = /** @class */ (function (_super) {
             }).start();
             cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.4 }).start();
         }, 0.4);
-        if (this.isCountNoti == this.countItem) {
+        if (this.isCountNoti == this.countItem - 1) {
             this.linkToStore.active = true;
         }
     };
@@ -221,7 +234,7 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, 0);
-        this.listNoti.scale = (logic) ? 1.1 : 0.7;
+        this.listNoti.scale = (logic) ? 1.2 : 0.7;
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
@@ -303,6 +316,12 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundSellDone", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundoor", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundCut", void 0);
+    __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);
     __decorate([
@@ -362,6 +381,15 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "listNoti", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "hand1", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "hand2", void 0);
+    __decorate([
+        property([cc.AudioClip])
+    ], NewClass.prototype, "listSoundGame", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

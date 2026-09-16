@@ -32,8 +32,11 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundEnd: cc.AudioClip = null;
     @property(cc.AudioClip)
-    soundSellDone
-        : cc.AudioClip = null;
+    soundSellDone: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundoor: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundCut: cc.AudioClip = null;
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -93,6 +96,12 @@ export default class NewClass extends cc.Component {
     ro: cc.Node = null
     @property(cc.Node)
     listNoti: cc.Node = null;
+    @property(cc.Node)
+    hand1:cc.Node = null;
+    @property(cc.Node)
+    hand2:cc.Node = null;
+    @property([cc.AudioClip])
+    listSoundGame: cc.AudioClip[] = [];
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -134,18 +143,21 @@ export default class NewClass extends cc.Component {
         this.door.scale = 2
         this.cua.getComponent(cc.Animation).play()
         this.door.getChildByName("text").active = false
+        cc.audioEngine.play(this.soundoor, false, 1)
         this.scheduleOnce(() => {
-            this.cua.getComponent(cc.Button).enabled=false
+            this.cua.getComponent(cc.Button).enabled = false
         }, 0.3)
     }
     isClickBox = 0
     clickItem(boxValue, tag) {
         if (this.isClickBox >= 5) return;
+        cc.audioEngine.play(this.soundClick, false, 1)
         let arrPos = [cc.v3(0, 56), cc.v3(109, 47), cc.v3(-105, 40), cc.v3(-52, 22), cc.v3(61, 22)]
         this.isClickBox++
         let box = cc.instantiate(this.listPreBox[tag])
         box.parent = this.listItem2;
         box.position = boxValue.position;
+        this.hand1.active = false
         cc.tween(box).to(0.5, { position: arrPos[this.isClickBox - 1] }).call(() => {
 
         }).start()
@@ -161,15 +173,17 @@ export default class NewClass extends cc.Component {
 
     }
     isDone = false
-    countItem=0
+    countItem = 0
     btn_done() {
         if (this.isDone == true) return;
+        cc.audioEngine.play(this.soundClick, false, 1)
+
         this.isDone = true
         this.btnDone.getComponent(cc.Button).enabled = false;
         this.main2.active = true;
         let arrPos = [cc.v3(0, 36), cc.v3(-158, 123), cc.v3(187, 128), cc.v3(211, -59), cc.v3(-203, -40)]
         let count = 0
-        this.countItem=this.listItem2.childrenCount
+        this.countItem = this.listItem2.childrenCount
         for (let i = this.listItem2.childrenCount - 1; i >= 0; i--) {
             let child = this.listItem2.children[i];
             child.parent = this.listBox
@@ -182,13 +196,18 @@ export default class NewClass extends cc.Component {
     }
     isCountNoti = 0
     moveToVong(box) {
+        // cc.audioEngine.play(this.soundClick, false, 1)
+
         let count = this.isCountNoti
         // this.scheduleOnce(() => {
         this.listNoti.children[count].active = true
+        cc.audioEngine.play(this.listSoundGame[count], false, 1)
+        this.hand2.active = false
         // }, 0.4)
+        // cc.audioEngine.play(this.soundCut, false, 1)
         this.isCountNoti++
         this.scheduleOnce(() => {
-            let midPos = cc.v2(-50, 100);
+            let midPos = cc.v2(-50, 150);
             let endPos = cc.v2(0, -30);
             let pos = box.parent.convertToWorldSpaceAR(box.position);
             pos = this.ro.convertToNodeSpaceAR(pos);
@@ -201,8 +220,8 @@ export default class NewClass extends cc.Component {
             }).start()
             cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.4 }).start()
         }, 0.4)
-        if(this.isCountNoti==this.countItem){
-            this.linkToStore.active=true
+        if (this.isCountNoti == this.countItem-1) {
+            this.linkToStore.active = true
         }
 
     }
@@ -241,7 +260,7 @@ export default class NewClass extends cc.Component {
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = cc.v3(0, 0)
-this.listNoti.scale=(logic)?1.1:0.7
+        this.listNoti.scale = (logic) ? 1.2 : 0.7
 
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
