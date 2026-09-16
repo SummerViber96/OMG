@@ -4330,8 +4330,8 @@
     "relativePath": "scripts"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1789539055000,
-    "meta": 1789539055013,
+    "asset": 1789539503308,
+    "meta": 1789539503320,
     "relativePath": "scenes\\Donut1.fire"
   },
   "470ed163-3949-4cd6-9cdc-895dae391e9e": {
@@ -10693,5 +10693,10 @@
     "asset": 1675224838557,
     "meta": 1789539054967,
     "relativePath": "model\\primitives.fbx"
+  },
+  "b3605e58-7744-4072-80d4-3e774d384095": {
+    "asset": 1789539507080,
+    "meta": 1789539512365,
+    "relativePath": "scenes\\Donut2.fire"
   }
 }
