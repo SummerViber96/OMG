@@ -10658,5 +10658,55 @@
     "asset": 1789521761699,
     "meta": 1789521762882,
     "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "07902316-ad11-407d-8db0-c0ec768625d4": {
+    "asset": 1789521810399,
+    "meta": 1789521810404,
+    "relativePath": "Bracelet2\\audio_mp3"
+  },
+  "4b3b39b1-c7f4-40d4-b164-75d8450f2efd": {
+    "asset": 1789521810383,
+    "meta": 1789521811135,
+    "relativePath": "Bracelet2\\audio_mp3\\audio_002.mp3"
+  },
+  "aae5b5f3-2758-48f9-9437-d1019ec84877": {
+    "asset": 1789521810383,
+    "meta": 1789521811138,
+    "relativePath": "Bracelet2\\audio_mp3\\audio_001.mp3"
+  },
+  "faddf917-869e-4283-b91b-a4693992b41e": {
+    "asset": 1789521810383,
+    "meta": 1789521811146,
+    "relativePath": "Bracelet2\\audio_mp3\\audio_004.mp3"
+  },
+  "301991ae-5f9d-49c6-82b0-e7791af47d1d": {
+    "asset": 1789521810383,
+    "meta": 1789521811148,
+    "relativePath": "Bracelet2\\audio_mp3\\audio_003.mp3"
+  },
+  "57539043-c22d-4e4c-994a-18f0b5db63fe": {
+    "asset": 1789521810383,
+    "meta": 1789521811156,
+    "relativePath": "Bracelet2\\audio_mp3\\audio_005.mp3"
+  },
+  "4fbf279b-0793-4fe1-a830-aa7e16d53824": {
+    "asset": 1789521810383,
+    "meta": 1789521811158,
+    "relativePath": "Bracelet2\\audio_mp3\\audio_006.mp3"
+  },
+  "ddbe7ea6-050a-427c-8f1d-c6a2ac012155": {
+    "asset": 1789521810390,
+    "meta": 1789521811167,
+    "relativePath": "Bracelet2\\audio_mp3\\audio_007.mp3"
+  },
+  "ba08702e-45e6-4b0e-a1b8-4300211d0ed2": {
+    "asset": 1789521810390,
+    "meta": 1789521811168,
+    "relativePath": "Bracelet2\\audio_mp3\\audio_008.mp3"
+  },
+  "42aca492-60f4-4fd0-b738-2950a815eef1": {
+    "asset": 1789521810388,
+    "meta": 1789521811176,
+    "relativePath": "Bracelet2\\audio_mp3\\audio_009.mp3"
   }
 }
