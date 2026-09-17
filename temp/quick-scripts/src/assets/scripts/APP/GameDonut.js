@@ -47,6 +47,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundMixDone = null;
         _this.soundShowStar = null;
         _this.soundSellDone = null;
+        _this.soundCut = null;
         _this.listSoundNoti = [];
         _this.tut = null;
         _this.hand = null;
@@ -60,18 +61,6 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundWrong = null;
         _this.fxColor = null;
         //new
-        // @property(cc.Node)
-        // btnDonut: cc.Node = null
-        // @property(cc.Prefab)
-        // preDonut: cc.Prefab = null
-        // @property(cc.Node)
-        // listDonutPlace: cc.Node = null;
-        // @property(cc.Node)
-        // listDonutSub: cc.Node = null;
-        // @property(cc.Node)
-        // listKhayPlace: cc.Node = null;
-        // @property(cc.Node)
-        // listKhaySub: cc.Node = null
         _this.listhand = null;
         _this.btnDau = null;
         _this.cua = null;
@@ -84,6 +73,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.ro = null;
         _this.listNoti = null;
         _this.spoon = null;
+        _this.scoopOffset = cc.v2(-125, -8);
         _this.dia = null;
         _this.shadow = null;
         _this.listStar = null;
@@ -120,7 +110,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.spoonRestAngle = 0;
         _this.listBeads = null;
         _this.beadScoopState = {};
+        _this.scoopedBeadIds = {};
         _this.isRotateSync = false;
+        _this.physSnapshot = null;
+        _this.spoonSnapshot = null;
         _this.progressNode = null;
         _this.progressFill = null;
         _this.progressFillWidth = 0;
@@ -142,17 +135,58 @@ var NewClass = /** @class */ (function (_super) {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        this.initPhysics();
+        cc.director.on(cc.Director.EVENT_BEFORE_UPDATE, this.beforeUpdateOrient, this);
+        cc.view.on('canvas-resize', this.onCanvasResize, this);
     };
     NewClass.prototype.start = function () {
         cc.audioEngine.play(this.soundBg, true, 0.3);
         this.lastPortrait = this.isPortrait();
         this.reponsive(this.lastPortrait);
+        this.initPhysics();
         this.setupSpoonMix();
+        this.cachePhysicsLocals();
+    };
+    NewClass.prototype.onDestroy = function () {
+        cc.director.off(cc.Director.EVENT_BEFORE_UPDATE, this.beforeUpdateOrient, this);
+        cc.view.off('canvas-resize', this.onCanvasResize, this);
+        this.unschedule(this.flushPhysicsResync);
+        this.unschedule(this.finishPhysicsResync);
     };
     NewClass.prototype.isPortrait = function () {
         var size = cc.view.getFrameSize();
-        return size.width < size.height;
+        var w = size.width;
+        var h = size.height;
+        if ((!w || !h) && typeof window !== 'undefined') {
+            w = window.innerWidth;
+            h = window.innerHeight;
+        }
+        return w < h;
+    };
+    NewClass.prototype.beforeUpdateOrient = function () {
+        if (!this.isRotateSync) {
+            this.cachePhysicsLocals();
+        }
+        var portrait = this.isPortrait();
+        if (this.lastPortrait == null) {
+            this.lastPortrait = portrait;
+            return;
+        }
+        if (portrait !== this.lastPortrait) {
+            this.lastPortrait = portrait;
+            this.onOrientationChange(portrait);
+        }
+    };
+    NewClass.prototype.onCanvasResize = function () {
+        if (!this.listBeads)
+            return;
+        this.freezePhysicsWorld();
+        this.queuePhysicsResync();
+    };
+    NewClass.prototype.cachePhysicsLocals = function () {
+        this.physSnapshot = this.snapshotBeadLocals();
+        if (this.spoon && this.spoon.isValid) {
+            this.spoonSnapshot = { x: this.spoon.x, y: this.spoon.y, angle: this.spoon.angle };
+        }
     };
     NewClass.prototype.snapshotBeadLocals = function () {
         var arr = [];
@@ -176,10 +210,40 @@ var NewClass = /** @class */ (function (_super) {
             item.node.setPosition(item.x, item.y);
             item.node.angle = item.angle;
         }
-        if (this.spoon) {
-            this.spoon.y = this.spoonRestY;
+        if (this.spoon && this.spoonSnapshot) {
+            this.spoon.setPosition(this.spoonSnapshot.x, this.spoonSnapshot.y);
             this.spoon.angle = this.spoonRestAngle;
         }
+        else if (this.spoon) {
+            this.spoon.angle = this.spoonRestAngle;
+        }
+    };
+    NewClass.prototype.freezePhysicsWorld = function () {
+        this.isRotateSync = true;
+        var pm = cc.director.getPhysicsManager();
+        if (pm && pm.enabled) {
+            pm.enabled = false;
+        }
+    };
+    NewClass.prototype.queuePhysicsResync = function () {
+        this.unschedule(this.flushPhysicsResync);
+        this.unschedule(this.finishPhysicsResync);
+        this.scheduleOnce(this.flushPhysicsResync, 0.08);
+    };
+    NewClass.prototype.flushPhysicsResync = function () {
+        var canvas = this.node.getComponent(cc.Canvas);
+        if (canvas && canvas.alignWithScreen) {
+            canvas.alignWithScreen();
+        }
+        this.restoreBeadLocals(this.physSnapshot);
+        this.initPhysics();
+        this.scheduleOnce(this.finishPhysicsResync, 0);
+    };
+    NewClass.prototype.finishPhysicsResync = function () {
+        this.restoreBeadLocals(this.physSnapshot);
+        this.resyncPhysicsFromNodes();
+        this.cachePhysicsLocals();
+        this.isRotateSync = false;
     };
     NewClass.prototype.resyncPhysicsFromNodes = function () {
         var bodies = this.node.getComponentsInChildren(cc.RigidBody);
@@ -189,30 +253,17 @@ var NewClass = /** @class */ (function (_super) {
                 continue;
             body.syncPosition(false);
             body.syncRotation(false);
-            body.linearVelocity = cc.v2(0, 0);
-            body.angularVelocity = 0;
+            if (body.type === cc.RigidBodyType.Dynamic) {
+                body.linearVelocity = cc.v2(0, 0);
+                body.angularVelocity = 0;
+            }
             body.awake = true;
         }
     };
     NewClass.prototype.onOrientationChange = function (portrait) {
-        var _this = this;
-        this.isRotateSync = true;
-        var pm = cc.director.getPhysicsManager();
-        pm.enabled = false;
-        var snapshot = this.snapshotBeadLocals();
-        var spoonX = this.spoon ? this.spoon.x : 0;
+        this.freezePhysicsWorld();
         this.reponsive(portrait);
-        this.scheduleOnce(function () {
-            _this.restoreBeadLocals(snapshot);
-            if (_this.spoon) {
-                _this.spoon.x = cc.misc.clampf(spoonX, _this.spoonMinX, _this.spoonMaxX);
-                _this.spoon.y = _this.spoonRestY;
-            }
-            pm.enabled = true;
-            pm.gravity = cc.v2(0, -980);
-            _this.resyncPhysicsFromNodes();
-            _this.isRotateSync = false;
-        }, 0);
+        this.queuePhysicsResync();
     };
     NewClass.prototype.initPhysics = function () {
         var physicsManager = cc.director.getPhysicsManager();
@@ -225,7 +276,8 @@ var NewClass = /** @class */ (function (_super) {
             this.dia = this.main2.getChildByName("dia");
         }
         if (!this.spoon && this.dia) {
-            this.spoon = this.dia.getChildByName("image_029");
+            var items = this.dia.getChildByName("listItem");
+            this.spoon = (items && items.getChildByName("thia")) || this.dia.getChildByName("thia") || this.dia.getChildByName("image_029");
         }
         if (!this.spoon)
             return;
@@ -339,6 +391,7 @@ var NewClass = /** @class */ (function (_super) {
         this.isMixDone = true;
         this.isMixTouch = false;
         this.stopXaoSound();
+        this.dropScoopedBeads();
         this.setMixProgress(1);
         if (this.spoon) {
             this.spoon.y = this.spoonRestY;
@@ -370,6 +423,7 @@ var NewClass = /** @class */ (function (_super) {
         var _this = this;
         cc.tween(this.spoon).to(0.5, { position: cc.v3(-59, 190), angle: -10 }).start();
         cc.audioEngine.play(this.soundMixDone, false, 0.5);
+        this.listStar.active = true;
         cc.tween(this.shadow).to(0.5, { opacity: 180 }).call(function () {
             _this.bringListStarAboveShadow();
         }).start();
@@ -442,7 +496,7 @@ var NewClass = /** @class */ (function (_super) {
                 scale: 1.4
             }).start();
         }
-        var wait = 0.04 * Math.max(count - 1, 0) + 0.6;
+        var wait = 0.04 * Math.max(count - 1, 0) + 1.4;
         this.scheduleOnce(function () {
             _this.flyStarsToBasket();
         }, wait);
@@ -543,7 +597,6 @@ var NewClass = /** @class */ (function (_super) {
         this.stopXaoSound();
         if (!this.spoon)
             return;
-        this.spoon.y = this.spoonRestY;
         this.spoon.angle = this.spoonRestAngle;
         this.updateBeadLayers();
     };
@@ -558,16 +611,35 @@ var NewClass = /** @class */ (function (_super) {
         if (Math.abs(d.x) < 0.2) {
             d.x = delta.x * 0.5;
         }
+        if (Math.abs(d.y) < 0.2) {
+            d.y = delta.y * 0.5;
+        }
         return d;
+    };
+    NewClass.prototype.clampSpoonInBowl = function (x, y) {
+        var cx = 0;
+        var cy = this.spoonRestY;
+        var rx = 120;
+        var ry = 62;
+        var nx = (x - cx) / rx;
+        var ny = (y - cy) / ry;
+        var len2 = nx * nx + ny * ny;
+        if (len2 > 1) {
+            var len = Math.sqrt(len2);
+            x = cx + nx / len * rx;
+            y = cy + ny / len * ry;
+        }
+        return cc.v2(x, y);
     };
     NewClass.prototype.moveSpoonByDelta = function (event) {
         if (!this.spoon)
             return;
         var d = this.getLocalDelta(event);
-        var x = cc.misc.clampf(this.spoon.x + d.x, this.spoonMinX, this.spoonMaxX);
-        this.spoon.setPosition(x, this.spoonRestY);
+        var next = this.clampSpoonInBowl(this.spoon.x + d.x, this.spoon.y + d.y);
+        this.spoon.setPosition(next.x, next.y);
         this.spoon.angle = this.spoonRestAngle;
-        this.stirBeads(d.x);
+        this.stirBeads(d.x, d.y);
+        this.followSpoonWithScooped();
         this.updateBeadLayers();
     };
     NewClass.prototype.updateBeadLayers = function () {
@@ -579,7 +651,7 @@ var NewClass = /** @class */ (function (_super) {
             this.spoon.setPosition(this.listBeads.convertToNodeSpaceAR(world));
             this.spoonRestY = this.spoon.y;
         }
-        var scoopWorld = this.spoon.convertToWorldSpaceAR(cc.v2(0, -25));
+        var scoopWorld = this.getScoopWorldPos();
         var scoop = cc.v2(scoopWorld.x, scoopWorld.y);
         var behind = [];
         var front = [];
@@ -591,7 +663,10 @@ var NewClass = /** @class */ (function (_super) {
             var dist = cc.v2(p.x, p.y).sub(scoop).mag();
             var id = bead.uuid;
             var scooped = this.beadScoopState[id] === true;
-            if (!scooped && dist < 240) {
+            if (this.scoopedBeadIds[id]) {
+                scooped = true;
+            }
+            else if (!scooped && dist < 240) {
                 scooped = true;
             }
             else if (scooped && dist > 380) {
@@ -614,13 +689,42 @@ var NewClass = /** @class */ (function (_super) {
             front[i].setSiblingIndex(idx++);
         }
     };
-    NewClass.prototype.stirBeads = function (vx) {
-        if (!this.listBeads || Math.abs(vx) < 0.08)
+    NewClass.prototype.getScoopVisual = function () {
+        if (!this.spoon)
+            return null;
+        return this.spoon.getChildByName("image_038") || this.spoon;
+    };
+    NewClass.prototype.getScoopLocalOffset = function () {
+        if (this.scoopOffset)
+            return this.scoopOffset;
+        return cc.v2(-125, -8);
+    };
+    NewClass.prototype.getScoopWorldPos = function () {
+        var visual = this.getScoopVisual();
+        if (!visual)
+            return cc.v2(0, 0);
+        return visual.convertToWorldSpaceAR(this.getScoopLocalOffset());
+    };
+    NewClass.prototype.getSpoonScoopPos = function () {
+        return this.listBeads.convertToNodeSpaceAR(this.getScoopWorldPos());
+    };
+    NewClass.prototype.stirBeads = function (vx, vy) {
+        if (!this.listBeads)
             return;
         var spoonInBeads = this.listBeads.convertToNodeSpaceAR(this.spoon.convertToWorldSpaceAR(cc.v2(0, 0)));
+        if (vy > 0.7) {
+            this.catchBeadsInScoop();
+        }
+        else if (vy < -1.2) {
+            this.dropScoopedBeads();
+        }
+        if (Math.abs(vx) < 0.08 && Math.abs(vy) < 0.08)
+            return;
         for (var i = 0; i < this.listBeads.childrenCount; i++) {
             var bead = this.listBeads.children[i];
             if (bead === this.spoon)
+                continue;
+            if (this.scoopedBeadIds[bead.uuid])
                 continue;
             var dx = bead.x - spoonInBeads.x;
             var dy = bead.y - spoonInBeads.y;
@@ -629,17 +733,87 @@ var NewClass = /** @class */ (function (_super) {
                 continue;
             var t = 1 - dist / 200;
             bead.x += vx * (0.55 + 0.7 * t);
-            bead.y += vx * 0.08 * t * (dx >= 0 ? 1 : -1);
+            bead.y += vy * 0.35 * t + vx * 0.08 * t * (dx >= 0 ? 1 : -1);
             bead.x = cc.misc.clampf(bead.x, -200, 200);
             bead.y = cc.misc.clampf(bead.y, -75, 45);
             var body = bead.getComponent(cc.RigidBody);
             if (body) {
                 body.syncPosition(false);
-                body.linearVelocity = cc.v2(vx * 16 * t, 0);
+                body.linearVelocity = cc.v2(vx * 16 * t, vy * 10 * t);
                 body.angularVelocity = vx * 0.6 * t;
                 body.awake = true;
             }
         }
+    };
+    NewClass.prototype.catchBeadsInScoop = function () {
+        if (!this.listBeads || !this.spoon)
+            return;
+        var scoopedCount = 0;
+        for (var k in this.scoopedBeadIds) {
+            if (this.scoopedBeadIds.hasOwnProperty(k))
+                scoopedCount++;
+        }
+        if (scoopedCount >= 5)
+            return;
+        var scoop = this.getSpoonScoopPos();
+        for (var i = 0; i < this.listBeads.childrenCount; i++) {
+            if (scoopedCount >= 5)
+                break;
+            var bead = this.listBeads.children[i];
+            if (bead === this.spoon || this.scoopedBeadIds[bead.uuid])
+                continue;
+            var dx = bead.x - scoop.x;
+            var dy = bead.y - scoop.y;
+            if (Math.abs(dx) > 70 || Math.abs(dy) > 42)
+                continue;
+            this.scoopedBeadIds[bead.uuid] = {
+                ox: cc.misc.clampf(dx * 0.28, -26, 26),
+                oy: cc.misc.clampf(dy * 0.22, -16, 16)
+            };
+            scoopedCount++;
+            var body = bead.getComponent(cc.RigidBody);
+            if (body) {
+                body.gravityScale = 0;
+                body.linearVelocity = cc.v2(0, 0);
+                body.angularVelocity = 0;
+                body.awake = true;
+            }
+        }
+    };
+    NewClass.prototype.followSpoonWithScooped = function () {
+        if (!this.listBeads || !this.spoon)
+            return;
+        var scoop = this.getSpoonScoopPos();
+        for (var i = 0; i < this.listBeads.childrenCount; i++) {
+            var bead = this.listBeads.children[i];
+            var st = this.scoopedBeadIds[bead.uuid];
+            if (!st)
+                continue;
+            bead.x = cc.misc.lerp(bead.x, scoop.x + st.ox, 0.5);
+            bead.y = cc.misc.lerp(bead.y, scoop.y + st.oy, 0.55);
+            var body = bead.getComponent(cc.RigidBody);
+            if (body) {
+                body.gravityScale = 0;
+                body.linearVelocity = cc.v2(0, 0);
+                body.syncPosition(false);
+                body.awake = true;
+            }
+        }
+    };
+    NewClass.prototype.dropScoopedBeads = function () {
+        if (!this.listBeads)
+            return;
+        for (var i = 0; i < this.listBeads.childrenCount; i++) {
+            var bead = this.listBeads.children[i];
+            if (!this.scoopedBeadIds[bead.uuid])
+                continue;
+            var body = bead.getComponent(cc.RigidBody);
+            if (body) {
+                body.gravityScale = 0.45;
+                body.awake = true;
+            }
+        }
+        this.scoopedBeadIds = {};
     };
     NewClass.prototype.containBeads = function () {
         if (!this.listBeads)
@@ -647,6 +821,8 @@ var NewClass = /** @class */ (function (_super) {
         for (var i = 0; i < this.listBeads.childrenCount; i++) {
             var bead = this.listBeads.children[i];
             if (bead === this.spoon)
+                continue;
+            if (this.scoopedBeadIds[bead.uuid])
                 continue;
             var body = bead.getComponent(cc.RigidBody);
             var nx = bead.x / 230;
@@ -784,17 +960,11 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isRotateSync)
             return;
         if (this.spoon && !this.isMixDone) {
-            this.spoon.y = this.spoonRestY;
             this.spoon.angle = this.spoonRestAngle;
         }
         if (!this.isMixTouch) {
             this.containBeads();
         }
-        var portrait = this.isPortrait();
-        if (portrait === this.lastPortrait)
-            return;
-        this.lastPortrait = portrait;
-        this.onOrientationChange(portrait);
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
@@ -802,6 +972,9 @@ var NewClass = /** @class */ (function (_super) {
         this.logo.scale = (logic) ? 0.6 : 0.4;
         canvas.fitHeight = (logic) ? false : true;
         canvas.fitWidth = (logic) ? true : false;
+        if (canvas.alignWithScreen) {
+            canvas.alignWithScreen();
+        }
         this.camera.node.position = cc.v3(0, 0);
         this.listNoti.scale = (logic) ? 1.1 : 0.7;
         if (logic == true) {
@@ -895,6 +1068,9 @@ var NewClass = /** @class */ (function (_super) {
         property(cc.AudioClip)
     ], NewClass.prototype, "soundSellDone", void 0);
     __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundCut", void 0);
+    __decorate([
         property([cc.AudioClip])
     ], NewClass.prototype, "listSoundNoti", void 0);
     __decorate([
@@ -960,6 +1136,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "spoon", void 0);
+    __decorate([
+        property(cc.Vec2)
+    ], NewClass.prototype, "scoopOffset", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "dia", void 0);

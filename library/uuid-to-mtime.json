@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1786978825092,
-    "meta": 1789609870568,
+    "meta": 1789620490600,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1786978826318,
-    "meta": 1789609870569,
+    "meta": 1789620490604,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -10525,13 +10525,13 @@
     "relativePath": "Bracelet2\\anim\\btn_scale.anim"
   },
   "c3fd7c1b-26ce-4703-9354-c028845374b9": {
-    "asset": 1789610747617,
-    "meta": 1789610747625,
+    "asset": 1789620128479,
+    "meta": 1789620128487,
     "relativePath": "Bracelet2\\anim\\box_cut.anim"
   },
   "37dd892a-de13-43b5-a9e9-461198917800": {
-    "asset": 1789608308063,
-    "meta": 1789609870532,
+    "asset": 1789610378594,
+    "meta": 1789620490331,
     "relativePath": "Bracelet2\\asset\\Special"
   },
   "4c00e0c6-d9f5-4e66-a2d1-3698fd6a8c2c": {
@@ -10595,8 +10595,8 @@
     "relativePath": "Bracelet2\\audio_mp3\\audio_009.mp3"
   },
   "2a58e503-6b25-4416-a00f-c2a177bd067f": {
-    "asset": 1789580840135,
-    "meta": 1789609870527,
+    "asset": 1789610016226,
+    "meta": 1789620490328,
     "relativePath": "Bracelet2\\asset\\as2"
   },
   "89c2d7fc-a3ab-4fa9-b7e5-327cc952fa3e": {
@@ -11005,8 +11005,8 @@
     "relativePath": "Bracelet2\\asset\\sound2\\audio_010.mp3"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1789610955296,
-    "meta": 1789610955309,
+    "asset": 1789622946478,
+    "meta": 1789622946497,
     "relativePath": "scenes\\Donut1.fire"
   },
   "23fbaf4d-baad-41ec-ad80-619100591782": {
@@ -11018,11 +11018,6 @@
     "asset": 1789607445411,
     "meta": 1789607445422,
     "relativePath": "Bracelet2\\anim\\hand_click.anim"
-  },
-  "e32108f3-6dbf-4d2b-b101-996020c60e18": {
-    "asset": 1789608040778,
-    "meta": 1789608054060,
-    "relativePath": "Bracelet2\\script\\boxitem.ts"
   },
   "ef9c5167-469f-49f2-8f40-5076d379ec4f": {
     "asset": 1789610009871,
@@ -11129,9 +11124,14 @@
     "meta": 1789610381247,
     "relativePath": "Bracelet2\\asset\\Special\\bracelet_9.png"
   },
+  "e32108f3-6dbf-4d2b-b101-996020c60e18": {
+    "asset": 1789621441111,
+    "meta": 1789621443024,
+    "relativePath": "Bracelet2\\script\\boxitem.ts"
+  },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1789610664318,
-    "meta": 1789610666532,
+    "asset": 1789621995954,
+    "meta": 1789622818974,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

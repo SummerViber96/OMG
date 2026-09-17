@@ -2523,8 +2523,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 275.4,
-      "height": 281.1
+      "width": 321.3,
+      "height": 327.95
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3333,8 +3333,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 310.5,
-      "height": 272.4
+      "width": 362.25,
+      "height": 317.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4143,8 +4143,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 297.6,
-      "height": 269.1
+      "width": 347.2,
+      "height": 313.95
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4953,8 +4953,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 273,
-      "height": 240
+      "width": 318.5,
+      "height": 280
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5763,8 +5763,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 278.7,
-      "height": 246.6
+      "width": 325.15,
+      "height": 287.7
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6436,7 +6436,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -89.629,
+        -110.059,
         0,
         0,
         0,
@@ -6925,7 +6925,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 404.42,
+      "width": 421.66,
       "height": 90.4
     },
     "_anchorPoint": {
@@ -6977,8 +6977,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Let's pacage Rumi's one big\nscoop order!",
-    "_N$string": "Let's pacage Rumi's one big\nscoop order!",
+    "_string": "Let's package Rumi's one big\nscoop order!",
+    "_N$string": "Let's package Rumi's one big\nscoop order!",
     "_fontSize": 32,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -7257,8 +7257,18 @@
       },
       {
         "__type__": "cc.Vec2",
-        "x": 267,
-        "y": 87
+        "x": 351,
+        "y": 27
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 273,
+        "y": 146
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 251,
+        "y": 66
       },
       {
         "__type__": "cc.Vec2",
@@ -7282,13 +7292,28 @@
       },
       {
         "__type__": "cc.Vec2",
-        "x": -253,
-        "y": 77
+        "x": -237,
+        "y": 79.7
       },
       {
         "__type__": "cc.Vec2",
-        "x": -206,
-        "y": -96
+        "x": -251.7,
+        "y": 149.3
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -312.3,
+        "y": 131.9
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -328,
+        "y": 27
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -283,
+        "y": -153
       }
     ],
     "_id": "1bPG+A6DtHl7kxD+67IP2k"
@@ -12362,8 +12387,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -3.551,
-        -24.075,
+        0.537,
+        -19.64,
         0,
         0,
         0,
@@ -17199,6 +17224,9 @@
     "soundSellDone": {
       "__uuid__": "24fbb393-28ba-4809-8ecb-a8e2ffeb60e3"
     },
+    "soundCut": {
+      "__uuid__": "b0faa1ed-02f5-4327-9e1d-843ff800fb31"
+    },
     "listSoundNoti": [
       {
         "__uuid__": "4b3b39b1-c7f4-40d4-b164-75d8450f2efd"
@@ -17281,6 +17309,11 @@
     },
     "spoon": {
       "__id__": 291
+    },
+    "scoopOffset": {
+      "__type__": "cc.Vec2",
+      "x": -125,
+      "y": -8
     },
     "dia": {
       "__id__": 176

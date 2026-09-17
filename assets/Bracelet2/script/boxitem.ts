@@ -22,8 +22,14 @@ export default class NewClass extends cc.Component {
     show(){
         this.node.getChildByName("vong").children[0].scale=0
         this.node.getChildByName("vong").active=true
+        this.scheduleOnce(()=>{
         this.gamePlay.moveToVong(this.node)
+
+        },0.5)
         
+    }
+    cut(){
+        cc.audioEngine.play(this.gamePlay.soundCut,false,1)
     }
     btn_cut(){
         this.gamePlay.hand2.active=false

@@ -40,6 +40,8 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundSellDone
         : cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundCut: cc.AudioClip = null;
     @property([cc.AudioClip])
     listSoundNoti: cc.AudioClip[] = [];
     @property(cc.Node)
@@ -68,18 +70,7 @@ export default class NewClass extends cc.Component {
     fxColor: cc.Prefab = null
 
     //new
-    // @property(cc.Node)
-    // btnDonut: cc.Node = null
-    // @property(cc.Prefab)
-    // preDonut: cc.Prefab = null
-    // @property(cc.Node)
-    // listDonutPlace: cc.Node = null;
-    // @property(cc.Node)
-    // listDonutSub: cc.Node = null;
-    // @property(cc.Node)
-    // listKhayPlace: cc.Node = null;
-    // @property(cc.Node)
-    // listKhaySub: cc.Node = null
+
     @property(cc.Node)
     listhand: cc.Node = null
     @property(cc.Node)
@@ -104,6 +95,8 @@ export default class NewClass extends cc.Component {
     listNoti: cc.Node = null;
     @property(cc.Node)
     spoon: cc.Node = null;
+    @property(cc.Vec2)
+    scoopOffset: cc.Vec2 = cc.v2(-125, -8);
     @property(cc.Node)
     dia: cc.Node = null;
     @property(cc.Node)
@@ -150,7 +143,10 @@ export default class NewClass extends cc.Component {
     spoonRestAngle = 0
     listBeads: cc.Node = null
     beadScoopState = {}
+    scoopedBeadIds = {}
     isRotateSync = false
+    physSnapshot = null
+    spoonSnapshot = null
     progressNode: cc.Node = null
     progressFill: cc.Node = null
     progressFillWidth = 0
@@ -164,19 +160,63 @@ export default class NewClass extends cc.Component {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
-        this.initPhysics();
+        cc.director.on(cc.Director.EVENT_BEFORE_UPDATE, this.beforeUpdateOrient, this);
+        cc.view.on('canvas-resize', this.onCanvasResize, this);
     }
 
     protected start(): void {
         cc.audioEngine.play(this.soundBg, true, 0.3)
         this.lastPortrait = this.isPortrait();
         this.reponsive(this.lastPortrait);
+        this.initPhysics();
         this.setupSpoonMix();
+        this.cachePhysicsLocals();
+    }
+
+    onDestroy() {
+        cc.director.off(cc.Director.EVENT_BEFORE_UPDATE, this.beforeUpdateOrient, this);
+        cc.view.off('canvas-resize', this.onCanvasResize, this);
+        this.unschedule(this.flushPhysicsResync);
+        this.unschedule(this.finishPhysicsResync);
     }
 
     isPortrait() {
         let size = cc.view.getFrameSize();
-        return size.width < size.height;
+        let w = size.width;
+        let h = size.height;
+        if ((!w || !h) && typeof window !== 'undefined') {
+            w = window.innerWidth;
+            h = window.innerHeight;
+        }
+        return w < h;
+    }
+
+    beforeUpdateOrient() {
+        if (!this.isRotateSync) {
+            this.cachePhysicsLocals();
+        }
+        let portrait = this.isPortrait();
+        if (this.lastPortrait == null) {
+            this.lastPortrait = portrait;
+            return;
+        }
+        if (portrait !== this.lastPortrait) {
+            this.lastPortrait = portrait;
+            this.onOrientationChange(portrait);
+        }
+    }
+
+    onCanvasResize() {
+        if (!this.listBeads) return;
+        this.freezePhysicsWorld();
+        this.queuePhysicsResync();
+    }
+
+    cachePhysicsLocals() {
+        this.physSnapshot = this.snapshotBeadLocals();
+        if (this.spoon && this.spoon.isValid) {
+            this.spoonSnapshot = { x: this.spoon.x, y: this.spoon.y, angle: this.spoon.angle };
+        }
     }
 
     snapshotBeadLocals() {
@@ -198,10 +238,44 @@ export default class NewClass extends cc.Component {
             item.node.setPosition(item.x, item.y);
             item.node.angle = item.angle;
         }
-        if (this.spoon) {
-            this.spoon.y = this.spoonRestY;
+        if (this.spoon && this.spoonSnapshot) {
+            this.spoon.setPosition(this.spoonSnapshot.x, this.spoonSnapshot.y);
             this.spoon.angle = this.spoonRestAngle;
         }
+        else if (this.spoon) {
+            this.spoon.angle = this.spoonRestAngle;
+        }
+    }
+
+    freezePhysicsWorld() {
+        this.isRotateSync = true;
+        let pm = cc.director.getPhysicsManager();
+        if (pm && pm.enabled) {
+            pm.enabled = false;
+        }
+    }
+
+    queuePhysicsResync() {
+        this.unschedule(this.flushPhysicsResync);
+        this.unschedule(this.finishPhysicsResync);
+        this.scheduleOnce(this.flushPhysicsResync, 0.08);
+    }
+
+    flushPhysicsResync() {
+        let canvas = this.node.getComponent(cc.Canvas);
+        if (canvas && canvas.alignWithScreen) {
+            canvas.alignWithScreen();
+        }
+        this.restoreBeadLocals(this.physSnapshot);
+        this.initPhysics();
+        this.scheduleOnce(this.finishPhysicsResync, 0);
+    }
+
+    finishPhysicsResync() {
+        this.restoreBeadLocals(this.physSnapshot);
+        this.resyncPhysicsFromNodes();
+        this.cachePhysicsLocals();
+        this.isRotateSync = false;
     }
 
     resyncPhysicsFromNodes() {
@@ -211,30 +285,18 @@ export default class NewClass extends cc.Component {
             if (!body.enabled || body.node === this.spoon) continue;
             body.syncPosition(false);
             body.syncRotation(false);
-            body.linearVelocity = cc.v2(0, 0);
-            body.angularVelocity = 0;
+            if (body.type === cc.RigidBodyType.Dynamic) {
+                body.linearVelocity = cc.v2(0, 0);
+                body.angularVelocity = 0;
+            }
             body.awake = true;
         }
     }
 
     onOrientationChange(portrait) {
-        this.isRotateSync = true;
-        let pm = cc.director.getPhysicsManager();
-        pm.enabled = false;
-        let snapshot = this.snapshotBeadLocals();
-        let spoonX = this.spoon ? this.spoon.x : 0;
+        this.freezePhysicsWorld();
         this.reponsive(portrait);
-        this.scheduleOnce(() => {
-            this.restoreBeadLocals(snapshot);
-            if (this.spoon) {
-                this.spoon.x = cc.misc.clampf(spoonX, this.spoonMinX, this.spoonMaxX);
-                this.spoon.y = this.spoonRestY;
-            }
-            pm.enabled = true;
-            pm.gravity = cc.v2(0, -980);
-            this.resyncPhysicsFromNodes();
-            this.isRotateSync = false;
-        }, 0);
+        this.queuePhysicsResync();
     }
 
     initPhysics() {
@@ -248,7 +310,8 @@ export default class NewClass extends cc.Component {
             this.dia = this.main2.getChildByName("dia");
         }
         if (!this.spoon && this.dia) {
-            this.spoon = this.dia.getChildByName("image_029");
+            let items = this.dia.getChildByName("listItem");
+            this.spoon = (items && items.getChildByName("thia")) || this.dia.getChildByName("thia") || this.dia.getChildByName("image_029");
         }
         if (!this.spoon) return;
 
@@ -362,6 +425,7 @@ export default class NewClass extends cc.Component {
         this.isMixDone = true;
         this.isMixTouch = false;
         this.stopXaoSound();
+        this.dropScoopedBeads();
         this.setMixProgress(1);
         if (this.spoon) {
             this.spoon.y = this.spoonRestY;
@@ -373,14 +437,14 @@ export default class NewClass extends cc.Component {
     playXaoSound() {
         if (!this.soundXao) return;
         if (this.idSoundXao != null) return;
-        if(this.isXao==false){
-            this.isXao=true;
-                    this.idSoundXao = cc.audioEngine.play(this.soundXao, true, 0.5);
+        if (this.isXao == false) {
+            this.isXao = true;
+            this.idSoundXao = cc.audioEngine.play(this.soundXao, true, 0.5);
 
-            this.scheduleOnce(()=>{
-            this.isXao=false;
+            this.scheduleOnce(() => {
+                this.isXao = false;
 
-            },0.2)
+            }, 0.2)
         }
     }
 
@@ -392,6 +456,7 @@ export default class NewClass extends cc.Component {
     moveThia() {
         cc.tween(this.spoon).to(0.5, { position: cc.v3(-59, 190), angle: -10 }).start();
         cc.audioEngine.play(this.soundMixDone, false, 0.5);
+        this.listStar.active = true;
 
         cc.tween(this.shadow).to(0.5, { opacity: 180 }).call(() => {
             this.bringListStarAboveShadow();
@@ -468,7 +533,7 @@ export default class NewClass extends cc.Component {
                 scale: 1.4
             }).start();
         }
-        let wait = 0.04 * Math.max(count - 1, 0) + 0.6;
+        let wait = 0.04 * Math.max(count - 1, 0) + 1.4;
         this.scheduleOnce(() => {
             this.flyStarsToBasket();
         }, wait);
@@ -567,7 +632,6 @@ export default class NewClass extends cc.Component {
         this.lastMixMoveTime = 0;
         this.stopXaoSound();
         if (!this.spoon) return;
-        this.spoon.y = this.spoonRestY;
         this.spoon.angle = this.spoonRestAngle;
         this.updateBeadLayers();
     }
@@ -583,16 +647,36 @@ export default class NewClass extends cc.Component {
         if (Math.abs(d.x) < 0.2) {
             d.x = delta.x * 0.5;
         }
+        if (Math.abs(d.y) < 0.2) {
+            d.y = delta.y * 0.5;
+        }
         return d;
+    }
+
+    clampSpoonInBowl(x, y) {
+        let cx = 0;
+        let cy = this.spoonRestY;
+        let rx = 120;
+        let ry = 62;
+        let nx = (x - cx) / rx;
+        let ny = (y - cy) / ry;
+        let len2 = nx * nx + ny * ny;
+        if (len2 > 1) {
+            let len = Math.sqrt(len2);
+            x = cx + nx / len * rx;
+            y = cy + ny / len * ry;
+        }
+        return cc.v2(x, y);
     }
 
     moveSpoonByDelta(event: cc.Event.EventTouch) {
         if (!this.spoon) return;
         let d = this.getLocalDelta(event);
-        let x = cc.misc.clampf(this.spoon.x + d.x, this.spoonMinX, this.spoonMaxX);
-        this.spoon.setPosition(x, this.spoonRestY);
+        let next = this.clampSpoonInBowl(this.spoon.x + d.x, this.spoon.y + d.y);
+        this.spoon.setPosition(next.x, next.y);
         this.spoon.angle = this.spoonRestAngle;
-        this.stirBeads(d.x);
+        this.stirBeads(d.x, d.y);
+        this.followSpoonWithScooped();
         this.updateBeadLayers();
     }
 
@@ -604,7 +688,7 @@ export default class NewClass extends cc.Component {
             this.spoon.setPosition(this.listBeads.convertToNodeSpaceAR(world));
             this.spoonRestY = this.spoon.y;
         }
-        let scoopWorld = this.spoon.convertToWorldSpaceAR(cc.v2(0, -25));
+        let scoopWorld = this.getScoopWorldPos();
         let scoop = cc.v2(scoopWorld.x, scoopWorld.y);
         let behind = [];
         let front = [];
@@ -615,7 +699,10 @@ export default class NewClass extends cc.Component {
             let dist = cc.v2(p.x, p.y).sub(scoop).mag();
             let id = bead.uuid;
             let scooped = this.beadScoopState[id] === true;
-            if (!scooped && dist < 240) {
+            if (this.scoopedBeadIds[id]) {
+                scooped = true;
+            }
+            else if (!scooped && dist < 240) {
                 scooped = true;
             }
             else if (scooped && dist > 380) {
@@ -639,29 +726,120 @@ export default class NewClass extends cc.Component {
         }
     }
 
-    stirBeads(vx) {
-        if (!this.listBeads || Math.abs(vx) < 0.08) return;
+    getScoopVisual() {
+        if (!this.spoon) return null;
+        return this.spoon.getChildByName("image_038") || this.spoon;
+    }
+
+    getScoopLocalOffset() {
+        if (this.scoopOffset) return this.scoopOffset;
+        return cc.v2(-125, -8);
+    }
+
+    getScoopWorldPos() {
+        let visual = this.getScoopVisual();
+        if (!visual) return cc.v2(0, 0);
+        return visual.convertToWorldSpaceAR(this.getScoopLocalOffset());
+    }
+
+    getSpoonScoopPos() {
+        return this.listBeads.convertToNodeSpaceAR(this.getScoopWorldPos());
+    }
+
+    stirBeads(vx, vy) {
+        if (!this.listBeads) return;
         let spoonInBeads = this.listBeads.convertToNodeSpaceAR(this.spoon.convertToWorldSpaceAR(cc.v2(0, 0)));
+        if (vy > 0.7) {
+            this.catchBeadsInScoop();
+        }
+        else if (vy < -1.2) {
+            this.dropScoopedBeads();
+        }
+        if (Math.abs(vx) < 0.08 && Math.abs(vy) < 0.08) return;
         for (let i = 0; i < this.listBeads.childrenCount; i++) {
             let bead = this.listBeads.children[i];
             if (bead === this.spoon) continue;
+            if (this.scoopedBeadIds[bead.uuid]) continue;
             let dx = bead.x - spoonInBeads.x;
             let dy = bead.y - spoonInBeads.y;
             let dist = Math.sqrt(dx * dx + dy * dy);
             if (dist > 200) continue;
             let t = 1 - dist / 200;
             bead.x += vx * (0.55 + 0.7 * t);
-            bead.y += vx * 0.08 * t * (dx >= 0 ? 1 : -1);
+            bead.y += vy * 0.35 * t + vx * 0.08 * t * (dx >= 0 ? 1 : -1);
             bead.x = cc.misc.clampf(bead.x, -200, 200);
             bead.y = cc.misc.clampf(bead.y, -75, 45);
             let body = bead.getComponent(cc.RigidBody);
             if (body) {
                 body.syncPosition(false);
-                body.linearVelocity = cc.v2(vx * 16 * t, 0);
+                body.linearVelocity = cc.v2(vx * 16 * t, vy * 10 * t);
                 body.angularVelocity = vx * 0.6 * t;
                 body.awake = true;
             }
         }
+    }
+
+    catchBeadsInScoop() {
+        if (!this.listBeads || !this.spoon) return;
+        let scoopedCount = 0;
+        for (let k in this.scoopedBeadIds) {
+            if (this.scoopedBeadIds.hasOwnProperty(k)) scoopedCount++;
+        }
+        if (scoopedCount >= 5) return;
+        let scoop = this.getSpoonScoopPos();
+        for (let i = 0; i < this.listBeads.childrenCount; i++) {
+            if (scoopedCount >= 5) break;
+            let bead = this.listBeads.children[i];
+            if (bead === this.spoon || this.scoopedBeadIds[bead.uuid]) continue;
+            let dx = bead.x - scoop.x;
+            let dy = bead.y - scoop.y;
+            if (Math.abs(dx) > 70 || Math.abs(dy) > 42) continue;
+            this.scoopedBeadIds[bead.uuid] = {
+                ox: cc.misc.clampf(dx * 0.28, -26, 26),
+                oy: cc.misc.clampf(dy * 0.22, -16, 16)
+            };
+            scoopedCount++;
+            let body = bead.getComponent(cc.RigidBody);
+            if (body) {
+                body.gravityScale = 0;
+                body.linearVelocity = cc.v2(0, 0);
+                body.angularVelocity = 0;
+                body.awake = true;
+            }
+        }
+    }
+
+    followSpoonWithScooped() {
+        if (!this.listBeads || !this.spoon) return;
+        let scoop = this.getSpoonScoopPos();
+        for (let i = 0; i < this.listBeads.childrenCount; i++) {
+            let bead = this.listBeads.children[i];
+            let st = this.scoopedBeadIds[bead.uuid];
+            if (!st) continue;
+            bead.x = cc.misc.lerp(bead.x, scoop.x + st.ox, 0.5);
+            bead.y = cc.misc.lerp(bead.y, scoop.y + st.oy, 0.55);
+            let body = bead.getComponent(cc.RigidBody);
+            if (body) {
+                body.gravityScale = 0;
+                body.linearVelocity = cc.v2(0, 0);
+                body.syncPosition(false);
+                body.awake = true;
+            }
+        }
+    }
+
+    dropScoopedBeads() {
+        if (!this.listBeads) return;
+        for (let i = 0; i < this.listBeads.childrenCount; i++) {
+            let bead = this.listBeads.children[i];
+            if (!this.scoopedBeadIds[bead.uuid]) continue;
+            let body = bead.getComponent(cc.RigidBody);
+            if (body) {
+                body.gravityScale = 0.45;
+                body.awake = true;
+            }
+        }
+        this.scoopedBeadIds = {};
     }
 
     containBeads() {
@@ -669,6 +847,7 @@ export default class NewClass extends cc.Component {
         for (let i = 0; i < this.listBeads.childrenCount; i++) {
             let bead = this.listBeads.children[i];
             if (bead === this.spoon) continue;
+            if (this.scoopedBeadIds[bead.uuid]) continue;
             let body = bead.getComponent(cc.RigidBody);
             let nx = bead.x / 230;
             let ny = (bead.y + 10) / 100;
@@ -817,16 +996,11 @@ export default class NewClass extends cc.Component {
     update(dt) {
         if (this.isRotateSync) return;
         if (this.spoon && !this.isMixDone) {
-            this.spoon.y = this.spoonRestY;
             this.spoon.angle = this.spoonRestAngle;
         }
         if (!this.isMixTouch) {
             this.containBeads();
         }
-        let portrait = this.isPortrait();
-        if (portrait === this.lastPortrait) return;
-        this.lastPortrait = portrait;
-        this.onOrientationChange(portrait);
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
@@ -835,6 +1009,9 @@ export default class NewClass extends cc.Component {
         this.logo.scale = (logic) ? 0.6 : 0.4
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
+        if (canvas.alignWithScreen) {
+            canvas.alignWithScreen();
+        }
         this.camera.node.position = cc.v3(0, 0)
         this.listNoti.scale = (logic) ? 1.1 : 0.7
 

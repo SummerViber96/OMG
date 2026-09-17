@@ -123,6 +123,11 @@
   },
   "events": [
     {
+      "frame": 0.5833333333333334,
+      "func": "cut",
+      "params": []
+    },
+    {
       "frame": 0.9166666666666666,
       "func": "show",
       "params": []
