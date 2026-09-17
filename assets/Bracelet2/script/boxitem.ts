@@ -22,7 +22,10 @@ export default class NewClass extends cc.Component {
     show(){
         this.node.getChildByName("vong").children[0].scale=0
         this.node.getChildByName("vong").active=true
+        this.scheduleOnce(()=>{
         this.gamePlay.moveToVong(this.node)
+
+        },0.8)
     }
     cutEff(){
         cc.audioEngine.play(this.gamePlay.soundCut, false, 1)

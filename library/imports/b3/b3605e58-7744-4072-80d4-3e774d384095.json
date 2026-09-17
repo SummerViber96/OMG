@@ -59,7 +59,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "fbc7ea97-65c8-4019-9e02-dfbdb4f132da"
+    "_id": "b3605e58-7744-4072-80d4-3e774d384095"
   },
   {
     "__type__": "cc.Node",
@@ -8368,8 +8368,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        199.448,
-        48.816,
+        251.712,
+        6.054,
         0,
         0,
         0,
@@ -10227,7 +10227,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -89.629,
+        -109.169,
         0,
         0,
         0,

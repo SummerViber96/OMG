@@ -43,9 +43,12 @@ var NewClass = /** @class */ (function (_super) {
         this.gamePlay.clickItem(this.node, this.tag);
     };
     NewClass.prototype.show = function () {
+        var _this = this;
         this.node.getChildByName("vong").children[0].scale = 0;
         this.node.getChildByName("vong").active = true;
-        this.gamePlay.moveToVong(this.node);
+        this.scheduleOnce(function () {
+            _this.gamePlay.moveToVong(_this.node);
+        }, 0.8);
     };
     NewClass.prototype.cutEff = function () {
         cc.audioEngine.play(this.gamePlay.soundCut, false, 1);
