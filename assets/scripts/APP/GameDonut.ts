@@ -145,6 +145,7 @@ export default class NewClass extends cc.Component {
     beadScoopState = {}
     scoopedBeadIds = {}
     isRotateSync = false
+    orientLockUntil = 0
     physSnapshot = null
     spoonSnapshot = null
     progressNode: cc.Node = null
@@ -154,7 +155,7 @@ export default class NewClass extends cc.Component {
     mixNeedTime = 2
     isMixDone = false
     lastMixMoveTime = 0
-    mixTouchListener = null
+    lastTouchScreen = null
     idSoundXao = null
     onLoad() {
         if (this.adChanel == 'Mintegral') {
@@ -162,13 +163,14 @@ export default class NewClass extends cc.Component {
         }
         cc.director.on(cc.Director.EVENT_BEFORE_UPDATE, this.beforeUpdateOrient, this);
         cc.view.on('canvas-resize', this.onCanvasResize, this);
+                this.initPhysics();
+
     }
 
     protected start(): void {
         cc.audioEngine.play(this.soundBg, true, 0.3)
         this.lastPortrait = this.isPortrait();
         this.reponsive(this.lastPortrait);
-        this.initPhysics();
         this.setupSpoonMix();
         this.cachePhysicsLocals();
     }
@@ -178,6 +180,10 @@ export default class NewClass extends cc.Component {
         cc.view.off('canvas-resize', this.onCanvasResize, this);
         this.unschedule(this.flushPhysicsResync);
         this.unschedule(this.finishPhysicsResync);
+        this.node.off(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
+        this.node.off(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
+        this.node.off(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
+        this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
     }
 
     isPortrait() {
@@ -201,13 +207,18 @@ export default class NewClass extends cc.Component {
             return;
         }
         if (portrait !== this.lastPortrait) {
+            let now = Date.now();
+            if (now < this.orientLockUntil) return;
             this.lastPortrait = portrait;
+            this.orientLockUntil = now + 400;
             this.onOrientationChange(portrait);
         }
     }
 
     onCanvasResize() {
         if (!this.listBeads) return;
+        let portrait = this.isPortrait();
+        if (portrait === this.lastPortrait && !this.isRotateSync) return;
         this.freezePhysicsWorld();
         this.queuePhysicsResync();
     }
@@ -274,6 +285,7 @@ export default class NewClass extends cc.Component {
     finishPhysicsResync() {
         this.restoreBeadLocals(this.physSnapshot);
         this.resyncPhysicsFromNodes();
+        this.wakeBeadPhysics();
         this.cachePhysicsLocals();
         this.isRotateSync = false;
     }
@@ -305,6 +317,28 @@ export default class NewClass extends cc.Component {
         physicsManager.gravity = cc.v2(0, -980);
     }
 
+    wakeBeadPhysics() {
+        if (!this.listBeads) return;
+        let groups = cc.game.groupList || [];
+        let hasBeadGroup = groups.indexOf("bead") >= 0;
+        for (let i = 0; i < this.listBeads.childrenCount; i++) {
+            let bead = this.listBeads.children[i];
+            if (bead === this.spoon) continue;
+            if (hasBeadGroup) {
+                bead.group = "bead";
+            }
+            let body = bead.getComponent(cc.RigidBody);
+            if (!body) continue;
+            body.enabled = true;
+            body.type = cc.RigidBodyType.Dynamic;
+            body.allowSleep = false;
+            body.gravityScale = 0.75;
+            body.linearDamping = 0.4;
+            body.angularDamping = 0.45;
+            body.awake = true;
+        }
+    }
+
     setupSpoonMix() {
         if (!this.dia && this.main2) {
             this.dia = this.main2.getChildByName("dia");
@@ -333,46 +367,13 @@ export default class NewClass extends cc.Component {
         this.spoonRestY = this.spoon.y;
         this.spoonRestAngle = this.spoon.angle;
         this.updateBeadLayers();
-        if (this.listBeads) {
-            let groups = cc.game.groupList || [];
-            let hasBeadGroup = groups.indexOf("bead") >= 0;
-            for (let i = 0; i < this.listBeads.childrenCount; i++) {
-                let bead = this.listBeads.children[i];
-                if (hasBeadGroup) {
-                    bead.group = "bead";
-                }
-                let body = bead.getComponent(cc.RigidBody);
-                if (!body) continue;
-                body.linearDamping = 1.2;
-                body.angularDamping = 1.5;
-                body.gravityScale = 0.45;
-            }
-        }
+        this.wakeBeadPhysics();
 
-        this.mixTouchListener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ALL_AT_ONCE,
-            onTouchesBegan: (touches) => {
-                this.onMixTouchStart(touches[0]);
-            },
-            onTouchesMoved: (touches) => {
-                this.onMixTouchMove(touches[0]);
-            },
-            onTouchesEnded: () => {
-                this.onMixTouchEnd();
-            },
-            onTouchesCancelled: () => {
-                this.onMixTouchEnd();
-            }
-        });
-        cc.eventManager.addListener(this.mixTouchListener, 1);
+        this.node.on(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
         this.setupMixProgress();
-    }
-
-    onDestroy() {
-        if (this.mixTouchListener) {
-            cc.eventManager.removeListener(this.mixTouchListener);
-            this.mixTouchListener = null;
-        }
     }
 
     setupMixProgress() {
@@ -606,6 +607,8 @@ export default class NewClass extends cc.Component {
         if (title) {
             title.active = false;
         }
+        let loc = event.getLocation();
+        this.lastTouchScreen = cc.v2(loc.x, loc.y);
         this.updateBeadLayers();
     }
 
@@ -630,6 +633,7 @@ export default class NewClass extends cc.Component {
     onMixTouchEnd() {
         this.isMixTouch = false;
         this.lastMixMoveTime = 0;
+        this.lastTouchScreen = null;
         this.stopXaoSound();
         if (!this.spoon) return;
         this.spoon.angle = this.spoonRestAngle;
@@ -637,20 +641,15 @@ export default class NewClass extends cc.Component {
     }
 
     getLocalDelta(event: cc.Event.EventTouch) {
-        let cur = this.getTouchInSpoonParent(event);
         let loc = event.getLocation();
-        let delta = event.getDelta();
-        let prevScreen = cc.v2(loc.x - delta.x, loc.y - delta.y);
+        let curScreen = cc.v2(loc.x, loc.y);
+        let prevScreen = this.lastTouchScreen ? this.lastTouchScreen : curScreen;
+        this.lastTouchScreen = curScreen;
+        let curWorld = this.camera.getScreenToWorldPoint(curScreen);
         let prevWorld = this.camera.getScreenToWorldPoint(prevScreen);
+        let cur = this.spoon.parent.convertToNodeSpaceAR(curWorld);
         let prevLocal = this.spoon.parent.convertToNodeSpaceAR(prevWorld);
-        let d = cc.v2(cur.x - prevLocal.x, cur.y - prevLocal.y);
-        if (Math.abs(d.x) < 0.2) {
-            d.x = delta.x * 0.5;
-        }
-        if (Math.abs(d.y) < 0.2) {
-            d.y = delta.y * 0.5;
-        }
-        return d;
+        return cc.v2(cur.x - prevLocal.x, cur.y - prevLocal.y);
     }
 
     clampSpoonInBowl(x, y) {
@@ -748,11 +747,12 @@ export default class NewClass extends cc.Component {
 
     stirBeads(vx, vy) {
         if (!this.listBeads) return;
-        let spoonInBeads = this.listBeads.convertToNodeSpaceAR(this.spoon.convertToWorldSpaceAR(cc.v2(0, 0)));
-        if (vy > 0.7) {
+        let spoonInBeads = this.getSpoonScoopPos();
+        let lifting = vy > 3.2 && vy > Math.abs(vx) * 0.9;
+        if (lifting) {
             this.catchBeadsInScoop();
         }
-        else if (vy < -1.2) {
+        else if (vy < -2.8) {
             this.dropScoopedBeads();
         }
         if (Math.abs(vx) < 0.08 && Math.abs(vy) < 0.08) return;
@@ -763,17 +763,13 @@ export default class NewClass extends cc.Component {
             let dx = bead.x - spoonInBeads.x;
             let dy = bead.y - spoonInBeads.y;
             let dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist > 200) continue;
-            let t = 1 - dist / 200;
-            bead.x += vx * (0.55 + 0.7 * t);
-            bead.y += vy * 0.35 * t + vx * 0.08 * t * (dx >= 0 ? 1 : -1);
-            bead.x = cc.misc.clampf(bead.x, -200, 200);
-            bead.y = cc.misc.clampf(bead.y, -75, 45);
+            if (dist > 150) continue;
+            let t = 1 - dist / 150;
             let body = bead.getComponent(cc.RigidBody);
             if (body) {
-                body.syncPosition(false);
-                body.linearVelocity = cc.v2(vx * 16 * t, vy * 10 * t);
-                body.angularVelocity = vx * 0.6 * t;
+                let v = body.linearVelocity;
+                body.linearVelocity = cc.v2(v.x * 0.7 + vx * 32 * t, v.y * 0.75 + vy * 20 * t);
+                body.angularVelocity = body.angularVelocity * 0.7 + vx * 1.4 * t;
                 body.awake = true;
             }
         }
@@ -835,7 +831,7 @@ export default class NewClass extends cc.Component {
             if (!this.scoopedBeadIds[bead.uuid]) continue;
             let body = bead.getComponent(cc.RigidBody);
             if (body) {
-                body.gravityScale = 0.45;
+                body.gravityScale = 0.75;
                 body.awake = true;
             }
         }
@@ -849,28 +845,35 @@ export default class NewClass extends cc.Component {
             if (bead === this.spoon) continue;
             if (this.scoopedBeadIds[bead.uuid]) continue;
             let body = bead.getComponent(cc.RigidBody);
-            let nx = bead.x / 230;
-            let ny = (bead.y + 10) / 100;
-            let len2 = nx * nx + ny * ny;
-            if (len2 > 1) {
-                let len = Math.sqrt(len2);
-                bead.x = nx / len * 228;
-                bead.y = ny / len * 98 - 10;
-                if (body) {
-                    body.syncPosition(false);
-                    let v = body.linearVelocity;
-                    body.linearVelocity = cc.v2(v.x * 0.5, Math.min(v.y, 20) * 0.4);
-                    body.awake = true;
-                }
+            if (this.clampBeadInBowl(bead) && body) {
+                body.syncPosition(false);
+                let v = body.linearVelocity;
+                body.linearVelocity = cc.v2(v.x * 0.5, Math.min(v.y, 20) * 0.4);
+                body.awake = true;
             }
             if (body) {
                 let v = body.linearVelocity;
                 let speed = v.mag();
-                if (speed > 120) {
-                    body.linearVelocity = v.mul(120 / speed);
+                if (speed > 90) {
+                    body.linearVelocity = v.mul(90 / speed);
                 }
             }
         }
+    }
+
+    clampBeadInBowl(bead) {
+        let cx = 0;
+        let cy = 32;
+        let rx = 190;
+        let ry = 98;
+        let nx = (bead.x - cx) / rx;
+        let ny = (bead.y - cy) / ry;
+        let len2 = nx * nx + ny * ny;
+        if (len2 <= 1) return false;
+        let len = Math.sqrt(len2);
+        bead.x = cx + nx / len * rx;
+        bead.y = cy + ny / len * ry;
+        return true;
     }
 
 
@@ -998,9 +1001,7 @@ export default class NewClass extends cc.Component {
         if (this.spoon && !this.isMixDone) {
             this.spoon.angle = this.spoonRestAngle;
         }
-        if (!this.isMixTouch) {
-            this.containBeads();
-        }
+        this.containBeads();
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);

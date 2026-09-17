@@ -112,6 +112,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.beadScoopState = {};
         _this.scoopedBeadIds = {};
         _this.isRotateSync = false;
+        _this.orientLockUntil = 0;
         _this.physSnapshot = null;
         _this.spoonSnapshot = null;
         _this.progressNode = null;
@@ -121,7 +122,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.mixNeedTime = 2;
         _this.isMixDone = false;
         _this.lastMixMoveTime = 0;
-        _this.mixTouchListener = null;
+        _this.lastTouchScreen = null;
         _this.idSoundXao = null;
         _this.isXao = false;
         _this.isOpenDoor = false;
@@ -137,12 +138,12 @@ var NewClass = /** @class */ (function (_super) {
         }
         cc.director.on(cc.Director.EVENT_BEFORE_UPDATE, this.beforeUpdateOrient, this);
         cc.view.on('canvas-resize', this.onCanvasResize, this);
+        this.initPhysics();
     };
     NewClass.prototype.start = function () {
         cc.audioEngine.play(this.soundBg, true, 0.3);
         this.lastPortrait = this.isPortrait();
         this.reponsive(this.lastPortrait);
-        this.initPhysics();
         this.setupSpoonMix();
         this.cachePhysicsLocals();
     };
@@ -151,6 +152,10 @@ var NewClass = /** @class */ (function (_super) {
         cc.view.off('canvas-resize', this.onCanvasResize, this);
         this.unschedule(this.flushPhysicsResync);
         this.unschedule(this.finishPhysicsResync);
+        this.node.off(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
+        this.node.off(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
+        this.node.off(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
+        this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
     };
     NewClass.prototype.isPortrait = function () {
         var size = cc.view.getFrameSize();
@@ -172,12 +177,19 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         if (portrait !== this.lastPortrait) {
+            var now = Date.now();
+            if (now < this.orientLockUntil)
+                return;
             this.lastPortrait = portrait;
+            this.orientLockUntil = now + 400;
             this.onOrientationChange(portrait);
         }
     };
     NewClass.prototype.onCanvasResize = function () {
         if (!this.listBeads)
+            return;
+        var portrait = this.isPortrait();
+        if (portrait === this.lastPortrait && !this.isRotateSync)
             return;
         this.freezePhysicsWorld();
         this.queuePhysicsResync();
@@ -242,6 +254,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.finishPhysicsResync = function () {
         this.restoreBeadLocals(this.physSnapshot);
         this.resyncPhysicsFromNodes();
+        this.wakeBeadPhysics();
         this.cachePhysicsLocals();
         this.isRotateSync = false;
     };
@@ -270,8 +283,31 @@ var NewClass = /** @class */ (function (_super) {
         physicsManager.enabled = true;
         physicsManager.gravity = cc.v2(0, -980);
     };
+    NewClass.prototype.wakeBeadPhysics = function () {
+        if (!this.listBeads)
+            return;
+        var groups = cc.game.groupList || [];
+        var hasBeadGroup = groups.indexOf("bead") >= 0;
+        for (var i = 0; i < this.listBeads.childrenCount; i++) {
+            var bead = this.listBeads.children[i];
+            if (bead === this.spoon)
+                continue;
+            if (hasBeadGroup) {
+                bead.group = "bead";
+            }
+            var body = bead.getComponent(cc.RigidBody);
+            if (!body)
+                continue;
+            body.enabled = true;
+            body.type = cc.RigidBodyType.Dynamic;
+            body.allowSleep = false;
+            body.gravityScale = 0.75;
+            body.linearDamping = 0.4;
+            body.angularDamping = 0.45;
+            body.awake = true;
+        }
+    };
     NewClass.prototype.setupSpoonMix = function () {
-        var _this = this;
         if (!this.dia && this.main2) {
             this.dia = this.main2.getChildByName("dia");
         }
@@ -298,45 +334,12 @@ var NewClass = /** @class */ (function (_super) {
         this.spoonRestY = this.spoon.y;
         this.spoonRestAngle = this.spoon.angle;
         this.updateBeadLayers();
-        if (this.listBeads) {
-            var groups = cc.game.groupList || [];
-            var hasBeadGroup = groups.indexOf("bead") >= 0;
-            for (var i = 0; i < this.listBeads.childrenCount; i++) {
-                var bead = this.listBeads.children[i];
-                if (hasBeadGroup) {
-                    bead.group = "bead";
-                }
-                var body_1 = bead.getComponent(cc.RigidBody);
-                if (!body_1)
-                    continue;
-                body_1.linearDamping = 1.2;
-                body_1.angularDamping = 1.5;
-                body_1.gravityScale = 0.45;
-            }
-        }
-        this.mixTouchListener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ALL_AT_ONCE,
-            onTouchesBegan: function (touches) {
-                _this.onMixTouchStart(touches[0]);
-            },
-            onTouchesMoved: function (touches) {
-                _this.onMixTouchMove(touches[0]);
-            },
-            onTouchesEnded: function () {
-                _this.onMixTouchEnd();
-            },
-            onTouchesCancelled: function () {
-                _this.onMixTouchEnd();
-            }
-        });
-        cc.eventManager.addListener(this.mixTouchListener, 1);
+        this.wakeBeadPhysics();
+        this.node.on(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
         this.setupMixProgress();
-    };
-    NewClass.prototype.onDestroy = function () {
-        if (this.mixTouchListener) {
-            cc.eventManager.removeListener(this.mixTouchListener);
-            this.mixTouchListener = null;
-        }
     };
     NewClass.prototype.setupMixProgress = function () {
         if (!this.dia)
@@ -571,6 +574,8 @@ var NewClass = /** @class */ (function (_super) {
         if (title) {
             title.active = false;
         }
+        var loc = event.getLocation();
+        this.lastTouchScreen = cc.v2(loc.x, loc.y);
         this.updateBeadLayers();
     };
     NewClass.prototype.onMixTouchMove = function (event) {
@@ -594,6 +599,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.onMixTouchEnd = function () {
         this.isMixTouch = false;
         this.lastMixMoveTime = 0;
+        this.lastTouchScreen = null;
         this.stopXaoSound();
         if (!this.spoon)
             return;
@@ -601,20 +607,15 @@ var NewClass = /** @class */ (function (_super) {
         this.updateBeadLayers();
     };
     NewClass.prototype.getLocalDelta = function (event) {
-        var cur = this.getTouchInSpoonParent(event);
         var loc = event.getLocation();
-        var delta = event.getDelta();
-        var prevScreen = cc.v2(loc.x - delta.x, loc.y - delta.y);
+        var curScreen = cc.v2(loc.x, loc.y);
+        var prevScreen = this.lastTouchScreen ? this.lastTouchScreen : curScreen;
+        this.lastTouchScreen = curScreen;
+        var curWorld = this.camera.getScreenToWorldPoint(curScreen);
         var prevWorld = this.camera.getScreenToWorldPoint(prevScreen);
+        var cur = this.spoon.parent.convertToNodeSpaceAR(curWorld);
         var prevLocal = this.spoon.parent.convertToNodeSpaceAR(prevWorld);
-        var d = cc.v2(cur.x - prevLocal.x, cur.y - prevLocal.y);
-        if (Math.abs(d.x) < 0.2) {
-            d.x = delta.x * 0.5;
-        }
-        if (Math.abs(d.y) < 0.2) {
-            d.y = delta.y * 0.5;
-        }
-        return d;
+        return cc.v2(cur.x - prevLocal.x, cur.y - prevLocal.y);
     };
     NewClass.prototype.clampSpoonInBowl = function (x, y) {
         var cx = 0;
@@ -711,11 +712,12 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.stirBeads = function (vx, vy) {
         if (!this.listBeads)
             return;
-        var spoonInBeads = this.listBeads.convertToNodeSpaceAR(this.spoon.convertToWorldSpaceAR(cc.v2(0, 0)));
-        if (vy > 0.7) {
+        var spoonInBeads = this.getSpoonScoopPos();
+        var lifting = vy > 3.2 && vy > Math.abs(vx) * 0.9;
+        if (lifting) {
             this.catchBeadsInScoop();
         }
-        else if (vy < -1.2) {
+        else if (vy < -2.8) {
             this.dropScoopedBeads();
         }
         if (Math.abs(vx) < 0.08 && Math.abs(vy) < 0.08)
@@ -729,18 +731,14 @@ var NewClass = /** @class */ (function (_super) {
             var dx = bead.x - spoonInBeads.x;
             var dy = bead.y - spoonInBeads.y;
             var dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist > 200)
+            if (dist > 150)
                 continue;
-            var t = 1 - dist / 200;
-            bead.x += vx * (0.55 + 0.7 * t);
-            bead.y += vy * 0.35 * t + vx * 0.08 * t * (dx >= 0 ? 1 : -1);
-            bead.x = cc.misc.clampf(bead.x, -200, 200);
-            bead.y = cc.misc.clampf(bead.y, -75, 45);
+            var t = 1 - dist / 150;
             var body = bead.getComponent(cc.RigidBody);
             if (body) {
-                body.syncPosition(false);
-                body.linearVelocity = cc.v2(vx * 16 * t, vy * 10 * t);
-                body.angularVelocity = vx * 0.6 * t;
+                var v = body.linearVelocity;
+                body.linearVelocity = cc.v2(v.x * 0.7 + vx * 32 * t, v.y * 0.75 + vy * 20 * t);
+                body.angularVelocity = body.angularVelocity * 0.7 + vx * 1.4 * t;
                 body.awake = true;
             }
         }
@@ -809,7 +807,7 @@ var NewClass = /** @class */ (function (_super) {
                 continue;
             var body = bead.getComponent(cc.RigidBody);
             if (body) {
-                body.gravityScale = 0.45;
+                body.gravityScale = 0.75;
                 body.awake = true;
             }
         }
@@ -825,28 +823,35 @@ var NewClass = /** @class */ (function (_super) {
             if (this.scoopedBeadIds[bead.uuid])
                 continue;
             var body = bead.getComponent(cc.RigidBody);
-            var nx = bead.x / 230;
-            var ny = (bead.y + 10) / 100;
-            var len2 = nx * nx + ny * ny;
-            if (len2 > 1) {
-                var len = Math.sqrt(len2);
-                bead.x = nx / len * 228;
-                bead.y = ny / len * 98 - 10;
-                if (body) {
-                    body.syncPosition(false);
-                    var v = body.linearVelocity;
-                    body.linearVelocity = cc.v2(v.x * 0.5, Math.min(v.y, 20) * 0.4);
-                    body.awake = true;
-                }
+            if (this.clampBeadInBowl(bead) && body) {
+                body.syncPosition(false);
+                var v = body.linearVelocity;
+                body.linearVelocity = cc.v2(v.x * 0.5, Math.min(v.y, 20) * 0.4);
+                body.awake = true;
             }
             if (body) {
                 var v = body.linearVelocity;
                 var speed = v.mag();
-                if (speed > 120) {
-                    body.linearVelocity = v.mul(120 / speed);
+                if (speed > 90) {
+                    body.linearVelocity = v.mul(90 / speed);
                 }
             }
         }
+    };
+    NewClass.prototype.clampBeadInBowl = function (bead) {
+        var cx = 0;
+        var cy = 32;
+        var rx = 190;
+        var ry = 98;
+        var nx = (bead.x - cx) / rx;
+        var ny = (bead.y - cy) / ry;
+        var len2 = nx * nx + ny * ny;
+        if (len2 <= 1)
+            return false;
+        var len = Math.sqrt(len2);
+        bead.x = cx + nx / len * rx;
+        bead.y = cy + ny / len * ry;
+        return true;
     };
     NewClass.prototype.flattenNodeScale = function (parent) {
         var sx = parent.scaleX;
@@ -962,9 +967,7 @@ var NewClass = /** @class */ (function (_super) {
         if (this.spoon && !this.isMixDone) {
             this.spoon.angle = this.spoonRestAngle;
         }
-        if (!this.isMixTouch) {
-            this.containBeads();
-        }
+        this.containBeads();
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);
