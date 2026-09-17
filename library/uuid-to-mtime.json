@@ -11115,13 +11115,13 @@
     "relativePath": "Bracelet2\\asset\\sound2\\audio_010.mp3"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1789603050013,
-    "meta": 1789603050025,
+    "asset": 1789604217999,
+    "meta": 1789604218008,
     "relativePath": "scenes\\Donut1.fire"
   },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1789603290170,
-    "meta": 1789603304810,
+    "asset": 1789604181985,
+    "meta": 1789604183879,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

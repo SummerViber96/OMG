@@ -111,6 +111,12 @@ var NewClass = /** @class */ (function (_super) {
         _this.listBeads = null;
         _this.beadScoopState = {};
         _this.isRotateSync = false;
+        _this.progressNode = null;
+        _this.progressFill = null;
+        _this.progressFillWidth = 0;
+        _this.mixTime = 0;
+        _this.mixNeedTime = 3;
+        _this.isMixDone = false;
         _this.isOpenDoor = false;
         _this.isClickBox = 0;
         _this.isDone = false;
@@ -245,6 +251,70 @@ var NewClass = /** @class */ (function (_super) {
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
         this.node.on(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
         this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
+        this.setupMixProgress();
+    };
+    NewClass.prototype.setupMixProgress = function () {
+        if (!this.dia)
+            return;
+        this.progressNode = this.dia.getChildByName("progres");
+        if (!this.progressNode)
+            return;
+        this.progressNode.active = false;
+        this.progressFill = this.progressNode.getChildByName("image_035");
+        if (!this.progressFill && this.progressNode.childrenCount > 0) {
+            this.progressFill = this.progressNode.children[this.progressNode.childrenCount - 1];
+        }
+        if (this.progressFill) {
+            this.progressFillWidth = this.progressFill.width;
+            var sp = this.progressFill.getComponent(cc.Sprite);
+            if (sp && sp.type === cc.Sprite.Type.SIMPLE) {
+                sp.type = cc.Sprite.Type.FILLED;
+                sp.fillType = cc.Sprite.FillType.HORIZONTAL;
+                sp.fillStart = 0;
+                sp.fillRange = 0;
+            }
+        }
+        this.setMixProgress(0);
+    };
+    NewClass.prototype.setMixProgress = function (ratio) {
+        ratio = cc.misc.clampf(ratio, 0, 1);
+        if (!this.progressFill && !this.progressNode)
+            return;
+        if (this.progressNode) {
+            var bar = this.progressNode.getComponent(cc.ProgressBar);
+            if (bar) {
+                bar.progress = ratio;
+                return;
+            }
+        }
+        if (!this.progressFill)
+            return;
+        var sp = this.progressFill.getComponent(cc.Sprite);
+        if (sp && sp.type === cc.Sprite.Type.FILLED) {
+            sp.fillRange = ratio;
+            return;
+        }
+        if (this.progressFillWidth > 0) {
+            this.progressFill.width = this.progressFillWidth * Math.max(ratio, 0.001);
+            return;
+        }
+        this.progressFill.scaleX = Math.max(ratio, 0.001);
+    };
+    NewClass.prototype.onMixComplete = function () {
+        if (this.isMixDone)
+            return;
+        this.isMixDone = true;
+        this.isMixTouch = false;
+        this.setMixProgress(1);
+        if (this.spoon) {
+            this.spoon.y = this.spoonRestY;
+            this.spoon.angle = this.spoonRestAngle;
+        }
+        this.moveThia();
+    };
+    NewClass.prototype.moveThia = function () {
+        this.spoon.children[1].active = true;
+        cc.tween(this.spoon).to(0.5, { position: cc.v3(-59, 160), angle: -10 }).start();
     };
     NewClass.prototype.getTouchInSpoonParent = function (event) {
         var screenPos = event.getLocation();
@@ -252,14 +322,19 @@ var NewClass = /** @class */ (function (_super) {
         return this.spoon.parent.convertToNodeSpaceAR(worldPos);
     };
     NewClass.prototype.onMixTouchStart = function (event) {
+        if (this.isMixDone)
+            return;
         this.isMixTouch = true;
         if (this.tut) {
             this.tut.active = false;
         }
+        if (this.progressNode) {
+            this.progressNode.active = true;
+        }
         this.updateBeadLayers();
     };
     NewClass.prototype.onMixTouchMove = function (event) {
-        if (!this.isMixTouch)
+        if (this.isMixDone || !this.isMixTouch)
             return;
         this.moveSpoonByDelta(event);
     };
@@ -505,9 +580,16 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.update = function (dt) {
         if (this.isRotateSync)
             return;
-        if (this.spoon) {
+        if (this.spoon && !this.isMixDone) {
             this.spoon.y = this.spoonRestY;
             this.spoon.angle = this.spoonRestAngle;
+        }
+        if (this.isMixTouch && !this.isMixDone) {
+            this.mixTime += dt;
+            this.setMixProgress(this.mixTime / this.mixNeedTime);
+            if (this.mixTime >= this.mixNeedTime) {
+                this.onMixComplete();
+            }
         }
         if (!this.isMixTouch) {
             this.containBeads();

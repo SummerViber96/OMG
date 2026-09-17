@@ -130,6 +130,12 @@ export default class NewClass extends cc.Component {
     listBeads: cc.Node = null
     beadScoopState = {}
     isRotateSync = false
+    progressNode: cc.Node = null
+    progressFill: cc.Node = null
+    progressFillWidth = 0
+    mixTime = 0
+    mixNeedTime = 3
+    isMixDone = false
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
@@ -260,8 +266,69 @@ export default class NewClass extends cc.Component {
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
         this.node.on(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
         this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
+        this.setupMixProgress();
     }
 
+    setupMixProgress() {
+        if (!this.dia) return;
+        this.progressNode = this.dia.getChildByName("progres");
+        if (!this.progressNode) return;
+        this.progressNode.active = false;
+        this.progressFill = this.progressNode.getChildByName("image_035");
+        if (!this.progressFill && this.progressNode.childrenCount > 0) {
+            this.progressFill = this.progressNode.children[this.progressNode.childrenCount - 1];
+        }
+        if (this.progressFill) {
+            this.progressFillWidth = this.progressFill.width;
+            let sp = this.progressFill.getComponent(cc.Sprite);
+            if (sp && sp.type === cc.Sprite.Type.SIMPLE) {
+                sp.type = cc.Sprite.Type.FILLED;
+                sp.fillType = cc.Sprite.FillType.HORIZONTAL;
+                sp.fillStart = 0;
+                sp.fillRange = 0;
+            }
+        }
+        this.setMixProgress(0);
+    }
+
+    setMixProgress(ratio) {
+        ratio = cc.misc.clampf(ratio, 0, 1);
+        if (!this.progressFill && !this.progressNode) return;
+        if (this.progressNode) {
+            let bar = this.progressNode.getComponent(cc.ProgressBar);
+            if (bar) {
+                bar.progress = ratio;
+                return;
+            }
+        }
+        if (!this.progressFill) return;
+        let sp = this.progressFill.getComponent(cc.Sprite);
+        if (sp && sp.type === cc.Sprite.Type.FILLED) {
+            sp.fillRange = ratio;
+            return;
+        }
+        if (this.progressFillWidth > 0) {
+            this.progressFill.width = this.progressFillWidth * Math.max(ratio, 0.001);
+            return;
+        }
+        this.progressFill.scaleX = Math.max(ratio, 0.001);
+    }
+
+    onMixComplete() {
+        if (this.isMixDone) return;
+        this.isMixDone = true;
+        this.isMixTouch = false;
+        this.setMixProgress(1);
+        if (this.spoon) {
+            this.spoon.y = this.spoonRestY;
+            this.spoon.angle = this.spoonRestAngle;
+        }
+        this.moveThia()
+    }
+    moveThia() {
+        this.spoon.children[1].active=true
+        cc.tween(this.spoon).to(0.5, { position:cc.v3(-59,160),angle:-10 }).start()
+    }
     getTouchInSpoonParent(event: cc.Event.EventTouch) {
         let screenPos = event.getLocation();
         let worldPos = this.camera.getScreenToWorldPoint(screenPos);
@@ -269,15 +336,19 @@ export default class NewClass extends cc.Component {
     }
 
     onMixTouchStart(event: cc.Event.EventTouch) {
+        if (this.isMixDone) return;
         this.isMixTouch = true;
         if (this.tut) {
             this.tut.active = false;
+        }
+        if (this.progressNode) {
+            this.progressNode.active = true;
         }
         this.updateBeadLayers();
     }
 
     onMixTouchMove(event: cc.Event.EventTouch) {
-        if (!this.isMixTouch) return;
+        if (this.isMixDone || !this.isMixTouch) return;
         this.moveSpoonByDelta(event);
     }
 
@@ -411,7 +482,7 @@ export default class NewClass extends cc.Component {
         }
     }
 
- 
+
 
     flattenNodeScale(parent: cc.Node) {
         let sx = parent.scaleX;
@@ -432,7 +503,7 @@ export default class NewClass extends cc.Component {
         });
     }
 
-  
+
     isOpenDoor = false
     btn_openDoor() {
         if (this.isOpenDoor == true) return;
@@ -531,9 +602,16 @@ export default class NewClass extends cc.Component {
 
     update(dt) {
         if (this.isRotateSync) return;
-        if (this.spoon) {
+        if (this.spoon && !this.isMixDone) {
             this.spoon.y = this.spoonRestY;
             this.spoon.angle = this.spoonRestAngle;
+        }
+        if (this.isMixTouch && !this.isMixDone) {
+            this.mixTime += dt;
+            this.setMixProgress(this.mixTime / this.mixNeedTime);
+            if (this.mixTime >= this.mixNeedTime) {
+                this.onMixComplete();
+            }
         }
         if (!this.isMixTouch) {
             this.containBeads();
@@ -582,7 +660,7 @@ export default class NewClass extends cc.Component {
             const width = frameSize.width;
             const height = frameSize.height;
             this.camera.zoomRatio = 0.37
-        this.camera.node.position = cc.v3(0, -140)
+            this.camera.node.position = cc.v3(0, -140)
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
