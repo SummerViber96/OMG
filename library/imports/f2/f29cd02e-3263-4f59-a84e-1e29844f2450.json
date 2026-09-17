@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "button_claim",
+    "texture": "67766a71-fbc1-4d8e-944f-c24bf2c9f8f5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      403,
+      184
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      403,
+      184
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

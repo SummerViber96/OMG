@@ -164,12 +164,12 @@ export default class NewClass extends cc.Component {
         if (this.isClickBox == 1) {
             this.btnDone.active = true
         }
-        if (this.isClickBox == 5) {
-            this.scheduleOnce(() => {
-                this.btn_done()
+        // if (this.isClickBox == 5) {
+        //     this.scheduleOnce(() => {
+        //         this.btn_done()
 
-            }, 0.5)
-        }
+        //     }, 0.5)
+        // }
 
     }
     isDone = false
@@ -218,10 +218,14 @@ export default class NewClass extends cc.Component {
             cc.tween(box).bezierTo(0.7, startPos, midPos, endPos).call(() => {
 
             }).start()
-            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.25 }).start()
+            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1 }).start()
         }, 0.4)
-        if (this.isCountNoti == this.countItem-1) {
-            this.linkToStore.active = true
+        if (this.isCountNoti == this.countItem) {
+            // this.linkToStore.active = true
+            this.scheduleOnce(()=>{
+            this.onEndGame(true)
+
+            },1)
         }
 
     }
@@ -261,7 +265,7 @@ export default class NewClass extends cc.Component {
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = cc.v3(0, 0)
         this.listNoti.scale = (logic) ? 1.2 : 0.7
-
+this.endCard.scale=(logic)?1.1:0.45
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;

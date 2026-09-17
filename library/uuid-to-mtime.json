@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1786978825092,
-    "meta": 1789623318056,
+    "meta": 1789626146315,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1786978826318,
-    "meta": 1789623318306,
+    "meta": 1789626146314,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -9970,8 +9970,8 @@
     "relativePath": "Bracelet2\\prefab\\itemBox"
   },
   "4ddbe91b-c14e-4f0a-b88c-0e5384ed9187": {
-    "asset": 1789624177720,
-    "meta": 1789624177742,
+    "asset": 1789627292562,
+    "meta": 1789627292571,
     "relativePath": "Bracelet2\\prefab\\itemBox\\box1.prefab"
   },
   "4af30090-d724-4c92-b623-427505b82e8d": {
@@ -10005,8 +10005,8 @@
     "relativePath": "Bracelet2\\anim\\btn_scale.anim"
   },
   "c3fd7c1b-26ce-4703-9354-c028845374b9": {
-    "asset": 1789623263759,
-    "meta": 1789623303131,
+    "asset": 1789627290628,
+    "meta": 1789627290636,
     "relativePath": "Bracelet2\\anim\\box_cut.anim"
   },
   "37dd892a-de13-43b5-a9e9-461198917800": {
@@ -10714,14 +10714,34 @@
     "meta": 1789623682436,
     "relativePath": "Bracelet2\\script\\boxitem.ts"
   },
-  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1789624202430,
-    "meta": 1789624203655,
-    "relativePath": "scripts\\APP\\GameDonut.ts"
-  },
   "b3605e58-7744-4072-80d4-3e774d384095": {
-    "asset": 1789624206633,
-    "meta": 1789624232151,
+    "asset": 1789627321864,
+    "meta": 1789627321875,
     "relativePath": "scenes\\Donut2.fire"
+  },
+  "3fd63e11-0331-47f8-a3a1-d6b93e9644cd": {
+    "asset": 1789626470502,
+    "meta": 1789626470526,
+    "relativePath": "Bracelet2\\logo (4).png"
+  },
+  "67766a71-fbc1-4d8e-944f-c24bf2c9f8f5": {
+    "asset": 1789626569601,
+    "meta": 1789626569619,
+    "relativePath": "Bracelet2\\button_claim.png"
+  },
+  "933200c0-4c5b-4fd7-b6f8-0eb6a251318d": {
+    "asset": 1789626885042,
+    "meta": 1789626885052,
+    "relativePath": "Bracelet2\\anim\\btn_idle.anim"
+  },
+  "da0ff3c9-08ce-44cc-bda6-d049718bd3e5": {
+    "asset": 1789626981001,
+    "meta": 1789626981008,
+    "relativePath": "Bracelet2\\anim\\endCard_show.anim"
+  },
+  "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
+    "asset": 1789627318304,
+    "meta": 1789627319805,
+    "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

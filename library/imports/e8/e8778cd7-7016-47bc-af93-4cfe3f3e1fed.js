@@ -136,7 +136,6 @@ var NewClass = /** @class */ (function (_super) {
         }, 0.3);
     };
     NewClass.prototype.clickItem = function (boxValue, tag) {
-        var _this = this;
         if (this.isClickBox >= 5)
             return;
         cc.audioEngine.play(this.soundClick, false, 1);
@@ -151,11 +150,11 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isClickBox == 1) {
             this.btnDone.active = true;
         }
-        if (this.isClickBox == 5) {
-            this.scheduleOnce(function () {
-                _this.btn_done();
-            }, 0.5);
-        }
+        // if (this.isClickBox == 5) {
+        //     this.scheduleOnce(() => {
+        //         this.btn_done()
+        //     }, 0.5)
+        // }
     };
     NewClass.prototype.btn_done = function () {
         if (this.isDone == true)
@@ -198,10 +197,13 @@ var NewClass = /** @class */ (function (_super) {
             box.position = pos;
             cc.tween(box).bezierTo(0.7, startPos, midPos, endPos).call(function () {
             }).start();
-            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.25 }).start();
+            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1 }).start();
         }, 0.4);
-        if (this.isCountNoti == this.countItem - 1) {
-            this.linkToStore.active = true;
+        if (this.isCountNoti == this.countItem) {
+            // this.linkToStore.active = true
+            this.scheduleOnce(function () {
+                _this.onEndGame(true);
+            }, 1);
         }
     };
     NewClass.prototype.onEndGame = function (value) {
@@ -235,6 +237,7 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, 0);
         this.listNoti.scale = (logic) ? 1.2 : 0.7;
+        this.endCard.scale = (logic) ? 1.1 : 0.45;
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
