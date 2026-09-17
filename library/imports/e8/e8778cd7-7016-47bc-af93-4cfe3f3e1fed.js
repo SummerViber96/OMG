@@ -110,6 +110,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.spoonRestAngle = 0;
         _this.listBeads = null;
         _this.beadScoopState = {};
+        _this.isRotateSync = false;
         _this.isOpenDoor = false;
         _this.isClickBox = 0;
         _this.isDone = false;
@@ -133,12 +134,70 @@ var NewClass = /** @class */ (function (_super) {
         var size = cc.view.getFrameSize();
         return size.width < size.height;
     };
+    NewClass.prototype.snapshotBeadLocals = function () {
+        var arr = [];
+        if (!this.listBeads)
+            return arr;
+        for (var i = 0; i < this.listBeads.childrenCount; i++) {
+            var bead = this.listBeads.children[i];
+            if (bead === this.spoon)
+                continue;
+            arr.push({ node: bead, x: bead.x, y: bead.y, angle: bead.angle });
+        }
+        return arr;
+    };
+    NewClass.prototype.restoreBeadLocals = function (arr) {
+        if (!arr)
+            return;
+        for (var i = 0; i < arr.length; i++) {
+            var item = arr[i];
+            if (!item.node || !item.node.isValid)
+                continue;
+            item.node.setPosition(item.x, item.y);
+            item.node.angle = item.angle;
+        }
+        if (this.spoon) {
+            this.spoon.y = this.spoonRestY;
+            this.spoon.angle = this.spoonRestAngle;
+        }
+    };
+    NewClass.prototype.resyncPhysicsFromNodes = function () {
+        var bodies = this.node.getComponentsInChildren(cc.RigidBody);
+        for (var i = 0; i < bodies.length; i++) {
+            var body = bodies[i];
+            if (!body.enabled || body.node === this.spoon)
+                continue;
+            body.syncPosition(false);
+            body.syncRotation(false);
+            body.linearVelocity = cc.v2(0, 0);
+            body.angularVelocity = 0;
+            body.awake = true;
+        }
+    };
+    NewClass.prototype.onOrientationChange = function (portrait) {
+        var _this = this;
+        this.isRotateSync = true;
+        var pm = cc.director.getPhysicsManager();
+        pm.enabled = false;
+        var snapshot = this.snapshotBeadLocals();
+        var spoonX = this.spoon ? this.spoon.x : 0;
+        this.reponsive(portrait);
+        this.scheduleOnce(function () {
+            _this.restoreBeadLocals(snapshot);
+            if (_this.spoon) {
+                _this.spoon.x = cc.misc.clampf(spoonX, _this.spoonMinX, _this.spoonMaxX);
+                _this.spoon.y = _this.spoonRestY;
+            }
+            pm.enabled = true;
+            pm.gravity = cc.v2(0, -980);
+            _this.resyncPhysicsFromNodes();
+            _this.isRotateSync = false;
+        }, 0);
+    };
     NewClass.prototype.initPhysics = function () {
         var physicsManager = cc.director.getPhysicsManager();
         physicsManager.enabled = true;
         physicsManager.gravity = cc.v2(0, -980);
-        var Bits = cc.PhysicsManager.DrawBits;
-        // physicsManager.debugDrawFlags = Bits.e_aabbBit | Bits.e_pairBit | Bits.e_centerOfMassBit | Bits.e_jointBit | Bits.e_shapeBit;
     };
     NewClass.prototype.setupSpoonMix = function () {
         if (!this.dia && this.main2) {
@@ -444,6 +503,8 @@ var NewClass = /** @class */ (function (_super) {
     };
     // btn_choose(event, value) {
     NewClass.prototype.update = function (dt) {
+        if (this.isRotateSync)
+            return;
         if (this.spoon) {
             this.spoon.y = this.spoonRestY;
             this.spoon.angle = this.spoonRestAngle;
@@ -455,7 +516,7 @@ var NewClass = /** @class */ (function (_super) {
         if (portrait === this.lastPortrait)
             return;
         this.lastPortrait = portrait;
-        this.reponsive(portrait);
+        this.onOrientationChange(portrait);
     };
     NewClass.prototype.reponsive = function (logic) {
         var canvas = this.node.getComponent(cc.Canvas);

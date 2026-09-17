@@ -129,6 +129,7 @@ export default class NewClass extends cc.Component {
     spoonRestAngle = 0
     listBeads: cc.Node = null
     beadScoopState = {}
+    isRotateSync = false
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
@@ -148,12 +149,68 @@ export default class NewClass extends cc.Component {
         return size.width < size.height;
     }
 
+    snapshotBeadLocals() {
+        let arr = [];
+        if (!this.listBeads) return arr;
+        for (let i = 0; i < this.listBeads.childrenCount; i++) {
+            let bead = this.listBeads.children[i];
+            if (bead === this.spoon) continue;
+            arr.push({ node: bead, x: bead.x, y: bead.y, angle: bead.angle });
+        }
+        return arr;
+    }
+
+    restoreBeadLocals(arr) {
+        if (!arr) return;
+        for (let i = 0; i < arr.length; i++) {
+            let item = arr[i];
+            if (!item.node || !item.node.isValid) continue;
+            item.node.setPosition(item.x, item.y);
+            item.node.angle = item.angle;
+        }
+        if (this.spoon) {
+            this.spoon.y = this.spoonRestY;
+            this.spoon.angle = this.spoonRestAngle;
+        }
+    }
+
+    resyncPhysicsFromNodes() {
+        let bodies = this.node.getComponentsInChildren(cc.RigidBody);
+        for (let i = 0; i < bodies.length; i++) {
+            let body = bodies[i];
+            if (!body.enabled || body.node === this.spoon) continue;
+            body.syncPosition(false);
+            body.syncRotation(false);
+            body.linearVelocity = cc.v2(0, 0);
+            body.angularVelocity = 0;
+            body.awake = true;
+        }
+    }
+
+    onOrientationChange(portrait) {
+        this.isRotateSync = true;
+        let pm = cc.director.getPhysicsManager();
+        pm.enabled = false;
+        let snapshot = this.snapshotBeadLocals();
+        let spoonX = this.spoon ? this.spoon.x : 0;
+        this.reponsive(portrait);
+        this.scheduleOnce(() => {
+            this.restoreBeadLocals(snapshot);
+            if (this.spoon) {
+                this.spoon.x = cc.misc.clampf(spoonX, this.spoonMinX, this.spoonMaxX);
+                this.spoon.y = this.spoonRestY;
+            }
+            pm.enabled = true;
+            pm.gravity = cc.v2(0, -980);
+            this.resyncPhysicsFromNodes();
+            this.isRotateSync = false;
+        }, 0);
+    }
+
     initPhysics() {
         let physicsManager = cc.director.getPhysicsManager();
         physicsManager.enabled = true;
         physicsManager.gravity = cc.v2(0, -980);
-        let Bits = cc.PhysicsManager.DrawBits;
-        // physicsManager.debugDrawFlags = Bits.e_aabbBit | Bits.e_pairBit | Bits.e_centerOfMassBit | Bits.e_jointBit | Bits.e_shapeBit;
     }
 
     setupSpoonMix() {
@@ -473,6 +530,7 @@ export default class NewClass extends cc.Component {
     // btn_choose(event, value) {
 
     update(dt) {
+        if (this.isRotateSync) return;
         if (this.spoon) {
             this.spoon.y = this.spoonRestY;
             this.spoon.angle = this.spoonRestAngle;
@@ -483,7 +541,7 @@ export default class NewClass extends cc.Component {
         let portrait = this.isPortrait();
         if (portrait === this.lastPortrait) return;
         this.lastPortrait = portrait;
-        this.reponsive(portrait);
+        this.onOrientationChange(portrait);
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
