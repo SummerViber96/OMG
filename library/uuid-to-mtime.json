@@ -10684,11 +10684,6 @@
     "meta": 1789623299405,
     "relativePath": "model\\primitives.fbx"
   },
-  "b3605e58-7744-4072-80d4-3e774d384095": {
-    "asset": 1789624206633,
-    "meta": 1789624206651,
-    "relativePath": "scenes\\Donut2.fire"
-  },
   "31b7e39c-c453-4b1f-aabc-5942a97ccd28": {
     "asset": 1776965529993,
     "meta": 1789623302036,
@@ -10723,5 +10718,10 @@
     "asset": 1789624202430,
     "meta": 1789624203655,
     "relativePath": "scripts\\APP\\GameDonut.ts"
+  },
+  "b3605e58-7744-4072-80d4-3e774d384095": {
+    "asset": 1789624206633,
+    "meta": 1789624232151,
+    "relativePath": "scenes\\Donut2.fire"
   }
 }
