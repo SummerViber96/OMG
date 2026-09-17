@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Char Lily_icon",
+    "texture": "79eae1d4-8250-4e5d-a4da-df9cc9817cea",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      878,
+      941
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      878,
+      941
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

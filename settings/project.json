@@ -1,7 +1,8 @@
 {
   "group-list": [
     "default",
-    "ui"
+    "ui",
+    "bead"
   ],
   "collision-matrix": [
     [
@@ -10,10 +11,14 @@
     [
       false,
       false
+    ],
+    [
+      true,
+      false,
+      false
     ]
   ],
   "excluded-modules": [
-    "Collider",
     "Dynamic Atlas",
     "DragonBones",
     "EditBox",
@@ -25,7 +30,6 @@
     "MotionStreak",
     "NodePool",
     "Native Socket",
-    "Physics",
     "PageView",
     "PageViewIndicator",
     "ParticleSystem",

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Char MIRA",
+    "texture": "c62bba55-fa96-4aca-96f1-d4a13bce4239",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      643,
+      879
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      643,
+      879
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -93,6 +93,10 @@ export default class NewClass extends cc.Component {
     ro: cc.Node = null
     @property(cc.Node)
     listNoti: cc.Node = null;
+    @property(cc.Node)
+    spoon: cc.Node = null;
+    @property(cc.Node)
+    dia: cc.Node = null;
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -115,18 +119,263 @@ export default class NewClass extends cc.Component {
     adChanel = '{{__adv_channels_adapter__}}'
     countCus = 0
     idSound = null
+    lastPortrait = null
+    isMixTouch = false
+    spoonMinX = -80
+    spoonMaxX = 80
+    spoonMinY = -40
+    spoonMaxY = -5
+    spoonRestY = -23
+    spoonRestAngle = 0
+    listBeads: cc.Node = null
+    beadScoopState = {}
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
         }
+        this.initPhysics();
     }
 
     protected start(): void {
         cc.audioEngine.play(this.soundBg, true, 0.3)
-        this.scheduleOnce(() => {
-            this.btn_openDoor()
-        }, 2)
+        this.lastPortrait = this.isPortrait();
+        this.reponsive(this.lastPortrait);
+        this.setupSpoonMix();
     }
+
+    isPortrait() {
+        let size = cc.view.getFrameSize();
+        return size.width < size.height;
+    }
+
+    initPhysics() {
+        let physicsManager = cc.director.getPhysicsManager();
+        physicsManager.enabled = true;
+        physicsManager.gravity = cc.v2(0, -980);
+        let Bits = cc.PhysicsManager.DrawBits;
+        // physicsManager.debugDrawFlags = Bits.e_aabbBit | Bits.e_pairBit | Bits.e_centerOfMassBit | Bits.e_jointBit | Bits.e_shapeBit;
+    }
+
+    setupSpoonMix() {
+        if (!this.dia && this.main2) {
+            this.dia = this.main2.getChildByName("dia");
+        }
+        if (!this.spoon && this.dia) {
+            this.spoon = this.dia.getChildByName("image_029");
+        }
+        if (!this.spoon) return;
+
+        let body = this.spoon.getComponent(cc.RigidBody);
+        if (body) {
+            body.enabled = false;
+        }
+        let col = this.spoon.getComponent(cc.PhysicsBoxCollider);
+        if (col) {
+            col.enabled = false;
+        }
+
+        this.listBeads = this.dia.getChildByName("listItem");
+        if (this.listBeads && this.spoon.parent !== this.listBeads) {
+            let world = this.spoon.convertToWorldSpaceAR(cc.v2(0, 0));
+            this.spoon.parent = this.listBeads;
+            this.spoon.setPosition(this.listBeads.convertToNodeSpaceAR(world));
+        }
+        this.spoonRestY = this.spoon.y;
+        this.spoonRestAngle = this.spoon.angle;
+        this.updateBeadLayers();
+        if (this.listBeads) {
+            let groups = cc.game.groupList || [];
+            let hasBeadGroup = groups.indexOf("bead") >= 0;
+            for (let i = 0; i < this.listBeads.childrenCount; i++) {
+                let bead = this.listBeads.children[i];
+                if (hasBeadGroup) {
+                    bead.group = "bead";
+                }
+                let body = bead.getComponent(cc.RigidBody);
+                if (!body) continue;
+                body.linearDamping = 1.2;
+                body.angularDamping = 1.5;
+                body.gravityScale = 0.45;
+            }
+        }
+
+        this.node.on(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
+    }
+
+    getTouchInSpoonParent(event: cc.Event.EventTouch) {
+        let screenPos = event.getLocation();
+        let worldPos = this.camera.getScreenToWorldPoint(screenPos);
+        return this.spoon.parent.convertToNodeSpaceAR(worldPos);
+    }
+
+    onMixTouchStart(event: cc.Event.EventTouch) {
+        this.isMixTouch = true;
+        if (this.tut) {
+            this.tut.active = false;
+        }
+        this.updateBeadLayers();
+    }
+
+    onMixTouchMove(event: cc.Event.EventTouch) {
+        if (!this.isMixTouch) return;
+        this.moveSpoonByDelta(event);
+    }
+
+    onMixTouchEnd() {
+        this.isMixTouch = false;
+        if (!this.spoon) return;
+        this.spoon.y = this.spoonRestY;
+        this.spoon.angle = this.spoonRestAngle;
+        this.updateBeadLayers();
+    }
+
+    getLocalDelta(event: cc.Event.EventTouch) {
+        let cur = this.getTouchInSpoonParent(event);
+        let loc = event.getLocation();
+        let delta = event.getDelta();
+        let prevScreen = cc.v2(loc.x - delta.x, loc.y - delta.y);
+        let prevWorld = this.camera.getScreenToWorldPoint(prevScreen);
+        let prevLocal = this.spoon.parent.convertToNodeSpaceAR(prevWorld);
+        let d = cc.v2(cur.x - prevLocal.x, cur.y - prevLocal.y);
+        if (Math.abs(d.x) < 0.2) {
+            d.x = delta.x * 0.5;
+        }
+        return d;
+    }
+
+    moveSpoonByDelta(event: cc.Event.EventTouch) {
+        if (!this.spoon) return;
+        let d = this.getLocalDelta(event);
+        let x = cc.misc.clampf(this.spoon.x + d.x, this.spoonMinX, this.spoonMaxX);
+        this.spoon.setPosition(x, this.spoonRestY);
+        this.spoon.angle = this.spoonRestAngle;
+        this.stirBeads(d.x);
+        this.updateBeadLayers();
+    }
+
+    updateBeadLayers() {
+        if (!this.listBeads || !this.spoon) return;
+        if (this.spoon.parent !== this.listBeads) {
+            let world = this.spoon.convertToWorldSpaceAR(cc.v2(0, 0));
+            this.spoon.parent = this.listBeads;
+            this.spoon.setPosition(this.listBeads.convertToNodeSpaceAR(world));
+            this.spoonRestY = this.spoon.y;
+        }
+        let scoopWorld = this.spoon.convertToWorldSpaceAR(cc.v2(0, -25));
+        let scoop = cc.v2(scoopWorld.x, scoopWorld.y);
+        let behind = [];
+        let front = [];
+        for (let i = 0; i < this.listBeads.childrenCount; i++) {
+            let bead = this.listBeads.children[i];
+            if (bead === this.spoon) continue;
+            let p = bead.convertToWorldSpaceAR(cc.v2(0, 0));
+            let dist = cc.v2(p.x, p.y).sub(scoop).mag();
+            let id = bead.uuid;
+            let scooped = this.beadScoopState[id] === true;
+            if (!scooped && dist < 240) {
+                scooped = true;
+            }
+            else if (scooped && dist > 380) {
+                scooped = false;
+            }
+            this.beadScoopState[id] = scooped;
+            if (scooped) {
+                front.push(bead);
+            }
+            else {
+                behind.push(bead);
+            }
+        }
+        let idx = 0;
+        for (let i = 0; i < behind.length; i++) {
+            behind[i].setSiblingIndex(idx++);
+        }
+        this.spoon.setSiblingIndex(idx++);
+        for (let i = 0; i < front.length; i++) {
+            front[i].setSiblingIndex(idx++);
+        }
+    }
+
+    stirBeads(vx) {
+        if (!this.listBeads || Math.abs(vx) < 0.08) return;
+        let spoonInBeads = this.listBeads.convertToNodeSpaceAR(this.spoon.convertToWorldSpaceAR(cc.v2(0, 0)));
+        for (let i = 0; i < this.listBeads.childrenCount; i++) {
+            let bead = this.listBeads.children[i];
+            if (bead === this.spoon) continue;
+            let dx = bead.x - spoonInBeads.x;
+            let dy = bead.y - spoonInBeads.y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist > 200) continue;
+            let t = 1 - dist / 200;
+            bead.x += vx * (0.55 + 0.7 * t);
+            bead.y += vx * 0.08 * t * (dx >= 0 ? 1 : -1);
+            bead.x = cc.misc.clampf(bead.x, -200, 200);
+            bead.y = cc.misc.clampf(bead.y, -75, 45);
+            let body = bead.getComponent(cc.RigidBody);
+            if (body) {
+                body.syncPosition(false);
+                body.linearVelocity = cc.v2(vx * 16 * t, 0);
+                body.angularVelocity = vx * 0.6 * t;
+                body.awake = true;
+            }
+        }
+    }
+
+    containBeads() {
+        if (!this.listBeads) return;
+        for (let i = 0; i < this.listBeads.childrenCount; i++) {
+            let bead = this.listBeads.children[i];
+            if (bead === this.spoon) continue;
+            let body = bead.getComponent(cc.RigidBody);
+            let nx = bead.x / 230;
+            let ny = (bead.y + 10) / 100;
+            let len2 = nx * nx + ny * ny;
+            if (len2 > 1) {
+                let len = Math.sqrt(len2);
+                bead.x = nx / len * 228;
+                bead.y = ny / len * 98 - 10;
+                if (body) {
+                    body.syncPosition(false);
+                    let v = body.linearVelocity;
+                    body.linearVelocity = cc.v2(v.x * 0.5, Math.min(v.y, 20) * 0.4);
+                    body.awake = true;
+                }
+            }
+            if (body) {
+                let v = body.linearVelocity;
+                let speed = v.mag();
+                if (speed > 120) {
+                    body.linearVelocity = v.mul(120 / speed);
+                }
+            }
+        }
+    }
+
+ 
+
+    flattenNodeScale(parent: cc.Node) {
+        let sx = parent.scaleX;
+        let sy = parent.scaleY;
+        if (sx === 1 && sy === 1) return;
+        let snapshot = parent.children.map((child) => {
+            return {
+                node: child,
+                worldPos: child.convertToWorldSpaceAR(cc.v2(0, 0)),
+                scaleX: child.scaleX * sx,
+                scaleY: child.scaleY * sy,
+            };
+        });
+        parent.setScale(1, 1);
+        snapshot.forEach((item) => {
+            item.node.setScale(item.scaleX, item.scaleY);
+            item.node.setPosition(parent.convertToNodeSpaceAR(item.worldPos));
+        });
+    }
+
+  
     isOpenDoor = false
     btn_openDoor() {
         if (this.isOpenDoor == true) return;
@@ -135,7 +384,7 @@ export default class NewClass extends cc.Component {
         this.cua.getComponent(cc.Animation).play()
         this.door.getChildByName("text").active = false
         this.scheduleOnce(() => {
-            this.cua.getComponent(cc.Button).enabled=false
+            this.cua.getComponent(cc.Button).enabled = false
         }, 0.3)
     }
     isClickBox = 0
@@ -161,7 +410,7 @@ export default class NewClass extends cc.Component {
 
     }
     isDone = false
-    countItem=0
+    countItem = 0
     btn_done() {
         if (this.isDone == true) return;
         this.isDone = true
@@ -169,7 +418,7 @@ export default class NewClass extends cc.Component {
         this.main2.active = true;
         let arrPos = [cc.v3(0, 36), cc.v3(-158, 123), cc.v3(187, 128), cc.v3(211, -59), cc.v3(-203, -40)]
         let count = 0
-        this.countItem=this.listItem2.childrenCount
+        this.countItem = this.listItem2.childrenCount
         for (let i = this.listItem2.childrenCount - 1; i >= 0; i--) {
             let child = this.listItem2.children[i];
             child.parent = this.listBox
@@ -201,8 +450,8 @@ export default class NewClass extends cc.Component {
             }).start()
             cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.4 }).start()
         }, 0.4)
-        if(this.isCountNoti==this.countItem){
-            this.linkToStore.active=true
+        if (this.isCountNoti == this.countItem) {
+            this.linkToStore.active = true
         }
 
     }
@@ -224,14 +473,17 @@ export default class NewClass extends cc.Component {
     // btn_choose(event, value) {
 
     update(dt) {
-        // this.lbCoin.string = globalThis.gold.toString()
-        let deviceResolution = cc.view.getFrameSize();
-        if (deviceResolution.width < deviceResolution.height) {
-            this.reponsive(true);
+        if (this.spoon) {
+            this.spoon.y = this.spoonRestY;
+            this.spoon.angle = this.spoonRestAngle;
         }
-        else {
-            this.reponsive(false);
+        if (!this.isMixTouch) {
+            this.containBeads();
         }
+        let portrait = this.isPortrait();
+        if (portrait === this.lastPortrait) return;
+        this.lastPortrait = portrait;
+        this.reponsive(portrait);
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
@@ -241,7 +493,7 @@ export default class NewClass extends cc.Component {
         canvas.fitHeight = (logic) ? false : true
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = cc.v3(0, 0)
-this.listNoti.scale=(logic)?1.1:0.7
+        this.listNoti.scale = (logic) ? 1.1 : 0.7
 
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
@@ -262,8 +514,8 @@ this.listNoti.scale=(logic)?1.1:0.7
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.73
-                this.camera.node.position = cc.v3(0, 80)
+                this.camera.zoomRatio = 0.8
+                this.camera.node.position = cc.v3(0, -40)
 
             }
         }
@@ -272,6 +524,7 @@ this.listNoti.scale=(logic)?1.1:0.7
             const width = frameSize.width;
             const height = frameSize.height;
             this.camera.zoomRatio = 0.37
+        this.camera.node.position = cc.v3(0, -140)
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
@@ -286,7 +539,7 @@ this.listNoti.scale=(logic)?1.1:0.7
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
                 this.camera.zoomRatio = 0.36
-                this.camera.node.position = cc.v3(0, -20)
+                this.camera.node.position = cc.v3(0, -140)
 
             }
         }
