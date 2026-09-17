@@ -1015,16 +1015,24 @@ var NewClass = /** @class */ (function (_super) {
         // }, 0.4)
         this.isCountNoti++;
         this.scheduleOnce(function () {
-            var midPos = cc.v2(-50, 100);
-            var endPos = cc.v2(0, -30);
-            var pos = box.parent.convertToWorldSpaceAR(box.position);
-            pos = _this.ro.convertToNodeSpaceAR(pos);
-            var startPos = cc.v2(pos.x, pos.y);
-            box.parent = _this.ro;
-            box.position = pos;
-            cc.tween(box).bezierTo(0.7, startPos, midPos, endPos).call(function () {
+            var midLocal = cc.v2(-200, 150);
+            var endLocal = cc.v2(0, -30);
+            var flyParent = _this.node;
+            var startWorld = box.parent.convertToWorldSpaceAR(box.position);
+            var midWorld = _this.ro.convertToWorldSpaceAR(cc.v3(midLocal.x, midLocal.y));
+            var endWorld = _this.ro.convertToWorldSpaceAR(cc.v3(endLocal.x, endLocal.y));
+            box.parent = flyParent;
+            box.zIndex = 999;
+            box.setSiblingIndex(flyParent.childrenCount - 1);
+            var startPos = flyParent.convertToNodeSpaceAR(startWorld);
+            var midPos = flyParent.convertToNodeSpaceAR(midWorld);
+            var endPos = flyParent.convertToNodeSpaceAR(endWorld);
+            box.position = startPos;
+            cc.tween(box).bezierTo(0.7, cc.v2(startPos.x, startPos.y), cc.v2(midPos.x, midPos.y), cc.v2(endPos.x, endPos.y)).call(function () {
+                box.parent = _this.ro;
+                box.position = cc.v3(endLocal.x, endLocal.y);
             }).start();
-            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.4 }).start();
+            cc.tween(box).delay(0.4).to(0.3, { scale: 1.3 }).to(0.08, { scale: 1.2 }).start();
         }, 0.4);
         if (this.isCountNoti == 4) {
             this.linkToStore.active = true;

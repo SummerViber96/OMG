@@ -1036,18 +1036,27 @@ export default class NewClass extends cc.Component {
         // }, 0.4)
         this.isCountNoti++
         this.scheduleOnce(() => {
-            let midPos = cc.v2(-50, 100);
-            let endPos = cc.v2(0, -30);
-            let pos = box.parent.convertToWorldSpaceAR(box.position);
-            pos = this.ro.convertToNodeSpaceAR(pos);
-            let startPos = cc.v2(pos.x, pos.y)
-            box.parent = this.ro;
-            box.position = pos;
+            let midLocal = cc.v2(-200, 150);
+            let endLocal = cc.v2(0, -30);
+            let flyParent = this.node;
+            let startWorld = box.parent.convertToWorldSpaceAR(box.position);
+            let midWorld = this.ro.convertToWorldSpaceAR(cc.v3(midLocal.x, midLocal.y));
+            let endWorld = this.ro.convertToWorldSpaceAR(cc.v3(endLocal.x, endLocal.y));
 
-            cc.tween(box).bezierTo(0.7, startPos, midPos, endPos).call(() => {
+            box.parent = flyParent;
+            box.zIndex = 999;
+            box.setSiblingIndex(flyParent.childrenCount - 1);
 
+            let startPos = flyParent.convertToNodeSpaceAR(startWorld);
+            let midPos = flyParent.convertToNodeSpaceAR(midWorld);
+            let endPos = flyParent.convertToNodeSpaceAR(endWorld);
+            box.position = startPos;
+
+            cc.tween(box).bezierTo(0.7, cc.v2(startPos.x, startPos.y), cc.v2(midPos.x, midPos.y), cc.v2(endPos.x, endPos.y)).call(() => {
+                box.parent = this.ro;
+                box.position = cc.v3(endLocal.x, endLocal.y);
             }).start()
-            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.4 }).start()
+            cc.tween(box).delay(0.4).to(0.3, { scale: 1.3 }).to(0.08, { scale: 1.2 }).start()
         }, 0.4)
         if (this.isCountNoti == 4) {
             this.linkToStore.active = true
