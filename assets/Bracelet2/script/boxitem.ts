@@ -23,9 +23,13 @@ export default class NewClass extends cc.Component {
         this.node.getChildByName("vong").children[0].scale=0
         this.node.getChildByName("vong").active=true
         this.gamePlay.moveToVong(this.node)
+        
     }
     btn_cut(){
-        cc.tween(this.node).to(0.4,{position:cc.v3(0,1114)}).call(()=>{
+        this.gamePlay.hand2.active=false
+        cc.audioEngine.play(this.gamePlay.soundClick,false,1)
+        this.node.getComponent(cc.Button).enabled=false
+        cc.tween(this.node).to(0.4,{position:cc.v3(0,1114),angle:0}).call(()=>{
         this.node.getComponent(cc.Animation).play("box_cut")
 
         }).start()

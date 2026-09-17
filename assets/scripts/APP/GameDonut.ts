@@ -32,8 +32,16 @@ export default class NewClass extends cc.Component {
     @property(cc.AudioClip)
     soundEnd: cc.AudioClip = null;
     @property(cc.AudioClip)
+    soundXao: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundMixDone: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    soundShowStar: cc.AudioClip = null;
+    @property(cc.AudioClip)
     soundSellDone
         : cc.AudioClip = null;
+    @property([cc.AudioClip])
+    listSoundNoti: cc.AudioClip[] = [];
     @property(cc.Node)
     tut: cc.Node = null
     @property(cc.Node)
@@ -48,6 +56,7 @@ export default class NewClass extends cc.Component {
     logo: cc.Node = null;
     @property(cc.Node)
     listCus: cc.Node = null;
+
 
     // @property(cc.Node)
     // listHand: cc.Node = null;
@@ -98,13 +107,17 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     dia: cc.Node = null;
     @property(cc.Node)
-    shadow:cc.Node=null
+    shadow: cc.Node = null
     @property(cc.Node)
-    listStar:cc.Node=null
+    listStar: cc.Node = null
     @property(cc.Node)
-    showItem:cc.Node=null
+    showItem: cc.Node = null
     @property(cc.Node)
-    gio:cc.Node=null
+    gio: cc.Node = null
+    @property(cc.Node)
+    khay: cc.Node = null
+    @property(cc.Node)
+    hand2: cc.Node = null
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -146,6 +159,7 @@ export default class NewClass extends cc.Component {
     isMixDone = false
     lastMixMoveTime = 0
     mixTouchListener = null
+    idSoundXao = null
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
@@ -347,6 +361,7 @@ export default class NewClass extends cc.Component {
         if (this.isMixDone) return;
         this.isMixDone = true;
         this.isMixTouch = false;
+        this.stopXaoSound();
         this.setMixProgress(1);
         if (this.spoon) {
             this.spoon.y = this.spoonRestY;
@@ -354,13 +369,27 @@ export default class NewClass extends cc.Component {
         }
         this.moveThia()
     }
+
+    playXaoSound() {
+        if (!this.soundXao) return;
+        if (this.idSoundXao != null) return;
+        this.idSoundXao = cc.audioEngine.play(this.soundXao, true, 0.5);
+    }
+
+    stopXaoSound() {
+        if (this.idSoundXao == null) return;
+        cc.audioEngine.stop(this.idSoundXao);
+        this.idSoundXao = null;
+    }
     moveThia() {
         cc.tween(this.spoon).to(0.5, { position: cc.v3(-59, 190), angle: -10 }).start();
+        cc.audioEngine.play(this.soundMixDone, false, 0.5);
+
         cc.tween(this.shadow).to(0.5, { opacity: 180 }).call(() => {
             this.bringListStarAboveShadow();
         }).start();
-        this.gio.active=true
-        this.showItem.active=true
+        this.gio.active = true
+        this.showItem.active = true
     }
 
     getWorldAngle(node: cc.Node) {
@@ -448,6 +477,7 @@ export default class NewClass extends cc.Component {
         let endWorld = this.gio.convertToWorldSpaceAR(cc.v2(0, 0));
         let end = this.listStar.convertToNodeSpaceAR(endWorld);
         let count = this.listStar.childrenCount;
+        let arrived = 0;
         for (let i = 0; i < count; i++) {
             let star = this.listStar.children[i];
             let start = cc.v2(star.x, star.y);
@@ -463,9 +493,25 @@ export default class NewClass extends cc.Component {
                     let world = star.convertToWorldSpaceAR(cc.v2(0, 0));
                     star.parent = this.gio;
                     star.setPosition(this.gio.convertToNodeSpaceAR(world));
+                    this.scheduleOnce(() => {
+                        star.active = false;
+                    }, 0.5);
+                    arrived++;
+                    if (arrived >= count) {
+                        this.showKhay();
+                    }
                 })
                 .start();
         }
+    }
+
+    showKhay() {
+        if (!this.khay && this.main2) {
+            this.khay = this.main2.getChildByName("khay");
+        }
+        if (!this.khay) return;
+        this.khay.active = true;
+        this.dia.active = false
     }
     getTouchInSpoonParent(event) {
         let screenPos = event.getLocation();
@@ -483,11 +529,16 @@ export default class NewClass extends cc.Component {
         if (this.progressNode) {
             this.progressNode.active = true;
         }
+        let title = this.main2 ? this.main2.getChildByName("title") : null;
+        if (title) {
+            title.active = false;
+        }
         this.updateBeadLayers();
     }
 
     onMixTouchMove(event) {
         if (this.isMixDone || !this.isMixTouch) return;
+        this.playXaoSound();
         this.moveSpoonByDelta(event);
         let now = Date.now() / 1000;
         if (this.lastMixMoveTime > 0) {
@@ -506,6 +557,7 @@ export default class NewClass extends cc.Component {
     onMixTouchEnd() {
         this.isMixTouch = false;
         this.lastMixMoveTime = 0;
+        this.stopXaoSound();
         if (!this.spoon) return;
         this.spoon.y = this.spoonRestY;
         this.spoon.angle = this.spoonRestAngle;
@@ -712,6 +764,7 @@ export default class NewClass extends cc.Component {
     isCountNoti = 0
     moveToVong(box) {
         let count = this.isCountNoti
+        cc.audioEngine.play(this.listSoundNoti[count], false, 1);
         // this.scheduleOnce(() => {
         this.listNoti.children[count].active = true
         // }, 0.4)
@@ -730,8 +783,9 @@ export default class NewClass extends cc.Component {
             }).start()
             cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.4 }).start()
         }, 0.4)
-        if (this.isCountNoti == this.countItem) {
+        if (this.isCountNoti == 4) {
             this.linkToStore.active = true
+            console.log("show end")
         }
 
     }

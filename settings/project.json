@@ -1,8 +1,7 @@
 {
   "group-list": [
     "default",
-    "ui",
-    "bead"
+    "ui"
   ],
   "collision-matrix": [
     [
@@ -11,21 +10,13 @@
     [
       false,
       false
-    ],
-    [
-      true,
-      false,
-      false
     ]
   ],
   "excluded-modules": [
-    "Dynamic Atlas",
     "DragonBones",
     "EditBox",
-    "Graphics",
     "Geom Utils",
     "Intersection",
-    "Mask",
     "Mesh",
     "MotionStreak",
     "NodePool",
@@ -34,7 +25,6 @@
     "PageViewIndicator",
     "ParticleSystem",
     "RichText",
-    "Renderer Texture",
     "Slider",
     "ScrollBar",
     "ScrollView",
@@ -72,5 +62,5 @@
       "enable": false
     }
   },
-  "last-module-event-record-time": 1788442562020
+  "last-module-event-record-time": 1789607863312
 }

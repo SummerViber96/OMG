@@ -43,7 +43,11 @@ var NewClass = /** @class */ (function (_super) {
         _this.soundClick = null;
         _this.soundDonutJump = null;
         _this.soundEnd = null;
+        _this.soundXao = null;
+        _this.soundMixDone = null;
+        _this.soundShowStar = null;
         _this.soundSellDone = null;
+        _this.listSoundNoti = [];
         _this.tut = null;
         _this.hand = null;
         _this.endCard = null;
@@ -85,6 +89,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.listStar = null;
         _this.showItem = null;
         _this.gio = null;
+        _this.khay = null;
+        _this.hand2 = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -123,6 +129,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.isMixDone = false;
         _this.lastMixMoveTime = 0;
         _this.mixTouchListener = null;
+        _this.idSoundXao = null;
         _this.isOpenDoor = false;
         _this.isClickBox = 0;
         _this.isDone = false;
@@ -330,6 +337,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         this.isMixDone = true;
         this.isMixTouch = false;
+        this.stopXaoSound();
         this.setMixProgress(1);
         if (this.spoon) {
             this.spoon.y = this.spoonRestY;
@@ -337,9 +345,23 @@ var NewClass = /** @class */ (function (_super) {
         }
         this.moveThia();
     };
+    NewClass.prototype.playXaoSound = function () {
+        if (!this.soundXao)
+            return;
+        if (this.idSoundXao != null)
+            return;
+        this.idSoundXao = cc.audioEngine.play(this.soundXao, true, 0.5);
+    };
+    NewClass.prototype.stopXaoSound = function () {
+        if (this.idSoundXao == null)
+            return;
+        cc.audioEngine.stop(this.idSoundXao);
+        this.idSoundXao = null;
+    };
     NewClass.prototype.moveThia = function () {
         var _this = this;
         cc.tween(this.spoon).to(0.5, { position: cc.v3(-59, 190), angle: -10 }).start();
+        cc.audioEngine.play(this.soundMixDone, false, 0.5);
         cc.tween(this.shadow).to(0.5, { opacity: 180 }).call(function () {
             _this.bringListStarAboveShadow();
         }).start();
@@ -430,6 +452,7 @@ var NewClass = /** @class */ (function (_super) {
         var endWorld = this.gio.convertToWorldSpaceAR(cc.v2(0, 0));
         var end = this.listStar.convertToNodeSpaceAR(endWorld);
         var count = this.listStar.childrenCount;
+        var arrived = 0;
         var _loop_1 = function (i) {
             var star = this_1.listStar.children[i];
             var start = cc.v2(star.x, star.y);
@@ -442,6 +465,13 @@ var NewClass = /** @class */ (function (_super) {
                 var world = star.convertToWorldSpaceAR(cc.v2(0, 0));
                 star.parent = _this.gio;
                 star.setPosition(_this.gio.convertToNodeSpaceAR(world));
+                _this.scheduleOnce(function () {
+                    star.active = false;
+                }, 0.5);
+                arrived++;
+                if (arrived >= count) {
+                    _this.showKhay();
+                }
             })
                 .start();
         };
@@ -449,6 +479,15 @@ var NewClass = /** @class */ (function (_super) {
         for (var i = 0; i < count; i++) {
             _loop_1(i);
         }
+    };
+    NewClass.prototype.showKhay = function () {
+        if (!this.khay && this.main2) {
+            this.khay = this.main2.getChildByName("khay");
+        }
+        if (!this.khay)
+            return;
+        this.khay.active = true;
+        this.dia.active = false;
     };
     NewClass.prototype.getTouchInSpoonParent = function (event) {
         var screenPos = event.getLocation();
@@ -466,11 +505,16 @@ var NewClass = /** @class */ (function (_super) {
         if (this.progressNode) {
             this.progressNode.active = true;
         }
+        var title = this.main2 ? this.main2.getChildByName("title") : null;
+        if (title) {
+            title.active = false;
+        }
         this.updateBeadLayers();
     };
     NewClass.prototype.onMixTouchMove = function (event) {
         if (this.isMixDone || !this.isMixTouch)
             return;
+        this.playXaoSound();
         this.moveSpoonByDelta(event);
         var now = Date.now() / 1000;
         if (this.lastMixMoveTime > 0) {
@@ -488,6 +532,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.onMixTouchEnd = function () {
         this.isMixTouch = false;
         this.lastMixMoveTime = 0;
+        this.stopXaoSound();
         if (!this.spoon)
             return;
         this.spoon.y = this.spoonRestY;
@@ -692,6 +737,7 @@ var NewClass = /** @class */ (function (_super) {
     NewClass.prototype.moveToVong = function (box) {
         var _this = this;
         var count = this.isCountNoti;
+        cc.audioEngine.play(this.listSoundNoti[count], false, 1);
         // this.scheduleOnce(() => {
         this.listNoti.children[count].active = true;
         // }, 0.4)
@@ -708,8 +754,9 @@ var NewClass = /** @class */ (function (_super) {
             }).start();
             cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1.4 }).start();
         }, 0.4);
-        if (this.isCountNoti == this.countItem) {
+        if (this.isCountNoti == 4) {
             this.linkToStore.active = true;
+            console.log("show end");
         }
     };
     NewClass.prototype.onEndGame = function (value) {
@@ -829,7 +876,19 @@ var NewClass = /** @class */ (function (_super) {
     ], NewClass.prototype, "soundEnd", void 0);
     __decorate([
         property(cc.AudioClip)
+    ], NewClass.prototype, "soundXao", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundMixDone", void 0);
+    __decorate([
+        property(cc.AudioClip)
+    ], NewClass.prototype, "soundShowStar", void 0);
+    __decorate([
+        property(cc.AudioClip)
     ], NewClass.prototype, "soundSellDone", void 0);
+    __decorate([
+        property([cc.AudioClip])
+    ], NewClass.prototype, "listSoundNoti", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "tut", void 0);
@@ -908,6 +967,12 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "gio", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "khay", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "hand2", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

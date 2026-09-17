@@ -49,7 +49,10 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.btn_cut = function () {
         var _this = this;
-        cc.tween(this.node).to(0.4, { position: cc.v3(0, 1114) }).call(function () {
+        this.gamePlay.hand2.active = false;
+        cc.audioEngine.play(this.gamePlay.soundClick, false, 1);
+        this.node.getComponent(cc.Button).enabled = false;
+        cc.tween(this.node).to(0.4, { position: cc.v3(0, 1114), angle: 0 }).call(function () {
             _this.node.getComponent(cc.Animation).play("box_cut");
         }).start();
     };
