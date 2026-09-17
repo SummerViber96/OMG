@@ -84,6 +84,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.hand1 = null;
         _this.hand2 = null;
         _this.listSoundGame = [];
+        _this.handBtn = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -139,7 +140,7 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isClickBox >= 5)
             return;
         cc.audioEngine.play(this.soundClick, false, 1);
-        var arrPos = [cc.v3(0, 56), cc.v3(109, 47), cc.v3(-105, 40), cc.v3(-52, 22), cc.v3(61, 22)];
+        var arrPos = [cc.v3(0, 56 + 100), cc.v3(109, 47 + 100), cc.v3(-105, 40 + 100), cc.v3(-52, 22 + 100), cc.v3(61, 22 + 100)];
         this.isClickBox++;
         var box = cc.instantiate(this.listPreBox[tag]);
         box.parent = this.listItem2;
@@ -150,16 +151,16 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isClickBox == 1) {
             this.btnDone.active = true;
         }
-        // if (this.isClickBox == 5) {
-        //     this.scheduleOnce(() => {
-        //         this.btn_done()
-        //     }, 0.5)
-        // }
+        if (this.isClickBox == 5) {
+            this.handBtn.active = true;
+        }
     };
     NewClass.prototype.btn_done = function () {
         if (this.isDone == true)
             return;
         cc.audioEngine.play(this.soundClick, false, 1);
+        this.handBtn.active = false;
+        this.handBtn.opacity = 0;
         this.isDone = true;
         this.btnDone.getComponent(cc.Button).enabled = false;
         this.main2.active = true;
@@ -169,7 +170,7 @@ var NewClass = /** @class */ (function (_super) {
         for (var i = this.listItem2.childrenCount - 1; i >= 0; i--) {
             var child = this.listItem2.children[i];
             child.parent = this.listBox;
-            child.scale = 2.5;
+            child.scale = 2.7;
             child.position = arrPos[count];
             child.getComponent(cc.Button).enabled = true;
             count++;
@@ -177,30 +178,34 @@ var NewClass = /** @class */ (function (_super) {
         cc.tween(this.main2).to(0.35, { scale: 0.5 }).start();
     };
     NewClass.prototype.moveToVong = function (box) {
-        // cc.audioEngine.play(this.soundClick, false, 1)
         var _this = this;
         var count = this.isCountNoti;
+        cc.audioEngine.play(this.listSoundGame[count], false, 1);
         // this.scheduleOnce(() => {
         this.listNoti.children[count].active = true;
-        cc.audioEngine.play(this.listSoundGame[count], false, 1);
-        this.hand2.active = false;
         // }, 0.4)
-        // cc.audioEngine.play(this.soundCut, false, 1)
         this.isCountNoti++;
         this.scheduleOnce(function () {
-            var midPos = cc.v2(-50, 150);
-            var endPos = cc.v2(0, -30);
-            var pos = box.parent.convertToWorldSpaceAR(box.position);
-            pos = _this.ro.convertToNodeSpaceAR(pos);
-            var startPos = cc.v2(pos.x, pos.y);
-            box.parent = _this.ro;
-            box.position = pos;
-            cc.tween(box).bezierTo(0.7, startPos, midPos, endPos).call(function () {
+            var midLocal = cc.v2(-200, 150);
+            var endLocal = cc.v2(0, -30);
+            var flyParent = _this.node;
+            var startWorld = box.parent.convertToWorldSpaceAR(box.position);
+            var midWorld = _this.ro.convertToWorldSpaceAR(cc.v3(midLocal.x, midLocal.y));
+            var endWorld = _this.ro.convertToWorldSpaceAR(cc.v3(endLocal.x, endLocal.y));
+            box.parent = flyParent;
+            box.zIndex = 999;
+            box.setSiblingIndex(flyParent.childrenCount - 1);
+            var startPos = flyParent.convertToNodeSpaceAR(startWorld);
+            var midPos = flyParent.convertToNodeSpaceAR(midWorld);
+            var endPos = flyParent.convertToNodeSpaceAR(endWorld);
+            box.position = startPos;
+            cc.tween(box).bezierTo(0.7, cc.v2(startPos.x, startPos.y), cc.v2(midPos.x, midPos.y), cc.v2(endPos.x, endPos.y)).call(function () {
+                box.parent = _this.ro;
+                box.position = cc.v3(endLocal.x, endLocal.y);
             }).start();
-            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1 }).start();
+            cc.tween(box).delay(0.4).to(0.3, { scale: 1.2 }).to(0.08, { scale: 1.1 }).start();
         }, 0.4);
-        if (this.isCountNoti == this.countItem) {
-            // this.linkToStore.active = true
+        if (this.isCountNoti == 5) {
             this.scheduleOnce(function () {
                 _this.onEndGame(true);
             }, 1);
@@ -208,13 +213,13 @@ var NewClass = /** @class */ (function (_super) {
     };
     NewClass.prototype.onEndGame = function (value) {
         cc.audioEngine.play(this.soundEnd, false, 1);
-        if (value == true) {
-            cc.audioEngine.play(this.soundWin, false, 1);
-        }
-        else {
-            cc.audioEngine.stop(this.idSound);
-            cc.audioEngine.play(this.soundLose, false, 1);
-        }
+        // if (value == true) {
+        //     cc.audioEngine.play(this.soundWin, false, 1)
+        // }
+        // else {
+        //     cc.audioEngine.stop(this.idSound)
+        //     cc.audioEngine.play(this.soundLose, false, 1)
+        // }
         this.endCard.active = true;
         this.linkToStore.active = true;
     };
@@ -237,7 +242,8 @@ var NewClass = /** @class */ (function (_super) {
         canvas.fitWidth = (logic) ? true : false;
         this.camera.node.position = cc.v3(0, 0);
         this.listNoti.scale = (logic) ? 1.2 : 0.7;
-        this.endCard.scale = (logic) ? 1.1 : 0.45;
+        this.endCard.scale = (logic) ? 1.1 : 0.6;
+        this.endCard.position = (logic) ? cc.v3(0, 50) : cc.v3(0, 70);
         if (logic == true) {
             var frameSize = cc.view.getFrameSize();
             var width = frameSize.width;
@@ -393,6 +399,9 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property([cc.AudioClip])
     ], NewClass.prototype, "listSoundGame", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "handBtn", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

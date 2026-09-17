@@ -97,11 +97,13 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     listNoti: cc.Node = null;
     @property(cc.Node)
-    hand1:cc.Node = null;
+    hand1: cc.Node = null;
     @property(cc.Node)
-    hand2:cc.Node = null;
+    hand2: cc.Node = null;
     @property([cc.AudioClip])
     listSoundGame: cc.AudioClip[] = [];
+    @property(cc.Node)
+    handBtn: cc.Node = null;
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -152,7 +154,7 @@ export default class NewClass extends cc.Component {
     clickItem(boxValue, tag) {
         if (this.isClickBox >= 5) return;
         cc.audioEngine.play(this.soundClick, false, 1)
-        let arrPos = [cc.v3(0, 56), cc.v3(109, 47), cc.v3(-105, 40), cc.v3(-52, 22), cc.v3(61, 22)]
+        let arrPos = [cc.v3(0, 56 + 100), cc.v3(109, 47 + 100), cc.v3(-105, 40 + 100), cc.v3(-52, 22 + 100), cc.v3(61, 22 + 100)]
         this.isClickBox++
         let box = cc.instantiate(this.listPreBox[tag])
         box.parent = this.listItem2;
@@ -164,12 +166,9 @@ export default class NewClass extends cc.Component {
         if (this.isClickBox == 1) {
             this.btnDone.active = true
         }
-        // if (this.isClickBox == 5) {
-        //     this.scheduleOnce(() => {
-        //         this.btn_done()
-
-        //     }, 0.5)
-        // }
+        if (this.isClickBox == 5) {
+        this.handBtn.active = true
+        }
 
     }
     isDone = false
@@ -177,17 +176,19 @@ export default class NewClass extends cc.Component {
     btn_done() {
         if (this.isDone == true) return;
         cc.audioEngine.play(this.soundClick, false, 1)
+        this.handBtn.active = false
+        this.handBtn.opacity = 0
 
         this.isDone = true
         this.btnDone.getComponent(cc.Button).enabled = false;
         this.main2.active = true;
-        let arrPos = [cc.v3(0, 36), cc.v3(-158-60, 123), cc.v3(187+60, 128), cc.v3(211+60, -59), cc.v3(-203-60, -40)]
+        let arrPos = [cc.v3(0, 36), cc.v3(-158 - 60, 123), cc.v3(187 + 60, 128), cc.v3(211 + 60, -59), cc.v3(-203 - 60, -40)]
         let count = 0
         this.countItem = this.listItem2.childrenCount
         for (let i = this.listItem2.childrenCount - 1; i >= 0; i--) {
             let child = this.listItem2.children[i];
             child.parent = this.listBox
-            child.scale = 2.5;
+            child.scale = 2.7;
             child.position = arrPos[count]
             child.getComponent(cc.Button).enabled = true
             count++
@@ -196,51 +197,54 @@ export default class NewClass extends cc.Component {
     }
     isCountNoti = 0
     moveToVong(box) {
-        // cc.audioEngine.play(this.soundClick, false, 1)
-
         let count = this.isCountNoti
+        cc.audioEngine.play(this.listSoundGame[count], false, 1);
         // this.scheduleOnce(() => {
         this.listNoti.children[count].active = true
-        cc.audioEngine.play(this.listSoundGame[count], false, 1)
-        this.hand2.active = false
         // }, 0.4)
-        // cc.audioEngine.play(this.soundCut, false, 1)
         this.isCountNoti++
         this.scheduleOnce(() => {
-            let midPos = cc.v2(-50, 150);
-            let endPos = cc.v2(0, -30);
-            let pos = box.parent.convertToWorldSpaceAR(box.position);
-            pos = this.ro.convertToNodeSpaceAR(pos);
-            let startPos = cc.v2(pos.x, pos.y)
-            box.parent = this.ro;
-            box.position = pos;
+            let midLocal = cc.v2(-200, 150);
+            let endLocal = cc.v2(0, -30);
+            let flyParent = this.node;
+            let startWorld = box.parent.convertToWorldSpaceAR(box.position);
+            let midWorld = this.ro.convertToWorldSpaceAR(cc.v3(midLocal.x, midLocal.y));
+            let endWorld = this.ro.convertToWorldSpaceAR(cc.v3(endLocal.x, endLocal.y));
 
-            cc.tween(box).bezierTo(0.7, startPos, midPos, endPos).call(() => {
+            box.parent = flyParent;
+            box.zIndex = 999;
+            box.setSiblingIndex(flyParent.childrenCount - 1);
 
+            let startPos = flyParent.convertToNodeSpaceAR(startWorld);
+            let midPos = flyParent.convertToNodeSpaceAR(midWorld);
+            let endPos = flyParent.convertToNodeSpaceAR(endWorld);
+            box.position = startPos;
+
+            cc.tween(box).bezierTo(0.7, cc.v2(startPos.x, startPos.y), cc.v2(midPos.x, midPos.y), cc.v2(endPos.x, endPos.y)).call(() => {
+                box.parent = this.ro;
+                box.position = cc.v3(endLocal.x, endLocal.y);
             }).start()
-            cc.tween(box).delay(0.5).to(0.3, { scale: 1.5 }).to(0.08, { scale: 1 }).start()
+            cc.tween(box).delay(0.4).to(0.3, { scale: 1.2 }).to(0.08, { scale: 1.1 }).start()
         }, 0.4)
-        if (this.isCountNoti == this.countItem) {
-            // this.linkToStore.active = true
-            this.scheduleOnce(()=>{
-            this.onEndGame(true)
-
-            },1)
+        if (this.isCountNoti == 5) {
+            this.scheduleOnce(() => {
+                this.onEndGame(true)
+            }, 1)
         }
 
     }
 
     onEndGame(value) {
         cc.audioEngine.play(this.soundEnd, false, 1)
-        if (value == true) {
-            cc.audioEngine.play(this.soundWin, false, 1)
+        // if (value == true) {
+        //     cc.audioEngine.play(this.soundWin, false, 1)
 
-        }
-        else {
-            cc.audioEngine.stop(this.idSound)
-            cc.audioEngine.play(this.soundLose, false, 1)
+        // }
+        // else {
+        //     cc.audioEngine.stop(this.idSound)
+        //     cc.audioEngine.play(this.soundLose, false, 1)
 
-        }
+        // }
         this.endCard.active = true;
         this.linkToStore.active = true
     }
@@ -265,7 +269,8 @@ export default class NewClass extends cc.Component {
         canvas.fitWidth = (logic) ? true : false
         this.camera.node.position = cc.v3(0, 0)
         this.listNoti.scale = (logic) ? 1.2 : 0.7
-this.endCard.scale=(logic)?1.1:0.45
+        this.endCard.scale = (logic) ? 1.1 : 0.6
+        this.endCard.position =(logic) ? cc.v3(0, 50) : cc.v3(0, 70)
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
