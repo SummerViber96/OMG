@@ -81,6 +81,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.listNoti = null;
         _this.spoon = null;
         _this.dia = null;
+        _this.shadow = null;
+        _this.listStar = null;
+        _this.showItem = null;
+        _this.gio = null;
         // @property(cc.Camera)
         // camera:cc.Camera=null
         _this.maxKhay = 7;
@@ -115,8 +119,10 @@ var NewClass = /** @class */ (function (_super) {
         _this.progressFill = null;
         _this.progressFillWidth = 0;
         _this.mixTime = 0;
-        _this.mixNeedTime = 3;
+        _this.mixNeedTime = 2;
         _this.isMixDone = false;
+        _this.lastMixMoveTime = 0;
+        _this.mixTouchListener = null;
         _this.isOpenDoor = false;
         _this.isClickBox = 0;
         _this.isDone = false;
@@ -206,6 +212,7 @@ var NewClass = /** @class */ (function (_super) {
         physicsManager.gravity = cc.v2(0, -980);
     };
     NewClass.prototype.setupSpoonMix = function () {
+        var _this = this;
         if (!this.dia && this.main2) {
             this.dia = this.main2.getChildByName("dia");
         }
@@ -247,11 +254,29 @@ var NewClass = /** @class */ (function (_super) {
                 body_1.gravityScale = 0.45;
             }
         }
-        this.node.on(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
-        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
-        this.node.on(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
-        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
+        this.mixTouchListener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ALL_AT_ONCE,
+            onTouchesBegan: function (touches) {
+                _this.onMixTouchStart(touches[0]);
+            },
+            onTouchesMoved: function (touches) {
+                _this.onMixTouchMove(touches[0]);
+            },
+            onTouchesEnded: function () {
+                _this.onMixTouchEnd();
+            },
+            onTouchesCancelled: function () {
+                _this.onMixTouchEnd();
+            }
+        });
+        cc.eventManager.addListener(this.mixTouchListener, 1);
         this.setupMixProgress();
+    };
+    NewClass.prototype.onDestroy = function () {
+        if (this.mixTouchListener) {
+            cc.eventManager.removeListener(this.mixTouchListener);
+            this.mixTouchListener = null;
+        }
     };
     NewClass.prototype.setupMixProgress = function () {
         if (!this.dia)
@@ -313,8 +338,117 @@ var NewClass = /** @class */ (function (_super) {
         this.moveThia();
     };
     NewClass.prototype.moveThia = function () {
-        this.spoon.children[1].active = true;
-        cc.tween(this.spoon).to(0.5, { position: cc.v3(-59, 160), angle: -10 }).start();
+        var _this = this;
+        cc.tween(this.spoon).to(0.5, { position: cc.v3(-59, 190), angle: -10 }).start();
+        cc.tween(this.shadow).to(0.5, { opacity: 180 }).call(function () {
+            _this.bringListStarAboveShadow();
+        }).start();
+        this.gio.active = true;
+        this.showItem.active = true;
+    };
+    NewClass.prototype.getWorldAngle = function (node) {
+        var a = 0;
+        var n = node;
+        while (n) {
+            a += n.angle;
+            n = n.parent;
+        }
+        return a;
+    };
+    NewClass.prototype.getWorldScale = function (node) {
+        var sx = 1;
+        var sy = 1;
+        var n = node;
+        while (n) {
+            sx *= n.scaleX;
+            sy *= n.scaleY;
+            n = n.parent;
+        }
+        return cc.v2(sx, sy);
+    };
+    NewClass.prototype.bringListStarAboveShadow = function () {
+        if (!this.listStar || !this.shadow)
+            return;
+        var parent = this.shadow.parent;
+        var starWorlds = [];
+        for (var i = 0; i < this.listStar.childrenCount; i++) {
+            starWorlds.push(this.listStar.children[i].convertToWorldSpaceAR(cc.v2(0, 0)));
+        }
+        var bowlWorld = this.dia
+            ? this.dia.convertToWorldSpaceAR(cc.v2(0, 25))
+            : this.listStar.convertToWorldSpaceAR(cc.v2(0, 0));
+        this.listStar.parent = parent;
+        this.listStar.angle = 0;
+        this.listStar.setScale(1, 1);
+        this.listStar.setPosition(parent.convertToNodeSpaceAR(bowlWorld));
+        this.listStar.active = true;
+        if (this.showItem && this.showItem.parent === parent) {
+            this.listStar.zIndex = this.showItem.zIndex + 10;
+            this.listStar.setSiblingIndex(this.showItem.getSiblingIndex() + 1);
+        }
+        else {
+            this.listStar.zIndex = 100;
+            this.listStar.setSiblingIndex(parent.childrenCount - 1);
+        }
+        for (var i = 0; i < this.listStar.childrenCount; i++) {
+            var star = this.listStar.children[i];
+            star.setPosition(this.listStar.convertToNodeSpaceAR(starWorlds[i]));
+            star.angle = 0;
+        }
+        this.moveStarsToBowlRow();
+    };
+    NewClass.prototype.moveStarsToBowlRow = function () {
+        var _this = this;
+        if (!this.listStar)
+            return;
+        var count = this.listStar.childrenCount;
+        var spacing = 200;
+        var startX = -((count - 1) * spacing) / 2;
+        for (var i = 0; i < count; i++) {
+            var star = this.listStar.children[i];
+            cc.tween(star).delay(0.04 * i).to(0.45, {
+                position: cc.v3(startX + i * spacing, -60),
+                angle: 0,
+                scale: 1.4
+            }).start();
+        }
+        var wait = 0.04 * Math.max(count - 1, 0) + 0.6;
+        this.scheduleOnce(function () {
+            _this.flyStarsToBasket();
+        }, wait);
+    };
+    NewClass.prototype.flyStarsToBasket = function () {
+        var _this = this;
+        if (this.shadow) {
+            cc.tween(this.shadow).to(0.4, { opacity: 0 }).start();
+        }
+        if (this.showItem) {
+            this.showItem.active = false;
+        }
+        if (!this.listStar || !this.gio)
+            return;
+        var endWorld = this.gio.convertToWorldSpaceAR(cc.v2(0, 0));
+        var end = this.listStar.convertToNodeSpaceAR(endWorld);
+        var count = this.listStar.childrenCount;
+        var _loop_1 = function (i) {
+            var star = this_1.listStar.children[i];
+            var start = cc.v2(star.x, star.y);
+            var c1 = cc.v2(start.x + (end.x - start.x) * 0.35, start.y + 140);
+            var c2 = cc.v2(end.x - 70, end.y + 90);
+            cc.tween(star)
+                .delay(0.12 * i)
+                .parallel(cc.tween().bezierTo(0.6, c1, c2, cc.v2(end.x, end.y)), cc.tween().to(0.6, { scale: 1, angle: 15 }))
+                .call(function () {
+                var world = star.convertToWorldSpaceAR(cc.v2(0, 0));
+                star.parent = _this.gio;
+                star.setPosition(_this.gio.convertToNodeSpaceAR(world));
+            })
+                .start();
+        };
+        var this_1 = this;
+        for (var i = 0; i < count; i++) {
+            _loop_1(i);
+        }
     };
     NewClass.prototype.getTouchInSpoonParent = function (event) {
         var screenPos = event.getLocation();
@@ -325,6 +459,7 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isMixDone)
             return;
         this.isMixTouch = true;
+        this.lastMixMoveTime = 0;
         if (this.tut) {
             this.tut.active = false;
         }
@@ -337,9 +472,22 @@ var NewClass = /** @class */ (function (_super) {
         if (this.isMixDone || !this.isMixTouch)
             return;
         this.moveSpoonByDelta(event);
+        var now = Date.now() / 1000;
+        if (this.lastMixMoveTime > 0) {
+            var dt = now - this.lastMixMoveTime;
+            if (dt > 0 && dt < 0.1) {
+                this.mixTime += dt;
+            }
+        }
+        this.lastMixMoveTime = now;
+        this.setMixProgress(this.mixTime / this.mixNeedTime);
+        if (this.mixTime >= this.mixNeedTime) {
+            this.onMixComplete();
+        }
     };
     NewClass.prototype.onMixTouchEnd = function () {
         this.isMixTouch = false;
+        this.lastMixMoveTime = 0;
         if (!this.spoon)
             return;
         this.spoon.y = this.spoonRestY;
@@ -584,13 +732,6 @@ var NewClass = /** @class */ (function (_super) {
             this.spoon.y = this.spoonRestY;
             this.spoon.angle = this.spoonRestAngle;
         }
-        if (this.isMixTouch && !this.isMixDone) {
-            this.mixTime += dt;
-            this.setMixProgress(this.mixTime / this.mixNeedTime);
-            if (this.mixTime >= this.mixNeedTime) {
-                this.onMixComplete();
-            }
-        }
         if (!this.isMixTouch) {
             this.containBeads();
         }
@@ -755,6 +896,18 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "dia", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "shadow", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "listStar", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "showItem", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "gio", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

@@ -97,6 +97,14 @@ export default class NewClass extends cc.Component {
     spoon: cc.Node = null;
     @property(cc.Node)
     dia: cc.Node = null;
+    @property(cc.Node)
+    shadow:cc.Node=null
+    @property(cc.Node)
+    listStar:cc.Node=null
+    @property(cc.Node)
+    showItem:cc.Node=null
+    @property(cc.Node)
+    gio:cc.Node=null
     // @property(cc.Camera)
     // camera:cc.Camera=null
 
@@ -134,8 +142,10 @@ export default class NewClass extends cc.Component {
     progressFill: cc.Node = null
     progressFillWidth = 0
     mixTime = 0
-    mixNeedTime = 3
+    mixNeedTime = 2
     isMixDone = false
+    lastMixMoveTime = 0
+    mixTouchListener = null
     onLoad() {
         if (this.adChanel == 'Mintegral') {
             window.gameReady && window.gameReady();
@@ -262,11 +272,30 @@ export default class NewClass extends cc.Component {
             }
         }
 
-        this.node.on(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
-        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
-        this.node.on(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
-        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
+        this.mixTouchListener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ALL_AT_ONCE,
+            onTouchesBegan: (touches) => {
+                this.onMixTouchStart(touches[0]);
+            },
+            onTouchesMoved: (touches) => {
+                this.onMixTouchMove(touches[0]);
+            },
+            onTouchesEnded: () => {
+                this.onMixTouchEnd();
+            },
+            onTouchesCancelled: () => {
+                this.onMixTouchEnd();
+            }
+        });
+        cc.eventManager.addListener(this.mixTouchListener, 1);
         this.setupMixProgress();
+    }
+
+    onDestroy() {
+        if (this.mixTouchListener) {
+            cc.eventManager.removeListener(this.mixTouchListener);
+            this.mixTouchListener = null;
+        }
     }
 
     setupMixProgress() {
@@ -326,18 +355,128 @@ export default class NewClass extends cc.Component {
         this.moveThia()
     }
     moveThia() {
-        this.spoon.children[1].active=true
-        cc.tween(this.spoon).to(0.5, { position:cc.v3(-59,160),angle:-10 }).start()
+        cc.tween(this.spoon).to(0.5, { position: cc.v3(-59, 190), angle: -10 }).start();
+        cc.tween(this.shadow).to(0.5, { opacity: 180 }).call(() => {
+            this.bringListStarAboveShadow();
+        }).start();
+        this.gio.active=true
+        this.showItem.active=true
     }
-    getTouchInSpoonParent(event: cc.Event.EventTouch) {
+
+    getWorldAngle(node: cc.Node) {
+        let a = 0;
+        let n = node;
+        while (n) {
+            a += n.angle;
+            n = n.parent;
+        }
+        return a;
+    }
+
+    getWorldScale(node: cc.Node) {
+        let sx = 1;
+        let sy = 1;
+        let n = node;
+        while (n) {
+            sx *= n.scaleX;
+            sy *= n.scaleY;
+            n = n.parent;
+        }
+        return cc.v2(sx, sy);
+    }
+
+    bringListStarAboveShadow() {
+        if (!this.listStar || !this.shadow) return;
+        let parent = this.shadow.parent;
+        let starWorlds = [];
+        for (let i = 0; i < this.listStar.childrenCount; i++) {
+            starWorlds.push(this.listStar.children[i].convertToWorldSpaceAR(cc.v2(0, 0)));
+        }
+        let bowlWorld = this.dia
+            ? this.dia.convertToWorldSpaceAR(cc.v2(0, 25))
+            : this.listStar.convertToWorldSpaceAR(cc.v2(0, 0));
+
+        this.listStar.parent = parent;
+        this.listStar.angle = 0;
+        this.listStar.setScale(1, 1);
+        this.listStar.setPosition(parent.convertToNodeSpaceAR(bowlWorld));
+        this.listStar.active = true;
+        if (this.showItem && this.showItem.parent === parent) {
+            this.listStar.zIndex = this.showItem.zIndex + 10;
+            this.listStar.setSiblingIndex(this.showItem.getSiblingIndex() + 1);
+        }
+        else {
+            this.listStar.zIndex = 100;
+            this.listStar.setSiblingIndex(parent.childrenCount - 1);
+        }
+
+        for (let i = 0; i < this.listStar.childrenCount; i++) {
+            let star = this.listStar.children[i];
+            star.setPosition(this.listStar.convertToNodeSpaceAR(starWorlds[i]));
+            star.angle = 0;
+        }
+        this.moveStarsToBowlRow();
+    }
+
+    moveStarsToBowlRow() {
+        if (!this.listStar) return;
+        let count = this.listStar.childrenCount;
+        let spacing = 200;
+        let startX = -((count - 1) * spacing) / 2;
+        for (let i = 0; i < count; i++) {
+            let star = this.listStar.children[i];
+            cc.tween(star).delay(0.04 * i).to(0.45, {
+                position: cc.v3(startX + i * spacing, -60),
+                angle: 0,
+                scale: 1.4
+            }).start();
+        }
+        let wait = 0.04 * Math.max(count - 1, 0) + 0.6;
+        this.scheduleOnce(() => {
+            this.flyStarsToBasket();
+        }, wait);
+    }
+
+    flyStarsToBasket() {
+        if (this.shadow) {
+            cc.tween(this.shadow).to(0.4, { opacity: 0 }).start();
+        }
+        if (this.showItem) {
+            this.showItem.active = false;
+        }
+        if (!this.listStar || !this.gio) return;
+        let endWorld = this.gio.convertToWorldSpaceAR(cc.v2(0, 0));
+        let end = this.listStar.convertToNodeSpaceAR(endWorld);
+        let count = this.listStar.childrenCount;
+        for (let i = 0; i < count; i++) {
+            let star = this.listStar.children[i];
+            let start = cc.v2(star.x, star.y);
+            let c1 = cc.v2(start.x + (end.x - start.x) * 0.35, start.y + 140);
+            let c2 = cc.v2(end.x - 70, end.y + 90);
+            cc.tween(star)
+                .delay(0.12 * i)
+                .parallel(
+                    cc.tween().bezierTo(0.6, c1, c2, cc.v2(end.x, end.y)),
+                    cc.tween().to(0.6, { scale: 1, angle: 15 })
+                )
+                .call(() => {
+                    let world = star.convertToWorldSpaceAR(cc.v2(0, 0));
+                    star.parent = this.gio;
+                    star.setPosition(this.gio.convertToNodeSpaceAR(world));
+                })
+                .start();
+        }
+    }
+    getTouchInSpoonParent(event) {
         let screenPos = event.getLocation();
         let worldPos = this.camera.getScreenToWorldPoint(screenPos);
         return this.spoon.parent.convertToNodeSpaceAR(worldPos);
     }
 
-    onMixTouchStart(event: cc.Event.EventTouch) {
+    onMixTouchStart(event) {
         if (this.isMixDone) return;
         this.isMixTouch = true;
+        this.lastMixMoveTime = 0;
         if (this.tut) {
             this.tut.active = false;
         }
@@ -347,13 +486,26 @@ export default class NewClass extends cc.Component {
         this.updateBeadLayers();
     }
 
-    onMixTouchMove(event: cc.Event.EventTouch) {
+    onMixTouchMove(event) {
         if (this.isMixDone || !this.isMixTouch) return;
         this.moveSpoonByDelta(event);
+        let now = Date.now() / 1000;
+        if (this.lastMixMoveTime > 0) {
+            let dt = now - this.lastMixMoveTime;
+            if (dt > 0 && dt < 0.1) {
+                this.mixTime += dt;
+            }
+        }
+        this.lastMixMoveTime = now;
+        this.setMixProgress(this.mixTime / this.mixNeedTime);
+        if (this.mixTime >= this.mixNeedTime) {
+            this.onMixComplete();
+        }
     }
 
     onMixTouchEnd() {
         this.isMixTouch = false;
+        this.lastMixMoveTime = 0;
         if (!this.spoon) return;
         this.spoon.y = this.spoonRestY;
         this.spoon.angle = this.spoonRestAngle;
@@ -605,13 +757,6 @@ export default class NewClass extends cc.Component {
         if (this.spoon && !this.isMixDone) {
             this.spoon.y = this.spoonRestY;
             this.spoon.angle = this.spoonRestAngle;
-        }
-        if (this.isMixTouch && !this.isMixDone) {
-            this.mixTime += dt;
-            this.setMixProgress(this.mixTime / this.mixNeedTime);
-            if (this.mixTime >= this.mixNeedTime) {
-                this.onMixComplete();
-            }
         }
         if (!this.isMixTouch) {
             this.containBeads();
