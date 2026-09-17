@@ -11004,11 +11004,6 @@
     "meta": 1789627752819,
     "relativePath": "Bracelet2\\asset\\sound2\\audio_010.mp3"
   },
-  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1789628760922,
-    "meta": 1789628760933,
-    "relativePath": "scenes\\Donut1.fire"
-  },
   "23fbaf4d-baad-41ec-ad80-619100591782": {
     "asset": 1789627733478,
     "meta": 1789627751799,
@@ -11129,9 +11124,14 @@
     "meta": 1789627753183,
     "relativePath": "Bracelet2\\script\\boxitem.ts"
   },
+  "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
+    "asset": 1789631368352,
+    "meta": 1789631368371,
+    "relativePath": "scenes\\Donut1.fire"
+  },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1789628703688,
-    "meta": 1789628704910,
+    "asset": 1789631364019,
+    "meta": 1789631365576,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

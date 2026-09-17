@@ -156,6 +156,10 @@ export default class NewClass extends cc.Component {
     isMixDone = false
     lastMixMoveTime = 0
     lastTouchScreen = null
+    mixTouchLayer: cc.Node = null
+    _onDomStart = null
+    _onDomMove = null
+    _onDomEnd = null
     idSoundXao = null
     onLoad() {
         if (this.adChanel == 'Mintegral') {
@@ -163,7 +167,7 @@ export default class NewClass extends cc.Component {
         }
         cc.director.on(cc.Director.EVENT_BEFORE_UPDATE, this.beforeUpdateOrient, this);
         cc.view.on('canvas-resize', this.onCanvasResize, this);
-                this.initPhysics();
+        this.initPhysics();
 
     }
 
@@ -180,10 +184,7 @@ export default class NewClass extends cc.Component {
         cc.view.off('canvas-resize', this.onCanvasResize, this);
         this.unschedule(this.flushPhysicsResync);
         this.unschedule(this.finishPhysicsResync);
-        this.node.off(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
-        this.node.off(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
-        this.node.off(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
-        this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
+        this.unbindMixTouch();
     }
 
     isPortrait() {
@@ -307,7 +308,7 @@ export default class NewClass extends cc.Component {
 
     onOrientationChange(portrait) {
         this.freezePhysicsWorld();
-        this.reponsive(portrait);
+        // this.reponsive(portrait);
         this.queuePhysicsResync();
     }
 
@@ -368,12 +369,86 @@ export default class NewClass extends cc.Component {
         this.spoonRestAngle = this.spoon.angle;
         this.updateBeadLayers();
         this.wakeBeadPhysics();
-
-        this.node.on(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
-        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
-        this.node.on(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
-        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
+        this.bindMixTouch();
         this.setupMixProgress();
+    }
+
+    bindMixTouch() {
+        this.unbindMixTouch();
+        if (this.tut) {
+            this.tut.pauseSystemEvents(true);
+        }
+        let canvas = cc.game.canvas;
+        if (!canvas) return;
+        this._onDomStart = (e) => {
+            if (this.isMixDone) return;
+            if (e.type === "mousedown" && e.button !== 0) return;
+            if (e.preventDefault) e.preventDefault();
+            this.onMixTouchStart(this.wrapDomTouch(e));
+        };
+        this._onDomMove = (e) => {
+            if (this.isMixDone || !this.isMixTouch) return;
+            if (e.type === "mousemove" && !(e.buttons & 1)) return;
+            if (e.preventDefault) e.preventDefault();
+            this.onMixTouchMove(this.wrapDomTouch(e));
+        };
+        this._onDomEnd = (e) => {
+            if (!this.isMixTouch) return;
+            if (e.preventDefault) e.preventDefault();
+            this.onMixTouchEnd();
+        };
+        canvas.addEventListener("touchstart", this._onDomStart, true);
+        canvas.addEventListener("touchmove", this._onDomMove, true);
+        canvas.addEventListener("touchend", this._onDomEnd, true);
+        canvas.addEventListener("touchcancel", this._onDomEnd, true);
+        canvas.addEventListener("mousedown", this._onDomStart, true);
+        canvas.addEventListener("mousemove", this._onDomMove, true);
+        canvas.addEventListener("mouseup", this._onDomEnd, true);
+        canvas.addEventListener("mouseleave", this._onDomEnd, true);
+    }
+
+    wrapDomTouch(e) {
+        let loc = this.getDomLocation(e);
+        return {
+            getLocation: () => cc.v2(loc.x, loc.y)
+        };
+    }
+
+    getDomLocation(e) {
+        let t = (e.changedTouches && e.changedTouches[0]) || (e.touches && e.touches[0]) || e;
+        let box = cc.game.canvas.getBoundingClientRect();
+        let out = cc.v2();
+        cc.view.convertToLocationInView(t.clientX, t.clientY, box, out);
+        return out;
+    }
+
+    unbindMixTouch() {
+        let canvas = cc.game.canvas;
+        if (canvas && this._onDomStart) {
+            canvas.removeEventListener("touchstart", this._onDomStart, true);
+            canvas.removeEventListener("touchmove", this._onDomMove, true);
+            canvas.removeEventListener("touchend", this._onDomEnd, true);
+            canvas.removeEventListener("touchcancel", this._onDomEnd, true);
+            canvas.removeEventListener("mousedown", this._onDomStart, true);
+            canvas.removeEventListener("mousemove", this._onDomMove, true);
+            canvas.removeEventListener("mouseup", this._onDomEnd, true);
+            canvas.removeEventListener("mouseleave", this._onDomEnd, true);
+        }
+        this._onDomStart = null;
+        this._onDomMove = null;
+        this._onDomEnd = null;
+        if (this.tut && this.tut.isValid) {
+            this.tut.resumeSystemEvents(true);
+        }
+        let layer = this.mixTouchLayer || (this.node && this.node.getChildByName("_mixTouchLayer"));
+        if (layer && layer.isValid) {
+            layer.off(cc.Node.EventType.TOUCH_START, this.onMixTouchStart, this);
+            layer.off(cc.Node.EventType.TOUCH_MOVE, this.onMixTouchMove, this);
+            layer.off(cc.Node.EventType.TOUCH_END, this.onMixTouchEnd, this);
+            layer.off(cc.Node.EventType.TOUCH_CANCEL, this.onMixTouchEnd, this);
+            layer.active = false;
+        }
+        this.mixTouchLayer = null;
     }
 
     setupMixProgress() {
@@ -426,6 +501,7 @@ export default class NewClass extends cc.Component {
         this.isMixDone = true;
         this.isMixTouch = false;
         this.stopXaoSound();
+        this.unbindMixTouch();
         this.dropScoopedBeads();
         this.setMixProgress(1);
         if (this.spoon) {
@@ -1002,41 +1078,45 @@ export default class NewClass extends cc.Component {
             this.spoon.angle = this.spoonRestAngle;
         }
         this.containBeads();
+        this.reponsive(this.isPortrait());
     }
     reponsive(logic) {
         let canvas = this.node.getComponent(cc.Canvas);
         this.camera.zoomRatio = 1
 
         this.logo.scale = (logic) ? 0.6 : 0.4
-        canvas.fitHeight = (logic) ? false : true
-        canvas.fitWidth = (logic) ? true : false
+        // canvas.fitHeight = (logic) ? false : true
+        // canvas.fitWidth = (logic) ? true : false
         if (canvas.alignWithScreen) {
             canvas.alignWithScreen();
         }
         this.camera.node.position = cc.v3(0, 0)
-        this.listNoti.scale = (logic) ? 1.1 : 0.7
+        this.listNoti.scale = (logic) ? 0.7 : 0.7
 
         if (logic == true) {
             const frameSize = cc.view.getFrameSize();
             const width = frameSize.width;
             const height = frameSize.height;
             this.camera.node.position = cc.v3(0, -200)
+            this.camera.zoomRatio = 0.35
 
             // Vì có thể nằm ngang hoặc dọc, kiểm tra cả hai chiều
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
 
             // Gần đúng tỷ lệ màn hình iPhone X
-            const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+            const IPHONE_X_ASPECT_RATIO = 2.0; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
 
-            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+            if (aspectRatio >= IPHONE_X_ASPECT_RATIO) {
                 // console.log("check iphonex")
+                this.camera.zoomRatio = 0.3
+
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
-                this.camera.zoomRatio = 0.8
-                this.camera.node.position = cc.v3(0, -40)
+                this.camera.zoomRatio = 0.35
+                this.camera.node.position = cc.v3(0, 0)
 
             }
         }
@@ -1051,11 +1131,12 @@ export default class NewClass extends cc.Component {
             const aspectRatio = Math.max(width, height) / Math.min(width, height);
 
             // Gần đúng tỷ lệ màn hình iPhone X
-            const IPHONE_X_ASPECT_RATIO = 812 / 375; // ≈ 2.16
+            const IPHONE_X_ASPECT_RATIO = 2.0; // ≈ 2.16
             const TOLERANCE = 0.05;
             const IPAD_RATIO = 1024 / 768;          // ≈ 1.33
 
-            if (Math.abs(aspectRatio - IPHONE_X_ASPECT_RATIO) < TOLERANCE) {
+            if (aspectRatio >= IPHONE_X_ASPECT_RATIO) {
+                this.camera.zoomRatio = 0.3
 
             }
             else if (Math.abs(aspectRatio - IPAD_RATIO) < TOLERANCE) {
