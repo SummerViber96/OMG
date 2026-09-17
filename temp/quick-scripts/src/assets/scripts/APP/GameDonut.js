@@ -130,6 +130,7 @@ var NewClass = /** @class */ (function (_super) {
         _this.lastMixMoveTime = 0;
         _this.mixTouchListener = null;
         _this.idSoundXao = null;
+        _this.isXao = false;
         _this.isOpenDoor = false;
         _this.isClickBox = 0;
         _this.isDone = false;
@@ -346,11 +347,18 @@ var NewClass = /** @class */ (function (_super) {
         this.moveThia();
     };
     NewClass.prototype.playXaoSound = function () {
+        var _this = this;
         if (!this.soundXao)
             return;
         if (this.idSoundXao != null)
             return;
-        this.idSoundXao = cc.audioEngine.play(this.soundXao, true, 0.5);
+        if (this.isXao == false) {
+            this.isXao = true;
+            this.idSoundXao = cc.audioEngine.play(this.soundXao, true, 0.5);
+            this.scheduleOnce(function () {
+                _this.isXao = false;
+            }, 0.2);
+        }
     };
     NewClass.prototype.stopXaoSound = function () {
         if (this.idSoundXao == null)

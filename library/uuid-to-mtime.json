@@ -1006,7 +1006,7 @@
   },
   "d19930a8-3af4-4b95-98e1-2d5e8bd12d68": {
     "asset": 1786978825092,
-    "meta": 1789568975648,
+    "meta": 1789609870568,
     "relativePath": "APP\\skeleton.skel"
   },
   "802bf2d6-7026-4c3a-99de-28dba493b8a0": {
@@ -2636,7 +2636,7 @@
   },
   "52c6b606-1e69-403a-9ee8-31f08c57dbe4": {
     "asset": 1786978826318,
-    "meta": 1789568975649,
+    "meta": 1789609870569,
     "relativePath": "cooking\\spine\\Hotdog2\\Hot dog.skel"
   },
   "94bb3595-deab-437c-ac0b-be1630daa635": {
@@ -10450,8 +10450,8 @@
     "relativePath": "Bracelet2\\asset\\image_003.png"
   },
   "ec91fd59-b874-4632-8d23-78627fe62c20": {
-    "asset": 1789520645830,
-    "meta": 1789568975621,
+    "asset": 1789607403096,
+    "meta": 1789609870520,
     "relativePath": "Bracelet2\\anim"
   },
   "dc60aee1-e3e8-4b06-a1c9-48b742693bc6": {
@@ -10475,8 +10475,8 @@
     "relativePath": "Bracelet2\\anim\\box_click.anim"
   },
   "4c34b7dd-a79e-4f83-8cc0-55137ba6f30d": {
-    "asset": 1789518851034,
-    "meta": 1789568975622,
+    "asset": 1789599475233,
+    "meta": 1789609870525,
     "relativePath": "Bracelet2\\asset"
   },
   "ebf2f9ef-4f7c-4f22-bcdd-e812b613eaef": {
@@ -10525,69 +10525,14 @@
     "relativePath": "Bracelet2\\anim\\btn_scale.anim"
   },
   "c3fd7c1b-26ce-4703-9354-c028845374b9": {
-    "asset": 1789519195954,
-    "meta": 1789519195964,
+    "asset": 1789610747617,
+    "meta": 1789610747625,
     "relativePath": "Bracelet2\\anim\\box_cut.anim"
   },
   "37dd892a-de13-43b5-a9e9-461198917800": {
-    "asset": 1789518851049,
-    "meta": 1789518851058,
+    "asset": 1789608308063,
+    "meta": 1789609870532,
     "relativePath": "Bracelet2\\asset\\Special"
-  },
-  "145f46ab-7d2e-451c-8012-0d3205132b2f": {
-    "asset": 1789518851026,
-    "meta": 1789518851147,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_12.png"
-  },
-  "fd09728c-87aa-4028-af42-a2fe5acd4ddb": {
-    "asset": 1789518851028,
-    "meta": 1789518851166,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_11.png"
-  },
-  "27b33dcd-f069-4695-b88d-5d11afb6dca7": {
-    "asset": 1789518851025,
-    "meta": 1789518851203,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_14.png"
-  },
-  "cb565cf4-986e-4362-9ef1-43894a9b670b": {
-    "asset": 1789518851028,
-    "meta": 1789518851221,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_15.png"
-  },
-  "9d3718c9-109a-4ef7-87de-1dd79615a3b6": {
-    "asset": 1789518851029,
-    "meta": 1789518851237,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_16.png"
-  },
-  "fa06e926-67d8-4b21-bbe2-bd8058eedbb5": {
-    "asset": 1789518851029,
-    "meta": 1789518851258,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_17.png"
-  },
-  "6f6b13de-7fff-4387-a4c9-c5aebcdb950c": {
-    "asset": 1789518851029,
-    "meta": 1789518851272,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_18.png"
-  },
-  "bf7b35ad-b45a-46f7-9a3d-33fd0d7df6f4": {
-    "asset": 1789518851027,
-    "meta": 1789518851292,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_19.png"
-  },
-  "e17d8240-0b68-4ac4-b78d-ca878cedeae2": {
-    "asset": 1789518851028,
-    "meta": 1789518851309,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_2.png"
-  },
-  "55230c63-de9b-4546-b17e-5d93167644df": {
-    "asset": 1789518851030,
-    "meta": 1789518851329,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_20.png"
-  },
-  "2ccca049-d252-4202-882b-261421813d9a": {
-    "asset": 1789518851031,
-    "meta": 1789518851458,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_9.png"
   },
   "4c00e0c6-d9f5-4e66-a2d1-3698fd6a8c2c": {
     "asset": 1789518997524,
@@ -10650,8 +10595,8 @@
     "relativePath": "Bracelet2\\audio_mp3\\audio_009.mp3"
   },
   "2a58e503-6b25-4416-a00f-c2a177bd067f": {
-    "asset": 1789569204837,
-    "meta": 1789569204838,
+    "asset": 1789580840135,
+    "meta": 1789609870527,
     "relativePath": "Bracelet2\\asset\\as2"
   },
   "89c2d7fc-a3ab-4fa9-b7e5-327cc952fa3e": {
@@ -10984,11 +10929,6 @@
     "meta": 1789580489133,
     "relativePath": "Bracelet2\\asset\\as2\\Char Lily_icon.png"
   },
-  "ef9c5167-469f-49f2-8f40-5076d379ec4f": {
-    "asset": 1789580833522,
-    "meta": 1789580833557,
-    "relativePath": "Bracelet2\\asset\\as2\\icon1_char defaut.png"
-  },
   "c62bba55-fa96-4aca-96f1-d4a13bce4239": {
     "asset": 1789580837451,
     "meta": 1789580837477,
@@ -11005,8 +10945,8 @@
     "relativePath": "Bracelet2\\anim\\hand_move.anim"
   },
   "cee7d3a8-f5ab-4f68-aeda-8756de7eb4bf": {
-    "asset": 1789599472343,
-    "meta": 1789599472344,
+    "asset": 1789599579120,
+    "meta": 1789609870528,
     "relativePath": "Bracelet2\\asset\\sound2"
   },
   "22e432ff-556e-4ab0-bd5f-e3a4b581df9b": {
@@ -11065,8 +11005,8 @@
     "relativePath": "Bracelet2\\asset\\sound2\\audio_010.mp3"
   },
   "fbc7ea97-65c8-4019-9e02-dfbdb4f132da": {
-    "asset": 1789608598203,
-    "meta": 1789608598217,
+    "asset": 1789610955296,
+    "meta": 1789610955309,
     "relativePath": "scenes\\Donut1.fire"
   },
   "23fbaf4d-baad-41ec-ad80-619100591782": {
@@ -11084,54 +11024,114 @@
     "meta": 1789608054060,
     "relativePath": "Bracelet2\\script\\boxitem.ts"
   },
+  "ef9c5167-469f-49f2-8f40-5076d379ec4f": {
+    "asset": 1789610009871,
+    "meta": 1789610019923,
+    "relativePath": "Bracelet2\\asset\\as2\\icon1_char defaut.png"
+  },
   "49e698fd-2499-4e40-9818-188bfb4728d2": {
-    "asset": 1789583064000,
-    "meta": 1789608310184,
+    "asset": 1789585160000,
+    "meta": 1789610381004,
     "relativePath": "Bracelet2\\asset\\Special\\bracelet_1.png"
   },
   "cc271d12-8b4a-4d03-8050-77f4d7d4ee2b": {
-    "asset": 1789583064000,
-    "meta": 1789608310185,
+    "asset": 1789585160000,
+    "meta": 1789610381006,
     "relativePath": "Bracelet2\\asset\\Special\\bracelet_10.png"
   },
+  "fd09728c-87aa-4028-af42-a2fe5acd4ddb": {
+    "asset": 1789585160000,
+    "meta": 1789610381033,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_11.png"
+  },
+  "145f46ab-7d2e-451c-8012-0d3205132b2f": {
+    "asset": 1789585160000,
+    "meta": 1789610381034,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_12.png"
+  },
+  "27b33dcd-f069-4695-b88d-5d11afb6dca7": {
+    "asset": 1789585160000,
+    "meta": 1789610381058,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_14.png"
+  },
   "e07724f6-6fbf-4567-8b0b-5931c09d5640": {
-    "asset": 1789583064000,
-    "meta": 1789608310206,
+    "asset": 1789585160000,
+    "meta": 1789610381062,
     "relativePath": "Bracelet2\\asset\\Special\\bracelet_13.png"
   },
+  "cb565cf4-986e-4362-9ef1-43894a9b670b": {
+    "asset": 1789585160000,
+    "meta": 1789610381090,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_15.png"
+  },
+  "9d3718c9-109a-4ef7-87de-1dd79615a3b6": {
+    "asset": 1789585160000,
+    "meta": 1789610381092,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_16.png"
+  },
+  "6f6b13de-7fff-4387-a4c9-c5aebcdb950c": {
+    "asset": 1789585160000,
+    "meta": 1789610381115,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_18.png"
+  },
+  "fa06e926-67d8-4b21-bbe2-bd8058eedbb5": {
+    "asset": 1789585160000,
+    "meta": 1789610381117,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_17.png"
+  },
+  "bf7b35ad-b45a-46f7-9a3d-33fd0d7df6f4": {
+    "asset": 1789585160000,
+    "meta": 1789610381140,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_19.png"
+  },
+  "e17d8240-0b68-4ac4-b78d-ca878cedeae2": {
+    "asset": 1789585160000,
+    "meta": 1789610381142,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_2.png"
+  },
+  "55230c63-de9b-4546-b17e-5d93167644df": {
+    "asset": 1789585160000,
+    "meta": 1789610381166,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_20.png"
+  },
   "8909fb20-5ac3-4093-8b72-d046fbdf551f": {
-    "asset": 1789583064000,
-    "meta": 1789608310209,
+    "asset": 1789585160000,
+    "meta": 1789610381167,
     "relativePath": "Bracelet2\\asset\\Special\\bracelet_3.png"
   },
-  "c7f1bbc4-702a-42d9-b3c8-c2d10fcb4afc": {
-    "asset": 1789583064000,
-    "meta": 1789608310234,
-    "relativePath": "Bracelet2\\asset\\Special\\bracelet_5.png"
-  },
   "3e58d285-b47b-41d3-90ae-5f013e2e80f0": {
-    "asset": 1789583064000,
-    "meta": 1789608310235,
+    "asset": 1789585160000,
+    "meta": 1789610381193,
     "relativePath": "Bracelet2\\asset\\Special\\bracelet_4.png"
   },
+  "c7f1bbc4-702a-42d9-b3c8-c2d10fcb4afc": {
+    "asset": 1789585160000,
+    "meta": 1789610381196,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_5.png"
+  },
   "4d5de142-f41d-4f2b-b716-22129f908384": {
-    "asset": 1789583064000,
-    "meta": 1789608310257,
+    "asset": 1789585160000,
+    "meta": 1789610381217,
     "relativePath": "Bracelet2\\asset\\Special\\bracelet_6.png"
   },
   "d349eb24-7953-42ea-b42d-e1d544aeb0af": {
-    "asset": 1789583064000,
-    "meta": 1789608310263,
+    "asset": 1789585160000,
+    "meta": 1789610381222,
     "relativePath": "Bracelet2\\asset\\Special\\bracelet_7.png"
   },
   "db58c0c6-8925-4ca9-ae21-000b27df3695": {
-    "asset": 1789583064000,
-    "meta": 1789608310284,
+    "asset": 1789585160000,
+    "meta": 1789610381241,
     "relativePath": "Bracelet2\\asset\\Special\\bracelet_8.png"
   },
+  "2ccca049-d252-4202-882b-261421813d9a": {
+    "asset": 1789585160000,
+    "meta": 1789610381247,
+    "relativePath": "Bracelet2\\asset\\Special\\bracelet_9.png"
+  },
   "e8778cd7-7016-47bc-af93-4cfe3f3e1fed": {
-    "asset": 1789608482278,
-    "meta": 1789608483934,
+    "asset": 1789610664318,
+    "meta": 1789610666532,
     "relativePath": "scripts\\APP\\GameDonut.ts"
   }
 }

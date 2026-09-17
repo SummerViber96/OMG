@@ -369,11 +369,19 @@ export default class NewClass extends cc.Component {
         }
         this.moveThia()
     }
-
+    isXao = false
     playXaoSound() {
         if (!this.soundXao) return;
         if (this.idSoundXao != null) return;
-        this.idSoundXao = cc.audioEngine.play(this.soundXao, true, 0.5);
+        if(this.isXao==false){
+            this.isXao=true;
+                    this.idSoundXao = cc.audioEngine.play(this.soundXao, true, 0.5);
+
+            this.scheduleOnce(()=>{
+            this.isXao=false;
+
+            },0.2)
+        }
     }
 
     stopXaoSound() {

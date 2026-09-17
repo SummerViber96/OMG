@@ -121,5 +121,11 @@
       }
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 1,
+      "func": "show",
+      "params": []
+    }
+  ]
 }
