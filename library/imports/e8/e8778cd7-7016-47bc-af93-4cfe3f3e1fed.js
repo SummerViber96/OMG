@@ -164,13 +164,13 @@ var NewClass = /** @class */ (function (_super) {
         this.isDone = true;
         this.btnDone.getComponent(cc.Button).enabled = false;
         this.main2.active = true;
-        var arrPos = [cc.v3(0, 36), cc.v3(-158 - 60, 123), cc.v3(187 + 60, 128), cc.v3(211 + 60, -59), cc.v3(-203 - 60, -40)];
+        var arrPos = [cc.v3(0, 36), cc.v3(-158 - 110, 123), cc.v3(187 + 110, 128), cc.v3(211 + 110, -59), cc.v3(-203 - 110, -40)];
         var count = 0;
         this.countItem = this.listItem2.childrenCount;
         for (var i = this.listItem2.childrenCount - 1; i >= 0; i--) {
             var child = this.listItem2.children[i];
             child.parent = this.listBox;
-            child.scale = 2.7;
+            child.scale = 3.4;
             child.position = arrPos[count];
             child.getComponent(cc.Button).enabled = true;
             count++;
