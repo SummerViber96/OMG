@@ -7,19 +7,19 @@
       "windowType": "dockable",
       "x": 0,
       "y": 0,
-      "width": 1920,
-      "height": 1040,
+      "width": 2560,
+      "height": 1400,
       "layout": {
         "type": "dock-h",
         "children": [
           {
-            "width": 422.53125,
-            "height": 924,
+            "width": 565.640625,
+            "height": 1284,
             "type": "dock-v",
             "children": [
               {
-                "width": 422.53125,
-                "height": 373.140625,
+                "width": 565.640625,
+                "height": 518.796875,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 422.53125,
-                "height": 547.859375,
+                "width": 565.640625,
+                "height": 762.203125,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 720.90625,
-            "height": 924,
+            "width": 962.78125,
+            "height": 1284,
             "type": "dock-v",
             "children": [
               {
-                "width": 720.90625,
-                "height": 479.546875,
+                "width": 962.78125,
+                "height": 667.625,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,8 +52,8 @@
                 ]
               },
               {
-                "width": 720.90625,
-                "height": 441.453125,
+                "width": 962.78125,
+                "height": 613.375,
                 "type": "panel",
                 "active": 1,
                 "children": [
@@ -65,8 +65,8 @@
             ]
           },
           {
-            "width": 754.5625,
-            "height": 924,
+            "width": 1009.578125,
+            "height": 1284,
             "type": "panel",
             "active": 0,
             "children": [
@@ -88,7 +88,7 @@
       ]
     },
     "worker": {},
-    "window-1786600894622": {}
+    "window-1789797461481": {}
   },
   "panels": {
     "builder": {
