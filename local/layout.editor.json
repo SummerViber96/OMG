@@ -5,21 +5,21 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": 0,
-      "y": 0,
-      "width": 1920,
-      "height": 1040,
+      "x": -8,
+      "y": -8,
+      "width": 2576,
+      "height": 1416,
       "layout": {
         "type": "dock-h",
         "children": [
           {
-            "width": 422.53125,
+            "width": 423,
             "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 422.53125,
-                "height": 373.140625,
+                "width": 423,
+                "height": 373,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 422.53125,
-                "height": 547.859375,
+                "width": 423,
+                "height": 548,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 720.90625,
+            "width": 720,
             "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 720.90625,
-                "height": 479.546875,
+                "width": 720,
+                "height": 480,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,8 +52,8 @@
                 ]
               },
               {
-                "width": 720.90625,
-                "height": 441.453125,
+                "width": 720,
+                "height": 441,
                 "type": "panel",
                 "active": 1,
                 "children": [
@@ -65,7 +65,7 @@
             ]
           },
           {
-            "width": 754.5625,
+            "width": 755,
             "height": 924,
             "type": "panel",
             "active": 0,
@@ -88,7 +88,7 @@
       ]
     },
     "worker": {},
-    "window-1786602676918": {}
+    "window-1789796588335": {}
   },
   "panels": {
     "builder": {
