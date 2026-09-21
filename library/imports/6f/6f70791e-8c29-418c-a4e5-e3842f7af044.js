@@ -169,9 +169,6 @@ var NewClass = /** @class */ (function (_super) {
     //0:banh thuong 1:chocolate 2: strawberry 
     NewClass.prototype.onLoad = function () {
         var _this = this;
-        if (this.adChanel == 'Mintegral') {
-            window.gameReady && window.gameReady();
-        }
         for (var i = 0; i < this.listCus.childrenCount; i++) {
             this.arrCus.push(this.listCus.children[i]);
         }
@@ -927,6 +924,9 @@ var NewClass = /** @class */ (function (_super) {
     //         .start();
     // }
     NewClass.prototype.start = function () {
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
     };
     NewClass.prototype.setGray = function (node) {
