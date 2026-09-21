@@ -236,9 +236,7 @@ export default class NewClass extends cc.Component {
     idFunny = null
     mag = 0
     onLoad() {
-        if (this.adChanel == 'Mintegral') {
-            window.gameReady && window.gameReady();
-        }
+    
 
         this.updateResponsive();
         cc.view.setResizeCallback(() => {
@@ -1053,7 +1051,9 @@ export default class NewClass extends cc.Component {
     }
 
     start() {
-
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
 
     }
