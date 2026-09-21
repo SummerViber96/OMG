@@ -7,19 +7,19 @@
       "windowType": "dockable",
       "x": 0,
       "y": 0,
-      "width": 2560,
-      "height": 1400,
+      "width": 1920,
+      "height": 1040,
       "layout": {
         "type": "dock-h",
         "children": [
           {
-            "width": 565.640625,
-            "height": 1284,
+            "width": 423,
+            "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 565.640625,
-                "height": 518.796875,
+                "width": 423,
+                "height": 373,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 565.640625,
-                "height": 762.203125,
+                "width": 423,
+                "height": 548,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 962.78125,
-            "height": 1284,
+            "width": 720,
+            "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 962.78125,
-                "height": 667.625,
+                "width": 720,
+                "height": 480,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,8 +52,8 @@
                 ]
               },
               {
-                "width": 962.78125,
-                "height": 613.375,
+                "width": 720,
+                "height": 441,
                 "type": "panel",
                 "active": 1,
                 "children": [
@@ -65,8 +65,8 @@
             ]
           },
           {
-            "width": 1009.578125,
-            "height": 1284,
+            "width": 755,
+            "height": 924,
             "type": "panel",
             "active": 0,
             "children": [
@@ -88,7 +88,7 @@
       ]
     },
     "worker": {},
-    "window-1789797461481": {}
+    "window-1789959595059": {}
   },
   "panels": {
     "builder": {

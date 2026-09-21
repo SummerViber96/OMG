@@ -182,9 +182,6 @@ var NewClass = /** @class */ (function (_super) {
     }
     NewClass.prototype.onLoad = function () {
         var _this = this;
-        if (this.adChanel == 'Mintegral') {
-            window.gameReady && window.gameReady();
-        }
         this.updateResponsive();
         cc.view.setResizeCallback(function () {
             _this.updateResponsive();
@@ -885,6 +882,9 @@ var NewClass = /** @class */ (function (_super) {
         this.enterCustomers(enterCount);
     };
     NewClass.prototype.start = function () {
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5);
     };
     NewClass.prototype.setGray = function (node) {
