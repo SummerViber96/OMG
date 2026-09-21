@@ -230,9 +230,7 @@ export default class NewClass extends cc.Component {
     idFunny = null
     mag = 0
     onLoad() {
-        if (this.adChanel == 'Mintegral') {
-            window.gameReady && window.gameReady();
-        }
+
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;
 
@@ -1102,7 +1100,9 @@ this.logo.active=true
     }
 
     start() {
-
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
 
     }
