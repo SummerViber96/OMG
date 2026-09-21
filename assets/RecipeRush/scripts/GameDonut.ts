@@ -192,9 +192,7 @@ export default class NewClass extends cc.Component {
     isFirstClick = false
     //0:banh thuong 1:chocolate 2: strawberry 
     onLoad() {
-        if (this.adChanel == 'Mintegral') {
-            window.gameReady && window.gameReady();
-        }
+       
         for (let i = 0; i < this.listCus.childrenCount; i++) {
             this.arrCus.push(this.listCus.children[i])
         }
@@ -1043,7 +1041,9 @@ export default class NewClass extends cc.Component {
     //         .start();
     // }
     start() {
-
+        if (this.adChanel == 'Mintegral') {
+            window.gameReady && window.gameReady();
+        }
         this.idSound = cc.audioEngine.play(this.soundBg, true, 0.5)
 
     }

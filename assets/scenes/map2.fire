@@ -18545,9 +18545,6 @@
     "clock": {
       "__id__": 491
     },
-    "anim": {
-      "__id__": 484
-    },
     "_id": "2b+FeyeCpDRbT4127sPy2r"
   },
   {
@@ -19466,9 +19463,6 @@
     },
     "clock": {
       "__id__": 510
-    },
-    "anim": {
-      "__id__": 503
     },
     "_id": "83nmjt3stCk4POgZMw8vNM"
   },
@@ -34558,9 +34552,7 @@
       "__id__": 528
     },
     "_enabled": true,
-    "preChicken": {
-      "__uuid__": "5541dc1f-134e-4cbe-a00e-7cb580d10e27"
-    },
+    "preChicken": null,
     "preCoca": {
       "__uuid__": "0f699338-c160-4fe8-8873-09b1e91371d6"
     },
