@@ -7,19 +7,19 @@
       "windowType": "dockable",
       "x": -8,
       "y": -8,
-      "width": 2576,
-      "height": 1416,
+      "width": 1936,
+      "height": 1056,
       "layout": {
         "type": "dock-h",
         "children": [
           {
-            "width": 514.640625,
-            "height": 1300,
+            "width": 382.71875,
+            "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 514.640625,
-                "height": 816.5625,
+                "width": 382.71875,
+                "height": 580.15625,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 514.640625,
-                "height": 480.4375,
+                "width": 382.71875,
+                "height": 340.84375,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 1509.015625,
-            "height": 1300,
+            "width": 1121.40625,
+            "height": 924,
             "type": "dock-v",
             "children": [
               {
-                "width": 1509.015625,
-                "height": 844.984375,
+                "width": 1121.40625,
+                "height": 600.03125,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,8 +52,8 @@
                 ]
               },
               {
-                "width": 1509.015625,
-                "height": 452,
+                "width": 1121.40625,
+                "height": 320.953125,
                 "type": "panel",
                 "active": 1,
                 "children": [
@@ -65,8 +65,8 @@
             ]
           },
           {
-            "width": 530.34375,
-            "height": 1300,
+            "width": 393.875,
+            "height": 924,
             "type": "panel",
             "active": 0,
             "children": [
@@ -87,15 +87,14 @@
         "cocos-services"
       ]
     },
-    "worker": {},
-    "window-1778522837962": {}
+    "worker": {}
   },
   "panels": {
     "builder": {
       "x": -8,
       "y": -8,
-      "width": 2576,
-      "height": 1416
+      "width": 1936,
+      "height": 1056
     },
     "sprite-editor": {
       "x": -8,
