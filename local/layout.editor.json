@@ -5,21 +5,21 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": 0,
-      "y": 0,
-      "width": 1920,
-      "height": 1040,
+      "x": -8,
+      "y": -8,
+      "width": 1936,
+      "height": 1056,
       "layout": {
         "type": "dock-h",
         "children": [
           {
-            "width": 423,
-            "height": 924,
+            "width": 386,
+            "height": 940,
             "type": "dock-v",
             "children": [
               {
-                "width": 423,
-                "height": 373,
+                "width": 386,
+                "height": 379,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 423,
-                "height": 548,
+                "width": 386,
+                "height": 558,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 720,
-            "height": 924,
+            "width": 953,
+            "height": 940,
             "type": "dock-v",
             "children": [
               {
-                "width": 720,
-                "height": 480,
+                "width": 953,
+                "height": 487.984375,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,10 +52,10 @@
                 ]
               },
               {
-                "width": 720,
-                "height": 441,
+                "width": 953,
+                "height": 449,
                 "type": "panel",
-                "active": 1,
+                "active": 0,
                 "children": [
                   "console",
                   "timeline",
@@ -65,8 +65,8 @@
             ]
           },
           {
-            "width": 755,
-            "height": 924,
+            "width": 575,
+            "height": 940,
             "type": "panel",
             "active": 0,
             "children": [
@@ -88,7 +88,7 @@
       ]
     },
     "worker": {},
-    "window-1790670273858": {}
+    "window-1790672110658": {}
   },
   "panels": {
     "builder": {

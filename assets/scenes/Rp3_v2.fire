@@ -90,13 +90,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 628
+        "__id__": 624
       },
       {
-        "__id__": 629
+        "__id__": 625
       },
       {
-        "__id__": 630
+        "__id__": 626
       }
     ],
     "_prefab": null,
@@ -5307,7 +5307,7 @@
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
-    "premultipliedAlpha": true,
+    "premultipliedAlpha": false,
     "timeScale": 1,
     "_accTime": 0,
     "_playCount": 0,
@@ -17583,15 +17583,12 @@
       },
       {
         "__id__": 617
-      },
-      {
-        "__id__": 621
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 627
+        "__id__": 623
       }
     ],
     "_prefab": null,
@@ -26100,180 +26097,6 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "videoManager",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 407
-    },
-    "_children": [
-      {
-        "__id__": 618
-      }
-    ],
-    "_active": true,
-    "_components": [],
-    "_prefab": null,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "e3HB1IuGVCn5BnOIVQQIE5"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "video",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 617
-    },
-    "_children": [],
-    "_active": false,
-    "_components": [
-      {
-        "__id__": 619
-      },
-      {
-        "__id__": 620
-      }
-    ],
-    "_prefab": null,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 3744,
-      "height": 2106
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        200,
-        -300,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 1,
-    "groupIndex": 1,
-    "_id": "343VemLUtGErYY6QuNFlDF"
-  },
-  {
-    "__type__": "cc.VideoPlayer",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 618
-    },
-    "_enabled": true,
-    "_resourceType": 1,
-    "_remoteURL": "",
-    "_clip": null,
-    "_volume": 1,
-    "_mute": false,
-    "_isFullscreen": false,
-    "_N$isFullscreen": false,
-    "_stayOnBottom": false,
-    "videoPlayerEvent": [],
-    "_N$keepAspectRatio": true,
-    "_id": "26TPBn9alPa58k1T0aukhw"
-  },
-  {
-    "__type__": "cc.Widget",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 618
-    },
-    "_enabled": true,
-    "alignMode": 1,
-    "_target": null,
-    "_alignFlags": 0,
-    "_left": 0,
-    "_right": 0,
-    "_top": 0,
-    "_bottom": 0,
-    "_verticalCenter": 0,
-    "_horizontalCenter": 0,
-    "_isAbsLeft": true,
-    "_isAbsRight": true,
-    "_isAbsTop": true,
-    "_isAbsBottom": true,
-    "_isAbsHorizontalCenter": true,
-    "_isAbsVerticalCenter": true,
-    "_originalWidth": 1920,
-    "_originalHeight": 0,
-    "_id": "51o6uTz6NDSLmZMyfhXrp4"
-  },
-  {
-    "__type__": "cc.Node",
     "_name": "FailUi",
     "_objFlags": 0,
     "_parent": {
@@ -26281,16 +26104,16 @@
     },
     "_children": [
       {
-        "__id__": 622
+        "__id__": 618
       },
       {
-        "__id__": 624
+        "__id__": 620
       }
     ],
     "_active": false,
     "_components": [
       {
-        "__id__": 626
+        "__id__": 622
       }
     ],
     "_prefab": null,
@@ -26346,13 +26169,13 @@
     "_name": "New Sprite(Splash)",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 621
+      "__id__": 617
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 623
+        "__id__": 619
       }
     ],
     "_prefab": null,
@@ -26408,7 +26231,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 622
+      "__id__": 618
     },
     "_enabled": true,
     "_materials": [
@@ -26440,13 +26263,13 @@
     "_name": "Fail",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 621
+      "__id__": 617
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 625
+        "__id__": 621
       }
     ],
     "_prefab": null,
@@ -26502,7 +26325,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 624
+      "__id__": 620
     },
     "_enabled": true,
     "_materials": [
@@ -26532,7 +26355,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 621
+      "__id__": 617
     },
     "_enabled": true,
     "_defaultClip": {
@@ -26812,9 +26635,6 @@
     "noiSup": {
       "__id__": 45
     },
-    "video": {
-      "__id__": 619
-    },
     "cus1": {
       "__id__": 31
     },
@@ -26822,7 +26642,7 @@
       "__id__": 399
     },
     "failUi": {
-      "__id__": 621
+      "__id__": 617
     },
     "listItemPlate2": {
       "__id__": 152
