@@ -1312,7 +1312,7 @@ var NewClass = /** @class */ (function (_super) {
         this.endCard.children[1].x = 0;
         this.logo.scale = (logic) ? 1.5 : 1;
         this.listIconPt.scale = (logic) ? 2.2 : 1.3;
-        this.listIconPt.getComponent(cc.Widget).bottom = (logic) ? 230 : 114.86;
+        this.listIconPt.getComponent(cc.Widget).bottom = (logic) ? 260 + 20 : 114.86 + 20;
         this.logo.getComponent(cc.Widget).top = 48;
         this.cameraDoc.node.active = logic ? true : false;
         this.camera.node.active = logic ? false : true;
@@ -1353,7 +1353,7 @@ var NewClass = /** @class */ (function (_super) {
                 console.log("check ipad");
                 this.endCardDoc.children[1].scale = 1.2;
                 this.endCardDoc.children[1].x = 700;
-                this.guildUpgrade.scale = 1.8;
+                // this.guildUpgrade.scale = 1.8
             }
         }
         else {

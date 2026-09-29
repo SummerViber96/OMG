@@ -1264,7 +1264,7 @@ export default class NewClass extends cc.Component {
 
         this.logo.scale = (logic) ? 1.5 : 1
         this.listIconPt.scale = (logic) ? 2.2 : 1.3
-        this.listIconPt.getComponent(cc.Widget).bottom = (logic) ? 230 : 114.86
+        this.listIconPt.getComponent(cc.Widget).bottom = (logic) ? 260+20 : 114.86+20
         this.logo.getComponent(cc.Widget).top = 48
         this.cameraDoc.node.active = logic ? true : false
         this.camera.node.active = logic ? false : true
@@ -1311,7 +1311,7 @@ export default class NewClass extends cc.Component {
                 this.endCardDoc.children[1].scale = 1.2
                 this.endCardDoc.children[1].x = 700
 
-                this.guildUpgrade.scale = 1.8
+                // this.guildUpgrade.scale = 1.8
 
             }
         }
