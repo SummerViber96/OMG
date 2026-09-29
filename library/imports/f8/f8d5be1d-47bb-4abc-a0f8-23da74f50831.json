@@ -846,7 +846,7 @@
       }
     }
   },
-  "_atlasText": "\nClick-hand.png\nsize: 344, 152\nformat: RGBA8888\nfilter: Linear, Linear\nrepeat: none\nHandCurso\n  rotate: true\n  xy: 2, 27\n  size: 120, 191\n  orig: 120, 191\n  offset: 0, 0\n  index: -1\nRing\n  rotate: false\n  xy: 195, 2\n  size: 145, 145\n  orig: 146, 146\n  offset: 1, 1\n  index: -1\n",
+  "_atlasText": "\r\nClick-hand.png\r\nsize: 344, 152\r\nformat: RGBA8888\r\nfilter: Linear, Linear\r\nrepeat: none\r\nHandCurso\r\n  rotate: true\r\n  xy: 2, 27\r\n  size: 120, 191\r\n  orig: 120, 191\r\n  offset: 0, 0\r\n  index: -1\r\nRing\r\n  rotate: false\r\n  xy: 195, 2\r\n  size: 145, 145\r\n  orig: 146, 146\r\n  offset: 1, 1\r\n  index: -1\r\n",
   "textures": [
     {
       "__uuid__": "4e8b09b7-ed16-46d2-90b9-c6d62b89d24f"
