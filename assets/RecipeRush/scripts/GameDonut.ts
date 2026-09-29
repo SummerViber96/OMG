@@ -169,8 +169,8 @@ export default class NewClass extends cc.Component {
     listItemNoi: cc.Node = null
     @property(cc.Node)
     noiSup: cc.Node = null;
-    @property(cc.VideoPlayer)
-    video: cc.VideoPlayer = null;
+    // @property(cc.VideoPlayer)
+    // video: cc.VideoPlayer = null;
     @property(cc.Node)
     cus1: cc.Node = null;
     @property(cc.Node)
@@ -1162,8 +1162,8 @@ export default class NewClass extends cc.Component {
         this.cameraDoc.node.active = (logic) ? true : false
         this.mag = 0
         this.magfront = 0
-        this.video.node.parent.scale = (logic) ? 2 : 1;
-        this.video.node.parent.position = (logic) ? cc.v3(-500, 600) : cc.v3(0, 0)
+        // this.video.node.parent.scale = (logic) ? 2 : 1;
+        // this.video.node.parent.position = (logic) ? cc.v3(-500, 600) : cc.v3(0, 0)
         this.isScaleVideo = 2
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false

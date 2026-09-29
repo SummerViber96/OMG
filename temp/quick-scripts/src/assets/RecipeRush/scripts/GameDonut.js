@@ -107,7 +107,8 @@ var NewClass = /** @class */ (function (_super) {
         _this.listTick = null;
         _this.listItemNoi = null;
         _this.noiSup = null;
-        _this.video = null;
+        // @property(cc.VideoPlayer)
+        // video: cc.VideoPlayer = null;
         _this.cus1 = null;
         _this.listCus2 = null;
         _this.failUi = null;
@@ -1026,8 +1027,8 @@ var NewClass = /** @class */ (function (_super) {
         this.cameraDoc.node.active = (logic) ? true : false;
         this.mag = 0;
         this.magfront = 0;
-        this.video.node.parent.scale = (logic) ? 2 : 1;
-        this.video.node.parent.position = (logic) ? cc.v3(-500, 600) : cc.v3(0, 0);
+        // this.video.node.parent.scale = (logic) ? 2 : 1;
+        // this.video.node.parent.position = (logic) ? cc.v3(-500, 600) : cc.v3(0, 0)
         this.isScaleVideo = 2;
         if (this.isEndGame) {
             this.endCardDoc.active = (logic) ? true : false;
@@ -1303,9 +1304,6 @@ var NewClass = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "noiSup", void 0);
-    __decorate([
-        property(cc.VideoPlayer)
-    ], NewClass.prototype, "video", void 0);
     __decorate([
         property(cc.Node)
     ], NewClass.prototype, "cus1", void 0);
