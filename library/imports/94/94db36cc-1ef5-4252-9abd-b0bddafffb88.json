@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "abs_icon",
+    "texture": "cfd55d06-8dcf-4e9c-9db1-33a35d795754",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      197,
+      203
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      197,
+      203
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -5770,7 +5770,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "519fdc2f-1d2e-4f10-b63e-1c61ec05df16"
+      "__uuid__": "94db36cc-1ef5-4252-9abd-b0bddafffb88"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -32069,9 +32069,9 @@
       "__id__": 621
     },
     "_enabled": true,
-    "androidLink": "",
-    "iosLink": "",
-    "defaultLink": "",
+    "androidLink": "https://play.google.com/store/apps/details?id=com.fme.gym.mania.simulator.games",
+    "iosLink": "https://apps.apple.com/us/app/gym-mania-time-management-game/id6762738738",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.fme.gym.mania.simulator.games",
     "_id": "5etCHKrNxJsKforzQD2rC4"
   },
   {
