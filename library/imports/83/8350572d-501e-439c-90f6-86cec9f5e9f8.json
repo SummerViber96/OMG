@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "Click-hand.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nClick-hand.png\r\nsize: 388, 244\r\nformat: RGBA8888\r\nfilter: Linear, Linear\r\nrepeat: none\r\nhand\r\n  rotate: true\r\n  xy: 242, 92\r\n  size: 148, 144\r\n  orig: 148, 144\r\n  offset: 0, 0\r\n  index: -1\r\ntutorialCircle\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 238, 238\r\n  orig: 244, 244\r\n  offset: 3, 3\r\n  index: -1\r\n"
+}

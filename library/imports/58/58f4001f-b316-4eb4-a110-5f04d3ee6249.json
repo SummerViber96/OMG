@@ -1,0 +1,811 @@
+{
+  "__type__": "cc.Model",
+  "_name": "Wolf@IdleBreathe",
+  "_objFlags": 0,
+  "_native": "",
+  "_nodes": [
+    {
+      "name": "RootNode",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        1
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": ""
+    },
+    {
+      "name": "root",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        2
+      ],
+      "parent": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        -0.70710676908493,
+        0,
+        0,
+        0.70710676908493
+      ],
+      "path": "root"
+    },
+    {
+      "name": "Wolf_",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        3
+      ],
+      "parent": null,
+      "position": [
+        0,
+        0.293183475732803,
+        0.618679285049438
+      ],
+      "quat": [
+        0.499992907047272,
+        0.499992847442627,
+        -0.500007092952728,
+        0.500007152557373
+      ],
+      "path": "root/Wolf_"
+    },
+    {
+      "name": "Wolf_ Pelvis",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        4,
+        8,
+        12,
+        29
+      ],
+      "parent": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        -0.500000059604645,
+        -0.499999970197678,
+        -0.499999344348907,
+        0.500000655651093
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis"
+    },
+    {
+      "name": "Wolf_ L Thigh",
+      "scale": [
+        1,
+        0.999999940395355,
+        1
+      ],
+      "children": [
+        5
+      ],
+      "parent": null,
+      "position": [
+        -1.33514404865309e-7,
+        1.52587887214395e-7,
+        0.105175107717514
+      ],
+      "quat": [
+        0.770029008388519,
+        0.636419415473938,
+        -0.04139319434762,
+        -0.0176716037094593
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ L Thigh"
+    },
+    {
+      "name": "Wolf_ L Calf",
+      "scale": [
+        1.00000011920929,
+        1.00000011920929,
+        1
+      ],
+      "children": [
+        6
+      ],
+      "parent": null,
+      "position": [
+        0.259406566619873,
+        0,
+        -4.76837147544984e-9
+      ],
+      "quat": [
+        1.073474053531e-17,
+        6.42239240326177e-18,
+        -0.429229140281677,
+        0.90319561958313
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ L Thigh/Wolf_ L Calf"
+    },
+    {
+      "name": "Wolf_ L HorseLink",
+      "scale": [
+        0.999999761581421,
+        1.00000011920929,
+        1
+      ],
+      "children": [
+        7
+      ],
+      "parent": null,
+      "position": [
+        0.236659541726112,
+        -3.81469718035987e-8,
+        1.90734859017994e-8
+      ],
+      "quat": [
+        9.26406240608912e-9,
+        -9.55682089021082e-10,
+        0.514740347862244,
+        0.85734611749649
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ L Thigh/Wolf_ L Calf/Wolf_ L HorseLink"
+    },
+    {
+      "name": "Wolf_ L Foot",
+      "scale": [
+        1,
+        0.999999940395355,
+        1
+      ],
+      "parent": null,
+      "position": [
+        0.137117072939873,
+        0,
+        -9.53674295089968e-9
+      ],
+      "quat": [
+        -0.0397570803761482,
+        0.0210963636636734,
+        -0.181675046682358,
+        0.982328116893768
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ L Thigh/Wolf_ L Calf/Wolf_ L HorseLink/Wolf_ L Foot"
+    },
+    {
+      "name": "Wolf_ R Thigh",
+      "scale": [
+        1.00000011920929,
+        1,
+        1
+      ],
+      "children": [
+        9
+      ],
+      "parent": null,
+      "position": [
+        1.71661369563481e-7,
+        -1.14440915410796e-7,
+        -0.105175107717514
+      ],
+      "quat": [
+        0.770023345947266,
+        0.636414110660553,
+        0.0415357500314713,
+        0.0177715457975864
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ R Thigh"
+    },
+    {
+      "name": "Wolf_ R Calf",
+      "scale": [
+        1,
+        1.00000011920929,
+        1
+      ],
+      "children": [
+        10
+      ],
+      "parent": null,
+      "position": [
+        0.259406566619873,
+        0,
+        -4.76837147544984e-9
+      ],
+      "quat": [
+        4.77797264834768e-18,
+        -6.11197798915022e-18,
+        -0.429231733083725,
+        0.903194427490234
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ R Thigh/Wolf_ R Calf"
+    },
+    {
+      "name": "Wolf_ R HorseLink",
+      "scale": [
+        0.999999821186066,
+        0.999999940395355,
+        1
+      ],
+      "children": [
+        11
+      ],
+      "parent": null,
+      "position": [
+        0.236659660935402,
+        -3.81469718035987e-8,
+        -1.77635679969558e-17
+      ],
+      "quat": [
+        -1.26984351922488e-8,
+        2.15237450085226e-9,
+        0.51475590467453,
+        0.857336759567261
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ R Thigh/Wolf_ R Calf/Wolf_ R HorseLink"
+    },
+    {
+      "name": "Wolf_ R Foot",
+      "scale": [
+        1.00000011920929,
+        1,
+        1
+      ],
+      "parent": null,
+      "position": [
+        0.137117058038712,
+        3.81469718035987e-8,
+        0
+      ],
+      "quat": [
+        0.0399238727986813,
+        -0.0211465563625097,
+        -0.181690141558647,
+        0.982317447662354
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ R Thigh/Wolf_ R Calf/Wolf_ R HorseLink/Wolf_ R Foot"
+    },
+    {
+      "name": "Wolf_ Spine",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        13
+      ],
+      "parent": null,
+      "position": [
+        0.138486132025719,
+        -0.000160789481014945,
+        -2.36820767440804e-8
+      ],
+      "quat": [
+        0.00000912897667149082,
+        0.00944448076188564,
+        0.000398163072532043,
+        0.999955296516418
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine"
+    },
+    {
+      "name": "Wolf_ Spine1",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        14,
+        19,
+        24
+      ],
+      "parent": null,
+      "position": [
+        0.201723277568817,
+        -0.000212593076867051,
+        -6.55651088976583e-9
+      ],
+      "quat": [
+        0.0000150143887367449,
+        0.00944529101252556,
+        1.90424618295992e-8,
+        0.999955415725708
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1"
+    },
+    {
+      "name": "Wolf_ Neck",
+      "scale": [
+        1,
+        1.00000011920929,
+        0.999999940395355
+      ],
+      "children": [
+        15
+      ],
+      "parent": null,
+      "position": [
+        0.266802668571472,
+        -0.0457819737493992,
+        -1.14738938350456e-7
+      ],
+      "quat": [
+        0.0000136395701701986,
+        0.00944529380649328,
+        -0.00712686311453581,
+        0.999930024147034
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck"
+    },
+    {
+      "name": "Wolf_ Neck1",
+      "scale": [
+        0.99999988079071,
+        1,
+        1.00000011920929
+      ],
+      "children": [
+        16
+      ],
+      "parent": null,
+      "position": [
+        0.117008857429028,
+        -0.0000932311959331855,
+        2.14576711954351e-8
+      ],
+      "quat": [
+        -0.0000556957202206831,
+        0.00944500975310802,
+        -0.00712542561814189,
+        0.999930024147034
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck/Wolf_ Neck1"
+    },
+    {
+      "name": "Wolf_ Neck2",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        17
+      ],
+      "parent": null,
+      "position": [
+        0.117008857429028,
+        -0.0000931549075176008,
+        3.93390635622382e-8
+      ],
+      "quat": [
+        -0.000124971920740791,
+        0.00944446306675673,
+        -0.00712411431595683,
+        0.999930024147034
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck/Wolf_ Neck1/Wolf_ Neck2"
+    },
+    {
+      "name": "Wolf_ Head",
+      "scale": [
+        0.99999988079071,
+        1,
+        0.99999988079071
+      ],
+      "children": [
+        18
+      ],
+      "parent": null,
+      "position": [
+        0.117377161979675,
+        0.000137939452542923,
+        -7.15255721317476e-9
+      ],
+      "quat": [
+        -0.0040289368480444,
+        0.00862663891166449,
+        -0.513984858989716,
+        0.857746422290802
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck/Wolf_ Neck1/Wolf_ Neck2/Wolf_ Head"
+    },
+    {
+      "name": "Wolf_ Ponytail1",
+      "scale": [
+        1,
+        0.999999940395355,
+        1
+      ],
+      "parent": null,
+      "position": [
+        -0.0417720004916191,
+        0.0346803069114685,
+        -6.43730118099484e-8
+      ],
+      "quat": [
+        9.95457369867836e-8,
+        -0.00000175714012584649,
+        0.647339046001434,
+        0.762202203273773
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck/Wolf_ Neck1/Wolf_ Neck2/Wolf_ Head/Wolf_ Ponytail1"
+    },
+    {
+      "name": "Wolf_ L Clavicle",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        20
+      ],
+      "parent": null,
+      "position": [
+        0.268879234790802,
+        -0.0219657514244318,
+        0.0337907187640667
+      ],
+      "quat": [
+        0.65608549118042,
+        0.165187031030655,
+        0.720767855644226,
+        0.150860145688057
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle"
+    },
+    {
+      "name": "Wolf_ L UpperArm",
+      "scale": [
+        0.999999940395355,
+        0.999999940395355,
+        0.999999940395355
+      ],
+      "children": [
+        21
+      ],
+      "parent": null,
+      "position": [
+        0.106824032962322,
+        -7.10542719878232e-17,
+        -1.90734859017994e-8
+      ],
+      "quat": [
+        -0.498381704092026,
+        0.485127776861191,
+        -0.280091881752014,
+        0.661676108837128
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle/Wolf_ L UpperArm"
+    },
+    {
+      "name": "Wolf_ L Forearm",
+      "scale": [
+        0.999999940395355,
+        1,
+        1
+      ],
+      "children": [
+        22
+      ],
+      "parent": null,
+      "position": [
+        0.2405656427145,
+        -3.81469718035987e-8,
+        8.88178399847791e-18
+      ],
+      "quat": [
+        -2.36955109529645e-18,
+        4.29643483142392e-18,
+        -0.277693182229996,
+        0.960669815540314
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle/Wolf_ L UpperArm/Wolf_ L Forearm"
+    },
+    {
+      "name": "Wolf_ L Hand",
+      "scale": [
+        0.999999940395355,
+        1.00000011920929,
+        1.00000011920929
+      ],
+      "children": [
+        23
+      ],
+      "parent": null,
+      "position": [
+        0.234019383788109,
+        3.55271359939116e-17,
+        -4.76837147544984e-9
+      ],
+      "quat": [
+        0.0573524758219719,
+        -0.0209838077425957,
+        -0.160193800926208,
+        0.985194563865662
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle/Wolf_ L UpperArm/Wolf_ L Forearm/Wolf_ L Hand"
+    },
+    {
+      "name": "Wolf_ L Finger0",
+      "scale": [
+        0.999999940395355,
+        0.999999940395355,
+        1
+      ],
+      "parent": null,
+      "position": [
+        0.117696151137352,
+        0.00668525695800781,
+        -0.00455005653202534
+      ],
+      "quat": [
+        -0.00415724841877818,
+        0.00205754465423524,
+        -0.509786188602448,
+        0.860288619995117
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle/Wolf_ L UpperArm/Wolf_ L Forearm/Wolf_ L Hand/Wolf_ L Finger0"
+    },
+    {
+      "name": "Wolf_ R Clavicle",
+      "scale": [
+        1.00000011920929,
+        1,
+        1
+      ],
+      "children": [
+        25
+      ],
+      "parent": null,
+      "position": [
+        0.268879234790802,
+        -0.0219654459506273,
+        -0.0337908416986465
+      ],
+      "quat": [
+        -0.656085014343262,
+        -0.165189117193222,
+        0.720767438411713,
+        0.150861993432045
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle"
+    },
+    {
+      "name": "Wolf_ R UpperArm",
+      "scale": [
+        1,
+        1.00000011920929,
+        1
+      ],
+      "children": [
+        26
+      ],
+      "parent": null,
+      "position": [
+        0.10682401061058,
+        7.62939436071974e-8,
+        1.90734859017994e-8
+      ],
+      "quat": [
+        0.480669289827347,
+        -0.463477998971939,
+        -0.283219873905182,
+        0.688426971435547
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle/Wolf_ R UpperArm"
+    },
+    {
+      "name": "Wolf_ R Forearm",
+      "scale": [
+        1.00000011920929,
+        0.99999988079071,
+        1
+      ],
+      "children": [
+        27
+      ],
+      "parent": null,
+      "position": [
+        0.240565568208694,
+        -1.90734859017994e-8,
+        -1.77635679969558e-17
+      ],
+      "quat": [
+        5.33615040338571e-19,
+        -1.28182120429356e-18,
+        -0.276612371206284,
+        0.960981547832489
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle/Wolf_ R UpperArm/Wolf_ R Forearm"
+    },
+    {
+      "name": "Wolf_ R Hand",
+      "scale": [
+        0.999999940395355,
+        1.00000011920929,
+        0.999999940395355
+      ],
+      "children": [
+        28
+      ],
+      "parent": null,
+      "position": [
+        0.234019249677658,
+        0,
+        9.53674295089968e-9
+      ],
+      "quat": [
+        -0.0550135336816311,
+        0.0156412553042173,
+        -0.163059413433075,
+        0.984957098960876
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle/Wolf_ R UpperArm/Wolf_ R Forearm/Wolf_ R Hand"
+    },
+    {
+      "name": "Wolf_ R Finger0",
+      "scale": [
+        0.99999988079071,
+        1.00000011920929,
+        0.99999988079071
+      ],
+      "parent": null,
+      "position": [
+        0.117696166038513,
+        0.00668523786589503,
+        0.00455005653202534
+      ],
+      "quat": [
+        0.00415732292458415,
+        -0.00205760914832354,
+        -0.509786128997803,
+        0.860288679599762
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle/Wolf_ R UpperArm/Wolf_ R Forearm/Wolf_ R Hand/Wolf_ R Finger0"
+    },
+    {
+      "name": "Wolf_ Tail",
+      "scale": [
+        0.999999940395355,
+        1,
+        1
+      ],
+      "children": [
+        30
+      ],
+      "parent": null,
+      "position": [
+        -0.151923149824142,
+        -0.0800546631217003,
+        -0.00000400546150558512
+      ],
+      "quat": [
+        -0.0226561240851879,
+        0.0404474921524525,
+        0.874018490314484,
+        0.483675926923752
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail"
+    },
+    {
+      "name": "Wolf_ Tail1",
+      "scale": [
+        0.999999940395355,
+        1,
+        1
+      ],
+      "children": [
+        31
+      ],
+      "parent": null,
+      "position": [
+        0.107944868505001,
+        -0.0000718688970664516,
+        -0.00000271320345746062
+      ],
+      "quat": [
+        0.027541920542717,
+        0.0372933149337769,
+        -0.285033822059631,
+        0.957395613193512
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail/Wolf_ Tail1"
+    },
+    {
+      "name": "Wolf_ Tail2",
+      "scale": [
+        0.999999940395355,
+        0.99999988079071,
+        1
+      ],
+      "children": [
+        32
+      ],
+      "parent": null,
+      "position": [
+        0.107994645833969,
+        -0.0000857925406307913,
+        -0.00000540733344678301
+      ],
+      "quat": [
+        0.0310249123722315,
+        0.0344492122530937,
+        0.0156708173453808,
+        0.998801827430725
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail/Wolf_ Tail1/Wolf_ Tail2"
+    },
+    {
+      "name": "Wolf_ Tail3",
+      "scale": [
+        1,
+        0.999999940395355,
+        1
+      ],
+      "children": [
+        33
+      ],
+      "parent": null,
+      "position": [
+        0.107991598546505,
+        -0.0000841522196424194,
+        0.0000176048270077445
+      ],
+      "quat": [
+        -0.101892285048962,
+        -0.175915256142616,
+        0.0153898289427161,
+        0.978996872901917
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail/Wolf_ Tail1/Wolf_ Tail2/Wolf_ Tail3"
+    },
+    {
+      "name": "Wolf_ Tail4",
+      "scale": [
+        1,
+        1.00000011920929,
+        1
+      ],
+      "parent": null,
+      "position": [
+        0.107992567121983,
+        -0.0000852966259117238,
+        0.0000111579893200542
+      ],
+      "quat": [
+        -0.0633433237671852,
+        -0.193172976374626,
+        0.0152697572484612,
+        0.978998780250549
+      ],
+      "path": "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail/Wolf_ Tail1/Wolf_ Tail2/Wolf_ Tail3/Wolf_ Tail4"
+    }
+  ],
+  "_precomputeJointMatrix": false
+}

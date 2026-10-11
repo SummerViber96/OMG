@@ -1,0 +1,54 @@
+{
+  "__type__": "cc.Model",
+  "_name": "Cai dia",
+  "_objFlags": 0,
+  "_native": "",
+  "_nodes": [
+    {
+      "name": "RootNode",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        1
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": ""
+    },
+    {
+      "name": "0_Cai dia",
+      "scale": [
+        100,
+        100,
+        100
+      ],
+      "mesh": 0,
+      "parent": null,
+      "position": [
+        1.31966578960419,
+        1.26955723762512,
+        0.0285728685557842
+      ],
+      "quat": [
+        6.12323426292584e-17,
+        1,
+        6.12323426292584e-17,
+        3.74939939305299e-33
+      ],
+      "path": "0_Cai dia"
+    }
+  ],
+  "_precomputeJointMatrix": false
+}

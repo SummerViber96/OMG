@@ -1,0 +1,33 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "hand_guide",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 60,
+  "speed": 2,
+  "wrapMode": 22,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            31.214,
+            -301.575,
+            0
+          ]
+        },
+        {
+          "frame": 1,
+          "value": [
+            49.709,
+            -341.304,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "events": []
+}

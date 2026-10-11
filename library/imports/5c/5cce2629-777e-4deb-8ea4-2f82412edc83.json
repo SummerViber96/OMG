@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_money",
+    "texture": "82c7b49e-2f5b-47ab-aaf3-172d3e84ab3f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      86,
+      76
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      86,
+      76
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

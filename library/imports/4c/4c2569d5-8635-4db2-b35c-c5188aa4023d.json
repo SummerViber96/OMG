@@ -1,0 +1,615 @@
+{
+  "__type__": "cc.SkeletonAnimationClip",
+  "_name": "03_Vua di vua vung tien",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_duration": 0.7083333134651184,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 2,
+  "events": [],
+  "description": {
+    "Game_rig/Root/DEF_Spine_00": {
+      "position": {
+        "offset": 0,
+        "frameCount": 9
+      },
+      "scale": {
+        "offset": 36,
+        "frameCount": 10
+      },
+      "quat": {
+        "offset": 76,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Leg.L": {
+      "position": {
+        "offset": 81,
+        "frameCount": 9
+      },
+      "quat": {
+        "offset": 117,
+        "frameCount": 14
+      },
+      "scale": {
+        "offset": 187,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Leg.L/DEF_Foot.L": {
+      "position": {
+        "offset": 191,
+        "frameCount": 5
+      },
+      "quat": {
+        "offset": 211,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 251,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Leg.L/DEF_Foot.L/DEF_Foot.L.001": {
+      "quat": {
+        "offset": 255,
+        "frameCount": 9
+      },
+      "scale": {
+        "offset": 300,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 304,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Leg.R": {
+      "position": {
+        "offset": 308,
+        "frameCount": 7
+      },
+      "quat": {
+        "offset": 336,
+        "frameCount": 12
+      },
+      "scale": {
+        "offset": 396,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Leg.R/DEF_Foot.R": {
+      "position": {
+        "offset": 400,
+        "frameCount": 6
+      },
+      "quat": {
+        "offset": 424,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 464,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Leg.R/DEF_Foot.R/DEF_Foot.R.001": {
+      "quat": {
+        "offset": 468,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 508,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 512,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01": {
+      "quat": {
+        "offset": 516,
+        "frameCount": 4
+      },
+      "scale": {
+        "offset": 536,
+        "frameCount": 7
+      },
+      "position": {
+        "offset": 564,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Hand_00.L": {
+      "position": {
+        "offset": 568,
+        "frameCount": 5
+      },
+      "quat": {
+        "offset": 588,
+        "frameCount": 7
+      },
+      "scale": {
+        "offset": 623,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Hand_00.R": {
+      "position": {
+        "offset": 627,
+        "frameCount": 7
+      },
+      "quat": {
+        "offset": 655,
+        "frameCount": 10
+      },
+      "scale": {
+        "offset": 705,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head": {
+      "quat": {
+        "offset": 709,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 749,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 753,
+        "frameCount": 1
+      }
+    },
+    "6_Ngoi sao dom_Body": {
+      "quat": {
+        "offset": 757,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 762,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 766,
+        "frameCount": 1
+      }
+    },
+    "6_Ngoi sao dom_Hair": {
+      "quat": {
+        "offset": 770,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 775,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 779,
+        "frameCount": 1
+      }
+    },
+    "Game_rig": {
+      "quat": {
+        "offset": 783,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 788,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 792,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root": {
+      "quat": {
+        "offset": 796,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 801,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 805,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Leg.L/DEF_Foot.L/DEF_Foot.L.001/DEF_Foot.L.001_end": {
+      "quat": {
+        "offset": 809,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 814,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 818,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Leg.R/DEF_Foot.R/DEF_Foot.R.001/DEF_Foot.R.001_end": {
+      "quat": {
+        "offset": 822,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 827,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 831,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Hand_00.L/DEF_Equipment.L": {
+      "quat": {
+        "offset": 835,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 840,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 844,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Hand_00.L/DEF_Equipment.L/DEF_Equipment.L_end": {
+      "quat": {
+        "offset": 848,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 853,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 857,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Hand_00.R/DEF_Equipment.R": {
+      "quat": {
+        "offset": 861,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 866,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 870,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Hand_00.R/DEF_Equipment.R/DEF_Equipment.R_end": {
+      "quat": {
+        "offset": 874,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 879,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 883,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.L": {
+      "quat": {
+        "offset": 887,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 892,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 896,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.L/DEF_Eyebrow_01.L": {
+      "quat": {
+        "offset": 900,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 905,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 909,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.L/DEF_Eyebrow_01.L/DEF_Eyebrow_02.L": {
+      "quat": {
+        "offset": 913,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 918,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 922,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.L/DEF_Eyebrow_01.L/DEF_Eyebrow_02.L/DEF_Eyebrow_03.L": {
+      "quat": {
+        "offset": 926,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 931,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 935,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.L/DEF_Eyebrow_01.L/DEF_Eyebrow_02.L/DEF_Eyebrow_03.L/DEF_Eyebrow_03.L_end": {
+      "quat": {
+        "offset": 939,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 944,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 948,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.R": {
+      "quat": {
+        "offset": 952,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 957,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 961,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.R/DEF_Eyebrow_01.R": {
+      "quat": {
+        "offset": 965,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 970,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 974,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.R/DEF_Eyebrow_01.R/DEF_Eyebrow_02.R": {
+      "quat": {
+        "offset": 978,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 983,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 987,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.R/DEF_Eyebrow_01.R/DEF_Eyebrow_02.R/DEF_Eyebrow_03.R": {
+      "quat": {
+        "offset": 991,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 996,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1000,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eyebrow_00.R/DEF_Eyebrow_01.R/DEF_Eyebrow_02.R/DEF_Eyebrow_03.R/DEF_Eyebrow_03.R_end": {
+      "quat": {
+        "offset": 1004,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1009,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1013,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.L": {
+      "quat": {
+        "offset": 1017,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1022,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1026,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.L/DEF_Eye_02.L": {
+      "quat": {
+        "offset": 1030,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1035,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1039,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.L/DEF_Eye_02.L/DEF_Eye_02.L_end": {
+      "quat": {
+        "offset": 1043,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1048,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1052,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.L/DEF_Eye_03.L": {
+      "quat": {
+        "offset": 1056,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1061,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1065,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.L/DEF_Eye_03.L/DEF_Eye_03.L_end": {
+      "quat": {
+        "offset": 1069,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1074,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1078,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.R": {
+      "quat": {
+        "offset": 1082,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1087,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1091,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.R/DEF_Eye_02.R": {
+      "quat": {
+        "offset": 1095,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1100,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1104,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.R/DEF_Eye_02.R/DEF_Eye_02.R_end": {
+      "quat": {
+        "offset": 1108,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1113,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1117,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.R/DEF_Eye_03.R": {
+      "quat": {
+        "offset": 1121,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1126,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1130,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Eye_01.R/DEF_Eye_03.R/DEF_Eye_03.R_end": {
+      "quat": {
+        "offset": 1134,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1139,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1143,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Mouth": {
+      "quat": {
+        "offset": 1147,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1152,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1156,
+        "frameCount": 1
+      }
+    },
+    "Game_rig/Root/DEF_Spine_00/DEF_Spine_01/DEF_Head/DEF_Mouth/DEF_Mouth_end": {
+      "quat": {
+        "offset": 1160,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1165,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1169,
+        "frameCount": 1
+      }
+    }
+  }
+}

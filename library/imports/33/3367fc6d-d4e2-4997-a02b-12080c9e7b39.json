@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Tranh treo tuong (Copy)",
+    "texture": "a2f6a161-a27e-47d2-b630-86e7926c1e39",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      576,
+      324
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      576,
+      324
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

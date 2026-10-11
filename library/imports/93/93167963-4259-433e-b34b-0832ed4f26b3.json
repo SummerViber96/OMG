@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_fry",
+    "texture": "74c7580f-9925-44cc-b777-6adee0d13019",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      535,
+      254
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      537,
+      255
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

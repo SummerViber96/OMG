@@ -1,0 +1,54 @@
+{
+  "__type__": "cc.Model",
+  "_name": "Tham 1.008",
+  "_objFlags": 0,
+  "_native": "",
+  "_nodes": [
+    {
+      "name": "RootNode",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        1
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": ""
+    },
+    {
+      "name": "Tham 1.008",
+      "scale": [
+        0.315056085586548,
+        0.315056085586548,
+        0.315056085586548
+      ],
+      "mesh": 0,
+      "parent": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": "Tham 1.008"
+    }
+  ],
+  "_precomputeJointMatrix": false
+}

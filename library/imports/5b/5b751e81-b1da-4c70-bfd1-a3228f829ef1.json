@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "57_Food_Icon",
+    "texture": "8c763c3c-acac-4826-a89f-b41722184482",
+    "atlas": "",
+    "rect": [
+      42,
+      63,
+      172,
+      168
+    ],
+    "offset": [
+      0,
+      -19
+    ],
+    "originalSize": [
+      256,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

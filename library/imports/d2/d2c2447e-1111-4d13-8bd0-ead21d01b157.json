@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "vfx_chatGo",
+    "texture": "2c5e5c67-7132-4b5c-ba69-8d8ce454cb31",
+    "atlas": "",
+    "rect": [
+      104,
+      141,
+      660,
+      714
+    ],
+    "offset": [
+      -1,
+      -9
+    ],
+    "originalSize": [
+      870,
+      978
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

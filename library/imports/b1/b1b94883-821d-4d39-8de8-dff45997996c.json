@@ -1,0 +1,763 @@
+{
+  "__type__": "cc.Model",
+  "_name": "DeerDoe@IdleBreathe",
+  "_objFlags": 0,
+  "_native": "",
+  "_nodes": [
+    {
+      "name": "RootNode",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        1
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": ""
+    },
+    {
+      "name": "root",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        2
+      ],
+      "parent": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        -0.70710676908493,
+        0,
+        0,
+        0.70710676908493
+      ],
+      "path": "root"
+    },
+    {
+      "name": "DeerDoe_",
+      "scale": [
+        1,
+        0.999999940395355,
+        1
+      ],
+      "children": [
+        3
+      ],
+      "parent": null,
+      "position": [
+        0,
+        0.503982543945313,
+        0.897365808486938
+      ],
+      "quat": [
+        0.508740723133087,
+        0.508739173412323,
+        -0.491104602813721,
+        0.491104453802109
+      ],
+      "path": "root/DeerDoe_"
+    },
+    {
+      "name": "DeerDoe_ Pelvis",
+      "scale": [
+        1,
+        1,
+        0.999999940395355
+      ],
+      "children": [
+        4,
+        29
+      ],
+      "parent": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        -0.5,
+        -0.5,
+        -0.499999314546585,
+        0.500000715255737
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis"
+    },
+    {
+      "name": "DeerDoe_ Spine",
+      "scale": [
+        1.00000011920929,
+        1.00000011920929,
+        0.999999940395355
+      ],
+      "children": [
+        5,
+        21,
+        25
+      ],
+      "parent": null,
+      "position": [
+        0.208510398864746,
+        -0.000233001701417379,
+        2.8948531394235e-7
+      ],
+      "quat": [
+        -0.00000208047595151584,
+        -6.93675985985465e-7,
+        0.000398159027099609,
+        0.999999940395355
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine"
+    },
+    {
+      "name": "DeerDoe_ Spine1",
+      "scale": [
+        1.00000011920929,
+        1.00000011920929,
+        1
+      ],
+      "children": [
+        6,
+        11,
+        16
+      ],
+      "parent": null,
+      "position": [
+        0.29262039065361,
+        -0.000233001701417379,
+        -6.46250553071326e-10
+      ],
+      "quat": [
+        -4.63221079920823e-23,
+        1.77635662764201e-15,
+        1.86264492718635e-9,
+        1
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1"
+    },
+    {
+      "name": "DeerDoe_ Neck",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        7
+      ],
+      "parent": null,
+      "position": [
+        0.292558372020721,
+        -0.000134582514874637,
+        -3.62851998447766e-10
+      ],
+      "quat": [
+        1.10898996652509e-8,
+        8.07292224180856e-7,
+        -0.214359939098358,
+        0.976754724979401
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck"
+    },
+    {
+      "name": "DeerDoe_ Neck1",
+      "scale": [
+        1.00000011920929,
+        1,
+        1
+      ],
+      "children": [
+        8
+      ],
+      "parent": null,
+      "position": [
+        0.186092138290405,
+        -0.00013336181291379,
+        -3.71874198101807e-10
+      ],
+      "quat": [
+        4.10948572948655e-8,
+        7.69754194607231e-7,
+        -0.223444804549217,
+        0.974716603755951
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck/DeerDoe_ Neck1"
+    },
+    {
+      "name": "DeerDoe_ Neck2",
+      "scale": [
+        1,
+        0.99999988079071,
+        1
+      ],
+      "children": [
+        9
+      ],
+      "parent": null,
+      "position": [
+        0.186092063784599,
+        -0.000133399953483604,
+        -3.87663012801909e-10
+      ],
+      "quat": [
+        9.67327196121914e-8,
+        7.75302737565653e-7,
+        -0.223444864153862,
+        0.974716544151306
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck/DeerDoe_ Neck1/DeerDoe_ Neck2"
+    },
+    {
+      "name": "DeerDoe_ Head",
+      "scale": [
+        1,
+        1,
+        0.999999940395355
+      ],
+      "children": [
+        10
+      ],
+      "parent": null,
+      "position": [
+        0.183981016278267,
+        0.00411014538258314,
+        7.60657670184628e-9
+      ],
+      "quat": [
+        1.55589958694691e-7,
+        -6.4764532226036e-7,
+        0.0775723308324814,
+        0.996986746788025
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck/DeerDoe_ Neck1/DeerDoe_ Neck2/DeerDoe_ Head"
+    },
+    {
+      "name": "DeerDoe_ Ponytail1",
+      "scale": [
+        0.999999940395355,
+        1,
+        0.999999940395355
+      ],
+      "parent": null,
+      "position": [
+        0.00463394168764353,
+        -0.0116882706061006,
+        -9.72541585042563e-8
+      ],
+      "quat": [
+        -3.2724713605603e-8,
+        -0.00000173685646132071,
+        0.640384912490845,
+        0.768054127693176
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck/DeerDoe_ Neck1/DeerDoe_ Neck2/DeerDoe_ Head/DeerDoe_ Ponytail1"
+    },
+    {
+      "name": "DeerDoe_ R Clavicle",
+      "scale": [
+        1.00000011920929,
+        1,
+        1
+      ],
+      "children": [
+        12
+      ],
+      "parent": null,
+      "position": [
+        0.330439209938049,
+        0.000364608742529526,
+        -0.0382935404777527
+      ],
+      "quat": [
+        0.77899444103241,
+        0.129338875412941,
+        -0.589042961597443,
+        -0.171660870313644
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle"
+    },
+    {
+      "name": "DeerDoe_ R UpperArm",
+      "scale": [
+        1.00000011920929,
+        1.00000011920929,
+        1.00000023841858
+      ],
+      "children": [
+        13
+      ],
+      "parent": null,
+      "position": [
+        0.131007432937622,
+        1.42108543975646e-16,
+        0
+      ],
+      "quat": [
+        0.427069038152695,
+        -0.690845131874084,
+        -0.104153789579868,
+        0.574018359184265
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle/DeerDoe_ R UpperArm"
+    },
+    {
+      "name": "DeerDoe_ R Forearm",
+      "scale": [
+        1.00000011920929,
+        1.00000011920929,
+        1
+      ],
+      "children": [
+        14
+      ],
+      "parent": null,
+      "position": [
+        0.265435695648193,
+        -1.90734859017994e-8,
+        -9.53674295089968e-9
+      ],
+      "quat": [
+        1.20438795861283e-17,
+        8.50672376513411e-18,
+        -0.449218183755875,
+        0.893422067165375
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle/DeerDoe_ R UpperArm/DeerDoe_ R Forearm"
+    },
+    {
+      "name": "DeerDoe_ R Hand",
+      "scale": [
+        1.00000011920929,
+        1,
+        1
+      ],
+      "children": [
+        15
+      ],
+      "parent": null,
+      "position": [
+        0.261005520820618,
+        -1.90734859017994e-8,
+        4.76837147544984e-9
+      ],
+      "quat": [
+        0.733130037784576,
+        0.00157848955132067,
+        -0.0679734274744987,
+        0.676681220531464
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle/DeerDoe_ R UpperArm/DeerDoe_ R Forearm/DeerDoe_ R Hand"
+    },
+    {
+      "name": "DeerDoe_ R Finger0",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "parent": null,
+      "position": [
+        0.301211565732956,
+        4.76837147544984e-9,
+        0
+      ],
+      "quat": [
+        0.00348580535501242,
+        -0.190935611724854,
+        -0.00500304065644741,
+        0.981583595275879
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle/DeerDoe_ R UpperArm/DeerDoe_ R Forearm/DeerDoe_ R Hand/DeerDoe_ R Finger0"
+    },
+    {
+      "name": "DeerDoe_ L Clavicle",
+      "scale": [
+        1.00000011920929,
+        1,
+        1
+      ],
+      "children": [
+        17
+      ],
+      "parent": null,
+      "position": [
+        0.330439209938049,
+        0.000364379870006815,
+        0.038293544203043
+      ],
+      "quat": [
+        0.644877135753632,
+        0.161166459321976,
+        0.733443021774292,
+        0.142197802662849
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle"
+    },
+    {
+      "name": "DeerDoe_ L UpperArm",
+      "scale": [
+        1,
+        0.999999940395355,
+        0.999999940395355
+      ],
+      "children": [
+        18
+      ],
+      "parent": null,
+      "position": [
+        0.131007432937622,
+        -7.62939436071974e-8,
+        -1.90734859017994e-8
+      ],
+      "quat": [
+        -0.352337747812271,
+        0.551421940326691,
+        -0.186682432889938,
+        0.73276299238205
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle/DeerDoe_ L UpperArm"
+    },
+    {
+      "name": "DeerDoe_ L Forearm",
+      "scale": [
+        1.00000011920929,
+        0.999999940395355,
+        1
+      ],
+      "children": [
+        19
+      ],
+      "parent": null,
+      "position": [
+        0.265435665845871,
+        7.10542719878232e-17,
+        9.53674295089968e-9
+      ],
+      "quat": [
+        7.0955966535105e-18,
+        1.26726055076594e-17,
+        -0.380834937095642,
+        0.924643039703369
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle/DeerDoe_ L UpperArm/DeerDoe_ L Forearm"
+    },
+    {
+      "name": "DeerDoe_ L Hand",
+      "scale": [
+        1.00000011920929,
+        1,
+        1.00000011920929
+      ],
+      "children": [
+        20
+      ],
+      "parent": null,
+      "position": [
+        0.261005520820618,
+        -1.90734859017994e-8,
+        9.53674295089968e-9
+      ],
+      "quat": [
+        -0.723838627338409,
+        0.0225415620952845,
+        -0.116770520806313,
+        0.679642677307129
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle/DeerDoe_ L UpperArm/DeerDoe_ L Forearm/DeerDoe_ L Hand"
+    },
+    {
+      "name": "DeerDoe_ L Finger0",
+      "scale": [
+        0.999999940395355,
+        1,
+        1
+      ],
+      "parent": null,
+      "position": [
+        0.301211535930634,
+        -9.53674295089968e-9,
+        -3.55271359939116e-17
+      ],
+      "quat": [
+        -0.00329303019680083,
+        0.228122353553772,
+        -0.00513198878616095,
+        0.973613381385803
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle/DeerDoe_ L UpperArm/DeerDoe_ L Forearm/DeerDoe_ L Hand/DeerDoe_ L Finger0"
+    },
+    {
+      "name": "DeerDoe_ L Thigh",
+      "scale": [
+        1.00000011920929,
+        1,
+        1.00000011920929
+      ],
+      "children": [
+        22
+      ],
+      "parent": null,
+      "position": [
+        -0.208510085940361,
+        0.000398559554014355,
+        0.161326631903648
+      ],
+      "quat": [
+        0.859290421009064,
+        0.509469628334045,
+        0.00200764276087284,
+        0.0453499369323254
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ L Thigh"
+    },
+    {
+      "name": "DeerDoe_ L Calf",
+      "scale": [
+        0.999999940395355,
+        0.999999940395355,
+        0.999999940395355
+      ],
+      "children": [
+        23
+      ],
+      "parent": null,
+      "position": [
+        0.316507548093796,
+        1.90734859017994e-8,
+        3.55271359939116e-17
+      ],
+      "quat": [
+        -4.8318365818856e-18,
+        -8.52925988733281e-19,
+        -0.57342141866684,
+        0.819260537624359
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ L Thigh/DeerDoe_ L Calf"
+    },
+    {
+      "name": "DeerDoe_ L HorseLink",
+      "scale": [
+        0.999999940395355,
+        0.999999821186066,
+        0.999999940395355
+      ],
+      "children": [
+        24
+      ],
+      "parent": null,
+      "position": [
+        0.263411104679108,
+        -7.62939436071974e-8,
+        -9.53674295089968e-9
+      ],
+      "quat": [
+        -1.09333848641313e-8,
+        2.49571052712838e-9,
+        0.481374531984329,
+        0.876515030860901
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ L Thigh/DeerDoe_ L Calf/DeerDoe_ L HorseLink"
+    },
+    {
+      "name": "DeerDoe_ L Foot",
+      "scale": [
+        1.00000011920929,
+        1.00000023841858,
+        1
+      ],
+      "parent": null,
+      "position": [
+        0.341779470443726,
+        0,
+        3.55271359939116e-17
+      ],
+      "quat": [
+        -0.024005014449358,
+        0.0538275055587292,
+        -0.128528445959091,
+        0.989952921867371
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ L Thigh/DeerDoe_ L Calf/DeerDoe_ L HorseLink/DeerDoe_ L Foot"
+    },
+    {
+      "name": "DeerDoe_ R Thigh",
+      "scale": [
+        1.00000023841858,
+        1,
+        1.00000011920929
+      ],
+      "children": [
+        26
+      ],
+      "parent": null,
+      "position": [
+        -0.208510085940361,
+        0.000399475102312863,
+        -0.161326631903648
+      ],
+      "quat": [
+        0.738531410694122,
+        0.672650456428528,
+        -0.0127927046269178,
+        -0.0441483817994595
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ R Thigh"
+    },
+    {
+      "name": "DeerDoe_ R Calf",
+      "scale": [
+        0.99999988079071,
+        0.99999988079071,
+        1
+      ],
+      "children": [
+        27
+      ],
+      "parent": null,
+      "position": [
+        0.316507607698441,
+        3.81469718035987e-8,
+        -3.81469718035987e-8
+      ],
+      "quat": [
+        3.27468417480071e-18,
+        6.11757345240383e-18,
+        -0.471931666135788,
+        0.881635129451752
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ R Thigh/DeerDoe_ R Calf"
+    },
+    {
+      "name": "DeerDoe_ R HorseLink",
+      "scale": [
+        1.00000011920929,
+        1.00000023841858,
+        1
+      ],
+      "children": [
+        28
+      ],
+      "parent": null,
+      "position": [
+        0.263411194086075,
+        0,
+        -3.55271359939116e-17
+      ],
+      "quat": [
+        3.22756932291668e-9,
+        -2.32640151587304e-9,
+        0.554267108440399,
+        0.832338869571686
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ R Thigh/DeerDoe_ R Calf/DeerDoe_ R HorseLink"
+    },
+    {
+      "name": "DeerDoe_ R Foot",
+      "scale": [
+        0.999999940395355,
+        0.999999940395355,
+        0.999999940395355
+      ],
+      "parent": null,
+      "position": [
+        0.341779410839081,
+        0,
+        0
+      ],
+      "quat": [
+        0.0119391996413469,
+        -0.0378930605947971,
+        -0.13015216588974,
+        0.990697741508484
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ R Thigh/DeerDoe_ R Calf/DeerDoe_ R HorseLink/DeerDoe_ R Foot"
+    },
+    {
+      "name": "DeerDoe_ Tail",
+      "scale": [
+        1.00000011920929,
+        1.00000011920929,
+        0.999999940395355
+      ],
+      "children": [
+        30
+      ],
+      "parent": null,
+      "position": [
+        -0.214535817503929,
+        -0.11665290594101,
+        9.33278329284803e-7
+      ],
+      "quat": [
+        -0.00715747708454728,
+        -0.00482752779498696,
+        0.895044088363647,
+        0.445894151926041
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Tail"
+    },
+    {
+      "name": "DeerDoe_ Tail1",
+      "scale": [
+        0.999999761581421,
+        1,
+        0.999999940395355
+      ],
+      "children": [
+        31
+      ],
+      "parent": null,
+      "position": [
+        0.0735442340373993,
+        -0.0000585937486903276,
+        3.55243685135065e-7
+      ],
+      "quat": [
+        -0.000867335649672896,
+        0.00653042364865541,
+        -0.268184989690781,
+        0.963344931602478
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Tail/DeerDoe_ Tail1"
+    },
+    {
+      "name": "DeerDoe_ Tail2",
+      "scale": [
+        0.99999988079071,
+        0.999999940395355,
+        0.999999940395355
+      ],
+      "parent": null,
+      "position": [
+        0.0860417187213898,
+        -0.000149230952956714,
+        1.11460686014198e-7
+      ],
+      "quat": [
+        0.000288659386569634,
+        0.00575932348147035,
+        -0.113909758627415,
+        0.993474364280701
+      ],
+      "path": "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Tail/DeerDoe_ Tail1/DeerDoe_ Tail2"
+    }
+  ],
+  "_precomputeJointMatrix": false
+}

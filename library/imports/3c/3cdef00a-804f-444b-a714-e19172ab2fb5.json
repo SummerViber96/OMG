@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Icon tai nguyen",
+    "texture": "3a564f0d-f6d2-4b9c-93d5-096c1cd64dba",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      511,
+      512
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

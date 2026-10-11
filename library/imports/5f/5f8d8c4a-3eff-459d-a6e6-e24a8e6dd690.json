@@ -1,0 +1,47 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "char2_move",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 3,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            -61.175,
+            5,
+            17.683
+          ]
+        },
+        {
+          "frame": 0.85,
+          "value": [
+            -70.249,
+            5,
+            14.384
+          ]
+        },
+        {
+          "frame": 3,
+          "value": [
+            -72.912,
+            5.179,
+            -7.377
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 3,
+      "func": "down",
+      "params": []
+    }
+  ]
+}

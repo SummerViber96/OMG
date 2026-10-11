@@ -1,0 +1,573 @@
+{
+  "__type__": "cc.SkeletonAnimationClip",
+  "_name": "Move 2",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_duration": 0.8333333134651184,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 2,
+  "events": [],
+  "description": {
+    "Armature/Bone": {
+      "quat": {
+        "offset": 0,
+        "frameCount": 2
+      },
+      "scale": {
+        "offset": 10,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 14,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL": {
+      "position": {
+        "offset": 18,
+        "frameCount": 6
+      },
+      "quat": {
+        "offset": 42,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 47,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.L": {
+      "quat": {
+        "offset": 51,
+        "frameCount": 2
+      },
+      "scale": {
+        "offset": 61,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 65,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.L/Upper Arm.L": {
+      "quat": {
+        "offset": 69,
+        "frameCount": 2
+      },
+      "scale": {
+        "offset": 79,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 83,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.L/Upper Arm.L/Lower Arm.L": {
+      "quat": {
+        "offset": 87,
+        "frameCount": 11
+      },
+      "scale": {
+        "offset": 142,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 146,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.R": {
+      "quat": {
+        "offset": 150,
+        "frameCount": 2
+      },
+      "scale": {
+        "offset": 160,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 164,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.R/Upper Arm.R": {
+      "quat": {
+        "offset": 168,
+        "frameCount": 2
+      },
+      "scale": {
+        "offset": 178,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 182,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.R/Upper Arm.R/Lower Arm.R": {
+      "quat": {
+        "offset": 186,
+        "frameCount": 11
+      },
+      "scale": {
+        "offset": 241,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 245,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Pelvis.L/Upper Leg.L": {
+      "quat": {
+        "offset": 249,
+        "frameCount": 21
+      },
+      "scale": {
+        "offset": 354,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 358,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Pelvis.L/Upper Leg.L/Foot.L": {
+      "quat": {
+        "offset": 362,
+        "frameCount": 21
+      },
+      "scale": {
+        "offset": 467,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 471,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Pelvis.R/Upper Leg.R": {
+      "quat": {
+        "offset": 475,
+        "frameCount": 21
+      },
+      "scale": {
+        "offset": 580,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 584,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Pelvis.R/Upper Leg.R/Foot.R": {
+      "quat": {
+        "offset": 588,
+        "frameCount": 21
+      },
+      "scale": {
+        "offset": 693,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 697,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.L": {
+      "position": {
+        "offset": 701,
+        "frameCount": 9
+      },
+      "quat": {
+        "offset": 737,
+        "frameCount": 11
+      },
+      "scale": {
+        "offset": 792,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.R": {
+      "position": {
+        "offset": 796,
+        "frameCount": 7
+      },
+      "quat": {
+        "offset": 824,
+        "frameCount": 10
+      },
+      "scale": {
+        "offset": 874,
+        "frameCount": 1
+      }
+    },
+    "Armature": {
+      "quat": {
+        "offset": 878,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 883,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 887,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine": {
+      "quat": {
+        "offset": 891,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 896,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 900,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001": {
+      "quat": {
+        "offset": 904,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 909,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 913,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002": {
+      "quat": {
+        "offset": 917,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 922,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 926,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003": {
+      "quat": {
+        "offset": 930,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 935,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 939,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004": {
+      "quat": {
+        "offset": 943,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 948,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 952,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Neck": {
+      "quat": {
+        "offset": 956,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 961,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 965,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Neck/Head": {
+      "quat": {
+        "offset": 969,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 974,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 978,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Neck/Head/Head_end": {
+      "quat": {
+        "offset": 982,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 987,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 991,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.L/Upper Arm.L/Lower Arm.L/Hand.L": {
+      "quat": {
+        "offset": 995,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1000,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1004,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.L/Upper Arm.L/Lower Arm.L/Hand.L/Hand.L_end": {
+      "quat": {
+        "offset": 1008,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1013,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1017,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.R/Upper Arm.R/Lower Arm.R/Hand.R": {
+      "quat": {
+        "offset": 1021,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1026,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1030,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Collarbone.R/Upper Arm.R/Lower Arm.R/Hand.R/Hand.R_end": {
+      "quat": {
+        "offset": 1034,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1039,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1043,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Pelvis.L": {
+      "quat": {
+        "offset": 1047,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1052,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1056,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Pelvis.L/Upper Leg.L/Foot.L/Foot.L_end": {
+      "quat": {
+        "offset": 1060,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1065,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1069,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Pelvis.R": {
+      "quat": {
+        "offset": 1073,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1078,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1082,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Body CTRL/Spine/Pelvis.R/Upper Leg.R/Foot.R/Foot.R_end": {
+      "quat": {
+        "offset": 1086,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1091,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1095,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.L/Bone.003.L": {
+      "quat": {
+        "offset": 1099,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1104,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1108,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.L/Bone.003.L/Bone.003.L_end": {
+      "quat": {
+        "offset": 1112,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1117,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1121,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.L/Knee.L": {
+      "quat": {
+        "offset": 1125,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1130,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1134,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.L/Knee.L/Knee.L_end": {
+      "quat": {
+        "offset": 1138,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1143,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1147,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.R/Knee.R": {
+      "quat": {
+        "offset": 1151,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1156,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1160,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.R/Knee.R/Knee.R_end": {
+      "quat": {
+        "offset": 1164,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1169,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1173,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.R/Bone.003.R": {
+      "quat": {
+        "offset": 1177,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1182,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1186,
+        "frameCount": 1
+      }
+    },
+    "Armature/Bone/Leg IK.R/Bone.003.R/Bone.003.R_end": {
+      "quat": {
+        "offset": 1190,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1195,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1199,
+        "frameCount": 1
+      }
+    },
+    "Customer 1": {
+      "quat": {
+        "offset": 1203,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1208,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1212,
+        "frameCount": 1
+      }
+    }
+  }
+}

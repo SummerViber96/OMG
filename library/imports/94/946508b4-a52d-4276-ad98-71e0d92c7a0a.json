@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "T_DeeDoe_Legacy (1)",
+    "texture": "86c8834b-ac15-481a-b530-1b913d7cf99f",
+    "atlas": "",
+    "rect": [
+      25,
+      0,
+      4003,
+      4096
+    ],
+    "offset": [
+      -21.5,
+      0
+    ],
+    "originalSize": [
+      4096,
+      4096
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

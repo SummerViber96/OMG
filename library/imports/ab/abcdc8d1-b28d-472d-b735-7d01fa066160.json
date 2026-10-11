@@ -1,0 +1,447 @@
+{
+  "__type__": "cc.SkeletonAnimationClip",
+  "_name": "IdleBreathe",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_duration": 2,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 2,
+  "events": [],
+  "description": {
+    "root/DeerDoe_": {
+      "position": {
+        "offset": 0,
+        "frameCount": 6
+      },
+      "quat": {
+        "offset": 24,
+        "frameCount": 7
+      },
+      "scale": {
+        "offset": 59,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine": {
+      "position": {
+        "offset": 63,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 71,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 111,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1": {
+      "position": {
+        "offset": 115,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 123,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 163,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck": {
+      "position": {
+        "offset": 167,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 175,
+        "frameCount": 5
+      },
+      "scale": {
+        "offset": 200,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck/DeerDoe_ Neck1": {
+      "position": {
+        "offset": 204,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 212,
+        "frameCount": 5
+      },
+      "scale": {
+        "offset": 237,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck/DeerDoe_ Neck1/DeerDoe_ Neck2": {
+      "position": {
+        "offset": 241,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 249,
+        "frameCount": 5
+      },
+      "scale": {
+        "offset": 274,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck/DeerDoe_ Neck1/DeerDoe_ Neck2/DeerDoe_ Head": {
+      "position": {
+        "offset": 278,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 286,
+        "frameCount": 10
+      },
+      "scale": {
+        "offset": 336,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ Neck/DeerDoe_ Neck1/DeerDoe_ Neck2/DeerDoe_ Head/DeerDoe_ Ponytail1": {
+      "position": {
+        "offset": 340,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 348,
+        "frameCount": 12
+      },
+      "scale": {
+        "offset": 408,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle/DeerDoe_ R UpperArm": {
+      "quat": {
+        "offset": 412,
+        "frameCount": 11
+      },
+      "scale": {
+        "offset": 467,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 471,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle/DeerDoe_ R UpperArm/DeerDoe_ R Forearm": {
+      "position": {
+        "offset": 475,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 483,
+        "frameCount": 17
+      },
+      "scale": {
+        "offset": 568,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle/DeerDoe_ R UpperArm/DeerDoe_ R Forearm/DeerDoe_ R Hand": {
+      "position": {
+        "offset": 572,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 580,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 620,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle": {
+      "position": {
+        "offset": 624,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 632,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 637,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle/DeerDoe_ L UpperArm": {
+      "position": {
+        "offset": 641,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 649,
+        "frameCount": 14
+      },
+      "scale": {
+        "offset": 719,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle/DeerDoe_ L UpperArm/DeerDoe_ L Forearm": {
+      "quat": {
+        "offset": 723,
+        "frameCount": 19
+      },
+      "scale": {
+        "offset": 818,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 822,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle/DeerDoe_ L UpperArm/DeerDoe_ L Forearm/DeerDoe_ L Hand": {
+      "position": {
+        "offset": 826,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 834,
+        "frameCount": 9
+      },
+      "scale": {
+        "offset": 879,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ L Thigh": {
+      "position": {
+        "offset": 883,
+        "frameCount": 4
+      },
+      "quat": {
+        "offset": 899,
+        "frameCount": 13
+      },
+      "scale": {
+        "offset": 964,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ L Thigh/DeerDoe_ L Calf": {
+      "position": {
+        "offset": 968,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 976,
+        "frameCount": 13
+      },
+      "scale": {
+        "offset": 1041,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ L Thigh/DeerDoe_ L Calf/DeerDoe_ L HorseLink": {
+      "position": {
+        "offset": 1045,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1053,
+        "frameCount": 6
+      },
+      "scale": {
+        "offset": 1083,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ L Thigh/DeerDoe_ L Calf/DeerDoe_ L HorseLink/DeerDoe_ L Foot": {
+      "position": {
+        "offset": 1087,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1095,
+        "frameCount": 9
+      },
+      "scale": {
+        "offset": 1140,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ R Thigh": {
+      "position": {
+        "offset": 1144,
+        "frameCount": 4
+      },
+      "quat": {
+        "offset": 1160,
+        "frameCount": 13
+      },
+      "scale": {
+        "offset": 1225,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ R Thigh/DeerDoe_ R Calf": {
+      "position": {
+        "offset": 1229,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1237,
+        "frameCount": 17
+      },
+      "scale": {
+        "offset": 1322,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ R Thigh/DeerDoe_ R Calf/DeerDoe_ R HorseLink": {
+      "position": {
+        "offset": 1326,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1334,
+        "frameCount": 3
+      },
+      "scale": {
+        "offset": 1349,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ R Thigh/DeerDoe_ R Calf/DeerDoe_ R HorseLink/DeerDoe_ R Foot": {
+      "position": {
+        "offset": 1353,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1361,
+        "frameCount": 9
+      },
+      "scale": {
+        "offset": 1406,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Tail": {
+      "position": {
+        "offset": 1410,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1418,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1423,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Tail/DeerDoe_ Tail1": {
+      "position": {
+        "offset": 1427,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1435,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1440,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Tail/DeerDoe_ Tail1/DeerDoe_ Tail2": {
+      "position": {
+        "offset": 1444,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1452,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1457,
+        "frameCount": 1
+      }
+    },
+    "root": {
+      "quat": {
+        "offset": 1461,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1466,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1470,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis": {
+      "quat": {
+        "offset": 1474,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1479,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1483,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle": {
+      "quat": {
+        "offset": 1487,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1492,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1496,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ R Clavicle/DeerDoe_ R UpperArm/DeerDoe_ R Forearm/DeerDoe_ R Hand/DeerDoe_ R Finger0": {
+      "quat": {
+        "offset": 1500,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1505,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1509,
+        "frameCount": 1
+      }
+    },
+    "root/DeerDoe_/DeerDoe_ Pelvis/DeerDoe_ Spine/DeerDoe_ Spine1/DeerDoe_ L Clavicle/DeerDoe_ L UpperArm/DeerDoe_ L Forearm/DeerDoe_ L Hand/DeerDoe_ L Finger0": {
+      "quat": {
+        "offset": 1513,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 1518,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1522,
+        "frameCount": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "__type__": "cc.SkeletonAnimationClip",
+  "_name": "IdleLookAround",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_duration": 7.666666507720947,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 2,
+  "events": [],
+  "description": {
+    "root/STAG_": {
+      "position": {
+        "offset": 0,
+        "frameCount": 69
+      },
+      "quat": {
+        "offset": 276,
+        "frameCount": 86
+      },
+      "scale": {
+        "offset": 706,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine": {
+      "position": {
+        "offset": 710,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 718,
+        "frameCount": 75
+      },
+      "scale": {
+        "offset": 1093,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1": {
+      "position": {
+        "offset": 1097,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1105,
+        "frameCount": 78
+      },
+      "scale": {
+        "offset": 1495,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ Neck": {
+      "position": {
+        "offset": 1499,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1507,
+        "frameCount": 154
+      },
+      "scale": {
+        "offset": 2277,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ Neck/STAG_ Neck1": {
+      "position": {
+        "offset": 2281,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 2289,
+        "frameCount": 159
+      },
+      "scale": {
+        "offset": 3084,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ Neck/STAG_ Neck1/STAG_ Neck2": {
+      "position": {
+        "offset": 3088,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 3096,
+        "frameCount": 156
+      },
+      "scale": {
+        "offset": 3876,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ Neck/STAG_ Neck1/STAG_ Neck2/STAG_ Head": {
+      "position": {
+        "offset": 3880,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 3888,
+        "frameCount": 179
+      },
+      "scale": {
+        "offset": 4783,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ Neck/STAG_ Neck1/STAG_ Neck2/STAG_ Head/STAG_ Ponytail1": {
+      "position": {
+        "offset": 4787,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 4795,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 4800,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ R Clavicle": {
+      "position": {
+        "offset": 4804,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 4812,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 4817,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ R Clavicle/STAG_ R UpperArm": {
+      "position": {
+        "offset": 4821,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 4829,
+        "frameCount": 146
+      },
+      "scale": {
+        "offset": 5559,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ R Clavicle/STAG_ R UpperArm/STAG_ R Forearm": {
+      "position": {
+        "offset": 5563,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 5571,
+        "frameCount": 120
+      },
+      "scale": {
+        "offset": 6171,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ R Clavicle/STAG_ R UpperArm/STAG_ R Forearm/STAG_ R Hand": {
+      "position": {
+        "offset": 6175,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 6183,
+        "frameCount": 134
+      },
+      "scale": {
+        "offset": 6853,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ R Clavicle/STAG_ R UpperArm/STAG_ R Forearm/STAG_ R Hand/STAG_ R Finger0": {
+      "position": {
+        "offset": 6857,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 6865,
+        "frameCount": 25
+      },
+      "scale": {
+        "offset": 6990,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ L Clavicle": {
+      "position": {
+        "offset": 6994,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 7002,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 7007,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ L Clavicle/STAG_ L UpperArm": {
+      "position": {
+        "offset": 7011,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 7019,
+        "frameCount": 141
+      },
+      "scale": {
+        "offset": 7724,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ L Clavicle/STAG_ L UpperArm/STAG_ L Forearm": {
+      "position": {
+        "offset": 7728,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 7736,
+        "frameCount": 130
+      },
+      "scale": {
+        "offset": 8386,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ L Clavicle/STAG_ L UpperArm/STAG_ L Forearm/STAG_ L Hand": {
+      "position": {
+        "offset": 8390,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 8398,
+        "frameCount": 142
+      },
+      "scale": {
+        "offset": 9108,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ Spine1/STAG_ L Clavicle/STAG_ L UpperArm/STAG_ L Forearm/STAG_ L Hand/STAG_ L Finger0": {
+      "position": {
+        "offset": 9112,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 9120,
+        "frameCount": 42
+      },
+      "scale": {
+        "offset": 9330,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ L Thigh": {
+      "position": {
+        "offset": 9334,
+        "frameCount": 50
+      },
+      "quat": {
+        "offset": 9534,
+        "frameCount": 99
+      },
+      "scale": {
+        "offset": 10029,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ L Thigh/STAG_ L Calf": {
+      "position": {
+        "offset": 10033,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 10041,
+        "frameCount": 85
+      },
+      "scale": {
+        "offset": 10466,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ L Thigh/STAG_ L Calf/STAG_ L HorseLink": {
+      "position": {
+        "offset": 10470,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 10478,
+        "frameCount": 59
+      },
+      "scale": {
+        "offset": 10773,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ L Thigh/STAG_ L Calf/STAG_ L HorseLink/STAG_ L Foot": {
+      "position": {
+        "offset": 10777,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 10785,
+        "frameCount": 110
+      },
+      "scale": {
+        "offset": 11335,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ R Thigh": {
+      "position": {
+        "offset": 11339,
+        "frameCount": 50
+      },
+      "quat": {
+        "offset": 11539,
+        "frameCount": 88
+      },
+      "scale": {
+        "offset": 11979,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ R Thigh/STAG_ R Calf": {
+      "position": {
+        "offset": 11983,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 11991,
+        "frameCount": 101
+      },
+      "scale": {
+        "offset": 12496,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ R Thigh/STAG_ R Calf/STAG_ R HorseLink": {
+      "position": {
+        "offset": 12500,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 12508,
+        "frameCount": 62
+      },
+      "scale": {
+        "offset": 12818,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Spine/STAG_ R Thigh/STAG_ R Calf/STAG_ R HorseLink/STAG_ R Foot": {
+      "position": {
+        "offset": 12822,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 12830,
+        "frameCount": 104
+      },
+      "scale": {
+        "offset": 13350,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Tail": {
+      "position": {
+        "offset": 13354,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 13362,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 13367,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Tail/STAG_ Tail1": {
+      "position": {
+        "offset": 13371,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 13379,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 13384,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis/STAG_ Tail/STAG_ Tail1/STAG_ Tail2": {
+      "position": {
+        "offset": 13388,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 13396,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 13401,
+        "frameCount": 1
+      }
+    },
+    "root": {
+      "quat": {
+        "offset": 13405,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 13410,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 13414,
+        "frameCount": 1
+      }
+    },
+    "root/STAG_/STAG_ Pelvis": {
+      "quat": {
+        "offset": 13418,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 13423,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 13427,
+        "frameCount": 1
+      }
+    }
+  }
+}

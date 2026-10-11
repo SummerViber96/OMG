@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Mslln_22_00006",
+    "texture": "bb3532d3-0cc5-4cb5-83ce-43804d50578f",
+    "atlas": "2bddf687-ec7c-43ed-8b29-40d90cb9b5fa",
+    "rect": [
+      480,
+      540,
+      480,
+      270
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      480,
+      270
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

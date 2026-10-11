@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "T_Stag_Legacy",
+    "texture": "9882416d-2557-47c7-b7a5-a2e2677abf19",
+    "atlas": "",
+    "rect": [
+      32,
+      0,
+      4054,
+      4096
+    ],
+    "offset": [
+      11,
+      0
+    ],
+    "originalSize": [
+      4096,
+      4096
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

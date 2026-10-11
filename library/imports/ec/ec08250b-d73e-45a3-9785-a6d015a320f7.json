@@ -1,0 +1,475 @@
+{
+  "__type__": "cc.SkeletonAnimationClip",
+  "_name": "IdleBreathe",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_duration": 2,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 2,
+  "events": [],
+  "description": {
+    "root/Wolf_": {
+      "position": {
+        "offset": 0,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 8,
+        "frameCount": 5
+      },
+      "scale": {
+        "offset": 33,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ L Thigh": {
+      "quat": {
+        "offset": 37,
+        "frameCount": 10
+      },
+      "scale": {
+        "offset": 87,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 91,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ L Thigh/Wolf_ L Calf": {
+      "quat": {
+        "offset": 95,
+        "frameCount": 9
+      },
+      "scale": {
+        "offset": 140,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 144,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ L Thigh/Wolf_ L Calf/Wolf_ L HorseLink": {
+      "position": {
+        "offset": 148,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 156,
+        "frameCount": 6
+      },
+      "scale": {
+        "offset": 186,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ L Thigh/Wolf_ L Calf/Wolf_ L HorseLink/Wolf_ L Foot": {
+      "quat": {
+        "offset": 190,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 230,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 234,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ R Thigh": {
+      "quat": {
+        "offset": 238,
+        "frameCount": 10
+      },
+      "scale": {
+        "offset": 288,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 292,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ R Thigh/Wolf_ R Calf": {
+      "position": {
+        "offset": 296,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 304,
+        "frameCount": 9
+      },
+      "scale": {
+        "offset": 349,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ R Thigh/Wolf_ R Calf/Wolf_ R HorseLink": {
+      "position": {
+        "offset": 353,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 361,
+        "frameCount": 6
+      },
+      "scale": {
+        "offset": 391,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ R Thigh/Wolf_ R Calf/Wolf_ R HorseLink/Wolf_ R Foot": {
+      "quat": {
+        "offset": 395,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 435,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 439,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine": {
+      "position": {
+        "offset": 443,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 451,
+        "frameCount": 3
+      },
+      "scale": {
+        "offset": 466,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1": {
+      "position": {
+        "offset": 470,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 478,
+        "frameCount": 3
+      },
+      "scale": {
+        "offset": 493,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck": {
+      "position": {
+        "offset": 497,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 505,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 545,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck/Wolf_ Neck1": {
+      "position": {
+        "offset": 549,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 557,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 597,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck/Wolf_ Neck1/Wolf_ Neck2": {
+      "position": {
+        "offset": 601,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 609,
+        "frameCount": 8
+      },
+      "scale": {
+        "offset": 649,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck/Wolf_ Neck1/Wolf_ Neck2/Wolf_ Head": {
+      "position": {
+        "offset": 653,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 661,
+        "frameCount": 15
+      },
+      "scale": {
+        "offset": 736,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ Neck/Wolf_ Neck1/Wolf_ Neck2/Wolf_ Head/Wolf_ Ponytail1": {
+      "position": {
+        "offset": 740,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 748,
+        "frameCount": 19
+      },
+      "scale": {
+        "offset": 843,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle": {
+      "position": {
+        "offset": 847,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 855,
+        "frameCount": 13
+      },
+      "scale": {
+        "offset": 920,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle/Wolf_ L UpperArm": {
+      "quat": {
+        "offset": 924,
+        "frameCount": 29
+      },
+      "scale": {
+        "offset": 1069,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1073,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle/Wolf_ L UpperArm/Wolf_ L Forearm": {
+      "position": {
+        "offset": 1077,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1085,
+        "frameCount": 39
+      },
+      "scale": {
+        "offset": 1280,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle/Wolf_ L UpperArm/Wolf_ L Forearm/Wolf_ L Hand": {
+      "position": {
+        "offset": 1284,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1292,
+        "frameCount": 30
+      },
+      "scale": {
+        "offset": 1442,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle": {
+      "position": {
+        "offset": 1446,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1454,
+        "frameCount": 13
+      },
+      "scale": {
+        "offset": 1519,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle/Wolf_ R UpperArm": {
+      "position": {
+        "offset": 1523,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1531,
+        "frameCount": 29
+      },
+      "scale": {
+        "offset": 1676,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle/Wolf_ R UpperArm/Wolf_ R Forearm": {
+      "quat": {
+        "offset": 1680,
+        "frameCount": 39
+      },
+      "scale": {
+        "offset": 1875,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 1879,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle/Wolf_ R UpperArm/Wolf_ R Forearm/Wolf_ R Hand": {
+      "position": {
+        "offset": 1883,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 1891,
+        "frameCount": 28
+      },
+      "scale": {
+        "offset": 2031,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail": {
+      "position": {
+        "offset": 2035,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 2043,
+        "frameCount": 46
+      },
+      "scale": {
+        "offset": 2273,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail/Wolf_ Tail1": {
+      "position": {
+        "offset": 2277,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 2285,
+        "frameCount": 46
+      },
+      "scale": {
+        "offset": 2515,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail/Wolf_ Tail1/Wolf_ Tail2": {
+      "position": {
+        "offset": 2519,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 2527,
+        "frameCount": 49
+      },
+      "scale": {
+        "offset": 2772,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail/Wolf_ Tail1/Wolf_ Tail2/Wolf_ Tail3": {
+      "position": {
+        "offset": 2776,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 2784,
+        "frameCount": 49
+      },
+      "scale": {
+        "offset": 3029,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Tail/Wolf_ Tail1/Wolf_ Tail2/Wolf_ Tail3/Wolf_ Tail4": {
+      "position": {
+        "offset": 3033,
+        "frameCount": 2
+      },
+      "quat": {
+        "offset": 3041,
+        "frameCount": 49
+      },
+      "scale": {
+        "offset": 3286,
+        "frameCount": 1
+      }
+    },
+    "root": {
+      "quat": {
+        "offset": 3290,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 3295,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 3299,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis": {
+      "quat": {
+        "offset": 3303,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 3308,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 3312,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ L Clavicle/Wolf_ L UpperArm/Wolf_ L Forearm/Wolf_ L Hand/Wolf_ L Finger0": {
+      "quat": {
+        "offset": 3316,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 3321,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 3325,
+        "frameCount": 1
+      }
+    },
+    "root/Wolf_/Wolf_ Pelvis/Wolf_ Spine/Wolf_ Spine1/Wolf_ R Clavicle/Wolf_ R UpperArm/Wolf_ R Forearm/Wolf_ R Hand/Wolf_ R Finger0": {
+      "quat": {
+        "offset": 3329,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 3334,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 3338,
+        "frameCount": 1
+      }
+    }
+  }
+}

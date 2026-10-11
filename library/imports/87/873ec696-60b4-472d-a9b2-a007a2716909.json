@@ -1,0 +1,16 @@
+{
+  "__type__": "cc.Skeleton",
+  "_name": "",
+  "_objFlags": 0,
+  "_native": "",
+  "_model": {
+    "__uuid__": "8599d738-3980-4f7a-97f2-a017f197ebf5"
+  },
+  "_jointIndices": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "_skinIndex": 0
+}

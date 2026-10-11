@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "UI order-36",
+    "texture": "e1c4444b-f68f-41c2-8cd9-5e894a43e4f9",
+    "atlas": "",
+    "rect": [
+      21,
+      4,
+      466,
+      507
+    ],
+    "offset": [
+      -2,
+      -1
+    ],
+    "originalSize": [
+      512,
+      513
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_clean",
+    "texture": "1ff5c570-2501-44c0-a444-dc0a0a2b4a10",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      535,
+      254
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      537,
+      255
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

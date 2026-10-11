@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Logo_MR",
+    "texture": "2dbe8ee9-368c-4834-ab51-21868dcf34ba",
+    "atlas": "",
+    "rect": [
+      42,
+      22,
+      860,
+      434
+    ],
+    "offset": [
+      8.5,
+      -1.5
+    ],
+    "originalSize": [
+      927,
+      475
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

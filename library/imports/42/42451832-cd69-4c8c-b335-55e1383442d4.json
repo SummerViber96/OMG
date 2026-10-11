@@ -1,0 +1,210 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "hand",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "oZqWpstWSNLGC3BjyHAnbMeUvbk",
+      "spine": "3.7.94",
+      "width": 140.39,
+      "height": 201.73,
+      "images": "",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "s",
+        "parent": "root"
+      },
+      {
+        "name": "hand",
+        "parent": "s",
+        "x": 0.34,
+        "y": -3.05
+      },
+      {
+        "name": "bone2",
+        "parent": "s",
+        "x": 1.13,
+        "y": 1.03
+      }
+    ],
+    "slots": [
+      {
+        "name": "claimCoinaa",
+        "bone": "bone2",
+        "attachment": "claimCoin"
+      },
+      {
+        "name": "pixel_0006_Layer-9",
+        "bone": "hand",
+        "attachment": "hand"
+      }
+    ],
+    "skins": {
+      "default": {
+        "claimCoinaa": {
+          "claimCoin": {
+            "x": -1.13,
+            "y": -1.03,
+            "width": 126,
+            "height": 127
+          }
+        },
+        "pixel_0006_Layer-9": {
+          "hand": {
+            "x": 27.05,
+            "y": -60.18,
+            "width": 100,
+            "height": 150
+          }
+        }
+      }
+    },
+    "animations": {
+      "idle": {
+        "slots": {
+          "claimCoinaa": {
+            "color": [
+              {
+                "time": 0,
+                "color": "ffffff00",
+                "curve": "stepped"
+              },
+              {
+                "time": 0.1,
+                "color": "ffffff00"
+              },
+              {
+                "time": 0.3667,
+                "color": "ffffffff",
+                "curve": "stepped"
+              },
+              {
+                "time": 0.7333,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.9667,
+                "color": "ffffff00"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "hand": {
+            "translate": [
+              {
+                "time": 0,
+                "x": 10.69,
+                "y": -13.72,
+                "curve": [
+                  0.299,
+                  0.05,
+                  0.611,
+                  0.95
+                ]
+              },
+              {
+                "time": 0.5,
+                "x": 2.67,
+                "y": 0,
+                "curve": [
+                  0.465,
+                  0.05,
+                  0.642,
+                  0.97
+                ]
+              },
+              {
+                "time": 1,
+                "x": 10.69,
+                "y": -13.72
+              }
+            ],
+            "scale": [
+              {
+                "time": 0,
+                "x": 1.255,
+                "y": 1.255,
+                "curve": [
+                  0.384,
+                  0.05,
+                  0.535,
+                  0.92
+                ]
+              },
+              {
+                "time": 0.5,
+                "x": 1,
+                "y": 1,
+                "curve": [
+                  0.465,
+                  0.07,
+                  0.638,
+                  0.95
+                ]
+              },
+              {
+                "time": 1,
+                "x": 1.255,
+                "y": 1.255
+              }
+            ]
+          },
+          "bone2": {
+            "scale": [
+              {
+                "time": 0,
+                "x": 1.83,
+                "y": 1.83,
+                "curve": [
+                  0.331,
+                  0.45,
+                  0.664,
+                  0.79
+                ]
+              },
+              {
+                "time": 0.0333,
+                "x": 1.841,
+                "y": 1.841,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.0667,
+                "x": 1,
+                "y": 1,
+                "curve": [
+                  0.403,
+                  0.12,
+                  0.666,
+                  0.9
+                ]
+              },
+              {
+                "time": 0.9667,
+                "x": 1.83,
+                "y": 1.83
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\r\nhand.png\r\nsize: 212,208\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nclaimCoin\r\n  rotate: false\r\n  xy: 2, 91\r\n  size: 113, 114\r\n  orig: 113, 114\r\n  offset: 0, 0\r\n  index: -1\r\nhand\r\n  rotate: false\r\n  xy: 117, 70\r\n  size: 90, 135\r\n  orig: 90, 135\r\n  offset: 0, 0\r\n  index: -1\r\n",
+  "textures": [
+    {
+      "__uuid__": "c4fd0628-edb9-43ca-a612-47b2329192e2"
+    }
+  ],
+  "textureNames": [
+    "hand.png"
+  ],
+  "scale": 1
+}

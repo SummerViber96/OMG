@@ -1,0 +1,54 @@
+{
+  "__type__": "cc.Model",
+  "_name": "Mom dat",
+  "_objFlags": 0,
+  "_native": "",
+  "_nodes": [
+    {
+      "name": "RootNode",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        1
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": ""
+    },
+    {
+      "name": "Mom dat",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "mesh": 0,
+      "parent": null,
+      "position": [
+        0.0207375101745129,
+        0.0539303421974182,
+        0.0210875552147627
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": "Mom dat"
+    }
+  ],
+  "_precomputeJointMatrix": false
+}

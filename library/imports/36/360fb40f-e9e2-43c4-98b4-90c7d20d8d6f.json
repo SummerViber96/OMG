@@ -1,0 +1,79 @@
+{
+  "__type__": "cc.Model",
+  "_name": "Thanh pho",
+  "_objFlags": 0,
+  "_native": "",
+  "_nodes": [
+    {
+      "name": "RootNode",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        1
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": ""
+    },
+    {
+      "name": "Thanh pho",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [
+        2
+      ],
+      "mesh": 0,
+      "parent": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": "Thanh pho"
+    },
+    {
+      "name": "Khu vuc chinh",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "mesh": 1,
+      "parent": null,
+      "position": [
+        -1.63874053955078,
+        1.06994092464447,
+        70.5939788818359
+      ],
+      "quat": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "path": "Thanh pho/Khu vuc chinh"
+    }
+  ],
+  "_precomputeJointMatrix": false
+}

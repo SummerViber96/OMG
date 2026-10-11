@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "—Pngtree—christmas snowing winter falling snow_13542673",
+    "texture": "e85edbd4-a91a-49a1-9b9a-4e5744de77dd",
+    "atlas": "",
+    "rect": [
+      21,
+      17,
+      1876,
+      1063
+    ],
+    "offset": [
+      -1,
+      -8.5
+    ],
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

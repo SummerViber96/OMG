@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "joystick_out",
+    "texture": "456a7c81-2d17-4ebf-bdbb-c88852f90ea1",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      291,
+      291
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      291,
+      291
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

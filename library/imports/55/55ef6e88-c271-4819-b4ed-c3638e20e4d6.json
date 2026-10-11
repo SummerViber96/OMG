@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Ellipse 1",
+    "texture": "bb9dcee6-0010-42ce-80db-b733ffffdc13",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      235,
+      87
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      235,
+      87
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

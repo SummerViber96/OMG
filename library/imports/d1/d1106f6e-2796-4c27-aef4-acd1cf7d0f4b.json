@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Canh 5_1",
+    "texture": "49ccd25b-fbbb-4412-8244-4f359d5c09f2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      182,
+      187
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      182,
+      187
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "AppIcon (1)",
+    "texture": "da5428d6-9372-48dd-98d9-749d7349de4b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      614,
+      614
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      614,
+      614
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

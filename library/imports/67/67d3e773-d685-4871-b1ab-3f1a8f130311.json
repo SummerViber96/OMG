@@ -1,0 +1,111 @@
+{
+  "__type__": "cc.SkeletonAnimationClip",
+  "_name": "001_Menu",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_duration": 1.1666666269302368,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 2,
+  "events": [],
+  "description": {
+    "Menu/Bone.002/Bone.001.R": {
+      "quat": {
+        "offset": 0,
+        "frameCount": 21
+      },
+      "scale": {
+        "offset": 105,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 109,
+        "frameCount": 1
+      }
+    },
+    "Menu_mesh": {
+      "quat": {
+        "offset": 113,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 118,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 122,
+        "frameCount": 1
+      }
+    },
+    "Menu": {
+      "quat": {
+        "offset": 126,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 131,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 135,
+        "frameCount": 1
+      }
+    },
+    "Menu/Bone.002": {
+      "quat": {
+        "offset": 139,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 144,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 148,
+        "frameCount": 1
+      }
+    },
+    "Menu/Bone.002/Bone.001.L": {
+      "quat": {
+        "offset": 152,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 157,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 161,
+        "frameCount": 1
+      }
+    },
+    "Menu/Bone.002/Bone.001.L/Bone.001.L_end": {
+      "quat": {
+        "offset": 165,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 170,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 174,
+        "frameCount": 1
+      }
+    },
+    "Menu/Bone.002/Bone.001.R/Bone.001.R_end": {
+      "quat": {
+        "offset": 178,
+        "frameCount": 1
+      },
+      "scale": {
+        "offset": 183,
+        "frameCount": 1
+      },
+      "position": {
+        "offset": 187,
+        "frameCount": 1
+      }
+    }
+  }
+}
