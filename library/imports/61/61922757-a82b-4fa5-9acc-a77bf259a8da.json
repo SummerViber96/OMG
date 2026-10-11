@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Play-Now",
+    "texture": "cf0cbcd5-a5e2-4c9a-91dc-54008efe0072",
+    "atlas": "",
+    "rect": [
+      35,
+      25,
+      976,
+      254
+    ],
+    "offset": [
+      7,
+      -3.5
+    ],
+    "originalSize": [
+      1032,
+      297
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
