@@ -5,21 +5,21 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": 490,
-      "y": 12,
-      "width": 1430,
-      "height": 1040,
+      "x": 203,
+      "y": 182,
+      "width": 1920,
+      "height": 1039,
       "layout": {
         "type": "dock-h",
         "children": [
           {
-            "width": 383,
-            "height": 924,
+            "width": 423,
+            "height": 923,
             "type": "dock-v",
             "children": [
               {
-                "width": 383,
-                "height": 376,
+                "width": 423,
+                "height": 373,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 383,
-                "height": 545,
+                "width": 423,
+                "height": 547,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 945,
-            "height": 924,
+            "width": 720,
+            "height": 923,
             "type": "dock-v",
             "children": [
               {
-                "width": 945,
-                "height": 477,
+                "width": 720,
+                "height": 479,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,8 +52,8 @@
                 ]
               },
               {
-                "width": 945,
-                "height": 444,
+                "width": 720,
+                "height": 441,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -65,8 +65,8 @@
             ]
           },
           {
-            "width": 570,
-            "height": 924,
+            "width": 755,
+            "height": 923,
             "type": "panel",
             "active": 0,
             "children": [
@@ -87,12 +87,13 @@
         "cocos-services"
       ]
     },
-    "window-1790667778248": {}
+    "worker": {},
+    "window-1791695448961": {}
   },
   "panels": {
     "builder": {
-      "x": -1430,
-      "y": 214,
+      "x": 733,
+      "y": 158,
       "width": 516,
       "height": 739
     },
@@ -103,8 +104,8 @@
       "height": 539
     },
     "project-settings": {
-      "x": 992,
-      "y": 420,
+      "x": 697,
+      "y": 432,
       "width": 600,
       "height": 565
     }
