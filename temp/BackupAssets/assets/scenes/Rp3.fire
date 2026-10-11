@@ -18423,7 +18423,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "06fe7d38-1be5-4d10-a4db-63ce0474bd5b"
+      "__uuid__": "d5e800c5-c441-48b8-b388-af8dda48df09"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -18628,9 +18628,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "685d6384-83b4-4dcc-a636-e423a067f2c3"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -18735,9 +18733,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "2e475d5c-21b9-4b2c-9a6a-1aa49a46696d"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -19690,7 +19686,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "06fe7d38-1be5-4d10-a4db-63ce0474bd5b"
+      "__uuid__": "d5e800c5-c441-48b8-b388-af8dda48df09"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -19895,9 +19891,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "685d6384-83b4-4dcc-a636-e423a067f2c3"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -20002,9 +19996,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "2e475d5c-21b9-4b2c-9a6a-1aa49a46696d"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -20847,7 +20839,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "03c7486d-d473-4862-a135-6617314766d1"
+      "__uuid__": "d5e800c5-c441-48b8-b388-af8dda48df09"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -22000,7 +21992,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "03c7486d-d473-4862-a135-6617314766d1"
+      "__uuid__": "d5e800c5-c441-48b8-b388-af8dda48df09"
     },
     "_type": 0,
     "_sizeMode": 0,
