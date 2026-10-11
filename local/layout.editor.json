@@ -7,19 +7,19 @@
       "windowType": "dockable",
       "x": -8,
       "y": -8,
-      "width": 1936,
-      "height": 1056,
+      "width": 2576,
+      "height": 1416,
       "layout": {
         "type": "dock-h",
         "children": [
           {
-            "width": 382.71875,
-            "height": 924,
+            "width": 386.234375,
+            "height": 940,
             "type": "dock-v",
             "children": [
               {
-                "width": 382.71875,
-                "height": 580.15625,
+                "width": 386.234375,
+                "height": 590.0625,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -27,8 +27,8 @@
                 ]
               },
               {
-                "width": 382.71875,
-                "height": 340.84375,
+                "width": 386.234375,
+                "height": 346.921875,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -38,13 +38,13 @@
             ]
           },
           {
-            "width": 1121.40625,
-            "height": 924,
+            "width": 1130.453125,
+            "height": 940,
             "type": "dock-v",
             "children": [
               {
-                "width": 1121.40625,
-                "height": 600.03125,
+                "width": 1130.453125,
+                "height": 610.40625,
                 "type": "panel",
                 "active": 0,
                 "children": [
@@ -52,8 +52,8 @@
                 ]
               },
               {
-                "width": 1121.40625,
-                "height": 320.953125,
+                "width": 1130.453125,
+                "height": 326.578125,
                 "type": "panel",
                 "active": 1,
                 "children": [
@@ -65,8 +65,8 @@
             ]
           },
           {
-            "width": 393.875,
-            "height": 924,
+            "width": 397.328125,
+            "height": 940,
             "type": "panel",
             "active": 0,
             "children": [
@@ -87,7 +87,8 @@
         "cocos-services"
       ]
     },
-    "worker": {}
+    "worker": {},
+    "window-1791700281589": {}
   },
   "panels": {
     "builder": {
