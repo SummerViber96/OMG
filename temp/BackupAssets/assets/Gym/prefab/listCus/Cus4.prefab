@@ -7709,10 +7709,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "519fdc2f-1d2e-4f10-b63e-1c61ec05df16"
+      "__uuid__": "f4a4a7f6-0fb6-40e9-80bb-d10849c94c29"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -8394,7 +8394,9 @@
     "yellowSp": {
       "__uuid__": "28da0455-d2c7-43d4-bda6-f5fd097838b2"
     },
-    "redSp": null,
+    "redSp": {
+      "__uuid__": "49d3a95a-515c-46c5-aa89-2cfc2e862511"
+    },
     "angryPrefab": {
       "__uuid__": "71f028b6-d3f7-4332-8521-cddb9339cbc3"
     },
