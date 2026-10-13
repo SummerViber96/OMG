@@ -1,0 +1,13 @@
+# Cocos Creator generated / editor state — never commit.
+# Tracking these makes `git checkout` rewrite files while Creator is open → UNKNOWN lock errors.
+library/
+temp/
+local/
+build/
+library.7z
+*.pyc
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

@@ -1,7 +1,0 @@
-{
-  "__type__": "cc.TextAsset",
-  "_name": "potatoes.atlas",
-  "_objFlags": 0,
-  "_native": "",
-  "text": "\r\npotatoes.png\r\nsize: 368, 192\r\nformat: RGBA8888\r\nfilter: Linear, Linear\r\nrepeat: none\r\nlv1-bo\r\n  rotate: false\r\n  xy: 228, 2\r\n  size: 98, 68\r\n  orig: 102, 71\r\n  offset: 2, 1\r\n  index: -1\r\nlv1-to\r\n  rotate: true\r\n  xy: 228, 72\r\n  size: 115, 137\r\n  orig: 117, 139\r\n  offset: 1, 1\r\n  index: -1\r\nlv1-tray\r\n  rotate: false\r\n  xy: 2, 16\r\n  size: 224, 171\r\n  orig: 226, 173\r\n  offset: 1, 1\r\n  index: -1\r\n"
-}

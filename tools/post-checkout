@@ -1,0 +1,10 @@
+#!/bin/sh
+# Installed by tools/install-git-hooks.ps1
+if tasklist 2>/dev/null | grep -i CocosCreator >/dev/null 2>&1; then
+  echo ""
+  echo "WARNING: CocosCreator is still running after checkout."
+  echo "Close Creator before switching branches, or use:"
+  echo "  powershell -File tools/switch-branch.ps1 <branch>"
+  echo "Otherwise you will get UNKNOWN errors on local/ and library/."
+  echo ""
+fi

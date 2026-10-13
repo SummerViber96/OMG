@@ -1,7 +1,0 @@
-{
-  "__type__": "cc.TextAsset",
-  "_name": "TM.atlas",
-  "_objFlags": 0,
-  "_native": "",
-  "text": "\r\nTM.png\r\nsize: 360, 532\r\nformat: RGBA8888\r\nfilter: Linear, Linear\r\nrepeat: none\r\nCardioR\r\n  rotate: false\r\n  xy: 117, 163\r\n  size: 81, 50\r\n  orig: 81, 52\r\n  offset: 0, 2\r\n  index: -1\r\nTM\r\n  rotate: false\r\n  xy: 2, 215\r\n  size: 197, 155\r\n  orig: 215, 157\r\n  offset: 9, 1\r\n  index: -1\r\nTM-Lock\r\n  rotate: true\r\n  xy: 201, 133\r\n  size: 196, 142\r\n  orig: 213, 144\r\n  offset: 7, 1\r\n  index: -1\r\nTM_Busy\r\n  rotate: false\r\n  xy: 2, 372\r\n  size: 197, 156\r\n  orig: 215, 157\r\n  offset: 9, 1\r\n  index: -1\r\nTM_Busy_F\r\n  rotate: true\r\n  xy: 2, 2\r\n  size: 129, 113\r\n  orig: 137, 123\r\n  offset: 3, 5\r\n  index: -1\r\nTM_Dirty\r\n  rotate: true\r\n  xy: 201, 331\r\n  size: 197, 156\r\n  orig: 215, 157\r\n  offset: 9, 1\r\n  index: -1\r\nTM_DirtyThings\r\n  rotate: false\r\n  xy: 2, 137\r\n  size: 83, 76\r\n  orig: 83, 76\r\n  offset: 0, 0\r\n  index: -1\r\nTM_Dirty_F\r\n  rotate: true\r\n  xy: 117, 2\r\n  size: 129, 113\r\n  orig: 137, 123\r\n  offset: 3, 5\r\n  index: -1\r\nTM_F\r\n  rotate: true\r\n  xy: 232, 2\r\n  size: 129, 113\r\n  orig: 137, 123\r\n  offset: 3, 5\r\n  index: -1\r\n"
-}

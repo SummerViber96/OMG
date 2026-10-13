@@ -1,7 +1,0 @@
-{
-  "__type__": "cc.TextAsset",
-  "_name": "sauces.atlas",
-  "_objFlags": 0,
-  "_native": "",
-  "text": "\r\nsauces.png\r\nsize: 132,252\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nlv4-bot1\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 49, 98\r\n  orig: 49, 98\r\n  offset: 0, 0\r\n  index: -1\r\nlv4-bot2\r\n  rotate: false\r\n  xy: 53, 2\r\n  size: 49, 98\r\n  orig: 49, 98\r\n  offset: 0, 0\r\n  index: -1\r\nlv4-box1\r\n  rotate: false\r\n  xy: 2, 102\r\n  size: 114, 40\r\n  orig: 114, 40\r\n  offset: 0, 0\r\n  index: -1\r\nlv4-box2\r\n  rotate: false\r\n  xy: 2, 144\r\n  size: 128, 106\r\n  orig: 128, 106\r\n  offset: 0, 0\r\n  index: -1\r\n"
-}

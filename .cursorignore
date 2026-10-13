@@ -1,0 +1,5 @@
+﻿# Keep Cursor from memory-mapping Cocos caches (causes UNKNOWN write errors in Creator).
+library/
+temp/
+local/
+build/
